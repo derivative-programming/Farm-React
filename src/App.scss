@@ -1,0 +1,562 @@
+.App {
+  text-align: center;
+  background-color: #f5f2ea;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.primary-button {
+  border-radius: 0.35rem;
+  background-color: #fdc885;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  padding: 5px 15px;
+  outline: 0;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.layout-body-container {
+  // height: calc(100vh - 120px);
+  // overflow-y: auto;
+}
+
+@media only screen and (max-width: 719px) {
+  .plants-container {
+    .page-container {
+      display: block !important;
+
+      div {
+        justify-content: left !important;
+        text-align: left;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .plant-detail-container {
+    .list-container {
+      margin-top: 20px;
+      width: 100% !important;
+    }
+  }
+
+  .header-container {
+    padding: 15px 30px !important;
+
+    .desktop {
+      display: none !important;
+    }
+
+    .mobile-menu {
+      display: block !important;
+
+      .dropdown {
+        .btn {
+          outline: 0;
+          box-shadow: none;
+        }
+
+        hr {
+          border-bottom: 2px solid black;
+          width: 20px;
+          margin: 5px 0;
+        }
+
+        .dropdown-menu {
+          min-width: 350px;
+
+          .dropdown-item:hover,
+          .dropdown-item:focus {
+            background-color: #fdc885;
+          }
+        }
+      }
+
+      .dropdown-toggle::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.header-container {
+  height: 85px;
+  // box-shadow: 0 4px 10px -4px #29345C;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+
+  .logo {
+    font-weight: 500;
+    font-size: 25px;
+    color: black;
+    padding-bottom: 20px;
+    padding-right: 50px;
+    border-bottom: 1px solid black;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .desktop {
+    display: flex;
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+
+    .menu-options-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      div {
+        margin: 0px 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-weight: 600px;
+
+        span {
+          padding-bottom: 4px;
+        }
+      }
+
+      div:hover {
+        span {
+          border-bottom: 1px solid black;
+        }
+      }
+    }
+
+    .menu-button {
+      margin-left: 30px;
+      border-radius: 0.35rem;
+      background-color: #fdc885;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: black;
+      padding: 5px 15px;
+    }
+  }
+}
+
+.footer-container {
+  padding-bottom: 10px;
+  color: #29345C;
+}
+
+.dashboard-container {
+  max-width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 600px;
+    margin-bottom: 50px;
+  }
+}
+
+.add-plant-container {
+  margin: auto;
+  width: 900px;
+  max-width: 100%;
+  // height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    padding: 45px 35px 50px 35px;
+    border: none;
+    // height: calc(100vh - 130px);
+    min-width: 100%;
+    overflow: auto;
+    // box-shadow: 0 2px 6px -1px #29345c;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border-radius: 25px;
+
+    h1 {
+      text-align: center;
+      width: 100%;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    h6 {
+      text-align: center;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    form {
+      margin: 0;
+      width: 100% !important;
+
+      .form-label {
+        text-align: left;
+        width: 100%;
+      }
+
+      .form-control {
+        // margin-bottom: 20px;
+        padding: 0.365rem 0.65rem;
+        font-size: 0.9rem;
+        border-radius: 0.35rem;
+      }
+
+      .form-check-label {
+        margin-left: 10px;
+      }
+
+      .btn-container {
+        justify-content: space-between;
+        margin-top: 35px;
+
+        .btn {
+          width: calc(50% - 10px);
+          border-radius: 0.35rem;
+          background-color: #fdc885;
+          border: none;
+          color: black;
+          font-weight: 600;
+          font-size: 16px;
+          padding: 6px 15px;
+          outline: 0;
+        }
+
+        .btn:first-child {
+          // border-color: #29345C;
+        }
+      }
+    }
+  }
+
+  .custom-form-control {
+    margin-bottom: 10px;
+
+    .error-message {
+      color: red;
+      margin-top: 2px;
+      text-align: left;
+    }
+  }
+}
+
+.plant-detail-container {
+  max-width: 100%;
+  // height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+
+  .list-container {
+    width: 70%;
+
+    div {
+      text-align: left;
+    }
+  }
+
+  .breadcrumb-container {
+    width: 100%;
+  }
+
+  h1 {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 600px;
+    margin-bottom: 50px;
+  }
+
+  h6 {
+    width: 100%;
+    text-align: left;
+  }
+
+  .plants-list-button-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: #fdc885;
+  outline: 0;
+}
+
+.plants-container {
+  max-width: 100%;
+  // height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+
+  form {
+    margin: 0;
+    width: 100% !important;
+
+    .form-label {
+      text-align: left;
+      width: 100%;
+    }
+
+    .form-control {
+      // margin-bottom: 20px;
+      padding: 0.365rem 0.65rem;
+      font-size: 0.9rem;
+      border-radius: 0.35rem;
+    }
+
+    .form-check-label {
+      margin-left: 10px;
+    }
+
+    .btn-container {
+      justify-content: space-between;
+      margin-top: 35px;
+
+      .btn {
+        width: calc(50% - 10px);
+        border-radius: 0.35rem;
+        background-color: #fdc885;
+        border: none;
+        color: black;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 6px 15px;
+        outline: 0;
+      }
+
+      .btn:first-child {
+        // border-color: #29345C;
+      }
+    }
+  }
+
+  .width-120 {
+    width: 120px;
+  }
+
+  .custom-form-control {
+    margin-bottom: 10px;
+
+    .error-message {
+      color: red;
+      margin-top: 2px;
+      text-align: left;
+    }
+  }
+
+  .pagination {
+    .page-item.active .page-link {
+      background-color: #fdc885;
+      border-color: #fdc885;
+      color: white;
+    }
+
+    .page-link:hover {
+      color: #212529;
+    }
+
+    .page-link {
+      color: #212529;
+    }
+  }
+
+  .breadcrumb-container {
+    width: 100%;
+  }
+
+  h1 {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 600px;
+    margin-bottom: 50px;
+  }
+
+
+
+  .plants-list-button-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .plants-list-button-body {
+    margin-top: 30px;
+    width: 100%;
+
+    .plants-list-table {
+      th {
+        min-width: 150px;
+
+        img {
+          width: 12px;
+          margin-left: 3px;
+        }
+      }
+
+      .action-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .edit-icon {
+          cursor: pointer;
+          height: 20px;
+          width: 20px;
+          margin: 5px;
+        }
+      }
+    }
+  }
+}
+
+.auth-container {
+  margin: auto;
+  width: 450px;
+  max-width: 100%;
+  // height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    padding: 45px 35px 50px 35px;
+    border: none;
+    min-width: 100%;
+    // box-shadow: 0 2px 6px -1px #29345c;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border-radius: 25px;
+
+    h1 {
+      text-align: center;
+      width: 100%;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    h6 {
+      text-align: center;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    form {
+      margin: 0;
+      width: 100% !important;
+
+      .form-label {
+        text-align: left;
+        width: 100%;
+      }
+
+      // .form-control {
+      //   margin-bottom: 20px;
+      //   padding: 0.365rem 0.65rem;
+      //   font-size: 0.9rem;
+      //   border-radius: 0.35rem;
+      // }
+
+      .btn-container {
+        justify-content: space-between;
+        margin-top: 35px;
+
+        .btn {
+          width: calc(50% - 10px);
+          border-radius: 0.35rem;
+          background-color: #fdc885;
+          border: none;
+          color: black;
+          font-weight: 600;
+          font-size: 16px;
+          padding: 6px 15px;
+          outline: 0;
+        }
+
+        .btn:first-child {
+          // border-color: #29345C;
+        }
+      }
+    }
+  }
+
+  .custom-form-control {
+    margin-bottom: 10px;
+
+    .error-message {
+      color: red;
+      margin-top: 2px;
+      text-align: left;
+    }
+  }
+
+}
+
+.ant-picker {
+  margin-bottom: 20px;
+  padding: 0.365rem 0.65rem;
+  font-size: 0.9rem;
+  border-radius: 0.35rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  height: 40px;
+  text-align: left;
+  width: 100%;
+}
