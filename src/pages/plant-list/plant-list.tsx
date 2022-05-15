@@ -20,6 +20,7 @@ import moment from "moment";
 import editIcon from "./../../assets/edit.png";
 import deleteIcon from "./../../assets/delete.png";
 import eyeIcon from "./../../assets/eye.png";
+import sortIcon from "./../../assets/sort.png";
 import { DatePicker } from "antd";
 import * as Yup from "yup";
 import {
@@ -30,6 +31,7 @@ import {
   FieldProps,
 } from "formik";
 import { onKeyDown } from "../../common/utilities";
+import { Many, orderBy, sortBy } from "lodash";
 
 interface PlantsValue {
   flavorName: string;
@@ -57,6 +59,29 @@ const PlantList: FC = (): ReactElement => {
   const [totalPage, setTotalPage] = useState(0);
   const [show, setShow] = useState(false);
   const [deleteCode, setDeleteCode] = useState("");
+  const initialSortConfig: any = {
+    'flavorName': 'desc',
+    "someTextVal": 'desc',
+    "someEmailAddress": 'desc',
+    "somePhoneNumber": 'desc',
+    "someMoneyVal": 'desc',
+    "someFloatVal": 'desc',
+    "someDecimalVal": 'desc',
+    "someIntVal": 'desc',
+    "someBigIntVal": 'desc',
+    "isDeleteAllowed": 'desc',
+    "isEditAllowed": 'desc',
+    "someBitVal": 'desc',
+    "minimumSomeDateVal": 'desc',
+    "someVarCharVal": 'desc',
+    "minimumSomeUTCDateTimeVal": 'desc',
+    "someNVarCharVal": 'desc'
+  }
+
+  const storageValue: any = localStorage.getItem("@sortConfig")
+  const storageStore: any = storageValue ? JSON.parse(storageValue) : undefined
+
+  const [sortConfig, setSortConfig] = useState(storageStore ? { ...initialSortConfig, [storageStore.key]: storageStore.order } : initialSortConfig);
   const initialFilterConfig: any = {
     'flavorCode': undefined,
     "someTextVal": undefined,
@@ -129,6 +154,16 @@ const PlantList: FC = (): ReactElement => {
   const onDashboard = () => {
     navigate("/dashboard")
   }
+  const sort = (key: string) => {
+    let order: Many<Boolean | "desc" | "asc"> = sortConfig[key] === 'asc' ? 'desc' : 'asc'
+    setPlantList(orderBy(plantList, key, order))
+    setSortConfig({ ...sortConfig, [key]: order })
+    localStorage.setItem("@sortConfig", JSON.stringify({
+      key,
+      order
+    }))
+  }
+
   const handleClose = (value: boolean) => {
     setShow(value);
     if (value) {
@@ -169,7 +204,10 @@ const PlantList: FC = (): ReactElement => {
     try {
       const res = await plantsList(config);
       console.log("res -->", res);
-      setPlantList(res.data.items);
+      console.log(storageStore)
+      let d: any = orderBy(res.data.items, storageStore ? storageStore.key : "flavorName", storageStore ? storageStore.order : "desc")
+      setPlantList(d);
+
       setTotalPage(
         Math.ceil(res.data.recordsTotal / res.data.itemCountPerPage)
       );
@@ -798,21 +836,63 @@ const PlantList: FC = (): ReactElement => {
             <thead>
               <tr>
                 <th>#</th>
-                <th>Flavor Name</th>
+                <th onClick={() => sort('flavorName')}>Flavor Name <span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
                 <th>Flavor Code</th>
-                <th>Text Val</th>
-                <th>Email Address</th>
-                <th>Phone Number</th>
-                <th>Money Val</th>
-                <th>Float Val</th>
-                <th>Dec Val</th>
-                <th>Int Val</th>
-                <th>Big Int Val</th>
-                <th>Date</th>
-                <th>UTC Date</th>
-                <th>Var Char Val</th>
-                <th>N Var Char Val</th>
-                <th>Bit Val</th>
+                <th onClick={() => sort('someTextVal')}>Text Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someEmailAddress')}>Email Address<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('somePhoneNumber')}>Phone Number<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someMoneyVal')}>Money Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someFloatVal')}>Float Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someDecimalVal')}>Dec Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someIntVal')}>Int Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someBigIntVal')}>Big Int Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someDateVal')}>Date<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someUTCDateTimeVal')}>UTC Date<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someVarCharVal')}>Var Char Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someNVarCharVal')}>N Var Char Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
+                <th onClick={() => sort('someBitVal')}>Bit Val<span>    <img
+                  src={sortIcon}
+                  className="edit-icon"
+                /></span></th>
                 <th>Action</th>
               </tr>
             </thead>

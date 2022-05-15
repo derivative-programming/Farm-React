@@ -11,7 +11,7 @@ import {
 } from "formik";
 import { register } from "../../services/auth";
 import { AuthContext } from "../../context/authContext";
-
+import { useNavigate } from 'react-router-dom'
 interface RegisterFormValue {
     firstName: string;
     lastName: string;
@@ -33,6 +33,7 @@ const passwordRegX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
 const Register: FC = (): ReactElement => {
     const authContext = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const initialValues: RegisterFormValue = {
         firstName: "",
@@ -56,7 +57,7 @@ const Register: FC = (): ReactElement => {
 
     return (
         <LayoutComponent>
-            <div className="auth-container" style={{ height: 'calc(100vh - 120px)' }} data-testid="register">
+            <div className="auth-container" data-testid="register">
                 <Card>
                     <h1>Register</h1>
                     <h6>Please tell us all about your self.</h6>
@@ -249,7 +250,8 @@ const Register: FC = (): ReactElement => {
                                     </Button>
                                     <Button
                                         variant="secondary"
-                                        type="submit"
+                                        type="button"
+                                        onClick={() => navigate('/login')}
                                         data-testid="back-btn"
                                     >
                                         Back To Login

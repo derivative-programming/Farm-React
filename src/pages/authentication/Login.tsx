@@ -40,7 +40,7 @@ const Login: FC = (): ReactElement => {
 
     return (
         <LayoutComponent>
-            <div className="auth-container" style={{ height: 'calc(100vh - 120px)' }} data-testid="login">
+            <div className="auth-container" data-testid="login">
                 <Card>
                     <h1>Login</h1>
                     <h6>Please enter your email and password.</h6>

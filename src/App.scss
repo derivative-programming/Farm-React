@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #f5f2ea;
+  height: 100vh;
 }
 
 .App-logo {
@@ -51,8 +52,8 @@
 }
 
 .layout-body-container {
-  // height: calc(100vh - 120px);
-  // overflow-y: auto;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
 }
 
 @media only screen and (max-width: 719px) {
@@ -187,7 +188,6 @@
 
 .dashboard-container {
   max-width: 100%;
-  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -467,7 +467,7 @@
   margin: auto;
   width: 450px;
   max-width: 100%;
-  // height: calc(100vh - 120px);
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -477,6 +477,7 @@
     padding: 45px 35px 50px 35px;
     border: none;
     min-width: 100%;
+    overflow-y: auto;
     // box-shadow: 0 2px 6px -1px #29345c;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     border-radius: 25px;
