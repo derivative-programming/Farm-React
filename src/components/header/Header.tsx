@@ -11,7 +11,7 @@ const Header: FC = (): ReactElement => {
 
     const onLogout = () => {
         authContext.setToken("")
-        localStorage.removeItem("@token")
+        localStorage.clear()
     }
 
     const onLogin = () => {

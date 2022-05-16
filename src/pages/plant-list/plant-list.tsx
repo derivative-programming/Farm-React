@@ -83,7 +83,7 @@ const PlantList: FC = (): ReactElement => {
   }
 
   const storageValue: any = localStorage.getItem("@sortConfig")
-  const storageStore: any = storageValue ? JSON.parse(storageValue) : undefined
+  const storageStore: any = storageValue ? JSON.parse(storageValue) : { key: 'flavorName', order: 'desc' }
 
   const [sortConfig, setSortConfig] = useState(storageStore ? { ...initialSortConfig, [storageStore.key]: storageStore.order } : initialSortConfig);
   const initialFilterConfig: any = {
