@@ -50,6 +50,18 @@ const PlantDetail: FC = (): ReactElement => {
             console.log("err -> ", err);
         }
     };
+    const formatPhoneNumber = (phoneNumber: any) => {
+        if (phoneNumber && phoneNumber.length === 10) {
+            let cleaned = ('' + phoneNumber).replace(/\D/g, '');
+            let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+            if (match) {
+                return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+            } else {
+                return phoneNumber
+            }
+        }
+        return phoneNumber
+    }
     return (
         <LayoutComponent>
             <div className="plant-detail-container" data-testid="plant-detail">
@@ -70,14 +82,12 @@ const PlantDetail: FC = (): ReactElement => {
                     <Button onClick={() => goTo('/plant-list')} className='primary-button' data-testid="plant-btn" type="submit">
                         Plants
                     </Button>
-                    <Button onClick={() => goTo('/add-plant/' + params["id"])} className='primary-button' type="button">
-                        Edit
-                    </Button>
+
                 </div>
                 <div className='list-container'>
                     <ListGroup as="ol">
                         <Row>
-                            <Col lg="6" md="6" xs="12">
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -89,7 +99,7 @@ const PlantDetail: FC = (): ReactElement => {
 
                                 </ListGroup.Item>
                             </Col>
-                            <Col lg="6" md="6" xs="12">
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -101,7 +111,12 @@ const PlantDetail: FC = (): ReactElement => {
 
                                 </ListGroup.Item>
                             </Col>
-                            <Col lg="6" md="6" xs="12">
+                            <Col lg="2" md="2" xs="12" className='web-edit'>
+                                {plantDetail['isEditAllowed'] ? <Button onClick={() => goTo('/update-plant/' + params["id"])} className='primary-button' type="button">
+                                    Edit
+                                </Button> : null}
+                            </Col>
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -112,7 +127,7 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>              <Col lg="6" md="6" xs="12">
+                            </Col>              <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -123,7 +138,11 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>               <Col lg="6" md="6" xs="12">
+                            </Col>
+                            <Col lg="2" md="2" xs="12">
+
+                            </Col>
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -134,7 +153,7 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>            <Col lg="6" md="6" xs="12">
+                            </Col>            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -145,7 +164,11 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>           <Col lg="6" md="6" xs="12">
+                            </Col>
+                            <Col lg="2" md="2" xs="12">
+
+                            </Col>
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -156,7 +179,7 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>          <Col lg="6" md="6" xs="12">
+                            </Col>          <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -167,7 +190,11 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>           <Col lg="6" md="6" xs="12">
+                            </Col>
+                            <Col lg="2" md="2" xs="12">
+
+                            </Col>
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -178,7 +205,7 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>           <Col lg="6" md="6" xs="12">
+                            </Col>           <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -189,7 +216,11 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>           <Col lg="6" md="6" xs="12">
+                            </Col>
+                            <Col lg="2" md="2" xs="12">
+
+                            </Col>
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -200,18 +231,22 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>          <Col lg="6" md="6" xs="12">
+                            </Col>          <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
                                 >
                                     <div className="ms-2 me-auto">
                                         <div className="fw-bold">Some Phone Number</div>
-                                        {plantDetail['somePhoneNumber']}
+                                        {formatPhoneNumber(plantDetail['somePhoneNumber'])}
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>            <Col lg="6" md="6" xs="12">
+                            </Col>
+                            <Col lg="2" md="2" xs="12">
+
+                            </Col>
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -222,7 +257,7 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>                <Col lg="6" md="6" xs="12">
+                            </Col>                <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -233,18 +268,22 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>            <Col lg="6" md="6" xs="12">
+                            </Col>
+                            <Col lg="2" md="2" xs="12">
+
+                            </Col>
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
                                 >
                                     <div className="ms-2 me-auto">
                                         <div className="fw-bold">Some Money Val</div>
-                                        {plantDetail['someMoneyVal']}
+                                        ${plantDetail['someMoneyVal']}
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>          <Col lg="6" md="6" xs="12">
+                            </Col>          <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -255,7 +294,11 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>           <Col lg="6" md="6" xs="12">
+                            </Col>
+                            <Col lg="2" md="2" xs="12">
+
+                            </Col>
+                            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -266,7 +309,7 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
-                            </Col>            <Col lg="6" md="6" xs="12">
+                            </Col>            <Col lg="5" md="5" xs="12">
                                 <ListGroup.Item
                                     as="li"
                                     className="d-flex justify-content-between align-items-center"
@@ -277,6 +320,11 @@ const PlantDetail: FC = (): ReactElement => {
                                     </div>
 
                                 </ListGroup.Item>
+                            </Col>
+                            <Col lg="2" md="2" xs="12" className='mobile-edit'>
+                                {plantDetail['isEditAllowed'] ? <Button onClick={() => goTo('/update-plant/' + params["id"])} className='primary-button' type="button">
+                                    Edit
+                                </Button> : null}
                             </Col>
                         </Row>
                     </ListGroup>

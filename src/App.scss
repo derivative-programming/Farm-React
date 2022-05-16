@@ -74,6 +74,20 @@
     .list-container {
       margin-top: 20px;
       width: 100% !important;
+
+      .mobile-edit {
+
+        .btn {
+          margin-top: 20px;
+          display: flex !important;
+        }
+      }
+
+      .web-edit {
+        .btn {
+          display: none;
+        }
+      }
     }
   }
 
@@ -296,10 +310,23 @@
   padding: 40px;
 
   .list-container {
-    width: 70%;
+    width: 80%;
+
+    .mobile-edit {
+      .btn {
+        display: none;
+      }
+    }
+
+    .web-edit {
+      text-align: center;
+
+      .btn {}
+    }
 
     div {
       text-align: left;
+      align-items: center;
     }
   }
 

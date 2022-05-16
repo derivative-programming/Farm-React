@@ -100,7 +100,7 @@ const plantsDetailResponse = {
       someNVarCharVal: "non exercitation consectetur Excepteur",
       someVarCharVal: "c",
       someTextVal: "laborum ipsum quis",
-      somePhoneNumber: "(123) 123 1234",
+      somePhoneNumber: "1231231234",
       someEmailAddress: "test@test.com",
       flavorName: "Sweet",
       flavorCode: "8ef40a16-0107-445f-95f3-9a42571e6dce",
@@ -264,11 +264,11 @@ describe("Add Plant Component", () => {
       const phoneNumberInput = screen.getByTestId("some-phone-input");
       await act(async () => {
         await fireEvent.change(phoneNumberInput, {
-          target: { value: "(123) 123 1234" },
+          target: { value: "1231231234" },
         });
       });
 
-      expect(phoneNumberInput.value).toEqual("(123) 123 1234");
+      expect(phoneNumberInput.value).toEqual("1231231234");
 
       const someEmailInput = screen.getByTestId("some-email-input");
       await act(async () => {

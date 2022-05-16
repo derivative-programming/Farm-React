@@ -21,6 +21,8 @@ import editIcon from "./../../assets/edit.png";
 import deleteIcon from "./../../assets/delete.png";
 import eyeIcon from "./../../assets/eye.png";
 import sortIcon from "./../../assets/sort.png";
+import sortUp from "./../../assets/caret-up.png";
+import sortDown from "./../../assets/caret-down.png";
 import { DatePicker } from "antd";
 import * as Yup from "yup";
 import {
@@ -31,7 +33,7 @@ import {
   FieldProps,
 } from "formik";
 import { onKeyDown } from "../../common/utilities";
-import { Many, orderBy, sortBy } from "lodash";
+import { cloneDeep, Many, orderBy, sortBy } from "lodash";
 
 interface PlantsValue {
   flavorName: string;
@@ -43,6 +45,7 @@ interface PlantsValue {
   someFloatVal: number;
   someDecimalVal: number;
   someIntVal: number;
+  plantCode?: string;
   someBigIntVal: number;
   isDeleteAllowed: boolean;
   isEditAllowed: boolean;
@@ -59,6 +62,7 @@ const PlantList: FC = (): ReactElement => {
   const [totalPage, setTotalPage] = useState(0);
   const [show, setShow] = useState(false);
   const [deleteCode, setDeleteCode] = useState("");
+  const [selectedItem, setSelectedItem] = useState<any>([]);
   const initialSortConfig: any = {
     'flavorName': 'desc',
     "someTextVal": 'desc',
@@ -125,12 +129,24 @@ const PlantList: FC = (): ReactElement => {
     ...initialFilterConfig,
   });
   const [filterConfig, setFilterConfig] = useState(initialFilterConfig);
-  const [totalItem, setTotalItem] = useState(0);
+  const [totalItem, setTotalItem]: any = useState(0);
   const [flavorList, setFlavorList] = useState([]);
 
   const phoneRegex = RegExp(
-    /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+    /^[0-9]{10}$/
   );
+  const formatPhoneNumber = (phoneNumber: any) => {
+    if (phoneNumber && phoneNumber.length === 10) {
+      let cleaned = ('' + phoneNumber).replace(/\D/g, '');
+      let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+      if (match) {
+        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+      } else {
+        return phoneNumber
+      }
+    }
+    return phoneNumber
+  }
 
   const validationSchema = Yup.object().shape({
     flavorCode: Yup.string(),
@@ -147,7 +163,7 @@ const PlantList: FC = (): ReactElement => {
     someNVarCharVal: Yup.string(),
     someVarCharVal: Yup.string(),
     someTextVal: Yup.string(),
-    somePhoneNumber: Yup.string().matches(phoneRegex, "Invalid phone"),
+    somePhoneNumber: Yup.string(),
     someEmailAddress: Yup.string().email("Invalid email"),
   });
 
@@ -168,24 +184,47 @@ const PlantList: FC = (): ReactElement => {
     setShow(value);
     if (value) {
       console.log("deletecode==>", deleteCode);
-      deletePlant(deleteCode)
-        .then((res) => {
-          console.log(res);
-          setShow(false);
-          setDeleteCode("");
-          if (res.success) {
-            getPlantList();
-          }
-        })
-        .catch((err) => {
-          console.log("err -> ", err);
-        });
+      if (deleteCode) {
+        deletePlant(deleteCode)
+          .then((res) => {
+            console.log(res);
+            setShow(false);
+            setDeleteCode("");
+            if (res.data.success) {
+              getPlantList();
+            }
+          })
+          .catch((err) => {
+            console.log("err -> ", err);
+          });
+      } else {
+        for (let i = 0; i < selectedItem.length; i++) {
+          deletePlant(selectedItem[i])
+            .then((res) => {
+              console.log(res);
+              if (i === selectedItem.length - 1) {
+                setDeleteCode("");
+                if (res.data.success) {
+                  getPlantList();
+                }
+                setShow(false);
+              }
+            })
+            .catch((err) => {
+              console.log("err -> ", err);
+            });
+
+        }
+      }
     }
   };
   const handleShow = (item: any) => {
-    console.log("handle show method is called line 92");
     console.log(item);
-    setDeleteCode(item["plantCode"]);
+    if (item) {
+      setDeleteCode(item["plantCode"]);
+    } else {
+      setDeleteCode(item)
+    }
     setShow(true);
   };
   const goTo = (url: any) => {
@@ -207,7 +246,10 @@ const PlantList: FC = (): ReactElement => {
       console.log(storageStore)
       let d: any = orderBy(res.data.items, storageStore ? storageStore.key : "flavorName", storageStore ? storageStore.order : "desc")
       setPlantList(d);
-
+      localStorage.setItem("@sortConfig", JSON.stringify({
+        key: storageStore ? storageStore.key : "flavorName",
+        order: storageStore ? storageStore.order : "desc"
+      }))
       setTotalPage(
         Math.ceil(res.data.recordsTotal / res.data.itemCountPerPage)
       );
@@ -229,7 +271,7 @@ const PlantList: FC = (): ReactElement => {
     //   });
   };
 
-  let items = [];
+  let items: any = [];
 
   for (let number = 1; number <= totalPage; number++) {
     items.push(
@@ -281,6 +323,46 @@ const PlantList: FC = (): ReactElement => {
     return endCount < totalItem ? endCount : totalItem;
   };
 
+  const onCheckChange = (event: any, item: any) => {
+    let selectedItems = cloneDeep(selectedItem);
+    let index = selectedItems.indexOf(item.plantCode)
+    if (index === -1) {
+      selectedItems.push(item.plantCode)
+    }
+    else {
+      selectedItems.splice(index, 1)
+    }
+    setSelectedItem(selectedItems);
+  }
+
+  const onSelectAll = (e: any) => {
+    let selectedItems = cloneDeep(selectedItem);
+    for (let i = 0; i < plantList.length; i++) {
+      let index = selectedItems.indexOf(plantList[i]['plantCode']);
+      if (e.target.checked) {
+        if (index === -1) {
+          selectedItems.push(plantList[i]['plantCode']);
+        }
+      }
+      else {
+        if (index !== -1) {
+          selectedItems.splice(index, 1);
+        }
+      }
+    }
+    setSelectedItem(selectedItems);
+  };
+
+  const isCheckedAll = () => {
+    let flag: boolean = true;
+    for (let index = 0; index < plantList.length; index++) {
+      if (!selectedItem.includes(plantList[index]['plantCode'])) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  };
 
   const isEmpty = (value: any) => {
     if (value === '' || value === 0 || value === null) {
@@ -824,6 +906,11 @@ const PlantList: FC = (): ReactElement => {
             </Accordion.Item>
           </Accordion>
         </div>
+        <div className="w-100" style={{ textAlign: "left" }}>
+          {selectedItem.length ? <Button className='primary-button mt-3' onClick={() => handleShow(null)} type="button">
+            Delete Selected
+          </Button> : null}
+        </div>
         <div className="plants-list-button-body">
           <Table
             className="plants-list-table"
@@ -835,64 +922,72 @@ const PlantList: FC = (): ReactElement => {
           >
             <thead>
               <tr>
+                <th> <Form.Check
+                  inline
+                  type="checkbox"
+                  id="yes"
+                  name="isCheck}"
+                  checked={isCheckedAll()}
+                  onChange={(e) => onSelectAll(e)}
+                /></th>
                 <th>#</th>
-                <th onClick={() => sort('flavorName')}>Flavor Name <span>    <img
-                  src={sortIcon}
+                <th onClick={() => sort('flavorName')}>Flavor Name <span> {storageStore.key === 'flavorName' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
+                /> : null}</span></th>
                 <th>Flavor Code</th>
-                <th onClick={() => sort('someTextVal')}>Text Val<span>    <img
-                  src={sortIcon}
+                <th onClick={() => sort('someTextVal')}>Text Val<span>  {storageStore.key === 'someTextVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someEmailAddress')}>Email Address<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someEmailAddress')}>Email Address<span>  {storageStore.key === 'someEmailAddress' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('somePhoneNumber')}>Phone Number<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('somePhoneNumber')}>Phone Number<span>    {storageStore.key === 'somePhoneNumber' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someMoneyVal')}>Money Val<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someMoneyVal')}>Money Val<span>  {storageStore.key === 'someMoneyVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someFloatVal')}>Float Val<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someFloatVal')}>Float Val<span> {storageStore.key === 'someFloatVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someDecimalVal')}>Dec Val<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someDecimalVal')}>Dec Val<span> {storageStore.key === 'someDecimalVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someIntVal')}>Int Val<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someIntVal')}>Int Val<span>  {storageStore.key === 'someIntVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someBigIntVal')}>Big Int Val<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someBigIntVal')}>Big Int Val<span> {storageStore.key === 'someBigIntVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someDateVal')}>Date<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someDateVal')}>Date<span>  {storageStore.key === 'someDateVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someUTCDateTimeVal')}>UTC Date<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someUTCDateTimeVal')}>UTC Date<span> {storageStore.key === 'someUTCDateTimeVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someVarCharVal')}>Var Char Val<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someVarCharVal')}>Var Char Val<span> {storageStore.key === 'someVarCharVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someNVarCharVal')}>N Var Char Val<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someNVarCharVal')}>N Var Char Val<span> {storageStore.key === 'someNVarCharVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
-                <th onClick={() => sort('someBitVal')}>Bit Val<span>    <img
-                  src={sortIcon}
+                /> : null}</span></th>
+                <th onClick={() => sort('someBitVal')}>Bit Val<span>  {storageStore.key === 'someBitVal' ? <img
+                  src={storageStore.order === 'desc' ? sortUp : sortDown}
                   className="edit-icon"
-                /></span></th>
+                /> : null}</span></th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -901,6 +996,17 @@ const PlantList: FC = (): ReactElement => {
                 ? plantList.map((item: PlantsValue, index) => {
                   return (
                     <tr key={index.toString()}>
+                      <td>
+                        {item.isDeleteAllowed ?
+                          <Form.Check
+                            inline
+                            type="checkbox"
+                            id={'yes' + index}
+                            name={"isCheck_" + index}
+                            checked={selectedItem.indexOf(item.plantCode) !== -1}
+                            onChange={(e) => onCheckChange(e, item)}
+                          /> : null}
+                      </td>
                       <td>
                         {index +
                           (config["PageNumber"] - 1) *
@@ -911,8 +1017,8 @@ const PlantList: FC = (): ReactElement => {
                       <td>{item.flavorCode}</td>
                       <td>{item.someTextVal}</td>
                       <td>{item.someEmailAddress}</td>
-                      <td>{item.somePhoneNumber}</td>
-                      <td>{item.someMoneyVal}</td>
+                      <td>{formatPhoneNumber(item.somePhoneNumber)}</td>
+                      <td>${item.someMoneyVal}</td>
                       <td>{item.someFloatVal}</td>
                       <td>{item.someDecimalVal}</td>
                       <td>{item.someIntVal}</td>
@@ -982,11 +1088,11 @@ const PlantList: FC = (): ReactElement => {
             </Form.Select>
           </div>
           <Pagination>
-            <Pagination.First />
-            <Pagination.Prev />
+            <Pagination.First onClick={() => setConfig({ ...config, PageNumber: 1 })} />
+            <Pagination.Prev onClick={() => setConfig({ ...config, PageNumber: (config["PageNumber"] - 1 === 0 ? 1 : config["PageNumber"] - 1) })} />
             {items}
-            <Pagination.Next />
-            <Pagination.Last />
+            <Pagination.Next onClick={() => setConfig({ ...config, PageNumber: config["PageNumber"] + 1 })} />
+            <Pagination.Last onClick={() => setConfig({ ...config, PageNumber: totalItem })} />
 
             {/* 
           <Pagination.Prev />
