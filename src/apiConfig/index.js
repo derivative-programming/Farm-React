@@ -1,11 +1,12 @@
 import axios from "axios";
-
-export const instance = axios.create({
+ 
+ 
+export const apiInstance = axios.create({
   baseURL:
-    "https://derivative-programming-farmapidotnetcore.azurewebsites.net/",
+    "https://localhost:44358/",
 });
 
-instance.interceptors.request.use(
+apiInstance.interceptors.request.use(
   function (config) {
     return config;
   },
@@ -15,7 +16,7 @@ instance.interceptors.request.use(
 );
 
 // Add a response interceptor
-instance.interceptors.response.use(
+apiInstance.interceptors.response.use(
   function (response) {
     return response;
   },
@@ -23,3 +24,4 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+

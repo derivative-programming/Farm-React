@@ -1,0 +1,10 @@
+{
+    "templateType":"objReport",
+    "forceFolderNameFormat":"Kebab",
+    "forceVariantOnDimension": "visualizationType",
+    "dimension" :{
+        "name": "TacFarmDashboard",
+        "objectName" : "Tac",
+        "visualizationType": "DetailTwoColumn"
+    }
+}

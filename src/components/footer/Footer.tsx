@@ -6,7 +6,7 @@ const Footer: FC = (): ReactElement => {
 
     return (
         <div className="footer-container">
-            Copyright © 2021 • NewCo, Inc.
+            Copyright © 2023 • NewCo, Inc.
         </div>
     )
 }

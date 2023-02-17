@@ -18,11 +18,11 @@ const Header: FC = (): ReactElement => {
         navigate("/")
     }
     const onDashboard = () => {
-        navigate("/dashboard")
+        navigate("/tac-farm-dashboard")
     }
 
     const onRegister = () => {
-        navigate("/register")
+        navigate("/tac-register")
     }
 
     return (

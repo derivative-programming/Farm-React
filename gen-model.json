@@ -1,0 +1,3547 @@
+{
+  "root": {
+    "apiVersion": "V1",
+    "name": "FS",
+    "databaseName": "dp_farm",
+    "suppressFillObjLookupTableScripts": "true",
+    "namespace": [
+      {
+        "name": "Farm",
+        "favoriteListContextObjectName": "Customer",
+        "favoriteListDestinationTargetName": "CustomerReportFavoriteList",
+        "scheduleListContextObjectName": "Customer",
+        "scheduleListDestinationTargetName": "CustomerReportScheduleList",
+        "object": [ 
+          {
+            "name": "Pac",
+            "codeDescription": "Primary App Config.",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "500"
+              },
+              {
+                "name": "DisplayOrder"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "Name"
+              }
+            ]
+          },
+          {
+            "name": "Confirmation",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "500",
+                "isFK": "false"
+              },
+              {
+                "name": "DisplayOrder",
+                "isFK": "false"
+              },
+              {
+                "name": "IsActive",
+                "isFK": "false"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50",
+                "isFK": "false"
+              },
+              {
+                "name": "Name",
+                "isFK": "false"
+              },
+              {
+                "name": "PacID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByPacID",
+                "byObjectName": "Pac"
+              }
+            ]
+          },
+          {
+            "name": "Country",
+            "cacheAllRecs": "false",
+            "prop": [
+              {
+                "name": "Abbreviation",
+                "sqlServerDBDataTypeSize": "5",
+                "forceDBColumnIndex": "true"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              }
+            ],
+            "query": [
+              {
+                "name": "QueryByAbbreviation",
+                "storedProcName": "FS_Farm_Country_QueryByAbbreviation",
+                "queryParam": [
+                  {
+                    "name": "Abbreviation",
+                    "storedProcParamName": "i_strAbbreviation",
+                    "sqlServerDBDataTypeSize": "5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Customer",
+            "parentObjectName": "Tac",
+            "prop": [
+              {
+                "name": "ActiveOrganizationID"
+              },
+              {
+                "name": "AddressLine1",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "AddressLine2",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "City",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "CountryID",
+                "isFK": "true",
+                "isFKLookup": "false"
+              },
+              {
+                "name": "EmailConfirmedUTCDateTime"
+              },
+              {
+                "name": "FDCSubFolder",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "FDCUserName",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "FirstName",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "IsEmailAllowed"
+              },
+              {
+                "name": "IsEmailConfirmed"
+              },
+              {
+                "name": "IsEmailMarketingAllowed"
+              },
+              {
+                "name": "IsMultipleOrganizationsAllowed"
+              },
+              {
+                "name": "IsVerboseLoggingForced"
+              },
+              {
+                "name": "LastName",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "FSUserCodeValue",
+                "sqlServerDBDataType": "uniqueidentifier",
+                "forceDBColumnIndex": "true"
+              },
+              {
+                "name": "Phone",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "PostalCode",
+                "sqlServerDBDataType": "nvarchar",
+                "sqlServerDBDataTypeSize": "50",
+                "labelText": "Postal Code"
+              },
+              {
+                "name": "Province",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "RegistrationUTCDateTime"
+              },
+              {
+                "name": "StateID",
+                "isFK": "true",
+                "isFKLookup": "false"
+              },
+              {
+                "name": "TimeZoneAdjID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              },
+              {
+                "name": "UTCOffsetInMinutes",
+                "sqlServerDBDataType": "int"
+              },
+              {
+                "name": "TacID",
+                "isFK": "true",
+                "isFKLookup": "false"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByTimeZoneAdjID",
+                "byObjectName": "TimeZoneAdj"
+              },
+              {
+                "name": "FetchByTacID",
+                "byObjectName": "Tac"
+              }
+            ],
+            "objectWorkflow": [
+              {
+                "name": "BuildFarmApiKey",
+                "isExposedInBusinessObject": "true",
+                "isPage": "false",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "FarmApiKey"
+                  }
+                ]
+              }
+            ],
+            "report": [
+              {
+                "name": "CustomerReportFavoriteList",
+                "titleText": "Your Favorites",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "isVisible": "false"
+                  },
+                  {
+                    "buttonType": "add",
+                    "isVisible": "false"
+                  }
+                ],
+                "reportParam": [
+                ],
+                "reportColumn": [
+                  {
+                    "name": "CreatedUTCDateTime",
+                    "minWidth": "200px"
+                  },
+                  {
+                    "name": "ReportTitle",
+                    "maxWidth": "200px"
+                  },
+                  {
+                    "name": "Description"
+                  },
+                  {
+                    "name": "RequiredRoleLookupEnumName",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "ConfigurationDisplayText",
+                    "headerText": "Filters",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "ViewReportUrl",
+                    "NavURLLinkText": "View Report",
+                    "destinationContextObjectName": "CustomerReportFavorite",
+                    "destinationTargetName": "ReportGateway",
+                    "isNavURL": "true",
+                    "headerText": "&nbsp;"
+                  }
+                ]
+              },
+              {
+                "name": "CustomerReportScheduleList",
+                "titleText": "Your Scheduled Reports",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "isVisible": "false"
+                  },
+                  {
+                    "buttonType": "add",
+                    "isVisible": "false"
+                  }
+                ],
+                "reportParam": [
+                  {
+                    "name": "IsInactiveDisplayed",
+                    "labelText": "Display Inactive"
+                  }
+                ],
+                "reportColumn": [
+                  {
+                    "name": "CreatedUTCDateTime",
+                    "minWidth": "200px"
+                  },
+                  {
+                    "name": "OrganizationName",
+                    "headerText": "Company Name"
+                  },
+                  {
+                    "name": "ReportName",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "ReportTitle"
+                  },
+                  {
+                    "name": "Description"
+                  },
+                  {
+                    "name": "RequiredRoleLookupEnumName",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "StartUTCDateTime"
+                  },
+                  {
+                    "name": "LastUTCDateTime"
+                  },
+                  {
+                    "name": "LastRunRowCount"
+                  },
+                  {
+                    "name": "NextUTCDateTime"
+                  },
+                  {
+                    "name": "EndUTCDateTime"
+                  },
+                  {
+                    "name": "IsProcessedIfNoResultsReturned"
+                  },
+                  {
+                    "name": "IsResultsSaved"
+                  },
+                  {
+                    "name": "EmailDistributionList"
+                  },
+                  {
+                    "name": "ConfigurationDisplayText",
+                    "headerText": "Filters"
+                  },
+                  {
+                    "name": "ReportScheduleFrequencyName",
+                    "headerText": "Schedule Frequency"
+                  },
+                  {
+                    "name": "ViewLinkReportScheduleCode",
+                    "isButton": "true",
+                    "buttonText": "View Report",
+                    "destinationContextObjectName": "ReportSchedule",
+                    "destinationTargetName": "ReportGateway",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "ViewReportUrl",
+                    "NavURLLinkText": "View Report",
+                    "destinationContextObjectName": "ReportSchedule",
+                    "destinationTargetName": "ReportGateway",
+                    "isNavURL": "true",
+                    "headerText": "&nbsp;"
+                  }
+                ]
+              }
+            ],
+            "query": [
+              {
+                "name": "QueryByFSUserCodeValue",
+                "storedProcName": "FS_Farm_Customer_QueryByFSUserCodeValue",
+                "queryParam": [
+                  {
+                    "name": "FSUserCodeValue",
+                    "storedProcParamName": "i_uidFSUserCodeValue",
+                    "sqlServerDBDataType": "uniqueidentifier"
+                  }
+                ]
+              }
+            ]
+
+          },
+          {
+            "name": "CustomerRole",
+            "prop": [
+              {
+                "name": "CustomerID",
+                "isFK": "true",
+                "isFKLookup": "false"
+              },
+              {
+                "name": "Placeholder",
+                "sqlServerDBDataType": "bit"
+              },
+              {
+                "name": "RoleID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByCustomerID",
+                "byObjectName": "Customer"
+              },
+              {
+                "name": "FetchByRoleID",
+                "byObjectName": "Role"
+              }
+            ]
+          },
+          {
+            "name": "ErrorLog",
+            "prop": [
+              {
+                "name": "BrowserCode"
+              },
+              {
+                "name": "ContextCode"
+              },
+              {
+                "name": "CreatedUTCDateTime"
+              },
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "max"
+              },
+              {
+                "name": "IsClientSideError"
+              },
+              {
+                "name": "Url",
+                "sqlServerDBDataTypeSize": "500"
+              }
+            ]
+          },
+          {
+            "name": "Flavor",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "DisplayOrder"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "PacID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByPacID",
+                "byObjectName": "Pac"
+              }
+            ],
+            "objectWorkflow": [
+              {
+                "name": "DeleteFlavor",
+                "titleText": "Delete Flavor",
+                "isPage": "false",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "TacCode",
+                    "isFK": "true"
+                  },
+                  {
+                    "name": "FlavorCode"
+                  }
+                ]
+              },
+              {
+                "name": "FlavorCustomerDetailsInitReport",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "TacCode"
+                  }
+                ]
+              },
+              {
+                "name": "UpdateFlavor",
+                "titleText": "Update Flavor",
+                "initObjectWorkflowName": "UpdateFlavorInitObjWF",
+                "isProcessingAnimationShown": "true",
+                "processingAnimationText": "Updating...",
+                "isCaptchaVisible": "true",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Description",
+                    "sqlServerDBDataTypeSize": "200"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "LookupEnumName",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "Name",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "TacCode",
+                    "isFK": "true"
+                  },
+                  {
+                    "name": "FlavorCode"
+                  },
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  }
+                ]
+              },
+              {
+                "name": "UpdateFlavorInitObjWF",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "Description"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "LookupEnumName"
+                  },
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "TacCode",
+                    "isFK": "true"
+                  },
+                  {
+                    "name": "HeaderTextTest",
+                    "isHeaderText": "true"
+                  }
+                ]
+              }
+            ],
+            "report": [
+              {
+                "name": "FlavorCustomerDetails",
+                "isCustomSqlUsed": "false",
+                "initObjectWorkflowName": "FlavorCustomerDetailsInitReport",
+                "titleText": "Flavor Details",
+                "introText": "",
+                "visualizationType": "DetailTwoColumn",
+                "isAutoRefresh": "false",
+                "isAutoRefreshVisible": "false",
+                "isRefreshButtonHidden": "true",
+                "isPagingAvailable": "false",
+                "isExportButtonsHidden": "true",
+                "isFilterSectionHidden": "true",
+
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "buttonText": "Flavor List",
+                    "isVisible": "true",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList"
+                  },
+                  {
+                    "buttonType": "breadcrumb",
+                    "buttonName": "Dashboard",
+                    "buttonText": "Dashboard",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFarmDashboard",
+                    "isVisible": "true"
+                  },
+                  {
+                    "buttonType": "breadcrumb",
+                    "buttonName": "FlavorList",
+                    "buttonText": "Flavor List",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList",
+                    "isVisible": "true"
+                  }
+                ],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "Description",
+                    "infoToolTipText": "Flavor Description <br> <a href='https://derivative-programming.com/'>More Details</a>"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "LookupEnumName",
+                    "infoToolTipText": "<a href='https://derivative-programming.com/'>More Details</a>"
+                  }
+                ]
+              },
+              {
+                "name": "FlavorCustomerDetailsV2",
+                "isCustomSqlUsed": "false",
+                "titleText": "Flavor Customer Detail List",
+                "introText": "A list of possible flavors for a plant.",
+                "visualizationType": "DetailTwoColumn",
+                "isAutoRefresh": "false",
+                "isAutoRefreshVisible": "false",
+                "isRefreshButtonHidden": "true",
+                "isPagingAvailable": "false",
+                "isExportButtonsHidden": "true",
+                "isFilterSectionHidden": "true",
+                "reportButton": [
+                  {
+                    "isVisible": "false",
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  },
+                  {
+                    "buttonType": "breadcrumb",
+                    "buttonName": "Dashboard",
+                    "buttonText": "Dashboard",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFarmDashboard",
+                    "isVisible": "true"
+                  }
+                ],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "Description",
+                    "infoToolTipText": "Flavor Description <br> <a href='https://derivative-programming.com/'>More Details</a>"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "LookupEnumName"
+                  },
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "EditLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Edit",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "UpdateFlavor"
+                  },
+                  {
+                    "name": "DeleteLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Delete",
+                    "isButtonAsyncObjWF": "true",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "DeleteFlavor"
+                  },
+                  {
+                    "name": "DetailsLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Details",
+                    "isButtonAsyncObjWF": "false",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "FlavorCustomerDetails"
+                  }
+                ]
+              },
+              {
+                "name": "FlavorCustomerDetailsV3",
+                "isCustomSqlUsed": "false",
+                "titleText": "Flavor Customer Detail List",
+                "introText": "A list of possible flavors for a plant.",
+                "visualizationType": "DetailThreeColumn",
+                "isAutoRefresh": "false",
+                "isAutoRefreshVisible": "false",
+                "isRefreshButtonHidden": "true",
+                "isPagingAvailable": "false",
+                "isExportButtonsHidden": "true",
+                "isFilterSectionHidden": "true",
+                "reportButton": [
+                  {
+                    "isVisible": "false",
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  },
+                  {
+                    "buttonType": "breadcrumb",
+                    "buttonName": "Dashboard",
+                    "buttonText": "Dashboard",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFarmDashboard",
+                    "isVisible": "true"
+                  }
+                ],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "Description",
+                    "infoToolTipText": "Flavor Description <br> <a href='https://derivative-programming.com/'>More Details</a>"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "LookupEnumName"
+                  },
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "EditLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Edit",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "UpdateFlavor"
+                  },
+                  {
+                    "name": "DeleteLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Delete",
+                    "isButtonAsyncObjWF": "true",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "DeleteFlavor"
+                  },
+                  {
+                    "name": "DetailsLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Details",
+                    "isButtonAsyncObjWF": "false",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "FlavorCustomerDetails"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Land",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "DisplayOrder"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "PacID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByPacID",
+                "byObjectName": "Pac"
+              }
+            ],
+            "report": [
+              {
+                "name": "LandPlantList",
+                "titleText": "Plant List",
+                "introText": "A list of plants on the land",
+                "initObjectWorkflowName": "LandPlantListInitReport",
+                "isAutoRefresh": "true",
+                "autoRefreshFrequencyInMinutes": "1",
+                "isAutoRefreshDegraded": "true",
+                "isAutoRefreshVisible": "true",
+                "isFilterSectionCollapsable": "true",
+                "visualizationGridGroupByColumnName": "FlavorName",
+                "isButtonDropDownAllowed": "false",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  },
+                  {
+                    "buttonType": "add",
+                    "buttonText": "Add A Plant",
+                    "destinationContextObjectName": "Land",
+                    "destinationTargetName": "LandAddPlant",
+                    "isButtonCallToAction": "true"
+                  },
+                  {
+                    "buttonName": "ProcessPlantButtonOne",
+                    "buttonType": "multiSelectProcessing",
+                    "buttonText": "Process Plant button 1",
+                    "destinationContextObjectName": "Land",
+                    "destinationTargetName": "ProcessPlants"
+                  },
+                  {
+                    "buttonName": "ProcessPlantButtonTwo",
+                    "buttonType": "multiSelectProcessing",
+                    "buttonText": "Process Plant button 2",
+                    "destinationContextObjectName": "Land",
+                    "destinationTargetName": "ProcessPlants"
+                  }
+                ],
+                "reportParam": [
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "IsEditAllowed",
+                    "defaultValue": "true",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "IsDeleteAllowed",
+                    "defaultValue": "true",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeMinUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeMinDateVal",
+                    "sqlServerDBDataType": "date",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeNVarCharVal",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "FlavorCode",
+                    "isFK": "true",
+                    "isFKLookup": "true",
+                    "isFKList": "true",
+                    "isFKListSearchable": "true"
+                  }
+                ],
+                "reportColumn": [
+                  {
+                    "name": "PlantCode",
+                    "isMultiSelectColumn": "true"
+                  },
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit"
+                  },
+                  {
+                    "name": "IsEditAllowed"
+                  },
+                  {
+                    "name": "IsDeleteAllowed"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal"
+                  },
+                  {
+                    "name": "SomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime"
+                  },
+                  {
+                    "name": "SomeDateVal",
+                    "sqlServerDBDataType": "date"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money"
+                  },
+                  {
+                    "name": "SomeNVarCharVal"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "FlavorName"
+                  },
+                  {
+                    "name": "FlavorCode",
+                    "isFK": "true"
+                  },
+                  {
+                    "name": "UpdateLinkPlantCode",
+                    "isButton": "true",
+                    "buttonText": "Update",
+                    "destinationContextObjectName": "Plant",
+                    "destinationTargetName": "PlantEdit"
+                  },
+                  {
+                    "name": "DeleteLinkPlantCode",
+                    "isButton": "true",
+                    "buttonText": "Delete",
+                    "isButtonAsyncObjWF": "true",
+                    "destinationContextObjectName": "Plant",
+                    "destinationTargetName": "PlantDelete"
+                  }
+                ]
+              }
+            ],
+            "objectWorkflow": [
+              {
+                "name": "LandAddPlant",
+                "titleText": "Add Plant",
+                "initObjectWorkflowName": "LandAddPlantInitWFRequest",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "FlavorCode",
+                    "isFKLookup": "true",
+                    "isFK": "true",
+                    "isFKList": "true",
+                    "isFKListSearchable": "true",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "OtherFlavor",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "IsEditAllowed"
+                  },
+                  {
+                    "name": "IsDeleteAllowed"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeDateVal",
+                    "sqlServerDBDataType": "date",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeNVarCharVal",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true",
+                    "isSecured": "true"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "PlantCode"
+                  }
+                ]
+              },
+              {
+                "name": "LandAddPlantInitWFRequest",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "FlavorCode",
+                    "isFKLookup": "true"
+                  },
+                  {
+                    "name": "OtherFlavor"
+                  },
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit"
+                  },
+                  {
+                    "name": "IsDeleteAllowed"
+                  },
+                  {
+                    "name": "IsEditAllowed"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal"
+                  },
+                  {
+                    "name": "SomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime"
+                  },
+                  {
+                    "name": "SomeDateVal",
+                    "sqlServerDBDataType": "date"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money"
+                  },
+                  {
+                    "name": "SomeNVarCharVal"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  }
+                ]
+              },
+              {
+                "name": "LandPlantListInitReport",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit"
+                  },
+                  {
+                    "name": "IsEditAllowed",
+                    "defaultValue": "true"
+                  },
+                  {
+                    "name": "IsDeleteAllowed",
+                    "defaultValue": "true"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal"
+                  },
+                  {
+                    "name": "SomeMinUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime"
+                  },
+                  {
+                    "name": "SomeMinDateVal",
+                    "sqlServerDBDataType": "date"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money"
+                  },
+                  {
+                    "name": "SomeNVarCharVal"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "FlavorCode",
+                    "isFK": "true"
+                  },
+                  {
+                    "name": "LandCode"
+                  },
+                  {
+                    "name": "TacCode"
+                  }
+                ]
+              },
+              {
+                "name": "ProcessPlants",
+                "isPage": "false",
+                "objectWorkflowParam": [
+                  {
+                    "name": "PlantCodeCsv",
+                    "sqlServerDBDataType": "varchar"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Plant",
+            "parentObjectName": "Land",
+            "isLookup": "false",
+            "prop": [
+              {
+                "name": "FlavorID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              },
+              {
+                "name": "IsDeleteAllowed",
+                "defaultValue": "true"
+              },
+              {
+                "name": "IsEditAllowed",
+                "defaultValue": "true"
+              },
+              {
+                "name": "LandID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              },
+              {
+                "name": "OtherFlavor",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "SomeBigIntVal",
+                "sqlServerDBDataType": "bigint"
+              },
+              {
+                "name": "SomeBitVal",
+                "sqlServerDBDataType": "bit"
+              },
+              {
+                "name": "SomeDateVal",
+                "sqlServerDBDataType": "date"
+              },
+              {
+                "name": "SomeDecimalVal",
+                "sqlServerDBDataType": "decimal"
+              },
+              {
+                "name": "SomeFloatVal",
+                "sqlServerDBDataType": "float"
+              },
+              {
+                "name": "SomeIntVal",
+                "sqlServerDBDataType": "int"
+              },
+              {
+                "name": "SomeMoneyVal",
+                "sqlServerDBDataType": "money"
+              },
+              {
+                "name": "SomeNVarCharVal",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "SomeTextVal",
+                "sqlServerDBDataType": "text"
+              },
+              {
+                "name": "SomeUniqueidentifierVal",
+                "sqlServerDBDataType": "uniqueidentifier"
+              },
+              {
+                "name": "SomeUTCDateTimeVal",
+                "sqlServerDBDataType": "datetime"
+              },
+              {
+                "name": "SomeVarCharVal",
+                "sqlServerDBDataType": "varchar",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "SomePhoneNumber",
+                "sqlServerDBDataType": "varchar",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "SomeEmailAddress",
+                "sqlServerDBDataType": "varchar",
+                "sqlServerDBDataTypeSize": "50"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByFlavorID",
+                "byObjectName": "Flavor"
+              },
+              {
+                "name": "FetchByLandID",
+                "byObjectName": "Land"
+              }
+            ],
+            "objectWorkflow": [
+              {
+                "name": "PlantDelete",
+                "titleText": "Delete Plant",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK",
+                    "destinationContextObjectName": "",
+                    "destinationTargetName": ""
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "",
+                    "destinationTargetName": ""
+                  }
+                ],
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": []
+              },
+              {
+                "name": "PlantEdit",
+                "titleText": "Update Plant",
+                "initObjectWorkflowName": "PlantEditInitWFRequest",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "FlavorCode",
+                    "isFK": "true",
+                    "isFKLookup": "true",
+                    "isFKList": "true",
+                    "isFKListSearchable": "true",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "OtherFlavor",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "IsEditAllowed",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "IsDeleteAllowed",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeDateVal",
+                    "sqlServerDBDataType": "date",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeNVarCharVal",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "LandCode"
+                  }
+                ]
+              },
+              {
+                "name": "PlantEditInitWFRequest",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "FlavorCode",
+                    "isFK": "true",
+                    "isFKLookup": "true"
+                  },
+                  {
+                    "name": "OtherFlavor"
+                  },
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit"
+                  },
+                  {
+                    "name": "IsEditAllowed"
+                  },
+                  {
+                    "name": "IsDeleteAllowed"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal"
+                  },
+                  {
+                    "name": "SomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime"
+                  },
+                  {
+                    "name": "SomeDateVal",
+                    "sqlServerDBDataType": "date"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money"
+                  },
+                  {
+                    "name": "SomeNVarCharVal"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "LandCode"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "RatingLevel",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "DisplayOrder"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "PacID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByPacID",
+                "byObjectName": "Pac"
+              }
+            ],
+            "objectWorkflow": [],
+            "report": []
+          },
+          {
+            "name": "Role",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "DisplayOrder"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "PacID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByPacID",
+                "byObjectName": "Pac"
+              }
+            ]
+          },
+          {
+            "name": "State",
+            "cacheAllRecs": "false",
+            "prop": [
+              {
+                "name": "Abbreviation",
+                "sqlServerDBDataTypeSize": "5",
+                "forceDBColumnIndex": "true"
+              },
+              {
+                "name": "CountryID",
+                "isFK": "true",
+                "isFKLookup": "false"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByCountryID",
+                "byObjectName": "Country"
+              }
+            ],
+            "query": [
+              {
+                "name": "QueryByAbbreviation",
+                "storedProcName": "FS_Farm_State_QueryByAbbreviation",
+                "queryParam": [
+                  {
+                    "name": "Abbreviation",
+                    "storedProcParamName": "i_strAbbreviation",
+                    "sqlServerDBDataTypeSize": "5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Tac",
+            "codeDescription": "Tennant App Config",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "500"
+              },
+              {
+                "name": "DisplayOrder"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "Name"
+              },
+              {
+                "name": "PacID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByPacID",
+                "byObjectName": "Pac"
+              }
+            ],
+            "report": [
+
+              {
+                "name": "TacApiV1PlantList",
+                "titleText": "Plant List",
+                "introText": "A list of plants",
+                "isAutoRefresh": "true",
+                "autoRefreshFrequencyInMinutes": "1",
+                "isAutoRefreshDegraded": "true",
+                "isAutoRefreshVisible": "true",
+                "isFilterSectionCollapsable": "true",
+                "visualizationGridGroupByColumnName": "FlavorName",
+                "isButtonDropDownAllowed": "false",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  }
+                ],
+                "reportParam": [
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "IsEditAllowed",
+                    "defaultValue": "true",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "IsDeleteAllowed",
+                    "defaultValue": "true",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "MinimumSomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "MinimumSomeDateVal",
+                    "sqlServerDBDataType": "date",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeNVarCharVal",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text",
+                    "isFKList": "false"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "FlavorCode",
+                    "isFK": "true",
+                    "isFKLookup": "true",
+                    "isFKList": "true",
+                    "isFKListSearchable": "true"
+                  },
+                  {
+                    "name": "PlantCode"
+                  }
+                ],
+                "reportColumn": [
+                  {
+                    "name": "PlantCode",
+                    "isMultiSelectColumn": "true"
+                  },
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit"
+                  },
+                  {
+                    "name": "IsEditAllowed"
+                  },
+                  {
+                    "name": "IsDeleteAllowed"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal"
+                  },
+                  {
+                    "name": "SomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime"
+                  },
+                  {
+                    "name": "SomeDateVal",
+                    "sqlServerDBDataType": "date"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money"
+                  },
+                  {
+                    "name": "SomeNVarCharVal"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "FlavorName"
+                  },
+                  {
+                    "name": "FlavorCode",
+                    "isFK": "true"
+                  }
+                ]
+              },
+              {
+                "name": "TacFarmDashboard",
+                "titleText": "Farm Dashboard",
+                "introText": "",
+                "visualizationType": "DetailTwoColumn",
+                "isAutoRefresh": "false",
+                "isAutoRefreshVisible": "false",
+                "isRefreshButtonHidden": "true",
+                "isPagingAvailable": "false",
+                "isExportButtonsHidden": "true",
+                "isFilterSectionHidden": "true",
+                "isCachingAllowed": "true",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "isVisible": "false"
+                  },
+                  {
+                    "buttonType": "add",
+                    "isVisible": "false"
+                  }
+                ],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "FlavorListLinkTacCode",
+                    "isButton": "true",
+                    "buttonText": "Flavors",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList"
+                  },
+                  {
+                    "name": "FieldOnePlantListLinkLandCode",
+                    "isButton": "true",
+                    "buttonText": "Field One - Plants",
+                    "destinationContextObjectName": "Land",
+                    "destinationTargetName": "LandPlantList"
+                  },
+                  {
+                    "name": "ForceErrorLinkTacCode",
+                    "isButton": "true",
+                    "buttonText": "Force Error",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "ForceError"
+                  },
+                  {
+                    "name": "InitDataProvidersTacCode",
+                    "isButton": "true",
+                    "buttonText": "Initialize Data Providers",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "InitDataProviders"
+                  }
+                ]
+              },
+              {
+                "name": "TacFlavorCardView",
+                "titleText": "Test Card View",
+                "introText": "Card view of possible values.",
+                "isAutoRefresh": "false",
+                "visualizationType": "Cards",
+                "visualizationCardViewTitleColumn": "SampleTitle",
+                "visualizationCardViewDescriptionColumn": "SampleDescription",
+                "visualizationCardViewIsImageAvailable": "true",
+                "visualizationCardViewImageColumn": "SampleImagePath",
+                "visualizationCardViewGroupByColumnName": "SampleTitle",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  }
+                ],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "SampleTitle"
+                  },
+                  {
+                    "name": "SampleDescription"
+                  },
+                  {
+                    "name": "SampleDetails"
+                  },
+                  {
+                    "name": "SampleImagePath"
+                  }
+                ]
+              },
+              {
+                "name": "TacFlavorList",
+                "titleText": "Flavor List",
+                "introText": "A list of possible flavors for a plant.",
+                "isAutoRefresh": "true",
+                "autoRefreshFrequencyInMinutes": "1",
+                "isAutoRefreshDegraded": "true",
+                "isFavoriteCreationAllowed": "false",
+                "isSchedulingAllowed": "false",
+                "isButtonDropDownAllowed": "true",
+                "reportButton": [
+                  {
+                    "isVisible": "false",
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  },
+                  {
+                    "buttonType": "add",
+                    "buttonText": "Add A Flavor",
+                    "isButtonCallToAction": "true",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "AddFlavor"
+                  },
+                  {
+                    "buttonType": "breadcrumb",
+                    "buttonName": "Dashboard",
+                    "buttonText": "Dashboard",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFarmDashboard",
+                    "isVisible": "true"
+                  }
+                ],
+                "reportParam": [
+                  {
+                    "name": "FlavorCode",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "isFKList": "false",
+                    "isVisible": "false"
+                  }
+
+                ],
+                "reportColumn": [
+                  {
+                    "name": "FlavorCode",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "Description",
+                    "infoToolTipText": "Flavor Description"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "LookupEnumName"
+                  },
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "CurrentUTCDateTimeAsUnixEpoch",
+                    "sqlServerDBDataType": "bigint",
+                    "isUnixEpochDateTime": "true"
+
+                  },
+                  {
+                    "name": "EditLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Edit",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "UpdateFlavor"
+                  },
+                  {
+                    "name": "DeleteLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Delete",
+                    "isButtonAsyncObjWF": "true",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "DeleteFlavor"
+                  },
+                  {
+                    "name": "DetailsLinkFlavorCode",
+                    "isButton": "true",
+                    "buttonText": "Details",
+                    "isButtonAsyncObjWF": "false",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "FlavorCustomerDetails"
+                  }
+                ]
+              },
+              {
+                "name": "TacApiV1FlavorList",
+                "titleText": "Flavor List",
+                "introText": "A list of possible flavors for a plant.",
+                "isAutoRefresh": "true",
+                "autoRefreshFrequencyInMinutes": "1",
+                "isAutoRefreshDegraded": "true",
+                "isFavoriteCreationAllowed": "false",
+                "isSchedulingAllowed": "false",
+                "isButtonDropDownAllowed": "true",
+                "reportButton": [
+                  {
+                    "isVisible": "false",
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  }
+                ],
+                "reportParam": [
+                  {
+                    "name": "FlavorCode",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "isFKList": "false",
+                    "isVisible": "false"
+                  }
+
+                ],
+                "reportColumn": [
+                  {
+                    "name": "FlavorCode",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "Description",
+                    "infoToolTipText": "Flavor Description"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "LookupEnumName"
+                  },
+                  {
+                    "name": "Name"
+                  }
+                ]
+              },
+              {
+                "name": "TacFlavorPieChart",
+                "isCustomSqlUsed": "false",
+                "titleText": "Flavor Pie Chart",
+                "introText": "A Chart of possible flavors for a plant.",
+                "isAutoRefresh": "true",
+                "autoRefreshFrequencyInMinutes": "1",
+                "isAutoRefreshDegraded": "true",
+                "visualizationType": "PieChart",
+                "visualizationPieChartSliceValueColumnName": "DisplayOrder",
+                "visualizationPieChartSliceDescriptionColumnName": "Name",
+                "isPagingAvailable": "false",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  }
+                ],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "Description"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "Name"
+                  }
+                ]
+              },
+              {
+                "name": "TacTestFlowChartData",
+                "titleText": "Flavor Flow Chart",
+                "introText": "A Chart of possible flavors for a plant.",
+                "isAutoRefresh": "true",
+                "autoRefreshFrequencyInMinutes": "1",
+                "isAutoRefreshDegraded": "true",
+                "visualizationType": "FlowChart",
+                "visualizationFlowChartSourceNodeCodeColumnName": "SourceNodeCode",
+                "visualizationFlowChartSourceNodeDescriptionColumnName": "SourceNodeDescription",
+                "visualizationFlowChartFlowDescriptionColumnName": "FlowDescription",
+                "visualizationFlowChartSourceNodeColorColumnName": "SourceNodeColor",
+                "visualizationFlowChartDestinationNodeCodeColumnName": "DestinationNodeCode",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  }
+                ],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "SourceNodeCode",
+                    "sqlServerDBDataType": "uniqueidentifier"
+                  },
+                  {
+                    "name": "SourceNodeDescription"
+                  },
+                  {
+                    "name": "SourceNodeColor"
+                  },
+                  {
+                    "name": "FlowDescription"
+                  },
+                  {
+                    "name": "DestinationNodeCode",
+                    "sqlServerDBDataType": "uniqueidentifier"
+                  }
+                ]
+              },
+              {
+                "name": "TacTestFolderTree",
+                "titleText": "Folder Tree",
+                "isAutoRefresh": "false",
+                "visualizationType": "FolderWithDetail",
+                "visualizationFolderIDColumnName": "Identifier",
+                "visualizationFolderIsFolderColumnName": "IsFolder",
+                "visualizationFolderNameColumnName": "Name",
+                "visualizationFolderParentIDColumnName": "ParentIdentifier",
+                "isRatingLevelChangingRowBackgroundColor": "true",
+                "ratingLevelColumnName": "RatingLevel",
+                "reportButton": [],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "Identifier",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "ParentIdentifier",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "Name",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "IsFolder",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "Details",
+                    "infoToolTipText": "Folder Details"
+                  },
+                  {
+                    "name": "AdditionalDetails"
+                  },
+                  {
+                    "name": "EditLinkIdentifierCode",
+                    "isButton": "true",
+                    "buttonText": "Edit",
+                    "destinationContextObjectName": "Flavor",
+                    "destinationTargetName": "UpdateFlavor"
+                  },
+                  {
+                    "name": "RatingLevel",
+                    "isVisible": "false"
+                  }
+                ]
+              },
+              {
+                "name": "TacTestLineChartData",
+                "titleText": "Test Line Chart",
+                "introText": "A Chart of possible values.",
+                "isAutoRefresh": "false",
+                "visualizationType": "LineChart",
+                "visualizationLineChartUTCDateTimeColumnName": "EventUTCDateTime",
+                "visualizationLineChartValueColumnName": "SampleValue",
+                "visualizationLineChartDescriptionColumnName": "SampleName",
+                "isPagingAvailable": "false",
+                "isVisualizationLineChartGridVerticalMaxDynamic": "true",
+                "visualizationLineChartGridVerticalMaxValue": "10",
+                "isVisualizationLineChartStairLines": "true",
+                "reportButton": [
+                  {
+                    "buttonType": "back",
+                    "buttonText": "Farm Dashboard"
+                  }
+                ],
+                "reportParam": [],
+                "reportColumn": [
+                  {
+                    "name": "EventUTCDateTime"
+                  },
+                  {
+                    "name": "SampleValue",
+                    "sqlServerDBDataType": "int"
+                  },
+                  {
+                    "name": "SampleName"
+                  }
+                ]
+              }
+            ],
+            "objectWorkflow": [
+              {
+                "name": "ApiV1AddPlant",
+                "titleText": "Add Plant",
+                "isPage": "false",
+                "objectWorkflowButton": [
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "FlavorCode",
+                    "isFKLookup": "true",
+                    "isFK": "true",
+                    "isFKList": "true",
+                    "isFKListSearchable": "true",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "OtherFlavor",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "SomeIntVal",
+                    "sqlServerDBDataType": "int",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeBigIntVal",
+                    "sqlServerDBDataType": "bigint",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeBitVal",
+                    "sqlServerDBDataType": "bit",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "IsEditAllowed",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "IsDeleteAllowed",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeFloatVal",
+                    "sqlServerDBDataType": "float",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeDecimalVal",
+                    "sqlServerDBDataType": "decimal",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeDateVal",
+                    "sqlServerDBDataType": "date",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeMoneyVal",
+                    "sqlServerDBDataType": "money",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeNVarCharVal",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeVarCharVal",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true",
+                    "isSecured": "true"
+                  },
+                  {
+                    "name": "SomeTextVal",
+                    "sqlServerDBDataType": "text",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SampleImageUploadFile",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isFileUpload": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "PlantCode"
+                  }
+                ]
+              },
+              {
+                "name": "LoginApiV1Login",
+                "isPage": "false",
+                "objectWorkflowButton": [],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Email",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "Password",
+                    "isSecured": "true",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "FarmApiKey"
+                  }
+                ]
+              },
+              {
+                "name": "LoginApiV1Register",
+                "isPage": "false",
+                "objectWorkflowButton": [],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Email",
+                    "isRequired": "true",
+                    "validationRuleRegExMatchRequired": "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$",
+                    "validationRuleRegExMatchRequiredErrorText": "Invalid Email Address"
+                  },
+                  {
+                    "name": "Password",
+                    "detailsText": "The password must contain at least 8 characters that include 1 upper case letter, 1 lower case letter, 1 number, and 1 non-alpha numeric character.",
+                    "isSecured": "true",
+                    "isRequired": "true",
+                    "validationRuleRegExMatchRequired": "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W).{8,50}$",
+                    "validationRuleRegExMatchRequiredErrorText": "The password must contain at least 8 characters that include 1 upper case letter, 1 lower case letter, 1 number, and 1 non-alpha numeric character."
+                  },
+                  {
+                    "name": "ConfirmPassword",
+                    "isSecured": "true",
+                    "isRequired": "true",
+                    "requiredErrorText": "Please confirm the password.",
+                    "validationRuleRegExMatchRequired": "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W).{8,50}$",
+                    "validationRuleRegExMatchRequiredErrorText": "The password must contain at least 8 characters that include 1 upper case letter, 1 lower case letter, 1 number, and 1 non-alpha numeric character."
+                  },
+                  {
+                    "name": "FirstName",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "LastName",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "FarmApiKey"
+                  }
+                ]
+              },
+              {
+                "name": "AddFlavor",
+                "titleText": "Add Flavor",
+                "introText": "Please tell us about the new flavor",
+                "isProcessingAnimationShown": "true",
+                "processingAnimationText": "",
+                "isCreditCardEntryUsed": "true",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Description",
+                    "sqlServerDBDataTypeSize": "200",
+                    "infoToolTipText": "Flavor Description"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "LookupEnumName",
+                    "sqlServerDBDataTypeSize": "50"
+                  },
+                  {
+                    "name": "Name",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "CreditCardToken",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isCreditCardEntry": "true",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "SampleUploadFile",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isFileUpload": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "TacCode"
+                  },
+                  {
+                    "name": "FlavorCode"
+                  },
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "IsActive"
+                  },
+                  {
+                    "name": "DisplayOrder"
+                  }
+                ]
+              },
+
+              {
+                "name": "ForceError",
+                "titleText": "Force Error",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel"
+                  }
+                ],
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": []
+              },
+              {
+                "name": "ForgotPassword",
+                "layoutName": "PublicPage",
+                "titleText": "Forgot Password",
+                "introText": "If you forgot your password, please enter your email address here. We will send you an email with a special code to help you set a new password.",
+                "isAuthorizationRequired": "false",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "Send Request",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "ForgotPasswordKeyEntry"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "LoginCustomer"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Email",
+                    "isRequired": "true",
+                    "validationRuleRegExMatchRequired": "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$",
+                    "validationRuleRegExMatchRequiredErrorText": "Invalid Email Address"
+                  }
+                ],
+                "objectWorkflowOutputVar": []
+              },
+              {
+                "name": "ForgotPasswordKeyEntry",
+                "layoutName": "PublicPage",
+                "titleText": "Forgot Password",
+                "introText": "Please look in your inbox for an email from us.  It should have a special code. Please enter it one this page. Please allow some time for the email to reach you.  Also, you may need to check your spam folder.",
+                "isAuthorizationRequired": "false",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "LoginCustomer"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "LoginCustomer"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "KeyValue",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "CustomerCode"
+                  }
+                ]
+              },
+              {
+                "name": "InitDataProviders",
+                "titleText": "Initialize Data Providers",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFarmDashboard"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFarmDashboard"
+                  }
+                ],
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": []
+              },
+              {
+                "name": "LoginCustomer",
+                "layoutName": "PublicPage",
+                "titleText": "Log In",
+                "introText": "Please enter your email and password.",
+                "isAuthorizationRequired": "false",
+                "isLoginPage": "true",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "Log In",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Forgot Password",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "ForgotPassword"
+                  },
+                  {
+                    "buttonType": "other",
+                    "buttonText": "Register",
+                    "introText": "Test button intro text. test introTextReplacement:[TacCode] ",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "RegisterCustomer"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Email",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "Password",
+                    "isSecured": "true",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "CustomerCode"
+                  },
+                  {
+                    "name": "Email"
+                  },
+                  {
+                    "name": "RoleNameCSVList"
+                  },
+                  {
+                    "name": "FSUserCodeValue",
+                    "sqlServerDBDataType": "uniqueidentifier"
+                  },
+                  {
+                    "name": "UTCOffsetInMinutes",
+                    "sqlServerDBDataType": "int"
+                  }
+                ]
+              },
+              {
+                "name": "FSUserLogin",
+                "isExposedInBusinessObject": "true",
+                "titleText": "Login",
+                "isPage": "false",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK",
+                    "destinationContextObjectName": "",
+                    "destinationTargetName": ""
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "",
+                    "destinationTargetName": ""
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "email",
+                    "sqlServerDBDataTypeSize": "200",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "password",
+                    "sqlServerDBDataTypeSize": "200",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "FSUserCode"
+                  }
+                ]
+              },
+              {
+                "name": "RegisterCustomer",
+                "layoutName": "PublicPage",
+                "titleText": "Registration",
+                "introText": "Please let us know a little about yourself.",
+                "initObjectWorkflowName": "RegisterCustomerInitWFReq",
+                "isAuthorizationRequired": "false",
+                "isLoginPage": "true",
+                "isProcessingAnimationShown": "true",
+                "isCaptchaVisible": "true",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "Register",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "RegistrationThankYou"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Back to Log in",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "LoginCustomer"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Email",
+                    "isRequired": "true",
+                    "validationRuleRegExMatchRequired": "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$",
+                    "validationRuleRegExMatchRequiredErrorText": "Invalid Email Address"
+                  },
+                  {
+                    "name": "Password",
+                    "detailsText": "The password must contain at least 8 characters that include 1 Upper case, 1 lower case, 1 number, and 1 non-alpha numeric character.",
+                    "isSecured": "true",
+                    "isRequired": "true",
+                    "validationRuleRegExMatchRequired": "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W).{8,50}$",
+                    "validationRuleRegExMatchRequiredErrorText": "The password must contain at least 8 characters that include 1 Upper case, 1 lower case, 1 number, and 1 non-alpha numeric character."
+                  },
+                  {
+                    "name": "ConfirmPassword",
+                    "isSecured": "true",
+                    "isRequired": "true",
+                    "requiredErrorText": "Please confirm the password.",
+                    "validationRuleRegExMatchRequired": "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W).{8,50}$",
+                    "validationRuleRegExMatchRequiredErrorText": "The password must contain at least 8 characters that include 1 Upper case, 1 lower case, 1 number, and 1 non-alpha numeric character."
+                  },
+                  {
+                    "name": "FirstName",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "LastName",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "BusinessWebsite"
+                  },
+                  {
+                    "name": "CountryCode",
+                    "isFK": "true",
+                    "isFKList": "true",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "AddressLine1",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "AddressLine2",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "City",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "StateCode",
+                    "isFK": "true",
+                    "isFKList": "true",
+                    "isVisible": "false",
+                    "isFKListSearchable": "true"
+                  },
+                  {
+                    "name": "Province",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "PostalCode",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "labelText": "Postal Code",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "Phone",
+                    "sqlServerDBDataTypeSize": "50",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "OptOutOfMarketingEmails",
+                    "sqlServerDBDataType": "bit"
+                  },
+                  {
+                    "name": "OptOutOfAllEmails",
+                    "sqlServerDBDataType": "bit",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "OptIntoTerms",
+                    "labelText": "I agree to terms and conditions of service",
+                    "detailsText": "<a href='https://derivative-programming.com/terms' target='_blank'>View Terms Of Service</a>",
+                    "sqlServerDBDataType": "bit"
+                  },
+                  {
+                    "name": "TimeZoneAdjCode",
+                    "labelText": "Time Zone",
+                    "isFK": "true",
+                    "isFKList": "true",
+                    "isRequired": "true",
+                    "isTimeZoneDetermined": "true",
+                    "isFKListSearchable": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "CustomerCode"
+                  },
+                  {
+                    "name": "Email"
+                  },
+                  {
+                    "name": "RoleNameCSVList"
+                  },
+                  {
+                    "name": "FSUserCodeValue",
+                    "sqlServerDBDataType": "uniqueidentifier"
+                  },
+                  {
+                    "name": "UTCOffsetInMinutes",
+                    "sqlServerDBDataType": "int"
+                  }
+                ]
+              },
+              {
+                "name": "RegisterCustomerInitWFReq",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "CountryCode"
+                  },
+                  {
+                    "name": "StateCode"
+                  },
+                  {
+                    "name": "TimeZoneAdjCode"
+                  }
+                ]
+              },
+              {
+                "name": "RegisterFSUser",
+                "titleText": "Register User",
+                "isExposedInBusinessObject": "true",
+                "isPage": "false",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "OK",
+                    "destinationContextObjectName": "",
+                    "destinationTargetName": ""
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "",
+                    "destinationTargetName": ""
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "email",
+                    "sqlServerDBDataTypeSize": "200",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "password",
+                    "sqlServerDBDataTypeSize": "200",
+                    "isRequired": "true"
+                  }
+                ],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "FSUserCode"
+                  }
+                ]
+              },
+              {
+                "name": "RegistrationThankYou",
+                "roleRequired": "End_User",
+                "layoutName": "PublicPage",
+                "titleText": "Welcome To The Farm!",
+                "formIntroText": "Thank You! We look forward to helping you find ways for Data Science to help you. Test formIntroTextReplacement:[TacCode]",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "Go To Dashboard",
+                    "destinationContextObjectName": "Tac",
+                    "destinationTargetName": "TacFlavorList"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "isVisible": "false"
+                  }
+                ],
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "CustomerCode"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "CustomerReportFavorite",
+            "prop": [
+              {
+                "name": "CustomerID",
+                "isFK": "true",
+                "isFKLookup": "false"
+              },
+              {
+                "name": "ConfigurationDisplayText",
+                "sqlServerDBDataTypeSize": "max"
+              },
+              {
+                "name": "ContextCode"
+              },
+              {
+                "name": "CreatedUTCDateTime"
+              },
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "ReportName",
+                "sqlServerDBDataTypeSize": "100"
+              },
+              {
+                "name": "ReportTitle",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "RequiredRoleLookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "TargetObjectName",
+                "sqlServerDBDataTypeSize": "100"
+              },
+              {
+                "name": "Url",
+                "sqlServerDBDataTypeSize": "1000"
+              },
+              {
+                "name": "ActiveOrganizationID"
+              },
+              {
+                "name": "OrganizationName",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "UserCode"
+              },
+              {
+                "name": "IsConfirmed"
+              },
+              {
+                "name": "IsPlaceholder"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByCustomerID",
+                "byObjectName": "Customer"
+              }
+            ],
+            "query": [
+              {
+                "name": "QueryByCustomerID",
+                "storedProcName": "FS_Farm_CustomerReportFavorite_QueryByCustomerID",
+                "queryParam": [
+                  {
+                    "name": "CustomerID",
+                    "storedProcParamName": "i_iCustomerID"
+                  }
+                ]
+              }
+            ],
+            "objectWorkflow": [
+              {
+                "name": "Confirm",
+                "titleText": "Confirm Favorite",
+                "initObjectWorkflowName": "ConfirmInitObjWF",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "Confirm",
+                    "destinationContextObjectName": "CustomerReportFavorite",
+                    "destinationTargetName": "ReportGateway"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "CustomerReportFavorite",
+                    "destinationTargetName": "ReportGateway"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Name",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "Description",
+                    "sqlServerDBDataTypeSize": "2000"
+                  }
+                ],
+                "objectWorkflowOutputVar": []
+              },
+              {
+                "name": "ConfirmInitObjWF",
+                "objectWorkflowButton": [],
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "Description",
+                    "sqlServerDBDataTypeSize": "2000"
+                  }
+                ]
+              },
+              {
+                "name": "ReportGateway",
+                "initObjectWorkflowName": "ReportGatewayInitObjWF",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "isVisible": "false"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "isVisible": "false"
+                  }
+                ],
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": []
+              },
+              {
+                "name": "ReportGatewayInitObjWF",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "DestinationURL",
+                    "isAutoRedirectURL": "true"
+                  }
+                ]
+              }
+            ],
+            "report": [
+            ]
+          },
+          {
+            "name": "ReportSchedule",
+            "prop": [
+              {
+                "name": "ActiveOrganizationID"
+              },
+              {
+                "name": "ConfigurationDisplayText",
+                "sqlServerDBDataTypeSize": "max"
+              },
+              {
+                "name": "ContextCode"
+              },
+              {
+                "name": "CreatedBy",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "CreatedUTCDateTime"
+              },
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "EmailDistributionList",
+                "sqlServerDBDataTypeSize": "1000"
+              },
+              {
+                "name": "EndUTCDateTime"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "IsConfirmed"
+              },
+              {
+                "name": "IsProcessedIfNoResultsReturned"
+              },
+              {
+                "name": "IsResultsSaved"
+              },
+              {
+                "name": "LastUTCDateTime"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "NextUTCDateTime"
+              },
+              {
+                "name": "OrganizationName",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "ReportName",
+                "sqlServerDBDataTypeSize": "100"
+              },
+              {
+                "name": "ReportRequestJsonData",
+                "sqlServerDBDataTypeSize": "max"
+              },
+              {
+                "name": "ReportScheduleFrequencyID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              },
+              {
+                "name": "ReportTitle",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "RequiredRoleLookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "StartUTCDateTime"
+              },
+              {
+                "name": "TargetObjectName",
+                "sqlServerDBDataTypeSize": "100"
+              },
+              {
+                "name": "Url",
+                "sqlServerDBDataTypeSize": "1000"
+              },
+              {
+                "name": "UserCode"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByReportScheduleFrequencyID",
+                "byObjectName": "ReportScheduleFrequency",
+                "includeInByObjectNameXMLFunction": "true"
+              }
+            ],
+            "query": [
+              {
+                "name": "QueryByIsConfirmed",
+                "storedProcName": "FS_Farm_ReportSchedule_QueryByIsConfirmed",
+                "queryParam": [
+                  {
+                    "name": "IsConfirmed",
+                    "storedProcParamName": "i_bIsConfirmed"
+                  }
+                ]
+              }
+            ],
+            "objectWorkflow": [
+              {
+                "name": "Confirm",
+                "titleText": "Request Scheduled Report",
+                "initObjectWorkflowName": "ConfirmInitObjWF",
+                "formIntroText": "A maximum of 1000 rows can be returned.",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "buttonText": "Confirm",
+                    "destinationContextObjectName": "ReportSchedule",
+                    "destinationTargetName": "ReportGateway"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "buttonText": "Cancel",
+                    "destinationContextObjectName": "ReportSchedule",
+                    "destinationTargetName": "ReportGateway"
+                  }
+                ],
+                "objectWorkflowParam": [
+                  {
+                    "name": "Name",
+                    "isVisible": "false"
+                  },
+                  {
+                    "name": "Description",
+                    "sqlServerDBDataTypeSize": "2000"
+                  },
+                  {
+                    "name": "IsProcessedIfNoResultsReturned"
+                  },
+                  {
+                    "name": "IsResultsSaved"
+                  },
+                  {
+                    "name": "EmailDistributionList",
+                    "sqlServerDBDataTypeSize": "1000"
+                  },
+                  {
+                    "name": "ReportScheduleFrequencyCode",
+                    "labelText": "Frequency",
+                    "isFK": "true",
+                    "isFKList": "true",
+                    "isRequired": "true"
+                  },
+                  {
+                    "name": "NextUTCDateTime"
+                  },
+                  {
+                    "name": "EndUTCDateTime"
+                  }
+                ],
+                "objectWorkflowOutputVar": []
+              },
+              {
+                "name": "ConfirmInitObjWF",
+                "objectWorkflowButton": [],
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "Name"
+                  },
+                  {
+                    "name": "Description",
+                    "sqlServerDBDataTypeSize": "2000"
+                  },
+                  {
+                    "name": "IsProcessedIfNoResultsReturned"
+                  },
+                  {
+                    "name": "IsResultsSaved"
+                  },
+                  {
+                    "name": "EmailDistributionList",
+                    "sqlServerDBDataTypeSize": "1000"
+                  },
+                  {
+                    "name": "ReportScheduleFrequencyCode"
+                  },
+                  {
+                    "name": "NextUTCDateTime"
+                  },
+                  {
+                    "name": "EndUTCDateTime"
+                  }
+                ]
+              },
+              {
+                "name": "ReportGateway",
+                "initObjectWorkflowName": "ReportGatewayInitObjWF",
+                "objectWorkflowButton": [
+                  {
+                    "buttonType": "submit",
+                    "isVisible": "false"
+                  },
+                  {
+                    "buttonType": "cancel",
+                    "isVisible": "false"
+                  }
+                ],
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": []
+              },
+              {
+                "name": "ReportGatewayInitObjWF",
+                "objectWorkflowParam": [],
+                "objectWorkflowOutputVar": [
+                  {
+                    "name": "DestinationURL",
+                    "isAutoRedirectURL": "true"
+                  }
+                ]
+              }
+            ],
+            "report": [
+            ]
+          },
+          {
+            "name": "ReportScheduleFrequency",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "200"
+              },
+              {
+                "name": "DisplayOrder"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "Name",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "PacID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByPacID",
+                "byObjectName": "Pac"
+              }
+            ],
+            "objectWorkflow": [],
+            "report": []
+          },
+          {
+            "name": "TimeZoneAdj",
+            "isLookup": "true",
+            "prop": [
+              {
+                "name": "Description",
+                "sqlServerDBDataTypeSize": "500"
+              },
+              {
+                "name": "DisplayOrder"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LookupEnumName",
+                "sqlServerDBDataTypeSize": "50"
+              },
+              {
+                "name": "Name"
+              },
+              {
+                "name": "UTCOffsetInMinutes",
+                "sqlServerDBDataType": "int"
+              },
+              {
+                "name": "PacID",
+                "isFK": "true",
+                "isFKLookup": "true"
+              }
+            ],
+            "fetch": [
+              {
+                "name": "FetchByPacID",
+                "byObjectName": "Pac"
+              }
+            ],
+            "query": [
+              {
+                "name": "QueryByLookupEnumName",
+                "storedProcName": "FS_Farm_TimeZoneAdj_QueryByLookupEnumName",
+                "queryParam": [
+                  {
+                    "name": "LookupEnumName",
+                    "storedProcParamName": "i_strInternalName",
+                    "sqlServerDBDataTypeSize": "50"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "apiSite": [
+          {
+            "name": "OpenApi",
+            "description": "Farm Api description", 
+            "title": "Farm Api title",
+            "versionNumber": "1",
+            "apiEnvironment": [
+              {
+                "name": "Development",
+                "description": "Dev Site",
+                "url": "https://derivative-programming-farmapidotnetcore.azurewebsites.net/"
+              }
+            ],
+            "apiEndPoint": [
+              {
+                "name": "Flavor",
+                "pluralName": "Flavors",
+                "apiCodeParamName": "FlavorCode",
+                "apiContextObjectName": "Tac",
+                "description": "Flavors",
+                "apiContextTargetName": "TacApiV1FlavorList",
+                "isGetAvailable": "true",
+                "isGetWithIdAvailable": "true", 
+                "isPostAvailable": "false", 
+                "isPutAvailable": "false", 
+                "isDeleteAvailable": "false"
+              },
+              {
+                "name": "Plant",
+                "pluralName": "Plants",
+                "apiCodeParamName": "PlantCode",
+                "apiContextObjectName": "Tac",
+                "description": "Plants",
+                "apiContextTargetName": "TacApiV1PlantList",
+                "isGetAvailable": "true",
+                "isGetWithIdAvailable": "true",
+                "apiPostContextObjectName": "Tac",
+                "apiPostContextTargetName": "ApiV1AddPlant",
+                "isPostAvailable": "true",
+                "apiPutContextObjectName": "Plant",
+                "apiPutContextTargetName": "PlantEdit",
+                "isPutAvailable": "true",
+                "apiDeleteContextObjectName": "Plant",
+                "apiDeleteContextTargetName": "PlantDelete",
+                "isDeleteAvailable": "true"
+              },
+              {
+                "name": "Login",
+                "pluralName": "Login",
+                "description": "Login to retrieve user and company api tokens. This endpoint is public. An api key is not required.",
+                "isPostAvailable": "true",
+                "apiPostContextObjectName": "Tac",
+                "apiPostContextTargetName": "LoginApiV1Login",
+                "isPublic": "true"
+              },
+              {
+                "name": "Register",
+                "pluralName": "Register",
+                "description": "Register a new user. This endpoint is public. An api key is not required.",
+                "isPostAvailable": "true",
+                "apiPostContextObjectName": "Tac",
+                "apiPostContextTargetName": "LoginApiV1Register",
+                "isPublic": "true"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

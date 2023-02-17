@@ -1,0 +1,21 @@
+{
+    "ignore":[
+        "dist",
+        ".git",
+        "node_modules",
+        "build",
+        ".DS_Store"
+    ],
+    "templateSet":
+    {
+        "name": "React UI",
+        "internalName" : "react_ui",
+        "versionNumber" : "1.0.0.1"
+    },
+    "modelFile" : "gen-model.json",
+    "SupressTemplateLanguageSubstitution": [
+        "package*.json",
+        "*.svg",
+        "*.ico"
+    ]
+}

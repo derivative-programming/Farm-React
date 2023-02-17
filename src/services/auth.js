@@ -1,18 +1,13 @@
-import { LOGIN, REGISTER } from "../apiConfig/apiEndpoints";
-import { baseApiCall } from "../apiConfig/baseApiCall";
-
-export const login = (data) => {
-    return baseApiCall({
-        url: LOGIN,
+import { 
+    TAC_LOGIN, 
+    TAC_REGISTER,
+ } from "../apiConfig/apiEndpoints";
+import { apiCall } from "../apiConfig/apiCall";
+ 
+export const tacRegisterService = (data) => {
+    return apiCall({
+        url: TAC_REGISTER,
         method: "post",
         data,
     });
-};
-
-export const register = (data) => {
-    return baseApiCall({
-        url: REGISTER,
-        method: "post",
-        data,
-    });
-};
+}; 

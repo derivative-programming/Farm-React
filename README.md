@@ -19,8 +19,8 @@ You can run the all component testcase.
 ### `npm run test`
 
 Run specific component testcase.
-### `npm test Login.test.tsx` OR
-### `npm run test Login.test.tsx`
+### `npm test TacLogin.test.tsx` OR
+### `npm run test TacLogin.test.tsx`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.

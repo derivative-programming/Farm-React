@@ -1,0 +1,2 @@
+use service of report gen page
+use control of report gen page using its current visualization

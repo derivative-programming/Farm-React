@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { instance } from "../apiConfig";
+import { apiInstance } from "../apiConfig";
 
 export const AuthContext = createContext();
 
@@ -7,11 +7,10 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("@token"));
 
   useEffect(() => {
-    instance.defaults.headers.common["Farm-Api-Key"] = token;
+    apiInstance.defaults.headers.common["Api-Key"] = token;
   }, [token]);
 
-  const onToken = (token) => {
-    // instance.defaults.headers.common["Farm-Api-Key"] = token;
+  const onToken = (token) => { 
     setToken(token);
   };
 

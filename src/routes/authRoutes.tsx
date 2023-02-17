@@ -1,23 +1,27 @@
 import React from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
-import Login from "../pages/authentication/Login";
-import Register from "../pages/authentication/Register";
+//import TacLogin from "../components/pages/public/tac-login/TacLogin";
+import FormConnectedTacLogin from "../components/forms/connected/TacLogin";
+import FormConnectedTacRegister from "../components/forms/connected/TacRegister"; 
+import LayoutComponent from "../components/Layout/Layout";
 
 const AuthRoute = () => {
 
     return (
         // <BrowserRouter>
+    <LayoutComponent>
         <Routes>
             <Route path={"/"} element={
-                <Login />
+                <FormConnectedTacLogin />
             } />
-            <Route path={"/register"} element={
-                <Register />
+            <Route path={"/tac-register"} element={
+                <FormConnectedTacRegister />
             } />
 
             <Route path={"*"} element={<Navigate to={"/"} replace />} />
 
         </Routes>
+    </LayoutComponent>
         // </BrowserRouter>
     )
 }
