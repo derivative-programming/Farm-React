@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useContext, useEffect, useState } from "react";
+import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Card } from "react-bootstrap";
 import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
@@ -31,6 +31,7 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
   }): ReactElement => { 
     
     const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);  
+    const isInitializedRef = useRef(false); 
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -140,6 +141,10 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
     });
     
     useEffect(() => {
+        if(isInitializedRef.current){
+            return;
+        }
+        isInitializedRef.current = true;
         FormService.initForm(plantCode)
         .then(response => handleInit(response));
     }); 

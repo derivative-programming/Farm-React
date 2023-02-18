@@ -31,3 +31,4 @@ export const ErrorDisplay: FC<ErrorDisplayProps> = ({
   );
 };
    
+export default ErrorDisplay;

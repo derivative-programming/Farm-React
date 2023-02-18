@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useContext, useEffect, useState } from "react";
+import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Card } from "react-bootstrap";
 import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
@@ -30,7 +30,8 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
     name="formConnectedLandAddPlant", 
   }): ReactElement => { 
     
-    const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);  
+    const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);   
+    const isInitializedRef = useRef(false);
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -136,6 +137,10 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
     });
     
     useEffect(() => {
+        if(isInitializedRef.current){
+            return;
+        }
+        isInitializedRef.current = true;
         FormService.initForm(landCode)
         .then(response => handleInit(response));
         

@@ -26,3 +26,4 @@ export const FormInputErrorDisplay: FC<FormInputErrorDisplayProps> = ({
   );
 };
    
+export default ErrorDisplay;

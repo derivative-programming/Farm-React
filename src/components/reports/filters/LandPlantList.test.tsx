@@ -10,12 +10,16 @@ import {
 } from "@testing-library/react";
 import ReportFilterLandPlantList from "./LandPlantList";  
 import * as PacUserFlavorList from "../../lookups/services/PacUserFlavorList"
+import * as ReportService from "../services/LandPlantList";  
 
 // set the local storage
 window.localStorage.setItem("@token", "sampleToken");
  
 const mockPacUserFlavorListService =  jest.spyOn(PacUserFlavorList, "submitRequest");
  
+const onSubmit = jest.fn();
+
+const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestInstance;
 
 
 describe("LandPlantList Component", () => {
@@ -27,7 +31,10 @@ describe("LandPlantList Component", () => {
       
 
     render( 
-        <ReportFilterLandPlantList name="testForm" /> 
+        <ReportFilterLandPlantList 
+          name="testForm" 
+          initialQuery={intialQuery}
+          onSubmit={onSubmit} />  
     ); 
 
     await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
@@ -49,8 +56,8 @@ describe("LandPlantList Component", () => {
     expect(screen.getByTestId("isDeleteAllowed")).toBeInTheDocument();
     expect(screen.getByTestId("someFloatVal")).toBeInTheDocument();
     expect(screen.getByTestId("someDecimalVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someUTCDateTimeVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someDateVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someMinUTCDateTimeVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someMinDateVal")).toBeInTheDocument();
     expect(screen.getByTestId("someMoneyVal")).toBeInTheDocument();
     expect(screen.getByTestId("someNVarCharVal")).toBeInTheDocument();
     expect(screen.getByTestId("someVarCharVal")).toBeInTheDocument();
@@ -116,20 +123,20 @@ describe("LandPlantList Component", () => {
     expect(screen.getByTestId("someDecimalVal")).toHaveValue(1);
   });
 
-  it("when user enter someUTCDateTimeVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someUTCDateTimeVal");
+  it("when user enter someMinUTCDateTimeVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someMinUTCDateTimeVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "1/1/2000" } });
     }); 
-    expect(screen.getByTestId("someUTCDateTimeVal")).toHaveValue("1/1/2000");
+    expect(screen.getByTestId("someMinUTCDateTimeVal")).toHaveValue("1/1/2000");
   });
 
-  it("when user enter someDateVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someDateVal");
+  it("when user enter someMinDateVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someMinDateVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "1/1/2000" } });
     }); 
-    expect(screen.getByTestId("someDateVal")).toHaveValue("1/1/2000");
+    expect(screen.getByTestId("someMinDateVal")).toHaveValue("1/1/2000");
   });
 
   it("when user enter someMoneyVal, it set accordingly", async () => {
@@ -217,14 +224,14 @@ describe("LandPlantList Component", () => {
       await fireEvent.change(someDecimalValInput, { target: { value: "99" } });
     });
  
-    const someUTCDateTimeValInput = screen.getByTestId("someUTCDateTimeVal");
+    const someMinUTCDateTimeValInput = screen.getByTestId("someMinUTCDateTimeVal");
     await act(async () => {
-      await fireEvent.change(someUTCDateTimeValInput, { target: { value: "1/1/2000" } });
+      await fireEvent.change(someMinUTCDateTimeValInput, { target: { value: "1/1/2000" } });
     });
  
-    const someDateValInput = screen.getByTestId("someDateVal");
+    const someMinDateValInput = screen.getByTestId("someMinDateVal");
     await act(async () => {
-      await fireEvent.change(someDateValInput, { target: { value: "1/1/2000" } });
+      await fireEvent.change(someMinDateValInput, { target: { value: "1/1/2000" } });
     });
  
     const someMoneyValInput = screen.getByTestId("someMoneyVal");

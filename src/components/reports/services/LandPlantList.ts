@@ -3,19 +3,21 @@ import {
   } from "../../../apiConfig/apiEndpoints";
   import { apiCall } from "../../../apiConfig/apiCall"; 
    
-export const submitRequest = (data:QueryRequest, landCode:string) => {
+export const submitRequest = (data:any, landCode:string) => {
     return apiCall({
       url: LAND_PLANT_LIST + "/" + landCode,
       method: "get",
       params: data
-    });
+    });     
   };
   
   
   export const initPage = (landCode:string) => {
+    const data = {};
     return apiCall({
       url: LAND_PLANT_LIST + "/" + landCode,
-      method: "put"
+      method: "put",
+      data
     });
   };
 
@@ -380,37 +382,37 @@ export class QueryResultItemInstance implements QueryResultItem {
 
 export class QueryRequestInstance implements QueryRequest {
  
-    someIntVal: number; //!
+    someIntVal: number; 
  
-    someBigIntVal: number; //!
+    someBigIntVal: number; 
  
-    someBitVal: boolean; //!
+    someBitVal: boolean; 
  
-    isEditAllowed: boolean; //!
+    isEditAllowed: boolean; 
  
-    isDeleteAllowed: boolean; //!
+    isDeleteAllowed: boolean; 
  
-    someFloatVal: number; //!
+    someFloatVal: number; 
  
-    someDecimalVal: number; //!
+    someDecimalVal: number; 
  
-    someMinUTCDateTimeVal: Date;
+    someMinUTCDateTimeVal: Date; 
  
-    someMinDateVal: Date;
+    someMinDateVal: Date; 
  
-    someMoneyVal: number; //!
+    someMoneyVal: number; 
  
-    someNVarCharVal: string; //!
+    someNVarCharVal: string; 
  
-    someVarCharVal: string; //!
+    someVarCharVal: string; 
  
-    someTextVal: string; //!
+    someTextVal: string; 
  
-    somePhoneNumber: string; //!
+    somePhoneNumber: string; 
  
-    someEmailAddress: string; //!
+    someEmailAddress: string; 
  
-    flavorCode: string; //!  not someUTCDateTimeVal, someDateVal, sampleImageUploadFile
+    flavorCode: string;   
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;

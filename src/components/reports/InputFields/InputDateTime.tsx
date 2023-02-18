@@ -23,6 +23,20 @@ export const ReportInputDateTime: FC<ReportInputDateTimeProps> = ({
 }): ReactElement => {
   const [field, meta, helpers] = useField(name); 
 
+  const getDisplayDateTime = () => {
+    const dt:moment.Moment = moment.utc(
+        field.value,
+        moment.ISO_8601
+      );
+    if(dt.isValid()){
+      return dt.local();
+    } else {
+      return moment();
+    } 
+  }
+
+  const selectedDateTimeLocal:moment.Moment = getDisplayDateTime();
+
   const errorDisplayControlName = name + "ErrorDisplay";
   
   return (
@@ -31,13 +45,15 @@ export const ReportInputDateTime: FC<ReportInputDateTimeProps> = ({
           <Form.Label>{label}</Form.Label>
           <DatePicker
             // ref={inputRef}
-            showTime={{ format: "hh:mm A" }}
+            showTime={true}
+            format="M/D/YYYY h:mm A"
             data-testid={name} 
             aria-label={name} 
             placeholder={placeholder}
             name={field.name}
-            value={moment(field.value,"M/D/YYYY h:m A")}
-            onChange={(e) => helpers.setValue(moment(e).format("M/D/YYYY h:m A"))}
+            defaultValue={selectedDateTimeLocal}
+            value={selectedDateTimeLocal}
+            onChange={(e) => helpers.setValue(moment(e).utc().format("YYYY-MM-DDTHH:mm"))}
             onBlur={field.onBlur} 
             disabled={disabled}
             autoFocus={autoFocus}

@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
+import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Card } from "react-bootstrap";
 import "../../../App.scss";
 import {useField } from 'formik';
@@ -21,8 +21,22 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
+  const [field, meta, helpers] = useField(name);  
 
+  const getDisplayDateTime = () => {
+    const dt:moment.Moment = moment.utc(
+        field.value,
+        moment.ISO_8601
+      );
+    if(dt.isValid()){
+      return dt.local();
+    } else {
+      return moment();
+    } 
+  }
+
+  const selectedDateTimeLocal:moment.Moment = getDisplayDateTime();
+    
   const errorDisplayControlName = name + "ErrorDisplay";
   
   return (
@@ -35,8 +49,9 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
             aria-label={name} 
             placeholder={placeholder}
             name={field.name}
-            value={moment(field.value, "M/D/YYYY")}
-            onChange={(e) => helpers.setValue(moment(e).format("M/D/YYYY"))}
+            defaultValue={selectedDateTimeLocal}
+            value={selectedDateTimeLocal}
+            onChange={(e) => helpers.setValue(moment(e).utc().format("YYYY-MM-DDTHH:mm"))}
             onBlur={field.onBlur} 
             disabled={disabled}
             autoFocus={autoFocus}
