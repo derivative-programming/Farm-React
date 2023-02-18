@@ -5,23 +5,22 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik, 
     FormikHelpers,
-    useField,
 } from "formik";
 import * as FormService from "../services/LandAddPlant"; 
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
-import {InputEmail} from "../../InputFields/InputEmail" 
-import {InputPassword} from "../../InputFields/InputPassword" 
-import {InputNumber} from "../../InputFields/InputNumber" 
-import {InputCheckbox} from "../../InputFields/InputCheckbox" 
-import {InputFile} from "../../InputFields/InputFile" 
-import {InputDate} from "../../InputFields/InputDate" 
-import {InputText} from "../../InputFields/InputText" 
-import {InputMoney} from "../../InputFields/InputMoney" 
-import {InputTextArea} from "../../InputFields/InputTextArea" 
-import {InputDateTime} from "../../InputFields/InputDateTime" 
-import {ErrorDisplay } from '../../InputFields/ErrorDisplay';
-import SelectFlavor from "../../lookups/drop-down/SelectFlavor"; 
+import {FormInputEmail} from "../InputFields/InputEmail" 
+import {FormInputPassword} from "../InputFields/InputPassword" 
+import {FormInputNumber} from "../InputFields/InputNumber" 
+import {FormInputCheckbox} from "../InputFields/InputCheckbox" 
+import {FormInputFile} from "../InputFields/InputFile" 
+import {FormInputDate} from "../InputFields/InputDate" 
+import {FormInputText} from "../InputFields/InputText" 
+import {FormInputMoney} from "../InputFields/InputMoney" 
+import {FormInputTextArea} from "../InputFields/InputTextArea" 
+import {FormInputDateTime} from "../InputFields/InputDateTime" 
+import {ErrorDisplay } from '../InputFields/ErrorDisplay';
+import SelectFlavor from "../lookups/SelectFlavor";  
    
 export interface FormProps {
     name?:string
@@ -30,14 +29,14 @@ export interface FormProps {
 const FormConnectedLandAddPlant: FC<FormProps> = ({
     name="formConnectedLandAddPlant", 
   }): ReactElement => { 
+    
+    const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);  
 
     const navigate = useNavigate();
-    const { Id } = useParams();
-    const landCode:string = Id ?? "00000000-0000-0000-0000-000000000000";
+    const { id } = useParams();
+    const landCode:string = id ?? "00000000-0000-0000-0000-000000000000";
     let navCodesAvailable:Record<string,string> = {}
-
-    const initialValues: FormService.SubmitRequest = new FormService.SubmitRequestInstance;
-    let initFormResponse: FormService.InitResult = new FormService.InitResultInstance; 
+    navCodesAvailable.landCode = landCode;   
 
     const validationSchema  = Yup.object().shape({
         flavorCode: Yup.string()
@@ -80,10 +79,15 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
 
     let headerErrors:string [] = [];
 
-    const handleInit = async() => {
-        const responseFull: any = await FormService.initForm(landCode); 
-        initFormResponse = responseFull.data; 
+    const handleInit = (responseFull:any) => {
+        
+        const initFormResponse: FormService.InitResult = responseFull.data; 
 
+        if(!initFormResponse.success)
+        {
+            return;
+        } 
+        
         initialValues.flavorCode = initFormResponse.flavorCode;
         initialValues.otherFlavor = initFormResponse.otherFlavor;
         initialValues.someIntVal = initFormResponse.someIntVal;
@@ -101,8 +105,8 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
         initialValues.someTextVal = initFormResponse.someTextVal;
         initialValues.somePhoneNumber = initFormResponse.somePhoneNumber;
         initialValues.someEmailAddress = initFormResponse.someEmailAddress; 
-
-        navCodesAvailable.landCode = landCode;
+ 
+        setInitialValues({...initialValues}); 
     }
 
     const submitButtonClick = async (
@@ -114,7 +118,7 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
             const response: FormService.SubmitResult = responseFull.data; 
             if (!response.success) {  
                 headerErrors = FormService.getValidationErrors("",response); 
-                Object.entries(FormService.SubmitRequestInstance)
+                Object.entries(new FormService.SubmitRequestInstance)
                     .forEach(([key, value]) => 
                     actions.setFieldError(key, FormService.getValidationErrors(key,response).join(','))) 
                 return;
@@ -127,12 +131,14 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
         }
     }; 
 
-    const cancelButtonClick = (() => {
+    const cancelButtonClick = (() => { 
         navigate("/land-plant-list/" + navCodesAvailable.landCode);
     });
     
     useEffect(() => {
-        handleInit();
+        FormService.initForm(landCode)
+        .then(response => handleInit(response));
+        
     }); 
     
 
@@ -142,6 +148,7 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
                 <h1>Add Plant</h1> 
 
                 <Formik
+                    enableReinitialize={true}
                     initialValues={initialValues}
                     validationSchema={validationSchema}
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
@@ -154,23 +161,23 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
 
                             <ErrorDisplay name="headerErrors" errorArray={headerErrors} />
                             <SelectFlavor name="flavorCode" label="Flavor" /> 
-                            <InputText name="otherFlavor" label="Other Flavor" /> 
-                            <InputNumber name="someIntVal" label="Some Int Value" /> 
-                            <InputNumber name="someBigIntVal" label="Some Big Int Value" /> 
-                            <InputCheckbox name="someBitVal" label="Some Bit Value" /> 
-                            <InputCheckbox name="isEditAllowed" label="Is Edit Allowed" /> 
-                            <InputCheckbox name="isDeleteAllowed" label="Is Delete Allowed" /> 
-                            <InputNumber name="someFloatVal" label="Some Float Value" /> 
-                            <InputNumber name="someDecimalVal" label="Some Decimal Value" /> 
-                            <InputDateTime name="someUTCDateTimeVal" label="Some UTC DateTime Value" /> 
-                            <InputDate name="someDateVal" label="Some Date Value" /> 
-                            <InputMoney name="someMoneyVal" label="Some Money Value" /> 
-                            <InputText name="someNVarCharVal" label="Some N Var Char Value" /> 
-                            <InputText name="someVarCharVal" label="Some Var Char Value" /> 
-                            <InputTextArea name="someTextVal" label="Some Text Value" /> 
-                            <InputText name="somePhoneNumber" label="Some Phone Number" /> 
-                            <InputEmail name="someEmailAddress" label="Some Email Address" /> 
-                            <InputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 
+                            <FormInputText name="otherFlavor" label="Other Flavor" /> 
+                            <FormInputNumber name="someIntVal" label="Some Int Value" /> 
+                            <FormInputNumber name="someBigIntVal" label="Some Big Int Value" /> 
+                            <FormInputCheckbox name="someBitVal" label="Some Bit Value" /> 
+                            <FormInputCheckbox name="isEditAllowed" label="Is Edit Allowed" /> 
+                            <FormInputCheckbox name="isDeleteAllowed" label="Is Delete Allowed" /> 
+                            <FormInputNumber name="someFloatVal" label="Some Float Value" /> 
+                            <FormInputNumber name="someDecimalVal" label="Some Decimal Value" /> 
+                            <FormInputDateTime name="someUTCDateTimeVal" label="Some UTC DateTime Value" /> 
+                            <FormInputDate name="someDateVal" label="Some Date Value" /> 
+                            <FormInputMoney name="someMoneyVal" label="Some Money Value" /> 
+                            <FormInputText name="someNVarCharVal" label="Some N Var Char Value" /> 
+                            <FormInputText name="someVarCharVal" label="Some Var Char Value" /> 
+                            <FormInputTextArea name="someTextVal" label="Some Text Value" /> 
+                            <FormInputText name="somePhoneNumber" label="Some Phone Number" /> 
+                            <FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
+                            <FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 
                             <div className="d-flex btn-container">
                                 <Button type="submit" data-testid="submit">
                                     Save

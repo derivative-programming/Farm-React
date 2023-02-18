@@ -5,9 +5,11 @@ import {
    
   
   export const initForm = (landCode:string) => { 
+    const data ={};
     return apiCall({
       url: LAND_ADD_PLANT + "/" + landCode,
-      method: "put" 
+      method: "put" ,
+      data
     });
   }; 
     

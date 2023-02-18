@@ -58,6 +58,8 @@ interface PlantsValue {
 
 const LandPlantList: FC = (): ReactElement => {
   const navigate = useNavigate();
+  const { id } = useParams(); 
+  const landCode:string = id ?? "00000000-0000-0000-0000-000000000000"; 
   const [landPlantList, setLandPlantList] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
   const [show, setShow] = useState(false);
@@ -409,7 +411,7 @@ const LandPlantList: FC = (): ReactElement => {
         <Button
           className="primary-button"
           type="submit"
-          onClick={() => goTo("/land-add-plant")}
+          onClick={() => goTo("/land-add-plant/" + landCode)}
         >
           Add Plant
         </Button>

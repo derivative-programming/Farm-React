@@ -7,7 +7,8 @@ export const initForm = () => {
     const data ={};
     return apiCall({
         url: TAC_REGISTER,
-        method: "put"
+        method: "put",
+        data
     });
 }; 
 

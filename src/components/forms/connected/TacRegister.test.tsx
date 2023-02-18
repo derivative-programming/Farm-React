@@ -28,11 +28,10 @@ const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
 
 let formSubmitResponse = new FormService.SubmitResultInstance;
 const formInitResponse = new FormService.InitResultInstance;
-
-
+ 
 describe("TacRegister Component", () => {
 
-  beforeEach(() => { 
+  beforeEach(async() => { 
       mockFormInitService.mockResolvedValueOnce({
         data: formInitResponse,
       });

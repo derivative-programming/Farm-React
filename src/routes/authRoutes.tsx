@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
-//import TacLogin from "../components/pages/public/tac-login/TacLogin";
 import FormConnectedTacLogin from "../components/forms/connected/TacLogin";
 import FormConnectedTacRegister from "../components/forms/connected/TacRegister"; 
 import LayoutComponent from "../components/Layout/Layout";

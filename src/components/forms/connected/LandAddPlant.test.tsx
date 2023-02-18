@@ -36,26 +36,32 @@ const formInitResponse = new FormService.InitResultInstance;
 
 describe("LandAddPlant Component", () => {
 
-  beforeEach(() => { 
+  beforeEach(async () => { 
       mockFormInitService.mockResolvedValueOnce({
         data: new FormService.InitResultInstance,
       });
       
       mockPacUserFlavorListService.mockResolvedValueOnce({
-        data: new PacUserFlavorList.QueryResultInstance,
-      });
+        data: new PacUserFlavorList.QueryResultTestInstance,
+      }); 
+      
 
     render(
       <BrowserRouter>
         <FormConnectedLandAddPlant name="testForm" />
       </BrowserRouter>
-    );
+    ); 
+
+    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
   });
 
   // after cleanup when test-case execution is done
   afterEach(cleanup);
 
-  it("renders correctly", async () => {
+  const initTest = async () => {
+  }
+
+  it("renders correctly", async () => { 
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     expect(screen.getByTestId("flavorCode")).toBeInTheDocument();
     expect(screen.getByTestId("otherFlavor")).toBeInTheDocument();
@@ -79,6 +85,8 @@ describe("LandAddPlant Component", () => {
   });
 
   it("when user enter otherFlavor, it set accordingly", async () => {
+    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
+
     const input = screen.getByTestId("otherFlavor");
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     await act(async () => {
@@ -87,9 +95,7 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("otherFlavor")).toHaveValue("sample data");
   });
 
-  it("when user enter someIntVal, it set accordingly", async () => {
-    
-    console.log('when user enter someIntVal, it set accordingly');
+  it("when user enter someIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("someIntVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "99" } });
@@ -97,8 +103,7 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("someIntVal")).toHaveValue(99);
   });
 
-  it("when user enter someBigIntVal, it set accordingly", async () => {
-    console.log('when user enter someBigIntVal, it set accordingly');
+  it("when user enter someBigIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("someBigIntVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "99" } });

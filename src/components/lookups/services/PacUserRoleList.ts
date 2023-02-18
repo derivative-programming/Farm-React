@@ -1,17 +1,16 @@
 
+import {  
+    PAC_FS_FARM_API_ROLE_LIST, 
+  } from "../../../apiConfig/apiEndpoints";
+  import { apiCall } from "../../../apiConfig/apiCall";
+    
+  export const submitRequest = () => {
+    return apiCall({
+      url: PAC_FS_FARM_API_ROLE_LIST,
+      method: "get"
+    });
+  };
 
-
-// -----------------
-// STATE - This defines the type of data maintained in the Redux store.
-
-export interface PacUserRoleListState {
-    isLoading: boolean;
-    code: string;
-    initRequest: InitRequest;
-    initResult: InitResult;
-    queryRequest: QueryRequest;
-    queryResult: QueryResult;
-}
 
 export interface QueryResultItem {
  
@@ -112,28 +111,7 @@ export class InitValidationErrorInstance implements InitValidationError {
     }
 }
 
-
  
-
-
-export class PacUserRoleListStateInstance implements PacUserRoleListState {
-    isLoading: boolean;
-    code: string;
-    initRequest: InitRequest;
-    initResult: InitResult;
-    queryRequest: QueryRequest;
-    queryResult: QueryResult;
-
-    constructor() {
-        this.isLoading = false;
-        this.code = '';
-        this.initRequest = new InitRequestInstance();
-        this.initResult = new InitResultInstance();
-        this.queryRequest = new QueryRequestInstance();
-        this.queryResult = new QueryResultInstance();
-    }
-}
-
 
 export class QueryResultItemInstance implements QueryResultItem {
  
@@ -214,5 +192,35 @@ export class QueryResultInstance implements QueryResult {
         this.message = '';
         this.appVersion = '';
         this.request = '';
+    }
+}
+
+export class QueryResultTestInstance implements QueryResult {
+    pageNumber: number;
+    items: QueryResultItem[];
+    itemCountPerPage: number;
+    orderByColumnName: string;
+    orderByDescending: boolean;
+    success: boolean;
+    recordsTotal: number;
+    recordsFiltered: number;
+    message: string;
+    appVersion: string;
+    request: string;
+
+    constructor() {
+        this.pageNumber = 1;
+        this.items = [];
+        this.itemCountPerPage = 10;
+        this.orderByColumnName = '';
+        this.orderByDescending = false;
+        this.success = false;
+        this.recordsTotal = 0;
+        this.recordsFiltered = 0;
+        this.message = '';
+        this.appVersion = '';
+        this.request = '';
+        
+        this.items.push(new QueryResultItemInstance)
     }
 }

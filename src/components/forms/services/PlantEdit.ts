@@ -5,9 +5,11 @@ import {
    
    
   export const initForm = (plantCode:string) => {
+    const data ={};
     return apiCall({
       url: PLANT_EDIT + "/" + plantCode,
-      method: "put"
+      method: "put",
+      data
     });
   };
 

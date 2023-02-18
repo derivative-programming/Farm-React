@@ -1,8 +1,0 @@
-{
-    "templateType":"objWF",
-    "forceFolderNameFormat":"Kebab",
-    "dimension" :{
-        "name":"LandAddPlant",
-        "objectName":"Land"
-    }
-}

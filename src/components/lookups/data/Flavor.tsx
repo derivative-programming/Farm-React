@@ -1,26 +1,21 @@
-import { useEffect,useState} from "react";  
-import {  
-    PAC_FS_FARM_API_FLAVOR_LIST, 
-  } from "../../../apiConfig/apiEndpoints"; 
+import { useEffect,useState} from "react";
 import * as PacUserFlavorListService from "../services/PacUserFlavorList";
 
 export const getFlavors= () => {
-    const [flavors, setFlavors] = useState<PacUserFlavorListService.QueryResultItem[]>([])
+    let items:PacUserFlavorListService.QueryResultItem[] = []
 
-    const fetchFlavors = async() => {
+    const getItems = async() => {
         const response:any  = PacUserFlavorListService.submitRequest(); 
 
         if(response && response.data)
         {
             const data:PacUserFlavorListService.QueryResult = response.data;
-            setFlavors(data.items);
+            items = data.items;
         } 
     } 
     
-    useEffect(() => {
-        fetchFlavors();
-    },[]);
+    getItems();
 
-    return flavors;
+    return items;
 };
 

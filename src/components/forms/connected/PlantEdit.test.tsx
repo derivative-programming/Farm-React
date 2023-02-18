@@ -36,20 +36,22 @@ const formInitResponse = new FormService.InitResultInstance;
 
 describe("PlantEdit Component", () => {
 
-  beforeEach(() => { 
+  beforeEach(async() => { 
       mockFormInitService.mockResolvedValueOnce({
         data: new FormService.InitResultInstance,
       });
       
       mockPacUserFlavorListService.mockResolvedValueOnce({
-        data: new PacUserFlavorList.QueryResultInstance,
-      });
+        data: new PacUserFlavorList.QueryResultTestInstance,
+      }); 
 
     render(
       <BrowserRouter>
         <FormConnectedPlantEdit name="testForm" />
       </BrowserRouter>
     );
+
+    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1)); 
   });
 
   // after cleanup when test-case execution is done
@@ -87,9 +89,7 @@ describe("PlantEdit Component", () => {
     expect(screen.getByTestId("otherFlavor")).toHaveValue("sample data");
   });
 
-  it("when user enter someIntVal, it set accordingly", async () => {
-    
-    console.log('when user enter someIntVal, it set accordingly');
+  it("when user enter someIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("someIntVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "99" } });
@@ -97,8 +97,7 @@ describe("PlantEdit Component", () => {
     expect(screen.getByTestId("someIntVal")).toHaveValue(99);
   });
 
-  it("when user enter someBigIntVal, it set accordingly", async () => {
-    console.log('when user enter someBigIntVal, it set accordingly');
+  it("when user enter someBigIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("someBigIntVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "99" } });

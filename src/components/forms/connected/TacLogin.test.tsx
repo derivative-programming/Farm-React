@@ -31,7 +31,7 @@ const formInitResponse = new FormService.InitResultInstance;
 
 describe("TacLogin Component", () => {
   // render the TacLogin component
-  beforeEach(() => {
+  beforeEach(async() => {
     mockFormInitService.mockResolvedValueOnce({
       data: formInitResponse,
     });

@@ -1,19 +1,18 @@
-import React, { FC, ReactElement, useContext, useEffect } from "react";
+import React, { FC, ReactElement, useContext, useEffect, useState } from "react";
 import { Button, Form, Card } from "react-bootstrap";
 import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik, 
     FormikHelpers,
-    useField,
 } from "formik";
 import * as FormService from "../services/TacRegister"; 
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
-import {InputEmail} from "../../InputFields/InputEmail" 
-import {InputPassword} from "../../InputFields/InputPassword" 
-import {InputText} from "../../InputFields/InputText" 
-import {ErrorDisplay } from '../../InputFields/ErrorDisplay';
+import {FormInputEmail} from "../InputFields/InputEmail" 
+import {FormInputPassword} from "../InputFields/InputPassword" 
+import {FormInputText} from "../InputFields/InputText" 
+import {ErrorDisplay } from '../InputFields/ErrorDisplay';
    
 export interface FormProps {
     name?:string
@@ -23,12 +22,14 @@ const FormConnectedTacRegister: FC<FormProps> = ({
     name="formConnectedTacRegister", 
   }): ReactElement => { 
 
-    const navigate = useNavigate();
-    const { Id } = useParams();
-    const tacCode:string = Id ?? "00000000-0000-0000-0000-000000000000";
-    let navCodesAvailable:Record<string,string> = {}
+    const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);  
 
-    const initialValues: FormService.SubmitRequest = new FormService.SubmitRequestInstance ;
+    const navigate = useNavigate();
+    const { id } = useParams();
+    const tacCode:string = id ?? "00000000-0000-0000-0000-000000000000";
+    let navCodesAvailable:Record<string,string> = {}
+    navCodesAvailable.tacCode = tacCode;
+ 
     const validationSchema  = Yup.object().shape({
         email: Yup.string()
         .required()
@@ -51,17 +52,22 @@ const FormConnectedTacRegister: FC<FormProps> = ({
 
     let headerErrors:string [] = [];
 
-    const handleInit = async() => {
-        const responseFull: any = await FormService.initForm(); 
-        const response: FormService.InitResult = responseFull.data; 
-
-        initialValues.email = response.email;
-        initialValues.password = response.password;
-        initialValues.confirmPassword = response.confirmPassword;
-        initialValues.firstName = response.firstName;
-        initialValues.lastName = response.lastName;
+    const handleInit = (responseFull:any) => {
         
-        navCodesAvailable.tacCode = tacCode;
+        const initFormResponse: FormService.InitResult = responseFull.data; 
+
+        if(!initFormResponse.success)
+        {
+            return;
+        } 
+
+        initialValues.email = initFormResponse.email;
+        initialValues.password = initFormResponse.password;
+        initialValues.confirmPassword = initFormResponse.confirmPassword;
+        initialValues.firstName = initFormResponse.firstName;
+        initialValues.lastName = initFormResponse.lastName;
+        
+        setInitialValues({...initialValues}); 
     }
 
     const submitButtonClick = async (
@@ -73,7 +79,7 @@ const FormConnectedTacRegister: FC<FormProps> = ({
             const response: FormService.SubmitResult = responseFull.data; 
             if (!response.success) {  
                 headerErrors = FormService.getValidationErrors("",response); 
-                Object.entries(FormService.SubmitRequestInstance)
+                Object.entries(new FormService.SubmitRequestInstance)
                     .forEach(([key, value]) => 
                     actions.setFieldError(key, FormService.getValidationErrors(key,response).join(','))) 
                 return;
@@ -92,7 +98,8 @@ const FormConnectedTacRegister: FC<FormProps> = ({
     });
     
     useEffect(() => {
-        handleInit();
+        FormService.initForm()
+        .then(response => handleInit(response));
     }); 
     
 
@@ -103,6 +110,7 @@ const FormConnectedTacRegister: FC<FormProps> = ({
                 <h6>Please enter your email and password.</h6>
 
                 <Formik
+                    enableReinitialize={true}
                     initialValues={initialValues}
                     validationSchema={validationSchema}
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
@@ -113,11 +121,11 @@ const FormConnectedTacRegister: FC<FormProps> = ({
                             onReset={props.handleReset} 
                             onSubmit={props.handleSubmit}> 
                             <ErrorDisplay name="headerErrors" errorArray={headerErrors} />
-                            <InputEmail name="email" label="Email" autoFocus={true} />
-                            <InputPassword name="password" label="Password" /> 
-                            <InputPassword name="confirmPassword" label="Confirm Password" /> 
-                            <InputText name="firstName" label="First Name" /> 
-                            <InputText name="lastName" label="Last Name" /> 
+                            <FormInputEmail name="email" label="Email" autoFocus={true} />
+                            <FormInputPassword name="password" label="Password" /> 
+                            <FormInputPassword name="confirmPassword" label="Confirm Password" /> 
+                            <FormInputText name="firstName" label="First Name" /> 
+                            <FormInputText name="lastName" label="Last Name" /> 
                             <div className="d-flex btn-container">
                                 <Button type="submit" data-testid="submit">
                                     Register

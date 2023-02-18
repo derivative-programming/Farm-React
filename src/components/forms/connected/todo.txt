@@ -1,2 +1,0 @@
-use service of gen form page
-use form of gen form page

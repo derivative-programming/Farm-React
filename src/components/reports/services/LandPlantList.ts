@@ -380,37 +380,37 @@ export class QueryResultItemInstance implements QueryResultItem {
 
 export class QueryRequestInstance implements QueryRequest {
  
-    someIntVal: number;
+    someIntVal: number; //!
  
-    someBigIntVal: number;
+    someBigIntVal: number; //!
  
-    someBitVal: boolean;
+    someBitVal: boolean; //!
  
-    isEditAllowed: boolean;
+    isEditAllowed: boolean; //!
  
-    isDeleteAllowed: boolean;
+    isDeleteAllowed: boolean; //!
  
-    someFloatVal: number;
+    someFloatVal: number; //!
  
-    someDecimalVal: number;
+    someDecimalVal: number; //!
  
     someMinUTCDateTimeVal: Date;
  
     someMinDateVal: Date;
  
-    someMoneyVal: number;
+    someMoneyVal: number; //!
  
-    someNVarCharVal: string;
+    someNVarCharVal: string; //!
  
-    someVarCharVal: string;
+    someVarCharVal: string; //!
  
-    someTextVal: string;
+    someTextVal: string; //!
  
-    somePhoneNumber: string;
+    somePhoneNumber: string; //!
  
-    someEmailAddress: string;
+    someEmailAddress: string; //!
  
-    flavorCode: string;
+    flavorCode: string; //!  not someUTCDateTimeVal, someDateVal, sampleImageUploadFile
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
