@@ -45,7 +45,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
     
 
     return ( 
-        <div className="mt-5 w-100">
+        <div className="mt-3 w-100">
             <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
                 <Accordion.Header>Filters</Accordion.Header>

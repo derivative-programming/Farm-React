@@ -5,7 +5,7 @@ import moment from "moment";
 export interface ReportColumnDisplayDateProps {
   forColumn:string
   rowIndex: number
-  value: Date 
+  value: string 
 }
    
 export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
@@ -25,8 +25,8 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
       {
           return result;
       }
-      console.log(value);
-      const dateTime:moment.Moment = moment.utc(value.toISOString()).local();
+      
+      const dateTime:moment.Moment = moment.utc(value).local();
 
       if(!dateTime.isValid()){
         return result;
@@ -36,8 +36,8 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
         return result;
       }
 
-      result = moment.utc(value).local().format("M/D/YYYY");
-      console.log('success');
+      result = moment.utc(value).local().format("M/D/YYYY"); 
+      
     } catch (error) { 
       console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayDate');
     }

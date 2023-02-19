@@ -5,7 +5,7 @@ import moment from "moment";
 export interface ReportColumnDisplayDateTimeProps {
   forColumn:string
   rowIndex: number
-  value: Date 
+  value: string 
 }
    
 export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> = ({
@@ -26,7 +26,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
           return result;
       }
 
-      const dateTime:moment.Moment = moment.utc(value.toISOString()).local();
+      const dateTime:moment.Moment = moment.utc(value).local();
 
       if(!dateTime.isValid()){
         return result;

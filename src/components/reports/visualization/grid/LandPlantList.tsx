@@ -69,7 +69,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     return (
         <div
             data-testid={name}
-            className="plants-list-button-body">
+            className="plants-list-button-body mt-3">
             <Table
                 className="plants-list-table"
                 striped

@@ -18,7 +18,8 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
 }): ReactElement => {
  
     return (
-        <div data-testid={name} className='list-container'>
+        <div data-testid={name} className='list-container mt-3 w-100'>
+            <Row><Col xs="1"></Col><Col>
             <ListGroup as="ol">
                 <Row> 
                     <ReportColumnDisplayText forColumn="flavorName" 
@@ -71,6 +72,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                         value={item.someNVarCharVal} />  
                 </Row>
             </ListGroup>
+            </Col><Col xs="1"></Col></Row>
         </div>
     );
 }; 

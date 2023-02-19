@@ -53,7 +53,7 @@ export interface QueryResultItem {
  
     someBitVal: boolean;
  
-    someDateVal: Date;
+    someDateVal: string;
  
     someDecimalVal: number;
  
@@ -73,7 +73,7 @@ export interface QueryResultItem {
  
     someUniqueidentifierVal: string;
  
-    someUTCDateTimeVal: Date;
+    someUTCDateTimeVal: string;
  
     someVarCharVal: string;  
 }
@@ -188,7 +188,7 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     someBitVal: boolean;
  
-    someDateVal: Date;
+    someDateVal: string;
  
     someDecimalVal: number;
  
@@ -208,7 +208,7 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     someUniqueidentifierVal: string;
  
-    someUTCDateTimeVal: Date;
+    someUTCDateTimeVal: string;
  
     someVarCharVal: string;
 
@@ -226,7 +226,7 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someBitVal = false;
  
-        this.someDateVal = new Date('01-01-1753 00:00:00 UTC');
+        this.someDateVal = '01-01-1753 00:00:00';
  
         this.someDecimalVal = 0;
  
@@ -246,7 +246,7 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someUniqueidentifierVal = '00000000-0000-0000-0000-000000000000';
  
-        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
+        this.someUTCDateTimeVal = '01-01-1753 00:00:00'
  
         this.someVarCharVal = '';  
     }

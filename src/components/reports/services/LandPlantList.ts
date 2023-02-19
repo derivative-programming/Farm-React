@@ -105,9 +105,9 @@ export interface QueryResultItem {
  
     someDecimalVal: number;
  
-    someUTCDateTimeVal: Date;
+    someUTCDateTimeVal: string;
  
-    someDateVal: Date;
+    someDateVal: string;
  
     someMoneyVal: number;
  
@@ -149,9 +149,9 @@ export interface QueryRequest {
  
     someDecimalVal: number;
  
-    someMinUTCDateTimeVal: Date;
+    someMinUTCDateTimeVal: string;
  
-    someMinDateVal: Date;
+    someMinDateVal: string;
  
     someMoneyVal: number;
  
@@ -213,9 +213,9 @@ export interface InitResult {
  
     someDecimalVal: number;
  
-    someMinUTCDateTimeVal: Date;
+    someMinUTCDateTimeVal: string;
  
-    someMinDateVal: Date;
+    someMinDateVal: string;
  
     someMoneyVal: number;
  
@@ -270,9 +270,9 @@ export class InitResultInstance implements InitResult {
  
     someDecimalVal: number;
  
-    someMinUTCDateTimeVal: Date;
+    someMinUTCDateTimeVal: string;
  
-    someMinDateVal: Date;
+    someMinDateVal: string;
  
     someMoneyVal: number;
  
@@ -311,9 +311,9 @@ export class InitResultInstance implements InitResult {
  
         this.someDecimalVal = 0;
  
-        this.someMinUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
+        this.someMinUTCDateTimeVal = '01-01-1753 00:00:00'
  
-        this.someMinDateVal = new Date('01-01-1753 00:00:00 UTC');
+        this.someMinDateVal = '01-01-1753 00:00:00';
  
         this.someMoneyVal = 0.0;
  
@@ -372,9 +372,9 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     someDecimalVal: number;
  
-    someUTCDateTimeVal: Date;
+    someUTCDateTimeVal: string;
  
-    someDateVal: Date;
+    someDateVal: string;
  
     someMoneyVal: number;
  
@@ -416,9 +416,9 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someDecimalVal = 0;
  
-        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
+        this.someUTCDateTimeVal = '01-01-1753 00:00:00'
  
-        this.someDateVal = new Date('01-01-1753 00:00:00 UTC');
+        this.someDateVal = '01-01-1753 00:00:00';
  
         this.someMoneyVal = 0.0;
  
@@ -461,9 +461,9 @@ export class QueryRequestInstance implements QueryRequest {
  
     someDecimalVal: number; 
  
-    someMinUTCDateTimeVal: Date; 
+    someMinUTCDateTimeVal: string; 
  
-    someMinDateVal: Date; 
+    someMinDateVal: string; 
  
     someMoneyVal: number; 
  
@@ -500,9 +500,9 @@ export class QueryRequestInstance implements QueryRequest {
  
         this.someDecimalVal = 0;
  
-        this.someMinUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
+        this.someMinUTCDateTimeVal = '01-01-1753 00:00:00'
  
-        this.someMinDateVal = new Date('01-01-1753 00:00:00 UTC');
+        this.someMinDateVal = '01-01-1753 00:00:00';
  
         this.someMoneyVal = 0.0;
  

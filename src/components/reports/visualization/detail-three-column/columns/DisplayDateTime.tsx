@@ -5,7 +5,7 @@ import moment from "moment";
    
 export interface ReportColumnDisplayDateTimeProps {
   forColumn:string 
-  value: Date 
+  value: string 
   label:string
 }
    
@@ -27,7 +27,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
           return result;
       }
 
-      const dateTime:moment.Moment = moment.utc(value.toISOString()).local();
+      const dateTime:moment.Moment = moment.utc(value).local();
 
       if(!dateTime.isValid()){
         return result;
@@ -53,7 +53,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div>
-                {formatDateTime()}
+                {formatDateTime()} &nbsp;
             </div>
 
         </ListGroup.Item>

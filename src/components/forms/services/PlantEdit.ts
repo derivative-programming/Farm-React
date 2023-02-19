@@ -128,9 +128,9 @@ export interface SubmitRequest {
  
     someDecimalVal: number;
  
-    someUTCDateTimeVal: Date;
+    someUTCDateTimeVal: string;
  
-    someDateVal: Date;
+    someDateVal: string;
  
     someMoneyVal: number;
  
@@ -180,9 +180,9 @@ export class SubmitRequestInstance implements SubmitRequest {
  
     someDecimalVal: number;
  
-    someUTCDateTimeVal: Date;
+    someUTCDateTimeVal: string;
  
-    someDateVal: Date;
+    someDateVal: string;
  
     someMoneyVal: number;
  
@@ -216,9 +216,9 @@ export class SubmitRequestInstance implements SubmitRequest {
  
         this.someDecimalVal = 0;
  
-        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
+        this.someUTCDateTimeVal = '01-01-1753 00:00:00'
  
-        this.someDateVal = new Date('01-01-1753 00:00:00 UTC');
+        this.someDateVal = '01-01-1753 00:00:00';
  
         this.someMoneyVal = 0.0;
  
@@ -291,9 +291,9 @@ export interface InitResult {
  
     someDecimalVal: number;
  
-    someUTCDateTimeVal: Date;
+    someUTCDateTimeVal: string;
  
-    someDateVal: Date;
+    someDateVal: string;
  
     someMoneyVal: number;
  
@@ -348,9 +348,9 @@ export class InitResultInstance implements InitResult {
  
     someDecimalVal: number;
  
-    someUTCDateTimeVal: Date;
+    someUTCDateTimeVal: string;
  
-    someDateVal: Date;
+    someDateVal: string;
  
     someMoneyVal: number;
  
@@ -389,9 +389,9 @@ export class InitResultInstance implements InitResult {
  
         this.someDecimalVal = 0;
  
-        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
+        this.someUTCDateTimeVal = '01-01-1753 00:00:00'
  
-        this.someDateVal = new Date('01-01-1753 00:00:00 UTC');
+        this.someDateVal = '01-01-1753 00:00:00';
  
         this.someMoneyVal = 0.0;
  

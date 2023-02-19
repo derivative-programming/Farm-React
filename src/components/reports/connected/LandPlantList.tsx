@@ -21,9 +21,7 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
     let navCodesAvailable: Record<string, string> = {}
     navCodesAvailable.landCode = landCode;
 
-    const handleInit = (responseFull: any) => {
-        console.log('init...');
-        console.log(responseFull);
+    const handleInit = (responseFull: any) => { 
         const initFormResponse: ReportService.InitResult = responseFull.data;
 
         if (!initFormResponse.success) {
@@ -40,8 +38,7 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
         if (!queryResult.success) {
             return;
-        }
-        console.log('query result...');
+        } 
         console.log(queryResult);
         setQueryResult({ ...queryResult });
     }
@@ -76,6 +73,7 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
     }
 
     const onSort = (columnName: string) => {
+        console.log('onsort ' + columnName);
         let orderByDescending = false;
         if (query.OrderByColumnName == columnName) {
             orderByDescending = !query.OrderByDescending;
@@ -93,6 +91,7 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
     });
 
     useEffect(() => {
+        console.log(query);
         ReportService.submitRequest(query, landCode)
             .then(response => handleQueryResults(response));
     }, [query]);

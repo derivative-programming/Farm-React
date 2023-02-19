@@ -23,6 +23,12 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
 }): ReactElement => {  
 
   const controlName = (name.length > 0) ? name: {forColumn} + 'ColumnHeader'
+
+  console.log('sort column ' + sortedColumnName );
+  if(sortedColumnName === forColumn)
+  {
+    console.log('sort column ' + sortedColumnName );
+  }
       
   return (
     <th

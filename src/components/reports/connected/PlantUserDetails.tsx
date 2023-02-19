@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useContext, useState, useEffect, useRef } from "react";
-import { Button, Form, Card, Breadcrumb } from "react-bootstrap";
+import { Button, Form, Card, Breadcrumb, Row } from "react-bootstrap";
 import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ServicePlantUserDetails from "../services/PlantUserDetails";
@@ -25,8 +25,7 @@ const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
 
     const handleInit = (responseFull: any) => {
-        console.log('init...');
-        console.log(responseFull);
+        
         const initFormResponse: ReportService.InitResult = responseFull.data;
 
         if (!initFormResponse.success) {
@@ -128,8 +127,7 @@ const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                 <Button onClick={() => goTo('/land-plant-list')} className='primary-button' data-testid="plant-btn" type="submit">
                     Plants
                 </Button>
-            </div> 
-
+            </div>  
             <ReportDetailThreeColPlantUserDetails 
                 item= {displayItem}
                 name="reportConnectedPlantUserDetails-table" 
