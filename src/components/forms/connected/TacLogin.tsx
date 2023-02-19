@@ -7,11 +7,8 @@ import {
     FormikHelpers,
 } from "formik";
 import * as FormService from "../services/TacLogin"; 
-import { AuthContext } from "../../../context/authContext";
-import * as Yup from "yup";
-import {FormInputEmail} from "../InputFields/InputEmail" 
-import {FormInputPassword} from "../InputFields/InputPassword" 
-import {ErrorDisplay } from '../InputFields/ErrorDisplay';
+import { AuthContext } from "../../../context/authContext"; 
+import * as FormInput from "../input-fields" 
    
 export interface FormProps {
     name?:string
@@ -21,7 +18,10 @@ const FormConnectedTacLogin: FC<FormProps> = ({
     name="formConnectedTacLogin", 
   }): ReactElement => { 
 
-    const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);   
+    const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);    
+    let lastApiSubmission:any = { 
+            request: new FormService.SubmitResultInstance,
+            response: new FormService.SubmitRequestInstance};    
     const isInitializedRef = useRef(false);
 
     const navigate = useNavigate();
@@ -30,14 +30,7 @@ const FormConnectedTacLogin: FC<FormProps> = ({
     let navCodesAvailable:Record<string,string> = {}
     navCodesAvailable.tacCode = tacCode;
  
-    const validationSchema  = Yup.object().shape({
-        email: Yup.string()
-        .required()
-        ,
-        password: Yup.string()
-        .required()
-        , 
-      });
+    const validationSchema  =  FormService.buildValidationSchema();
 
     const authContext = useContext(AuthContext);
 
@@ -51,12 +44,25 @@ const FormConnectedTacLogin: FC<FormProps> = ({
         {
             return;
         } 
+        
+        setInitialValues({...FormService.buildSubmitRequest(initFormResponse)}); 
+        
+    }
 
-        initialValues.email = initFormResponse.email;
-        initialValues.password = initFormResponse.password;
-        
-        setInitialValues({...initialValues}); 
-        
+    const handleValidate = async (values: FormService.SubmitRequest) => {  
+        let errors:any = {}
+        if (!lastApiSubmission.response.success) {  
+            headerErrors = FormService.getValidationErrors("",lastApiSubmission.response); 
+            Object.entries(values)
+                .forEach(([key, value]) => {
+                const fieldErrors:string = FormService.getValidationErrors(key,lastApiSubmission.response).join(','); 
+                if(fieldErrors.length > 0 && value == lastApiSubmission.request[key])
+                { 
+                    errors[key] = fieldErrors;
+                }
+            })  
+        } 
+        return errors;
     }
 
     const submitButtonClick = async (
@@ -66,6 +72,9 @@ const FormConnectedTacLogin: FC<FormProps> = ({
         try { 
             const responseFull: any = await FormService.submitForm(values);
             const response: FormService.SubmitResult = responseFull.data; 
+            lastApiSubmission = { 
+                request: {...values},
+                response: {...response}}; 
             if (!response.success) {  
                 headerErrors = FormService.getValidationErrors("",response);  
                 Object.entries(new FormService.SubmitRequestInstance)
@@ -106,6 +115,7 @@ const FormConnectedTacLogin: FC<FormProps> = ({
                     enableReinitialize={true}
                     initialValues={initialValues}
                     validationSchema={validationSchema}
+                    validate={handleValidate} 
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
                     {(props) => (
                         <Form 
@@ -113,9 +123,9 @@ const FormConnectedTacLogin: FC<FormProps> = ({
                             data-testid={name}
                             onReset={props.handleReset} 
                             onSubmit={props.handleSubmit}> 
-                            <ErrorDisplay name="headerErrors" errorArray={headerErrors} />
-                            <FormInputEmail name="email" label="Email" autoFocus={true} />
-                            <FormInputPassword name="password" label="Password" /> 
+                            <FormInput.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
+                            <FormInput.FormInputEmail name="email" label="Email" autoFocus={true} />
+                            <FormInput.FormInputPassword name="password" label="Password" /> 
                             <div className="d-flex btn-container">
                                 <Button type="submit" data-testid="submit">
                                     Login

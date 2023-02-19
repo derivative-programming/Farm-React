@@ -43,7 +43,7 @@ const PlantUserDetails: FC = (): ReactElement => {
 
     const getPlantUserDetails = async (id: string) => {
         try {
-            const res = await PlantUserDetailsService.submitRequest(id);
+            const res = await PlantUserDetailsService.submitRequest({},id);
             console.log("res plant Detail-->", res);
             setPlantUserDetails(res.data.items[0])
         } catch (err) {

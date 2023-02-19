@@ -1,23 +1,43 @@
+import * as Yup from "yup";
 
 import {  
     PLANT_USER_DETAILS, 
   } from "../../../apiConfig/apiEndpoints";
   import { apiCall } from "../../../apiConfig/apiCall";
 
-export const submitRequest = (plantCode:string) => {
+export const submitRequest = (data:any,plantCode:string) => {
     return apiCall({
       url: PLANT_USER_DETAILS + "/" + plantCode,
-      method: "get"
+      method: "get",
+      params: data
     });
   };
   
   
   export const initPage = (plantCode:string) => {
+    const data = {};
     return apiCall({
       url: PLANT_USER_DETAILS + "/" + plantCode,
-      method: "put"
+      method: "put",
+      data
     });
   };
+
+  
+  
+export const buildQueryRequest = (initResult:InitResult) => {
+    let result:QueryRequest = new QueryRequestInstance;
+     
+    return result;
+}
+
+export const buildValidationSchema = () => {
+    
+    const validationSchema  = Yup.object().shape({ 
+      });
+      
+    return validationSchema;
+}
 
 export interface QueryResultItem {
  
@@ -206,7 +226,7 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someBitVal = false;
  
-        this.someDateVal = new Date('01-01-1753 00:00:00');
+        this.someDateVal = new Date('01-01-1753 00:00:00 UTC');
  
         this.someDecimalVal = 0;
  
@@ -226,7 +246,7 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someUniqueidentifierVal = '00000000-0000-0000-0000-000000000000';
  
-        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00')
+        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
  
         this.someVarCharVal = '';  
     }

@@ -9,10 +9,7 @@ import {
 import * as FormService from "../services/TacRegister"; 
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
-import {FormInputEmail} from "../InputFields/InputEmail" 
-import {FormInputPassword} from "../InputFields/InputPassword" 
-import {FormInputText} from "../InputFields/InputText" 
-import {ErrorDisplay } from '../InputFields/ErrorDisplay';
+import * as FormInput from "../input-fields" 
    
 export interface FormProps {
     name?:string
@@ -23,6 +20,9 @@ const FormConnectedTacRegister: FC<FormProps> = ({
   }): ReactElement => { 
 
     const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);   
+    let lastApiSubmission:any = { 
+            request: new FormService.SubmitResultInstance,
+            response: new FormService.SubmitRequestInstance};     
     const isInitializedRef = useRef(false);
 
     const navigate = useNavigate();
@@ -31,23 +31,7 @@ const FormConnectedTacRegister: FC<FormProps> = ({
     let navCodesAvailable:Record<string,string> = {}
     navCodesAvailable.tacCode = tacCode;
  
-    const validationSchema  = Yup.object().shape({
-        email: Yup.string()
-        .required()
-        ,
-        password: Yup.string()
-        .required()
-        , 
-        confirmPassword: Yup.string()
-        .required()
-        , 
-        firstName: Yup.string()
-        .required()
-        , 
-        lastName: Yup.string()
-        .required()
-        , 
-      });
+    const validationSchema  =  FormService.buildValidationSchema();
 
     const authContext = useContext(AuthContext);
 
@@ -62,13 +46,24 @@ const FormConnectedTacRegister: FC<FormProps> = ({
             return;
         } 
 
-        initialValues.email = initFormResponse.email;
-        initialValues.password = initFormResponse.password;
-        initialValues.confirmPassword = initFormResponse.confirmPassword;
-        initialValues.firstName = initFormResponse.firstName;
-        initialValues.lastName = initFormResponse.lastName;
-        
-        setInitialValues({...initialValues}); 
+        setInitialValues({...FormService.buildSubmitRequest(initFormResponse)}); 
+
+    }
+    
+    const handleValidate = async (values: FormService.SubmitRequest) => {  
+        let errors:any = {}
+        if (!lastApiSubmission.response.success) {  
+            headerErrors = FormService.getValidationErrors("",lastApiSubmission.response); 
+            Object.entries(values)
+                .forEach(([key, value]) => {
+                const fieldErrors:string = FormService.getValidationErrors(key,lastApiSubmission.response).join(','); 
+                if(fieldErrors.length > 0 && value == lastApiSubmission.request[key])
+                { 
+                    errors[key] = fieldErrors;
+                }
+            })  
+        } 
+        return errors;
     }
 
     const submitButtonClick = async (
@@ -78,6 +73,9 @@ const FormConnectedTacRegister: FC<FormProps> = ({
         try { 
             const responseFull: any = await FormService.submitForm(values);
             const response: FormService.SubmitResult = responseFull.data; 
+            lastApiSubmission = { 
+                request: {...values},
+                response: {...response}}; 
             if (!response.success) {  
                 headerErrors = FormService.getValidationErrors("",response); 
                 Object.entries(new FormService.SubmitRequestInstance)
@@ -118,6 +116,7 @@ const FormConnectedTacRegister: FC<FormProps> = ({
                     enableReinitialize={true}
                     initialValues={initialValues}
                     validationSchema={validationSchema}
+                    validate={handleValidate} 
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
                     {(props) => (
                         <Form 
@@ -125,12 +124,12 @@ const FormConnectedTacRegister: FC<FormProps> = ({
                             data-testid={name}
                             onReset={props.handleReset} 
                             onSubmit={props.handleSubmit}> 
-                            <ErrorDisplay name="headerErrors" errorArray={headerErrors} />
-                            <FormInputEmail name="email" label="Email" autoFocus={true} />
-                            <FormInputPassword name="password" label="Password" /> 
-                            <FormInputPassword name="confirmPassword" label="Confirm Password" /> 
-                            <FormInputText name="firstName" label="First Name" /> 
-                            <FormInputText name="lastName" label="Last Name" /> 
+                            <FormInput.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
+                            <FormInput.FormInputEmail name="email" label="Email" autoFocus={true} />
+                            <FormInput.FormInputPassword name="password" label="Password" /> 
+                            <FormInput.FormInputPassword name="confirmPassword" label="Confirm Password" /> 
+                            <FormInput.FormInputText name="firstName" label="First Name" /> 
+                            <FormInput.FormInputText name="lastName" label="Last Name" /> 
                             <div className="d-flex btn-container">
                                 <Button type="submit" data-testid="submit">
                                     Register

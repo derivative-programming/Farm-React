@@ -1,3 +1,4 @@
+import * as Yup from "yup";
 
 import { TAC_LOGIN, TAC_REGISTER } from "../../../apiConfig/apiEndpoints";
 import { apiCall } from "../../../apiConfig/apiCall";
@@ -38,6 +39,40 @@ export const getValidationErrors =  (propertyName: string, response:SubmitResult
     return result;
 }
 
+export const buildSubmitRequest = (initResult:InitResult) => {
+    let result:SubmitRequest = new SubmitRequestInstance;
+    
+    result.email = initResult.email;
+    result.password = initResult.password;
+    result.confirmPassword = initResult.confirmPassword;
+    result.firstName = initResult.firstName;
+    result.lastName = initResult.lastName;
+    
+    return result;
+}
+
+export const buildValidationSchema = () => {
+    
+    const validationSchema  = Yup.object().shape({
+        email: Yup.string()
+        .required()
+        ,
+        password: Yup.string()
+        .required()
+        , 
+        confirmPassword: Yup.string()
+        .required()
+        , 
+        firstName: Yup.string()
+        .required()
+        , 
+        lastName: Yup.string()
+        .required()
+        , 
+      });
+      
+    return validationSchema;
+}
 
 export interface SubmitRequest {
  

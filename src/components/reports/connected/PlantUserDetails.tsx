@@ -1,13 +1,14 @@
 import React, { FC, ReactElement, useContext, useState, useEffect, useRef } from "react";
 import { Button, Form, Card, Breadcrumb } from "react-bootstrap";
 import "../../../App.scss";
-import { useNavigate, useParams } from "react-router-dom"; 
-import ReportFilterLandPlantList from "../filters/LandPlantList";
-import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList";
-import * as ReportService from "../services/LandPlantList";
+import { useNavigate, useParams } from "react-router-dom";
+import * as ServicePlantUserDetails from "../services/PlantUserDetails";
+import ReportFilterPlantUserDetails from "../filters/PlantUserDetails";
+import { ReportGridPlantUserDetails } from "../visualization/grid/PlantUserDetails";
+import * as ReportService from "../services/PlantUserDetails";
 import { ReportPagination } from "../input-fields/Pagination";
 
-const ReportConnectedLandPlantList: FC = (): ReactElement => {
+const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance);
@@ -107,50 +108,34 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
     return (
 
-        <div className="plants-container" data-testid="reportConnectedLandPlantList">
+        <div className="plants-container" data-testid="reportConnectedPlantUserDetails">
             <div className="breadcrumb-container">
                 <Breadcrumb>
-                    <Breadcrumb.Item
-                        onClick={() => goTo("tac-farm-dashboard")}>
-                        Dashboard
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item active href="">
+                    <Breadcrumb.Item onClick={() => goTo('/')}>Dashboard</Breadcrumb.Item>
+                    <Breadcrumb.Item onClick={() => goTo('/land-plant-list')}>
                         Plants
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item active>
+                        Details
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <h1>Plants</h1>
+            <h1>Plant Detail</h1>
+            <h6>Details of a plant</h6>
             <div className="plants-list-button-header">
-                <Button
-                    onClick={() => goTo("tac-farm-dashboard")}
-                    className="primary-button"
-                    type="submit"
-                >
-                    Dashboard
-                </Button>
-                <Button
-                    className="primary-button"
-                    type="submit"
-                    onClick={() => goTo("/land-add-plant/" + landCode)}
-                >
-                    Add Plant
+                <Button onClick={() => goTo('/land-plant-list')} className='primary-button' data-testid="plant-btn" type="submit">
+                    Plants
                 </Button>
             </div>
-            <ReportFilterLandPlantList
-                name="reportConnectedLandPlantList-filter"
+            <ReportFilterPlantUserDetails
+                name="reportConnectedPlantUserDetails-filter"
                 initialQuery={initialValues}
                 onSubmit={onSubmit} />
 
-            <div className="w-100" style={{ textAlign: "left" }}>
-                <Button className='primary-button mt-3' type="button">
-                    Delete Selected
-                </Button>
-            </div>
-
-            <ReportGridLandPlantList
+            <ReportGridPlantUserDetails
                 isSortDescending={queryResult.orderByDescending}
                 items={queryResult.items}
-                name="reportConnectedLandPlantList-table"
+                name="reportConnectedPlantUserDetails-table"
                 onRowSelect={onRowSelect}
                 onRowUnselect={onRowUnselect}
                 onSelectAll={onSelectAll}
@@ -161,7 +146,7 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
             />
 
             <ReportPagination
-                name="reportConnectedLandPlantList-paginator"
+                name="reportConnectedPlantUserDetails-paginator"
                 currentPage={queryResult.pageNumber}
                 currentPageItemCount={queryResult.itemCountPerPage}
                 onPageSelection={onPageSelection}
@@ -172,4 +157,4 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
         </div>
     );
 };
-export default ReportConnectedLandPlantList;
+export default ReportConnectedPlantUserDetails;

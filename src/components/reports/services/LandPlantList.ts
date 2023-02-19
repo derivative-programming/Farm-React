@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 import {  
     LAND_PLANT_LIST, 
   } from "../../../apiConfig/apiEndpoints";
@@ -21,6 +23,69 @@ export const submitRequest = (data:any, landCode:string) => {
     });
   };
 
+  
+export const buildQueryRequest = (initResult:InitResult) => {
+    let result:QueryRequest = new QueryRequestInstance;
+    
+    result.flavorCode = initResult.flavorCode; 
+    result.someIntVal = initResult.someIntVal;
+    result.someBigIntVal = initResult.someBigIntVal;
+    result.someBitVal = initResult.someBitVal;
+    result.isEditAllowed = initResult.isEditAllowed;
+    result.isDeleteAllowed = initResult.isDeleteAllowed;
+    result.someFloatVal = initResult.someFloatVal;
+    result.someDecimalVal = initResult.someDecimalVal;
+    result.someMinUTCDateTimeVal = initResult.someMinUTCDateTimeVal;
+    result.someMinDateVal = initResult.someMinDateVal;
+    result.someMoneyVal = initResult.someMoneyVal;
+    result.someNVarCharVal = initResult.someNVarCharVal;
+    result.someVarCharVal = initResult.someVarCharVal;
+    result.someTextVal = initResult.someTextVal;
+    result.somePhoneNumber = initResult.somePhoneNumber;
+    result.someEmailAddress = initResult.someEmailAddress; 
+    
+    return result;
+}
+
+export const buildValidationSchema = () => {
+    
+    const validationSchema  = Yup.object().shape({
+        flavorCode: Yup.string()
+        ,
+        someIntVal: Yup.number()
+        ,
+        someBigIntVal: Yup.number()
+        ,
+        someBitVal: Yup.boolean()
+        ,
+        isEditAllowed: Yup.boolean()
+        ,
+        isDeleteAllowed: Yup.boolean()
+        ,
+        someFloatVal: Yup.number()
+        ,
+        someDecimalVal: Yup.number()
+        ,
+        someMinUTCDateTimeVal: Yup.mixed()
+        ,
+        someMinDateVal: Yup.mixed()
+        ,
+        someMoneyVal: Yup.number()
+        ,
+        someNVarCharVal: Yup.string()
+        ,
+        someVarCharVal: Yup.string()
+        ,
+        someTextVal: Yup.string()
+        ,
+        somePhoneNumber: Yup.string()
+        ,
+        someEmailAddress: Yup.string()
+        ,  
+      });
+      
+    return validationSchema;
+}
  
 export interface QueryResultItem {
  
@@ -246,9 +311,9 @@ export class InitResultInstance implements InitResult {
  
         this.someDecimalVal = 0;
  
-        this.someMinUTCDateTimeVal = new Date('01-01-1753 00:00:00')
+        this.someMinUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
  
-        this.someMinDateVal = new Date('01-01-1753 00:00:00');
+        this.someMinDateVal = new Date('01-01-1753 00:00:00 UTC');
  
         this.someMoneyVal = 0.0;
  
@@ -351,9 +416,9 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someDecimalVal = 0;
  
-        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00')
+        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
  
-        this.someDateVal = new Date('01-01-1753 00:00:00');
+        this.someDateVal = new Date('01-01-1753 00:00:00 UTC');
  
         this.someMoneyVal = 0.0;
  
@@ -435,9 +500,9 @@ export class QueryRequestInstance implements QueryRequest {
  
         this.someDecimalVal = 0;
  
-        this.someMinUTCDateTimeVal = new Date('01-01-1753 00:00:00')
+        this.someMinUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
  
-        this.someMinDateVal = new Date('01-01-1753 00:00:00');
+        this.someMinDateVal = new Date('01-01-1753 00:00:00 UTC');
  
         this.someMoneyVal = 0.0;
  

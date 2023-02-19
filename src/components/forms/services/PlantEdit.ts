@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 import {  
     PLANT_EDIT, 
   } from "../../../apiConfig/apiEndpoints";
@@ -39,7 +41,72 @@ export const getValidationErrors =  (propertyName: string, response:SubmitResult
     }
     return result;
 }
+
+export const buildSubmitRequest = (initResult:InitResult) => {
+    let result:SubmitRequest = new SubmitRequestInstance;
+    
+    result.flavorCode = initResult.flavorCode;
+    result.otherFlavor = initResult.otherFlavor;
+    result.someIntVal = initResult.someIntVal;
+    result.someBigIntVal = initResult.someBigIntVal;
+    result.someBitVal = initResult.someBitVal;
+    result.isEditAllowed = initResult.isEditAllowed;
+    result.isDeleteAllowed = initResult.isDeleteAllowed;
+    result.someFloatVal = initResult.someFloatVal;
+    result.someDecimalVal = initResult.someDecimalVal;
+    result.someUTCDateTimeVal = initResult.someUTCDateTimeVal;
+    result.someDateVal = initResult.someDateVal;
+    result.someMoneyVal = initResult.someMoneyVal;
+    result.someNVarCharVal = initResult.someNVarCharVal;
+    result.someVarCharVal = initResult.someVarCharVal;
+    result.someTextVal = initResult.someTextVal;
+    result.somePhoneNumber = initResult.somePhoneNumber;
+    result.someEmailAddress = initResult.someEmailAddress;
+    
+    return result;
+}
  
+export const buildValidationSchema = () => {
+    
+    const validationSchema  = Yup.object().shape({
+        flavorCode: Yup.string()
+        ,
+        someIntVal: Yup.number()
+        ,
+        someBigIntVal: Yup.number()
+        ,
+        someBitVal: Yup.boolean()
+        ,
+        isEditAllowed: Yup.boolean()
+        ,
+        isDeleteAllowed: Yup.boolean()
+        ,
+        someFloatVal: Yup.number()
+        ,
+        someDecimalVal: Yup.number()
+        ,
+        someUTCDateTimeVal: Yup.mixed()
+        ,
+        someDateVal: Yup.mixed()
+        ,
+        someMoneyVal: Yup.number()
+        ,
+        someNVarCharVal: Yup.string()
+        ,
+        someVarCharVal: Yup.string()
+        ,
+        someTextVal: Yup.string()
+        ,
+        somePhoneNumber: Yup.string()
+        ,
+        someEmailAddress: Yup.string()
+        , 
+        sampleImageUploadFile: Yup.string()
+        , 
+      });
+
+    return validationSchema;
+}
 
 export interface SubmitRequest {
  
@@ -149,9 +216,9 @@ export class SubmitRequestInstance implements SubmitRequest {
  
         this.someDecimalVal = 0;
  
-        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00')
+        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
  
-        this.someDateVal = new Date('01-01-1753 00:00:00');
+        this.someDateVal = new Date('01-01-1753 00:00:00 UTC');
  
         this.someMoneyVal = 0.0;
  
@@ -322,9 +389,9 @@ export class InitResultInstance implements InitResult {
  
         this.someDecimalVal = 0;
  
-        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00')
+        this.someUTCDateTimeVal = new Date('01-01-1753 00:00:00 UTC')
  
-        this.someDateVal = new Date('01-01-1753 00:00:00');
+        this.someDateVal = new Date('01-01-1753 00:00:00 UTC');
  
         this.someMoneyVal = 0.0;
  

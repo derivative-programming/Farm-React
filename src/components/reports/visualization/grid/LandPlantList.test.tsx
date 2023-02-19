@@ -8,26 +8,30 @@ import {
   fireEvent,
   waitFor,
 } from "@testing-library/react";
-import {ReportTableLandPlantList} from "./LandPlantList";
+import {ReportGridLandPlantList} from "./LandPlantList";
 
 const onRowSelect = jest.fn();
 const onRowUnselect = jest.fn();
 const onSelectAll = jest.fn();
+const onUnselectAll = jest.fn();
 const onSort = jest.fn();
 const sortedColumnName = jest.fn();
+const onNavigateTo = jest.fn();
 
 describe("LandPlantList Form Component", () => {
   // render the LandPlantList Form component
   beforeEach(() => {
     render(
-        <ReportTableLandPlantList 
+        <ReportGridLandPlantList 
           isSortDescending={true}
           items={[]}
           name="testName" 
           onRowSelect={onRowSelect}
           onRowUnselect={onRowUnselect}
           onSelectAll={onSelectAll}
+          onUnselectAll={onUnselectAll}
           onSort={onSort}
+          onNavigateTo={onNavigateTo}
           sortedColumnName="testColumnName" 
           />
     );

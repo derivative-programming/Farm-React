@@ -3,7 +3,7 @@ import { Button, Form, Card } from "react-bootstrap";
 import "../../../App.scss"; 
 import * as PacUserRoleListService from "../../lookups/services/PacUserRoleList";
 import {useField } from 'formik';
-import { FormInputSelect,FormInputSelectOption } from "../InputFields/InputSelect";
+import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
    
 export interface FormSelectRoleProps {
     name: string

@@ -3,7 +3,7 @@ import { Button, Form, Card } from "react-bootstrap";
 import "../../../App.scss"; 
 import * as PacUserTacListService from "../../lookups/services/PacUserTacList";
 import {useField } from 'formik';
-import { FormInputSelect,FormInputSelectOption } from "../InputFields/InputSelect";
+import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
    
 export interface FormSelectTacProps {
     name: string

@@ -1,9 +1,8 @@
 import React, { FC, ReactElement, useContext,useState,useEffect } from "react";
-import { Button, Form, Card } from "react-bootstrap";
 import "../../../App.scss"; 
 import * as PacUserFlavorListService from "../../lookups/services/PacUserFlavorList";
 import {useField } from 'formik';
-import { ReportInputSelect,ReportInputSelectOption } from "../InputFields/InputSelect";
+import { ReportInputSelect,ReportInputSelectOption } from "../input-fields/InputSelect";
    
 export interface ReportSelectFlavorProps {
     name: string
