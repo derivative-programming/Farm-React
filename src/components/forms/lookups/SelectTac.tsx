@@ -13,7 +13,7 @@ export interface FormSelectTacProps {
     disabled?: boolean
   }
 
-const FormSelectTac: FC<FormSelectTacProps> = ({
+export const FormSelectTac: FC<FormSelectTacProps> = ({
     name,
     label,
     placeholder,

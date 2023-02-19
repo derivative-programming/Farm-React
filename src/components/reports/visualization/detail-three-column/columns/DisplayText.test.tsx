@@ -15,7 +15,7 @@ const initialValues = { testName:"" }
 
 const handleSubmit = jest.fn();
 
-const testId = 'testColumn-column-1';
+const testId = 'testColumn-column';
  
 describe("ReportColumnDisplayText Component", () => {
   // render the ReportColumnDisplayText component
@@ -27,7 +27,7 @@ describe("ReportColumnDisplayText Component", () => {
 
   it("renders 'test Value' correctly", async () => {
     render(
-    <ReportColumnDisplayText forColumn="testColumn" rowIndex={1} value="test Value" /> 
+       <table><tbody><tr><ReportColumnDisplayText forColumn="testColumn" label="test label" value="test Value" /></tr></tbody></table>
     );
 
     expect(screen.getByText("test Value")).toBeInTheDocument(); 
@@ -36,24 +36,24 @@ describe("ReportColumnDisplayText Component", () => {
  
   it("renders no value correctly", async () => {
     render(
-      <ReportColumnDisplayText forColumn="testColumn" rowIndex={1} value="" /> 
+       <table><tbody><tr><ReportColumnDisplayText forColumn="testColumn" label="test label" value="" /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
   
   it("renders null correctly", async () => {
     const noVal:any = null;
 
     render(
-      <ReportColumnDisplayText forColumn="testColumn" rowIndex={1} value={noVal} /> 
+       <table><tbody><tr><ReportColumnDisplayText forColumn="testColumn" label="test label" value={noVal} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
  
  

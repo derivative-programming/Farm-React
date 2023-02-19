@@ -27,7 +27,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders checked correctly", async () => {
     render(
-      <ReportColumnDisplayCheckbox forColumn="testColumn" rowIndex={1} isChecked={true} /> 
+       <table><tbody><tr><ReportColumnDisplayCheckbox forColumn="testColumn" rowIndex={1} isChecked={true} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders unchecked correctly", async () => {
     render(
-      <ReportColumnDisplayCheckbox forColumn="testColumn" rowIndex={1} isChecked={false} /> 
+      <table><tbody><tr><ReportColumnDisplayCheckbox forColumn="testColumn" rowIndex={1} isChecked={false} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -49,12 +49,12 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
     const noVal:any = null;
 
     render(
-      <ReportColumnDisplayCheckbox forColumn="testColumn" rowIndex={1} isChecked={noVal} /> 
+      <table><tbody><tr><ReportColumnDisplayCheckbox forColumn="testColumn" rowIndex={1} isChecked={noVal} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
  
 });

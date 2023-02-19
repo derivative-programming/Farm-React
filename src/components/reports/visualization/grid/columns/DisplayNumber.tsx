@@ -1,6 +1,5 @@
-import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss"; 
+import React, { FC, ReactElement,} from "react"; 
+import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayNumberProps {
   forColumn:string
@@ -19,18 +18,23 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
   const formatNumber = () => {  
     let result:string = "";
     
-    if(value == null)
-    {
-        return result;
-    }  
+    try {
+        
+      if(value == null)
+      {
+          return result;
+      }  
 
-    if(isNaN(value))
-    {
-        return result;
-    } 
+      if(isNaN(value))
+      {
+          return result;
+      } 
 
-    result = value.toLocaleString("en-US");
+      result = value.toLocaleString("en-US");
 
+    } catch (error) {
+      console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayNumber');
+    }
     return result;
   }
 

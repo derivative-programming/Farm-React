@@ -13,7 +13,7 @@ export interface FormSelectLandProps {
     disabled?: boolean
   }
 
-const FormSelectLand: FC<FormSelectLandProps> = ({
+export const FormSelectLand: FC<FormSelectLandProps> = ({
     name,
     label,
     placeholder,

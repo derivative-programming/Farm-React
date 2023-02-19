@@ -13,7 +13,7 @@ export interface ReportSelectTriStateFilterProps {
     disabled?: boolean
   }
 
-const ReportSelectTriStateFilter: FC<ReportSelectTriStateFilterProps> = ({
+  export const ReportSelectTriStateFilter: FC<ReportSelectTriStateFilterProps> = ({
     name,
     label,
     placeholder,

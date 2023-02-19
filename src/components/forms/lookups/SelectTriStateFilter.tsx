@@ -13,7 +13,7 @@ export interface FormSelectTriStateFilterProps {
     disabled?: boolean
   }
 
-const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
+export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
     name,
     label,
     placeholder,

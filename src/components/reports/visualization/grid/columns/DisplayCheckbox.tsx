@@ -1,6 +1,6 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss"; 
+import { Form } from "react-bootstrap";
+import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayCheckboxProps {
   forColumn:string
@@ -17,7 +17,7 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
   const groupName = forColumn +'-column-' + rowIndex.toString();
   const checkboxName = groupName +'-checkbox';
  
-  if(isChecked == null){
+  if(isChecked == null){ 
     return (
     <td data-testid={groupName}></td>
     );
@@ -26,6 +26,7 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
       <td data-testid={groupName}>   
           <Form.Check
             inline
+            readOnly={true}
             type="checkbox"
             data-testid={checkboxName}
             id={checkboxName}

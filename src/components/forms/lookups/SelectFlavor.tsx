@@ -13,7 +13,7 @@ export interface FormSelectFlavorProps {
     disabled?: boolean
   }
 
-const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
+export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
     name,
     label,
     placeholder,

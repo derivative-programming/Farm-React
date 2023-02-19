@@ -1,6 +1,5 @@
-import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss"; 
+import React, { FC, ReactElement,} from "react"; 
+import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayTextProps {
   forColumn:string
@@ -19,9 +18,14 @@ export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
   const formatText = () => {  
     let result:string = "";
     
-    if(value == null || value == "")
-    {
-        return result;
+    try {
+      
+      if(value == null || value == "")
+      {
+          return result;
+      }
+    } catch (error) {
+      console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayText');
     }
     
     return value;

@@ -8,7 +8,7 @@ import {
 import * as ReportService from "../services/LandPlantList"; 
 import { AuthContext } from "../../../context/authContext"; 
 import * as ReportInput from "../input-fields"   
-import ReportSelectFlavor from "../lookups/SelectFlavor";  
+import * as Lookups from "../lookups";  
    
 export interface ReportFilterLandPlantListProps {
     name:string
@@ -65,7 +65,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
         
                                     <Row>
                                         <Col lg="4" md="6" xs="12" id="flavorCode-filter">
-                                            <ReportSelectFlavor name="flavorCode" label="Flavor" />
+                                            <Lookups.ReportSelectFlavor name="flavorCode" label="Flavor" />
                                         </Col>
                                         <Col lg="4" md="6" xs="12" id="someIntVal-filter">
                                             <ReportInput.ReportInputNumber name="someIntVal" label="Some Int Value" />

@@ -41,7 +41,7 @@ describe("PlantUserDetails Connected Report Component", () => {
     });
 
     mockReportService.mockResolvedValue({
-      data: new ReportService.QueryResultInstance,
+      data: new ReportService.QueryResultTestInstance,
     });
 
     render(

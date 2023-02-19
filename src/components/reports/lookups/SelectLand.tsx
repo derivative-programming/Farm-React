@@ -13,7 +13,7 @@ export interface ReportSelectLandProps {
     disabled?: boolean
   }
 
-const ReportSelectLand: FC<ReportSelectLandProps> = ({
+export const ReportSelectLand: FC<ReportSelectLandProps> = ({
     name,
     label,
     placeholder,

@@ -13,7 +13,7 @@ export interface FormSelectRoleProps {
     disabled?: boolean
   }
 
-const FormSelectRole: FC<FormSelectRoleProps> = ({
+export const FormSelectRole: FC<FormSelectRoleProps> = ({
     name,
     label,
     placeholder,

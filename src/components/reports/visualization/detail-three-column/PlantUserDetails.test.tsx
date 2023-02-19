@@ -9,6 +9,7 @@ import {
   waitFor,
 } from "@testing-library/react";
 import {ReportDetailThreeColPlantUserDetails} from "./PlantUserDetails";
+import * as ReportService from "../../services/PlantUserDetails";
 
 const onRowSelect = jest.fn();
 const onRowUnselect = jest.fn();
@@ -22,17 +23,10 @@ describe("PlantUserDetails Form Component", () => {
   // render the PlantUserDetails Form component
   beforeEach(() => {
     render(
-        <ReportDetailThreeColPlantUserDetails 
-          isSortDescending={true}
-          items={[]}
-          name="testName" 
-          onRowSelect={onRowSelect}
-          onRowUnselect={onRowUnselect}
-          onSelectAll={onSelectAll}
-          onUnselectAll={onUnselectAll}
-          onSort={onSort}
-          onNavigateTo={onNavigateTo}
-          sortedColumnName="testColumnName" 
+        <ReportDetailThreeColPlantUserDetails  
+          item={new ReportService.QueryResultItemInstance}
+          name="testName"  
+          onNavigateTo={onNavigateTo} 
           />
     );
   });

@@ -12,7 +12,7 @@ export interface ReportSelectFlavorProps {
     disabled?: boolean
   }
 
-const ReportSelectFlavor: FC<ReportSelectFlavorProps> = ({
+  export const ReportSelectFlavor: FC<ReportSelectFlavorProps> = ({
     name,
     label,
     placeholder,

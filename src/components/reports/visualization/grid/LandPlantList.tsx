@@ -3,7 +3,7 @@ import { Button, Form, Table } from "react-bootstrap";
 import "../../../../App.scss";
 import * as ReportService from "../../services/LandPlantList";  
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader"; 
-import * as ReportColumnDisplay from "../../columns";
+import * as ReportColumnDisplay from "./columns";
 
 export interface ReportGridLandPlantListProps {
     name: string
@@ -55,7 +55,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     };
 
     const updateLinkPlantCodeColumnButtonClick = (code: string) => {
-        onNavigateTo("/" + code);
+        onNavigateTo("/plant-edit/" + code);
     }
 
     const deleteLinkPlantCodeColumnButtonClick = (code: string) => {
@@ -63,7 +63,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     }
 
     const detailsLinkPlantCodeColumnButtonClick = (code: string) => {
-        onNavigateTo("/" + code);
+        onNavigateTo("/plant-user-details/" + code);
     }
 
     return (
@@ -292,22 +292,25 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                                     />
                                     <td data-testid={'updateLinkPlantCode-' + index}>
                                         <Button
+                                            className="primary-button ms-2"
                                             data-testid={'updateLinkPlantCode-button-' + index}
                                             onClick={() => updateLinkPlantCodeColumnButtonClick(item.updateLinkPlantCode)}
 
-                                        />
+                                        >Update</Button>
                                     </td>
                                     <td data-testid={'deleteLinkPlantCode-' + index}>
                                         <Button
+                                            className="primary-button ms-2"
                                             data-testid={'deleteLinkPlantCode-button-' + index}
                                             onClick={() => deleteLinkPlantCodeColumnButtonClick(item.deleteLinkPlantCode)}
-                                        />
+                                        >Delete</Button>
                                     </td>
                                     <td data-testid={'detailsLinkPlantCode-' + index}>
                                         <Button
+                                            className="primary-button ms-2"
                                             data-testid={'detailsLinkPlantCode-button-' + index}
                                             onClick={() => detailsLinkPlantCodeColumnButtonClick(item.detailsLinkPlantCode)}
-                                        />
+                                        >Details</Button>
                                     </td>
                                 </tr>
                             );

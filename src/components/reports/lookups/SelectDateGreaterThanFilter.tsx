@@ -13,7 +13,7 @@ export interface ReportSelectDateGreaterThanFilterProps {
     disabled?: boolean
   }
 
-const ReportSelectDateGreaterThanFilter: FC<ReportSelectDateGreaterThanFilterProps> = ({
+  export const ReportSelectDateGreaterThanFilter: FC<ReportSelectDateGreaterThanFilterProps> = ({
     name,
     label,
     placeholder,

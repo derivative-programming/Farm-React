@@ -3,7 +3,7 @@ import { Button, Form, Table } from "react-bootstrap";
 import "../../../../App.scss";
 import * as ReportService from "../../services/PlantUserDetails"; 
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader"; 
-import * as ReportColumnDisplay from "../../columns";
+import * as ReportColumnDisplay from "./columns";
 
 export interface ReportGridPlantUserDetailsProps {
     name: string

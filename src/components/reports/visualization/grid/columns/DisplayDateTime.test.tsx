@@ -27,7 +27,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 01-03-2034 13:45:00 correctly", async () => {
     render(
-      <ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={new Date("01-03-2034 13:45:00 UTC")} /> 
+       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={new Date("01-03-2034 13:45:00 UTC")} /></tr></tbody></table>
     );
 
     expect(screen.getByText("1/3/2034 8:45 AM")).toBeInTheDocument();   
@@ -36,24 +36,24 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 01-01-1753 00:00:00 correctly", async () => {
     render(
-      <ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={new Date("01-01-1753 00:00:00 UTC")} /> 
+       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={new Date("01-01-1753 00:00:00 UTC")} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   }); 
   
   it("renders null correctly", async () => {
     const noVal:any = null;
 
     render(
-      <ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={noVal} /> 
+       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={noVal} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
  
  

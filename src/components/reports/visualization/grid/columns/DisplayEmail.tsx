@@ -1,6 +1,5 @@
-import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss"; 
+import React, { FC, ReactElement,} from "react"; 
+import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayEmailProps {
   forColumn:string
@@ -19,12 +18,18 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   const formatEmail = () => {  
     let result:string = ""; 
     
-    if(value == null || value == "")
-    {
-        return result;
-    }
+    try {
+      
+      if(value == null || value == "")
+      {
+          return result;
+      }
 
-    result = value;
+      result = value;
+
+    } catch (error) {
+      console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayEmail');
+    }
 
     return value;
   }

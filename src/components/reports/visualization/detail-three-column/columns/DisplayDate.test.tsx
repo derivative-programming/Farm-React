@@ -15,7 +15,7 @@ const initialValues = { testName:"" }
 
 const handleSubmit = jest.fn();
 
-const testId = 'testColumn-column-1';
+const testId = 'testColumn-column';
  
 describe("ReportColumnDisplayPhoneNumber Component", () => {
   // render the ReportColumnDisplayPhoneNumber component
@@ -27,7 +27,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 01-03-2034 13:45:00 correctly", async () => {
     render(
-      <ReportColumnDisplayDate forColumn="testColumn" rowIndex={1} value={new Date("01-03-2034 13:45:00 UTC")} /> 
+       <table><tbody><tr><ReportColumnDisplayDate forColumn="testColumn" label="test label" value={new Date("01-03-2034 13:45:00 UTC")} /></tr></tbody></table>
     );
 
     expect(screen.getByText("1/3/2034")).toBeInTheDocument(); 
@@ -36,7 +36,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 01-03-2034 00:45:00 correctly", async () => {
     render(
-      <ReportColumnDisplayDate forColumn="testColumn" rowIndex={1} value={new Date("01-03-2034 00:45:00 UTC")} /> 
+       <table><tbody><tr><ReportColumnDisplayDate forColumn="testColumn" label="test label" value={new Date("01-03-2034 00:45:00 UTC")} /></tr></tbody></table>
     );
 
     expect(screen.getByText("1/2/2034")).toBeInTheDocument();  
@@ -45,24 +45,24 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 01-01-1753 00:00:00 correctly", async () => {
     render(
-      <ReportColumnDisplayDate forColumn="testColumn" rowIndex={1} value={new Date("01-01-1753 00:00:00 UTC")} /> 
+       <table><tbody><tr><ReportColumnDisplayDate forColumn="testColumn" label="test label" value={new Date("01-01-1753 00:00:00 UTC")} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
     
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   }); 
   
   it("renders null correctly", async () => {
     const noVal:any = null;
 
     render(
-      <ReportColumnDisplayDate forColumn="testColumn" rowIndex={1} value={noVal} /> 
+      <ReportColumnDisplayDate forColumn="testColumn" label="test label" value={noVal} /> 
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
  
  

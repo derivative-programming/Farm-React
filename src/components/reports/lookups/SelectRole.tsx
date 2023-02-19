@@ -13,7 +13,7 @@ export interface ReportSelectRoleProps {
     disabled?: boolean
   }
 
-const ReportSelectRole: FC<ReportSelectRoleProps> = ({
+  export const ReportSelectRole: FC<ReportSelectRoleProps> = ({
     name,
     label,
     placeholder,

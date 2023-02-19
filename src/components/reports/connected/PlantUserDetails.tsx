@@ -7,10 +7,11 @@ import ReportFilterPlantUserDetails from "../filters/PlantUserDetails";
 import { ReportGridPlantUserDetails } from "../visualization/grid/PlantUserDetails";
 import * as ReportService from "../services/PlantUserDetails";
 import { ReportPagination } from "../input-fields/Pagination";
+import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-three-column/PlantUserDetails";
 
 const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
+    const [pageSize, setPageSize] = useState(1);
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance);
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
@@ -21,6 +22,7 @@ const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const landCode: string = id ?? "00000000-0000-0000-0000-000000000000";
     let navCodesAvailable: Record<string, string> = {}
     navCodesAvailable.landCode = landCode;
+    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
 
     const handleInit = (responseFull: any) => {
         console.log('init...');
@@ -126,34 +128,13 @@ const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                 <Button onClick={() => goTo('/land-plant-list')} className='primary-button' data-testid="plant-btn" type="submit">
                     Plants
                 </Button>
-            </div>
-            <ReportFilterPlantUserDetails
-                name="reportConnectedPlantUserDetails-filter"
-                initialQuery={initialValues}
-                onSubmit={onSubmit} />
+            </div> 
 
-            <ReportGridPlantUserDetails
-                isSortDescending={queryResult.orderByDescending}
-                items={queryResult.items}
-                name="reportConnectedPlantUserDetails-table"
-                onRowSelect={onRowSelect}
-                onRowUnselect={onRowUnselect}
-                onSelectAll={onSelectAll}
-                onUnselectAll={onUnselectAll}
-                onSort={onSort}
-                onNavigateTo={onNavigateTo}
-                sortedColumnName={queryResult.orderByColumnName}
-            />
-
-            <ReportPagination
-                name="reportConnectedPlantUserDetails-paginator"
-                currentPage={queryResult.pageNumber}
-                currentPageItemCount={queryResult.itemCountPerPage}
-                onPageSelection={onPageSelection}
-                onPageSizeChange={onPageSizeChange}
-                pageSize={queryResult.itemCountPerPage}
-                totalItemCount={queryResult.recordsFiltered}
-            />
+            <ReportDetailThreeColPlantUserDetails 
+                item= {displayItem}
+                name="reportConnectedPlantUserDetails-table" 
+                onNavigateTo={onNavigateTo} 
+            /> 
         </div>
     );
 };

@@ -41,7 +41,8 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
         if (!queryResult.success) {
             return;
         }
-
+        console.log('query result...');
+        console.log(queryResult);
         setQueryResult({ ...queryResult });
     }
 

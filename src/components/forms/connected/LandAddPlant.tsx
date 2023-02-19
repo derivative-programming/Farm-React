@@ -10,7 +10,7 @@ import * as FormService from "../services/LandAddPlant";
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
 import * as InputFields from "../input-fields" 
-import SelectFlavor from "../lookups/SelectFlavor";  
+import * as Lookups from "../lookups";  
    
 export interface FormProps {
     name?:string
@@ -129,7 +129,7 @@ const FormConnectedLandAddPlant: FC<FormProps> = ({
                             onSubmit={props.handleSubmit}>  
 
                             <InputFields.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
-                            <SelectFlavor name="flavorCode" label="Flavor" /> 
+                            <Lookups.FormSelectFlavor name="flavorCode" label="Flavor" /> 
                             <InputFields.FormInputText name="otherFlavor" label="Other Flavor" /> 
                             <InputFields.FormInputNumber name="someIntVal" label="Some Int Value" /> 
                             <InputFields.FormInputNumber name="someBigIntVal" label="Some Big Int Value" /> 

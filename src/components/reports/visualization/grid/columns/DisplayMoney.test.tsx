@@ -27,7 +27,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 123 correctly", async () => {
     render(
-      <ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={123} /> 
+       <table><tbody><tr><ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={123} /></tr></tbody></table>
     );
 
     expect(screen.getByText("$123.00")).toBeInTheDocument();  
@@ -36,7 +36,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   
   it("renders 1234 correctly", async () => {
     render(
-      <ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={1234} /> 
+       <table><tbody><tr><ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={1234} /></tr></tbody></table>
     );
 
     expect(screen.getByText("$1,234.00")).toBeInTheDocument(); 
@@ -44,7 +44,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 1234.5 correctly", async () => {
     render(
-      <ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={1234.5} /> 
+       <table><tbody><tr><ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={1234.5} /></tr></tbody></table>
     );
 
     expect(screen.getByText("$1,234.50")).toBeInTheDocument();  
@@ -53,7 +53,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   
   it("renders 1234.56 correctly", async () => {
     render(
-      <ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={1234.56} /> 
+       <table><tbody><tr><ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={1234.56} /></tr></tbody></table>
     );
 
     expect(screen.getByText("$1,234.56")).toBeInTheDocument();   
@@ -64,12 +64,12 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
     const noVal:any = null;
 
     render(
-      <ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={noVal} /> 
+       <table><tbody><tr><ReportColumnDisplayMoney forColumn="testColumn" rowIndex={1} value={noVal} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
  
  

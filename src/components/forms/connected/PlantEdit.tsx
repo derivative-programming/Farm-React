@@ -10,7 +10,7 @@ import * as FormService from "../services/PlantEdit";
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
 import * as FormInput from "../input-fields"  
-import SelectFlavor from "../lookups/SelectFlavor"; 
+import * as Lookups from "../lookups";  
    
 export interface FormProps {
     name?:string
@@ -128,7 +128,7 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
                             onSubmit={props.handleSubmit}>  
 
                             <FormInput.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
-                            <SelectFlavor name="flavorCode" label="Flavor" /> 
+                            <Lookups.FormSelectFlavor name="flavorCode" label="Flavor" /> 
                             <FormInput.FormInputText name="otherFlavor" label="Other Flavor" /> 
                             <FormInput.FormInputNumber name="someIntVal" label="Some Int Value" /> 
                             <FormInput.FormInputNumber name="someBigIntVal" label="Some Big Int Value" /> 

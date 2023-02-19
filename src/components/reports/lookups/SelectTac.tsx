@@ -13,7 +13,7 @@ export interface ReportSelectTacProps {
     disabled?: boolean
   }
 
-const ReportSelectTac: FC<ReportSelectTacProps> = ({
+  export const ReportSelectTac: FC<ReportSelectTacProps> = ({
     name,
     label,
     placeholder,

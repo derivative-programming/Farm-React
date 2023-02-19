@@ -13,7 +13,7 @@ export interface FormSelectDateGreaterThanFilterProps {
     disabled?: boolean
   }
 
-const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilterProps> = ({
+export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilterProps> = ({
     name,
     label,
     placeholder,

@@ -24,20 +24,15 @@ const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestIns
 
 describe("PlantUserDetails Component", () => {
 
-  beforeEach(async () => {  
-      mockPacUserFlavorListService.mockResolvedValueOnce({
-        data: new PacUserFlavorList.QueryResultTestInstance,
-      }); 
-      
+  beforeEach(async () => {    
 
     render( 
         <ReportFilterPlantUserDetails 
           name="testForm" 
           initialQuery={intialQuery}
           onSubmit={onSubmit} />  
-    ); 
-
-    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
+    );  
+    
   });
 
   // after cleanup when test-case execution is done

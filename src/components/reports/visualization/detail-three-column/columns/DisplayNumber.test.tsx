@@ -15,7 +15,7 @@ const initialValues = { testName:"" }
 
 const handleSubmit = jest.fn();
 
-const testId = 'testColumn-column-1';
+const testId = 'testColumn-column';
  
 describe("ReportColumnDisplayPhoneNumber Component", () => {
   // render the ReportColumnDisplayPhoneNumber component
@@ -28,7 +28,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   it("renders 123 correctly", async () => {
     
     render(
-    <ReportColumnDisplayNumber forColumn="testColumn" rowIndex={1} value={123} /> 
+       <table><tbody><tr><ReportColumnDisplayNumber forColumn="testColumn" label="test label" value={123} /></tr></tbody></table>
     );
 
     expect(screen.getByText("123")).toBeInTheDocument();    
@@ -38,7 +38,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   it("renders 1234 correctly", async () => {
     
     render(
-    <ReportColumnDisplayNumber forColumn="testColumn" rowIndex={1} value={1234} /> 
+       <table><tbody><tr><ReportColumnDisplayNumber forColumn="testColumn" label="test label" value={1234} /></tr></tbody></table>
     );
 
     expect(screen.getByText("1,234")).toBeInTheDocument();   
@@ -48,7 +48,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   it("renders 123.4 correctly", async () => {
     
     render(
-    <ReportColumnDisplayNumber forColumn="testColumn" rowIndex={1} value={123.4} /> 
+       <table><tbody><tr><ReportColumnDisplayNumber forColumn="testColumn" label="test label" value={123.4} /></tr></tbody></table>
     );
 
     expect(screen.getByText("123.4")).toBeInTheDocument(); 
@@ -59,7 +59,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   it("renders 123.45 correctly", async () => {
     
     render(
-    <ReportColumnDisplayNumber forColumn="testColumn" rowIndex={1} value={123.45} /> 
+       <table><tbody><tr><ReportColumnDisplayNumber forColumn="testColumn" label="test label" value={123.45} /></tr></tbody></table>
     );
 
     expect(screen.getByText("123.45")).toBeInTheDocument();
@@ -70,12 +70,12 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
     const noVal:any = null;
 
     render(
-      <ReportColumnDisplayNumber forColumn="testColumn" rowIndex={1} value={noVal} /> 
+       <table><tbody><tr><ReportColumnDisplayNumber forColumn="testColumn" label="test label" value={noVal} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
  
  

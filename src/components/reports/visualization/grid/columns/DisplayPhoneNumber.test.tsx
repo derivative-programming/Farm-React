@@ -27,7 +27,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 1234567 correctly", async () => {
     render(
-      <ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="1234567" /> 
+       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="1234567" /></tr></tbody></table>
     );
 
     expect(screen.getByText("123-4567")).toBeInTheDocument(); 
@@ -36,7 +36,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   
   it("renders 123 4567 correctly", async () => {
     render(
-      <ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="123 4567" /> 
+       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="123 4567" /></tr></tbody></table>
     );
 
     expect(screen.getByText("123-4567")).toBeInTheDocument(); 
@@ -45,7 +45,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   
   it("renders 123-4567 correctly", async () => {
     render(
-      <ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="123-4567" /> 
+       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="123-4567" /></tr></tbody></table>
     );
 
     expect(screen.getByText("123-4567")).toBeInTheDocument(); 
@@ -54,7 +54,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   
   it("renders 1234567890 correctly", async () => {
     render(
-      <ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="1234567890" /> 
+       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="1234567890" /></tr></tbody></table>
     );
 
     expect(screen.getByText("(123) 456-7890")).toBeInTheDocument(); 
@@ -63,24 +63,24 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
  
   it("renders no value correctly", async () => {
     render(
-      <ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="" /> 
+      <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value="" /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
   
   it("renders null correctly", async () => {
     const noVal:any = null;
 
     render(
-      <ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value={noVal} /> 
+       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value={noVal} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<div data-testid=\"testColumn-column-1\"></div>");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
  
   
