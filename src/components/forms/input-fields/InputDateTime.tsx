@@ -39,9 +39,11 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
 
   const errorDisplayControlName = name + "ErrorDisplay";
   
+  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  
   return (
-    <div className="custom-form-control">
-      <Form.Group controlId={name}>
+    <div className="">
+      <Form.Group controlId={name} className="mb-2">
           <Form.Label>{label}</Form.Label>
           <DatePicker
             // ref={inputRef}
@@ -57,7 +59,7 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
             onBlur={field.onBlur} 
             disabled={disabled}
             autoFocus={autoFocus}
-          />
+          /> 
       </Form.Group>
       <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
   </div>

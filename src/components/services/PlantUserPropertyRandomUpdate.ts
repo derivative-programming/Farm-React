@@ -1,15 +1,16 @@
 import {  
-    PLANT_DELETE, 
+    PLANT_USER_PROPERTY_RANDMON_UPDATE, 
   } from "../../apiConfig/apiEndpoints";
-  import { apiCall } from "../../apiConfig/apiCall";
+import { apiCall } from "../../apiConfig/apiCall";
    
   
    
   
-  export const submitRequest = (plantCode:string) => {
+  export const PlantUserPropertyRandomUpdateSubmitRequest = (data:any, plantCode:string) => { 
     return apiCall({
-      url: PLANT_DELETE + "/" + plantCode,
-      method: "delete"
+      url: PLANT_USER_PROPERTY_RANDMON_UPDATE + "/" + plantCode,
+      method: "POST",
+      data
     });
   };
 
@@ -77,8 +78,7 @@ export interface InitRequest {
 }
 
 export interface InitResult {
- 
-    landCode: string;
+  
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
@@ -100,15 +100,13 @@ export class InitRequestInstance implements InitRequest {
 
 
 export class InitResultInstance implements InitResult {
- 
-    landCode: string;
+  
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
 
     constructor() {
- 
-        this.landCode = '00000000-0000-0000-0000-000000000000';
+  
         this.success = false;
         this.message = '';
         this.validationErrors =  [];

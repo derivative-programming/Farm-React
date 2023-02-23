@@ -54,6 +54,12 @@ describe("TacRegister Component", () => {
     expect(screen.getByTestId("firstName")).toBeInTheDocument();
     expect(screen.getByTestId("lastName")).toBeInTheDocument();
     
+    expect(screen.getByTestId("submit-button")).toBeInTheDocument();
+    expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
+    
+    expect(screen.getByText("Register")).toBeInTheDocument();
+    expect(screen.getByText("Please enter your email and password.")).toBeInTheDocument();
+    
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
   });
 

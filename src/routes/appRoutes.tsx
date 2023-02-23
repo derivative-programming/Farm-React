@@ -1,13 +1,9 @@
 import React, { useContext } from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
-import TacFarmDashboard from "../components/pages/user/tac-farm-dashboard/TacFarmDashboard";
-import FormConnectedLandAddPlant from "../components/forms/connected/LandAddPlant";
-import FormConnectedPlantEdit from "../components/forms/connected/PlantEdit";
-import PlantUserDetails from "../components/pages/user/plant-user-details/PlantUserDetails";
-import LandPlantList from "../components/pages/user/land-plant-list/LandPlantList";
-import LayoutComponent from "../components/Layout/Layout";
-import ReportConnectedLandPlantList from "../components/reports/connected/LandPlantList";
-import ReportConnectedPlantUserDetails from "../components/reports/connected/PlantUserDetails";
+import TacFarmDashboard from "../components/pages/user/tac-farm-dashboard/TacFarmDashboard"; 
+import LayoutComponent from "../components/Layout/Layout"; 
+import * as ReportConnected from "../components/reports/connected";
+import * as FormConnected from "../components/forms/connected";
 
 const AppRoute = () => {
   return (
@@ -15,10 +11,12 @@ const AppRoute = () => {
     <Routes>
     <Route path={"/tac-farm-dashboard"} element={<TacFarmDashboard />} />
       <Route path={"/tac-farm-dashboard:id"} element={<TacFarmDashboard />} />
-      <Route path={"/land-plant-list/:id"} element={<ReportConnectedLandPlantList />} />
-      <Route path={"/plant-user-details/:id"} element={<ReportConnectedPlantUserDetails />} />
-      <Route path={"/land-add-plant/:id"} element={<FormConnectedLandAddPlant />} />
-      <Route path={"/plant-edit/:id"} element={<FormConnectedPlantEdit />} />
+      <Route path={"/land-plant-list/:id"} element={<ReportConnected.ReportConnectedLandPlantList />} />
+      <Route path={"/plant-user-details/:id"} element={<ReportConnected.ReportConnectedPlantUserDetails />} />
+      <Route path={"/land-add-plant/:id"} element={<FormConnected.FormConnectedLandAddPlant />} />
+      <Route path={"/plant-edit/:id"} element={<FormConnected.FormConnectedPlantEdit />} />
+      <Route path={"/tac-login/:id"} element={<FormConnected.FormConnectedTacLogin />} />
+      <Route path={"/tac-register/:id"} element={<FormConnected.FormConnectedTacRegister />} />
       <Route path={"*"} element={<Navigate to={"/tac-farm-dashboard"} replace />} />
     </Routes>
     </LayoutComponent>

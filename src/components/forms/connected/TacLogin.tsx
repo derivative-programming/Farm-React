@@ -14,7 +14,7 @@ export interface FormProps {
     name?:string
   }
 
-const FormConnectedTacLogin: FC<FormProps> = ({
+  export const FormConnectedTacLogin: FC<FormProps> = ({
     name="formConnectedTacLogin", 
   }): ReactElement => { 
 
@@ -26,9 +26,7 @@ const FormConnectedTacLogin: FC<FormProps> = ({
 
     const navigate = useNavigate();
     const { id } = useParams();
-    const tacCode:string = id ?? "00000000-0000-0000-0000-000000000000";
-    let navCodesAvailable:Record<string,string> = {}
-    navCodesAvailable.tacCode = tacCode;
+    const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
  
     const validationSchema  =  FormService.buildValidationSchema();
 
@@ -100,7 +98,7 @@ const FormConnectedTacLogin: FC<FormProps> = ({
             return;
         }
         isInitializedRef.current = true;
-        FormService.initForm(tacCode)
+        FormService.initForm(contextCode)
         .then(response => handleInit(response));
     }); 
     
@@ -119,6 +117,7 @@ const FormConnectedTacLogin: FC<FormProps> = ({
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
                     {(props) => (
                         <Form 
+                            className="mb-2"
                             name={name} 
                             data-testid={name}
                             onReset={props.handleReset} 
@@ -127,7 +126,7 @@ const FormConnectedTacLogin: FC<FormProps> = ({
                             <FormInput.FormInputEmail name="email" label="Email" autoFocus={true} />
                             <FormInput.FormInputPassword name="password" label="Password" /> 
                             <div className="d-flex btn-container">
-                                <Button type="submit" data-testid="submit">
+                                <Button type="submit" data-testid="submit-button">
                                     Login
                                 </Button>
                                 <Button
@@ -135,7 +134,7 @@ const FormConnectedTacLogin: FC<FormProps> = ({
                                         registerButtonClick(); 
                                     }}
                                     variant="secondary" 
-                                    data-testid="registration-btn"
+                                    data-testid="cancel-button"
                                 >
                                     Register
                                 </Button>

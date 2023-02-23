@@ -7,12 +7,14 @@ export interface ReportColumnDisplayDateProps {
   forColumn:string 
   value: string 
   label:string
+  isVisible?:boolean
 }
    
 export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
   forColumn, 
   value, 
   label,
+  isVisible = true
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
@@ -22,7 +24,7 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
     
     try {
         
-      if(value == null)
+      if(value == null || !isVisible)
       {
           return result;
       }
@@ -49,11 +51,11 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
     <Col data-testid={groupName} lg="5" md="5" xs="12">
         <ListGroup.Item
             as="li"
-            className="d-flex justify-content-between align-items-center"
+            className="d-flex text-start"
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div>
-                {formatDate()}
+                {formatDate()}&nbsp;
             </div>
 
         </ListGroup.Item>

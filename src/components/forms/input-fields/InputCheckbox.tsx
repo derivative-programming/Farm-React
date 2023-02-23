@@ -22,10 +22,12 @@ export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
   const [field, meta, helpers] = useField(name);  
 
   const errorDisplayControlName = name + "ErrorDisplay";
+  
+  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
-    <div className="custom-form-control">
-      <Form.Group controlId={name}> 
+    <div className="">
+      <Form.Group controlId={name} className="mb-2"> 
           <Form.Check
             // ref={inputRef}
             data-testid={name}
@@ -39,9 +41,10 @@ export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
             disabled={disabled}
             autoFocus={autoFocus}
             label={label}
+            isInvalid={isInvalid}
           />
-      </Form.Group>
-      <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
+          <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+      </Form.Group> 
   </div>
   );
 };

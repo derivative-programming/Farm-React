@@ -106,11 +106,11 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
   
   const getAvailablePageItems = () => {
     let items: any = [];
-    let start = currentPage - 3;
+    let start = currentPage - 2;
     if(start < 1){
       start = 1;
     }
-    let end = currentPage + 3
+    let end = currentPage + 2
     if(end > getMaxPageCount()){
       end = getMaxPageCount();
     }
@@ -152,6 +152,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
         </Form.Select>
       </div>
       <Pagination 
+        className="mt-2"
         data-testid={paginationId}
         hidden={isHidden()}>
         <Pagination.First 

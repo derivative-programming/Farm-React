@@ -7,7 +7,7 @@ import {
    
   
   export const initForm = (landCode:string) => { 
-    const data ={};
+    const data ={}; 
     return apiCall({
       url: LAND_ADD_PLANT + "/" + landCode,
       method: "put" ,
@@ -15,7 +15,7 @@ import {
     });
   }; 
     
-  export const submitForm = (data:SubmitRequest, landCode:string) => {
+  export const submitForm = (data:SubmitRequest, landCode:string) => { 
     return apiCall({
       url: LAND_ADD_PLANT + "/" + landCode,
       method: "post",
@@ -69,25 +69,25 @@ export const buildValidationSchema = () => {
     const validationSchema  = Yup.object().shape({
         flavorCode: Yup.string()
         ,
-        someIntVal: Yup.number()
+        someIntVal: Yup.number().required()
         ,
-        someBigIntVal: Yup.number()
+        someBigIntVal: Yup.number().required()
         ,
-        someBitVal: Yup.boolean()
+        someBitVal: Yup.boolean().required()
         ,
-        isEditAllowed: Yup.boolean()
+        isEditAllowed: Yup.boolean().required()
         ,
-        isDeleteAllowed: Yup.boolean()
+        isDeleteAllowed: Yup.boolean().required()
         ,
-        someFloatVal: Yup.number()
+        someFloatVal: Yup.number().required()
         ,
-        someDecimalVal: Yup.number()
+        someDecimalVal: Yup.number().required()
         ,
         someUTCDateTimeVal: Yup.mixed()
         ,
         someDateVal: Yup.mixed()
         ,
-        someMoneyVal: Yup.number()
+        someMoneyVal: Yup.number().required()
         ,
         someNVarCharVal: Yup.string()
         ,
@@ -143,6 +143,8 @@ export interface SubmitRequest {
     somePhoneNumber: string;
  
     someEmailAddress: string;
+ 
+    sampleImageUploadFile: string;
 }
 
 export interface SubmitResult {
@@ -195,6 +197,9 @@ export class SubmitRequestInstance implements SubmitRequest {
     somePhoneNumber: string;
  
     someEmailAddress: string;
+ 
+    sampleImageUploadFile: string;
+    
 
     constructor() {
  
@@ -231,6 +236,8 @@ export class SubmitRequestInstance implements SubmitRequest {
         this.somePhoneNumber = '';
  
         this.someEmailAddress = '';
+ 
+        this.sampleImageUploadFile = '';
     } 
 
 }

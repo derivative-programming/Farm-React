@@ -6,12 +6,14 @@ export interface ReportColumnDisplayDateTimeProps {
   forColumn:string
   rowIndex: number
   value: string 
+  isVisible?:boolean
 }
    
 export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> = ({
   forColumn,
   rowIndex,
   value, 
+  isVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
@@ -21,7 +23,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
     
     try {
         
-      if(value == null)
+      if(value == null || !isVisible)
       {
           return result;
       }

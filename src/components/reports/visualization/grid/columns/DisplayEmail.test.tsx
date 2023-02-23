@@ -54,6 +54,17 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
     expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
   });
+  
+  it("renders isVisible=false correctly", async () => { 
+
+    render(
+       <table><tbody><tr><ReportColumnDisplayEmail forColumn="testColumn" rowIndex={1} value="test Value" isVisible={false} /></tr></tbody></table>
+    );
+
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
+
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
+  });
  
  
 });

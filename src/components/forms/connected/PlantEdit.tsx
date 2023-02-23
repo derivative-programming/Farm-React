@@ -16,10 +16,11 @@ export interface FormProps {
     name?:string
   }
 
-const FormConnectedPlantEdit: FC<FormProps> = ({
+  export const FormConnectedPlantEdit: FC<FormProps> = ({
     name="formConnectedPlantEdit", 
   }): ReactElement => { 
     
+    const [initPageResponse, setInitPageResponse] = useState(new FormService.InitResultInstance);
     const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance); 
     let lastApiSubmission:any = { 
             request: new FormService.SubmitResultInstance,
@@ -28,9 +29,7 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
 
     const navigate = useNavigate();
     const { id } = useParams();
-    const plantCode:string = id ?? "00000000-0000-0000-0000-000000000000";
-    let navCodesAvailable:Record<string,string> = {}
-    navCodesAvailable.plantCode = plantCode;
+    const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
  
     let initFormResponse: FormService.InitResult = new FormService.InitResultInstance; 
 
@@ -42,16 +41,15 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
 
     const handleInit = (responseFull:any) => {
         
-        const initFormResponse: FormService.InitResult = responseFull.data; 
+        const response: FormService.InitResult = responseFull.data; 
 
-        if(!initFormResponse.success)
+        if(!response.success)
         {
             return;
         } 
 
-        setInitialValues({...FormService.buildSubmitRequest(initFormResponse)}); 
+        setInitPageResponse({...response}) 
 
-        navCodesAvailable.landCode = initFormResponse.landCode;
     } 
     
     const handleValidate = async (values: FormService.SubmitRequest) => {  
@@ -75,7 +73,7 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
         actions: FormikHelpers<FormService.SubmitRequest>
     ) => { 
         try { 
-            const responseFull: any = await FormService.submitForm(values,plantCode);
+            const responseFull: any = await FormService.submitForm(values,contextCode);
             const response: FormService.SubmitResult = responseFull.data; 
             lastApiSubmission = { 
                 request: {...values},
@@ -89,14 +87,14 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
             } 
             actions.setSubmitting(false);
             actions.resetForm();  
-            navigate("/land-plant-list/" + navCodesAvailable.landCode);
+            navigateTo("plant-user-details","plantCode");
         } catch (error) {
             actions.setSubmitting(false);
         }
     }; 
 
     const cancelButtonClick = (() => {
-        navigate("/land-plant-list/" + navCodesAvailable.landCode);
+        navigateTo("plant-user-details","plantCode");
     });
     
     useEffect(() => {
@@ -104,9 +102,32 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
             return;
         }
         isInitializedRef.current = true;
-        FormService.initForm(plantCode)
+        FormService.initForm(contextCode)
         .then(response => handleInit(response));
     }); 
+
+    useEffect(() => {
+        const newInitalValues = FormService.buildSubmitRequest(initPageResponse);  
+        setInitialValues({ ...newInitalValues });
+    }, [initPageResponse]); 
+    
+    const navigateTo = (page: string, codeName:string) => { 
+        let targetContextCode = contextCode; 
+        Object.entries(initPageResponse)
+        .forEach(([key, value]) => { 
+            if(key == codeName)
+            {
+                if(value != ''
+                    && value != '00000000-0000-0000-0000-000000000000') {
+                    targetContextCode = value;
+                } else {
+                    return;
+                }
+            }
+        })
+        const url = '/' + page + '/' + targetContextCode; 
+        navigate(url);
+    }
     
 
     return ( 
@@ -122,6 +143,7 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
                     {(props) => (
                         <Form 
+                            className="mb-2"
                             name={name} 
                             data-testid={name}
                             onReset={props.handleReset} 
@@ -147,17 +169,17 @@ const FormConnectedPlantEdit: FC<FormProps> = ({
                             <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
                             <FormInput.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 
                             <div className="d-flex btn-container">
-                                <Button type="submit" data-testid="submit">
-                                    Save
+                                <Button type="submit" data-testid="submit-button">
+                                    OK Button text
                                 </Button>
                                 <Button
                                     onClick={() => {
                                         cancelButtonClick(); 
                                     }}
                                     variant="secondary" 
-                                    data-testid="backToLogin"
+                                    data-testid="cancel-button"
                                 >
-                                    Cancel
+                                    Cancel Button text
                                 </Button>
                             </div>
                         </Form>  

@@ -40,8 +40,8 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
   const errorDisplayControlName = name + "ErrorDisplay";
   
   return (
-    <div className="custom-form-control">
-      <Form.Group controlId={name}>
+    <div className=" ">
+      <Form.Group controlId={name} className="mt-2">
           <Form.Label>{label}</Form.Label>
           <DatePicker
             // ref={inputRef}

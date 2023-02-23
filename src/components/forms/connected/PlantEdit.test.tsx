@@ -77,6 +77,12 @@ describe("PlantEdit Component", () => {
     expect(screen.getByTestId("somePhoneNumber")).toBeInTheDocument();
     expect(screen.getByTestId("someEmailAddress")).toBeInTheDocument();
     
+    
+    expect(screen.getByTestId("submit-button")).toBeInTheDocument();
+    expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
+    
+    expect(screen.getByText("Update Plant")).toBeInTheDocument(); 
+
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
   });
 

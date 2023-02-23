@@ -12,6 +12,7 @@ import {FormInputText} from "./InputText";
 import {FormInputErrorDisplay} from "./InputErrorDisplay";   
 import { Formik } from "formik";
 import { Form } from "react-bootstrap";
+import { FormInputDate } from "./InputDate";
 
 const initialValues = { testName:"" } 
  
@@ -24,7 +25,7 @@ describe("InputErrorDisplay Component", () => {
           onSubmit={async (values,actions) => {}}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
-                <FormInputText label="Test Label" name="testInputName"/>  
+              <FormInputDate label="Test Label" name="testInputName"/> 
               </Form>  
           )}
       </Formik>
@@ -36,7 +37,7 @@ describe("InputErrorDisplay Component", () => {
   afterEach(cleanup); 
 
   it("renders correctly", async () => {
-    expect(screen.getByTestId("testInputNameErrorDisplay")).toBeInTheDocument();
+    expect(screen.getByTestId("testInputNameErrorDisplay")).toBeInTheDocument(); 
   });
 
   it("when user enter value, it set accordingly in control", async () => {

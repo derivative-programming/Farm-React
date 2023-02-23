@@ -124,7 +124,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                                                 Search
                                             </Button>
                                             <Button
-                                                className="primary-button"
+                                                className="primary-button ms-2"
                                                 type="reset"
                                                 onClick={() => props.resetForm() as any}
                                                 variant="secondary" 

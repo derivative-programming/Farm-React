@@ -23,10 +23,12 @@ export const ReportInputMoney: FC<ReportInputMoneyProps> = ({
   const [field, meta, helpers] = useField(name); 
 
   const errorDisplayControlName = name + "ErrorDisplay";
+  
+  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
-    <div className="custom-form-control">
-      <Form.Group controlId={name}>
+    <div className="">
+      <Form.Group controlId={name} className="mt-2">
           <Form.Label>{label}</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
@@ -39,10 +41,11 @@ export const ReportInputMoney: FC<ReportInputMoneyProps> = ({
               disabled={disabled}
               autoFocus={autoFocus}
               onKeyDown={onKeyDown}
+              isInvalid={isInvalid}
             />
+            <Form.Control.Feedback  className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
           </InputGroup>
-      </Form.Group>
-      <ReportInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
+      </Form.Group> 
   </div>
   );
 };

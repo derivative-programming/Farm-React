@@ -25,11 +25,7 @@ describe("PlantUserDetails Form Component", () => {
         <ReportGridPlantUserDetails 
           isSortDescending={true}
           items={[]}
-          name="testName" 
-          onRowSelect={onRowSelect}
-          onRowUnselect={onRowUnselect}
-          onSelectAll={onSelectAll}
-          onUnselectAll={onUnselectAll}
+          name="testName"  
           onSort={onSort}
           onNavigateTo={onNavigateTo}
           sortedColumnName="testColumnName" 

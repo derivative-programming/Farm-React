@@ -22,10 +22,12 @@ export const FormInputTextArea: FC<FormInputTextAreaProps> = ({
   const [field, meta, helpers] = useField(name); 
 
   const errorDisplayControlName = name + "ErrorDisplay";
+  
+  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
-    <div className="custom-form-control">
-      <Form.Group controlId={name}>
+    <div className="">
+      <Form.Group controlId={name} className="mb-2">
           <Form.Label>{label}</Form.Label>
           <Form.Control
             // ref={inputRef}
@@ -37,9 +39,10 @@ export const FormInputTextArea: FC<FormInputTextAreaProps> = ({
             {...field} 
             disabled={disabled}
             autoFocus={autoFocus}
+            isInvalid={isInvalid}
           />
-      </Form.Group>
-      <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
+          <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+      </Form.Group> 
   </div>
   );
 };

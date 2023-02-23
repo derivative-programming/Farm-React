@@ -4,12 +4,12 @@ import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom"; 
 import ReportFilterLandPlantList from "../filters/LandPlantList";
 import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList";
-import * as ReportService from "../services/LandPlantList";
-import { ReportPagination } from "../input-fields/Pagination";
+import * as ReportService from "../services/LandPlantList"; 
 
-const ReportConnectedLandPlantList: FC = (): ReactElement => {
+export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
+    const [initPageResponse, setInitPageResponse] = useState(new ReportService.InitResultInstance);
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance);
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
@@ -17,20 +17,17 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
     const navigate = useNavigate();
     const { id } = useParams();
-    const landCode: string = id ?? "00000000-0000-0000-0000-000000000000";
-    let navCodesAvailable: Record<string, string> = {}
-    navCodesAvailable.landCode = landCode;
+    const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
     const handleInit = (responseFull: any) => { 
-        const initFormResponse: ReportService.InitResult = responseFull.data;
+        const response: ReportService.InitResult = responseFull.data;
 
-        if (!initFormResponse.success) {
+        if (!response.success) {
             return;
         }
-        const newInitalValues = ReportService.buildQueryRequest(initFormResponse);
-
-        setInitialValues({ ...newInitalValues });
-        setQuery({ ...newInitalValues });
+        console.log('init returned');
+        console.log(response);
+        setInitPageResponse({...response})
     }
 
     const handleQueryResults = (responseFull: any) => {
@@ -54,22 +51,32 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
     const onPageSizeChange = (pageSize: number) => {
         setQuery({ ...query, ItemCountPerPage: pageSize });
-    }
-
-    const onRowSelect = (index: number) => {
-    }
-
-    const onRowUnselect = (index: number) => {
-    }
-
-    const onSelectAll = () => {
-    }
-
-    const onUnselectAll = () => {
-    }
+    } 
 
     const onNavigateTo = (url: string) => {
-        goTo(url);
+        navigate(url);
+    }
+    
+    const navigateTo = (page: string, codeName:string) => { 
+        let targetContextCode = contextCode; 
+        Object.entries(initPageResponse)
+        .forEach(([key, value]) => { 
+            if(key == codeName)
+            {
+                if(value != ''
+                    && value != '00000000-0000-0000-0000-000000000000') {
+                    targetContextCode = value;
+                } else {
+                    return;
+                }
+            }
+        })
+        const url = '/' + page + '/' + targetContextCode; 
+        navigate(url);
+    }
+    
+    const onRefreshRequest = () => { 
+        setQuery({ ...query})
     }
 
     const onSort = (columnName: string) => {
@@ -86,54 +93,58 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
             return;
         }
         isInitializedRef.current = true;
-        ReportService.initPage(landCode)
+        ReportService.initPage(contextCode)
             .then(response => handleInit(response));
     });
 
     useEffect(() => {
-        console.log(query);
-        ReportService.submitRequest(query, landCode)
+        const newInitalValues = ReportService.buildQueryRequest(initPageResponse);   
+        setInitialValues({ ...newInitalValues });
+    }, [initPageResponse]); 
+    
+
+    useEffect(() => { 
+        if(JSON.stringify(initialValues) !== JSON.stringify(query)){ 
+            setQuery({ ...initialValues });
+        }
+    }, [initialValues]); 
+
+    useEffect(() => { 
+        ReportService.submitRequest(query, contextCode)
             .then(response => handleQueryResults(response));
     }, [query]);
-
-
-    const onDashboard = () => {
-        goTo("/tac-farm-dashboard")
-    }
-
-    const goTo = (url: any) => {
-        navigate(url);
-    };
+  
 
     return (
 
         <div className="plants-container" data-testid="reportConnectedLandPlantList">
             <div className="breadcrumb-container">
                 <Breadcrumb>
-                    <Breadcrumb.Item
-                        onClick={() => goTo("tac-farm-dashboard")}>
-                        Dashboard
+                    <Breadcrumb.Item id="TacFarmDashboardBreadcrumb"
+                        onClick={() => navigateTo("tac-farm-dashboard","tacCode")}>
+                        Farm Dashboard breadcrumb text
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active href="">
-                        Plants
+                        Plant List title text
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <h1>Plants</h1>
+            <h1>Plant List title text</h1>
+            <h6>A list of plants on the land</h6>
             <div className="plants-list-button-header">
                 <Button
-                    onClick={() => goTo("tac-farm-dashboard")}
+                    onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
                     className="primary-button"
                     type="submit"
                 >
-                    Dashboard
+                    Farm Dashboard
                 </Button>
                 <Button
-                    className="primary-button"
+                    className="primary-button ms-2"
                     type="submit"
-                    onClick={() => goTo("/land-add-plant/" + landCode)}
+                    onClick={() => navigateTo("land-add-plant", "landCode")}
                 >
-                    Add Plant
+                    Add A Plant
                 </Button>
             </div>
             <ReportFilterLandPlantList
@@ -141,33 +152,20 @@ const ReportConnectedLandPlantList: FC = (): ReactElement => {
                 initialQuery={initialValues}
                 onSubmit={onSubmit} />
 
-            <div className="w-100" style={{ textAlign: "left" }}>
-                <Button className='primary-button mt-3' type="button">
-                    Delete Selected
-                </Button>
-            </div>
-
             <ReportGridLandPlantList
                 isSortDescending={queryResult.orderByDescending}
                 items={queryResult.items}
-                name="reportConnectedLandPlantList-table"
-                onRowSelect={onRowSelect}
-                onRowUnselect={onRowUnselect}
-                onSelectAll={onSelectAll}
-                onUnselectAll={onUnselectAll}
+                name="reportConnectedLandPlantList-table" 
+                contextCode={contextCode}
                 onSort={onSort}
                 onNavigateTo={onNavigateTo}
+                onRefreshRequest={onRefreshRequest}
                 sortedColumnName={queryResult.orderByColumnName}
-            />
-
-            <ReportPagination
-                name="reportConnectedLandPlantList-paginator"
                 currentPage={queryResult.pageNumber}
-                currentPageItemCount={queryResult.itemCountPerPage}
                 onPageSelection={onPageSelection}
                 onPageSizeChange={onPageSizeChange}
                 pageSize={queryResult.itemCountPerPage}
-                totalItemCount={queryResult.recordsFiltered}
+                totalItemCount={queryResult.recordsTotal}
             />
         </div>
     );

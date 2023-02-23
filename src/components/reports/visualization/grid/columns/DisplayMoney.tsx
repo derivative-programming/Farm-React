@@ -5,12 +5,14 @@ export interface ReportColumnDisplayMoneyProps {
   forColumn:string
   rowIndex: number
   value: number 
+  isVisible?:boolean
 }
    
 export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
   forColumn,
   rowIndex,
   value, 
+  isVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
@@ -20,7 +22,7 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
     
     try {
       
-      if(value == null )
+      if(value == null || !isVisible)
       {
           return result;
       } 

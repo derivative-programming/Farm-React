@@ -1,7 +1,7 @@
 import { 
   LAND_ADD_PLANT,
   LAND_PLANT_LIST,
-  PLANT_DELETE,
+  PLANT_USER_DELETE,
   PLANT_EDIT,
   PLANT_USER_DETAILS,
   PAC_FS_FARM_API_FLAVOR_LIST,
@@ -35,7 +35,7 @@ export const landAddPlantService = (data, landCode) => {
 
 export const plantDeleteService = (plantCode) => {
   return apiCall({
-    url: PLANT_DELETE + "/" + plantCode,
+    url: PLANT_USER_DELETE + "/" + plantCode,
     method: "delete"
   });
 };

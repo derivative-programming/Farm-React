@@ -15,7 +15,7 @@ export interface FormProps {
     name?:string
   }
 
-const FormConnectedTacRegister: FC<FormProps> = ({
+  export const FormConnectedTacRegister: FC<FormProps> = ({
     name="formConnectedTacRegister", 
   }): ReactElement => { 
 
@@ -27,9 +27,7 @@ const FormConnectedTacRegister: FC<FormProps> = ({
 
     const navigate = useNavigate();
     const { id } = useParams();
-    const tacCode:string = id ?? "00000000-0000-0000-0000-000000000000";
-    let navCodesAvailable:Record<string,string> = {}
-    navCodesAvailable.tacCode = tacCode;
+    const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
  
     const validationSchema  =  FormService.buildValidationSchema();
 
@@ -119,7 +117,8 @@ const FormConnectedTacRegister: FC<FormProps> = ({
                     validate={handleValidate} 
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
                     {(props) => (
-                        <Form 
+                        <Form   
+                            className="mb-2"
                             name={name} 
                             data-testid={name}
                             onReset={props.handleReset} 
@@ -131,13 +130,13 @@ const FormConnectedTacRegister: FC<FormProps> = ({
                             <FormInput.FormInputText name="firstName" label="First Name" /> 
                             <FormInput.FormInputText name="lastName" label="Last Name" /> 
                             <div className="d-flex btn-container">
-                                <Button type="submit" data-testid="submit">
+                                <Button type="submit" data-testid="submit-button">
                                     Register
                                 </Button>
                                 <Button
                                     onClick={() => {backToLoginButtonClick();}}
                                     variant="secondary"
-                                    data-testid="backToLogin"
+                                    data-testid="cancel-button"
                                 >
                                     Back To Login
                                 </Button>

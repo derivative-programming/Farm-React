@@ -18,6 +18,7 @@ const onUnselectAll = jest.fn();
 const onSort = jest.fn();
 const sortedColumnName = jest.fn();
 const onNavigateTo = jest.fn();
+const onRefreshRequest = jest.fn();
 
 describe("PlantUserDetails Form Component", () => {
   // render the PlantUserDetails Form component
@@ -27,6 +28,7 @@ describe("PlantUserDetails Form Component", () => {
           item={new ReportService.QueryResultItemInstance}
           name="testName"  
           onNavigateTo={onNavigateTo} 
+          onRefreshRequest={onRefreshRequest}
           />
     );
   });

@@ -52,6 +52,12 @@ describe("TacLogin Component", () => {
     expect(screen.getByTestId("email")).toBeInTheDocument();
     expect(screen.getByTestId("password")).toBeInTheDocument();
     
+    expect(screen.getByTestId("submit-button")).toBeInTheDocument();
+    expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
+    
+    expect(screen.getByText("Login")).toBeInTheDocument();
+    expect(screen.getByText("Please enter your email and password.")).toBeInTheDocument();
+    
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
   });
 

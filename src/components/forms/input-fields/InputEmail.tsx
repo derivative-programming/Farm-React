@@ -1,8 +1,7 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
 import { Button, Form, Card } from "react-bootstrap";
 import "../../../App.scss";
-import {useField } from 'formik';
-import {FormInputErrorDisplay } from './InputErrorDisplay';
+import {useField } from 'formik'; 
    
 export interface FormInputEmailProps {
   name: string
@@ -22,10 +21,12 @@ export const FormInputEmail: FC<FormInputEmailProps> = ({
   const [field, meta, helpers] = useField(name); 
 
   const errorDisplayControlName = name + "ErrorDisplay";
+  
+  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
-    <div className="custom-form-control">
-      <Form.Group controlId={name}>
+    <div className="">
+      <Form.Group controlId={name} className="mb-2">
           <Form.Label>{label}</Form.Label>
           <Form.Control
             // ref={inputRef}
@@ -35,9 +36,10 @@ export const FormInputEmail: FC<FormInputEmailProps> = ({
             {...field} 
             disabled={disabled}
             autoFocus={autoFocus}
+            isInvalid={isInvalid}
           />
-      </Form.Group>
-      <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
+          <Form.Control.Feedback  className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+      </Form.Group> 
   </div>
   );
 };

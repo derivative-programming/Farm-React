@@ -1,10 +1,13 @@
 
 export const LAND_PLANT_LIST = "api/v1_0/land-plant-list";
 export const LAND_ADD_PLANT = "api/v1_0/land-add-plant";
+export const LAND_USER_PLANT_MULTI_SELECT_TO_EDITABLE = "api/v1_0/land-user-plant-multi-select-to-editable";
+export const LAND_USER_PLANT_MULTI_SELECT_TO_NOT_EDITABLE = "api/v1_0/land-user-plant-multi-select-to-not-editable";
 
 export const PLANT_EDIT = "api/v1_0/plant-edit";
 export const PLANT_USER_DETAILS = "api/v1_0/plant-user-details";
-export const PLANT_DELETE = "api/v1_0/plant-delete";
+export const PLANT_USER_DELETE = "api/v1_0/plant-user-delete";
+export const PLANT_USER_PROPERTY_RANDMON_UPDATE = "api/v1_0/plant-user-property-random-update";
 
 //lookups
 export const PAC_FS_FARM_API_FLAVOR_LIST = "api/v1_0/pac-user-flavor-list";

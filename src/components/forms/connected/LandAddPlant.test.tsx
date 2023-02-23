@@ -63,6 +63,7 @@ describe("LandAddPlant Component", () => {
 
   it("renders correctly", async () => { 
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
+    expect(screen.getByTestId("headerErrors")).toBeInTheDocument();
     expect(screen.getByTestId("flavorCode")).toBeInTheDocument();
     expect(screen.getByTestId("otherFlavor")).toBeInTheDocument();
     expect(screen.getByTestId("someIntVal")).toBeInTheDocument();
@@ -80,6 +81,15 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("someTextVal")).toBeInTheDocument();
     expect(screen.getByTestId("somePhoneNumber")).toBeInTheDocument();
     expect(screen.getByTestId("someEmailAddress")).toBeInTheDocument();
+    expect(screen.getByTestId("sampleImageUploadFile")).toBeInTheDocument();
+
+    
+    expect(screen.getByTestId("submit-button")).toBeInTheDocument();
+    expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
+    
+    expect(screen.getByText("Add Plant Title Text")).toBeInTheDocument();
+    expect(screen.getByText("Add plant intro text.")).toBeInTheDocument();
+    expect(screen.getByText("Add plant form footer text")).toBeInTheDocument();
     
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
   });
@@ -316,7 +326,7 @@ describe("LandAddPlant Component", () => {
     });
 
     await act(async () => {
-      await fireEvent.click(screen.getByTestId("submit"));
+      await fireEvent.click(screen.getByTestId("submit-button"));
     });
 
     await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalledTimes(1));

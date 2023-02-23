@@ -23,7 +23,7 @@ export const ErrorDisplay: FC<ErrorDisplayProps> = ({
       {allErrors && allErrors.length > 0 ? ( 
           allErrors.map((item, index) => {
             return (
-              <div className="error-message" key={item}>{item}</div>  
+              <div className="error-message mb-2" key={item}>{item}</div>  
           );
         })
       ) : null}

@@ -52,25 +52,25 @@ export const buildValidationSchema = () => {
     const validationSchema  = Yup.object().shape({
         flavorCode: Yup.string()
         ,
-        someIntVal: Yup.number()
+        someIntVal: Yup.number().required()
         ,
-        someBigIntVal: Yup.number()
+        someBigIntVal: Yup.number().required()
         ,
-        someBitVal: Yup.boolean()
+        someBitVal: Yup.boolean().required()
         ,
-        isEditAllowed: Yup.boolean()
+        isEditAllowed: Yup.boolean().required()
         ,
-        isDeleteAllowed: Yup.boolean()
+        isDeleteAllowed: Yup.boolean().required()
         ,
-        someFloatVal: Yup.number()
+        someFloatVal: Yup.number().required()
         ,
-        someDecimalVal: Yup.number()
+        someDecimalVal: Yup.number().required()
         ,
-        someMinUTCDateTimeVal: Yup.mixed()
+        someMinUTCDateTimeVal: Yup.mixed().required()
         ,
-        someMinDateVal: Yup.mixed()
+        someMinDateVal: Yup.mixed().required()
         ,
-        someMoneyVal: Yup.number()
+        someMoneyVal: Yup.number().required()
         ,
         someNVarCharVal: Yup.string()
         ,
@@ -124,10 +124,12 @@ export interface QueryResultItem {
     flavorName: string;
  
     flavorCode: string;
+
+    someIntConditionalOnDeleteable:number;
  
     updateLinkPlantCode: string;
  
-    deleteLinkPlantCode: string;
+    deleteAsyncButtonLinkPlantCode: string;
  
     detailsLinkPlantCode: string;  
 }
@@ -392,9 +394,11 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     flavorCode: string;
  
+    someIntConditionalOnDeleteable: number;
+ 
     updateLinkPlantCode: string;
  
-    deleteLinkPlantCode: string;
+    deleteAsyncButtonLinkPlantCode: string;
  
     detailsLinkPlantCode: string;
 
@@ -435,10 +439,12 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.flavorName = '';
  
         this.flavorCode = '00000000-0000-0000-0000-000000000000';
+
+        this.someIntConditionalOnDeleteable = 0;
  
         this.updateLinkPlantCode = '00000000-0000-0000-0000-000000000000';
  
-        this.deleteLinkPlantCode = '00000000-0000-0000-0000-000000000000';
+        this.deleteAsyncButtonLinkPlantCode = '00000000-0000-0000-0000-000000000000';
  
         this.detailsLinkPlantCode = '00000000-0000-0000-0000-000000000000';  
     }

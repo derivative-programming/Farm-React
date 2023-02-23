@@ -18,7 +18,7 @@ const Header: FC = (): ReactElement => {
         navigate("/")
     }
     const onDashboard = () => {
-        navigate("/tac-farm-dashboard")
+        navigate("/tac-farm-dashboard/00000000-0000-0000-0000-000000000000")
     }
 
     const onRegister = () => {

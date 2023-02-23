@@ -17,6 +17,9 @@ const onUnselectAll = jest.fn();
 const onSort = jest.fn();
 const sortedColumnName = jest.fn();
 const onNavigateTo = jest.fn();
+const onRefreshRequest = jest.fn();
+const onPageSelection = jest.fn();
+const onPageSizeChange = jest.fn();
 
 describe("LandPlantList Form Component", () => {
   // render the LandPlantList Form component
@@ -25,14 +28,17 @@ describe("LandPlantList Form Component", () => {
         <ReportGridLandPlantList 
           isSortDescending={true}
           items={[]}
-          name="testName" 
-          onRowSelect={onRowSelect}
-          onRowUnselect={onRowUnselect}
-          onSelectAll={onSelectAll}
-          onUnselectAll={onUnselectAll}
+          name="testName"  
+          contextCode=""
           onSort={onSort}
           onNavigateTo={onNavigateTo}
+          onRefreshRequest={onRefreshRequest}
           sortedColumnName="testColumnName" 
+          currentPage={1}
+          onPageSelection={onPageSelection}
+          onPageSizeChange={onPageSizeChange}
+          pageSize={10}
+          totalItemCount={0} 
           />
     );
   });

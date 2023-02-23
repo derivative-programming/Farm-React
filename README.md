@@ -1,3 +1,54 @@
+
+
+
+todo...  
+put formatting logic of data types in a common service 
+remove component\pages
+remove use of className="custom-form-control"   
+show a slightly zoomed out view, showing everythign smaller (scaled down?)
+use standard bootstrap container classes 
+show processing animation on... form init, form submit, report init, report query 
+sched report
+
+
+display friendly generic message on hard unexpected error in api... 
+- form init and post 
+- report grid init and query and async button
+- report 3 col init and query and async button
+
+
+research to build examples of use list...
+report grid page template
+report three column template
+report navigation template
+form template
+
+add examples of use...infinite
+ 
+ 
+unit testing...infinite
+component\forms\connected
+component\forms\input-fields @disabled, @autofocus, @label done
+component\forms\lookups
+component\forms\services
+component\lookups
+component\reports\connected
+component\reports\filters
+component\reports\input-fields  @disabled, @autofocus, @label done
+component\reports\lookups
+component\reports\services
+component\reports\visualization\detail-three-column
+component\reports\visualization\detail-three-column\columns
+component\reports\visualization\grid
+component\reports\visualization\grid\columns
+component\services
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

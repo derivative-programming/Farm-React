@@ -76,6 +76,10 @@ export interface QueryResultItem {
     someUTCDateTimeVal: string;
  
     someVarCharVal: string;  
+ 
+    updateButtonTextLinkPlantCode: string;  
+ 
+    randomPropertyUpdatesLinkPlantCode: string;  
 }
 
 
@@ -114,7 +118,7 @@ export interface InitRequest {
 
 export interface InitResult {
  
-    landCode: string;
+    landCode: string; 
  
     tacCode: string;
     success: boolean;
@@ -211,6 +215,10 @@ export class QueryResultItemInstance implements QueryResultItem {
     someUTCDateTimeVal: string;
  
     someVarCharVal: string;
+ 
+    updateButtonTextLinkPlantCode: string;  
+ 
+    randomPropertyUpdatesLinkPlantCode: string;  
 
     constructor() {
  
@@ -249,6 +257,11 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.someUTCDateTimeVal = '01-01-1753 00:00:00'
  
         this.someVarCharVal = '';  
+
+        this.updateButtonTextLinkPlantCode = '00000000-0000-0000-0000-000000000000';
+
+        this.randomPropertyUpdatesLinkPlantCode = '00000000-0000-0000-0000-000000000000'; 
+        
     }
 }
 

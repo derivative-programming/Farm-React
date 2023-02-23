@@ -6,12 +6,14 @@ export interface ReportColumnDisplayEmailProps {
   forColumn:string 
   value: string 
   label:string
+  isVisible?:boolean
 }
    
 export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   forColumn, 
   value, 
   label,
+  isVisible = true
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
@@ -21,7 +23,7 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
     
     try {
       
-      if(value == null || value == "")
+      if(value == null || value == "" || !isVisible)
       {
           return result;
       }
@@ -39,11 +41,11 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
     <Col data-testid={groupName} lg="5" md="5" xs="12">
         <ListGroup.Item
             as="li"
-            className="d-flex justify-content-between align-items-center"
+            className="d-flex text-start"
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div>
-                {formatEmail()}
+                {formatEmail()}&nbsp;
             </div>
 
         </ListGroup.Item>

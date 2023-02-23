@@ -6,12 +6,14 @@ export interface ReportColumnDisplayMoneyProps {
   forColumn:string 
   value: number 
   label:string
+  isVisible?:boolean
 }
    
 export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
   forColumn, 
   value, 
   label,
+  isVisible = true
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
@@ -21,7 +23,7 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
     
     try {
       
-      if(value == null )
+      if(value == null || !isVisible)
       {
           return result;
       } 
@@ -47,11 +49,11 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
     <Col data-testid={groupName} lg="5" md="5" xs="12">
         <ListGroup.Item
             as="li"
-            className="d-flex justify-content-between align-items-center"
+            className="d-flex text-start"
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div>
-                {formatMoney()}
+                {formatMoney()}&nbsp;
             </div>
 
         </ListGroup.Item>

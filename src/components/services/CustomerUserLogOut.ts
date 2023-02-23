@@ -1,3 +1,16 @@
+import {  
+    PLANT_USER_DELETE, 
+  } from "../../apiConfig/apiEndpoints";
+import { apiCall } from "../../apiConfig/apiCall";
+   
+  
+  export const CustomerUserLogOutSubmitRequest = (data:any, customerCode:string) => {
+    return apiCall({
+      url: "/" + customerCode,
+      method: "post",
+      data
+    });
+  };
 
   
 

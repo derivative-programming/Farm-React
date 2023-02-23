@@ -291,14 +291,10 @@
     }
   }
 
-  .custom-form-control {
-    margin-bottom: 10px;
-
-    .error-message {
-      color: red;
-      margin-top: 2px;
-      text-align: left;
-    }
+  .error-message {
+    color: red;
+    margin-top: 2px;
+    text-align: left;
   }
 }
 
@@ -416,14 +412,10 @@
     width: 120px;
   }
 
-  .custom-form-control {
-    margin-bottom: 10px;
-
-    .error-message {
-      color: red;
-      margin-top: 2px;
-      text-align: left;
-    }
+  .error-message {
+    color: red;
+    margin-top: 2px;
+    text-align: left;
   }
 
   .pagination {
@@ -466,7 +458,7 @@
 
     .plants-list-table {
       th {
-        min-width: 150px;
+        //min-width: 150px;
 
         img {
           width: 12px;
@@ -561,20 +553,16 @@
     }
   }
 
-  .custom-form-control {
-    margin-bottom: 10px;
-
-    .error-message {
-      color: red;
-      margin-top: 2px;
-      text-align: left;
-    }
+  .error-message {
+    color: red;
+    margin-top: 2px;
+    text-align: left;
   }
 
 }
 
 .ant-picker {
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   padding: 0.365rem 0.65rem;
   font-size: 0.9rem;
   border-radius: 0.35rem;

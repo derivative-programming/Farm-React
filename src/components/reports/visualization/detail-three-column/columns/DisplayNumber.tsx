@@ -6,12 +6,14 @@ export interface ReportColumnDisplayNumberProps {
   forColumn:string 
   value: number 
   label:string
+  isVisible?:boolean
 }
    
 export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
   forColumn, 
   value, 
-  label
+  label,
+  isVisible = true
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
@@ -21,7 +23,7 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
     
     try {
         
-      if(value == null)
+      if(value == null || !isVisible)
       {
           return result;
       }  
@@ -44,11 +46,11 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
     <Col data-testid={groupName} lg="5" md="5" xs="12">
         <ListGroup.Item
             as="li"
-            className="d-flex justify-content-between align-items-center"
+            className="d-flex text-start"
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div>
-                {formatNumber()}
+                {formatNumber()}&nbsp;
             </div>
 
         </ListGroup.Item>

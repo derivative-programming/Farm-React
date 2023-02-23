@@ -29,10 +29,12 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
   const [field, meta, helpers] = useField(name); 
 
   const errorDisplayControlName = name + "ErrorDisplay";
+
+  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
-    <div className="custom-form-control">
-      <Form.Group controlId={name}>
+    <div className="" >
+      <Form.Group controlId={name} className="mt-2">
           <Form.Label>{label}</Form.Label>
           <Form.Select
               data-testid={name}
@@ -40,6 +42,7 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
               {...field} 
               disabled={disabled}
               autoFocus={autoFocus}
+              isInvalid={isInvalid}
           >
               <option>Please Select One</option>
               {options.map((item, index) => {
@@ -54,8 +57,8 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
                   );
               })}
           </Form.Select>
-      </Form.Group> 
-      <ReportInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
+          <Form.Control.Feedback  className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+      </Form.Group>  
     </div>
   );
 };
