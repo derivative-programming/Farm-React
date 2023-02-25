@@ -12,7 +12,7 @@ export const submitRequest = (data:any, landCode:string) => {
       params: data
     });     
   };
-  
+  //vrdebug
   
   export const initPage = (landCode:string) => {
     const data = {};

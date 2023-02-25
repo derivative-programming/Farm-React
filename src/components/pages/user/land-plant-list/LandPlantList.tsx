@@ -66,11 +66,8 @@ const LandPlantList: FC = (): ReactElement => {
   const [deleteCode, setDeleteCode] = useState("");
   const [selectedItem, setSelectedItem] = useState<any>([]);
   const [params, setParams] = useState(useParams());
-  const initialSortConfig: any = {
-    //GENTrainingBlock[test]Start
-    //GENLearn[modelType=reportColumn,name=flavorName]Start
-    'flavorName': 'desc',
-    //GENLearnEnd
+  const initialSortConfig: any = {  
+    'flavorName': 'desc', 
     "someTextVal": 'desc',
     "someEmailAddress": 'desc',
     "somePhoneNumber": 'desc',
@@ -85,8 +82,7 @@ const LandPlantList: FC = (): ReactElement => {
     "minimumSomeDateVal": 'desc',
     "someVarCharVal": 'desc',
     "minimumSomeUTCDateTimeVal": 'desc',
-    "someNVarCharVal": 'desc'
-    //GENTrainingBlockEnd
+    "someNVarCharVal": 'desc' 
   }
 
   const storageValue: any = localStorage.getItem("@sortConfig")

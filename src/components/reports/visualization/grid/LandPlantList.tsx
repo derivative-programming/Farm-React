@@ -61,6 +61,10 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
         }
     };
 
+    const updateLinkPlantCodeColumnButtonClick = (code: string) => {
+        onNavigateTo("/plant-edit/" + code);
+    }
+
     const deleteAsyncButtonLinkPlantCodeColumnButtonClick = (code: string) => {
         const data:any = {};
         AsyncServices.PlantUserDeleteSubmitRequest(data,code)
@@ -130,13 +134,13 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
             >
                 <thead>
                     <tr>
-                        <th id="plantCodeColumnHeader"> <Form.Check
+                        <th id="plantCodeColumnHeader"> <Form.Check  
                             type="checkbox"
                             id="plantCode-select-all-rows-checkbox"
                             name="plantCode-select-all-rows-checkbox"
                             onChange={(e) => onSelectAllRows(e)}
                         /></th>
-                        <ReportColumnHeader forColumn="someIntVal"
+                        <ReportColumnHeader forColumn="someIntVal" 
                             isSortDescending={isSortDescending}
                             label="some Int Val"
                             onSort={onSort}
@@ -146,6 +150,13 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                         <ReportColumnHeader forColumn="someBigIntVal"
                             isSortDescending={isSortDescending}
                             label="some Big Int Val"
+                            onSort={onSort}
+                            sortedColumnName={sortedColumnName} 
+                        />
+
+                        <ReportColumnHeader forColumn="someBitVal"
+                            isSortDescending={isSortDescending}
+                            label="some Bit Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
@@ -241,11 +252,26 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                             sortedColumnName={sortedColumnName} 
                         />
 
-                        <ReportColumnHeader forColumn="someIntConditionalOnDeleteable"
+                        <ReportColumnHeader forColumn="flavorCode"
+                            isSortDescending={isSortDescending}
+                            label="flavor Code"
+                            onSort={onSort}
+                            sortedColumnName={sortedColumnName} 
+                        />
+
+                        <ReportColumnHeader forColumn="SomeIntConditionalOnDeletable"
                             isSortDescending={isSortDescending}
                             label="Int Conditional On Deleteable"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
+                        />
+                        
+                        <ReportColumnHeader forColumn="updateLinkPlantCode"
+                            isSortDescending={isSortDescending}
+                            label=""
+                            onSort={onSort}
+                            sortedColumnName={sortedColumnName} 
+                            isVisible={false}
                         />
 
                         <ReportColumnHeader forColumn="deleteAsyncButtonLinkPlantCode"
@@ -285,6 +311,10 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                                     <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someBigIntVal"
                                         rowIndex={index}
                                         value={item.someBigIntVal}
+                                    />
+                                    <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someBitVal"
+                                        rowIndex={index}
+                                        isChecked={item.someBitVal}
                                     />
                                     <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isEditAllowed"
                                         rowIndex={index}
@@ -341,10 +371,22 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                                         rowIndex={index}
                                         value={item.flavorName}
                                     />
-                                    <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntConditionalOnDeletable"
+                                    <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorCode"
+                                        rowIndex={index}
+                                        value={item.flavorCode}
+                                    />
+                                    <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="SomeIntConditionalOnDeletable"
                                         rowIndex={index}
                                         value={item.someIntVal}
                                         isVisible={item.isDeleteAllowed}
+                                    /> 
+                                    
+                                    <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateLinkPlantCode"
+                                        rowIndex={index}
+                                        value={item.updateLinkPlantCode} 
+                                        buttonText="Delete Async"
+                                        onClick={() => updateLinkPlantCodeColumnButtonClick(item.updateLinkPlantCode)}
+                                        isVisible={false}
                                     /> 
                                     
                                     <ReportColumnDisplay.ReportColumnDisplayButton forColumn="deleteAsyncButtonLinkPlantCode"

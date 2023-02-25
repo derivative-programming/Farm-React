@@ -94,7 +94,7 @@ describe("LandAddPlant Component", () => {
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
   });
 
-  it("when user enter otherFlavor, it set accordingly", async () => {
+  it("when user enter otherFlavor, it set accordingly", async () => {  
     await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
 
     const input = screen.getByTestId("otherFlavor");

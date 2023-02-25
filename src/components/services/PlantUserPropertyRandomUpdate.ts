@@ -1,5 +1,5 @@
 import {  
-    PLANT_USER_PROPERTY_RANDMON_UPDATE, 
+    PLANT_USER_PROPERTY_RANDOM_UPDATE, 
   } from "../../apiConfig/apiEndpoints";
 import { apiCall } from "../../apiConfig/apiCall";
    
@@ -8,7 +8,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
   export const PlantUserPropertyRandomUpdateSubmitRequest = (data:any, plantCode:string) => { 
     return apiCall({
-      url: PLANT_USER_PROPERTY_RANDMON_UPDATE + "/" + plantCode,
+      url: PLANT_USER_PROPERTY_RANDOM_UPDATE + "/" + plantCode,
       method: "POST",
       data
     });

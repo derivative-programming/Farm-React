@@ -9,6 +9,8 @@ show a slightly zoomed out view, showing everythign smaller (scaled down?)
 use standard bootstrap container classes 
 show processing animation on... form init, form submit, report init, report query 
 sched report
+fixed major versions
+add cypress
 
 
 display friendly generic message on hard unexpected error in api... 

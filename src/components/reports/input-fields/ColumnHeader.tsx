@@ -11,6 +11,7 @@ export interface ReportColumnHeaderProps {
   sortedColumnName: string
   isSortDescending: boolean 
   onSort(columnName:string): void 
+  isVisible?: boolean
 }
    
 export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
@@ -18,8 +19,9 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   forColumn,
   label,
   sortedColumnName,
-  isSortDescending, 
+  isSortDescending,  
   onSort, 
+  isVisible = true,
 }): ReactElement => {  
 
   const controlName = (name.length > 0) ? name: {forColumn} + 'ColumnHeader'
@@ -31,6 +33,7 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
        onClick={() => onSort(forColumn)}>{label} <span> {sortedColumnName === forColumn ? <img
       src={isSortDescending ? sortUp : sortDown}
       className="edit-icon"
+      hidden={!isVisible}
     /> : null}</span>
     </th>
   );
