@@ -9,13 +9,12 @@ import {
   waitFor,
 } from "@testing-library/react";
 import ReportFilterLandPlantList from "./LandPlantList";  
-import * as PacUserFlavorList from "../../lookups/services/PacUserFlavorList"
+import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
 import * as ReportService from "../services/LandPlantList";  
-
-// set the local storage
+ 
 window.localStorage.setItem("@token", "sampleToken");
  
-const mockPacUserFlavorListService =  jest.spyOn(PacUserFlavorList, "submitRequest");
+const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
  
 const onSubmit = jest.fn();
 
@@ -25,8 +24,8 @@ const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestIns
 describe("LandPlantList Component", () => {
 
   beforeEach(async () => {  
-      mockPacUserFlavorListService.mockResolvedValueOnce({
-        data: new PacUserFlavorList.QueryResultTestInstance,
+    mockFlavorCodeService.mockResolvedValueOnce({
+        data: new flavorCodeService.QueryResultTestInstance,
       }); 
       
 
@@ -37,7 +36,7 @@ describe("LandPlantList Component", () => {
           onSubmit={onSubmit} />  
     ); 
 
-    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalledTimes(1));
   });
 
   // after cleanup when test-case execution is done
@@ -70,9 +69,9 @@ describe("LandPlantList Component", () => {
   it("when user enter flavorCode, it set accordingly", async () => { 
     const input = screen.getByTestId("flavorCode");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "99" } });
+      await fireEvent.change(input, { target: { value: "00000000-0000-0000-0000-000000000000" } });
     }); 
-    expect(screen.getByTestId("flavorCode")).toHaveValue(99);
+    expect(screen.getByTestId("flavorCode")).toHaveValue("Please Select One");
   });
   it("when user enter someIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("someIntVal");
@@ -277,7 +276,7 @@ describe("LandPlantList Component", () => {
     });
   
     await act(async () => {
-      await fireEvent.click(screen.getByTestId("submit"));
+      await fireEvent.click(screen.getByTestId("submit-button"));
     }); 
     
   });

@@ -119,7 +119,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                                             <Button 
                                                 type="submit"
                                                 className="primary-button ms-2"
-                                                data-testid="submit"
+                                                data-testid="submit-button"
                                             >
                                                 Search
                                             </Button>

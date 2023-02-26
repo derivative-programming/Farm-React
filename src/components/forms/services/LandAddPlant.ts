@@ -72,7 +72,7 @@ export const buildValidationSchema = () => {
     const validationSchema  = Yup.object().shape({
         flavorCode: Yup.string()
         ,
-        otherFlavor: Yup.number().required()
+        otherFlavor: Yup.string()
         ,
         someIntVal: Yup.number().required()
         ,

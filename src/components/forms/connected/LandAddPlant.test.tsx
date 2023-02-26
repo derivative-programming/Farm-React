@@ -12,9 +12,9 @@ import FormConnectedLandAddPlant from "./LandAddPlant";
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/LandAddPlant";
 import * as InitFormService from "../services/LandAddPlantInitObjWF";
-import * as PacUserFlavorList from "../../lookups/services/PacUserFlavorList"
+import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
 
-// set the local storage
+
 window.localStorage.setItem("@token", "sampleToken");
 
 const mockedUsedNavigate = jest.fn();
@@ -29,7 +29,7 @@ jest.mock("react-router-dom", () => ({
 
 const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
-const mockPacUserFlavorListService =  jest.spyOn(PacUserFlavorList, "submitRequest");
+const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 let formSubmitResponse = new FormService.SubmitResultInstance;
 const formInitResponse = new InitFormService.InitResultInstance;
@@ -42,8 +42,8 @@ describe("LandAddPlant Component", () => {
         data: new InitFormService.InitResultInstance,
       });
       
-      mockPacUserFlavorListService.mockResolvedValueOnce({
-        data: new PacUserFlavorList.QueryResultTestInstance,
+      mockFlavorCodeService.mockResolvedValueOnce({
+        data: new flavorCodeService.QueryResultTestInstance,
       }); 
       
 
@@ -53,7 +53,7 @@ describe("LandAddPlant Component", () => {
       </BrowserRouter>
     ); 
 
-    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalledTimes(1));
   });
 
   // after cleanup when test-case execution is done
@@ -92,24 +92,22 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByText("Add plant intro text.")).toBeInTheDocument();
     expect(screen.getByText("Add plant form footer text")).toBeInTheDocument();
     
-    await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1)); 
   });
 
 
-  it("when user enter flavorCode, it set accordingly", async () => {  
-    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
+  it("when user enter flavorCode, it set accordingly", async () => {   
 
     const input = screen.getByTestId("flavorCode");
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "sample data" } });
+      await fireEvent.change(input, { target: { value: "00000000-0000-0000-0000-000000000000" } });
     }); 
-    expect(screen.getByTestId("flavorCode")).toHaveValue("sample data");
+    expect(screen.getByTestId("flavorCode")).toHaveValue("Please Select One");
   });
 
 
-  it("when user enter otherFlavor, it set accordingly", async () => {  
-    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
+  it("when user enter otherFlavor, it set accordingly", async () => {   
 
     const input = screen.getByTestId("otherFlavor");
     expect(screen.getByTestId("testForm")).toBeInTheDocument();

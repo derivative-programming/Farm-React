@@ -11,8 +11,7 @@ import {
 import ReportFilterPlantUserDetails from "./PlantUserDetails";  
 import * as PacUserFlavorList from "../../lookups/services/PacUserFlavorList"
 import * as ReportService from "../services/PlantUserDetails";  
-
-// set the local storage
+ 
 window.localStorage.setItem("@token", "sampleToken");
  
 const mockPacUserFlavorListService =  jest.spyOn(PacUserFlavorList, "submitRequest");
@@ -50,7 +49,7 @@ describe("PlantUserDetails Component", () => {
   it("when user entered PlantUserDetails details and clicks on register button, PlantUserDetailsUser api should be called", async () => {
      
     await act(async () => {
-      await fireEvent.click(screen.getByTestId("submit"));
+      await fireEvent.click(screen.getByTestId("submit-button"));
     }); 
     
   });

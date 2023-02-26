@@ -1,0 +1,7 @@
+{
+    "templateType":"namespace",
+    "forceFolderNameFormat":"Camel",
+    "dimension" :{
+        "name":"Farm"
+    }
+}

@@ -11,9 +11,8 @@ import {
 import FormConnectedPlantEdit from "./PlantEdit"; 
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/PlantEdit";
-import * as PacUserFlavorList from "../../lookups/services/PacUserFlavorList"
-
-// set the local storage
+import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
+ 
 window.localStorage.setItem("@token", "sampleToken");
 
 const mockedUsedNavigate = jest.fn();
@@ -28,7 +27,7 @@ jest.mock("react-router-dom", () => ({
 
 const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
-const mockPacUserFlavorListService =  jest.spyOn(PacUserFlavorList, "submitRequest");
+const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 let formSubmitResponse = new FormService.SubmitResultInstance;
 const formInitResponse = new FormService.InitResultInstance;
@@ -41,8 +40,8 @@ describe("PlantEdit Component", () => {
         data: new FormService.InitResultInstance,
       });
       
-      mockPacUserFlavorListService.mockResolvedValueOnce({
-        data: new PacUserFlavorList.QueryResultTestInstance,
+      mockFlavorCodeService.mockResolvedValueOnce({
+        data: new flavorCodeService.QueryResultTestInstance,
       }); 
 
     render(
@@ -51,7 +50,7 @@ describe("PlantEdit Component", () => {
       </BrowserRouter>
     );
 
-    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1)); 
+    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalledTimes(1)); 
   });
 
   // after cleanup when test-case execution is done
@@ -316,7 +315,7 @@ describe("PlantEdit Component", () => {
     });
 
     await act(async () => {
-      await fireEvent.click(screen.getByTestId("submit"));
+      await fireEvent.click(screen.getByTestId("submit-button"));
     });
 
     await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalledTimes(1));

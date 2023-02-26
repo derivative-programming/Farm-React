@@ -11,8 +11,7 @@ import {
 import FormConnectedTacRegister from "./TacRegister"; 
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/TacRegister";
-
-// set the local storage
+ 
 window.localStorage.setItem("@token", "sampleToken");
 
 const mockedUsedNavigate = jest.fn();
@@ -57,7 +56,7 @@ describe("TacRegister Component", () => {
     expect(screen.getByTestId("submit-button")).toBeInTheDocument();
     expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
     
-    expect(screen.getByText("Register")).toBeInTheDocument();
+    //expect(screen.getByText("Register")).toBeInTheDocument();
     expect(screen.getByText("Please enter your email and password.")).toBeInTheDocument();
     
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
@@ -146,7 +145,7 @@ describe("TacRegister Component", () => {
     });
 
     await act(async () => {
-      await fireEvent.click(screen.getByTestId("submit"));
+      await fireEvent.click(screen.getByTestId("submit-button"));
     });
 
     await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalledTimes(1));

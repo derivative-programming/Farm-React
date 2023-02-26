@@ -13,8 +13,7 @@ import {
 import PlantUserDetails from "./PlantUserDetails";
 import { BrowserRouter } from "react-router-dom";
 import * as homeController from "../../../../services/home";
-
-// set the local storage
+ 
 window.localStorage.setItem("@token", "sampleToken");
 
 const mockedUsedNavigate = jest.fn();

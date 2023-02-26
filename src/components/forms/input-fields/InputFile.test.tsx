@@ -26,7 +26,7 @@ describe("InputFile Component", () => {
           {(props) => (
             <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
               <FormInputFile label="Test Label" name="testName"/>  
-              <Button type="submit" data-testid="submit"> 
+              <Button type="submit" data-testid="submit-button"> 
                   Submit
               </Button>
             </Form>  
@@ -82,7 +82,7 @@ describe("InputFile Component", () => {
           {(props) => (
             <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
               <FormInputFile label="Test Label" name="testName2" autoFocus={true}/>  
-              <Button type="submit" data-testid="submit"> 
+              <Button type="submit" data-testid="submit-button"> 
                   Submit
               </Button>
             </Form>  
