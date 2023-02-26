@@ -33,11 +33,15 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
     return (
         <div data-testid={name} className='list-container mt-3 w-100'>
             <Row><Col xs="1"></Col><Col>
-                <ListGroup as="ol">
+                <ListGroup as="ol"> 
                     <Row>
                         <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorName"
                             label="Flavor Name"
                             value={item.flavorName}
+                        />
+                        <ReportColumnDisplay.ReportColumnDisplayText forColumn="otherFlavor"
+                            label="Other Flavor"
+                            value={item.otherFlavor}
                         />
 
                         <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isDeleteAllowed"
@@ -50,7 +54,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                             isChecked={item.isEditAllowed}
                         />
 
-                        <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someDecimalVal"
+                        <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someBigIntVal"
                             label="Some Big Int Val"
                             value={item.someBigIntVal}
                         />
@@ -104,7 +108,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                             label="Some Text Val"
                             value={item.someTextVal}
                         />
-
+ 
                         <ReportColumnDisplay.ReportColumnDisplayText forColumn="someVarCharVal"
                             label="Some Var Char Val"
                             value={item.someVarCharVal}
@@ -113,6 +117,11 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                         <ReportColumnDisplay.ReportColumnDisplayText forColumn="someNVarCharVal"
                             label="Some N Var Char Val"
                             value={item.someNVarCharVal}
+                        />
+
+                        <ReportColumnDisplay.ReportColumnDisplayText forColumn="SomeUniqueidentifierVal"
+                            label="Some Uniqueidentifier Val"
+                            value={item.someUniqueidentifierVal}
                         />
 
                         <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="phoneNumConditionalOnIsEditable"

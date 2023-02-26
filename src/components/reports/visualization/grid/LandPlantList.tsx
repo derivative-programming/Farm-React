@@ -140,6 +140,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                             name="plantCode-select-all-rows-checkbox"
                             onChange={(e) => onSelectAllRows(e)}
                         /></th>
+                        
                         <ReportColumnHeader forColumn="someIntVal" 
                             isSortDescending={isSortDescending}
                             label="some Int Val"

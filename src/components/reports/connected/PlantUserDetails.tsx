@@ -6,13 +6,14 @@ import * as ServicePlantUserDetails from "../services/PlantUserDetails";
 import ReportFilterPlantUserDetails from "../filters/PlantUserDetails";
 import { ReportGridPlantUserDetails } from "../visualization/grid/PlantUserDetails";
 import * as ReportService from "../services/PlantUserDetails";
+import * as InitReportService from "../services/PlantUserDetailsInitReport";
 import { ReportPagination } from "../input-fields/Pagination";
 import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-three-column/PlantUserDetails";
 
 export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(1);
-    const [initPageResponse, setInitPageResponse] = useState(new ReportService.InitResultInstance);
+    const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance);
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance); 
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
@@ -26,7 +27,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     const handleInit = (responseFull: any) => {
         
-        const response: ReportService.InitResult = responseFull.data;
+        const response: InitReportService.InitResult = responseFull.data;
 
         if (!response.success) {
             return;
@@ -157,12 +158,16 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                     Plant List
                 </Button>
             </div>  
+            {/*//GENTrainingBlock[visualizationType]Start*/}
+            {/*//GENLearn[visualizationType=DetailThreeColumn]Start*/}
             <ReportDetailThreeColPlantUserDetails 
                 item= {displayItem}
                 name="reportConnectedPlantUserDetails-table" 
                 onNavigateTo={onNavigateTo} 
                 onRefreshRequest={onRefreshRequest}
             /> 
+            {/*//GENLearn[visualizationType=DetailThreeColumn]End*/}
+            {/*//GENTrainingBlock[visualizationType]End*/}
         </div>
     );
 };

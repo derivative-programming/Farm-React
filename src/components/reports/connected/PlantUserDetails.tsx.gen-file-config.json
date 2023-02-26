@@ -1,0 +1,9 @@
+{
+    "templateType":"report", 
+    "IsEdgeCase": true,
+    "dimension" :{
+        "name":"PlantUserDetails",
+        "isPage":"true",
+        "visualizationType":"DetailThreeColumn"
+    }
+}

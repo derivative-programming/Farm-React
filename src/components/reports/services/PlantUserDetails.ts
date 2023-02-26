@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import * as ReportInit  from "./PlantUserDetailsInitReport";
 
 import {  
     PLANT_USER_DETAILS, 
@@ -25,7 +26,7 @@ export const submitRequest = (data:any,plantCode:string) => {
 
   
   
-export const buildQueryRequest = (initResult:InitResult) => {
+export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
     let result:QueryRequest = new QueryRequestInstance;
      
     return result;
@@ -46,7 +47,7 @@ export interface QueryResultItem {
     isDeleteAllowed: boolean;
  
     isEditAllowed: boolean;
- 
+  
     otherFlavor: string;
  
     someBigIntVal: number;
@@ -110,71 +111,6 @@ export interface QueryResult {
 
 
 
-
-
-export interface InitRequest {
-    
-}
-
-export interface InitResult {
- 
-    landCode: string; 
- 
-    tacCode: string;
-    success: boolean;
-    message: string;
-    validationErrors: InitValidationError[];
-}
-
-export interface InitValidationError {
-    property: string;
-    message: string;
-
-}
-
-export class InitRequestInstance implements InitRequest {
-    
-
-    constructor() {
-        
-    }
-}
-
-
-export class InitResultInstance implements InitResult {
- 
-    landCode: string;
- 
-    tacCode: string;
-    success: boolean;
-    message: string;
-    validationErrors: InitValidationError[];
-
-    constructor() {
- 
-        this.landCode = '00000000-0000-0000-0000-000000000000';
- 
-        this.tacCode = '00000000-0000-0000-0000-000000000000';
-        this.success = false;
-        this.message = '';
-        this.validationErrors =  [];
-    }
-}
-
-
-
-export class InitValidationErrorInstance implements InitValidationError {
-    property: string;
-    message: string;
-
-    constructor() { 
-        this.property = '';
-        this.message = ''; 
-    }
-}
-
-
- 
 
  
 

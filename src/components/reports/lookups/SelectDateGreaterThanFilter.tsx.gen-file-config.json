@@ -1,0 +1,7 @@
+{
+    "templateType":"object", 
+    "dimension" :{
+        "name":"DateGreaterThanFilter",
+        "isLookup":"true"
+    }
+}

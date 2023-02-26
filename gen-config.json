@@ -8,8 +8,8 @@
     ],
     "templateSet":
     {
-        "name": "React UI",
-        "internalName" : "react_ui",
+        "name": "React v18 Bootstrap v5 UI",
+        "internalName" : "ui_r18_bs5",
         "versionNumber" : "1.0.0.1"
     },
     "modelFile" : "gen-model.json",

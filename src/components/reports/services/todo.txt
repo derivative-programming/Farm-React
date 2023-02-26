@@ -1,3 +1,0 @@
-service to access gen report endpoint
-
-interfaces for report page init and report query request and results

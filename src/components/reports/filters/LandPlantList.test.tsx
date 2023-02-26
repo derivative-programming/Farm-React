@@ -67,6 +67,13 @@ describe("LandPlantList Component", () => {
   });
  
 
+  it("when user enter flavorCode, it set accordingly", async () => { 
+    const input = screen.getByTestId("flavorCode");
+    await act(async () => {
+      await fireEvent.change(input, { target: { value: "99" } });
+    }); 
+    expect(screen.getByTestId("flavorCode")).toHaveValue(99);
+  });
   it("when user enter someIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("someIntVal");
     await act(async () => {
@@ -189,6 +196,11 @@ describe("LandPlantList Component", () => {
 
   it("when user entered LandPlantList details and clicks on register button, LandPlantListUser api should be called", async () => {
    
+    const flavorCode = screen.getByTestId("flavorCode");
+    await act(async () => {
+      await fireEvent.change(flavorCode, { target: { value: "99" } });
+    });
+
     const someIntValInput = screen.getByTestId("someIntVal");
     await act(async () => {
       await fireEvent.change(someIntValInput, { target: { value: "99" } });

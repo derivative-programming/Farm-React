@@ -10,6 +10,7 @@ import {
 } from "@testing-library/react";
 import ReportConnectedPlantUserDetails from "./PlantUserDetails";
 import * as ReportService from "../services/PlantUserDetails";
+import * as InitReportService from "../services/PlantUserDetailsInitReport";
 import { BrowserRouter } from "react-router-dom";
 import * as PacUserFlavorList from "../../lookups/services/PacUserFlavorList"
 
@@ -33,7 +34,7 @@ describe("PlantUserDetails Connected Report Component", () => {
   // render the PlantUserDetails component
   beforeEach(() => {
     mockReportInitService.mockResolvedValueOnce({
-      data: new ReportService.InitResultInstance,
+      data: new InitReportService.InitResultInstance,
     });
 
     mockPacUserFlavorListService.mockResolvedValueOnce({

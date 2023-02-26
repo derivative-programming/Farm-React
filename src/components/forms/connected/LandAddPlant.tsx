@@ -7,6 +7,7 @@ import {
     FormikHelpers,
 } from "formik";
 import * as FormService from "../services/LandAddPlant";
+import * as InitFormService from "../services/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
 import * as InputFields from "../input-fields"
@@ -20,7 +21,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     name = "formConnectedLandAddPlant",
 }): ReactElement => {
 
-    const [initPageResponse, setInitPageResponse] = useState(new FormService.InitResultInstance);
+    const [initPageResponse, setInitPageResponse] = useState(new InitFormService.InitResultInstance);
     const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);
     let lastApiSubmission: any = {
         request: new FormService.SubmitResultInstance,
@@ -40,7 +41,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
 
     const handleInit = (responseFull: any) => {
   
-        const response: FormService.InitResult = responseFull.data;
+        const response: InitFormService.InitResult = responseFull.data;
 
         if (!response.success){ 
             return;

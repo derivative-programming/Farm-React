@@ -11,6 +11,7 @@ import {
 import FormConnectedLandAddPlant from "./LandAddPlant"; 
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/LandAddPlant";
+import * as InitFormService from "../services/LandAddPlantInitObjWF";
 import * as PacUserFlavorList from "../../lookups/services/PacUserFlavorList"
 
 // set the local storage
@@ -31,14 +32,14 @@ const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
 const mockPacUserFlavorListService =  jest.spyOn(PacUserFlavorList, "submitRequest");
 
 let formSubmitResponse = new FormService.SubmitResultInstance;
-const formInitResponse = new FormService.InitResultInstance;
+const formInitResponse = new InitFormService.InitResultInstance;
 
 
 describe("LandAddPlant Component", () => {
 
   beforeEach(async () => { 
       mockFormInitService.mockResolvedValueOnce({
-        data: new FormService.InitResultInstance,
+        data: new InitFormService.InitResultInstance,
       });
       
       mockPacUserFlavorListService.mockResolvedValueOnce({
@@ -93,6 +94,19 @@ describe("LandAddPlant Component", () => {
     
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
   });
+
+
+  it("when user enter flavorCode, it set accordingly", async () => {  
+    await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
+
+    const input = screen.getByTestId("flavorCode");
+    expect(screen.getByTestId("testForm")).toBeInTheDocument();
+    await act(async () => {
+      await fireEvent.change(input, { target: { value: "sample data" } });
+    }); 
+    expect(screen.getByTestId("flavorCode")).toHaveValue("sample data");
+  });
+
 
   it("when user enter otherFlavor, it set accordingly", async () => {  
     await waitFor(() => expect(mockPacUserFlavorListService).toHaveBeenCalledTimes(1));
@@ -239,6 +253,12 @@ describe("LandAddPlant Component", () => {
     mockFormSubmitService.mockResolvedValueOnce({
       data: formSubmitResponse,
     }); 
+   
+    const flavorCodeInput = screen.getByTestId("flavorCode");
+    await act(async () => {
+      await fireEvent.change(flavorCodeInput, { target: { value: "Test@123" } });
+    });
+ 
    
     const otherFlavorInput = screen.getByTestId("otherFlavor");
     await act(async () => {

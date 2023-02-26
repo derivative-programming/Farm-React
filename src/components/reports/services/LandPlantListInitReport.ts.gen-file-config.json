@@ -1,0 +1,7 @@
+{
+    "templateType":"objectWorkflow", 
+    "dimension" :{
+        "name":"LandPlantListInitReport",
+        "calculatedIsInitObjWFForReport":"true"
+    }
+}

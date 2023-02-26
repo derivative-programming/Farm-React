@@ -5,11 +5,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import ReportFilterLandPlantList from "../filters/LandPlantList";
 import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList";
 import * as ReportService from "../services/LandPlantList"; 
+import * as InitReportService from "../services/LandPlantListInitReport"; 
 
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
-    const [initPageResponse, setInitPageResponse] = useState(new ReportService.InitResultInstance);
+    const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance);
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance);
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
@@ -20,7 +21,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
     const handleInit = (responseFull: any) => { 
-        const response: ReportService.InitResult = responseFull.data;
+        const response: InitReportService.InitResult = responseFull.data;
 
         if (!response.success) {
             return;
@@ -147,6 +148,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
                     Add A Plant
                 </Button>
             </div>
+            {/*//GENTrainingBlock[visualizationType]Start*/}
+            {/*//GENLearn[visualizationType=Grid]Start*/}
             <ReportFilterLandPlantList
                 name="reportConnectedLandPlantList-filter"
                 initialQuery={initialValues}
@@ -167,6 +170,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
                 pageSize={queryResult.itemCountPerPage}
                 totalItemCount={queryResult.recordsTotal}
             />
+            {/*//GENLearn[visualizationType=Grid]End*/}
+            {/*//GENTrainingBlock[visualizationType]End*/}
         </div>
     );
 };

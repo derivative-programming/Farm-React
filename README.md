@@ -11,6 +11,21 @@ show processing animation on... form init, form submit, report init, report quer
 sched report
 fixed major versions
 add cypress
+fix file upload control
+Align back button with table in both viz . Same for other buttons
+Add button icon on grid add button
+Back button icon on back btns 
+Custom validation controls need same style as bootstrap Val error
+Use standard bootstrap containers
+Center paging ctrl on grid. Match footer display
+Nav page implementation
+Fix button display on three col viz
+A two column implementation? Make three one smart if no buttons?
+Breadcrumb control. would be on reports only
+nav link col examples?
+Check back button text examples. May be auto updating model with dest page title
+Sched report button on grid with indicator icon
+Fav report button on grid with indicator icon
 
 
 display friendly generic message on hard unexpected error in api... 
@@ -44,10 +59,56 @@ component\reports\visualization\detail-three-column\columns
 component\reports\visualization\grid
 component\reports\visualization\grid\columns
 component\services
+ 
+
+template generation... 
+lookup calls
+
+special lists...
+report
+objwfs
+all pages
+alll lookups
+subsets of any array. try setting each boolean prop to true or false in the dimension phrase to see if a perfect set is found. need to look for full lists first.
+button types (breadcrumb, other)
+
+
+Create config json in page service ctrl? 
+Ok to have all service interfaces in one file?
+
+
+  
+Check success add navigation on result code 
+
+Form other button example  
+
+Primary and secondary button examples…
+Grid row
+Report other buttons
+Form other buttons
+ 
+
+
+Translator…
+instead of putting all booleans in the dimension phrase, use wildcard 'is*=false,' and remove all false ones.  
+ 
+Remove model type from final learn stmt conversion to genif stmt
 
 
 
+Create simple stmt that tells us it’s a loop of reports or objwf instead of that big section I had to manually add. Have it convert automatically
 
+
+ 
+Analytics…
+Need… Api key, page , context code
+Model feature?
+Root Top level setting ?
+Send to queue. No db write
+All go to one endpoint
+
+
+Cache api keys? To redis? Mem cache?
 
 
 

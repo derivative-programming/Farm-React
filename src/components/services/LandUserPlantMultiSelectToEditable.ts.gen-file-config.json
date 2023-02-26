@@ -1,0 +1,8 @@
+{
+    "templateType":"objectWorkflow", 
+    "dimension" :{
+        "name":"LandUserPlantMultiSelectToEditable",
+        "isPage": "false",
+        "calculatedIsApiEndpointCreated": "true"
+    }
+}
