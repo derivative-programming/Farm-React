@@ -64,13 +64,14 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                 })
         }
         return errors;
-    }
+    }  
 
-    const submitButtonClick = async (
+    const submitClick = async (
         values: FormService.SubmitRequest,
         actions: FormikHelpers<FormService.SubmitRequest>
-    ) => {
-        try {
+    ) => { 
+        
+        try { 
             const responseFull: any = await FormService.submitForm(values, contextCode);
             const response: FormService.SubmitResult = responseFull.data;
             lastApiSubmission = {
@@ -90,13 +91,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
             actions.resetForm();
             navigateTo("land-plant-list" ,"landCode");
         } catch (error) {
+            console.log(error);
             actions.setSubmitting(false);
         }
-    };
-
-    const cancelButtonClick = (() => {
-        navigateTo("land-plant-list" ,"landCode");
-    });
+    }; 
 
     useEffect(() => {
         if (isInitializedRef.current) {
@@ -144,7 +142,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                     initialValues={initialValues}
                     validationSchema={validationSchema}
                     validate={handleValidate}
-                    onSubmit={async (values, actions) => { await submitButtonClick(values, actions) }}>
+                    onSubmit={async (values, actions) => { await submitClick(values, actions) }}>
                     {(props) => (
                         <Form
                             className="mb-2"
@@ -155,21 +153,21 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
 
 
                             <InputFields.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
-                            <Lookups.FormSelectFlavor name="flavorCode" label="Flavor" />
+                            <Lookups.FormSelectFlavor name="flavorCode" label="Select A Flavor" />
                             <InputFields.FormInputText name="otherFlavor" label="Other Flavor" />
-                            <InputFields.FormInputNumber name="someIntVal" label="Some Int Value" />
-                            <InputFields.FormInputNumber name="someBigIntVal" label="Some Big Int Value" />
-                            <InputFields.FormInputCheckbox name="someBitVal" label="Some Bit Value" />
+                            <InputFields.FormInputNumber name="someIntVal" label="Some Int Val" />
+                            <InputFields.FormInputNumber name="someBigIntVal" label="Some Big Int Val" />
+                            <InputFields.FormInputCheckbox name="someBitVal" label="Some Bit Val" />
                             <InputFields.FormInputCheckbox name="isEditAllowed" label="Is Edit Allowed" />
                             <InputFields.FormInputCheckbox name="isDeleteAllowed" label="Is Delete Allowed" />
-                            <InputFields.FormInputNumber name="someFloatVal" label="Some Float Value" />
-                            <InputFields.FormInputNumber name="someDecimalVal" label="Some Decimal Value" />
-                            <InputFields.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC DateTime Value" />
-                            <InputFields.FormInputDate name="someDateVal" label="Some Date Value" />
-                            <InputFields.FormInputMoney name="someMoneyVal" label="Some Money Value" />
-                            <InputFields.FormInputText name="someNVarCharVal" label="Some N Var Char Value" />
-                            <InputFields.FormInputText name="someVarCharVal" label="Some Var Char Value" />
-                            <InputFields.FormInputTextArea name="someTextVal" label="Some Text Value" />
+                            <InputFields.FormInputNumber name="someFloatVal" label="Some Float Val" />
+                            <InputFields.FormInputNumber name="someDecimalVal" label="Some Decimal Val" />
+                            <InputFields.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC DateTime Val" />
+                            <InputFields.FormInputDate name="someDateVal" label="Some Date Val" />
+                            <InputFields.FormInputMoney name="someMoneyVal" label="Some Money Val" />
+                            <InputFields.FormInputText name="someNVarCharVal" label="Some N Var Char Val" />
+                            <InputFields.FormInputText name="someVarCharVal" label="Some Var Char Val" />
+                            <InputFields.FormInputTextArea name="someTextVal" label="Some Text Val" />
                             <InputFields.FormInputText name="somePhoneNumber" label="Some Phone Number" />
                             <InputFields.FormInputEmail name="someEmailAddress" label="Some Email Address" />
                             <InputFields.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" />
@@ -177,13 +175,11 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                                 <Button type="submit" data-testid="submit-button">
                                     OK Button Text
                                 </Button>
-                                <Button
+                                <Button data-testid="cancel-button"
                                     onClick={() => {
-                                        cancelButtonClick();
+                                        navigateTo("land-plant-list" ,"landCode");
                                     }}
-                                    variant="secondary"
-                                    data-testid="cancel-button"
-                                >
+                                    variant="secondary">
                                     Cancel Button Text
                                 </Button>
                             </div>

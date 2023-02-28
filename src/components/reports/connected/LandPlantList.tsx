@@ -133,18 +133,16 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
             <h1>Plant List title text</h1>
             <h6>A list of plants on the land</h6>
             <div className="plants-list-button-header">
-                <Button
+                <Button data-testid="back-button"
                     onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
                     className="primary-button"
-                    type="submit"
-                >
+                    type="submit">
                     Farm Dashboard
                 </Button>
-                <Button
+                <Button data-testid="add-button"
                     className="primary-button ms-2"
                     type="submit"
-                    onClick={() => navigateTo("land-add-plant", "landCode")}
-                >
+                    onClick={() => navigateTo("land-add-plant", "landCode")}>
                     Add A Plant
                 </Button>
             </div>

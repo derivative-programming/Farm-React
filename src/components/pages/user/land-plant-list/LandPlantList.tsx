@@ -452,7 +452,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="someIntVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sint">
-                                  <Form.Label>Some Int Value</Form.Label>
+                                  <Form.Label>Some Int Val</Form.Label>
                                   <Form.Control
                                     data-testid="some-int-value-input"
                                     type="number"
@@ -477,7 +477,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="someBigIntVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sbint">
-                                  <Form.Label>Some Big Int Value</Form.Label>
+                                  <Form.Label>Some Big Int Val</Form.Label>
                                   <Form.Control
                                     type="number"
                                     name="someBigIntVal"
@@ -501,7 +501,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="someFloatVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sfloat">
-                                  <Form.Label>Some Float Value</Form.Label>
+                                  <Form.Label>Some Float Val</Form.Label>
                                   <Form.Control
                                     type="number"
                                     data-testid="some-float-input"
@@ -526,7 +526,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="someDecimalVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sdeci">
-                                  <Form.Label>Some Decimal Value</Form.Label>
+                                  <Form.Label>Some Decimal Val</Form.Label>
                                   <Form.Control
                                     type="number"
                                     data-testid="some-decimal-input"
@@ -552,7 +552,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="someMoneyVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="amount">
-                                  <Form.Label>Some Money Value</Form.Label>
+                                  <Form.Label>Some Money Val</Form.Label>
                                   <InputGroup>
                                     <InputGroup.Text>$</InputGroup.Text>
                                     <FormControl
@@ -583,7 +583,7 @@ const LandPlantList: FC = (): ReactElement => {
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sfloat">
                                   <Form.Label>
-                                    Some N Var Char Value
+                                    Some N Var Char Val
                                   </Form.Label>
                                   <Form.Control
                                     type="text"
@@ -609,7 +609,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="someVarCharVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sdeci">
-                                  <Form.Label>Some Var Char Value</Form.Label>
+                                  <Form.Label>Some Var Char Val</Form.Label>
                                   <Form.Control
                                     type="text"
                                     data-testid="some-var-char-value-input"
@@ -634,7 +634,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="someTextVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="exampleForm.ControlTextarea1">
-                                  <Form.Label>Some Text Value</Form.Label>
+                                  <Form.Label>Some Text Val</Form.Label>
                                   <Form.Control
                                     data-testid="some-text-input"
                                     type="text"
@@ -746,7 +746,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="someBitVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="someBitVal">
-                                  <Form.Label>Some Bit Value</Form.Label>
+                                  <Form.Label>Some Bit Val</Form.Label>
                                   <Form.Select
                                     name="someBitVal"
                                     id="someBit"
@@ -816,7 +816,7 @@ const LandPlantList: FC = (): ReactElement => {
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sfloat">
                                   <Form.Label>
-                                    Some UTC DateTime Value
+                                    Some UTC DateTime Val
                                   </Form.Label>
                                   <DatePicker
                                     showTime={{ format: "hh:mm A" }}
@@ -855,7 +855,7 @@ const LandPlantList: FC = (): ReactElement => {
                               name="minimumSomeDateVal"
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sfloat">
-                                  <Form.Label>Some Date Value</Form.Label>
+                                  <Form.Label>Some Date Val</Form.Label>
                                   <DatePicker
                                     name="minimumSomeDateVal"
                                     value={

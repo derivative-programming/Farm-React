@@ -150,21 +150,21 @@ export interface FormProps {
                             onSubmit={props.handleSubmit}>  
 
                             <FormInput.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
-                            <Lookups.FormSelectFlavor name="flavorCode" label="Flavor" /> 
+                            <Lookups.FormSelectFlavor name="flavorCode" label="Select A Flavor" /> 
                             <FormInput.FormInputText name="otherFlavor" label="Other Flavor" /> 
-                            <FormInput.FormInputNumber name="someIntVal" label="Some Int Value" /> 
-                            <FormInput.FormInputNumber name="someBigIntVal" label="Some Big Int Value" /> 
-                            <FormInput.FormInputCheckbox name="someBitVal" label="Some Bit Value" /> 
+                            <FormInput.FormInputNumber name="someIntVal" label="Some Int Val" /> 
+                            <FormInput.FormInputNumber name="someBigIntVal" label="Some Big Int Val" /> 
+                            <FormInput.FormInputCheckbox name="someBitVal" label="Some Bit Val" /> 
                             <FormInput.FormInputCheckbox name="isEditAllowed" label="Is Edit Allowed" /> 
                             <FormInput.FormInputCheckbox name="isDeleteAllowed" label="Is Delete Allowed" /> 
-                            <FormInput.FormInputNumber name="someFloatVal" label="Some Float Value" /> 
-                            <FormInput.FormInputNumber name="someDecimalVal" label="Some Decimal Value" /> 
-                            <FormInput.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC DateTime Value" /> 
-                            <FormInput.FormInputDate name="someDateVal" label="Some Date Value" /> 
-                            <FormInput.FormInputMoney name="someMoneyVal" label="Some Money Value" /> 
-                            <FormInput.FormInputText name="someNVarCharVal" label="Some N Var Char Value" /> 
-                            <FormInput.FormInputText name="someVarCharVal" label="Some Var Char Value" /> 
-                            <FormInput.FormInputTextArea name="someTextVal" label="Some Text Value" /> 
+                            <FormInput.FormInputNumber name="someFloatVal" label="Some Float Val" /> 
+                            <FormInput.FormInputNumber name="someDecimalVal" label="Some Decimal Val" /> 
+                            <FormInput.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC DateTime Val" /> 
+                            <FormInput.FormInputDate name="someDateVal" label="Some Date Val" /> 
+                            <FormInput.FormInputMoney name="someMoneyVal" label="Some Money Val" /> 
+                            <FormInput.FormInputText name="someNVarCharVal" label="Some N Var Char Val" /> 
+                            <FormInput.FormInputText name="someVarCharVal" label="Some Var Char Val" /> 
+                            <FormInput.FormInputTextArea name="someTextVal" label="Some Text Val" /> 
                             <FormInput.FormInputText name="somePhoneNumber" label="Some Phone Number" /> 
                             <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
                             <FormInput.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 

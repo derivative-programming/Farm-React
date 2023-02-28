@@ -1,36 +1,33 @@
 
 
 
-todo...  
-put formatting logic of data types in a common service 
+todo...   
 remove component\pages
 remove use of className="custom-form-control"   
 show a slightly zoomed out view, showing everythign smaller (scaled down?)
 use standard bootstrap container classes 
-show processing animation on... form init, form submit, report init, report query 
-sched report 
-add cypress
-fix file upload control
+show processing animation on... form init, form submit, report init, report query  
+add cypress 
 Align back button with table in both viz . Same for other buttons
 Add button icon on grid add button
 Back button icon on back btns 
 Custom validation controls need same style as bootstrap Val error 
 Center paging ctrl on grid. Match footer display
 Nav page implementation
-Fix button display on three col viz
+Fix button display on three col viz. buttons on top right?
 A two column implementation? Make three one smart if no buttons? 
 nav link col examples?
 Check back button text examples. May be auto updating model with dest page title
 Sched report button on grid with indicator icon
 Fav report button on grid with indicator icon
 
-lookup dropdowns need longer field text to distingiush their lookup object names
 
 
 display friendly generic message on hard unexpected error in api... 
 - form init and post 
 - report grid init and query and async button
 - report 3 col init and query and async button
+- authorization error
 
 
 research to build examples of use list...
@@ -58,10 +55,7 @@ component\reports\visualization\detail-three-column\columns
 component\reports\visualization\grid
 component\reports\visualization\grid\columns
 component\services
- 
-
-template generation... 
-lookup calls
+  
 
 special lists...
 report
@@ -82,21 +76,10 @@ Form other buttons
 
 
 Translator…
-instead of putting all booleans in the dimension phrase, use wildcard 'is*=false,' and remove all false ones.  
- 
-
+instead of putting all booleans in the dimension phrase, use wildcard 'is*=false,' and remove all false ones.   
 
 Remove model type from final learn stmt conversion to genif stmt
-
-issues...
-form....
-                            <Lookups.FormSelectGENVALSpacedObjectWorkflowParamCalculatedLabelText name="GENVALCamelObjectWorkflowParamName" label="GENVALSpacedObjectWorkflowParamCalculatedLabelText" />
-
-<InputFields.FormInputNumber name="GENVALCamelObjectWorkflowParamName" label="GENVALPascalObjectWorkflowParamCalculatedLabelTextue" /> 
-
-form test...
-import * as PacUserFlavorList from "../../lookups/services/PacUserFlavorList"
-
+ 
 Create simple stmt that tells us it’s a loop of reports or objwf instead of that big section I had to manually add. Have it convert automatically
 
 

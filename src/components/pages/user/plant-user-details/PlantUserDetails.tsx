@@ -158,7 +158,7 @@ const PlantUserDetails: FC = (): ReactElement => {
                                 className="d-flex justify-content-between align-items-center"
                             >
                                 <div className="ms-2 me-auto">
-                                    <div className="fw-bold">Some Big Int Value</div>
+                                    <div className="fw-bold">Some Big Int Val</div>
                                     {plantUserDetails['someBigIntVal']}
                                 </div>
 
@@ -173,7 +173,7 @@ const PlantUserDetails: FC = (): ReactElement => {
                                 className="d-flex justify-content-between align-items-center"
                             >
                                 <div className="ms-2 me-auto">
-                                    <div className="fw-bold">Some Bit Value</div>
+                                    <div className="fw-bold">Some Bit Val</div>
                                     {plantUserDetails['someBitVal'] ? 'True' : 'False'}
                                 </div>
 
