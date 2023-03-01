@@ -386,7 +386,7 @@ const LandPlantList: FC = (): ReactElement => {
   }
 
   return ( 
-    <div className="plants-container" data-testid="land-plant-list">
+    <div className="report-container" data-testid="land-plant-list">
       <div className="breadcrumb-container">
         <Breadcrumb>
           <Breadcrumb.Item onClick={onDashboard}>Dashboard</Breadcrumb.Item>
@@ -396,7 +396,7 @@ const LandPlantList: FC = (): ReactElement => {
         </Breadcrumb>
       </div>
       <h1>Plants</h1>
-      <div className="plants-list-button-header">
+      <div className="report-list-button-header">
         <Button
           onClick={onDashboard}
           className="primary-button"
@@ -816,7 +816,7 @@ const LandPlantList: FC = (): ReactElement => {
                               render={({ field }: FieldProps) => (
                                 <Form.Group controlId="sfloat">
                                   <Form.Label>
-                                    Some UTC DateTime Val
+                                    Some UTC Date Time Val
                                   </Form.Label>
                                   <DatePicker
                                     showTime={{ format: "hh:mm A" }}
@@ -914,9 +914,9 @@ const LandPlantList: FC = (): ReactElement => {
           Delete Selected
         </Button> : null}
       </div>
-      <div className="plants-list-button-body">
+      <div className="report-list-button-body">
         <Table
-          className="plants-list-table"
+          className="report-list-table"
           striped
           bordered
           hover

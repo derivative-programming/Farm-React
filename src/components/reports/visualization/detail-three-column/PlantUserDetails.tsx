@@ -65,7 +65,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                         />
 
                         <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someDateVal"
-                            label="Some UTC Date Val"
+                            label="Some Date Val"
                             value={item.someDateVal}
                         />
 

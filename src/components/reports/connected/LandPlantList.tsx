@@ -96,7 +96,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
         isInitializedRef.current = true;
         ReportService.initPage(contextCode)
             .then(response => handleInit(response));
-    });
+    },[]);
 
     useEffect(() => {
         const newInitalValues = ReportService.buildQueryRequest(initPageResponse);   
@@ -118,7 +118,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
     return (
 
-        <div className="plants-container" data-testid="reportConnectedLandPlantList">
+        <div className="report-container" data-testid="reportConnectedLandPlantList">
             <div className="breadcrumb-container">
                 <Breadcrumb>
                     <Breadcrumb.Item id="TacFarmDashboardBreadcrumb"
@@ -132,7 +132,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
             </div>
             <h1>Plant List title text</h1>
             <h6>A list of plants on the land</h6>
-            <div className="plants-list-button-header">
+            <div className="report-list-button-header">
                 <Button data-testid="back-button"
                     onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
                     className="primary-button"

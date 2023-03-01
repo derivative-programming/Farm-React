@@ -7,7 +7,7 @@ remove use of className="custom-form-control"
 show a slightly zoomed out view, showing everythign smaller (scaled down?)
 use standard bootstrap container classes 
 show processing animation on... form init, form submit, report init, report query  
-add cypress 
+add cypress?
 Align back button with table in both viz . Same for other buttons
 Add button icon on grid add button
 Back button icon on back btns 
@@ -20,6 +20,10 @@ nav link col examples?
 Check back button text examples. May be auto updating model with dest page title
 Sched report button on grid with indicator icon
 Fav report button on grid with indicator icon
+
+
+
+separate lists?  grid report col where multiselect = true? detail three col where button = true? grid col where button = true?
 
 
 
@@ -81,7 +85,10 @@ instead of putting all booleans in the dimension phrase, use wildcard 'is*=false
 Remove model type from final learn stmt conversion to genif stmt
  
 Create simple stmt that tells us it’s a loop of reports or objwf instead of that big section I had to manually add. Have it convert automatically
+ 
+create file that has list of all files (except index)?  if it matches one of the array lists then it identifies that folder type?
 
+folder name can identify folder type? report? objwf? form? set those as 'none' and make others default of namespace?
 
  
 Analytics…

@@ -89,12 +89,17 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
             }
             actions.setSubmitting(false);
             actions.resetForm();
-            navigateTo("land-plant-list" ,"landCode");
+            submitButtonNavigateTo();
         } catch (error) {
             console.log(error);
             actions.setSubmitting(false);
         }
     }; 
+
+    const submitButtonNavigateTo = () => {
+        navigateTo("land-plant-list" ,"landCode");
+    };
+    
 
     useEffect(() => {
         if (isInitializedRef.current) {
@@ -104,7 +109,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
         FormService.initForm(contextCode)
             .then(response => handleInit(response));
 
-    });
+    },[]);
 
     useEffect(() => {
         const newInitalValues = FormService.buildSubmitRequest(initPageResponse);  
@@ -162,7 +167,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                             <InputFields.FormInputCheckbox name="isDeleteAllowed" label="Is Delete Allowed" />
                             <InputFields.FormInputNumber name="someFloatVal" label="Some Float Val" />
                             <InputFields.FormInputNumber name="someDecimalVal" label="Some Decimal Val" />
-                            <InputFields.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC DateTime Val" />
+                            <InputFields.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC Date Time Val" />
                             <InputFields.FormInputDate name="someDateVal" label="Some Date Val" />
                             <InputFields.FormInputMoney name="someMoneyVal" label="Some Money Val" />
                             <InputFields.FormInputText name="someNVarCharVal" label="Some N Var Char Val" />

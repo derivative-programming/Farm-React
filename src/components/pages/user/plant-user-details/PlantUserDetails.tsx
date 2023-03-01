@@ -77,7 +77,7 @@ const PlantUserDetails: FC = (): ReactElement => {
             </div>
             <h1>Plant Detail</h1>
             <h6>Details of a plant</h6>
-            <div className='plants-list-button-header'>
+            <div className='report-list-button-header'>
                 <Button onClick={() => goTo('/land-plant-list')} className='primary-button' data-testid="plant-btn" type="submit">
                     Plants
                 </Button>

@@ -108,7 +108,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     return (
         <div
             data-testid={name}
-            className="plants-list-button-body mt-3">
+            className="report-list-button-body mt-3">
 
 
             <div className="w-100" style={{ textAlign: "left" }}>
@@ -125,7 +125,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
             </div>
 
             <Table
-                className="plants-list-table"
+                className="report-list-table"
                 striped
                 bordered
                 hover
@@ -192,7 +192,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
                         <ReportColumnHeader forColumn="someUTCDateTimeVal"
                             isSortDescending={isSortDescending}
-                            label="some UTC Date Time Val"
+                            label="some Date Time Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
@@ -213,7 +213,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
                         <ReportColumnHeader forColumn="someNVarCharVal"
                             isSortDescending={isSortDescending}
-                            label="some NVar Char Val"
+                            label="some N Var Char Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />

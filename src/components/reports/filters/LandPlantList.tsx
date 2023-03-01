@@ -89,10 +89,10 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                                             <ReportInput.ReportInputNumber name="someDecimalVal" label="Some Decimal Val" />
                                         </Col>
                                         <Col lg="4" md="6" xs="12" id="someMinUTCDateTimeVal-filter">
-                                            <ReportInput.ReportInputDateTime name="someMinUTCDateTimeVal" label="Some UTC DateTime Val" />
+                                            <ReportInput.ReportInputDateTime name="someMinUTCDateTimeVal" label="Some Min UTC Date Time Val" />
                                         </Col>
                                         <Col lg="4" md="6" xs="12" id="someMinDateVal-filter">
-                                            <ReportInput.ReportInputDate name="someMinDateVal" label="Some Date Val" />
+                                            <ReportInput.ReportInputDate name="someMinDateVal" label="Some Min Date Val" />
                                         </Col>
                                         <Col lg="4" md="6" xs="12" id="someMoneyVal-filter">
                                             <ReportInput.ReportInputMoney name="someMoneyVal" label="Some Money Val" />

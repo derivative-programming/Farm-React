@@ -59,9 +59,9 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
     return (
         <div
             data-testid={name}
-            className="plants-list-button-body mt-3">
+            className="report-list-button-body mt-3">
             <Table
-                className="plants-list-table"
+                className="report-list-table"
                 striped
                 bordered
                 hover

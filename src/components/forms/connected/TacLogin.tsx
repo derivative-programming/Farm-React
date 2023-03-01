@@ -100,7 +100,7 @@ export interface FormProps {
         isInitializedRef.current = true;
         FormService.initForm(contextCode)
         .then(response => handleInit(response));
-    }); 
+    },[]); 
     
 
     return ( 

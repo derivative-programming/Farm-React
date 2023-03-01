@@ -15,7 +15,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   }; 
 
 export interface SubmitRequest {
-    plantCodeListCSV:string
+    plantCodeListCsv:string
 }
 
 export interface SubmitResult {
@@ -34,11 +34,11 @@ export interface SubmitValidationError {
 
 export class SubmitRequestInstance implements SubmitRequest {
 
-    plantCodeListCSV:string 
+    plantCodeListCsv:string 
 
     constructor() {
         
-        this.plantCodeListCSV = ''
+        this.plantCodeListCsv = ''
     }
 }
 

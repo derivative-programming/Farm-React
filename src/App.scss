@@ -57,7 +57,7 @@
 }
 
 @media only screen and (max-width: 719px) {
-  .plants-container {
+  .report-container {
     .page-container {
       display: block !important;
 
@@ -342,7 +342,7 @@
     text-align: left;
   }
 
-  .plants-list-button-header {
+  .report-list-button-header {
     width: 100%;
     display: flex;
     align-items: center;
@@ -356,7 +356,7 @@
   outline: 0;
 }
 
-.plants-container {
+.report-container {
   max-width: 100%;
   // height: 90vh;
   display: flex;
@@ -446,17 +446,17 @@
 
 
 
-  .plants-list-button-header {
+  .report-list-button-header {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .plants-list-button-body { 
+  .report-list-button-body { 
     width: 100%;
 
-    .plants-list-table {
+    .report-list-table {
       th {
         //min-width: 150px;
 

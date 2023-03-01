@@ -104,7 +104,7 @@ export interface FormProps {
         isInitializedRef.current = true;
         FormService.initForm(contextCode)
         .then(response => handleInit(response));
-    }); 
+    },[]); 
 
     useEffect(() => {
         const newInitalValues = FormService.buildSubmitRequest(initPageResponse);  
@@ -159,7 +159,7 @@ export interface FormProps {
                             <FormInput.FormInputCheckbox name="isDeleteAllowed" label="Is Delete Allowed" /> 
                             <FormInput.FormInputNumber name="someFloatVal" label="Some Float Val" /> 
                             <FormInput.FormInputNumber name="someDecimalVal" label="Some Decimal Val" /> 
-                            <FormInput.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC DateTime Val" /> 
+                            <FormInput.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC Date Time Val" /> 
                             <FormInput.FormInputDate name="someDateVal" label="Some Date Val" /> 
                             <FormInput.FormInputMoney name="someMoneyVal" label="Some Money Val" /> 
                             <FormInput.FormInputText name="someNVarCharVal" label="Some N Var Char Val" /> 
