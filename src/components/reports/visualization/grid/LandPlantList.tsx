@@ -143,21 +143,21 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                         
                         <ReportColumnHeader forColumn="someIntVal" 
                             isSortDescending={isSortDescending}
-                            label="some Int Val"
+                            label="Some Int Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName}
                         />
 
                         <ReportColumnHeader forColumn="someBigIntVal"
                             isSortDescending={isSortDescending}
-                            label="some Big Int Val"
+                            label="Some Big Int Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someBitVal"
                             isSortDescending={isSortDescending}
-                            label="some Bit Val"
+                            label="Some Bit Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
@@ -178,70 +178,70 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
                         <ReportColumnHeader forColumn="someFloatVal"
                             isSortDescending={isSortDescending}
-                            label="some Float Val"
+                            label="Some Float Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someDecimalVal"
                             isSortDescending={isSortDescending}
-                            label="some Decimal Val"
+                            label="Some Decimal Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someUTCDateTimeVal"
                             isSortDescending={isSortDescending}
-                            label="some Date Time Val"
+                            label="Some Date Time Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someDateVal"
                             isSortDescending={isSortDescending}
-                            label="some Date Val"
+                            label="Some Date Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someMoneyVal"
                             isSortDescending={isSortDescending}
-                            label="some Money Val"
+                            label="Some Money Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someNVarCharVal"
                             isSortDescending={isSortDescending}
-                            label="some N Var Char Val"
+                            label="Some N Var Char Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someVarCharVal"
                             isSortDescending={isSortDescending}
-                            label="some Var Char Val"
+                            label="Some Var Char Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someTextVal"
                             isSortDescending={isSortDescending}
-                            label="some Text Val"
+                            label="Some Text Val"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="somePhoneNumber"
                             isSortDescending={isSortDescending}
-                            label="some Phone Number"
+                            label="Some Phone Number"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
 
                         <ReportColumnHeader forColumn="someEmailAddress"
                             isSortDescending={isSortDescending}
-                            label="some Email Address"
+                            label="Some Email Address"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
@@ -385,7 +385,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                                     <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateLinkPlantCode"
                                         rowIndex={index}
                                         value={item.updateLinkPlantCode} 
-                                        buttonText="Delete Async"
+                                        buttonText="Update"
                                         onClick={() => updateLinkPlantCodeColumnButtonClick(item.updateLinkPlantCode)}
                                         isVisible={false}
                                     /> 

@@ -137,7 +137,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                         />
 
                         <ReportColumnDisplay.ReportColumnDisplayButton forColumn="randomPropertyUpdatesLinkPlantCode"
-                            buttonText="Random Update Async"
+                            buttonText="Random Property Updates"
                             value={item.randomPropertyUpdatesLinkPlantCode}
                             onClick={() => randomPropertyUpdatesLinkPlantCodeColumnButtonClick(item.randomPropertyUpdatesLinkPlantCode)}
                         />

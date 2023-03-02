@@ -3,29 +3,54 @@
 
 todo...   
 remove component\pages
-remove use of className="custom-form-control"   
-show a slightly zoomed out view, showing everythign smaller (scaled down?)
-use standard bootstrap container classes 
 show processing animation on... form init, form submit, report init, report query  
-add cypress?
-Align back button with table in both viz . Same for other buttons
-Add button icon on grid add button
-Back button icon on back btns 
-Custom validation controls need same style as bootstrap Val error 
 Center paging ctrl on grid. Match footer display
 Nav page implementation
 Fix button display on three col viz. buttons on top right?
 A two column implementation? Make three one smart if no buttons? 
-nav link col examples?
-Check back button text examples. May be auto updating model with dest page title
+nav link col examples? 
+dont process lexicon array
+
+style changes...
+remove use of className="custom-form-control"   
+use standard bootstrap container classes 
+Add button icon on grid add button
+Back button icon on back btns 
+Custom validation controls need same style as bootstrap Val error 
+show a slightly zoomed out view, showing everythign smaller (scaled down?)
+
+features...
 Sched report button on grid with indicator icon
 Fav report button on grid with indicator icon
-
-
-
-separate lists?  grid report col where multiselect = true? detail three col where button = true? grid col where button = true?
-
-
+reprot paging optional
+report row is button drop down allowed
+reprot rating laevel col name
+reprot is fitler section hidden
+report is fitler section collapsible
+reprot si breadcrumb section hidden
+report is refresh button hidden
+report export
+report is export section hidden
+report auto refresh
+report badge display
+report is header visible
+report grid group by
+reprot pie chart
+report line chart
+report flow chart
+report card view
+report folder view
+report param is unknown lokup allowed
+form credit card
+form captcha
+form auto submit
+login form
+logout form
+impersonation page
+form is custom page used
+from control tool tip
+add cypress?
+ 
 
 display friendly generic message on hard unexpected error in api... 
 - form init and post 
@@ -79,7 +104,8 @@ Form other buttons
  
 
 
-Translator…
+Translator… 
+
 instead of putting all booleans in the dimension phrase, use wildcard 'is*=false,' and remove all false ones.   
 
 Remove model type from final learn stmt conversion to genif stmt
