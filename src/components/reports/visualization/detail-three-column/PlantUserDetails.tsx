@@ -32,7 +32,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
 
     return (
         <div data-testid={name} className='list-container mt-3 w-100'>
-            <Row><Col xs="1"></Col><Col>
+            <Row><Col  lg="9" md="9" xs="12">
                 <ListGroup as="ol"> 
                     <Row>
                         <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorName"
@@ -130,21 +130,24 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                             isVisible={item.isEditAllowed}
                         />
 
-                        <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateButtonTextLinkPlantCode"
-                            buttonText="Update Button Text"
-                            value={item.updateButtonTextLinkPlantCode}
-                            onClick={() => updateButtonTextLinkPlantCodeColumnButtonClick(item.updateButtonTextLinkPlantCode)}
-                        />
-
-                        <ReportColumnDisplay.ReportColumnDisplayButton forColumn="randomPropertyUpdatesLinkPlantCode"
-                            buttonText="Random Property Updates"
-                            value={item.randomPropertyUpdatesLinkPlantCode}
-                            onClick={() => randomPropertyUpdatesLinkPlantCodeColumnButtonClick(item.randomPropertyUpdatesLinkPlantCode)}
-                        />
-
                     </Row>
                 </ListGroup>
-            </Col><Col xs="1"></Col></Row>
+            </Col>
+            <Col>
+
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateButtonTextLinkPlantCode"
+                    buttonText="Update Button Text"
+                    value={item.updateButtonTextLinkPlantCode}
+                    onClick={() => updateButtonTextLinkPlantCodeColumnButtonClick(item.updateButtonTextLinkPlantCode)}
+                />
+
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="randomPropertyUpdatesLinkPlantCode"
+                    buttonText="Random Property Updates"
+                    value={item.randomPropertyUpdatesLinkPlantCode}
+                    onClick={() => randomPropertyUpdatesLinkPlantCodeColumnButtonClick(item.randomPropertyUpdatesLinkPlantCode)}
+                />
+            </Col>
+            </Row>
         </div>
     );
 }; 

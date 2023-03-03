@@ -24,7 +24,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     } 
 
     return ( 
-        <div data-testid={name} className="tac-farm-dashboard-container" > 
+        <div data-testid={name} className="detail-two-column-container" > 
             <Button data-testid="fieldOnePlantListLinkLandCode"
                 onClick={() => fieldOnePlantListLinkLandCodeButtonClick()} 
                 className='primary-button' 

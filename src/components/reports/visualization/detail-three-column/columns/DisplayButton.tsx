@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Button, Form, Card, Col, ListGroup, Row } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayButtonProps {
@@ -23,11 +23,17 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
        
 
   return ( 
-    <Col lg="2" md="2" xs="12" className='mobile-edit mt-3' id={groupName} data-testid={groupName}>
-        <Button data-testid={buttonName} id={buttonName} onClick={onClick} className='primary-button' type="button" hidden={!isVisible}>
+    <Row  className=' mt-3 ms-3 me-3 ' 
+      id={groupName} data-testid={groupName}> 
+        <Button data-testid={buttonName} 
+          id={buttonName} 
+          onClick={onClick} 
+          className='primary-button' 
+          type="button" 
+          hidden={!isVisible}>
             {buttonText}
-        </Button>
-    </Col>
+        </Button> 
+    </Row>
   );
 };
    

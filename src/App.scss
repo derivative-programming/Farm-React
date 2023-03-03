@@ -13,22 +13,7 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
+}  
 
 .primary-button {
   border-radius: 0.35rem;
@@ -68,28 +53,7 @@
         margin-top: 10px;
       }
     }
-  }
-
-  .plant-user-details-container {
-    .list-container {
-      margin-top: 20px;
-      width: 100% !important;
-
-      .mobile-edit {
-
-        .btn {
-          margin-top: 20px;
-          display: flex !important;
-        }
-      }
-
-      .web-edit {
-        .btn {
-          display: none;
-        }
-      }
-    }
-  }
+  } 
 
   .header-container {
     padding: 15px 30px !important;
@@ -201,154 +165,13 @@
   color: #29345C;
 }
 
-.tac-farm-dashboard-container {
+.detail-two-column-container {
   max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
-
-  h1 {
-    font-size: 30px;
-    font-weight: 600px;
-    margin-bottom: 50px;
-  }
-}
-
-.land-add-plant-container {
-  margin: auto;
-  width: 900px;
-  max-width: 100%;
-  // height: calc(100vh - 120px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  .card {
-    padding: 45px 35px 50px 35px;
-    border: none;
-    // height: calc(100vh - 130px);
-    min-width: 100%;
-    overflow: auto;
-    // box-shadow: 0 2px 6px -1px #29345c;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-    border-radius: 25px;
-
-    h1 {
-      text-align: center;
-      width: 100%;
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    h6 {
-      text-align: center;
-      margin-bottom: 20px;
-      width: 100%;
-    }
-
-    form {
-      margin: 0;
-      width: 100% !important;
-
-      .form-label {
-        text-align: left;
-        width: 100%;
-      }
-
-      .form-control {
-        // margin-bottom: 20px;
-        padding: 0.365rem 0.65rem;
-        font-size: 0.9rem;
-        border-radius: 0.35rem;
-      }
-
-      .form-check-label {
-        margin-left: 10px;
-      }
-
-      .btn-container {
-        justify-content: space-between;
-        margin-top: 35px;
-
-        .btn {
-          width: calc(50% - 10px);
-          border-radius: 0.35rem;
-          background-color: #fdc885;
-          border: none;
-          color: black;
-          font-weight: 600;
-          font-size: 16px;
-          padding: 6px 15px;
-          outline: 0;
-        }
-
-        .btn:first-child {
-          // border-color: #29345C;
-        }
-      }
-    }
-  }
-
-  .error-message {
-    color: red;
-    margin-top: 2px;
-    text-align: left;
-  }
-}
-
-.plant-user-details-container {
-  max-width: 100%;
-  // height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-
-  .list-container {
-    width: 80%;
-
-    .mobile-edit {
-      .btn {
-        display: none;
-      }
-    }
-
-    .web-edit {
-      text-align: center;
-
-      .btn {}
-    }
-
-    div {
-      text-align: left;
-      align-items: center;
-    }
-  }
-
-  .breadcrumb-container {
-    width: 100%;
-  }
-
-  h1 {
-    width: 100%;
-    font-size: 30px;
-    font-weight: 600px; 
-  }
-
-  h6 {
-    width: 100%;
-    text-align: left;
-  }
-
-  .report-list-button-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
+  padding-top: 50px; 
+}  
 
 .accordion-button:not(.collapsed) {
   color: white;

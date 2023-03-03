@@ -25,7 +25,7 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
       <Col data-testid={groupName} lg="5" md="5" xs="12">
         <ListGroup.Item
             as="li"
-            className="d-flex text-start"
+            className="text-start"
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div> 
@@ -37,10 +37,10 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
     );
   } else {  
     return ( 
-    <Col data-testid={groupName} lg="5" md="5" xs="12">
+    <Col data-testid={groupName} lg="6" md="6" xs="12">
         <ListGroup.Item
             as="li"
-            className="d-flex text-start"
+            className="text-start"
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div>

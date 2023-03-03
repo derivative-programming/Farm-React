@@ -20,7 +20,7 @@ export const ReportDetailTwoColLandPlantList: FC<ReportDetailTwoColLandPlantList
 }): ReactElement => { 
 
     return ( 
-        <div data-testid={name} className="tac-farm-dashboard-container" >  
+        <div data-testid={name} className="detail-two-column-container" >  
         </div> 
     );
 }; 
