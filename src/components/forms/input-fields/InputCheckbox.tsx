@@ -27,7 +27,7 @@ export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
       
   return (
     <div className="">
-      <Form.Group controlId={name} className="mb-2"> 
+      <Form.Group controlId={name} className="mt-3 mb-3 text-start"> 
           <Form.Check
             // ref={inputRef}
             data-testid={name}

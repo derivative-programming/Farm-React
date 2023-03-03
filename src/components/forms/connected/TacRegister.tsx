@@ -105,9 +105,9 @@ export interface FormProps {
     
 
     return ( 
-        <div className="auth-container" data-testid="formConnectedTacRegister">
+        <div className="form-container" data-testid="formConnectedTacRegister">
             <Card>
-                <h1>Register</h1>
+                <h2>Register</h2>
                 <h6>Please enter your email and password.</h6>
 
                 <Formik

@@ -137,9 +137,9 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
 
 
     return (
-        <div className="auth-container">
+        <div className="form-container">
             <Card>
-                <h1>Add Plant Title Text</h1>
+                <h2>Add Plant Title Text</h2>
                 <h6>Add plant intro text.</h6>
 
                 <Formik 

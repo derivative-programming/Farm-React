@@ -141,7 +141,7 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <h1>Farm Dashboard</h1>
+            <h2>Farm Dashboard</h2>
             <h6>Farm Dashboard page intro text</h6>
             <div className="report-list-button-header"> 
             </div>  

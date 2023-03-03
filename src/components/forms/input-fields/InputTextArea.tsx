@@ -27,7 +27,7 @@ export const FormInputTextArea: FC<FormInputTextAreaProps> = ({
       
   return (
     <div className="">
-      <Form.Group controlId={name} className="mb-2">
+      <Form.Group controlId={name} className="mb-2 text-start">
           <Form.Label>{label}</Form.Label>
           <Form.Control
             // ref={inputRef}

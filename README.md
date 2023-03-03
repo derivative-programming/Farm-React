@@ -1,12 +1,8 @@
 
 
 
-todo...   
-remove component\pages
-show processing animation on... form init, form submit, report init, report query  
-Center paging ctrl on grid. Match footer display 
-Fix button display on three col viz. buttons on top right?
-A two column implementation? Make three one smart if no buttons? 
+todo...    
+Center paging ctrl on grid. Match footer display   
 nav link col examples?  
 
 style changes...
@@ -18,6 +14,7 @@ Custom validation controls need same style as bootstrap Val error
 show a slightly zoomed out view, showing everythign smaller (scaled down?)
 
 features...
+show processing animation on... form init, form submit, report init, report query  
 Sched report button on grid with indicator icon
 Fav report button on grid with indicator icon
 reprot paging optional

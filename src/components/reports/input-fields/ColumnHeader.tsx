@@ -31,8 +31,7 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
       data-testid={controlName}
       id={controlName}
        onClick={() => onSort(forColumn)}>{label} <span> {sortedColumnName === forColumn ? <img
-      src={isSortDescending ? sortUp : sortDown}
-      className="edit-icon"
+      src={isSortDescending ? sortUp : sortDown} 
       hidden={!isVisible}
     /> : null}</span>
     </th>

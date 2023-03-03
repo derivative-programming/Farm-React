@@ -147,7 +147,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <h1>Plant Details</h1>
+            <h2>Plant Details</h2>
             <h6>Plant Details page intro text</h6>
             <div className="report-list-button-header">
                 <Button onClick={() => navigateTo("land-plant-list","landCode")} className='primary-button' data-testid="plant-btn" type="submit">

@@ -131,9 +131,9 @@ export interface FormProps {
     
 
     return ( 
-        <div className="auth-container" data-testid="formConnectedPlantEdit">
+        <div className="form-container" data-testid="formConnectedPlantEdit">
             <Card>
-                <h1>Update Plant</h1> 
+                <h2>Update Plant</h2> 
 
                 <Formik
                     enableReinitialize={true}

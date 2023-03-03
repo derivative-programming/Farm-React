@@ -34,7 +34,7 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
       
   return (
     <div className="">
-      <Form.Group controlId={name} className="mb-2">
+      <Form.Group controlId={name} className="mb-2 text-start">
           <Form.Label>{label}</Form.Label>
           <Form.Select
               data-testid={name}

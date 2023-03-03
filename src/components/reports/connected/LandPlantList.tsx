@@ -132,7 +132,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <h1>Plant List title text</h1>
+            <h2>Plant List title text</h2>
             <h6>A list of plants on the land</h6>
             <div className="report-list-button-header">
                 <Button data-testid="back-button"
