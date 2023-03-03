@@ -8,7 +8,8 @@ import {
   fireEvent,
   waitFor,
 } from "@testing-library/react";
-import {ReportGridPlantUserDetails} from "./PlantUserDetails";
+import {ReportDetailTwoColLandPlantList} from "./LandPlantList";
+import * as ReportService from "../../services/LandPlantList";
 
 const onRowSelect = jest.fn();
 const onRowUnselect = jest.fn();
@@ -17,18 +18,17 @@ const onUnselectAll = jest.fn();
 const onSort = jest.fn();
 const sortedColumnName = jest.fn();
 const onNavigateTo = jest.fn();
+const onRefreshRequest = jest.fn();
 
-describe("PlantUserDetails Form Component", () => {
-  // render the PlantUserDetails Form component
+describe("LandPlantList Form Component", () => {
+  // render the LandPlantList Form component
   beforeEach(() => {
     render(
-        <ReportGridPlantUserDetails 
-          isSortDescending={true}
-          items={[]}
+        <ReportDetailTwoColLandPlantList  
+          item={new ReportService.QueryResultItemInstance}
           name="testName"  
-          onSort={onSort}
-          onNavigateTo={onNavigateTo}
-          sortedColumnName="testColumnName" 
+          onNavigateTo={onNavigateTo} 
+          onRefreshRequest={onRefreshRequest}
           />
     );
   });

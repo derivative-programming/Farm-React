@@ -8,32 +8,27 @@ import {
   fireEvent,
   waitFor,
 } from "@testing-library/react";
-import {ReportGridLandPlantList} from "./LandPlantList";
- 
-const onSort = jest.fn(); 
+import {ReportDetailThreeColLandPlantList} from "./LandPlantList";
+import * as ReportService from "../../services/LandPlantList";
+
+const onRowSelect = jest.fn();
+const onRowUnselect = jest.fn();
+const onSelectAll = jest.fn();
+const onUnselectAll = jest.fn();
+const onSort = jest.fn();
+const sortedColumnName = jest.fn();
 const onNavigateTo = jest.fn();
 const onRefreshRequest = jest.fn();
-const onPageSelection = jest.fn();
-const onPageSizeChange = jest.fn();
 
 describe("LandPlantList Form Component", () => {
   // render the LandPlantList Form component
   beforeEach(() => {
     render(
-        <ReportGridLandPlantList 
-          isSortDescending={true}
-          items={[]}
+        <ReportDetailThreeColLandPlantList  
+          item={new ReportService.QueryResultItemInstance}
           name="testName"  
-          contextCode=""
-          onSort={onSort}
-          onNavigateTo={onNavigateTo}
+          onNavigateTo={onNavigateTo} 
           onRefreshRequest={onRefreshRequest}
-          sortedColumnName="testColumnName" 
-          currentPage={1}
-          onPageSelection={onPageSelection}
-          onPageSizeChange={onPageSizeChange}
-          pageSize={10}
-          totalItemCount={0} 
           />
     );
   });

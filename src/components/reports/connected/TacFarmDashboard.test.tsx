@@ -8,9 +8,9 @@ import {
   fireEvent,
   waitFor,
 } from "@testing-library/react";
-import ReportConnectedPlantUserDetails from "./PlantUserDetails";
-import * as ReportService from "../services/PlantUserDetails";
-import * as InitReportService from "../services/PlantUserDetailsInitReport";
+import ReportConnectedTacFarmDashboard from "./TacFarmDashboard";
+import * as ReportService from "../services/TacFarmDashboard";
+import * as InitReportService from "../services/TacFarmDashboardInitReport";
 import { BrowserRouter } from "react-router-dom"; 
  
 window.localStorage.setItem("@token", "sampleToken");
@@ -27,8 +27,8 @@ jest.mock("react-router-dom", () => ({
 const mockReportInitService = jest.spyOn(ReportService, "initPage");
 const mockReportService = jest.spyOn(ReportService, "submitRequest"); 
 
-describe("PlantUserDetails Connected Report Component", () => {
-  // render the PlantUserDetails component
+describe("TacFarmDashboard Connected Report Component", () => {
+  // render the TacFarmDashboard component
   beforeEach(() => {
     mockReportInitService.mockResolvedValueOnce({
       data: new InitReportService.InitResultInstance,
@@ -40,7 +40,7 @@ describe("PlantUserDetails Connected Report Component", () => {
 
     render(
       <BrowserRouter>
-        <ReportConnectedPlantUserDetails />
+        <ReportConnectedTacFarmDashboard />
       </BrowserRouter>
     );
   });
@@ -50,7 +50,7 @@ describe("PlantUserDetails Connected Report Component", () => {
 
 
   it("renders correctly", async () => {
-    expect(screen.getByTestId("reportConnectedPlantUserDetails")).toBeInTheDocument();
+    expect(screen.getByTestId("reportConnectedTacFarmDashboard")).toBeInTheDocument();
   });
 
 });

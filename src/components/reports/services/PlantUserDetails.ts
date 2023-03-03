@@ -5,7 +5,7 @@ import {
     PLANT_USER_DETAILS, 
   } from "../../../apiConfig/apiEndpoints";
   import { apiCall } from "../../../apiConfig/apiCall";
-
+ 
 export const submitRequest = (data:any,plantCode:string) => {
     return apiCall({
       url: PLANT_USER_DETAILS + "/" + plantCode,

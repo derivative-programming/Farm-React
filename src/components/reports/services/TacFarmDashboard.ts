@@ -2,22 +2,42 @@ import {
     TAC_FARM_DASHBOARD, 
   } from "../../../apiConfig/apiEndpoints";
   import { apiCall } from "../../../apiConfig/apiCall";
+  import * as Yup from "yup";
+  import * as ReportInit  from "./TacFarmDashboardInitReport";
     
-  
-  export const submitRequest = () => {
+   
+    export const submitRequest = (data:any,tacCode:string) => {
     return apiCall({
-      url: TAC_FARM_DASHBOARD,
-      method: "get"
+      url: TAC_FARM_DASHBOARD ,
+      method: "get",
+      params: data
     });
   };
+  
+  
+  export const initPage = (tacCode:string) => {
+    const data = {};
+    return apiCall({
+      url: TAC_FARM_DASHBOARD + '/' + tacCode,
+      method: "put",
+      data
+    });
+  }; 
 
-  export const initPage = () => {
-    return apiCall({
-      url: TAC_FARM_DASHBOARD,
-      method: "put"
-    });
-  };
   
+export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
+    let result:QueryRequest = new QueryRequestInstance;
+     
+    return result;
+}
+
+export const buildValidationSchema = () => {
+    
+    const validationSchema  = Yup.object().shape({ 
+      });
+      
+    return validationSchema;
+}
 
 export interface QueryResultItem {
  
@@ -167,5 +187,36 @@ export class QueryResultInstance implements QueryResult {
         this.message = '';
         this.appVersion = '';
         this.request = '';
+    }
+}
+
+
+export class QueryResultTestInstance implements QueryResult {
+    pageNumber: number;
+    items: QueryResultItem[];
+    itemCountPerPage: number;
+    orderByColumnName: string;
+    orderByDescending: boolean;
+    success: boolean;
+    recordsTotal: number;
+    recordsFiltered: number;
+    message: string;
+    appVersion: string;
+    request: string;
+
+    constructor() {
+        this.pageNumber = 1;
+        this.items = [];
+        this.itemCountPerPage = 10;
+        this.orderByColumnName = '';
+        this.orderByDescending = false;
+        this.success = false;
+        this.recordsTotal = 0;
+        this.recordsFiltered = 0;
+        this.message = '';
+        this.appVersion = '';
+        this.request = '';
+
+        this.items.push(new QueryResultItemInstance)
     }
 }

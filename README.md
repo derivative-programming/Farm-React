@@ -4,12 +4,10 @@
 todo...   
 remove component\pages
 show processing animation on... form init, form submit, report init, report query  
-Center paging ctrl on grid. Match footer display
-Nav page implementation
+Center paging ctrl on grid. Match footer display 
 Fix button display on three col viz. buttons on top right?
 A two column implementation? Make three one smart if no buttons? 
-nav link col examples? 
-dont process lexicon array
+nav link col examples?  
 
 style changes...
 remove use of className="custom-form-control"   
@@ -49,8 +47,9 @@ logout form
 impersonation page
 form is custom page used
 from control tool tip
-add cypress?
- 
+Form other button example  
+add cypress? 
+secondary (not call to action) button examples… Grid row, Report other buttons, Form other buttons
 
 display friendly generic message on hard unexpected error in api... 
 - form init and post 
@@ -95,12 +94,7 @@ subsets of any array. try setting each boolean prop to true or false in the dime
   
 Check success add navigation on result code 
 
-Form other button example  
 
-Primary and secondary button examples…
-Grid row
-Report other buttons
-Form other buttons
  
 
 
@@ -116,7 +110,7 @@ create file that has list of all files (except index)?  if it matches one of the
 
 folder name can identify folder type? report? objwf? form? set those as 'none' and make others default of namespace?
 
- 
+
 Analytics…
 Need… Api key, page , context code
 Model feature?

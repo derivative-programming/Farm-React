@@ -2,11 +2,11 @@ import React, { FC, ReactElement, useContext, useState, useEffect, useRef } from
 import { Button, Form, Card, Breadcrumb, Row } from "react-bootstrap";
 import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import * as ReportService from "../services/PlantUserDetails";
-import * as InitReportService from "../services/PlantUserDetailsInitReport"; 
-import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-three-column/PlantUserDetails";
+import * as ReportService from "../services/TacFarmDashboard";
+import * as InitReportService from "../services/TacFarmDashboardInitReport";
+import { ReportDetailTwoColTacFarmDashboard } from "../visualization/detail-two-column/TacFarmDashboard";
 
-export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
+export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(1);
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance);
@@ -133,38 +133,29 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     return (
 
-        <div className="report-container" data-testid="reportConnectedPlantUserDetails">
+        <div className="report-container" data-testid="reportConnectedTacFarmDashboard">
             <div className="breadcrumb-container">
                 <Breadcrumb>
-                    <Breadcrumb.Item id="tacFarmDashboardBreadcrumb" onClick={() => navigateTo('tac-farm-dashboard',"tacCode")}>
-                        Farm Dashboard breadcrumb text
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item id="landPlantListBreadcrumb" onClick={() => navigateTo('land-plant-list',"landCode")}>
-                        Plant List breadcrumb text
-                    </Breadcrumb.Item>
                     <Breadcrumb.Item active>
-                        Plant Details
+                    Farm Dashboard
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <h1>Plant Details</h1>
-            <h6>Plant Details page intro text</h6>
-            <div className="report-list-button-header">
-                <Button onClick={() => navigateTo("land-plant-list","landCode")} className='primary-button' data-testid="plant-btn" type="submit">
-                    Plant List
-                </Button>
+            <h1>Farm Dashboard</h1>
+            <h6>Farm Dashboard page intro text</h6>
+            <div className="report-list-button-header"> 
             </div>  
             {/*//GENTrainingBlock[visualizationType]Start*/}
-            {/*//GENLearn[visualizationType=DetailThreeColumn]Start*/}
-            <ReportDetailThreeColPlantUserDetails 
+            {/*//GENLearn[visualizationType=DetailTwoColumn]Start*/}
+            <ReportDetailTwoColTacFarmDashboard 
                 item= {displayItem}
-                name="reportConnectedPlantUserDetails-table" 
+                name="reportConnectedTacFarmDashboard-table" 
                 onNavigateTo={onNavigateTo} 
                 onRefreshRequest={onRefreshRequest}
             /> 
-            {/*//GENLearn[visualizationType=DetailThreeColumn]End*/}
+            {/*//GENLearn[visualizationType=DetailTwoColumn]End*/}
             {/*//GENTrainingBlock[visualizationType]End*/}
         </div>
     );
 };
-export default ReportConnectedPlantUserDetails;
+export default ReportConnectedTacFarmDashboard;
