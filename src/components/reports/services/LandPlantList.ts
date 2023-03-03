@@ -1,14 +1,10 @@
 import * as Yup from "yup";
-import * as ReportInit  from "./LandPlantListInitReport";
-
-import {  
-    LAND_PLANT_LIST, 
-  } from "../../../apiConfig/apiEndpoints";
+import * as ReportInit  from "./LandPlantListInitReport"; 
   import { apiCall } from "../../../apiConfig/apiCall"; 
    
 export const submitRequest = (data:any, landCode:string) => {
     return apiCall({
-      url: LAND_PLANT_LIST + "/" + landCode,
+      url:  "/land-plant-list/" + landCode,
       method: "get",
       params: data
     });     
@@ -17,7 +13,7 @@ export const submitRequest = (data:any, landCode:string) => {
   export const initPage = (landCode:string) => {
     const data = {};
     return apiCall({
-      url: LAND_PLANT_LIST + "/" + landCode,
+      url: "/land-plant-list/" + landCode,
       method: "put",
       data
     });

@@ -1,13 +1,11 @@
 import * as Yup from "yup";
-
-import { TAC_LOGIN, TAC_REGISTER } from "../../../apiConfig/apiEndpoints";
 import { apiCall } from "../../../apiConfig/apiCall";
  
 
 export const initForm = () => {
     const data ={};
     return apiCall({
-        url: TAC_REGISTER,
+        url: '/tac-register',
         method: "put",
         data
     });
@@ -15,7 +13,7 @@ export const initForm = () => {
 
 export const submitForm = (data:SubmitRequest) => {
     return apiCall({
-        url: TAC_REGISTER,
+        url: '/tac-register',
         method: "post",
         data,
     });

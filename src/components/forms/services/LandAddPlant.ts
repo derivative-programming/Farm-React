@@ -1,16 +1,12 @@
 import * as Yup from "yup";
-import * as FormInit  from "./LandAddPlantInitObjWF";
-
-import { 
-    LAND_ADD_PLANT, 
-  } from "../../../apiConfig/apiEndpoints";
+import * as FormInit  from "./LandAddPlantInitObjWF"; 
   import { apiCall } from "../../../apiConfig/apiCall";
    
   
   export const initForm = (landCode:string) => { 
     const data ={}; 
     return apiCall({
-      url: LAND_ADD_PLANT + "/" + landCode,
+      url: "/land-add-plant/" + landCode,
       method: "put" ,
       data
     });
@@ -18,7 +14,7 @@ import {
     
   export const submitForm = (data:SubmitRequest, landCode:string) => { 
     return apiCall({
-      url: LAND_ADD_PLANT + "/" + landCode,
+      url:  "/land-add-plant/" + landCode,
       method: "post",
       data,
     });

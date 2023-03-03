@@ -1,14 +1,11 @@
-import { 
-    TAC_FARM_DASHBOARD, 
-  } from "../../../apiConfig/apiEndpoints";
-  import { apiCall } from "../../../apiConfig/apiCall";
-  import * as Yup from "yup";
-  import * as ReportInit  from "./TacFarmDashboardInitReport";
+import { apiCall } from "../../../apiConfig/apiCall";
+import * as Yup from "yup";
+import * as ReportInit  from "./TacFarmDashboardInitReport";
     
    
     export const submitRequest = (data:any,tacCode:string) => {
     return apiCall({
-      url: TAC_FARM_DASHBOARD ,
+      url: '/tac-farm-dashboard' ,
       method: "get",
       params: data
     });
@@ -18,7 +15,7 @@ import {
   export const initPage = (tacCode:string) => {
     const data = {};
     return apiCall({
-      url: TAC_FARM_DASHBOARD + '/' + tacCode,
+      url: '/tac-farm-dashboard/' + tacCode,
       method: "put",
       data
     });

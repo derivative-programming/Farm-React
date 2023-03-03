@@ -1,12 +1,9 @@
 
-import {  
-    PAC_FS_FARM_API_LAND_LIST, 
-  } from "../../../apiConfig/apiEndpoints";
   import { apiCall } from "../../../apiConfig/apiCall";
     
   export const submitRequest = () => {
     return apiCall({
-      url: PAC_FS_FARM_API_LAND_LIST,
+      url: '/pac-user-land-list',
       method: "get"
     });
   };

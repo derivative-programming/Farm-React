@@ -1,12 +1,9 @@
 
-import {  
-    PAC_FS_FARM_API_TRI_STATE_FILTER_LIST, 
-  } from "../../../apiConfig/apiEndpoints";
   import { apiCall } from "../../../apiConfig/apiCall";
     
   export const submitRequest = () => {
     return apiCall({
-      url: PAC_FS_FARM_API_TRI_STATE_FILTER_LIST,
+      url: '/pac-user-tri-state-filter-list',
       method: "get"
     });
   };

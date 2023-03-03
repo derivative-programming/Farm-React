@@ -1,15 +1,11 @@
-import * as Yup from "yup";
-
-import {  
-    PLANT_EDIT, 
-  } from "../../../apiConfig/apiEndpoints";
-  import { apiCall } from "../../../apiConfig/apiCall";
+import * as Yup from "yup"; 
+import { apiCall } from "../../../apiConfig/apiCall";
    
    
   export const initForm = (plantCode:string) => {
     const data ={};
     return apiCall({
-      url: PLANT_EDIT + "/" + plantCode,
+      url: "/plant-edit/" + plantCode,
       method: "put",
       data
     });
@@ -17,7 +13,7 @@ import {
 
   export const submitForm = (data:SubmitRequest, plantCode:string) => {
     return apiCall({
-      url: PLANT_EDIT + "/" + plantCode,
+      url: "/plant-edit/" + plantCode,
       method: "post",
       data,
     });

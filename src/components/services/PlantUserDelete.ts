@@ -1,6 +1,3 @@
-import {  
-    PLANT_USER_DELETE, 
-  } from "../../apiConfig/apiEndpoints";
 import { apiCall } from "../../apiConfig/apiCall";
    
   
@@ -8,7 +5,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
   export const PlantUserDeleteSubmitRequest = (data:any, plantCode:string) => { 
     return apiCall({
-      url: PLANT_USER_DELETE + "/" + plantCode,
+      url: "/plant-user-delete/" + plantCode,
       method: "post",
       data
     });

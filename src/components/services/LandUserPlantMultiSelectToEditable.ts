@@ -1,6 +1,3 @@
-import {  
-    LAND_USER_PLANT_MULTI_SELECT_TO_EDITABLE, 
-  } from "../../apiConfig/apiEndpoints";
 import { apiCall } from "../../apiConfig/apiCall";
    
   
@@ -8,7 +5,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
   export const LandUserPlantMultiSelectToEditableSubmit = (data:any, landCode:string) => { 
     return apiCall({
-      url: LAND_USER_PLANT_MULTI_SELECT_TO_EDITABLE + "/" + landCode,
+      url: "/land-user-plant-multi-select-to-editable/" + landCode,
       method: "post",
       data
     });

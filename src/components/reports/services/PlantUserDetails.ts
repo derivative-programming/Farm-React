@@ -1,14 +1,10 @@
 import * as Yup from "yup";
-import * as ReportInit  from "./PlantUserDetailsInitReport";
-
-import {  
-    PLANT_USER_DETAILS, 
-  } from "../../../apiConfig/apiEndpoints";
+import * as ReportInit  from "./PlantUserDetailsInitReport"; 
   import { apiCall } from "../../../apiConfig/apiCall";
  
 export const submitRequest = (data:any,plantCode:string) => {
     return apiCall({
-      url: PLANT_USER_DETAILS + "/" + plantCode,
+      url: "/plant-user-details/" + plantCode,
       method: "get",
       params: data
     });
@@ -18,7 +14,7 @@ export const submitRequest = (data:any,plantCode:string) => {
   export const initPage = (plantCode:string) => {
     const data = {};
     return apiCall({
-      url: PLANT_USER_DETAILS + "/" + plantCode,
+      url: "/plant-user-details/" + plantCode,
       method: "put",
       data
     });

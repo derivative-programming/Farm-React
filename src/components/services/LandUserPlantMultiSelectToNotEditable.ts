@@ -1,6 +1,3 @@
-import {  
-    LAND_USER_PLANT_MULTI_SELECT_TO_NOT_EDITABLE, 
-  } from "../../apiConfig/apiEndpoints";
 import { apiCall } from "../../apiConfig/apiCall";
    
   
@@ -8,7 +5,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
   export const LandUserPlantMultiSelectToNotEditableSubmit = (data:any, landCode:string) => { 
     return apiCall({
-      url: LAND_USER_PLANT_MULTI_SELECT_TO_NOT_EDITABLE + "/" + landCode,
+      url: "/land-user-plant-multi-select-to-not-editable/" + landCode,
       method: "post",
       data
     });
