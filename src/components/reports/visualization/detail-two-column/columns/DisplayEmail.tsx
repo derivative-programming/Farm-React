@@ -7,16 +7,20 @@ export interface ReportColumnDisplayEmailProps {
   value: string 
   label:string
   isVisible?:boolean
+  conditionallyVisible?:boolean
 }
    
 export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   forColumn, 
   value, 
   label,
-  isVisible = true
+  isVisible = true,
+  conditionallyVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
+  
+  const displayValue = (isVisible && conditionallyVisible);
       
   const formatEmail = () => {  
     let result:string = ""; 
@@ -38,7 +42,7 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   }
 
   return ( 
-    <Col data-testid={groupName} lg="6" md="6" xs="12">
+    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!displayValue}>
         <ListGroup.Item
             as="li"
             className="text-start"

@@ -10,6 +10,7 @@ export interface ReportPaginationProps {
   currentPageItemCount: number
   onPageSizeChange(pageSize:number): void
   onPageSelection(pageNumber:number): void
+  hidden?: boolean
 }
    
 export const ReportPagination: FC<ReportPaginationProps> = ({
@@ -20,10 +21,11 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
   currentPageItemCount, 
   onPageSizeChange,
   onPageSelection,
+  hidden = false,
 }): ReactElement => {  
       
   const isHidden = () => {
-    if(totalItemCount == 0){
+    if(totalItemCount == 0 || hidden){
       return true;
     } else {
       return false;

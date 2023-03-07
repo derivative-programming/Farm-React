@@ -7,23 +7,27 @@ export interface ReportColumnDisplayMoneyProps {
   value: number 
   label:string
   isVisible?:boolean
+  conditionallyVisible?:boolean
 }
    
 export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
   forColumn, 
   value, 
   label,
-  isVisible = true
+  isVisible = true,
+  conditionallyVisible = true
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
+  
+  const displayValue = (isVisible && conditionallyVisible);
       
   const formatMoney = () => { 
     let result:string = "";
     
     try {
       
-      if(value == null || !isVisible)
+      if(value == null || !displayValue)
       {
           return result;
       } 
@@ -46,7 +50,7 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
   }
 
   return ( 
-    <Col data-testid={groupName} lg="6" md="6" xs="12">
+    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!isVisible}>
         <ListGroup.Item
             as="li"
             className="text-start"

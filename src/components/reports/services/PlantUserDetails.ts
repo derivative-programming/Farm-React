@@ -74,6 +74,10 @@ export interface QueryResultItem {
  
     someVarCharVal: string;  
  
+    phoneNumConditionalOnIsEditable: string;  
+ 
+    nVarCharAsUrl: string;  
+ 
     updateButtonTextLinkPlantCode: string;  
  
     randomPropertyUpdatesLinkPlantCode: string;  
@@ -148,6 +152,10 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     someVarCharVal: string;
  
+    phoneNumConditionalOnIsEditable: string;  
+ 
+    nVarCharAsUrl: string;  
+ 
     updateButtonTextLinkPlantCode: string;  
  
     randomPropertyUpdatesLinkPlantCode: string;  
@@ -189,6 +197,10 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.someUTCDateTimeVal = '01-01-1753 00:00:00'
  
         this.someVarCharVal = '';  
+ 
+        this.phoneNumConditionalOnIsEditable = '';  
+ 
+        this.nVarCharAsUrl = '';  
 
         this.updateButtonTextLinkPlantCode = '00000000-0000-0000-0000-000000000000';
 

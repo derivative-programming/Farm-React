@@ -6,6 +6,7 @@ import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services";
 import { ReportPagination } from "../../input-fields";
+import * as ReportInput from "../../input-fields"   
 
 export interface ReportGridLandPlantListProps {
     name: string
@@ -21,6 +22,8 @@ export interface ReportGridLandPlantListProps {
     pageSize: number 
     onPageSizeChange(pageSize:number): void
     onPageSelection(pageNumber:number): void
+    showPagingControls?:boolean
+    showExport?: boolean
 }
 export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({ 
     name,
@@ -36,6 +39,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     pageSize,
     onPageSizeChange,
     onPageSelection,
+    showPagingControls = true,
+    showExport = true,
 }): ReactElement => {
 
     const initialCheckedIndexes: string[] = [];
@@ -105,23 +110,33 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
     }
 
+    const onExport = () => {
+
+    }
+
     return (
         <div
             data-testid={name}
             className="report-list-button-body mt-3">
 
 
-            <div className="w-100" style={{ textAlign: "left" }}>
-                <Button id="multSelectButtonToEditable" data-testidid="multSelectButtonToEditable"
+            <div className="d-flex w-100 justify-content-left"> 
+                <ReportInput.ReportInputButton name="multSelectButtonToEditable"
                     onClick={() => onMultSelectButtonToEditableClick()}
-                    className='primary-button mb-3 me-2' type="button">
-                    To Editable
-                </Button>
-                <Button id="multSelectButtonToNotEditable" data-testidid="multSelectButtonToNotEditable"
+                    buttonText="To Editable" 
+                    className="primary-button mb-3 me-2"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    isEnabled={true}
+                />  
+                <ReportInput.ReportInputButton name="multSelectButtonToNotEditable"
                     onClick={() => onMultSelectButtonToNotEditableClick()}
-                    className='primary-button mb-3 me-2' type="button">
-                    To Not Editable
-                </Button>
+                    buttonText="To Not Editable" 
+                    className="primary-button mb-3 me-2"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    isEnabled={true}
+                />  
             </div>
 
             <Table
@@ -260,9 +275,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                             sortedColumnName={sortedColumnName} 
                         />
 
-                        <ReportColumnHeader forColumn="SomeIntConditionalOnDeletable"
+                        <ReportColumnHeader forColumn="someIntConditionalOnDeletable"
                             isSortDescending={isSortDescending}
                             label="Int Conditional On Deleteable"
+                            onSort={onSort}
+                            sortedColumnName={sortedColumnName} 
+                        />
+                        
+                        <ReportColumnHeader forColumn="nVarCharAsUrl"
+                            isSortDescending={isSortDescending}
+                            label="N Var Char As Url"
                             onSort={onSort}
                             sortedColumnName={sortedColumnName} 
                         />
@@ -378,14 +400,20 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                                     />
                                     <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="SomeIntConditionalOnDeletable"
                                         rowIndex={index}
-                                        value={item.someIntVal}
-                                        isVisible={item.isDeleteAllowed}
+                                        value={item.someIntConditionalOnDeletable}
+                                        conditionallyVisible={item.isDeleteAllowed}
+                                    /> 
+                                    <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="NVarCharAsUrl"
+                                        rowIndex={index}
+                                        value={item.nVarCharAsUrl} 
+                                        linkText="Click Here"
                                     /> 
                                     
                                     <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateLinkPlantCode"
                                         rowIndex={index}
                                         value={item.updateLinkPlantCode} 
                                         buttonText="Update"
+                                        isButtonCallToAction={false}
                                         onClick={() => updateLinkPlantCodeColumnButtonClick(item.updateLinkPlantCode)}
                                         isVisible={false}
                                     /> 
@@ -394,6 +422,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                                         rowIndex={index}
                                         value={item.deleteAsyncButtonLinkPlantCode} 
                                         buttonText="Delete Async"
+                                        isButtonCallToAction={false}
                                         onClick={() => deleteAsyncButtonLinkPlantCodeColumnButtonClick(item.deleteAsyncButtonLinkPlantCode)}
                                     /> 
                                     
@@ -401,6 +430,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                                         rowIndex={index}
                                         value={item.detailsLinkPlantCode} 
                                         buttonText="Details"
+                                        isButtonCallToAction={true}
                                         onClick={() => detailsLinkPlantCodeColumnButtonClick(item.detailsLinkPlantCode)}
                                     /> 
 
@@ -420,7 +450,15 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                 onPageSizeChange={onPageSizeChange}
                 pageSize={pageSize}
                 totalItemCount={totalItemCount}
+                hidden={!showPagingControls}
             />
+            <div className="d-flex w-100 justify-content-end" hidden={!showExport}> 
+                <Button data-testidid="export-button"
+                    onClick={() => onExport()}
+                    className='primary-button mb-3 me-2' type="button">
+                    Export
+                </Button>
+            </div>
         </div>
     );
 }; 

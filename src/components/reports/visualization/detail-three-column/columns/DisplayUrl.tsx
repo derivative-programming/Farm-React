@@ -2,18 +2,20 @@ import React, { FC, ReactElement,} from "react";
 import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
-export interface ReportColumnDisplayEmailProps {
+export interface ReportColumnDisplayUrlProps {
   forColumn:string 
   value: string 
   label:string
+  linkText: string 
   isVisible?:boolean
   conditionallyVisible?:boolean
 }
    
-export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
+export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   forColumn, 
-  value, 
+  value,
   label,
+  linkText,
   isVisible = true,
   conditionallyVisible = true
 }): ReactElement => { 
@@ -22,8 +24,8 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   
   const displayValue = (isVisible && conditionallyVisible);
       
-  const formatEmail = () => {  
-    let result:string = ""; 
+  const formatText = () => {  
+    let result:string = "";
     
     try {
       
@@ -31,13 +33,10 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
       {
           return result;
       }
-
-      result = value;
-
     } catch (error) {
-      console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayEmail');
+      console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayUrl');
     }
-
+    
     return value;
   }
 
@@ -49,7 +48,11 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div>
-                {formatEmail()}&nbsp;
+                <a href={value} 
+                  hidden={!displayValue}
+                >
+                    {linkText}
+                </a>&nbsp;
             </div>
 
         </ListGroup.Item>

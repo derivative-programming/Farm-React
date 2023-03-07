@@ -7,22 +7,26 @@ export interface ReportColumnDisplayCheckboxProps {
   isChecked: boolean 
   label:string
   isVisible?:boolean
+  conditionallyVisible?:boolean
 }
    
 export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> = ({
   forColumn, 
   isChecked, 
   label,
-  isVisible = true
+  isVisible = true,
+  conditionallyVisible = true
 }): ReactElement => { 
  
   const groupName = forColumn +'-column';
   const checkboxName = groupName +'-checkbox';
+  
+  const displayValue = (isVisible && conditionallyVisible);
  
-  if(isChecked == null || !isVisible){
+  if(isChecked == null || !displayValue){
     return (
     
-      <Col data-testid={groupName} lg="5" md="5" xs="12">
+      <Col data-testid={groupName} lg="5" md="5" xs="12" hidden={!isVisible}>
         <ListGroup.Item
             as="li"
             className="text-start"
@@ -37,7 +41,7 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
     );
   } else {  
     return ( 
-    <Col data-testid={groupName} lg="6" md="6" xs="12">
+    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!isVisible}>
         <ListGroup.Item
             as="li"
             className="text-start"

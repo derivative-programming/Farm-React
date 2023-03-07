@@ -2,7 +2,7 @@
   "root": {
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.15",
+    "projectVersionNumber": "1.0.16",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -1223,6 +1223,16 @@
                     "isEnabled": "true"
                   },
                   {
+                    "buttonType": "other",
+                    "buttonName": "OtherAddButton",
+                    "buttonText": "Other Add Button",
+                    "destinationContextObjectName": "Land",
+                    "destinationTargetName": "LandAddPlant",
+                    "isVisible": "true",
+                    "isButtonCallToAction": "false",
+                    "isEnabled": "true"
+                  },
+                  {
                     "buttonType": "add",
                     "buttonName": "add",
                     "buttonText": "Add A Plant",
@@ -1731,6 +1741,28 @@
                     "isIgnored": "false"
                   },
                   {
+                    "name": "NVarCharAsUrl",
+                    "codeDescription": "Land Plant List Report N Var Char As Url Column",
+                    "headerText": "N Var Char As Url",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeNVarCharVal",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "isVisible": "true",
+                    "isButton": "false",
+                    "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
+                    "isButtonCallToAction": "false",
+                    "isUnixEpochDateTime": "false",
+                    "isNavURL": "true",
+                    "NavURLLinkText": "Click Here",
+                    "isMultiSelectColumn": "false",
+                    "isButtonAsyncObjWF": "false",
+                    "isAsyncObjWFResultFileStreamedOut": "false",
+                    "isJoinedToLeftColumn": "false",
+                    "isJoinedToRightColumn": "false",
+                    "isIgnored": "false"
+                  },
+                  {
                     "name": "UpdateLinkPlantCode",
                     "codeDescription": "Land Plant List Report Update Link Plant Code Column",
                     "headerText": "",
@@ -2087,6 +2119,12 @@
                     "buttonType": "cancel",
                     "buttonText": "Cancel Button Text",
                     "destinationTargetName": "LandPlantList",
+                    "destinationContextObjectName": "Land"
+                  },
+                  {
+                    "buttonType": "other",
+                    "buttonText": "New Random Values",
+                    "destinationTargetName": "LandAddPlant",
                     "destinationContextObjectName": "Land"
                   }
                 ],
@@ -4586,6 +4624,28 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
+                    "isIgnored": "false"
+                  },
+                  {
+                    "name": "NVarCharAsUrl",
+                    "codeDescription": "Plant User Details Report N Var Char As Url Column",
+                    "headerText": "N Var Char As Url",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeNVarCharVal",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "isVisible": "true",
+                    "isButton": "false",
+                    "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
+                    "isButtonCallToAction": "false",
+                    "isUnixEpochDateTime": "false",
+                    "isNavURL": "true",
+                    "NavURLLinkText": "Click Here",
+                    "isMultiSelectColumn": "false",
+                    "isButtonAsyncObjWF": "false",
+                    "isAsyncObjWFResultFileStreamedOut": "false",
+                    "isJoinedToLeftColumn": "false",
+                    "isJoinedToRightColumn": "false",
                     "isIgnored": "false"
                   },
                   {

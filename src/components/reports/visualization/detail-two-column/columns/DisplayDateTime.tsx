@@ -8,16 +8,20 @@ export interface ReportColumnDisplayDateTimeProps {
   value: string 
   label:string
   isVisible?:boolean
+  conditionallyVisible?:boolean
 }
    
 export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> = ({
   forColumn, 
   value, 
   label,
-  isVisible = true
+  isVisible = true,
+  conditionallyVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
+  
+  const displayValue = (isVisible && conditionallyVisible);
       
   const formatDateTime = () => {  
     let result:string = "";
@@ -48,7 +52,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
   }
 
   return ( 
-    <Col data-testid={groupName} lg="6" md="6" xs="12">
+    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!displayValue}>
         <ListGroup.Item
             as="li"
             className="text-start"

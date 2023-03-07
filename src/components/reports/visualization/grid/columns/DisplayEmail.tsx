@@ -6,6 +6,7 @@ export interface ReportColumnDisplayEmailProps {
   rowIndex: number
   value: string 
   isVisible?:boolean
+  conditionallyVisible?:boolean
 }
    
 export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
@@ -13,16 +14,19 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   rowIndex,
   value, 
   isVisible = true,
+  conditionallyVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
+  
+  const displayValue = (isVisible && conditionallyVisible);
       
   const formatEmail = () => {  
     let result:string = ""; 
     
     try {
       
-      if(value == null || value == "" || !isVisible)
+      if(value == null || value == "" || !displayValue)
       {
           return result;
       }

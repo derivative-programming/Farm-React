@@ -1,9 +1,6 @@
 
+todo...      
 
-
-todo...    
-Center paging ctrl on grid. Match footer display   
-nav link col examples?  
 
 style changes...
 remove use of className="custom-form-control"   
@@ -16,16 +13,11 @@ show a slightly zoomed out view, showing everythign smaller (scaled down?)
 features...
 show processing animation on... form init, form submit, report init, report query  
 Sched report button on grid with indicator icon
-Fav report button on grid with indicator icon
-reprot paging optional
+Fav report button on grid with indicator icon 
+report header display form initobjwf output params
 report row is button drop down allowed
-reprot rating laevel col name
-reprot is fitler section hidden
-report is fitler section collapsible
-reprot si breadcrumb section hidden
-report is refresh button hidden
-report export
-report is export section hidden
+reprot rating laevel col name  
+report export 
 report auto refresh
 report badge display
 report is header visible
@@ -40,13 +32,12 @@ form credit card
 form captcha
 form auto submit
 login form
+- page changes with learn statement
 logout form
 impersonation page
 form is custom page used
-from control tool tip
-Form other button example  
-add cypress? 
-secondary (not call to action) button examples… Grid row, Report other buttons, Form other buttons
+from control tool tip 
+add cypress?  
 
 display friendly generic message on hard unexpected error in api... 
 - form init and post 
@@ -92,14 +83,11 @@ subsets of any array. try setting each boolean prop to true or false in the dime
 Check success add navigation on result code 
 
 
- 
-
 
 Translator… 
+if a genval variable is in the genif statement, you can remove it from the dimensional phrase?
 
-instead of putting all booleans in the dimension phrase, use wildcard 'is*=false,' and remove all false ones.   
-
-Remove model type from final learn stmt conversion to genif stmt
+instead of putting all booleans in the dimension phrase, use wildcard 'is*=false,' and remove all false ones.  
  
 Create simple stmt that tells us it’s a loop of reports or objwf instead of that big section I had to manually add. Have it convert automatically
  

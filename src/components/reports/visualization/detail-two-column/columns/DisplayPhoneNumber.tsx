@@ -7,16 +7,20 @@ export interface ReportColumnDisplayPhoneNumberProps {
   value: string 
   label: string 
   isVisible?:boolean
+  conditionallyVisible?:boolean
 }
    
 export const ReportColumnDisplayPhoneNumber: FC<ReportColumnDisplayPhoneNumberProps> = ({
   forColumn, 
   value, 
   label,
-  isVisible = true
+  isVisible = true,
+  conditionallyVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
+  
+  const displayValue = (isVisible && conditionallyVisible);
   
   const formatPhoneNumber = () => { 
     let result:string = "";
@@ -58,7 +62,7 @@ export const ReportColumnDisplayPhoneNumber: FC<ReportColumnDisplayPhoneNumberPr
 }
       
   return ( 
-    <Col data-testid={groupName} lg="6" md="6" xs="12">
+    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!displayValue}>
         <ListGroup.Item
             as="li"
             className="text-start"

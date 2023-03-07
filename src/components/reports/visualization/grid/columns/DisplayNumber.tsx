@@ -6,6 +6,7 @@ export interface ReportColumnDisplayNumberProps {
   rowIndex: number
   value: number 
   isVisible?:boolean
+  conditionallyVisible?:boolean
 }
    
 export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
@@ -13,16 +14,19 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
   rowIndex,
   value, 
   isVisible = true,
+  conditionallyVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
+  
+  const displayValue = (isVisible && conditionallyVisible);
       
   const formatNumber = () => {  
     let result:string = "";
     
     try {
         
-      if(value == null || !isVisible)
+      if(value == null || !displayValue)
       {
           return result;
       }  

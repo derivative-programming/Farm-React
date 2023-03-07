@@ -8,6 +8,7 @@ import { ReportDetailThreeColLandPlantList } from "../visualization/detail-three
 import { ReportDetailTwoColLandPlantList } from "../visualization/detail-two-column/LandPlantList";
 import * as ReportService from "../services/LandPlantList"; 
 import * as InitReportService from "../services/LandPlantListInitReport"; 
+import * as ReportInput from "../input-fields"   
 
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -17,6 +18,14 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
     const isInitializedRef = useRef(false);
+    
+    const isRefreshButtonHidden = false;
+    const isPagingAvailable = true;
+    const isExportButtonsHidden = false;
+    const isFilterSectionHidden = false;
+    const isFilterSectionCollapsable = true;
+    const isBreadcrumbSectionHidden = false;
+    const isButtonDropDownAllowed = false; 
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -27,9 +36,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
         if (!response.success) {
             return;
-        }
-        console.log('init returned');
-        console.log(response);
+        } 
         setInitPageResponse({...response})
     }
 
@@ -38,14 +45,13 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
         if (!queryResult.success) {
             return;
-        } 
-        console.log(queryResult);
+        }  
         setQueryResult({ ...queryResult });
     }
 
     const onSubmit = (queryRequest: ReportService.QueryRequest) => {
         setQuery({ ...queryRequest });
-    }
+    } 
 
     const onPageSelection = (pageNumber: number) => {
         setQuery({ ...query, pageNumber: pageNumber });
@@ -61,6 +67,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     }
     
     const navigateTo = (page: string, codeName:string) => { 
+        console.log('navigateTo ' + page + ' ' + codeName);
         let targetContextCode = contextCode; 
         Object.entries(initPageResponse)
         .forEach(([key, value]) => { 
@@ -113,6 +120,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     }, [initialValues]); 
 
     useEffect(() => { 
+        console.log('query start');
         ReportService.submitRequest(query, contextCode)
             .then(response => handleQueryResults(response));
     }, [query]);
@@ -122,7 +130,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
         <div className="report-container" data-testid="reportConnectedLandPlantList">
             <div className="breadcrumb-container">
-                <Breadcrumb>
+                <Breadcrumb hidden={isBreadcrumbSectionHidden}>
                     <Breadcrumb.Item id="TacFarmDashboardBreadcrumb"
                         onClick={() => navigateTo("tac-farm-dashboard","tacCode")}>
                         Farm Dashboard breadcrumb text
@@ -134,26 +142,53 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
             </div>
             <h2>Plant List title text</h2>
             <h6>A list of plants on the land</h6>
-            <div className="report-list-button-header">
-                <Button data-testid="back-button"
-                    onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
-                    className="primary-button"
-                    type="submit">
-                    Farm Dashboard
-                </Button>
-                <Button data-testid="add-button"
-                    className="primary-button ms-2"
-                    type="submit"
-                    onClick={() => navigateTo("land-add-plant", "landCode")}>
-                    Add A Plant
-                </Button>
+            <div className="d-flex w-100 justify-content-between">
+                <div>
+                    <ReportInput.ReportInputButton name="back-button"
+                        onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
+                        buttonText="Farm Dashboard" 
+                        className="primary-button"
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                    /> 
+                </div>
+                <div>
+                    <ReportInput.ReportInputButton name="otherAddButton"
+                        onClick={() => navigateTo("land-add-plant", "landCode")}
+                        buttonText="Other Add Button" 
+                        className="primary-button ms-2"
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                    />  
+                    <ReportInput.ReportInputButton name="add-button"
+                        onClick={() => navigateTo("land-add-plant", "landCode")}
+                        buttonText="Add A Plant" 
+                        className="primary-button ms-2"
+                        isButtonCallToAction={true}
+                        isVisible={true}
+                        isEnabled={true}
+                    />  
+                </div>
             </div>
             {/*//GENTrainingBlock[visualizationType]Start*/}
             {/*//GENLearn[visualizationType=Grid]Start*/}
             <ReportFilterLandPlantList
                 name="reportConnectedLandPlantList-filter"
                 initialQuery={initialValues}
-                onSubmit={onSubmit} />
+                onSubmit={onSubmit} 
+                isCollapsible={isFilterSectionCollapsable}
+                hidden={isFilterSectionHidden}/>
+
+            <div className="d-flex w-100 mt-3 justify-content-end" hidden={!isFilterSectionHidden || (isFilterSectionHidden && isRefreshButtonHidden)}>  
+                    <Button data-testid="refresh-button"
+                        className="primary-button ms-2"
+                        type="submit"
+                        onClick={onRefreshRequest}>
+                        Refresh
+                    </Button>  
+            </div>
 
             <ReportGridLandPlantList
                 isSortDescending={queryResult.orderByDescending}
@@ -169,6 +204,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
                 onPageSizeChange={onPageSizeChange}
                 pageSize={queryResult.itemCountPerPage}
                 totalItemCount={queryResult.recordsTotal}
+                showPagingControls={isPagingAvailable}
+                showExport={!isExportButtonsHidden}
             />
             {/*//GENLearn[visualizationType=Grid]End*/}
             {/*//GENTrainingBlock[visualizationType]End*/}

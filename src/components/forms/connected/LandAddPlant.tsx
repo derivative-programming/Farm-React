@@ -90,8 +90,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
             actions.setSubmitting(false);
             actions.resetForm();
             submitButtonNavigateTo();
-        } catch (error) {
-            console.log(error);
+        } catch (error) { 
             actions.setSubmitting(false);
         }
     }; 
@@ -132,6 +131,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
             }
         })
         const url = '/' + page + '/' + targetContextCode; 
+        console.log('navigateTo ' + page + ' ' + codeName);
         navigate(url);
     }
 
@@ -176,17 +176,29 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                             <InputFields.FormInputText name="somePhoneNumber" label="Some Phone Number" />
                             <InputFields.FormInputEmail name="someEmailAddress" label="Some Email Address" />
                             <InputFields.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" />
-                            <div className="d-flex btn-container">
-                                <Button type="submit" data-testid="submit-button">
+                            <div className="">  
+                                <Button type="submit" data-testid="submit-button"
+                                    className="primary-button me-2 mt-3">
                                     OK Button Text
-                                </Button>
-                                <Button data-testid="cancel-button"
+                                </Button> 
+                                <InputFields.FormInputButton name="cancel-button"
+                                    buttonText="Cancel Button Text" 
                                     onClick={() => {
                                         navigateTo("land-plant-list" ,"landCode");
                                     }}
-                                    variant="secondary">
-                                    Cancel Button Text
-                                </Button>
+                                    isButtonCallToAction={false}
+                                    isVisible={true} 
+                                    className="primary-button me-2 mt-3"
+                                /> 
+                                <InputFields.FormInputButton name="other-button"
+                                    buttonText="New Random Values" 
+                                    onClick={() => {
+                                        navigateTo("land-add-plant" ,"landCode");
+                                    }}
+                                    isButtonCallToAction={false}
+                                    isVisible={true} 
+                                    className="primary-button me-2 mt-3"
+                                /> 
                             </div>
                         </Form>
                     )}

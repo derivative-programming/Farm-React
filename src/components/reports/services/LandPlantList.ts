@@ -121,7 +121,9 @@ export interface QueryResultItem {
  
     flavorCode: string;
 
-    someIntConditionalOnDeletable:number;
+    someIntConditionalOnDeletable:number; 
+ 
+    nVarCharAsUrl: string;
  
     updateLinkPlantCode: string;
  
@@ -230,6 +232,8 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     someIntConditionalOnDeletable: number;
  
+    nVarCharAsUrl: string;
+ 
     updateLinkPlantCode: string;
  
     deleteAsyncButtonLinkPlantCode: string;
@@ -275,6 +279,8 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.flavorCode = '00000000-0000-0000-0000-000000000000';
 
         this.someIntConditionalOnDeletable = 0;
+ 
+        this.nVarCharAsUrl = '';
  
         this.updateLinkPlantCode = '00000000-0000-0000-0000-000000000000';
  

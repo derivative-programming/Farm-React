@@ -1,0 +1,9 @@
+{
+    "templateType":"report", 
+    "IsEdgeCase": true,
+    "dimension" :{
+        "name":"TacFarmDashboard",
+        "isPage":"true",
+        "visualizationType":"DetailTwoColumn"
+    }
+}

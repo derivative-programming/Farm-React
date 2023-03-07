@@ -14,12 +14,16 @@ export interface ReportFilterLandPlantListProps {
     name:string
     initialQuery:ReportService.QueryRequest
     onSubmit(request: ReportService.QueryRequest): void
+    hidden?: boolean,
+    isCollapsible? :boolean,
   }
 
 const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
     name,
     initialQuery,
-    onSubmit
+    onSubmit,
+    hidden = false,
+    isCollapsible = true,
   }): ReactElement => { 
     
     const [initialValues, setInitialValues] = useState(initialQuery);   
@@ -45,8 +49,8 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
     
 
     return ( 
-        <div className="mt-3 w-100">
-            <Accordion defaultActiveKey="0">
+        <div className="mt-3 w-100" hidden={hidden}>
+            <Accordion defaultActiveKey="0" alwaysOpen={!isCollapsible}>
             <Accordion.Item eventKey="0">
                 <Accordion.Header>Filters</Accordion.Header>
                     <Accordion.Body>

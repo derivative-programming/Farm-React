@@ -7,6 +7,7 @@ export interface ReportColumnDisplayDateProps {
   rowIndex: number
   value: string 
   isVisible?:boolean
+  conditionallyVisible?:boolean
 }
    
 export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
@@ -14,16 +15,19 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
   rowIndex,
   value, 
   isVisible = true,
+  conditionallyVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
+  
+  const displayValue = (isVisible && conditionallyVisible);
       
   const formatDate = () => { 
     let result:string = "";
     
     try {
         
-      if(value == null || !isVisible)
+      if(value == null || !displayValue)
       {
           return result;
       }

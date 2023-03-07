@@ -8,6 +8,8 @@ export interface ReportColumnDisplayButtonProps {
   buttonText:string  
   onClick():void
   isVisible?:boolean
+  conditionallyVisible?:boolean
+  isButtonCallToAction?:boolean
 }
    
 export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
@@ -15,22 +17,32 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
   value,
   buttonText, 
   onClick,
-  isVisible = true
+  isVisible = true,
+  conditionallyVisible = true,
+  isButtonCallToAction = false,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column';
   const buttonName = groupName + '-button'; 
+  
+  const displayValue = (isVisible && conditionallyVisible);
        
+  let buttonVariant = "secondary";
+  if(isButtonCallToAction)
+  {
+    buttonVariant = "primary";
+  }
 
   return ( 
     <Row  className=' mt-3 ms-3 me-3 ' 
-      id={groupName} data-testid={groupName}> 
+      id={groupName} data-testid={groupName} hidden={!isVisible}> 
         <Button data-testid={buttonName} 
           id={buttonName} 
           onClick={onClick} 
           className='primary-button' 
+          variant={buttonVariant} 
           type="button" 
-          hidden={!isVisible}>
+          hidden={!displayValue}>
             {buttonText}
         </Button> 
     </Row>

@@ -143,7 +143,7 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
             </div>
             <h2>Farm Dashboard</h2>
             <h6>Farm Dashboard page intro text</h6>
-            <div className="report-list-button-header"> 
+            <div className="d-flex w-100 justify-content-between"> 
             </div>  
             {/*//GENTrainingBlock[visualizationType]Start*/}
             {/*//GENLearn[visualizationType=DetailTwoColumn]Start*/}

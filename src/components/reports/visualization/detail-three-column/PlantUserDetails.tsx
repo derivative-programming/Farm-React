@@ -126,8 +126,14 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
 
                         <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="phoneNumConditionalOnIsEditable"
                             label="Conditional Column"
-                            value={item.somePhoneNumber}
-                            isVisible={item.isEditAllowed}
+                            value={item.phoneNumConditionalOnIsEditable}
+                            conditionallyVisible={item.isEditAllowed}
+                        />
+                        
+                        <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="nVarCharAsUrl"
+                            label="N Var Char As Url"
+                            value={item.nVarCharAsUrl}
+                            linkText="Click Here"
                         />
 
                     </Row>
