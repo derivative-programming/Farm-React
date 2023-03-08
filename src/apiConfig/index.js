@@ -3,7 +3,7 @@ import axios from "axios";
  
 export const apiInstance = axios.create({
   baseURL:
-    "https://localhost:44358/api/v1_0",
+    "https://dp-farm-pageapi.azurewebsites.net/api/v1_0",
 });
 
 apiInstance.interceptors.request.use(
