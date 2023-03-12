@@ -66,18 +66,18 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
         }
     };
 
-    const updateLinkPlantCodeColumnButtonClick = (code: string) => {
-        onNavigateTo("/plant-edit/" + code);
+    const updateLinkPlantCodeColumnButtonClick = (updateLinkPlantCode: string) => {
+        onNavigateTo("/plant-edit/" + updateLinkPlantCode);
     }
 
-    const deleteAsyncButtonLinkPlantCodeColumnButtonClick = (code: string) => {
+    const deleteAsyncButtonLinkPlantCodeColumnButtonClick = (deleteAsyncButtonLinkPlantCode: string) => {
         const data:any = {};
-        AsyncServices.PlantUserDeleteSubmitRequest(data,code)
+        AsyncServices.PlantUserDeleteSubmitRequest(data,deleteAsyncButtonLinkPlantCode)
             .then((response) => onRefreshRequest())
     }
 
-    const detailsLinkPlantCodeColumnButtonClick = (code: string) => {
-        onNavigateTo("/plant-user-details/" + code);
+    const detailsLinkPlantCodeColumnButtonClick = (detailsLinkPlantCode: string) => {
+        onNavigateTo("/plant-user-details/" + detailsLinkPlantCode);
     }
 
     const onMultSelectButtonToEditableClick = () => {
@@ -90,8 +90,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
         const data:any = {plantCodeListCsv}; 
 
-        AsyncServices.LandUserPlantMultiSelectToEditableSubmit(data, contextCode)
-        .then((response) => onRefreshRequest()) 
+        AsyncServices.LandUserPlantMultiSelectToEditableSubmitRequest(data, contextCode)
+        .then(() => onRefreshRequest()) 
 
     }
 
@@ -105,8 +105,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
         const data:any = {plantCodeListCsv}; 
 
-        AsyncServices.LandUserPlantMultiSelectToNotEditableSubmit(data, contextCode)
-        .then((response) => onRefreshRequest()) 
+        AsyncServices.LandUserPlantMultiSelectToNotEditableSubmitRequest(data, contextCode)
+        .then(() => onRefreshRequest()) 
 
     }
 

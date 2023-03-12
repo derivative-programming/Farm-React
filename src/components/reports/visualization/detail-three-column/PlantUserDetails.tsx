@@ -19,13 +19,13 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
     onRefreshRequest,
 }): ReactElement => {
 
-    const updateButtonTextLinkPlantCodeColumnButtonClick = (code: string) => {
-        onNavigateTo("/plant-edit/" + code);
+    const updateButtonTextLinkPlantCodeColumnButtonClick = (updateButtonTextLinkPlantCode: string) => {
+        onNavigateTo("/plant-edit/" + updateButtonTextLinkPlantCode);
     }
 
-    const randomPropertyUpdatesLinkPlantCodeColumnButtonClick = (code: string) => {
+    const randomPropertyUpdatesLinkPlantCodeColumnButtonClick = (randomPropertyUpdatesLinkPlantCode: string) => {
         const data: any = {};
-        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, code)
+        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, randomPropertyUpdatesLinkPlantCode)
             .then((response) => onRefreshRequest())
 
     }

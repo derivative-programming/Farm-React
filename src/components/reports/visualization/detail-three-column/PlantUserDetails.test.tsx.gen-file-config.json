@@ -2,6 +2,6 @@
     "templateType":"report", 
     "dimension" :{
         "name":"PlantUserDetails",
-        "isPage":"true"
+        "calculatedIsPage":"true"
     }
 }

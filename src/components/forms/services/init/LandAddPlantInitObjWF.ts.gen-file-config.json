@@ -3,5 +3,8 @@
     "dimension" :{
         "name":"LandAddPlantInitObjWF",
         "calculatedIsInitObjWFForObjWF":"true"
-    }
+    },
+    "ignoreDimensionPropertyList": [
+        "calculatedIsSourceObjectAvailable"
+    ]
 }

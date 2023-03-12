@@ -3,7 +3,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
    
   
-  export const LandUserPlantMultiSelectToEditableSubmit = (data:any, landCode:string) => { 
+  export const LandUserPlantMultiSelectToEditableSubmitRequest = (data:any, landCode:string) => { 
     return apiCall({
       url: "/land-user-plant-multi-select-to-editable/" + landCode,
       method: "post",

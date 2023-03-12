@@ -19,6 +19,14 @@ window.localStorage.setItem("@token", "sampleToken");
 const mockedUsedNavigate = jest.fn();
 const mockUserParams = jest.fn();
 
+const isRefreshButtonHidden = false;
+const isPagingAvailable = true;
+const isExportButtonsHidden = false;
+const isFilterSectionHidden = false;
+const isFilterSectionCollapsable = true;
+const isBreadcrumbSectionHidden = false;
+const isButtonDropDownAllowed = false; 
+
 jest.mock("react-router-dom", () => ({
   ...(jest.requireActual("react-router-dom") as any),
   useNavigate: () => mockedUsedNavigate,
@@ -57,6 +65,13 @@ describe("LandPlantList Connected Report Component", () => {
 
   it("renders correctly", async () => {
     expect(screen.getByTestId("reportConnectedLandPlantList")).toBeInTheDocument();
+    
+    if("Plant List title text".length > 0){
+      expect(screen.getByText("Plant List title text")).toBeInTheDocument();
+    }
+    if("A list of plants on the land".length > 0){
+      expect(screen.getByText("A list of plants on the land")).toBeInTheDocument();
+    }
   });
  
 });

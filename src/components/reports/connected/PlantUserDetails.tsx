@@ -14,12 +14,20 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
     const isInitializedRef = useRef(false);
+    
+    const isRefreshButtonHidden = false;
+    const isPagingAvailable = true;
+    const isExportButtonsHidden = false;
+    const isFilterSectionHidden = false;
+    const isFilterSectionCollapsable = true;
+    const isBreadcrumbSectionHidden = false;
+    const isButtonDropDownAllowed = false; 
 
     const navigate = useNavigate();
     const { id } = useParams();
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
+    const firstItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
 
     const handleInit = (responseFull: any) => {
         
@@ -157,7 +165,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
             {/*//GENTrainingBlock[visualizationType]Start*/}
             {/*//GENLearn[visualizationType=DetailThreeColumn]Start*/}
             <ReportDetailThreeColPlantUserDetails 
-                item= {displayItem}
+                item= {firstItem}
                 name="reportConnectedPlantUserDetails-table" 
                 onNavigateTo={onNavigateTo} 
                 onRefreshRequest={onRefreshRequest}

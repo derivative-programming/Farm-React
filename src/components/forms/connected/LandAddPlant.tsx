@@ -7,7 +7,7 @@ import {
     FormikHelpers,
 } from "formik";
 import * as FormService from "../services/LandAddPlant";
-import * as InitFormService from "../services/LandAddPlantInitObjWF";
+import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
 import * as InputFields from "../input-fields"

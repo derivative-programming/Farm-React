@@ -3,7 +3,7 @@
     "IsEdgeCase": true,
     "dimension" :{
         "name":"TacFarmDashboard",
-        "isPage":"true",
+        "calculatedIsPage":"true",
         "visualizationType":"DetailTwoColumn"
     }
 }

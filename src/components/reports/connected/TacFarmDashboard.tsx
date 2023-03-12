@@ -14,12 +14,20 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
     const isInitializedRef = useRef(false);
+    
+    const isRefreshButtonHidden = false;
+    const isPagingAvailable = true;
+    const isExportButtonsHidden = false;
+    const isFilterSectionHidden = false;
+    const isFilterSectionCollapsable = true;
+    const isBreadcrumbSectionHidden = false;
+    const isButtonDropDownAllowed = false; 
 
     const navigate = useNavigate();
     const { id } = useParams();
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
+    const firstItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
 
     const handleInit = (responseFull: any) => {
         
@@ -148,7 +156,7 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
             {/*//GENTrainingBlock[visualizationType]Start*/}
             {/*//GENLearn[visualizationType=DetailTwoColumn]Start*/}
             <ReportDetailTwoColTacFarmDashboard 
-                item= {displayItem}
+                item= {firstItem}
                 name="reportConnectedTacFarmDashboard-table" 
                 onNavigateTo={onNavigateTo} 
                 onRefreshRequest={onRefreshRequest}
