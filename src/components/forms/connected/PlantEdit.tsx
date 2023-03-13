@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik, 
@@ -169,10 +168,10 @@ export interface FormProps {
                             <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
                             <FormInput.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 
                             <div className="d-flex btn-container">
-                                <Button type="submit" data-testid="submit-button">
+                                <Button type="submit" data-testid="submit-button" className="primary-button ">
                                     OK Button text
                                 </Button>
-                                <Button
+                                <Button className="primary-button"
                                     onClick={() => {
                                         cancelButtonClick(); 
                                     }}

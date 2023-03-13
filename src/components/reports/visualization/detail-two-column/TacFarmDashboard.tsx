@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
 import { Button, Col, Form, ListGroup, Row, Table } from "react-bootstrap";
-import "../../../../App.scss";
 import * as ReportService from "../../services/TacFarmDashboard";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as AsyncServices from "../../../services";
@@ -27,7 +26,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
         <div data-testid={name} className="mt-3" > 
             <Button data-testid="fieldOnePlantListLinkLandCode"
                 onClick={() => fieldOnePlantListLinkLandCodeButtonClick()} 
-                className='primary-button' 
+                className='primary-button ' 
                 type="submit">
                 Field One - Plants
             </Button>

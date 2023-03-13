@@ -3,9 +3,9 @@
 //GENLearn[modelType=object,name=Land]Start 
 //GENLOOPObjectWorkflowStart
 //GENTrainingBlock[b]Start
-//GENLearn[modelType=objectWorkflow,name=LandAddPlant,calculatedIsPage=true]Start 
+//GENLearn[modelType=objectWorkflow,name=LandAddPlant,isPage=true]Start 
 export { FormConnectedLandAddPlant} from "./LandAddPlant"
-//GENLearn[modelType=objectWorkflow,name=LandAddPlant,calculatedIsPage=true]End
+//GENLearn[modelType=objectWorkflow,name=LandAddPlant,isPage=true]End
 //GENTrainingBlock[b]End
 //GENLOOPObjectWorkflowEnd
 //GENLearn[modelType=object,name=Land]End

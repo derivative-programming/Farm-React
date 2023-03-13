@@ -1,13 +1,12 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik,
     FormikHelpers,
 } from "formik";
 import * as FormService from "../services/LandAddPlant";
-import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
+import * as InitFormService from "../services/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
 import * as InputFields from "../input-fields"

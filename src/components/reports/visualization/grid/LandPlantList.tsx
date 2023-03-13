@@ -66,18 +66,18 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
         }
     };
 
-    const updateLinkPlantCodeColumnButtonClick = (updateLinkPlantCode: string) => {
-        onNavigateTo("/plant-edit/" + updateLinkPlantCode);
+    const updateLinkPlantCodeColumnButtonClick = (code: string) => {
+        onNavigateTo("/plant-edit/" + code);
     }
 
-    const deleteAsyncButtonLinkPlantCodeColumnButtonClick = (deleteAsyncButtonLinkPlantCode: string) => {
+    const deleteAsyncButtonLinkPlantCodeColumnButtonClick = (code: string) => {
         const data:any = {};
-        AsyncServices.PlantUserDeleteSubmitRequest(data,deleteAsyncButtonLinkPlantCode)
+        AsyncServices.PlantUserDeleteSubmitRequest(data,code)
             .then((response) => onRefreshRequest())
     }
 
-    const detailsLinkPlantCodeColumnButtonClick = (detailsLinkPlantCode: string) => {
-        onNavigateTo("/plant-user-details/" + detailsLinkPlantCode);
+    const detailsLinkPlantCodeColumnButtonClick = (code: string) => {
+        onNavigateTo("/plant-user-details/" + code);
     }
 
     const onMultSelectButtonToEditableClick = () => {
@@ -90,8 +90,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
         const data:any = {plantCodeListCsv}; 
 
-        AsyncServices.LandUserPlantMultiSelectToEditableSubmitRequest(data, contextCode)
-        .then(() => onRefreshRequest()) 
+        AsyncServices.LandUserPlantMultiSelectToEditableSubmit(data, contextCode)
+        .then((response) => onRefreshRequest()) 
 
     }
 
@@ -105,8 +105,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
         const data:any = {plantCodeListCsv}; 
 
-        AsyncServices.LandUserPlantMultiSelectToNotEditableSubmitRequest(data, contextCode)
-        .then(() => onRefreshRequest()) 
+        AsyncServices.LandUserPlantMultiSelectToNotEditableSubmit(data, contextCode)
+        .then((response) => onRefreshRequest()) 
 
     }
 
@@ -117,14 +117,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     return (
         <div
             data-testid={name}
-            className="report-list-button-body mt-3">
+            className="w-100 mt-3">
 
 
             <div className="d-flex w-100 justify-content-left"> 
                 <ReportInput.ReportInputButton name="multSelectButtonToEditable"
                     onClick={() => onMultSelectButtonToEditableClick()}
                     buttonText="To Editable" 
-                    className="primary-button mb-3 me-2"
+                    className="primary-button  mb-3 me-2"
                     isButtonCallToAction={false}
                     isVisible={true}
                     isEnabled={true}
@@ -132,7 +132,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                 <ReportInput.ReportInputButton name="multSelectButtonToNotEditable"
                     onClick={() => onMultSelectButtonToNotEditableClick()}
                     buttonText="To Not Editable" 
-                    className="primary-button mb-3 me-2"
+                    className="primary-button  mb-3 me-2"
                     isButtonCallToAction={false}
                     isVisible={true}
                     isEnabled={true}
@@ -420,6 +420,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                                     
                                     <ReportColumnDisplay.ReportColumnDisplayButton forColumn="deleteAsyncButtonLinkPlantCode"
                                         rowIndex={index}
+                                        
                                         value={item.deleteAsyncButtonLinkPlantCode} 
                                         buttonText="Delete Async"
                                         isButtonCallToAction={false}
@@ -452,13 +453,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                 totalItemCount={totalItemCount}
                 hidden={!showPagingControls}
             />
-            <div className="d-flex w-100 justify-content-end" hidden={!showExport}> 
-                <Button data-testidid="export-button"
-                    onClick={() => onExport()}
-                    className='primary-button mb-3 me-2' type="button">
-                    Export
-                </Button>
-            </div>
+            <div className="d-flex justify-content-center justify-content-md-end w-100 mb-3 mb-md-0" hidden={!showExport}>
+  <Button data-testidid="export-button"
+          onClick={() => onExport()}
+          className='primary-button me-md-2' type="button">
+    Export
+  </Button>
+</div>
+
         </div>
     );
 }; 
