@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useContext, useState, useEffect, useRef } from "react";
 import { Button, Form, Card, Breadcrumb, Row } from "react-bootstrap";
-import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ReportService from "../services/PlantUserDetails";
 import * as InitReportService from "../services/PlantUserDetailsInitReport"; 
@@ -14,20 +13,12 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
     const isInitializedRef = useRef(false);
-    
-    const isRefreshButtonHidden = false;
-    const isPagingAvailable = true;
-    const isExportButtonsHidden = false;
-    const isFilterSectionHidden = false;
-    const isFilterSectionCollapsable = true;
-    const isBreadcrumbSectionHidden = false;
-    const isButtonDropDownAllowed = false; 
 
     const navigate = useNavigate();
     const { id } = useParams();
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-    const firstItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
+    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
 
     const handleInit = (responseFull: any) => {
         
@@ -141,8 +132,8 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     return (
 
-        <div className="report-container" data-testid="reportConnectedPlantUserDetails">
-            <div className="breadcrumb-container">
+        <div className="d-flex flex-column align-items-center h-90vh pb-2 pl-3 pr-3" data-testid="reportConnectedPlantUserDetails">
+            <div className="w-100">
                 <Breadcrumb>
                     <Breadcrumb.Item id="tacFarmDashboardBreadcrumb" onClick={() => navigateTo('tac-farm-dashboard',"tacCode")}>
                         Farm Dashboard breadcrumb text
@@ -157,7 +148,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
             </div>
             <h2>Plant Details</h2>
             <h6>Plant Details page intro text</h6>
-            <div className="d-flex w-100 justify-content-between">
+            <div className="d-flex w-100 justify-content-center justify-content-md-start">
                 <Button onClick={() => navigateTo("land-plant-list","landCode")} className='primary-button' data-testid="plant-btn" type="submit">
                     Plant List
                 </Button>
@@ -165,7 +156,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
             {/*//GENTrainingBlock[visualizationType]Start*/}
             {/*//GENLearn[visualizationType=DetailThreeColumn]Start*/}
             <ReportDetailThreeColPlantUserDetails 
-                item= {firstItem}
+                item= {displayItem}
                 name="reportConnectedPlantUserDetails-table" 
                 onNavigateTo={onNavigateTo} 
                 onRefreshRequest={onRefreshRequest}

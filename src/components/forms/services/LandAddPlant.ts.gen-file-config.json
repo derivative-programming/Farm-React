@@ -2,6 +2,6 @@
     "templateType":"objWF", 
     "dimension" :{
         "name":"LandAddPlant",
-        "calculatedIsPage":"true"
+        "isPage":"true"
     }
 }

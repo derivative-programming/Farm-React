@@ -2,10 +2,6 @@
     "templateType":"report", 
     "dimension" :{
         "name":"LandPlantList",
-        "calculatedIsPage":"true"
-    },
-    "ignoreDimensionPropertyList": [
-        "isButtonCallToAction",
-        "calculatedIsConditionalVisible"
-    ]
+        "isPage":"true"
+    }
 }

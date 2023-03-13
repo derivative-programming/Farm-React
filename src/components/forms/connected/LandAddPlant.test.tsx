@@ -11,7 +11,7 @@ import {
 import FormConnectedLandAddPlant from "./LandAddPlant"; 
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/LandAddPlant";
-import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
+import * as InitFormService from "../services/LandAddPlantInitObjWF";
 import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
 
 
@@ -88,15 +88,9 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("submit-button")).toBeInTheDocument();
     expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
     
-    if("Add Plant Title Text".length > 0){
-      expect(screen.getByText("Add Plant Title Text")).toBeInTheDocument();
-    }
-    if("Add plant intro text.".length > 0){
-      expect(screen.getByText("Add plant intro text.")).toBeInTheDocument();
-    }
-    if("Add plant form footer text".length > 0){
-      expect(screen.getByText("Add plant form footer text")).toBeInTheDocument();
-    } 
+    expect(screen.getByText("Add Plant Title Text")).toBeInTheDocument();
+    expect(screen.getByText("Add plant intro text.")).toBeInTheDocument();
+    expect(screen.getByText("Add plant form footer text")).toBeInTheDocument();
     
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1)); 
   });

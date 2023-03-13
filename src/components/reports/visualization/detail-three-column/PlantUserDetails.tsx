@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
 import { Button, Col, Form, ListGroup, Row, Table } from "react-bootstrap";
-import "../../../../App.scss";
 import * as ReportService from "../../services/PlantUserDetails";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as AsyncServices from "../../../services";
@@ -19,13 +18,13 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
     onRefreshRequest,
 }): ReactElement => {
 
-    const updateButtonTextLinkPlantCodeColumnButtonClick = (updateButtonTextLinkPlantCode: string) => {
-        onNavigateTo("/plant-edit/" + updateButtonTextLinkPlantCode);
+    const updateButtonTextLinkPlantCodeColumnButtonClick = (code: string) => {
+        onNavigateTo("/plant-edit/" + code);
     }
 
-    const randomPropertyUpdatesLinkPlantCodeColumnButtonClick = (randomPropertyUpdatesLinkPlantCode: string) => {
+    const randomPropertyUpdatesLinkPlantCodeColumnButtonClick = (code: string) => {
         const data: any = {};
-        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, randomPropertyUpdatesLinkPlantCode)
+        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, code)
             .then((response) => onRefreshRequest())
 
     }

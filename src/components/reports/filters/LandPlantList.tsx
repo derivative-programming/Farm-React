@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useContext, useEffect, useState } from "react";
 import { Button, Form, Accordion, Row, Col } from "react-bootstrap";
-import "../../../App.scss";
 import {
     Formik, 
     FormikHelpers,
@@ -122,13 +121,13 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                                         <div className="d-flex h-100 align-items-end justify-content-end">
                                             <Button 
                                                 type="submit"
-                                                className="primary-button ms-2"
+                                                className="primary-button ms-2 mt-1"
                                                 data-testid="submit-button"
                                             >
                                                 Search
                                             </Button>
                                             <Button
-                                                className="primary-button ms-2"
+                                                className="primary-button  ms-2 mt-1"
                                                 type="reset"
                                                 onClick={() => props.resetForm() as any}
                                                 variant="secondary" 

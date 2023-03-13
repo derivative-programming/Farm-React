@@ -2,6 +2,6 @@
     "templateType":"report", 
     "dimension" :{
         "name":"TacFarmDashboard",
-        "calculatedIsPage":"true"
+        "isPage":"true"
     }
 }

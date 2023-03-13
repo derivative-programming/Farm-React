@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useContext,useState,useEffect } from "react";
 import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss"; 
 import * as PacUserLandListService from "../../lookups/services/PacUserLandList";
 import {useField } from 'formik';
 import { ReportInputSelect,ReportInputSelectOption } from "../input-fields/InputSelect";

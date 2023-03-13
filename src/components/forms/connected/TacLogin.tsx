@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik, 
@@ -104,8 +103,8 @@ export interface FormProps {
     
 
     return ( 
-        <div className="form-container" data-testid="formConnectedTacLogin">
-            <Card>
+        <div className="d-flex flex-column align-items-center justify-content-center form-container" data-testid="formConnectedTacLogin">
+            <Card className=" overflow-y-auto border-0">
                 <h2>Login</h2>
                 <h6>Please enter your email and password.</h6>
 
@@ -117,7 +116,7 @@ export interface FormProps {
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
                     {(props) => (
                         <Form 
-                            className="mb-2"
+                            className="mb-2 m-0  w-100"
                             name={name} 
                             data-testid={name}
                             onReset={props.handleReset} 
@@ -125,11 +124,11 @@ export interface FormProps {
                             <FormInput.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
                             <FormInput.FormInputEmail name="email" label="Email" autoFocus={true} />
                             <FormInput.FormInputPassword name="password" label="Password" /> 
-                            <div className="d-flex btn-container">
-                                <Button type="submit" data-testid="submit-button">
+                            <div className="d-flex  justify-content-between mt-3">
+                                <Button type="submit" data-testid="submit-button" className="primary-button">
                                     Login
                                 </Button>
-                                <Button
+                                <Button className="primary-button"
                                     onClick={() => {
                                         registerButtonClick(); 
                                     }}

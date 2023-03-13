@@ -3,7 +3,7 @@
     "IsEdgeCase": true,
     "dimension" :{
         "name":"PlantUserDetails",
-        "calculatedIsPage":"true",
+        "isPage":"true",
         "visualizationType":"DetailThreeColumn"
     }
 }

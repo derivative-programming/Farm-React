@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
 import { Button, Form, Card, InputGroup } from "react-bootstrap";
-import "../../../App.scss";
 import {useField } from 'formik';
 import { onKeyDown } from "../../../common/utilities";
 import {ReportInputErrorDisplay } from './InputErrorDisplay';

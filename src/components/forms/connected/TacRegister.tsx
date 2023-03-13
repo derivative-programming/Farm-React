@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Card } from "react-bootstrap";
-import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik, 
@@ -105,8 +104,8 @@ export interface FormProps {
     
 
     return ( 
-        <div className="form-container" data-testid="formConnectedTacRegister">
-            <Card>
+        <div className="d-flex flex-column align-items-center justify-content-center form-container" data-testid="formConnectedTacRegister">
+            <Card className=" border-0 overflow-y-auto">
                 <h2>Register</h2>
                 <h6>Please enter your email and password.</h6>
 
@@ -118,7 +117,7 @@ export interface FormProps {
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
                     {(props) => (
                         <Form   
-                            className="mb-2"
+                            className="mb-2 m-0 w-100"
                             name={name} 
                             data-testid={name}
                             onReset={props.handleReset} 
@@ -129,13 +128,13 @@ export interface FormProps {
                             <FormInput.FormInputPassword name="confirmPassword" label="Confirm Password" /> 
                             <FormInput.FormInputText name="firstName" label="First Name" /> 
                             <FormInput.FormInputText name="lastName" label="Last Name" /> 
-                            <div className="d-flex btn-container">
-                                <Button type="submit" data-testid="submit-button">
+                            <div className="d-flex justify-content-between mt-3">
+                                <Button type="submit" data-testid="submit-button" className="primary-button p-2">
                                     Register
                                 </Button>
                                 <Button
                                     onClick={() => {backToLoginButtonClick();}}
-                                    variant="secondary"
+                                    variant="secondary" className="primary-button p-2"
                                     data-testid="cancel-button"
                                 >
                                     Back To Login

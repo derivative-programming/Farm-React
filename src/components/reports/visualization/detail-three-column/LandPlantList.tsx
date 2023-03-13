@@ -1,6 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
 import { Button, Col, Form, ListGroup, Row, Table } from "react-bootstrap";
-import "../../../../App.scss";
 import * as ReportService from "../../services/LandPlantList";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as AsyncServices from "../../../services";
