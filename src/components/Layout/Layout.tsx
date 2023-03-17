@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
+import { Container } from 'react-bootstrap';
 
 type Props = {
     children: ReactElement
@@ -9,17 +10,17 @@ type Props = {
 const LayoutComponent: FC<Props> = (props: Props): ReactElement => {
 
     return (
-        <div className="layout-container container">
-            <div className='layout-header-container'>
+        <Container className="layout-container container">
+            <Container>
                 <Header />
-            </div>
-            <div className='layout-body-container'>
+                </Container>
+            <Container style={{ height: 'calc(100vh - 120px)', overflowY: 'auto' }}>
                 {props.children}
-            </div>
-            <div className='layout-footer-container'>
+            </Container>
+            <Container >
                 <Footer />
-            </div>
-        </div>
+            </Container>
+        </Container>
     )
 }
 export default LayoutComponent;
