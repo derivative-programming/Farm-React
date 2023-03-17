@@ -119,16 +119,13 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   return (
     <Container
       fluid={true}
-      className=" p-0 d-flex flex-column align-items-center justify-content-center "
-      style={{ margin: "auto", width: "450px", maxWidth: "100%" }}
+      className=" p-0 d-flex flex-column align-items-center justify-content-center container-plant"
+    
       data-testid="formConnectedTacLogin"
     >
       <Card
-        className=" overflow-y-auto border-0 rounded mt-1"
-        style={{
-          padding: "45px 35px 50px 35px",
-          boxShadow: "0px 10px 50px rgba(0, 0, 0, 0.1)",
-        }}
+        className=" overflow-y-auto border-0 rounded mt-1 plant-card"
+       
       >
         <h2>Login</h2>
         <h6>Please enter your email and password.</h6>
@@ -160,8 +157,8 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                 autoFocus={true}
               />
               <FormInput.FormInputPassword name="password" label="Password" />
-              <Container
-                fluid={true}
+              <div
+               
                 className="d-flex  justify-content-between mt-3 p-0"
               >
                 {/* <Button
@@ -204,7 +201,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                   isVisible={true}
                   isEnabled={true}
                 />
-              </Container>
+              </div>
             </Form>
           )}
         </Formik>

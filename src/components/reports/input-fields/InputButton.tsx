@@ -2,7 +2,6 @@ import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
 import { Button, Form, Card } from "react-bootstrap";
 import { useField } from "formik";
 import { ReportInputErrorDisplay } from "./InputErrorDisplay";
-import "./inputButton.scss"
 
 export interface ReportInputButtonProps {
   name: string;

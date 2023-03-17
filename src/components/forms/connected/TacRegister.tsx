@@ -118,16 +118,13 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   return (
     <Container
       fluid={true}
-      className="p-0 d-flex flex-column align-items-center justify-content-center "
-      style={{ margin: "auto", width: "450px", maxWidth: "100%" }}
+      className="p-0 d-flex flex-column align-items-center justify-content-center container-plant "
+ 
       data-testid="formConnectedTacRegister"
     >
       <Card
-        className=" border-0 overflow-y-auto mt-1"
-        style={{
-          padding: "45px 35px 50px 35px",
-          boxShadow: "0px 10px 50px rgba(0, 0, 0, 0.1)",
-        }}
+        className=" border-0 overflow-y-auto mt-1 plant-card"
+       
       >
         <h2>Register</h2>
         <h6>Please enter your email and password.</h6>

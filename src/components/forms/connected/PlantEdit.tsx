@@ -130,8 +130,8 @@ export interface FormProps {
     
 
     return ( 
-        <Container fluid={true} className=" p-0" data-testid="formConnectedPlantEdit" style={{ margin: 'auto', width: 450, maxWidth: '100%', }}>
-            <Card className=" overflow-y-auto border-0 rounded mt-1"  style={{ padding: '45px 35px 50px 35px',boxShadow: '0px 10px 50px rgba(0, 0, 0, 0.1)' }}>
+        <Container fluid={true} className=" p-0 container-plant" data-testid="formConnectedPlantEdit" >
+            <Card className=" overflow-y-auto border-0 rounded mt-1 plant-card" >
                 <h2>Update Plant</h2> 
 
                 <Formik

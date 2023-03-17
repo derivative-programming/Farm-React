@@ -147,15 +147,12 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   return (
     <Container
       fluid={true}
-      className=" p-0"
-      style={{ margin: "auto", width: "450px", maxWidth: "100%" }}
+      className=" p-0 container-plant"
+    
     >
       <Card
-        className="mt-1"
-        style={{
-          padding: "45px 35px 50px 35px",
-          boxShadow: "0px 10px 50px rgba(0, 0, 0, 0.1)",
-        }}
+        className="mt-1 Add-plant-card"
+        
       >
         <h2>Add Plant Title Text</h2>
         <h6>Add plant intro text.</h6>
