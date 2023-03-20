@@ -36,7 +36,7 @@ const Header: FC = (): ReactElement => {
   };
   return (
     <Container className="header-container h-85 d-flex align-items-center justify-content-between px-40">
-      <div className=" pb-4 pr-5 logo-design" >NewCo, Inc.</div>
+      <div className=" pb-4 pr-5 logo-design" ><h4>NewCo, Inc.</h4></div>
       <div className="d-flex align-items-center">
         <div className="d-none d-md-flex ">
         <Nav className="menu-options-container justify-content-end">
