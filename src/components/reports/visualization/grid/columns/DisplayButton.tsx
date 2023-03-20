@@ -1,7 +1,7 @@
 import React, { FC, ReactElement,} from "react"; 
 import { Button } from "react-bootstrap";
 import "../../../../../App.scss"; 
-import "../../../input-fields/inputButton.scss"; 
+import "../../../../../index.css"; 
    
 export interface ReportColumnDisplayButtonProps {
   forColumn:string
