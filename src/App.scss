@@ -179,7 +179,6 @@
 .accordion-button:not(.collapsed) {
   color: blue;
   background-color: #e7f1ff;
-  // background-color: #fdc885;
   outline: 0;
 }
 
@@ -271,13 +270,13 @@
 // }
 // }
 
-.form-container{
-  margin: auto;
-    width: 450px;
-    max-width: 100%;
-    //height: 100%;
-    
-}
+// .form-container{
+//   margin: auto;
+//     width: 450px;
+//     max-width: 100%;
+//height: 100%;
+
+// }
 
 // .form-container {
 //   margin: auto;
@@ -288,17 +287,31 @@
 //   flex-direction: column;
 //   align-items: center;
 //   justify-content: center;
-
-.card {
+.add-plant-card{
   padding: 45px 35px 50px 35px;
-  // border: none;
-  min-width: 100%;
-  margin-top: 5px;
-  // overflow-y: auto;
-  // box-shadow: 0 2px 6px -1px #29345c;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  border-radius: 25px;
+    // border: none;
+    min-width: 100%;
+    margin-top: 5px;
+    // overflow-y: auto;
+    // box-shadow: 0 2px 6px -1px #29345c;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border-radius: 25px;
 }
+.add-plant-form-container{
+    margin: auto;
+      width: 450px;
+      max-width: 100%;
+      //height: 100%;
+}
+// .card {
+// padding: 45px 35px 50px 35px;
+// border: none;
+// min-width: 100%;
+// margin-top: 5px;
+// overflow-y: auto;
+// box-shadow: 0 2px 6px -1px #29345c;
+// box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+// border-radius: 25px;
 
 // form {
 //   margin: 0;
