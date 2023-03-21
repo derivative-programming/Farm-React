@@ -119,12 +119,12 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   return (
     <Container
       fluid={true}
-      className=" p-0 d-flex flex-column align-items-center justify-content-center container-plant"
+      className=" p-0 d-flex flex-column align-items-center justify-content-center container-plant add-plant-form-container"
     
       data-testid="formConnectedTacLogin"
     >
       <Card
-        className=" overflow-y-auto border-0 rounded mt-1 plant-card"
+        className=" overflow-y-auto border-0 rounded mt-1 plant-card add-plant-card"
        
       >
         <h2>Login</h2>
