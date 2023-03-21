@@ -4,7 +4,6 @@ import './App.scss';
 import { AuthContext } from './context/authContext';
 import AppRoute from './routes/appRoutes';
 import AuthRoute from './routes/authRoutes';
-import './App.scss';
 
 const App: FC = (): ReactElement => {
 
