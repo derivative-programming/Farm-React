@@ -12,7 +12,7 @@ const App: FC = (): ReactElement => {
   console.log("AUTH CONTEXT:::", authValue)
 
   return (
-    <div className="text-center bg-f5f2ea vh-100" data-testid="app">
+    <div className=" App " data-testid="app">
       <BrowserRouter>
         {
           authValue && authValue.token ?

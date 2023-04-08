@@ -6,8 +6,9 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { Button, Form, Card, Breadcrumb } from "react-bootstrap";
+import { Button, Form, Card, Breadcrumb, Container } from "react-bootstrap";
 import "../../../App.scss";
+
 import { useNavigate, useParams } from "react-router-dom";
 import ReportFilterLandPlantList from "../filters/LandPlantList";
 import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList";
@@ -159,47 +160,53 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
       </div>
       <h2>Plant List title text</h2>
       <h6>A list of plants on the land</h6>
-      <div className="container">
-  <div className="row">
-    <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
-      <div className="mb-2 mb-md-0">
-        <ReportInput.ReportInputButton
-          name="back-button"
-          onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
-          buttonText="Farm Dashboard"
-          className="primary-button"
-          isButtonCallToAction={false}
-          isVisible={true}
-          isEnabled={true}
-        />
-      </div>
-      <div className="d-flex flex-column flex-md-row">
-        <div className="mb-2 mb-md-0">
-          <ReportInput.ReportInputButton
-            name="otherAddButton"
-            onClick={() => navigateTo("land-add-plant", "landCode")}
-            buttonText="Other Add Button"
-            className="primary-button"
-            isButtonCallToAction={false}
-            isVisible={true}
-            isEnabled={true}
-          />
+      <Container>
+        {/* <div className="container"> */}
+        <div className="row">
+          <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
+            <div className="mb-2 mb-md-0">
+              <ReportInput.ReportInputButton
+                name="back-button"
+                onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
+                buttonText="Farm Dashboard"
+                className="primary-button"
+                isButtonCallToAction={false}
+                isVisible={true}
+                isEnabled={true}
+              />
+            </div>
+            <div className="d-flex flex-column flex-md-row">
+              <div className="mb-2 mb-md-0">
+                <ReportInput.ReportInputButton
+                  name="otherAddButton"
+                  onClick={() => navigateTo("land-add-plant", "landCode")}
+                  buttonText="Other Add Button"
+                  className="primary-button"
+                  isButtonCallToAction={false}
+                  isVisible={true}
+                  isEnabled={true}
+                />
+              </div>
+              <div>
+                <ReportInput.ReportInputButton
+                  name="add-button"
+                  onClick={() => navigateTo("land-add-plant", "landCode")}
+                  buttonText={
+                    <>
+                      Add A Plant <span className="plus-icon">+</span>
+                    </>
+                  }
+                  className="primary-button ms-md-2"
+                  isButtonCallToAction={true}
+                  isVisible={true}
+                  isEnabled={true}
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <ReportInput.ReportInputButton
-            name="add-button"
-            onClick={() => navigateTo("land-add-plant", "landCode")}
-            buttonText="Add A Plant"
-            className="primary-button ms-md-2"
-            isButtonCallToAction={true}
-            isVisible={true}
-            isEnabled={true}
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </Container>
+      {/* </div> */}
 
       {/*//GENTrainingBlock[visualizationType]Start*/}
       {/*//GENLearn[visualizationType=Grid]Start*/}
@@ -218,14 +225,24 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
           (isFilterSectionHidden && isRefreshButtonHidden)
         }
       >
-        <Button
+        {/* <Button
           data-testid="refresh-button"
           className="primary-button  ms-2"
           type="submit"
           onClick={onRefreshRequest}
         >
           Refresh
-        </Button>
+        </Button> */}
+        <ReportInput.ReportInputButton
+          name=""
+          type="submit"
+          buttonText="   Refresh"
+          className="primary-button ml-1"
+          isButtonCallToAction={true}
+          isVisible={true}
+          isEnabled={true}
+          onClick={onRefreshRequest}
+        />
       </div>
 
       <ReportGridLandPlantList

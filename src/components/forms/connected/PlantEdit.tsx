@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import { Button, Form, Card, Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik, 
@@ -130,8 +130,8 @@ export interface FormProps {
     
 
     return ( 
-        <div className="form-container" data-testid="formConnectedPlantEdit">
-            <Card>
+        <Container fluid={true} className=" p-0 container-plant add-plant-form-container" data-testid="formConnectedPlantEdit" >
+            <Card className=" overflow-y-auto mt-1 plant-card add-plant-card" >
                 <h2>Update Plant</h2> 
 
                 <Formik
@@ -185,7 +185,7 @@ export interface FormProps {
                     )}
                 </Formik>
             </Card>
-        </div> 
+        </Container> 
     );
 };
   

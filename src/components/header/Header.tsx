@@ -1,7 +1,9 @@
 import React, { FC, ReactElement, useContext } from "react";
-import { Button, Dropdown } from "react-bootstrap";
+import { Button, Container, Dropdown, Nav, NavItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
+import MenuDivider from "antd/lib/menu/MenuDivider";
+import { ReportInputButton } from "../reports/input-fields";
 
 const Header: FC = (): ReactElement => {
   const authContext = useContext(AuthContext);
@@ -22,47 +24,92 @@ const Header: FC = (): ReactElement => {
   const onRegister = () => {
     navigate("/tac-register");
   };
+  const [isHovered, setIsHovered] = React.useState(false);
 
+ 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
-    <div className="header-container h-85 d-flex align-items-center justify-content-between px-40">
-      <div className=" pb-4 pr-5" style={{ borderBottom: "1px solid black",fontSize:"25px"}}>NewCo, Inc.</div>
+    <Container className="header-container h-85 d-flex align-items-center justify-content-between px-40">
+      <div className=" pb-4 pr-5 logo-design" ><h4>NewCo, Inc.</h4></div>
       <div className="d-flex align-items-center">
         <div className="d-none d-md-flex ">
-          <div className="menu-options-container">
-            <div>
-              <span onClick={onDashboard}>
-                {authContext && authContext.token ? "Dashboard" : null}
-              </span>
-            </div>
-          </div>
+        <Nav className="menu-options-container justify-content-end">
+      <NavItem
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <span
+          className={`nav-link${isHovered ? ' text-underline' : ''}`}
+          onClick={onDashboard}
+        >
+          {authContext && authContext.token ? "Dashboard" : null}
+        </span>
+      </NavItem>
+    </Nav>
           {authContext && authContext.token ? (
-            <Button
-              onClick={onLogout}
-              className=" primary-button ml-4"
-            >
-              Log Out
-            </Button>
+            // <Button
+            //   onClick={onLogout}
+            //   className=" primary-button ml-4"
+            // >
+            //   Log Out
+            // </Button>
+             <ReportInputButton
+             name=""
+             type="submit"
+             buttonText="Log Out"
+             className="primary-button"
+             isButtonCallToAction={true}
+             isVisible={true}
+             isEnabled={true}
+             onClick={onLogout}
+           />
           ) : (
-            <div className="d-flex">
-              <Button
+            <Container className="d-flex">
+              {/* <Button
                 onClick={onLogin}
-                className="menu-button ml-4"
+                className=" ml-4"
               >
                 Login
-              </Button>
-              <Button
+              </Button> */}
+              <ReportInputButton
+                  name=""
+                  type="submit"
+                  buttonText="  Login"
+                  className="primary-button me-2"
+                  isButtonCallToAction={true}
+                  isVisible={true}
+                  isEnabled={true}
+                  onClick={onLogin}
+                />
+              {/* <Button
                 onClick={onRegister}
-                className="menu-button "
-                style={{ marginLeft: "10px" }}
+                
               >
                 Register
-              </Button>
-            </div>
+              </Button> */}
+              <ReportInputButton
+                  name=""
+                  type="submit"
+                  buttonText="Register"
+                  className="primary-button "
+                  isButtonCallToAction={true}
+                  isVisible={true}
+                  isEnabled={true}
+               
+                  onClick={onRegister}
+                />
+            </Container>
           )}
         </div>
         <div className="mobile-menu">
           <Dropdown>
-            <Dropdown.Toggle className="menu-button" id="dropdown-basic">
+            <Dropdown.Toggle  id="dropdown-basic">
               <hr></hr>
               <hr></hr>
               <hr></hr>
@@ -88,7 +135,7 @@ const Header: FC = (): ReactElement => {
           </Dropdown>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 export default Header;

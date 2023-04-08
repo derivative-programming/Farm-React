@@ -1,25 +1,23 @@
-import React, { FC, ReactElement } from 'react';
-import Footer from '../footer/Footer';
-import Header from '../header/Header';
-
+import React, { FC, ReactElement } from "react";
+import Footer from "../footer/Footer";
+import Header from "../header/Header";
+import { Container } from "react-bootstrap";
+import "../../App.scss"
 type Props = {
-    children: ReactElement
-}
+  children: ReactElement;
+};
 
 const LayoutComponent: FC<Props> = (props: Props): ReactElement => {
-
-    return (
-        <div className="layout-container container">
-            <div className='layout-header-container'>
-                <Header />
-            </div>
-            <div className='layout-body-container'>
-                {props.children}
-            </div>
-            <div className='layout-footer-container'>
-                <Footer />
-            </div>
-        </div>
-    )
-}
+  return (
+    <Container className="layout-container container">
+      <div>
+        <Header />
+      </div>
+      <div className="child-container">{props.children}</div>
+      <div>
+        <Footer />
+      </div>
+    </Container>
+  );
+};
 export default LayoutComponent;

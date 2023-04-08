@@ -4,6 +4,7 @@ import * as ReportService from "../../services/TacFarmDashboard";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as AsyncServices from "../../../services";
 import * as ReportColumnDisplay from "./columns";
+import { ReportInputButton } from "../../input-fields";
 
 export interface ReportDetailTwoColTacFarmDashboardProps {
     name: string
@@ -24,12 +25,17 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
 
     return ( 
         <div data-testid={name} className="mt-3" > 
-            <Button data-testid="fieldOnePlantListLinkLandCode"
-                onClick={() => fieldOnePlantListLinkLandCodeButtonClick()} 
-                className='primary-button ' 
-                type="submit">
-                Field One - Plants
-            </Button>
+          
+            <ReportInputButton
+             name=""
+             type="submit"
+             buttonText=" Field One-Plants"
+             className="primary-button"
+             isButtonCallToAction={true}
+             isVisible={true}
+             isEnabled={true}
+             onClick={() => fieldOnePlantListLinkLandCodeButtonClick()} 
+           />
 
         </div> 
     );

@@ -1,6 +1,7 @@
 import React, { FC, ReactElement,} from "react"; 
 import { Button } from "react-bootstrap";
 import "../../../../../App.scss"; 
+import "../../../../../index.css"; 
    
 export interface ReportColumnDisplayButtonProps {
   forColumn:string
@@ -42,7 +43,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
             className="primary-button  ms-2"
            variant={buttonVariant} 
             data-testid={buttonName}
-            onClick={onClick} 
+            onClick={onClick}
         >{buttonText}</Button>
     </td>
   );
