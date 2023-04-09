@@ -157,6 +157,13 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
           </Breadcrumb.Item>
         </Breadcrumb>
       </div>
+
+       
+      <Card
+        className="mt-1 page-card"
+         
+      > 
+      
       <h2>Plant List title text</h2>
       <h6>A list of plants on the land</h6>
       <Container>  
@@ -230,6 +237,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
           Refresh
         </Button> 
       </div>
+      
+      </Card> 
 
       <ReportGridLandPlantList
         isSortDescending={queryResult.orderByDescending}
@@ -250,6 +259,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
       />
       {/*//GENLearn[visualizationType=Grid]End*/}
       {/*//GENTrainingBlock[visualizationType]End*/}
+
+      
     </div>
   );
 };

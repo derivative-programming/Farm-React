@@ -1,11 +1,9 @@
 
-todo...      
-- dashboard page should have card similar to login page?   
-- report detail page has a horizontal scrollbar  
-- add page random values button isnt working
-- test harvest. could have issue since name attributes changed lines 
+todo...        
+- add page random values button isnt working. posting to same page but init not running again.
+- test harvest. could have issue since name attributes changed lines    
 
-
+  
 
 jobs...
 
@@ -13,6 +11,7 @@ jobs...
 - skills... react, react bootstrap
 - alot of custom css being used that shouldnt be.   
 - show how to change to smaller scale 
+- plant list page results table in same card as filtering control
 
 2. export button to csv
 

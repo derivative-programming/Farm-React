@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useContext, useState, useEffect, useRef } from "react";
-import { Button, Form, Card, Breadcrumb, Row } from "react-bootstrap";
+import { Button, Form, Card, Breadcrumb, Row, Container } from "react-bootstrap";
 import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ReportService from "../services/TacFarmDashboard";
@@ -134,13 +134,12 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     return (
 
         <div className="d-flex flex-column align-items-center h-90vh pb-2 pl-3 pr-3" data-testid="reportConnectedTacFarmDashboard">
-            <div className="breadcrumb-container">
-                <Breadcrumb>
-                    <Breadcrumb.Item active>
-                    Farm Dashboard
-                    </Breadcrumb.Item>
-                </Breadcrumb>
-            </div>
+            
+           
+      <Card
+        className="mt-1 page-card"
+         
+      > 
             <h2>Farm Dashboard</h2>
             <h6>Farm Dashboard page intro text</h6>
             <div className="d-flex w-100 justify-content-between"> 
@@ -155,6 +154,7 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
             /> 
             {/*//GENLearn[visualizationType=DetailTwoColumn]End*/}
             {/*//GENTrainingBlock[visualizationType]End*/}
+      </Card> 
         </div>
     );
 };

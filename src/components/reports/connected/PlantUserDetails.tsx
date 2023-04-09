@@ -148,7 +148,11 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                 </Breadcrumb>
             </div>
 
-            
+             
+      <Card
+        className="mt-1 page-card"
+         
+      > 
             <h2>Plant Details</h2>
             <h6>Plant Details page intro text</h6>
             <Container>  
@@ -173,6 +177,8 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
             /> 
             {/*//GENLearn[visualizationType=DetailThreeColumn]End*/}
             {/*//GENTrainingBlock[visualizationType]End*/}
+        
+      </Card> 
         </div>
     );
 };

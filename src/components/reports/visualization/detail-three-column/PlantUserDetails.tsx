@@ -138,17 +138,19 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     </Row>
                 </ListGroup>
             </Col>
-            <Col>
+            <Col> 
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateButtonTextLinkPlantCode"
                     buttonText="Update Button Text"
                     value={item.updateButtonTextLinkPlantCode}
+                    isButtonCallToAction={true}
                     onClick={() => updateButtonTextLinkPlantCodeColumnButtonClick(item.updateButtonTextLinkPlantCode)}
                 />
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="randomPropertyUpdatesLinkPlantCode"
                     buttonText="Random Property Updates"
                     value={item.randomPropertyUpdatesLinkPlantCode}
+                    isButtonCallToAction={false}
                     onClick={() => randomPropertyUpdatesLinkPlantCodeColumnButtonClick(item.randomPropertyUpdatesLinkPlantCode)}
                 />
             </Col>

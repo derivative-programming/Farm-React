@@ -123,7 +123,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       data-testid="formConnectedTacRegister"
     >
       <Card
-        className=" border-0 overflow-y-auto mt-1 plant-card add-plant-card"
+        className=" border-0 overflow-y-auto mt-1 page-card"
        
       >
         <h2>Register</h2>

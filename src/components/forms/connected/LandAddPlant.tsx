@@ -150,8 +150,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     
     >
       <Card
-        className="mt-1 add-plant-card"
-        
+        className="mt-1 page-card"
+         
       >
         <h2>Add Plant Title Text</h2>
         <h6>Add plant intro text.</h6>

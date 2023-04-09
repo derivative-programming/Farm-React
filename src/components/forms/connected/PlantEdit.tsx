@@ -136,7 +136,7 @@ export interface FormProps {
         
         >
           <Card
-            className="mt-1 add-plant-card"
+            className="mt-1 page-card"
             
           >
                 <h2>Update Plant</h2> 

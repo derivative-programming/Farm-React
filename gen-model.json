@@ -4662,7 +4662,7 @@
                     "destinationTargetName": "PlantEdit",
                     "destinationContextObjectName": "Plant",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
-                    "isButtonCallToAction": "false",
+                    "isButtonCallToAction": "true",
                     "isUnixEpochDateTime": "false",
                     "isMultiSelectColumn": "false",
                     "isButtonAsyncObjWF": "false",

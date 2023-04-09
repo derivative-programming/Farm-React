@@ -13,7 +13,7 @@ const LayoutComponent: FC<Props> = (props: Props): ReactElement => {
       <div>
         <Header />
       </div>
-      <div className="child-container">{props.children}</div>
+      <div>{props.children}</div>
       <div>
         <Footer />
       </div>
