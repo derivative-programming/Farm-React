@@ -136,7 +136,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
   return (
     <div
       hidden={isHidden()}
-      data-testid={name} className="d-flex w-100 align-items-center justify-content-between page-container">
+      data-testid={name} className="d-flex w-100 align-items-center justify-content-between">
       <div className="d-flex align-items-center">
         <Form.Label className="m-0 me-2">Items Per Page</Form.Label>
         <Form.Select

@@ -30,7 +30,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
     }
 
     return (
-        <div data-testid={name} className='list-container mt-3 w-100'>
+        <div data-testid={name} className='mt-3 w-100'>
             <Row><Col  lg="9" md="9" xs="12">
                 <ListGroup as="ol"> 
                     <Row>

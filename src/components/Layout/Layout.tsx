@@ -9,7 +9,7 @@ type Props = {
 
 const LayoutComponent: FC<Props> = (props: Props): ReactElement => {
   return (
-    <Container className="layout-container container">
+    <Container>
       <div>
         <Header />
       </div>

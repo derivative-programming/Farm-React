@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useContext } from "react";
-import { Button, Container, Dropdown, Nav, NavItem } from "react-bootstrap";
+import { Button, Dropdown, Nav, NavItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import MenuDivider from "antd/lib/menu/MenuDivider";
@@ -36,7 +36,7 @@ const Header: FC = (): ReactElement => {
   };
   return (
     <div className="mt-2">
-      <Container className="header-container h-85 d-flex align-items-center justify-content-between px-40">
+      <div className="header-container h-85 d-flex align-items-center justify-content-between px-40">
         <div className=" pt-2 pr-5 logo-design" ><h4>NewCo, Inc.</h4></div>
         <div className="d-flex align-items-center">
           <div className="d-none d-md-flex ">
@@ -126,7 +126,7 @@ const Header: FC = (): ReactElement => {
             </Dropdown>
           </div>
         </div>
-      </Container>
+      </div>
       <hr/>
     </div>
 

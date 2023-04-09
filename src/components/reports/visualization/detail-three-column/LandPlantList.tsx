@@ -20,7 +20,7 @@ export const ReportDetailThreeColLandPlantList: FC<ReportDetailThreeColLandPlant
  
 
     return (
-        <div data-testid={name} className='list-container mt-3 w-100'>
+        <div data-testid={name} className='mt-3 w-100'>
             <Row><Col xs="1"></Col><Col>
                 <ListGroup as="ol"> 
                     <Row> 

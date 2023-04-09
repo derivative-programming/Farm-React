@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
-import { Button, Form, Card, Container } from "react-bootstrap";
+import { Button, Form, Card } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik, 
@@ -130,9 +130,8 @@ export interface FormProps {
     
 
     return ( 
-        <Container
-          fluid={true}
-          className="p-0 d-flex flex-column align-items-center justify-content-center container-plant add-plant-form-container"
+        <div 
+          className="p-0 d-flex flex-column align-items-center justify-content-center"
         
         >
           <Card
@@ -192,7 +191,7 @@ export interface FormProps {
                     )}
                 </Formik>
             </Card>
-        </Container> 
+        </div> 
     );
 };
   

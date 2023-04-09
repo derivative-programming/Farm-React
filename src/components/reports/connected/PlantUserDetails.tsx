@@ -149,36 +149,36 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
             </div>
 
              
-      <Card
-        className="mt-1 page-card"
-         
-      > 
-            <h2>Plant Details</h2>
-            <h6>Plant Details page intro text</h6>
-            <Container>  
-                <div className="d-flex w-100 justify-content-center justify-content-md-start">
-                    <ReportInput.ReportInputButton
-                        name="back-button"
-                        onClick={() => navigateTo("land-plant-list","landCode")}
-                        buttonText="Plant List" 
-                        isButtonCallToAction={false}
-                        isVisible={true}
-                        isEnabled={true}
-                    />
-                </div>  
-            </Container>  
-            {/*//GENTrainingBlock[visualizationType]Start*/}
-            {/*//GENLearn[visualizationType=DetailThreeColumn]Start*/}
-            <ReportDetailThreeColPlantUserDetails 
-                item= {displayItem}
-                name="reportConnectedPlantUserDetails-table" 
-                onNavigateTo={onNavigateTo} 
-                onRefreshRequest={onRefreshRequest}
-            /> 
-            {/*//GENLearn[visualizationType=DetailThreeColumn]End*/}
-            {/*//GENTrainingBlock[visualizationType]End*/}
-        
-      </Card> 
+            <Card
+                className="mt-1 page-card report-card"
+                
+            > 
+                    <h2>Plant Details</h2>
+                    <h6>Plant Details page intro text</h6>
+                    <Container>  
+                        <div className="d-flex w-100 justify-content-center justify-content-md-start">
+                            <ReportInput.ReportInputButton
+                                name="back-button"
+                                onClick={() => navigateTo("land-plant-list","landCode")}
+                                buttonText="Plant List" 
+                                isButtonCallToAction={false}
+                                isVisible={true}
+                                isEnabled={true}
+                            />
+                        </div>  
+                    </Container>  
+                    {/*//GENTrainingBlock[visualizationType]Start*/}
+                    {/*//GENLearn[visualizationType=DetailThreeColumn]Start*/}
+                    <ReportDetailThreeColPlantUserDetails 
+                        item= {displayItem}
+                        name="reportConnectedPlantUserDetails-table" 
+                        onNavigateTo={onNavigateTo} 
+                        onRefreshRequest={onRefreshRequest}
+                    /> 
+                    {/*//GENLearn[visualizationType=DetailThreeColumn]End*/}
+                    {/*//GENTrainingBlock[visualizationType]End*/}
+                
+            </Card> 
         </div>
     );
 };

@@ -10,8 +10,7 @@ jobs...
 1. correct bootstrap 5 implementation...
 - skills... react, react bootstrap
 - alot of custom css being used that shouldnt be.   
-- show how to change to smaller scale 
-- plant list page results table in same card as filtering control
+- show how to change to smaller scale  
 
 2. export button to csv
 
@@ -34,10 +33,7 @@ jobs...
 
 10. fix npm dependency alerts and warnings
 
-style changes...
-remove use of className="custom-form-control"   
-use standard bootstrap container classes 
-Add button icon on grid add button
+style changes...  
 Back button icon on back btns 
 Custom validation controls need same style as bootstrap Val error 
 show a slightly zoomed out view, showing everythign smaller (scaled down?)

@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Button, Form, Card, Container } from "react-bootstrap";
+import { Button, Form, Card } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/LandAddPlant";
@@ -144,9 +144,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   };
 
   return (
-    <Container
-      fluid={true}
-      className="p-0 d-flex flex-column align-items-center justify-content-center container-plant add-plant-form-container"
+    <div 
+      className="p-0 d-flex flex-column align-items-center justify-content-center"
     
     >
       <Card
@@ -280,7 +279,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
         </Formik>
         <h6>Add plant form footer text</h6>
       </Card>
-    </Container>
+    </div>
   );
 };
 
