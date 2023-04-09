@@ -54,7 +54,7 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
 
     const onPageSizeChange = (pageSize: number) => {
         console.log('onPageSizeChange setQuery');
-        setQuery({ ...query, ItemCountPerPage: pageSize });
+        setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
     }
 
     const onRowSelect = (index: number) => {

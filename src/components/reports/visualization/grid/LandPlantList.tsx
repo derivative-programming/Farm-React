@@ -137,7 +137,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
           name="multSelectButtonToEditable"
           onClick={() => onMultSelectButtonToEditableClick()}
           buttonText="To Editable"
-          className="primary-button  mb-3 me-2"
+          className="mb-3 me-2"
           isButtonCallToAction={false}
           isVisible={true}
           isEnabled={true}
@@ -146,7 +146,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
           name="multSelectButtonToNotEditable"
           onClick={() => onMultSelectButtonToNotEditableClick()}
           buttonText="To Not Editable"
-          className="primary-button  mb-3 me-2"
+          className="mb-3 me-2"
           isButtonCallToAction={false}
           isVisible={true}
           isEnabled={true}
@@ -532,20 +532,12 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
         className="d-flex justify-content-center justify-content-md-end w-100 mb-3 mb-md-0"
         hidden={!showExport}
       >
-        {/* <Button data-testidid="export-button"
+        <Button data-testidid="export-button"
           onClick={() => onExport()}
-          className='primary-button me-md-2' type="button">
-    Export
-  </Button> */}
-        <ReportInputButton
-          name=""
-          onClick={() => onExport()}
-          buttonText=" Export"
-          className="primary-button"
-          isButtonCallToAction={true}
-          isVisible={true}
-          isEnabled={true}
-        />
+          className='me-md-2'
+          variant="secondary">
+          Export
+        </Button> 
       </div>
     </div>
   );

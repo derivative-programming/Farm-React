@@ -14,8 +14,7 @@ import * as InitFormService from "../services/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
 import * as InputFields from "../input-fields";
-import * as Lookups from "../lookups";
-import { ReportInputButton } from "../../reports/input-fields/InputButton";
+import * as Lookups from "../lookups"; 
 
 export interface FormProps {
   name?: string;
@@ -251,23 +250,11 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                 label="Sample Image Upload"
               />
               <div className="">
-                {/* <Button type="submit" data-testid="submit-button"
-                                    className="primary-button me-2 mt-3">
-                                    OK Button Text
-                                </Button>  */}
-                <ReportInputButton
-                  name=""
-                  type="submit"
-                  buttonText="  OK Button Text"
-                  className="primary-button me-2 mt-3"
-                  isButtonCallToAction={true}
-                  isVisible={true}
-                  isEnabled={true}
-                  onClick={function (): void {
-                    throw new Error("Function not implemented.");
-                  }}
-                />
-                {/* <InputFields.FormInputButton
+                <Button type="submit" data-testid="submit-button"
+                    className="me-2 mt-3">
+                    OK Button Text
+                </Button> 
+                <InputFields.FormInputButton
                   name="cancel-button"
                   buttonText="Cancel Button Text"
                   onClick={() => {
@@ -275,19 +262,9 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                   }}
                   isButtonCallToAction={false}
                   isVisible={true}
-                  className="primary-button me-2 mt-3"
-                /> */}
-                <ReportInputButton
-                  name="cancel-button"
-                  buttonText="Cancel Button Text"
-                  onClick={() => {
-                    navigateTo("land-plant-list", "landCode");
-                  }}
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  className="primary-button me-2 mt-3"
-                />
-                {/* <InputFields.FormInputButton
+                  className="me-2 mt-3"
+                /> 
+                <InputFields.FormInputButton
                   name="other-button"
                   buttonText="New Random Values"
                   onClick={() => {
@@ -295,19 +272,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                   }}
                   isButtonCallToAction={false}
                   isVisible={true}
-                  className="primary-button me-2 mt-3"
-                /> */}
-                <ReportInputButton
-                  name=""
-                  buttonText="New Random Values"
-                  className="primary-button me-2 mt-3"
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  isEnabled={true}
-                  onClick={() => {
-                    navigateTo("land-add-plant", "landCode");
-                  }}
-                />
+                  className="me-2 mt-3"
+                /> 
               </div>
             </Form>
           )}

@@ -30,7 +30,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
              name=""
              type="submit"
              buttonText=" Field One-Plants"
-             className="primary-button"
+             className=""
              isButtonCallToAction={true}
              isVisible={true}
              isEnabled={true}

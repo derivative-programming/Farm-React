@@ -10,7 +10,12 @@
     {
         "name": "React v18 Bootstrap v5 UI",
         "internalName" : "ui_r18_bs5",
-        "versionNumber" : "1.0.0.1"
+        "versionNumber" : {
+            "major": "1",
+            "minor": "0",
+            "build": "0",
+            "revision": "*"
+        }
     },
     "modelFile" : "gen-model.json",
     "SupressTemplateLanguageSubstitution": [

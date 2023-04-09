@@ -36,76 +36,66 @@ const Header: FC = (): ReactElement => {
   };
   return (
     <Container className="header-container h-85 d-flex align-items-center justify-content-between px-40">
-      <div className=" pb-4 pr-5 logo-design" ><h4>NewCo, Inc.</h4></div>
+      <div className=" pt-2 pr-5 logo-design" ><h4>NewCo, Inc.</h4></div>
       <div className="d-flex align-items-center">
         <div className="d-none d-md-flex ">
         <Nav className="menu-options-container justify-content-end">
-      <NavItem
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <span
-          className={`nav-link${isHovered ? ' text-underline' : ''}`}
-          onClick={onDashboard}
-        >
-          {authContext && authContext.token ? "Dashboard" : null}
-        </span>
-      </NavItem>
-    </Nav>
-          {authContext && authContext.token ? (
-            // <Button
-            //   onClick={onLogout}
-            //   className=" primary-button ml-4"
-            // >
-            //   Log Out
-            // </Button>
-             <ReportInputButton
-             name=""
-             type="submit"
-             buttonText="Log Out"
-             className="primary-button"
-             isButtonCallToAction={true}
-             isVisible={true}
-             isEnabled={true}
-             onClick={onLogout}
-           />
-          ) : (
-            <Container className="d-flex">
-              {/* <Button
-                onClick={onLogin}
-                className=" ml-4"
+          {authContext && authContext.token ? (  
+            <>
+              <NavItem
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
-                Login
-              </Button> */}
-              <ReportInputButton
-                  name=""
-                  type="submit"
-                  buttonText="  Login"
-                  className="primary-button me-2"
-                  isButtonCallToAction={true}
-                  isVisible={true}
-                  isEnabled={true}
+                <span
+                  className={`nav-link${isHovered ? ' text-underline' : ''}`}
+                  onClick={onDashboard}
+                >
+                  {authContext && authContext.token ? "Dashboard" : null}
+                </span>
+              </NavItem>
+
+              
+              <NavItem
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <span
+                  className={`nav-link${isHovered ? ' text-underline' : ''}`}
+                  onClick={onLogout}
+                >
+                  {authContext && authContext.token ? "Log Out" : null}
+                </span>
+              </NavItem>
+            </>
+            ) : ( 
+            <>
+              <NavItem
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <span
+                  className={`nav-link${isHovered ? ' text-underline' : ''}`}
                   onClick={onLogin}
-                />
-              {/* <Button
-                onClick={onRegister}
-                
+                >
+                  {authContext && authContext.token ? null : "Log In"}
+                </span>
+              </NavItem>
+              
+              <NavItem
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
-                Register
-              </Button> */}
-              <ReportInputButton
-                  name=""
-                  type="submit"
-                  buttonText="Register"
-                  className="primary-button "
-                  isButtonCallToAction={true}
-                  isVisible={true}
-                  isEnabled={true}
-               
+                <span
+                  className={`nav-link${isHovered ? ' text-underline' : ''}`}
                   onClick={onRegister}
-                />
-            </Container>
-          )}
+                >
+                  {authContext && authContext.token ? null : "Register"}
+                </span>
+              </NavItem>
+            </>
+            )} 
+      </Nav>
+           
         </div>
         <div className="mobile-menu">
           <Dropdown>

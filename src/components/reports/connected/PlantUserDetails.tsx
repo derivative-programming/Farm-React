@@ -1,7 +1,8 @@
 import React, { FC, ReactElement, useContext, useState, useEffect, useRef } from "react";
-import { Button, Form, Card, Breadcrumb, Row } from "react-bootstrap";
+import { Button, Form, Card, Breadcrumb, Row, Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ReportService from "../services/PlantUserDetails";
+import * as ReportInput from "../input-fields";
 import * as InitReportService from "../services/PlantUserDetailsInitReport"; 
 import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-three-column/PlantUserDetails";
 
@@ -53,7 +54,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     const onPageSizeChange = (pageSize: number) => {
         console.log('onPageSizeChange setQuery');
-        setQuery({ ...query, ItemCountPerPage: pageSize });
+        setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
     }
 
     const onRowSelect = (index: number) => {
@@ -146,13 +147,22 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
+
+            
             <h2>Plant Details</h2>
             <h6>Plant Details page intro text</h6>
-            <div className="d-flex w-100 justify-content-center justify-content-md-start">
-                <Button onClick={() => navigateTo("land-plant-list","landCode")} className='primary-button' data-testid="plant-btn" type="submit">
-                    Plant List
-                </Button>
-            </div>  
+            <Container>  
+                <div className="d-flex w-100 justify-content-center justify-content-md-start">
+                    <ReportInput.ReportInputButton
+                        name="back-button"
+                        onClick={() => navigateTo("land-plant-list","landCode")}
+                        buttonText="Plant List" 
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                    />
+                </div>  
+            </Container>  
             {/*//GENTrainingBlock[visualizationType]Start*/}
             {/*//GENLearn[visualizationType=DetailThreeColumn]Start*/}
             <ReportDetailThreeColPlantUserDetails 

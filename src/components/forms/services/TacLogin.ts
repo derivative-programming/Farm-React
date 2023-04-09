@@ -49,10 +49,10 @@ export const buildValidationSchema = () => {
     
     const validationSchema  = Yup.object().shape({
         email: Yup.string()
-        .required()
+        .required('Please enter a Email')
         ,
         password: Yup.string()
-        .required()
+        .required('Please enter a Password')
         , 
       });
       

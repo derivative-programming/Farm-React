@@ -163,46 +163,23 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
               <FormInput.FormInputText name="firstName" label="First Name" />
               <FormInput.FormInputText name="lastName" label="Last Name" />
               <div className="d-flex justify-content-between mt-3">
-                {/* <Button
+                <Button
                   type="submit"
                   data-testid="submit-button"
-                  className="primary-button p-2"
+                  className="p-2"
                 >
                   Register
-                </Button> */}
-                <ReportInputButton
-                  name=""
-                  type="submit"
-                  buttonText="Register"
-                  className="primary-button"
-                  isButtonCallToAction={true}
-                  isVisible={true}
-                  isEnabled={true}
-                  onClick={function (): void {
-                    throw new Error("Function not implemented.");
-                  }}
-                />
-                {/* <Button
+                </Button>
+                <Button
                   onClick={() => {
                     backToLoginButtonClick();
                   }}
                   variant="secondary"
-                  className="primary-button p-2"
+                  className="p-2"
                   data-testid="cancel-button"
                 >
                   Back To Login
-                </Button> */}
-                <ReportInputButton
-                  name="back-button"
-                  buttonText="  Back To Login"
-                  className="primary-button"
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  isEnabled={true}
-                  onClick={() => {
-                    backToLoginButtonClick();
-                  }}
-                />
+                </Button> 
               </div>
             </Form>
           )}

@@ -1,17 +1,18 @@
 
 todo...      
-page size update. if switching from pagesize1 and page 10 to page size 10, nothing is shown. reset to page 1.
+- dashboard page should have card similar to login page?   
+- report detail page has a horizontal scrollbar  
+- add page random values button isnt working
+- test harvest. could have issue since name attributes changed lines 
+
 
 
 jobs...
 
 1. correct bootstrap 5 implementation...
-- skills... react, bootstrap 5
-- alot of custom css being used that shouldnt be. 
-- not importing bootstrap css in index file as we should
-- not using container tag
-- show how to change to smaller scale
-- 'add' icon on 'add a plant' button
+- skills... react, react bootstrap
+- alot of custom css being used that shouldnt be.   
+- show how to change to smaller scale 
 
 2. export button to csv
 

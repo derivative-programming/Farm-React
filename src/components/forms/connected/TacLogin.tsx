@@ -161,27 +161,13 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                
                 className="d-flex  justify-content-between mt-3 p-0"
               >
-                {/* <Button
+                <Button
                   type="submit"
-                  data-testid="submit-button"
-                  className="primary-button"
+                  data-testid="submit-button" 
                 >
                   Login
-                </Button> */}
-                <ReportInputButton
-                  name="back-button"
-                  type="submit"
-               
-                  buttonText=" Login"
-                  className="primary-button"
-                  isButtonCallToAction={true}
-                  isVisible={true}
-                  isEnabled={true}
-                  onClick={function (): void {
-                    throw new Error("Function not implemented.");
-                  }}
-                />
-                {/* <Button
+                </Button> 
+                <Button
                   onClick={() => {
                     registerButtonClick();
                   }}
@@ -189,18 +175,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                   data-testid="cancel-button"
                 >
                   Register
-                </Button> */}
-                <ReportInputButton
-                  name="back-button"
-                  onClick={() => {
-                    registerButtonClick();
-                  }}
-                  buttonText="Register"
-                  className="primary-button"
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  isEnabled={true}
-                />
+                </Button> 
               </div>
             </Form>
           )}

@@ -40,7 +40,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
   const submitButtonClick = async (
     values: ReportService.QueryRequest,
     actions: FormikHelpers<ReportService.QueryRequest>
-  ) => {
+  ) => { 
     onSubmit(values);
     actions.setSubmitting(false);
   };
@@ -175,44 +175,22 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                     <Col lg="4" md="6" xs="12"></Col>
                     <Col lg="4" md="6" xs="12">
                       <div className="d-flex h-100 align-items-end justify-content-end">
-                        {/* <Button 
-                                                type="submit"
-                                                className="primary-button ms-2 mt-1"
-                                                data-testid="submit-button"
-                                            >
-                                                Search
-                                            </Button> */}
-                        <ReportInputButton
-                          name=""
-                          type="submit"
-                          buttonText="     Search"
-                          className="primary-button me-2"
-                          isButtonCallToAction={true}
-                          isVisible={true}
-                          isEnabled={true}
-                          onClick={function (): void {
-                            throw new Error("Function not implemented.");
-                          }}
-                        />
-                        {/* <Button
-                          className="primary-button  ms-2 mt-1"
+                        <Button 
+                            type="submit"
+                            className="ms-2 mt-1"
+                            data-testid="submit-button"
+                        >
+                            Search
+                        </Button> 
+                        <Button
+                          className="ms-2 mt-1"
                           type="reset"
                           onClick={() => props.resetForm() as any}
                           variant="secondary"
                           data-testid="reset"
                         >
                           Reset
-                        </Button> */}
-                        <ReportInputButton
-                          name=""
-                          type="reset"
-                          buttonText="Reset"
-                          className="primary-button ml-1"
-                          isButtonCallToAction={false}
-                          isVisible={true}
-                          isEnabled={true}
-                          onClick={() => props.resetForm() as any}
-                        />
+                        </Button>
                       </div>
                     </Col>
                   </Row>

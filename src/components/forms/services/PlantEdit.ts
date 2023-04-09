@@ -67,25 +67,25 @@ export const buildValidationSchema = () => {
     const validationSchema  = Yup.object().shape({
         flavorCode: Yup.string()
         ,
-        someIntVal: Yup.number().required()
+        someIntVal: Yup.number().required('Please enter a Some Int Val')
         ,
-        someBigIntVal: Yup.number().required()
+        someBigIntVal: Yup.number().required('Please enter a Some Big Int Val')
         ,
-        someBitVal: Yup.boolean().required()
+        someBitVal: Yup.boolean().required('Please enter a Some Bit Val')
         ,
-        isEditAllowed: Yup.boolean().required()
+        isEditAllowed: Yup.boolean().required('Please enter a Is Edit Allowed')
         ,
-        isDeleteAllowed: Yup.boolean().required()
+        isDeleteAllowed: Yup.boolean().required('Please enter a Is Delete Allowed')
         ,
-        someFloatVal: Yup.number().required()
+        someFloatVal: Yup.number().required('Please enter a Some Float Val')
         ,
-        someDecimalVal: Yup.number().required()
+        someDecimalVal: Yup.number().required('Please enter a Some Decimal Val')
         ,
         someUTCDateTimeVal: Yup.mixed()
         ,
         someDateVal: Yup.mixed()
         ,
-        someMoneyVal: Yup.number().required()
+        someMoneyVal: Yup.number().required('Please enter a Some Money Val')
         ,
         someNVarCharVal: Yup.string()
         ,

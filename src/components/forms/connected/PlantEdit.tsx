@@ -130,8 +130,15 @@ export interface FormProps {
     
 
     return ( 
-        <Container fluid={true} className=" p-0 container-plant add-plant-form-container" data-testid="formConnectedPlantEdit" >
-            <Card className=" overflow-y-auto mt-1 plant-card add-plant-card" >
+        <Container
+          fluid={true}
+          className="p-0 d-flex flex-column align-items-center justify-content-center container-plant add-plant-form-container"
+        
+        >
+          <Card
+            className="mt-1 add-plant-card"
+            
+          >
                 <h2>Update Plant</h2> 
 
                 <Formik
@@ -167,11 +174,11 @@ export interface FormProps {
                             <FormInput.FormInputText name="somePhoneNumber" label="Some Phone Number" /> 
                             <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
                             <FormInput.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 
-                            <div className="d-flex btn-container">
-                                <Button type="submit" data-testid="submit-button" className="primary-button ">
+                            <div className="d-flex justify-content-between">
+                                <Button type="submit" data-testid="submit-button">
                                     OK Button text
                                 </Button>
-                                <Button className="primary-button"
+                                <Button 
                                     onClick={() => {
                                         cancelButtonClick(); 
                                     }}
