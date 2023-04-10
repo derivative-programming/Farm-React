@@ -154,7 +154,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
         </Form.Select>
       </div>
       <Pagination 
-        className="mt-2 me-5"
+        className="mt-3 me-5"
         data-testid={paginationId}
         hidden={isHidden()}>
         <Pagination.First 

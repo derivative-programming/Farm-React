@@ -128,7 +128,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     ).then((response) => onRefreshRequest());
   };
 
-  const onExport = () => {};
+  const onExport = () => { };
 
   return (
     <div data-testid={name} className="w-100 mt-3">
@@ -173,160 +173,140 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               />
             </th>
 
-            <ReportColumnHeader
-              forColumn="someIntVal"
+            <ReportColumnHeader forColumn="someIntVal"
               isSortDescending={isSortDescending}
               label="Some Int Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someBigIntVal"
+            <ReportColumnHeader forColumn="someBigIntVal"
               isSortDescending={isSortDescending}
               label="Some Big Int Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someBitVal"
+            <ReportColumnHeader forColumn="someBitVal"
               isSortDescending={isSortDescending}
               label="Some Bit Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="isEditAllowed"
+            <ReportColumnHeader forColumn="isEditAllowed"
               isSortDescending={isSortDescending}
               label="is Edit Allowed"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="isDeleteAllowed"
+            <ReportColumnHeader forColumn="isDeleteAllowed"
               isSortDescending={isSortDescending}
               label="is Delete Allowed"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someFloatVal"
+            <ReportColumnHeader forColumn="someFloatVal"
               isSortDescending={isSortDescending}
               label="Some Float Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someDecimalVal"
+            <ReportColumnHeader forColumn="someDecimalVal"
               isSortDescending={isSortDescending}
               label="Some Decimal Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someUTCDateTimeVal"
+            <ReportColumnHeader forColumn="someUTCDateTimeVal"
               isSortDescending={isSortDescending}
               label="Some Date Time Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someDateVal"
+            <ReportColumnHeader forColumn="someDateVal"
               isSortDescending={isSortDescending}
               label="Some Date Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someMoneyVal"
+            <ReportColumnHeader forColumn="someMoneyVal"
               isSortDescending={isSortDescending}
               label="Some Money Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someNVarCharVal"
+            <ReportColumnHeader forColumn="someNVarCharVal"
               isSortDescending={isSortDescending}
               label="Some N Var Char Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someVarCharVal"
+            <ReportColumnHeader forColumn="someVarCharVal"
               isSortDescending={isSortDescending}
               label="Some Var Char Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someTextVal"
+            <ReportColumnHeader forColumn="someTextVal"
               isSortDescending={isSortDescending}
               label="Some Text Val"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="somePhoneNumber"
+            <ReportColumnHeader forColumn="somePhoneNumber"
               isSortDescending={isSortDescending}
               label="Some Phone Number"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someEmailAddress"
+            <ReportColumnHeader forColumn="someEmailAddress"
               isSortDescending={isSortDescending}
               label="Some Email Address"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="flavorName"
+            <ReportColumnHeader forColumn="flavorName"
               isSortDescending={isSortDescending}
               label="flavor Name"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="flavorCode"
+            <ReportColumnHeader forColumn="flavorCode"
               isSortDescending={isSortDescending}
               label="flavor Code"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="someIntConditionalOnDeletable"
+            <ReportColumnHeader forColumn="someIntConditionalOnDeletable"
               isSortDescending={isSortDescending}
               label="Int Conditional On Deleteable"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="nVarCharAsUrl"
+            <ReportColumnHeader forColumn="nVarCharAsUrl"
               isSortDescending={isSortDescending}
               label="N Var Char As Url"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="updateLinkPlantCode"
+            <ReportColumnHeader forColumn="updateLinkPlantCode"
               isSortDescending={isSortDescending}
               label=""
               onSort={onSort}
@@ -334,16 +314,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isVisible={false}
             />
 
-            <ReportColumnHeader
-              forColumn="deleteAsyncButtonLinkPlantCode"
+            <ReportColumnHeader forColumn="deleteAsyncButtonLinkPlantCode"
               isSortDescending={isSortDescending}
               label=""
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader
-              forColumn="detailsLinkPlantCode"
+            <ReportColumnHeader forColumn="detailsLinkPlantCode"
               isSortDescending={isSortDescending}
               label=""
               onSort={onSort}
@@ -367,109 +345,89 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       }}
                     />
                   </td>
-                  <ReportColumnDisplay.ReportColumnDisplayNumber
-                    forColumn="someIntVal"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntVal"
                     rowIndex={index}
                     value={item.someIntVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayNumber
-                    forColumn="someBigIntVal"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someBigIntVal"
                     rowIndex={index}
                     value={item.someBigIntVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayCheckbox
-                    forColumn="someBitVal"
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someBitVal"
                     rowIndex={index}
                     isChecked={item.someBitVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayCheckbox
-                    forColumn="isEditAllowed"
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isEditAllowed"
                     rowIndex={index}
                     isChecked={item.isEditAllowed}
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayCheckbox
-                    forColumn="isDeleteAllowed"
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isDeleteAllowed"
                     rowIndex={index}
                     isChecked={item.isDeleteAllowed}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayNumber
-                    forColumn="someFloatVal"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someFloatVal"
                     rowIndex={index}
                     value={item.someFloatVal}
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayNumber
-                    forColumn="someDecimalVal"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someDecimalVal"
                     rowIndex={index}
                     value={item.someDecimalVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayDateTime
-                    forColumn="someUTCDateTimeVal"
+                  <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someUTCDateTimeVal"
                     rowIndex={index}
                     value={item.someUTCDateTimeVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayDate
-                    forColumn="someDateVal"
+                  <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someDateVal"
                     rowIndex={index}
                     value={item.someDateVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayMoney
-                    forColumn="someMoneyVal"
+                  <ReportColumnDisplay.ReportColumnDisplayMoney forColumn="someMoneyVal"
                     rowIndex={index}
                     value={item.someMoneyVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText
-                    forColumn="someNVarCharVal"
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someNVarCharVal"
                     rowIndex={index}
                     value={item.someNVarCharVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText
-                    forColumn="someVarCharVal"
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someVarCharVal"
                     rowIndex={index}
                     value={item.someVarCharVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText
-                    forColumn="someTextVal"
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someTextVal"
                     rowIndex={index}
                     value={item.someTextVal}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayPhoneNumber
-                    forColumn="somePhoneNumber"
+                  <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="somePhoneNumber"
                     rowIndex={index}
                     value={item.somePhoneNumber}
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayEmail
-                    forColumn="someEmailAddress"
+                  <ReportColumnDisplay.ReportColumnDisplayEmail forColumn="someEmailAddress"
                     rowIndex={index}
                     value={item.someEmailAddress}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText
-                    forColumn="flavorName"
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorName"
                     rowIndex={index}
                     value={item.flavorName}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText
-                    forColumn="flavorCode"
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorCode"
                     rowIndex={index}
                     value={item.flavorCode}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayNumber
-                    forColumn="SomeIntConditionalOnDeletable"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="SomeIntConditionalOnDeletable"
                     rowIndex={index}
                     value={item.someIntConditionalOnDeletable}
                     conditionallyVisible={item.isDeleteAllowed}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayUrl
-                    forColumn="NVarCharAsUrl"
+                  <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="NVarCharAsUrl"
                     rowIndex={index}
                     value={item.nVarCharAsUrl}
                     linkText="Click Here"
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayButton
-                    forColumn="updateLinkPlantCode"
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateLinkPlantCode"
                     rowIndex={index}
                     value={item.updateLinkPlantCode}
                     buttonText="Update"
@@ -482,8 +440,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={false}
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayButton
-                    forColumn="deleteAsyncButtonLinkPlantCode"
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="deleteAsyncButtonLinkPlantCode"
                     rowIndex={index}
                     value={item.deleteAsyncButtonLinkPlantCode}
                     buttonText="Delete Async"
@@ -495,8 +452,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     }
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayButton
-                    forColumn="detailsLinkPlantCode"
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="detailsLinkPlantCode"
                     rowIndex={index}
                     value={item.detailsLinkPlantCode}
                     buttonText="Details"
@@ -537,7 +493,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
           className='me-md-2'
           variant="secondary">
           Export
-        </Button> 
+        </Button>
       </div>
     </div>
   );

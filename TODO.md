@@ -1,7 +1,10 @@
 
 todo...        
 - add page random values button isnt working. posting to same page but init not running again.
-- test harvest. could have issue since name attributes changed lines    
+- add page new values button necessary?  
+- test harvest. could have issue since name attributes changed lines         
+- mobile view of report table has page size, paging, and count display smashed together 
+- harvest testing should run both generated tests and original tests of farm 
 
   
 
@@ -32,6 +35,8 @@ jobs...
 9. visualization - folder view
 
 10. fix npm dependency alerts and warnings
+
+11. add animation to form buttons while processing occurs
 
 style changes...  
 Back button icon on back btns 
@@ -115,6 +120,7 @@ Check success add navigation on result code
 
 Translator… 
 CHANGE REPO names from r18 b5 to react18_bootstrap5
+
 
 if a genval variable is in the genif statement, you can remove it from the dimensional phrase?
 

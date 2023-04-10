@@ -148,7 +148,7 @@ export interface FormProps {
                     onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
                     {(props) => (
                         <Form 
-                            className="mb-2"
+                            className=""
                             name={name} 
                             data-testid={name}
                             onReset={props.handleReset} 
@@ -174,15 +174,18 @@ export interface FormProps {
                             <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
                             <FormInput.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 
                             <div className="d-flex justify-content-between">
-                                <Button type="submit" data-testid="submit-button">
+                                <Button type="submit"
+                                    className="me-2 mt-3" 
+                                    data-testid="submit-button">
                                     OK Button text
                                 </Button>
-                                <Button 
+                                <Button
+                                    className="me-2 mt-3" 
+                                    data-testid="cancel-button"
                                     onClick={() => {
                                         cancelButtonClick(); 
                                     }}
-                                    variant="secondary" 
-                                    data-testid="cancel-button"
+                                    variant="secondary"  
                                 >
                                     Cancel Button text
                                 </Button>

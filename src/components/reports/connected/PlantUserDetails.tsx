@@ -1,5 +1,6 @@
 import React, { FC, ReactElement, useContext, useState, useEffect, useRef } from "react";
 import { Button, Form, Card, Breadcrumb, Row, Container } from "react-bootstrap";
+import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ReportService from "../services/PlantUserDetails";
 import * as ReportInput from "../input-fields";
@@ -160,7 +161,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                             <ReportInput.ReportInputButton
                                 name="back-button"
                                 onClick={() => navigateTo("land-plant-list","landCode")}
-                                buttonText="Plant List" 
+                                buttonText={<><ArrowLeft className="mb-1"/> Plant List</>} 
                                 isButtonCallToAction={false}
                                 isVisible={true}
                                 isEnabled={true}

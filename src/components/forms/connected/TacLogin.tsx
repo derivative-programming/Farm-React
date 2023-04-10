@@ -140,7 +140,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
         >
           {(props) => (
             <Form
-              className="mb-2 m-0  w-100"
+              className="m-0  w-100"
               name={name}
               data-testid={name}
               onReset={props.handleReset}

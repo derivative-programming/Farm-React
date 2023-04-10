@@ -17,6 +17,7 @@ import { ReportDetailTwoColLandPlantList } from "../visualization/detail-two-col
 import * as ReportService from "../services/LandPlantList";
 import * as InitReportService from "../services/LandPlantListInitReport";
 import * as ReportInput from "../input-fields";
+import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
 
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -169,10 +170,9 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
         <Container>  
           <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
             <div className="mb-2 mb-md-0">
-              <ReportInput.ReportInputButton
-                name="back-button"
+              <ReportInput.ReportInputButton name="back-button"
                 onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
-                buttonText="Farm Dashboard" 
+                buttonText={<><ArrowLeft className="mb-1"/> Farm Dashboard</>}
                 isButtonCallToAction={false}
                 isVisible={true}
                 isEnabled={true}
@@ -180,8 +180,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
             </div>
             <div className="d-flex flex-column flex-md-row">
               <div className="mb-2 mb-md-0">
-                <ReportInput.ReportInputButton
-                  name="otherAddButton"
+                <ReportInput.ReportInputButton name="otherAddButton"
                   onClick={() => navigateTo("land-add-plant", "landCode")}
                   buttonText="Other Add Button"
                   isButtonCallToAction={false}
@@ -190,14 +189,9 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
                 />
               </div>
               <div>
-                <ReportInput.ReportInputButton
-                  name="add-button"
+                <ReportInput.ReportInputButton name="add-button"
                   onClick={() => navigateTo("land-add-plant", "landCode")}
-                  buttonText={
-                    <>
-                      Add A Plant <span className="plus-icon">+</span>
-                    </>
-                  }
+                  buttonText={<><PlusCircle className="mb-1"/> Add A Plant</>}
                   className="ms-md-2"
                   isButtonCallToAction={true}
                   isVisible={true}
@@ -219,7 +213,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
         />
 
         <div
-          className="d-flex w-100 mt-3 justify-content-end"
+          className="d-flex w-100  justify-content-end"
           hidden={
             !isFilterSectionHidden ||
             (isFilterSectionHidden && isRefreshButtonHidden)
@@ -227,7 +221,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
         >
           <Button
             data-testid="refresh-button"
-            className="ms-2" 
+            className="ms-2 mt-3" 
             onClick={onRefreshRequest}
             hidden={
               !isFilterSectionHidden ||

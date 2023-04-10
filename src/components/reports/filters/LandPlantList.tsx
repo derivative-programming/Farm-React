@@ -119,11 +119,10 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                         label="Some Decimal Val"
                       />
                     </Col>
-                    <Col
+                    <Col  id="someMinUTCDateTimeVal-filter"
                       lg="4"
                       md="6"
-                      xs="12"
-                      id="someMinUTCDateTimeVal-filter"
+                      xs="12" 
                     >
                       <ReportInput.ReportInputDateTime
                         name="someMinUTCDateTimeVal"
@@ -177,13 +176,13 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                       <div className="d-flex h-100 align-items-end justify-content-end">
                         <Button 
                             type="submit"
-                            className="ms-2 mt-1"
+                            className="ms-2 mt-3"
                             data-testid="submit-button"
                         >
                             Search
                         </Button> 
                         <Button
-                          className="ms-2 mt-1"
+                          className="ms-2 mt-3"
                           type="reset"
                           onClick={() => props.resetForm() as any}
                           variant="secondary"
