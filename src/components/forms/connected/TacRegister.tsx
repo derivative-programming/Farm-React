@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import { Button, Card, Form, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { ReportInputButton } from "../../reports/input-fields/InputButton";
 
@@ -26,6 +26,8 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   const [initialValues, setInitialValues] = useState(
     new FormService.SubmitRequestInstance()
   );
+  //To show the spinner on Register button
+  const [loading, setLoading] = useState(false)
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -77,6 +79,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     actions: FormikHelpers<FormService.SubmitRequest>
   ) => {
     try {
+      setLoading(true)
       const responseFull: any = await FormService.submitForm(values);
       const response: FormService.SubmitResult = responseFull.data;
       lastApiSubmission = {
@@ -100,6 +103,9 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       actions.resetForm();
     } catch (error) {
       actions.setSubmitting(false);
+    }
+    finally {
+      setLoading(false)
     }
   };
 
@@ -167,7 +173,18 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
                   data-testid="submit-button"
                   className="p-2"
                 >
-                  Register
+                  {
+                    loading &&
+                    (<Spinner
+                      as="span"
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      aria-hidden="true"
+                    />)
+                  }
+                  <span className="sr-only">&nbsp;Register</span>
+
                 </Button>
                 <Button
                   onClick={() => {
