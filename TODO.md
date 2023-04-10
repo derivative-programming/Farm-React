@@ -6,40 +6,46 @@ todo...
 - mobile view of report table has page size, paging, and count display smashed together 
 - harvest testing should run both generated tests and original tests of farm 
 
-  
-
-jobs...
-
-1. correct bootstrap 5 implementation...
-- skills... react, react bootstrap
-- alot of custom css being used that shouldnt be.   
+questions...
 - show how to change to smaller scale  
 
-2. export button to csv
+jobs... 
 
-3. processing animaiton
-- grid during api call
-- form submission during api call
-- init form during api call
+2. export button to csv (api should return a file?)
+
+3. processing animaiton...
+3.1. >>>plant list page overlay and processing animation on result table during initial api request on init of page and search button click
+
+3.2  >>>registration page - show processing animation on button during processing (round processing before button text)
+
+3.3 >>>add plant page - show overlay and processing animation on card during initial api request on init of page
 
 4. recommendations
 
-5. Simple Cypress implementation. 1 test per page
+5. >>>Simple Cypress implementation. 1 test per page - existance of title
 
-6. add unit testing
+6. unit testing...
 
-7. visualization - line chart
+6.1 fix warnings and errors on existing unit tests
 
-8. visualization - card view
+6.2 audit unit testing - plant list page
+
+6.3 audit unit testing - add plant page
+
+6.4 add missing unit testing
+
+
+7. >>>visualization - line chart...
+Create new page.  Copy land-plant-list page to create land-plant-line-chart.  Replace result table with a chart that uses 'Some Date Time Val' and 'Some Int Val' values as data
+
+8. >>>visualization - card view...
+create new page. Copy land-plant-list page to create land-plant-card-list. Replace result table with a card display.  Card will use 'Some Var Char Val' column as the card title and 'Some text Val' colummn as the card body. 
 
 9. visualization - folder view
 
-10. fix npm dependency alerts and warnings
+10. fix npm dependency alerts and warnings 
 
-11. add animation to form buttons while processing occurs
-
-style changes...  
-Back button icon on back btns 
+style changes...   
 Custom validation controls need same style as bootstrap Val error 
 show a slightly zoomed out view, showing everythign smaller (scaled down?)
 
