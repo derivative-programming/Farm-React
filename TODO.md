@@ -5,6 +5,9 @@ todo...
 - test harvest. could have issue since name attributes changed lines         
 - mobile view of report table has page size, paging, and count display smashed together 
 - harvest testing should run both generated tests and original tests of farm 
+- validation error on register is expanding the width of the card. validation message is too long and does not wrap
+- allow bookmark of report page url to view page with same filters
+- allow bookmark of authorized page. require login then redirect to it.
 
 questions...
 - show how to change to smaller scale  
@@ -14,15 +17,23 @@ jobs...
 2. export button to csv (api should return a file?)
 
 3. processing animaiton...
-3.1. >>>plant list page overlay and processing animation on result table during initial api request on init of page and search button click
+3.1. (job submitted) plant list page overlay and processing animation on result table during initial api request on init of page and search button click
 
-3.2  >>>registration page - show processing animation on button during processing (round processing before button text)
+3.2  (job submitted) registration page - show processing animation on button during processing (round processing before button text)
 
-3.3 >>>add plant page - show overlay and processing animation on card during initial api request on init of page
+3.3 (job submitted) add plant page - show overlay and processing animation on card during initial api request on init of page
 
 4. recommendations
 
-5. >>>Simple Cypress implementation. 1 test per page - existance of title
+5. >>>Simple Cypress implementation. 
+    1 test suite on each page. no intercept of api requests. from login page, go to target page. test for existance of title. at start of spec, if target page requires authorization, register a user. Use that user in spec. Would like to use the page object pattern (each page having an object in supprot folder that exposes functions that return specific items on the page.  Example getTitle())
+- (job posted) login
+- (job posted) register
+- (job posted) dashboard
+- plant list
+- add plant
+- plant detail
+- update plant
 
 6. unit testing...
 
@@ -36,7 +47,9 @@ jobs...
 
 
 7. >>>visualization - line chart...
-Create new page.  Copy land-plant-list page to create land-plant-line-chart.  Replace result table with a chart that uses 'Some Date Time Val' and 'Some Int Val' values as data
+Create a new page.  Copy land-plant-list page to create land-plant-line-chart.  Replace result table with a chart that uses 'Some Date Time Val' and 'Some Decimal Val' values as data. 
+Horizontal axis... datetime is horizontal axis. Dispaly dates on axis label (not time). labels for individual days should be shown on the axis, even if no data exists on that day
+Vertical axis should show integers as labels. 
 
 8. >>>visualization - card view...
 create new page. Copy land-plant-list page to create land-plant-card-list. Replace result table with a card display.  Card will use 'Some Var Char Val' column as the card title and 'Some text Val' colummn as the card body. 

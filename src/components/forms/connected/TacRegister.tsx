@@ -25,9 +25,8 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 }): ReactElement => {
   const [initialValues, setInitialValues] = useState(
     new FormService.SubmitRequestInstance()
-  );
-  //To show the spinner on Register button
-  const [loading, setLoading] = useState(false)
+  ); 
+  const [loading, setLoading] = useState(false);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -79,7 +78,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     actions: FormikHelpers<FormService.SubmitRequest>
   ) => {
     try {
-      setLoading(true)
+      setLoading(true);
       const responseFull: any = await FormService.submitForm(values);
       const response: FormService.SubmitResult = responseFull.data;
       lastApiSubmission = {
@@ -105,7 +104,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       actions.setSubmitting(false);
     }
     finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 

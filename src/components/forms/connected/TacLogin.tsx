@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as ReportInput from "../input-fields";
@@ -27,6 +27,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   const [initialValues, setInitialValues] = useState(
     new FormService.SubmitRequestInstance()
   );
+  const [loading, setLoading] = useState(false);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -78,6 +79,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
     actions: FormikHelpers<FormService.SubmitRequest>
   ) => {
     try {
+      setLoading(true);
       const responseFull: any = await FormService.submitForm(values);
       const response: FormService.SubmitResult = responseFull.data;
       lastApiSubmission = {
@@ -101,6 +103,9 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       actions.resetForm();
     } catch (error) {
       actions.setSubmitting(false);
+    }
+    finally {
+      setLoading(false)
     }
   };
 
@@ -163,9 +168,20 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                 <Button
                   type="submit"
                   data-testid="submit-button" 
-                >
-                  Login
-                </Button> 
+                  >
+                  {
+                    loading &&
+                    (<Spinner
+                      as="span"
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      aria-hidden="true"
+                    />)
+                  }
+                  <span className="sr-only">&nbsp;Login</span>
+
+                </Button>
                 <Button
                   onClick={() => {
                     registerButtonClick();

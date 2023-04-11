@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useContext, useEffect, useRef, useState } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import {
     Formik, 
@@ -23,7 +23,8 @@ export interface FormProps {
     const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance); 
     let lastApiSubmission:any = { 
             request: new FormService.SubmitResultInstance,
-            response: new FormService.SubmitRequestInstance};      
+            response: new FormService.SubmitRequestInstance};     
+    const [loading, setLoading] = useState(false); 
     const isInitializedRef = useRef(false); 
 
     const navigate = useNavigate();
@@ -72,6 +73,7 @@ export interface FormProps {
         actions: FormikHelpers<FormService.SubmitRequest>
     ) => { 
         try { 
+            setLoading(true);
             const responseFull: any = await FormService.submitForm(values,contextCode);
             const response: FormService.SubmitResult = responseFull.data; 
             lastApiSubmission = { 
@@ -89,6 +91,9 @@ export interface FormProps {
             navigateTo("plant-user-details","plantCode");
         } catch (error) {
             actions.setSubmitting(false);
+        }
+        finally {
+          setLoading(false)
         }
     }; 
 
@@ -177,8 +182,20 @@ export interface FormProps {
                                 <Button type="submit"
                                     className="me-2 mt-3" 
                                     data-testid="submit-button">
-                                    OK Button text
-                                </Button>
+                                    {
+                                      loading &&
+                                      (<Spinner
+                                        as="span"
+                                        animation="border"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                      />)
+                                    }
+                                    <span className="sr-only">&nbsp;OK Button text</span>
+                  
+                                  </Button>
+                                
                                 <Button
                                     className="me-2 mt-3" 
                                     data-testid="cancel-button"

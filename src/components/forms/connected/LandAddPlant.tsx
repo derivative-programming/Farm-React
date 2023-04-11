@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/LandAddPlant";
@@ -29,6 +29,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const [initialValues, setInitialValues] = useState(
     new FormService.SubmitRequestInstance()
   );
+  const [loading, setLoading] = useState(false);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -80,6 +81,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     actions: FormikHelpers<FormService.SubmitRequest>
   ) => {
     try {
+      setLoading(true);
       const responseFull: any = await FormService.submitForm(
         values,
         contextCode
@@ -107,6 +109,9 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       submitButtonNavigateTo();
     } catch (error) {
       actions.setSubmitting(false);
+    }
+    finally {
+      setLoading(false)
     }
   };
 
@@ -233,7 +238,18 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
               <div className="">
                 <Button type="submit" data-testid="submit-button"
                   className="me-2 mt-3">
-                  OK Button Text
+                  {
+                    loading &&
+                    (<Spinner
+                      as="span"
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      aria-hidden="true"
+                    />)
+                  }
+                  <span className="sr-only">&nbsp;OK Button Text</span>
+
                 </Button>
                 <InputFields.FormInputButton name="cancel-button"
                   buttonText="Cancel Button Text"
