@@ -30,6 +30,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     new FormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
+  const [loadingForm, setLoadingForm] = useState(true);
+
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -54,6 +56,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     }
 
     setInitPageResponse({ ...response });
+    setLoadingForm(false);
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
@@ -177,6 +180,14 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
               onReset={props.handleReset}
               onSubmit={props.handleSubmit}
             >
+              <div className="position-relative">
+                  { loadingForm && 
+                    <div 
+                    style={{width:'100%', height:'100%',borderRadius:'10px', zIndex:10, padding:'300px 0'}}
+                    className="position-absolute bg-secondary text-center bg-opacity-25">
+                        <Spinner animation="border" />
+                    </div>
+                  }
               <InputFields.ErrorDisplay
                 name="headerErrors"
                 errorArray={headerErrors}
@@ -235,6 +246,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
               <InputFields.FormInputFile name="sampleImageUploadFile"
                 label="Sample Image Upload"
               />
+              </div>
               <div className="">
                 <Button type="submit" data-testid="submit-button"
                   className="me-2 mt-3">
