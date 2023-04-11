@@ -1,8 +1,8 @@
-import { MyAppAuthUI } from "../support/pageobject/MyAppAuthUI";
+import { Login } from "../support/pageobject/Login";
 
 describe("Login", () => {
 	it("should check title is correct", () => {
-		MyAppAuthUI
+		Login
 			.openLogin()
 			.shouldHaveTitle("Login");
 	});
