@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/LandAddPlant";
@@ -29,6 +29,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const [initialValues, setInitialValues] = useState(
     new FormService.SubmitRequestInstance()
   );
+  const [loading, setLoading] = useState(true);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -53,6 +54,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     }
 
     setInitPageResponse({ ...response });
+    setLoading(false);
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
@@ -154,109 +156,110 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       >
         <h2>Add Plant Title Text</h2>
         <h6>Add plant intro text.</h6>
-
-        <Formik
-          enableReinitialize={true}
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          validate={handleValidate}
-          onSubmit={async (values, actions) => {
-            await submitClick(values, actions);
-          }}
-        >
-          {(props) => (
-            <Form
-              className=""
-              name={name}
-              data-testid={name}
-              onReset={props.handleReset}
-              onSubmit={props.handleSubmit}
-            >
-              <InputFields.ErrorDisplay
-                name="headerErrors"
-                errorArray={headerErrors}
-              />
-              <Lookups.FormSelectFlavor name="flavorCode"
-                label="Select A Flavor"
-              />
-              <InputFields.FormInputText name="otherFlavor"
-                label="Other Flavor"
-              />
-              <InputFields.FormInputNumber name="someIntVal"
-                label="Some Int Val"
-              />
-              <InputFields.FormInputNumber name="someBigIntVal"
-                label="Some Big Int Val"
-              />
-              <InputFields.FormInputCheckbox name="someBitVal"
-                label="Some Bit Val"
-              />
-              <InputFields.FormInputCheckbox name="isEditAllowed"
-                label="Is Edit Allowed"
-              />
-              <InputFields.FormInputCheckbox name="isDeleteAllowed"
-                label="Is Delete Allowed"
-              />
-              <InputFields.FormInputNumber name="someFloatVal"
-                label="Some Float Val"
-              />
-              <InputFields.FormInputNumber name="someDecimalVal"
-                label="Some Decimal Val"
-              />
-              <InputFields.FormInputDateTime name="someUTCDateTimeVal"
-                label="Some UTC Date Time Val"
-              />
-              <InputFields.FormInputDate name="someDateVal"
-                label="Some Date Val"
-              />
-              <InputFields.FormInputMoney name="someMoneyVal"
-                label="Some Money Val"
-              />
-              <InputFields.FormInputText name="someNVarCharVal"
-                label="Some N Var Char Val"
-              />
-              <InputFields.FormInputText name="someVarCharVal"
-                label="Some Var Char Val"
-              />
-              <InputFields.FormInputTextArea name="someTextVal"
-                label="Some Text Val"
-              />
-              <InputFields.FormInputText name="somePhoneNumber"
-                label="Some Phone Number"
-              />
-              <InputFields.FormInputEmail name="someEmailAddress"
-                label="Some Email Address"
-              />
-              <InputFields.FormInputFile name="sampleImageUploadFile"
-                label="Sample Image Upload"
-              />
-              <div className="">
-                <Button type="submit" data-testid="submit-button"
-                  className="me-2 mt-3">
-                  OK Button Text
-                </Button>
-                <InputFields.FormInputButton name="cancel-button"
-                  buttonText="Cancel Button Text"
-                  onClick={() => {
-                    navigateTo("land-plant-list", "landCode");
-                  }}
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  className="me-2 mt-3"
+        { loading ? <div className="text-center my-4"><Spinner animation="border" /></div> : 
+          <Formik
+            enableReinitialize={true}
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            validate={handleValidate}
+            onSubmit={async (values, actions) => {
+              await submitClick(values, actions);
+            }}
+          >
+            {(props) => (
+              <Form
+                className=""
+                name={name}
+                data-testid={name}
+                onReset={props.handleReset}
+                onSubmit={props.handleSubmit}
+              >
+                <InputFields.ErrorDisplay
+                  name="headerErrors"
+                  errorArray={headerErrors}
                 />
-                <InputFields.FormInputButton name="other-button"
-                  buttonText="New Random Values"
-                  onClick={() => {
-                    navigateTo("land-add-plant", "landCode");
-                  }}
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  className="me-2 mt-3"
+                <Lookups.FormSelectFlavor name="flavorCode"
+                  label="Select A Flavor"
                 />
-              </div>
-            </Form>
-          )}
-        </Formik>
+                <InputFields.FormInputText name="otherFlavor"
+                  label="Other Flavor"
+                />
+                <InputFields.FormInputNumber name="someIntVal"
+                  label="Some Int Val"
+                />
+                <InputFields.FormInputNumber name="someBigIntVal"
+                  label="Some Big Int Val"
+                />
+                <InputFields.FormInputCheckbox name="someBitVal"
+                  label="Some Bit Val"
+                />
+                <InputFields.FormInputCheckbox name="isEditAllowed"
+                  label="Is Edit Allowed"
+                />
+                <InputFields.FormInputCheckbox name="isDeleteAllowed"
+                  label="Is Delete Allowed"
+                />
+                <InputFields.FormInputNumber name="someFloatVal"
+                  label="Some Float Val"
+                />
+                <InputFields.FormInputNumber name="someDecimalVal"
+                  label="Some Decimal Val"
+                />
+                <InputFields.FormInputDateTime name="someUTCDateTimeVal"
+                  label="Some UTC Date Time Val"
+                />
+                <InputFields.FormInputDate name="someDateVal"
+                  label="Some Date Val"
+                />
+                <InputFields.FormInputMoney name="someMoneyVal"
+                  label="Some Money Val"
+                />
+                <InputFields.FormInputText name="someNVarCharVal"
+                  label="Some N Var Char Val"
+                />
+                <InputFields.FormInputText name="someVarCharVal"
+                  label="Some Var Char Val"
+                />
+                <InputFields.FormInputTextArea name="someTextVal"
+                  label="Some Text Val"
+                />
+                <InputFields.FormInputText name="somePhoneNumber"
+                  label="Some Phone Number"
+                />
+                <InputFields.FormInputEmail name="someEmailAddress"
+                  label="Some Email Address"
+                />
+                <InputFields.FormInputFile name="sampleImageUploadFile"
+                  label="Sample Image Upload"
+                />
+                <div className="">
+                  <Button type="submit" data-testid="submit-button"
+                    className="me-2 mt-3">
+                    OK Button Text
+                  </Button>
+                  <InputFields.FormInputButton name="cancel-button"
+                    buttonText="Cancel Button Text"
+                    onClick={() => {
+                      navigateTo("land-plant-list", "landCode");
+                    }}
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    className="me-2 mt-3"
+                  />
+                  <InputFields.FormInputButton name="other-button"
+                    buttonText="New Random Values"
+                    onClick={() => {
+                      navigateTo("land-add-plant", "landCode");
+                    }}
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    className="me-2 mt-3"
+                  />
+                </div>
+              </Form>
+            )}
+          </Formik>
+        }
         <div className="mt-3">
           <h6>Add plant form footer text</h6>
         </div>
