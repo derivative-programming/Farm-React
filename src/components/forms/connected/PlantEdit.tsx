@@ -93,7 +93,7 @@ export interface FormProps {
             actions.setSubmitting(false);
         }
         finally {
-          setLoading(false)
+          setLoading(false);
         }
     }; 
 
@@ -190,9 +190,10 @@ export interface FormProps {
                                         size="sm"
                                         role="status"
                                         aria-hidden="true"
+                                        className="spinner-button"
                                       />)
                                     }
-                                    <span className="sr-only">&nbsp;OK Button text</span>
+                                    <span className="sr-only">OK Button text</span>
                   
                                   </Button>
                                 

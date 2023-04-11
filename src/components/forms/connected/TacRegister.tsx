@@ -180,9 +180,10 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
                       size="sm"
                       role="status"
                       aria-hidden="true"
+                      className="spinner-button"
                     />)
                   }
-                  <span className="sr-only">&nbsp;Register</span>
+                  <span className="sr-only">Register</span>
 
                 </Button>
                 <Button

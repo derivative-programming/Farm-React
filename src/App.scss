@@ -79,6 +79,7 @@
   font-size: "25px";
 }
   
+
 .report-list-table {
   th {
     cursor: pointer;
@@ -103,6 +104,10 @@
  
 .report-card {
   width: 100%;
+}
+
+.spinner-button {
+  margin-right: 7px;
 }
 
 .ant-picker {

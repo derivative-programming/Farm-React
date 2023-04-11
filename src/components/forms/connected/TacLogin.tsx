@@ -105,7 +105,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       actions.setSubmitting(false);
     }
     finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -177,9 +177,10 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                       size="sm"
                       role="status"
                       aria-hidden="true"
+                      className="spinner-button"
                     />)
                   }
-                  <span className="sr-only">&nbsp;Login</span>
+                  <span className="sr-only">Login</span>
 
                 </Button>
                 <Button

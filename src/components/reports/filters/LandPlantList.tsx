@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { Button, Form, Accordion, Row, Col } from "react-bootstrap";
+import { Button, Form, Accordion, Row, Col, Spinner } from "react-bootstrap";
 import { ReportInputButton } from "../input-fields/InputButton";
 
 import { Formik, FormikHelpers } from "formik";
@@ -13,6 +13,8 @@ import * as ReportService from "../services/LandPlantList";
 import { AuthContext } from "../../../context/authContext";
 import * as ReportInput from "../input-fields";
 import * as Lookups from "../lookups";
+import { waitFor } from "@testing-library/react";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 export interface ReportFilterLandPlantListProps {
   name: string;
@@ -30,6 +32,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
   isCollapsible = true,
 }): ReactElement => {
   const [initialValues, setInitialValues] = useState(initialQuery);
+  const [loading, setLoading] = useState(false); 
 
   const validationSchema = ReportService.buildValidationSchema();
 
@@ -41,8 +44,14 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
     values: ReportService.QueryRequest,
     actions: FormikHelpers<ReportService.QueryRequest>
   ) => { 
-    onSubmit(values);
-    actions.setSubmitting(false);
+    try {  
+      setLoading(true);
+      onSubmit(values); 
+    }
+    finally { 
+      actions.setSubmitting(false);
+      setLoading(false);
+    }
   };
 
   const resetButtonClick = () => {
@@ -178,9 +187,21 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                             type="submit"
                             className="ms-2 mt-3"
                             data-testid="submit-button"
-                        >
-                            Search
-                        </Button> 
+                          >
+                          {
+                            loading &&
+                            (<Spinner
+                              as="span"
+                              animation="border"
+                              size="sm"
+                              role="status"
+                              aria-hidden="true"
+                              className="spinner-button"
+                            />)
+                          }
+                          <span className="sr-only">Search</span>
+        
+                        </Button>
                         <Button
                           className="ms-2 mt-3"
                           type="reset"

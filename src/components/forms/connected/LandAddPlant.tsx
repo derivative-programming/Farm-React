@@ -111,7 +111,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       actions.setSubmitting(false);
     }
     finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -246,9 +246,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                       size="sm"
                       role="status"
                       aria-hidden="true"
+                      className="spinner-button"
                     />)
                   }
-                  <span className="sr-only">&nbsp;OK Button Text</span>
+                  <span className="sr-only">OK Button Text</span>
 
                 </Button>
                 <InputFields.FormInputButton name="cancel-button"
