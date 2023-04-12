@@ -127,7 +127,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
     
       data-testid="formConnectedTacLogin"
     >
-      <div className="col-md-7 col-lg-5 col-xl-4">
+      <div className="col-md-7 col-lg-6 col-xl-5">
         <Card
           className=" overflow-y-auto border-0 rounded mt-1 page-card"
         

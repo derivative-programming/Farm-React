@@ -3,23 +3,20 @@ todo...
 - add page random values button isnt working. posting to same page but init not running again.
 - add page new values button necessary?  
 - test harvest. could have issue since name attributes changed lines         
-- mobile view of report table has page size, paging, and count display smashed together 
+- (job posted) mobile view of report table has page size, paging, and item count display smashed together 
 - harvest testing should run both generated tests and original tests of farm 
-- validation error on register is expanding the width of the card. validation message is too long and does not wrap
+- (job posted) validation error on register is expanding the width of the card. validation message is too long and does not wrap
 - allow bookmark of report page url to view page with same filters
 - allow bookmark of authorized page. require login then redirect to it.
-
-questions...
-- show how to change to smaller scale  
+- use /init in api url for init of page, instead of put
+ 
 
 jobs... 
 
 2. export button to csv (api should return a file?)
 
 3. processing animaiton...
-3.1. (job submitted) plant list page overlay and processing animation on result table during initial api request on init of page and search button click
-
-3.2  (job submitted) registration page - show processing animation on button during processing (round processing before button text)
+3.1. (job submitted) plant list page overlay and processing animation on result table during initial api request on init of page and search button click 
 
 3.3 (job submitted) add plant page - show overlay and processing animation on card during initial api request on init of page
 
@@ -58,12 +55,13 @@ create new page. Copy land-plant-list page to create land-plant-card-list. Repla
 
 10. fix npm dependency alerts and warnings 
 
+
+
 style changes...   
-Custom validation controls need same style as bootstrap Val error 
-show a slightly zoomed out view, showing everythign smaller (scaled down?)
+Custom validation controls need same style as bootstrap Val error  
 
 features...
-job:show processing animation on... form init, form submit, report init, report query  
+job:show processing animation on... form init, report init 
 Sched report button on grid with indicator icon
 Fav report button on grid with indicator icon 
 >>>report header display form initobjwf output params
@@ -82,15 +80,13 @@ job:report folder view
 >>>report param is unknown lokup allowed
 form credit card
 form captcha
-form auto submit
-login form
+form auto submit 
+login form 
 - page changes with learn statement
 logout form
 impersonation page
 form is custom page used
-from control tool tip 
-job:
-add cypress?  
+from control tool tip  
 
 display friendly generic message on hard unexpected error in api... 
 - form init and post 

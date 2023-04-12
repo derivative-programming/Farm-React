@@ -136,82 +136,84 @@ export interface FormProps {
 
     return ( 
         <div 
-          className="p-0 d-flex flex-column align-items-center justify-content-center"
+        className="row justify-content-center"
         
         >
-          <Card
-            className="mt-1 page-card"
-            
-          >
-                <h2>Update Plant</h2> 
+            <div className="col-md-7 col-lg-6 col-xl-5"> 
+                <Card
+                    className="mt-1 page-card"
+                    
+                >
+                    <h2>Update Plant</h2> 
 
-                <Formik
-                    enableReinitialize={true}
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    validate={handleValidate} 
-                    onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
-                    {(props) => (
-                        <Form 
-                            className=""
-                            name={name} 
-                            data-testid={name}
-                            onReset={props.handleReset} 
-                            onSubmit={props.handleSubmit}>  
+                    <Formik
+                        enableReinitialize={true}
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        validate={handleValidate} 
+                        onSubmit={async (values,actions) => {await submitButtonClick(values, actions)}}>
+                        {(props) => (
+                            <Form 
+                                className=""
+                                name={name} 
+                                data-testid={name}
+                                onReset={props.handleReset} 
+                                onSubmit={props.handleSubmit}>  
 
-                            <FormInput.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
-                            <Lookups.FormSelectFlavor name="flavorCode" label="Select A Flavor" /> 
-                            <FormInput.FormInputText name="otherFlavor" label="Other Flavor" /> 
-                            <FormInput.FormInputNumber name="someIntVal" label="Some Int Val" /> 
-                            <FormInput.FormInputNumber name="someBigIntVal" label="Some Big Int Val" /> 
-                            <FormInput.FormInputCheckbox name="someBitVal" label="Some Bit Val" /> 
-                            <FormInput.FormInputCheckbox name="isEditAllowed" label="Is Edit Allowed" /> 
-                            <FormInput.FormInputCheckbox name="isDeleteAllowed" label="Is Delete Allowed" /> 
-                            <FormInput.FormInputNumber name="someFloatVal" label="Some Float Val" /> 
-                            <FormInput.FormInputNumber name="someDecimalVal" label="Some Decimal Val" /> 
-                            <FormInput.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC Date Time Val" /> 
-                            <FormInput.FormInputDate name="someDateVal" label="Some Date Val" /> 
-                            <FormInput.FormInputMoney name="someMoneyVal" label="Some Money Val" /> 
-                            <FormInput.FormInputText name="someNVarCharVal" label="Some N Var Char Val" /> 
-                            <FormInput.FormInputText name="someVarCharVal" label="Some Var Char Val" /> 
-                            <FormInput.FormInputTextArea name="someTextVal" label="Some Text Val" /> 
-                            <FormInput.FormInputText name="somePhoneNumber" label="Some Phone Number" /> 
-                            <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
-                            <FormInput.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 
-                            <div className="d-flex justify-content-between">
-                                <Button type="submit"
-                                    className="me-2 mt-3" 
-                                    data-testid="submit-button">
-                                    {
-                                      loading &&
-                                      (<Spinner
-                                        as="span"
-                                        animation="border"
-                                        size="sm"
-                                        role="status"
-                                        aria-hidden="true"
-                                        className="spinner-button"
-                                      />)
-                                    }
-                                    <span className="sr-only">OK Button text</span>
-                  
-                                  </Button>
-                                
-                                <Button
-                                    className="me-2 mt-3" 
-                                    data-testid="cancel-button"
-                                    onClick={() => {
-                                        cancelButtonClick(); 
-                                    }}
-                                    variant="secondary"  
-                                >
-                                    Cancel Button text
-                                </Button>
-                            </div>
-                        </Form>  
-                    )}
-                </Formik>
-            </Card>
+                                <FormInput.ErrorDisplay name="headerErrors" errorArray={headerErrors} />
+                                <Lookups.FormSelectFlavor name="flavorCode" label="Select A Flavor" /> 
+                                <FormInput.FormInputText name="otherFlavor" label="Other Flavor" /> 
+                                <FormInput.FormInputNumber name="someIntVal" label="Some Int Val" /> 
+                                <FormInput.FormInputNumber name="someBigIntVal" label="Some Big Int Val" /> 
+                                <FormInput.FormInputCheckbox name="someBitVal" label="Some Bit Val" /> 
+                                <FormInput.FormInputCheckbox name="isEditAllowed" label="Is Edit Allowed" /> 
+                                <FormInput.FormInputCheckbox name="isDeleteAllowed" label="Is Delete Allowed" /> 
+                                <FormInput.FormInputNumber name="someFloatVal" label="Some Float Val" /> 
+                                <FormInput.FormInputNumber name="someDecimalVal" label="Some Decimal Val" /> 
+                                <FormInput.FormInputDateTime name="someUTCDateTimeVal" label="Some UTC Date Time Val" /> 
+                                <FormInput.FormInputDate name="someDateVal" label="Some Date Val" /> 
+                                <FormInput.FormInputMoney name="someMoneyVal" label="Some Money Val" /> 
+                                <FormInput.FormInputText name="someNVarCharVal" label="Some N Var Char Val" /> 
+                                <FormInput.FormInputText name="someVarCharVal" label="Some Var Char Val" /> 
+                                <FormInput.FormInputTextArea name="someTextVal" label="Some Text Val" /> 
+                                <FormInput.FormInputText name="somePhoneNumber" label="Some Phone Number" /> 
+                                <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
+                                <FormInput.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" /> 
+                                <div className="d-flex justify-content-between">
+                                    <Button type="submit"
+                                        className="me-2 mt-3" 
+                                        data-testid="submit-button">
+                                        {
+                                        loading &&
+                                        (<Spinner
+                                            as="span"
+                                            animation="border"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                            className="spinner-button"
+                                        />)
+                                        }
+                                        <span className="sr-only">OK Button text</span>
+                    
+                                    </Button>
+                                    
+                                    <Button
+                                        className="me-2 mt-3" 
+                                        data-testid="cancel-button"
+                                        onClick={() => {
+                                            cancelButtonClick(); 
+                                        }}
+                                        variant="secondary"  
+                                    >
+                                        Cancel Button text
+                                    </Button>
+                                </div>
+                            </Form>  
+                        )}
+                    </Formik>
+                </Card>
+            </div>
         </div> 
     );
 };

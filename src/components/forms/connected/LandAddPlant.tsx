@@ -153,143 +153,145 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
 
   return (
     <div
-      className="p-0 d-flex flex-column align-items-center justify-content-center"
+    className="row justify-content-center"
 
     >
-      <Card
-        className="mt-1 page-card"
+      <div className="col-md-7 col-lg-6 col-xl-5">
+        <Card
+          className="mt-1 page-card"
 
-      >
-        <h2>Add Plant Title Text</h2>
-        <h6>Add plant intro text.</h6>
-
-        <Formik
-          enableReinitialize={true}
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          validate={handleValidate}
-          onSubmit={async (values, actions) => {
-            await submitClick(values, actions);
-          }}
         >
-          {(props) => (
-            <Form
-              className=""
-              name={name}
-              data-testid={name}
-              onReset={props.handleReset}
-              onSubmit={props.handleSubmit}
-            >
-              <div className="position-relative">
-                  { loadingForm && 
-                    <div 
-                    style={{width:'100%', height:'100%',borderRadius:'10px', zIndex:10, padding:'300px 0'}}
-                    className="position-absolute bg-secondary text-center bg-opacity-25">
-                        <Spinner animation="border" />
-                    </div>
-                  }
-              <InputFields.ErrorDisplay
-                name="headerErrors"
-                errorArray={headerErrors}
-              />
-              <Lookups.FormSelectFlavor name="flavorCode"
-                label="Select A Flavor"
-              />
-              <InputFields.FormInputText name="otherFlavor"
-                label="Other Flavor"
-              />
-              <InputFields.FormInputNumber name="someIntVal"
-                label="Some Int Val"
-              />
-              <InputFields.FormInputNumber name="someBigIntVal"
-                label="Some Big Int Val"
-              />
-              <InputFields.FormInputCheckbox name="someBitVal"
-                label="Some Bit Val"
-              />
-              <InputFields.FormInputCheckbox name="isEditAllowed"
-                label="Is Edit Allowed"
-              />
-              <InputFields.FormInputCheckbox name="isDeleteAllowed"
-                label="Is Delete Allowed"
-              />
-              <InputFields.FormInputNumber name="someFloatVal"
-                label="Some Float Val"
-              />
-              <InputFields.FormInputNumber name="someDecimalVal"
-                label="Some Decimal Val"
-              />
-              <InputFields.FormInputDateTime name="someUTCDateTimeVal"
-                label="Some UTC Date Time Val"
-              />
-              <InputFields.FormInputDate name="someDateVal"
-                label="Some Date Val"
-              />
-              <InputFields.FormInputMoney name="someMoneyVal"
-                label="Some Money Val"
-              />
-              <InputFields.FormInputText name="someNVarCharVal"
-                label="Some N Var Char Val"
-              />
-              <InputFields.FormInputText name="someVarCharVal"
-                label="Some Var Char Val"
-              />
-              <InputFields.FormInputTextArea name="someTextVal"
-                label="Some Text Val"
-              />
-              <InputFields.FormInputText name="somePhoneNumber"
-                label="Some Phone Number"
-              />
-              <InputFields.FormInputEmail name="someEmailAddress"
-                label="Some Email Address"
-              />
-              <InputFields.FormInputFile name="sampleImageUploadFile"
-                label="Sample Image Upload"
-              />
-              </div>
-              <div className="">
-                <Button type="submit" data-testid="submit-button"
-                  className="me-2 mt-3">
-                  {
-                    loading &&
-                    (<Spinner
-                      as="span"
-                      animation="border"
-                      size="sm"
-                      role="status"
-                      aria-hidden="true"
-                      className="spinner-button"
-                    />)
-                  }
-                  <span className="sr-only">OK Button Text</span>
+          <h2>Add Plant Title Text</h2>
+          <h6>Add plant intro text.</h6>
 
-                </Button>
-                <InputFields.FormInputButton name="cancel-button"
-                  buttonText="Cancel Button Text"
-                  onClick={() => {
-                    navigateTo("land-plant-list", "landCode");
-                  }}
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  className="me-2 mt-3"
+          <Formik
+            enableReinitialize={true}
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            validate={handleValidate}
+            onSubmit={async (values, actions) => {
+              await submitClick(values, actions);
+            }}
+          >
+            {(props) => (
+              <Form
+                className=""
+                name={name}
+                data-testid={name}
+                onReset={props.handleReset}
+                onSubmit={props.handleSubmit}
+              >
+                <div className="position-relative">
+                    { loadingForm && 
+                      <div 
+                      style={{width:'100%', height:'100%',borderRadius:'10px', zIndex:10, padding:'300px 0'}}
+                      className="position-absolute bg-secondary text-center bg-opacity-25">
+                          <Spinner animation="border" />
+                      </div>
+                    }
+                <InputFields.ErrorDisplay
+                  name="headerErrors"
+                  errorArray={headerErrors}
                 />
-                <InputFields.FormInputButton name="other-button"
-                  buttonText="New Random Values"
-                  onClick={() => {
-                    navigateTo("land-add-plant", "landCode");
-                  }}
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  className="me-2 mt-3"
+                <Lookups.FormSelectFlavor name="flavorCode"
+                  label="Select A Flavor"
                 />
-              </div>
-            </Form>
-          )}
-        </Formik>
-        <div className="mt-3">
-          <h6>Add plant form footer text</h6>
-        </div>
-      </Card>
+                <InputFields.FormInputText name="otherFlavor"
+                  label="Other Flavor"
+                />
+                <InputFields.FormInputNumber name="someIntVal"
+                  label="Some Int Val"
+                />
+                <InputFields.FormInputNumber name="someBigIntVal"
+                  label="Some Big Int Val"
+                />
+                <InputFields.FormInputCheckbox name="someBitVal"
+                  label="Some Bit Val"
+                />
+                <InputFields.FormInputCheckbox name="isEditAllowed"
+                  label="Is Edit Allowed"
+                />
+                <InputFields.FormInputCheckbox name="isDeleteAllowed"
+                  label="Is Delete Allowed"
+                />
+                <InputFields.FormInputNumber name="someFloatVal"
+                  label="Some Float Val"
+                />
+                <InputFields.FormInputNumber name="someDecimalVal"
+                  label="Some Decimal Val"
+                />
+                <InputFields.FormInputDateTime name="someUTCDateTimeVal"
+                  label="Some UTC Date Time Val"
+                />
+                <InputFields.FormInputDate name="someDateVal"
+                  label="Some Date Val"
+                />
+                <InputFields.FormInputMoney name="someMoneyVal"
+                  label="Some Money Val"
+                />
+                <InputFields.FormInputText name="someNVarCharVal"
+                  label="Some N Var Char Val"
+                />
+                <InputFields.FormInputText name="someVarCharVal"
+                  label="Some Var Char Val"
+                />
+                <InputFields.FormInputTextArea name="someTextVal"
+                  label="Some Text Val"
+                />
+                <InputFields.FormInputText name="somePhoneNumber"
+                  label="Some Phone Number"
+                />
+                <InputFields.FormInputEmail name="someEmailAddress"
+                  label="Some Email Address"
+                />
+                <InputFields.FormInputFile name="sampleImageUploadFile"
+                  label="Sample Image Upload"
+                />
+                </div>
+                <div className="">
+                  <Button type="submit" data-testid="submit-button"
+                    className="me-2 mt-3">
+                    {
+                      loading &&
+                      (<Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                        className="spinner-button"
+                      />)
+                    }
+                    <span className="sr-only">OK Button Text</span>
+
+                  </Button>
+                  <InputFields.FormInputButton name="cancel-button"
+                    buttonText="Cancel Button Text"
+                    onClick={() => {
+                      navigateTo("land-plant-list", "landCode");
+                    }}
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    className="me-2 mt-3"
+                  />
+                  <InputFields.FormInputButton name="other-button"
+                    buttonText="New Random Values"
+                    onClick={() => {
+                      navigateTo("land-add-plant", "landCode");
+                    }}
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    className="me-2 mt-3"
+                  />
+                </div>
+              </Form>
+            )}
+          </Formik>
+          <div className="mt-3">
+            <h6>Add plant form footer text</h6>
+          </div>
+        </Card>
+      </div>
     </div>
   );
 };
