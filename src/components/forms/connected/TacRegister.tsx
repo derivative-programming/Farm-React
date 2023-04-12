@@ -122,85 +122,87 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 
   return (
     <div 
-      className="p-0 d-flex flex-column align-items-center justify-content-center"
+      className="row justify-content-center"
  
       data-testid="formConnectedTacRegister"
     >
-      <Card
-        className=" border-0 overflow-y-auto mt-1 page-card"
-       
-      >
-        <h2>Register</h2>
-        <h6>Please enter your email and password.</h6>
-
-        <Formik
-          enableReinitialize={true}
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          validate={handleValidate}
-          onSubmit={async (values, actions) => {
-            await submitButtonClick(values, actions);
-          }}
+      <div className="col-md-7 col-lg-5 col-xl-4">
+        <Card
+          className=" border-0 overflow-y-auto mt-1 page-card"
+        
         >
-          {(props) => (
-            <Form
-              className="m-0 w-100"
-              name={name}
-              data-testid={name}
-              onReset={props.handleReset}
-              onSubmit={props.handleSubmit}
-            >
-              <FormInput.ErrorDisplay
-                name="headerErrors"
-                errorArray={headerErrors}
-              />
-              <FormInput.FormInputEmail
-                name="email"
-                label="Email"
-                autoFocus={true}
-              />
-              <FormInput.FormInputPassword name="password" label="Password" />
-              <FormInput.FormInputPassword
-                name="confirmPassword"
-                label="Confirm Password"
-              />
-              <FormInput.FormInputText name="firstName" label="First Name" />
-              <FormInput.FormInputText name="lastName" label="Last Name" />
-              <div className="d-flex justify-content-between mt-3">
-                <Button
-                  type="submit"
-                  data-testid="submit-button"
-                  className="p-2"
-                >
-                  {
-                    loading &&
-                    (<Spinner
-                      as="span"
-                      animation="border"
-                      size="sm"
-                      role="status"
-                      aria-hidden="true"
-                      className="spinner-button"
-                    />)
-                  }
-                  <span className="sr-only">Register</span>
+          <h2>Register</h2>
+          <h6>Please enter your email and password.</h6>
 
-                </Button>
-                <Button
-                  onClick={() => {
-                    backToLoginButtonClick();
-                  }}
-                  variant="secondary"
-                  className="p-2"
-                  data-testid="cancel-button"
-                >
-                  Back To Login
-                </Button> 
-              </div>
-            </Form>
-          )}
-        </Formik>
-      </Card>
+          <Formik
+            enableReinitialize={true}
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            validate={handleValidate}
+            onSubmit={async (values, actions) => {
+              await submitButtonClick(values, actions);
+            }}
+          >
+            {(props) => (
+              <Form
+                className="m-0 w-100"
+                name={name}
+                data-testid={name}
+                onReset={props.handleReset}
+                onSubmit={props.handleSubmit}
+              >
+                <FormInput.ErrorDisplay
+                  name="headerErrors"
+                  errorArray={headerErrors}
+                />
+                <FormInput.FormInputEmail
+                  name="email"
+                  label="Email"
+                  autoFocus={true}
+                />
+                <FormInput.FormInputPassword name="password" label="Password" />
+                <FormInput.FormInputPassword
+                  name="confirmPassword"
+                  label="Confirm Password"
+                />
+                <FormInput.FormInputText name="firstName" label="First Name" />
+                <FormInput.FormInputText name="lastName" label="Last Name" />
+                <div className="d-flex justify-content-between mt-3">
+                  <Button
+                    type="submit"
+                    data-testid="submit-button"
+                    className="p-2"
+                  >
+                    {
+                      loading &&
+                      (<Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                        className="spinner-button"
+                      />)
+                    }
+                    <span className="sr-only">Register</span>
+
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      backToLoginButtonClick();
+                    }}
+                    variant="secondary"
+                    className="p-2"
+                    data-testid="cancel-button"
+                  >
+                    Back To Login
+                  </Button> 
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </Card>
+      </div>
     </div>
   );
 };
