@@ -27,6 +27,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     new FormService.SubmitRequestInstance()
   ); 
   const [loading, setLoading] = useState(false);
+  const [initForm, setInitForm] = useState(true);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -46,11 +47,11 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   const handleInit = (responseFull: any) => {
     const initFormResponse: FormService.InitResult = responseFull.data;
 
-    if (!initFormResponse.success) {
+    if (!initFormResponse.success) { 
       return;
     }
 
-    setInitialValues({ ...FormService.buildSubmitRequest(initFormResponse) });
+    setInitialValues({ ...FormService.buildSubmitRequest(initFormResponse) }); 
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
@@ -117,7 +118,9 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       return;
     }
     isInitializedRef.current = true;
-    FormService.initForm().then((response) => handleInit(response));
+    FormService.initForm()
+      .then((response) => handleInit(response))
+      .finally(() => {setInitForm(false)});
   }, []);
 
   return (
@@ -151,22 +154,30 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
                 onReset={props.handleReset}
                 onSubmit={props.handleSubmit}
               >
-                <FormInput.ErrorDisplay
-                  name="headerErrors"
-                  errorArray={headerErrors}
-                />
-                <FormInput.FormInputEmail
-                  name="email"
-                  label="Email"
-                  autoFocus={true}
-                />
-                <FormInput.FormInputPassword name="password" label="Password" />
-                <FormInput.FormInputPassword
-                  name="confirmPassword"
-                  label="Confirm Password"
-                />
-                <FormInput.FormInputText name="firstName" label="First Name" />
-                <FormInput.FormInputText name="lastName" label="Last Name" />
+                { initForm ?
+                  <div className="text-center bg-secondary bg-opacity-25">
+                      <Spinner animation="border" className="mt-2 mb-2" />
+                  </div>
+                  : 
+                  <div>
+                    <FormInput.ErrorDisplay
+                      name="headerErrors"
+                      errorArray={headerErrors}
+                    />
+                    <FormInput.FormInputEmail
+                      name="email"
+                      label="Email"
+                      autoFocus={true}
+                    />
+                    <FormInput.FormInputPassword name="password" label="Password" />
+                    <FormInput.FormInputPassword
+                      name="confirmPassword"
+                      label="Confirm Password"
+                    />
+                    <FormInput.FormInputText name="firstName" label="First Name" />
+                    <FormInput.FormInputText name="lastName" label="Last Name" />
+                  </div>
+                }
                 <div className="d-flex justify-content-between mt-3">
                   <Button
                     type="submit"

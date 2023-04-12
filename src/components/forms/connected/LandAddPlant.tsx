@@ -30,7 +30,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     new FormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
-  const [loadingForm, setLoadingForm] = useState(true);
+  const [initForm, setInitForm] = useState(true);
 
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
@@ -55,8 +55,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       return;
     }
 
-    setInitPageResponse({ ...response });
-    setLoadingForm(false);
+    setInitPageResponse({ ...response }); 
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
@@ -127,7 +126,9 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       return;
     }
     isInitializedRef.current = true;
-    FormService.initForm(contextCode).then((response) => handleInit(response));
+    FormService.initForm(contextCode)
+      .then((response) => handleInit(response))
+      .finally(() => {setInitForm(false)});
   }, []);
 
   useEffect(() => {
@@ -181,73 +182,72 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                 onReset={props.handleReset}
                 onSubmit={props.handleSubmit}
               >
-                <div className="position-relative">
-                    { loadingForm && 
-                      <div 
-                      style={{width:'100%', height:'100%',borderRadius:'10px', zIndex:10, padding:'300px 0'}}
-                      className="position-absolute bg-secondary text-center bg-opacity-25">
-                          <Spinner animation="border" />
-                      </div>
-                    }
-                <InputFields.ErrorDisplay
-                  name="headerErrors"
-                  errorArray={headerErrors}
-                />
-                <Lookups.FormSelectFlavor name="flavorCode"
-                  label="Select A Flavor"
-                />
-                <InputFields.FormInputText name="otherFlavor"
-                  label="Other Flavor"
-                />
-                <InputFields.FormInputNumber name="someIntVal"
-                  label="Some Int Val"
-                />
-                <InputFields.FormInputNumber name="someBigIntVal"
-                  label="Some Big Int Val"
-                />
-                <InputFields.FormInputCheckbox name="someBitVal"
-                  label="Some Bit Val"
-                />
-                <InputFields.FormInputCheckbox name="isEditAllowed"
-                  label="Is Edit Allowed"
-                />
-                <InputFields.FormInputCheckbox name="isDeleteAllowed"
-                  label="Is Delete Allowed"
-                />
-                <InputFields.FormInputNumber name="someFloatVal"
-                  label="Some Float Val"
-                />
-                <InputFields.FormInputNumber name="someDecimalVal"
-                  label="Some Decimal Val"
-                />
-                <InputFields.FormInputDateTime name="someUTCDateTimeVal"
-                  label="Some UTC Date Time Val"
-                />
-                <InputFields.FormInputDate name="someDateVal"
-                  label="Some Date Val"
-                />
-                <InputFields.FormInputMoney name="someMoneyVal"
-                  label="Some Money Val"
-                />
-                <InputFields.FormInputText name="someNVarCharVal"
-                  label="Some N Var Char Val"
-                />
-                <InputFields.FormInputText name="someVarCharVal"
-                  label="Some Var Char Val"
-                />
-                <InputFields.FormInputTextArea name="someTextVal"
-                  label="Some Text Val"
-                />
-                <InputFields.FormInputText name="somePhoneNumber"
-                  label="Some Phone Number"
-                />
-                <InputFields.FormInputEmail name="someEmailAddress"
-                  label="Some Email Address"
-                />
-                <InputFields.FormInputFile name="sampleImageUploadFile"
-                  label="Sample Image Upload"
-                />
-                </div>
+                { initForm ?
+                  <div className="text-center  bg-secondary bg-opacity-25">
+                      <Spinner animation="border" className="mt-2 mb-2" />
+                  </div>
+                  : 
+                  <div> 
+                    <InputFields.ErrorDisplay
+                      name="headerErrors"
+                      errorArray={headerErrors}
+                    />
+                    <Lookups.FormSelectFlavor name="flavorCode"
+                      label="Select A Flavor"
+                    />
+                    <InputFields.FormInputText name="otherFlavor"
+                      label="Other Flavor"
+                    />
+                    <InputFields.FormInputNumber name="someIntVal"
+                      label="Some Int Val"
+                    />
+                    <InputFields.FormInputNumber name="someBigIntVal"
+                      label="Some Big Int Val"
+                    />
+                    <InputFields.FormInputCheckbox name="someBitVal"
+                      label="Some Bit Val"
+                    />
+                    <InputFields.FormInputCheckbox name="isEditAllowed"
+                      label="Is Edit Allowed"
+                    />
+                    <InputFields.FormInputCheckbox name="isDeleteAllowed"
+                      label="Is Delete Allowed"
+                    />
+                    <InputFields.FormInputNumber name="someFloatVal"
+                      label="Some Float Val"
+                    />
+                    <InputFields.FormInputNumber name="someDecimalVal"
+                      label="Some Decimal Val"
+                    />
+                    <InputFields.FormInputDateTime name="someUTCDateTimeVal"
+                      label="Some UTC Date Time Val"
+                    />
+                    <InputFields.FormInputDate name="someDateVal"
+                      label="Some Date Val"
+                    />
+                    <InputFields.FormInputMoney name="someMoneyVal"
+                      label="Some Money Val"
+                    />
+                    <InputFields.FormInputText name="someNVarCharVal"
+                      label="Some N Var Char Val"
+                    />
+                    <InputFields.FormInputText name="someVarCharVal"
+                      label="Some Var Char Val"
+                    />
+                    <InputFields.FormInputTextArea name="someTextVal"
+                      label="Some Text Val"
+                    />
+                    <InputFields.FormInputText name="somePhoneNumber"
+                      label="Some Phone Number"
+                    />
+                    <InputFields.FormInputEmail name="someEmailAddress"
+                      label="Some Email Address"
+                    />
+                    <InputFields.FormInputFile name="sampleImageUploadFile"
+                      label="Sample Image Upload"
+                    />
+                  </div>
+                }
                 <div className="">
                   <Button type="submit" data-testid="submit-button"
                     className="me-2 mt-3">

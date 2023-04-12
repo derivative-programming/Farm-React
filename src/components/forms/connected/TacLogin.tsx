@@ -28,6 +28,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
     new FormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
+  const [initForm, setInitForm] = useState(true);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -51,7 +52,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       return;
     }
 
-    setInitialValues({ ...FormService.buildSubmitRequest(initFormResponse) });
+    setInitialValues({ ...FormService.buildSubmitRequest(initFormResponse) }); 
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
@@ -118,7 +119,9 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       return;
     }
     isInitializedRef.current = true;
-    FormService.initForm(contextCode).then((response) => handleInit(response));
+    FormService.initForm(contextCode)
+      .then((response) => handleInit(response))
+      .finally(() => {setInitForm(false)});
   }, []);
 
   return (
@@ -152,16 +155,24 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                 onReset={props.handleReset}
                 onSubmit={props.handleSubmit}
               >
-                <FormInput.ErrorDisplay
-                  name="headerErrors"
-                  errorArray={headerErrors}
-                />
-                <FormInput.FormInputEmail
-                  name="email"
-                  label="Email"
-                  autoFocus={true}
-                />
-                <FormInput.FormInputPassword name="password" label="Password" />
+                { initForm ?
+                  <div className="text-center bg-secondary bg-opacity-25">
+                      <Spinner animation="border" className="mt-2 mb-2" />
+                  </div>
+                  : 
+                  <div>
+                    <FormInput.ErrorDisplay
+                      name="headerErrors"
+                      errorArray={headerErrors}
+                    />
+                    <FormInput.FormInputEmail
+                      name="email"
+                      label="Email"
+                      autoFocus={true}
+                    />
+                    <FormInput.FormInputPassword name="password" label="Password" />
+                  </div>
+                }
                 <div
                 
                   className="d-flex  justify-content-between mt-3 p-0"

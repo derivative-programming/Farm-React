@@ -4,8 +4,7 @@ todo...
 - add page new values button necessary?  
 - test harvest. could have issue since name attributes changed lines         
 - (job posted) mobile view of report table has page size, paging, and item count display smashed together 
-- harvest testing should run both generated tests and original tests of farm 
-- (job posted) validation error on register is expanding the width of the card. validation message is too long and does not wrap
+- harvest testing should run both generated tests and original tests of farm  
 - allow bookmark of report page url to view page with same filters
 - allow bookmark of authorized page. require login then redirect to it.
 - use /init in api url for init of page, instead of put
