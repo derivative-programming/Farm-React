@@ -136,7 +136,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
   return (
     <div
       hidden={isHidden()}
-      data-testid={name} className="d-flex w-100 align-items-center justify-content-between">
+      data-testid={name} className="d-flex flex-column flex-md-row w-100 align-items-center justify-content-between">
       <div className="d-flex align-items-center">
         <Form.Label className="m-0 me-2">Items Per Page</Form.Label>
         <Form.Select
@@ -154,7 +154,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
         </Form.Select>
       </div>
       <Pagination 
-        className="mt-3 me-5"
+        className="mt-3"
         data-testid={paginationId}
         hidden={isHidden()}>
         <Pagination.First 
