@@ -28,6 +28,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
     new FormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
+  const [initForm, setInitForm] = useState(true);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -51,7 +52,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       return;
     }
 
-    setInitialValues({ ...FormService.buildSubmitRequest(initFormResponse) });
+    setInitialValues({ ...FormService.buildSubmitRequest(initFormResponse) }); 
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
@@ -118,85 +119,97 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       return;
     }
     isInitializedRef.current = true;
-    FormService.initForm(contextCode).then((response) => handleInit(response));
+    FormService.initForm(contextCode)
+      .then((response) => handleInit(response))
+      .finally(() => {setInitForm(false)});
   }, []);
 
   return (
     <div 
-      className=" p-0 d-flex flex-column align-items-center justify-content-center"
+      className="row justify-content-center"
     
       data-testid="formConnectedTacLogin"
     >
-      <Card
-        className=" overflow-y-auto border-0 rounded mt-1 page-card"
-       
-      >
-        <h2>Login</h2>
-        <h6>Please enter your email and password.</h6>
-
-        <Formik
-          enableReinitialize={true}
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          validate={handleValidate}
-          onSubmit={async (values, actions) => {
-            await submitButtonClick(values, actions);
-          }}
+      <div className="col-md-7 col-lg-6 col-xl-5">
+        <Card
+          className=" overflow-y-auto border-0 rounded mt-1 page-card"
+        
         >
-          {(props) => (
-            <Form
-              className="m-0  w-100"
-              name={name}
-              data-testid={name}
-              onReset={props.handleReset}
-              onSubmit={props.handleSubmit}
-            >
-              <FormInput.ErrorDisplay
-                name="headerErrors"
-                errorArray={headerErrors}
-              />
-              <FormInput.FormInputEmail
-                name="email"
-                label="Email"
-                autoFocus={true}
-              />
-              <FormInput.FormInputPassword name="password" label="Password" />
-              <div
-               
-                className="d-flex  justify-content-between mt-3 p-0"
-              >
-                <Button
-                  type="submit"
-                  data-testid="submit-button" 
-                  >
-                  {
-                    loading &&
-                    (<Spinner
-                      as="span"
-                      animation="border"
-                      size="sm"
-                      role="status"
-                      aria-hidden="true"
-                      className="spinner-button"
-                    />)
-                  }
-                  <span className="sr-only">Login</span>
+          <h2>Login</h2>
+          <h6>Please enter your email and password.</h6>
 
-                </Button>
-                <Button
-                  onClick={() => {
-                    registerButtonClick();
-                  }}
-                  variant="secondary"
-                  data-testid="cancel-button"
+          <Formik
+            enableReinitialize={true}
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            validate={handleValidate}
+            onSubmit={async (values, actions) => {
+              await submitButtonClick(values, actions);
+            }}
+          >
+            {(props) => (
+              <Form
+                className="m-0  w-100"
+                name={name}
+                data-testid={name}
+                onReset={props.handleReset}
+                onSubmit={props.handleSubmit}
+              >
+                { initForm ?
+                  <div className="text-center bg-secondary bg-opacity-25">
+                      <Spinner animation="border" className="mt-2 mb-2" />
+                  </div>
+                  : 
+                  <div>
+                    <FormInput.ErrorDisplay
+                      name="headerErrors"
+                      errorArray={headerErrors}
+                    />
+                    <FormInput.FormInputEmail
+                      name="email"
+                      label="Email"
+                      autoFocus={true}
+                    />
+                    <FormInput.FormInputPassword name="password" label="Password" />
+                  </div>
+                }
+                <div
+                
+                  className="d-flex  justify-content-between mt-3 p-0"
                 >
-                  Register
-                </Button> 
-              </div>
-            </Form>
-          )}
-        </Formik>
-      </Card>
+                  <Button
+                    type="submit"
+                    data-testid="submit-button" 
+                    >
+                    {
+                      loading &&
+                      (<Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                        className="spinner-button"
+                      />)
+                    }
+                    <span className="sr-only">Login</span>
+
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      registerButtonClick();
+                    }}
+                    variant="secondary"
+                    data-testid="cancel-button"
+                  >
+                    Register
+                  </Button> 
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </Card>
+      </div>
     </div>
   );
 };
