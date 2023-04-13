@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement, useState, useEffect  } from "react";
 import { Button, Form, Table } from "react-bootstrap";
 import "../../../../App.scss";
 import * as ReportService from "../../services/LandPlantList";
@@ -8,7 +8,7 @@ import * as AsyncServices from "../../../services";
 import { ReportPagination } from "../../input-fields";
 import * as ReportInput from "../../input-fields";
 import { ReportInputButton } from "../../input-fields/InputButton";
-
+import * as ReactBootStrap from "react-bootstrap";
 export interface ReportGridLandPlantListProps {
   name: string;
   contextCode: string;
@@ -25,6 +25,7 @@ export interface ReportGridLandPlantListProps {
   onPageSelection(pageNumber: number): void;
   showPagingControls?: boolean;
   showExport?: boolean;
+  showProcessing?: boolean;
 }
 export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   name,
@@ -42,6 +43,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   onPageSelection,
   showPagingControls = true,
   showExport = true,
+  showProcessing = true,
 }): ReactElement => {
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
@@ -129,6 +131,15 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   };
 
   const onExport = () => { };
+
+  const [showSpinner, setShowSpinner] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowSpinner(false);
+    }, 3000);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <div data-testid={name} className="w-100 mt-3">
@@ -330,7 +341,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
           </tr>
         </thead>
         <tbody>
-          {items && items.length ? (
+          {items && showProcessing && items.length ? (
             items.map((item: ReportService.QueryResultItem, index) => {
               return (
                 <tr key={index.toString()}>
@@ -468,7 +479,13 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
             })
           ) : (
             <tr>
-              <td colSpan={4}>No rows returned text</td>
+              {showSpinner ? (
+                <td>
+                  <ReactBootStrap.Spinner animation="border" />
+                </td>
+              ) : (
+                <td colSpan={4}>No rows returned text</td>
+              )}
             </tr>
           )}
         </tbody>
