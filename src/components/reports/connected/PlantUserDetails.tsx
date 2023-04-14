@@ -10,6 +10,7 @@ import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-th
 export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(1);
+    const [isProcessing, setIsProcessing] = useState(false);
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance);
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance); 
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
@@ -128,8 +129,10 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     }, [initialValues]); 
 
     useEffect(() => { 
+        setIsProcessing(true);
         ReportService.submitRequest(query, contextCode)
-            .then(response => handleQueryResults(response));
+            .then(response => handleQueryResults(response))
+            .finally(() => {setIsProcessing(false);});
     }, [query]); 
 
     return (
@@ -175,6 +178,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                         name="reportConnectedPlantUserDetails-table" 
                         onNavigateTo={onNavigateTo} 
                         onRefreshRequest={onRefreshRequest}
+                        showProcessing={isProcessing}
                     /> 
                     {/*//GENLearn[visualizationType=DetailThreeColumn]End*/}
                     {/*//GENTrainingBlock[visualizationType]End*/}

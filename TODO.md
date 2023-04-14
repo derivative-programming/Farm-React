@@ -2,22 +2,31 @@
 todo...        
 - add page random values button isnt working. posting to same page but init not running again.
 - add page new values button necessary?  
-- test harvest. could have issue since name attributes changed lines         
-- (job posted) mobile view of report table has page size, paging, and item count display smashed together 
+- test harvest. could have issue since name attributes changed lines          
 - harvest testing should run both generated tests and original tests of farm  
 - allow bookmark of report page url to view page with same filters
 - allow bookmark of authorized page. require login then redirect to it.
 - use /init in api url for init of page, instead of put
- 
+-on expired api key, redirect to login page
+- add gdpr alert
+- in api raise unauthorized error if api key expired
+- common, light, dark theme
+- internationalization https://www.i18next.com/
+- check for new app version
+- no internet connection message  https://medium.com/@kirichuk/7-must-have-features-for-any-react-app-10b086038d9a
+- run on google lighthouse
+- code splitting and lazy route https://medium.com/@kirichuk/7-must-have-features-for-any-react-app-10b086038d9a
+- maintain a list ofr all feaatures
+- collect analytics
+- web push notifications
+- document management
+- google sso
+
 
 jobs... 
 
 2. export button to csv (api should return a file?)
-
-3. processing animaiton...
-3.1. (job submitted) plant list page overlay and processing animation on result table during initial api request on init of page and search button click 
-
-3.3 (job submitted) add plant page - show overlay and processing animation on card during initial api request on init of page
+ 
 
 4. recommendations
 
@@ -59,8 +68,7 @@ create new page. Copy land-plant-list page to create land-plant-card-list. Repla
 style changes...   
 Custom validation controls need same style as bootstrap Val error  
 
-features...
-job:show processing animation on... form init, report init 
+features... 
 Sched report button on grid with indicator icon
 Fav report button on grid with indicator icon 
 >>>report header display form initobjwf output params

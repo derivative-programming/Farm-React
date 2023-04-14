@@ -22,6 +22,7 @@ import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [initPageResponse, setInitPageResponse] = useState(
     new InitReportService.InitResultInstance()
   );
@@ -135,9 +136,11 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   }, [initialValues]);
 
   useEffect(() => { 
+    setIsProcessing(true);
     ReportService.submitRequest(query, contextCode).then((response) =>
       handleQueryResults(response)
-    );
+    )
+    .finally(() => {setIsProcessing(false);});
   }, [query]);
 
   return (
@@ -249,6 +252,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
           totalItemCount={queryResult.recordsTotal}
           showPagingControls={isPagingAvailable}
           showExport={!isExportButtonsHidden}
+          showProcessing={isProcessing}
         />
         {/*//GENLearn[visualizationType=Grid]End*/}
         {/*//GENTrainingBlock[visualizationType]End*/}

@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
-import { Button, Form, Table } from "react-bootstrap";
+import { Button, Form, Table, Spinner } from "react-bootstrap";
 import "../../../../App.scss";
 import * as ReportService from "../../services/LandPlantList";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
@@ -25,6 +25,7 @@ export interface ReportGridLandPlantListProps {
   onPageSelection(pageNumber: number): void;
   showPagingControls?: boolean;
   showExport?: boolean;
+  showProcessing?: boolean;
 }
 export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   name,
@@ -42,6 +43,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   onPageSelection,
   showPagingControls = true,
   showExport = true,
+  showProcessing = false,
 }): ReactElement => {
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
@@ -329,8 +331,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
             />
           </tr>
         </thead>
-        <tbody>
-          {items && items.length ? (
+        <tbody> 
+          {items && !showProcessing && items.length ? (
             items.map((item: ReportService.QueryResultItem, index) => {
               return (
                 <tr key={index.toString()}>
@@ -466,10 +468,18 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                 </tr>
               );
             })
-          ) : (
+          ) : (showProcessing ?  
             <tr>
-              <td colSpan={4}>No rows returned text</td>
-            </tr>
+              <td colSpan={100}>
+                <div className="text-center  bg-secondary bg-opacity-25">
+                <Spinner animation="border" className="mt-2 mb-2" />
+              </div>
+            </td>
+            </tr>  
+            :  
+            <tr>
+              <td colSpan={100}>No rows returned text</td>
+            </tr> 
           )}
         </tbody>
       </Table>

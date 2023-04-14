@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
-import { Button, Col, Form, ListGroup, Row, Table } from "react-bootstrap";
+import { Button, Col, Form, ListGroup, Row, Table, Spinner } from "react-bootstrap";
 import * as ReportService from "../../services/PlantUserDetails";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as AsyncServices from "../../../services";
@@ -10,12 +10,14 @@ export interface ReportDetailThreeColPlantUserDetailsProps {
     item: ReportService.QueryResultItem
     onNavigateTo(url: string): void
     onRefreshRequest(): void
+    showProcessing?: boolean;
 }
 export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantUserDetailsProps> = ({
     name,
     item,
     onNavigateTo,
     onRefreshRequest,
+    showProcessing = false,
 }): ReactElement => {
 
     const updateButtonTextLinkPlantCodeColumnButtonClick = (code: string) => {
@@ -30,7 +32,16 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
     }
 
     return (
-        <div data-testid={name} className='mt-3 w-100'>
+        <div data-testid={name} className='mt-3 w-100'> 
+        { showProcessing ? 
+            <Row>
+                <Col  lg="12" md="12" xs="12">
+                <div className="text-center  bg-secondary bg-opacity-25">
+                      <Spinner animation="border" className="mt-2 mb-2" />
+                  </div>
+                </Col>
+            </Row>
+            : 
             <Row><Col  lg="9" md="9" xs="12">
                 <ListGroup as="ol"> 
                     <Row>
@@ -155,6 +166,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                 />
             </Col>
             </Row>
+        }
         </div>
     );
 }; 
