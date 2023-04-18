@@ -28,7 +28,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
     new FormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
-  const [initForm, setInitForm] = useState(true);
+  const [initForm, setInitForm] = useState(false);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
