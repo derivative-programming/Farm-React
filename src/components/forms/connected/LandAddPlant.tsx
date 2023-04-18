@@ -10,7 +10,7 @@ import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/LandAddPlant";
-import * as InitFormService from "../services/LandAddPlantInitObjWF";
+import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as Yup from "yup";
 import * as InputFields from "../input-fields";
@@ -18,10 +18,12 @@ import * as Lookups from "../lookups";
 
 export interface FormProps {
   name?: string;
+  showProcessingAnimationOnInit?: boolean;
 }
 
 export const FormConnectedLandAddPlant: FC<FormProps> = ({
   name = "formConnectedLandAddPlant",
+  showProcessingAnimationOnInit = true,
 }): ReactElement => {
   const [initPageResponse, setInitPageResponse] = useState(
     new InitFormService.InitResultInstance()
@@ -30,7 +32,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     new FormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
-  const [initForm, setInitForm] = useState(true);
+  const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
 
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
@@ -182,7 +184,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                 onReset={props.handleReset}
                 onSubmit={props.handleSubmit}
               >
-                { initForm ?
+                { initForm && showProcessingAnimationOnInit ?
                   <div className="text-center  bg-secondary bg-opacity-25">
                       <Spinner animation="border" className="mt-2 mb-2" />
                   </div>

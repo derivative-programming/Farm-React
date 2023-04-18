@@ -37,7 +37,7 @@ describe("TacRegister Component", () => {
 
     render(
       <BrowserRouter>
-        <FormConnectedTacRegister name="testForm" />
+        <FormConnectedTacRegister name="testForm" showProcessingAnimationOnInit={false} />
       </BrowserRouter>
     );
   });

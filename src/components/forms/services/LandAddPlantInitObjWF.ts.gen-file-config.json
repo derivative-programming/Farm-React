@@ -1,7 +1,0 @@
-{
-    "templateType":"objWF", 
-    "dimension" :{
-        "name":"LandAddPlantInitObjWF",
-        "calculatedIsInitObjWFForObjWF":"true"
-    }
-}

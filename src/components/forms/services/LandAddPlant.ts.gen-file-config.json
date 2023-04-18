@@ -2,6 +2,12 @@
     "templateType":"objWF", 
     "dimension" :{
         "name":"LandAddPlant",
-        "isPage":"true"
-    }
+        "calculatedIsPage":"true"
+    },
+    "ignoreDimensionPropertyList": [
+        "objectWorkflowParam.calculatedIsSourceObjectAvailable", 
+        "objectWorkflowParam.calculatedIsDetailsTextAvailable", 
+        "objectWorkflowParam.calculatedIsRequiredCSSClassName", 
+        "objectWorkflowParam.calculatedIsConditionalVisible"
+    ]
 }

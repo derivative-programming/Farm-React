@@ -105,7 +105,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
     const data: any = { plantCodeListCsv };
 
-    AsyncServices.LandUserPlantMultiSelectToEditableSubmit(
+    AsyncServices.LandUserPlantMultiSelectToEditableSubmitRequest(
       data,
       contextCode
     ).then((response) => onRefreshRequest());
@@ -124,7 +124,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
     const data: any = { plantCodeListCsv };
 
-    AsyncServices.LandUserPlantMultiSelectToNotEditableSubmit(
+    AsyncServices.LandUserPlantMultiSelectToNotEditableSubmitRequest(
       data,
       contextCode
     ).then((response) => onRefreshRequest());
@@ -135,8 +135,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   return (
     <div data-testid={name} className="w-100 mt-3">
       <div className="d-flex w-100 justify-content-left">
-        <ReportInput.ReportInputButton
-          name="multSelectButtonToEditable"
+        <ReportInput.ReportInputButton name="multSelectButtonToEditable"
           onClick={() => onMultSelectButtonToEditableClick()}
           buttonText="To Editable"
           className="mb-3 me-2"
@@ -144,8 +143,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
           isVisible={true}
           isEnabled={true}
         />
-        <ReportInput.ReportInputButton
-          name="multSelectButtonToNotEditable"
+        <ReportInput.ReportInputButton name="multSelectButtonToNotEditable"
           onClick={() => onMultSelectButtonToNotEditableClick()}
           buttonText="To Not Editable"
           className="mb-3 me-2"

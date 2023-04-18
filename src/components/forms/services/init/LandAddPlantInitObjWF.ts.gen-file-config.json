@@ -1,0 +1,12 @@
+{
+    "templateType":"objWF", 
+    "dimension" :{
+        "name":"LandAddPlantInitObjWF",
+        "calculatedIsInitObjWFForObjWF":"true"
+    },
+    "ignoreDimensionPropertyList": [
+        "objectWorkflowOutputVar.calculatedIsSourceObjectAvailable", 
+        "objectWorkflowOutputVar.calculatedIsConditionalVisible", 
+        "objectWorkflowOutputVar.isAutoRedirectURL" 
+    ]
+}

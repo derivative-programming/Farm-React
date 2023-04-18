@@ -2,6 +2,6 @@
     "templateType":"report", 
     "dimension" :{
         "name":"LandPlantList",
-        "isPage":"true"
+        "calculatedIsPage":"true"
     }
 }

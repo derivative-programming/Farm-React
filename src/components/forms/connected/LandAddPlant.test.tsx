@@ -11,7 +11,7 @@ import {
 import FormConnectedLandAddPlant from "./LandAddPlant"; 
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/LandAddPlant";
-import * as InitFormService from "../services/LandAddPlantInitObjWF";
+import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
 
 
@@ -49,7 +49,7 @@ describe("LandAddPlant Component", () => {
 
     render(
       <BrowserRouter>
-        <FormConnectedLandAddPlant name="testForm" />
+        <FormConnectedLandAddPlant name="testForm" showProcessingAnimationOnInit={false} />
       </BrowserRouter>
     ); 
 

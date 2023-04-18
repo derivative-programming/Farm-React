@@ -12,7 +12,7 @@ import FormConnectedPlantEdit from "./PlantEdit";
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/PlantEdit";
 import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
- 
+  
 window.localStorage.setItem("@token", "sampleToken");
 
 const mockedUsedNavigate = jest.fn();
@@ -46,7 +46,7 @@ describe("PlantEdit Component", () => {
 
     render(
       <BrowserRouter>
-        <FormConnectedPlantEdit name="testForm" />
+        <FormConnectedPlantEdit name="testForm" showProcessingAnimationOnInit={false} />
       </BrowserRouter>
     );
 

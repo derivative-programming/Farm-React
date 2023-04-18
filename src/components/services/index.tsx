@@ -11,7 +11,7 @@ export { PlantUserDeleteSubmitRequest} from "./PlantUserDelete"
 //GENLearn[modelType=object,name=Plant]End
 export { CustomerUserLogOutSubmitRequest} from "./CustomerUserLogOut" 
 export { PlantUserPropertyRandomUpdateSubmitRequest} from "./PlantUserPropertyRandomUpdate" 
-export { LandUserPlantMultiSelectToEditableSubmit} from "./LandUserPlantMultiSelectToEditable" 
-export { LandUserPlantMultiSelectToNotEditableSubmit} from "./LandUserPlantMultiSelectToNotEditable" 
+export { LandUserPlantMultiSelectToEditableSubmitRequest} from "./LandUserPlantMultiSelectToEditable" 
+export { LandUserPlantMultiSelectToNotEditableSubmitRequest} from "./LandUserPlantMultiSelectToNotEditable" 
 //GENTrainingBlock[a]End
 //GENLOOPObjectEnd

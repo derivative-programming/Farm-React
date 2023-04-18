@@ -26,16 +26,15 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     return ( 
         <div data-testid={name} className="mt-3" > 
           
-            <ReportInputButton
-             name=""
-             type="submit"
-             buttonText=" Field One-Plants"
-             className=""
-             isButtonCallToAction={true}
-             isVisible={true}
-             isEnabled={true}
-             onClick={() => fieldOnePlantListLinkLandCodeButtonClick()} 
-           />
+            <ReportInputButton name="fieldOnePlantListLinkLandCode"
+                type="submit"
+                buttonText=" Field One-Plants"
+                className=""
+                isButtonCallToAction={true}
+                isVisible={true}
+                isEnabled={true}
+                onClick={() => fieldOnePlantListLinkLandCodeButtonClick()} 
+            />
 
         </div> 
     );

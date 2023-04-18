@@ -19,16 +19,18 @@ import { ReportInputButton } from "../../reports/input-fields/InputButton";
 
 export interface FormProps {
   name?: string;
+  showProcessingAnimationOnInit?: boolean;
 }
 
 export const FormConnectedTacLogin: FC<FormProps> = ({
   name = "formConnectedTacLogin",
+  showProcessingAnimationOnInit = true,
 }): ReactElement => {
   const [initialValues, setInitialValues] = useState(
     new FormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
-  const [initForm, setInitForm] = useState(false);
+  const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -155,7 +157,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                 onReset={props.handleReset}
                 onSubmit={props.handleSubmit}
               >
-                { initForm ?
+                { initForm && showProcessingAnimationOnInit ?
                   <div className="text-center bg-secondary bg-opacity-25">
                       <Spinner animation="border" className="mt-2 mb-2" />
                   </div>

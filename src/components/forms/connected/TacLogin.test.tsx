@@ -37,7 +37,7 @@ describe("TacLogin Component", () => {
 
     render(
       <BrowserRouter>
-        <FormConnectedTacLogin name="testForm" />
+        <FormConnectedTacLogin name="testForm" showProcessingAnimationOnInit={false} />
       </BrowserRouter>
     );
   });

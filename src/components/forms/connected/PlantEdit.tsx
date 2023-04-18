@@ -13,10 +13,12 @@ import * as Lookups from "../lookups";
 
 export interface FormProps {
     name?: string
+    showProcessingAnimationOnInit?: boolean;
 }
 
 export const FormConnectedPlantEdit: FC<FormProps> = ({
     name = "formConnectedPlantEdit",
+    showProcessingAnimationOnInit = true,
 }): ReactElement => {
 
     const [initPageResponse, setInitPageResponse] = useState(new FormService.InitResultInstance);
@@ -26,7 +28,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
         response: new FormService.SubmitRequestInstance
     };
     const [loading, setLoading] = useState(false);
-    const [initForm, setInitForm] = useState(true);
+    const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
     const isInitializedRef = useRef(false);
 
     const navigate = useNavigate();
@@ -159,7 +161,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
                                 data-testid={name}
                                 onReset={props.handleReset}
                                 onSubmit={props.handleSubmit}>
-                                {initForm ?
+                                {initForm && showProcessingAnimationOnInit ?
                                     <div className="text-center  bg-secondary bg-opacity-25">
                                         <Spinner animation="border" className="mt-2 mb-2" />
                                     </div>
