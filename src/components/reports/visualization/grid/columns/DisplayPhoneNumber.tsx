@@ -26,7 +26,7 @@ export const ReportColumnDisplayPhoneNumber: FC<ReportColumnDisplayPhoneNumberPr
     
     try {
         
-      if(value == null || value == "" || !displayValue)
+      if(value === null || value === "" || !displayValue)
       {
           return result;
       }

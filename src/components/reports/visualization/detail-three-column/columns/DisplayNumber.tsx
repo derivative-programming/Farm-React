@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayNumberProps {
@@ -27,7 +27,7 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
     
     try {
         
-      if(value == null || !displayValue)
+      if(value === null || !displayValue)
       {
           return result;
       }  

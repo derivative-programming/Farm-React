@@ -25,8 +25,8 @@ jest.mock("react-router-dom", () => ({
 const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
 
-let formSubmitResponse = new FormService.SubmitResultInstance;
-const formInitResponse = new FormService.InitResultInstance;
+let formSubmitResponse = new FormService.SubmitResultInstance();
+const formInitResponse = new FormService.InitResultInstance();
 
 describe("TacLogin Component", () => {
   // render the TacLogin component

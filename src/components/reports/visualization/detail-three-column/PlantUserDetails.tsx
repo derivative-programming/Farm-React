@@ -1,7 +1,6 @@
-import React, { FC, ReactElement, useState } from "react";
-import { Button, Col, Form, ListGroup, Row, Table, Spinner } from "react-bootstrap";
-import * as ReportService from "../../services/PlantUserDetails";
-import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
+import React, { FC, ReactElement } from "react";
+import { Col, ListGroup, Row, Spinner } from "react-bootstrap";
+import * as ReportService from "../../services/PlantUserDetails"; 
 import * as AsyncServices from "../../../services";
 import * as ReportColumnDisplay from "./columns";
 
@@ -18,19 +17,8 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
     onNavigateTo,
     onRefreshRequest,
     showProcessing = false,
-}): ReactElement => {
-
-    const updateButtonTextLinkPlantCodeColumnButtonClick = (code: string) => {
-        onNavigateTo("/plant-edit/" + code);
-    }
-
-    const randomPropertyUpdatesLinkPlantCodeColumnButtonClick = (code: string) => {
-        const data: any = {};
-        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, code)
-            .then((response) => onRefreshRequest())
-
-    }
-
+}): ReactElement => { 
+    
     return (
         <div data-testid={name} className='mt-3 w-100'> 
         { showProcessing ? 
@@ -155,14 +143,20 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     buttonText="Update Button Text"
                     value={item.updateButtonTextLinkPlantCode}
                     isButtonCallToAction={true}
-                    onClick={() => updateButtonTextLinkPlantCodeColumnButtonClick(item.updateButtonTextLinkPlantCode)}
+                    onClick={() => 
+                        onNavigateTo("/plant-edit/" + item.updateButtonTextLinkPlantCode)
+                    }
                 />
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="randomPropertyUpdatesLinkPlantCode"
                     buttonText="Random Property Updates"
                     value={item.randomPropertyUpdatesLinkPlantCode}
                     isButtonCallToAction={false}
-                    onClick={() => randomPropertyUpdatesLinkPlantCodeColumnButtonClick(item.randomPropertyUpdatesLinkPlantCode)}
+                    onClick={() =>{
+                        const data: any = {};
+                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.randomPropertyUpdatesLinkPlantCode)
+                            .then((response) => onRefreshRequest())
+                    } }
                 />
             </Col>
             </Row>

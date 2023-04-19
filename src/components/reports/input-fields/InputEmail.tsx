@@ -1,7 +1,6 @@
-import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
-import { Button, Form, Card } from "react-bootstrap";
-import {useField } from 'formik';
-import {ReportInputErrorDisplay } from './InputErrorDisplay';
+import React, { FC, ReactElement } from "react";
+import { Form } from "react-bootstrap";
+import {useField } from 'formik'; 
    
 export interface ReportInputEmailProps {
   name: string
@@ -18,9 +17,7 @@ export const ReportInputEmail: FC<ReportInputEmailProps> = ({
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
-
-  const errorDisplayControlName = name + "ErrorDisplay";
+  const [field, meta, helpers] = useField(name);  
   
   const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       

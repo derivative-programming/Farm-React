@@ -31,11 +31,11 @@ describe("TacFarmDashboard Connected Report Component", () => {
   // render the TacFarmDashboard component
   beforeEach(() => {
     mockReportInitService.mockResolvedValueOnce({
-      data: new InitReportService.InitResultInstance,
+      data: new InitReportService.InitResultInstance(),
     }); 
 
     mockReportService.mockResolvedValue({
-      data: new ReportService.QueryResultTestInstance,
+      data: new ReportService.QueryResultTestInstance(),
     });
 
     render(

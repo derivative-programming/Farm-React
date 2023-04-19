@@ -23,7 +23,7 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
   
   const displayValue = (isVisible && conditionallyVisible);
  
-  if(isChecked == null || !displayValue){ 
+  if(isChecked === null || !displayValue){ 
     return (
     <td data-testid={groupName}></td>
     );

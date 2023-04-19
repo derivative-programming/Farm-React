@@ -1,9 +1,8 @@
-import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import React, { FC, ReactElement } from "react";
+import { Form } from "react-bootstrap";
 import "../../../App.scss";
 import {useField } from 'formik';
-import { onKeyDown } from "../../../common/utilities";
-import {FormInputErrorDisplay } from './InputErrorDisplay';
+import { onKeyDown } from "../../../common/utilities"; 
    
 export interface FormInputNumberProps {
   name: string

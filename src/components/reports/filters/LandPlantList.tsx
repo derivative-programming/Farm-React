@@ -1,20 +1,16 @@
 import React, {
   FC,
   ReactElement,
-  useContext,
-  useEffect,
+  useContext, 
   useState,
 } from "react";
-import { Button, Form, Accordion, Row, Col, Spinner } from "react-bootstrap";
-import { ReportInputButton } from "../input-fields/InputButton";
+import { Button, Form, Accordion, Row, Col, Spinner } from "react-bootstrap"; 
 
 import { Formik, FormikHelpers } from "formik";
 import * as ReportService from "../services/LandPlantList";
 import { AuthContext } from "../../../context/authContext";
 import * as ReportInput from "../input-fields";
-import * as Lookups from "../lookups";
-import { waitFor } from "@testing-library/react";
-import { wait } from "@testing-library/user-event/dist/utils";
+import * as Lookups from "../lookups"; 
 
 export interface ReportFilterLandPlantListProps {
   name: string;

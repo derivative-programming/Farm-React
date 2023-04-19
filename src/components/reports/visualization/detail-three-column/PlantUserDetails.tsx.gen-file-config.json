@@ -3,5 +3,9 @@
     "dimension" :{
         "name":"PlantUserDetails",
         "calculatedIsPage":"true"
-    }
+    },
+    "ignoreDimensionPropertyList": [ 
+        "reportColumn.calculatedIsConditionalSqlLogicAvailable",
+        "reportColumn.calculatedIsSourceObjectAvailable"
+    ]
 }

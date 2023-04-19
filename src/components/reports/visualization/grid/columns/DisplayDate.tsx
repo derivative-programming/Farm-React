@@ -27,7 +27,7 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
     
     try {
         
-      if(value == null || !displayValue)
+      if(value === null || !displayValue)
       {
           return result;
       }
@@ -38,7 +38,7 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
         return result;
       }
       
-      if(dateTime.format("MM-DD-YYYY") == "12-31-1752"){
+      if(dateTime.format("MM-DD-YYYY") === "12-31-1752"){
         return result;
       }
 

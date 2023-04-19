@@ -1,5 +1,4 @@
-import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
-import { Button, Form } from "react-bootstrap";
+import React, { FC, ReactElement } from "react"; 
 import sortUp from "../../../assets/caret-up.png";
 import sortDown from "../../../assets/caret-down.png";
 

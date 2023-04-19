@@ -31,19 +31,19 @@ const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
 const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
-let formSubmitResponse = new FormService.SubmitResultInstance;
-const formInitResponse = new InitFormService.InitResultInstance;
+let formSubmitResponse = new FormService.SubmitResultInstance();
+const formInitResponse = new InitFormService.InitResultInstance();
 
 
 describe("LandAddPlant Component", () => {
 
   beforeEach(async () => { 
       mockFormInitService.mockResolvedValueOnce({
-        data: new InitFormService.InitResultInstance,
+        data: new InitFormService.InitResultInstance(),
       });
       
       mockFlavorCodeService.mockResolvedValueOnce({
-        data: new flavorCodeService.QueryResultTestInstance,
+        data: new flavorCodeService.QueryResultTestInstance(),
       }); 
       
 

@@ -23,7 +23,7 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
   
   const displayValue = (isVisible && conditionallyVisible);
  
-  if(isChecked == null || !isVisible){
+  if(isChecked === null || !isVisible){
     return (
     
       <Col data-testid={groupName} lg="5" md="5" xs="12" hidden={!displayValue}>

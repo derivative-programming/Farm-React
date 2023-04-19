@@ -22,23 +22,7 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   const groupName = forColumn +'-column-' + rowIndex.toString();
   
   const displayValue = (isVisible && conditionallyVisible);
-      
-  const formatText = () => {  
-    let result:string = "";
-    
-    try {
-      
-      if(value == null || value == "" || !displayValue)
-      {
-          return result;
-      }
-    } catch (error) {
-      console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayUrl');
-    }
-    
-    return value;
-  }
-
+       
   return (
     <td data-testid={groupName}>
         <a href={value}

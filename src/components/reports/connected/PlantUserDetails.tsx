@@ -1,6 +1,6 @@
-import React, { FC, ReactElement, useContext, useState, useEffect, useRef } from "react";
-import { Button, Form, Card, Breadcrumb, Row, Container } from "react-bootstrap";
-import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
+import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
+import { Card, Breadcrumb, Container } from "react-bootstrap";
+import { ArrowLeft } from "react-bootstrap-icons";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ReportService from "../services/PlantUserDetails";
 import * as ReportInput from "../input-fields";
@@ -11,17 +11,17 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(1);
     const [isProcessing, setIsProcessing] = useState(false);
-    const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance);
-    const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance); 
-    const [query, setQuery] = useState(new ReportService.QueryRequestInstance);
-    const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance);
+    const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
+    const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance()); 
+    const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
+    const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance());
     const isInitializedRef = useRef(false);
 
     const navigate = useNavigate();
     const { id } = useParams();
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
+    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
 
     const handleInit = (responseFull: any) => {
         
@@ -79,10 +79,10 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
         let targetContextCode = contextCode; 
         Object.entries(initPageResponse)
         .forEach(([key, value]) => { 
-            if(key == codeName)
+            if(key === codeName)
             {
-                if(value != ''
-                    && value != '00000000-0000-0000-0000-000000000000') {
+                if(value !== ''
+                    && value !== '00000000-0000-0000-0000-000000000000') {
                     targetContextCode = value;
                 } else {
                     return;
@@ -95,7 +95,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     const onSort = (columnName: string) => {
         let orderByDescending = false;
-        if (query.OrderByColumnName == columnName) {
+        if (query.OrderByColumnName === columnName) {
             orderByDescending = !query.OrderByDescending;
         }
         console.log('onSort setQuery');

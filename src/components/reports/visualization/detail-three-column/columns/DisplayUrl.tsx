@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayUrlProps {
@@ -23,23 +23,7 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   const groupName = forColumn +'-column';
   
   const displayValue = (isVisible && conditionallyVisible);
-      
-  const formatText = () => {  
-    let result:string = "";
-    
-    try {
-      
-      if(value == null || value == "" || !displayValue)
-      {
-          return result;
-      }
-    } catch (error) {
-      console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayUrl');
-    }
-    
-    return value;
-  }
-
+        
   return ( 
     <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!isVisible}>
         <ListGroup.Item

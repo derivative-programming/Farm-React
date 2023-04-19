@@ -5,6 +5,8 @@
         "calculatedIsPage":"true"
     },
     "ignoreDimensionPropertyList": [
-        "objectWorkflowParam.calculatedIsSourceObjectAvailable"
+        "objectWorkflowParam.calculatedIsSourceObjectAvailable",
+        "objectWorkflowParam.calculatedIsRequiredCSSClassName",
+        "objectWorkflowParam.calculatedIsRegExMatchRequired"
     ]
 }

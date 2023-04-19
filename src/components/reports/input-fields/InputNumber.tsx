@@ -1,8 +1,7 @@
-import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import React, { FC, ReactElement} from "react";
+import {Form } from "react-bootstrap";
 import {useField } from 'formik';
-import { onKeyDown } from "../../../common/utilities";
-import {ReportInputErrorDisplay } from './InputErrorDisplay';
+import { onKeyDown } from "../../../common/utilities"; 
    
 export interface ReportInputNumberProps {
   name: string
@@ -19,9 +18,7 @@ export const ReportInputNumber: FC<ReportInputNumberProps> = ({
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
-
-  const errorDisplayControlName = name + "ErrorDisplay";
+  const [field, meta, helpers] = useField(name);  
   
   const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       

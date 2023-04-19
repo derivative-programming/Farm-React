@@ -27,7 +27,7 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
     
     try {
       
-      if(value == null || !isVisible)
+      if(value === null || !isVisible)
       {
           return result;
       } 

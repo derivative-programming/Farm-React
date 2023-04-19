@@ -1,8 +1,7 @@
-import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
-import { Button, Form, Card, InputGroup } from "react-bootstrap";
+import React, { FC, ReactElement} from "react";
+import { Form, InputGroup } from "react-bootstrap";
 import {useField } from 'formik';
-import { onKeyDown } from "../../../common/utilities";
-import {ReportInputErrorDisplay } from './InputErrorDisplay';
+import { onKeyDown } from "../../../common/utilities"; 
    
 export interface ReportInputMoneyProps {
   name: string

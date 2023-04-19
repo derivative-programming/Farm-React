@@ -23,7 +23,7 @@ export const submitRequest = (data:any,plantCode:string) => {
   
   
 export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
-    let result:QueryRequest = new QueryRequestInstance;
+    let result:QueryRequest = new QueryRequestInstance();
      
     return result;
 }
@@ -284,6 +284,6 @@ export class QueryResultTestInstance implements QueryResult {
         this.appVersion = '';
         this.request = '';
 
-        this.items.push(new QueryResultItemInstance)
+        this.items.push(new QueryResultItemInstance())
     }
 }

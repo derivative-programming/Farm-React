@@ -11,9 +11,9 @@ export const initForm = () => {
     });
 }; 
 
-export const submitForm = (data:SubmitRequest) => {
+export const submitForm = (data:SubmitRequest,tacCode:string) => {
     return apiCall({
-        url: '/tac-register',
+        url: '/tac-register/' + tacCode,
         method: "post",
         data,
     });
@@ -28,7 +28,7 @@ export const getValidationErrors =  (propertyName: string, response:SubmitResult
     ) { 
         response.validationErrors.forEach(
             (validationError: SubmitValidationError) => {
-                if(validationError.property.toLowerCase() == propertyName.toLowerCase()){
+                if(validationError.property.toLowerCase() === propertyName.toLowerCase()){
                     result.push(validationError.message);
                 }
             }
@@ -38,7 +38,7 @@ export const getValidationErrors =  (propertyName: string, response:SubmitResult
 }
 
 export const buildSubmitRequest = (initResult:InitResult) => {
-    let result:SubmitRequest = new SubmitRequestInstance;
+    let result:SubmitRequest = new SubmitRequestInstance();
     
     result.email = initResult.email;
     result.password = initResult.password;

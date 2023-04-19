@@ -27,7 +27,7 @@ export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
     
     try {
       
-      if(value == null || value == "" || !isVisible)
+      if(value === null || value === "" || !isVisible)
       {
           return result;
       }

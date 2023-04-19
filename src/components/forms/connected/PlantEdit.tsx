@@ -6,8 +6,7 @@ import {
     FormikHelpers,
 } from "formik";
 import * as FormService from "../services/PlantEdit";
-import { AuthContext } from "../../../context/authContext";
-import * as Yup from "yup";
+import { AuthContext } from "../../../context/authContext"; 
 import * as FormInput from "../input-fields"
 import * as Lookups from "../lookups";
 
@@ -21,11 +20,11 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
     showProcessingAnimationOnInit = true,
 }): ReactElement => {
 
-    const [initPageResponse, setInitPageResponse] = useState(new FormService.InitResultInstance);
-    const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance);
+    const [initPageResponse, setInitPageResponse] = useState(new FormService.InitResultInstance());
+    const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance());
     let lastApiSubmission: any = {
-        request: new FormService.SubmitResultInstance,
-        response: new FormService.SubmitRequestInstance
+        request: new FormService.SubmitResultInstance(),
+        response: new FormService.SubmitRequestInstance()
     };
     const [loading, setLoading] = useState(false);
     const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
@@ -35,7 +34,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
     const { id } = useParams();
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-    let initFormResponse: FormService.InitResult = new FormService.InitResultInstance;
+    let initFormResponse: FormService.InitResult = new FormService.InitResultInstance();
 
     const validationSchema = FormService.buildValidationSchema();
 
@@ -61,7 +60,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
             Object.entries(values)
                 .forEach(([key, value]) => {
                     const fieldErrors: string = FormService.getValidationErrors(key, lastApiSubmission.response).join(',');
-                    if (fieldErrors.length > 0 && value == lastApiSubmission.request[key]) {
+                    if (fieldErrors.length > 0 && value === lastApiSubmission.request[key]) {
                         errors[key] = fieldErrors;
                     }
                 })
@@ -83,7 +82,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
             };
             if (!response.success) {
                 headerErrors = FormService.getValidationErrors("", response);
-                Object.entries(new FormService.SubmitRequestInstance)
+                Object.entries(new FormService.SubmitRequestInstance())
                     .forEach(([key, value]) =>
                         actions.setFieldError(key, FormService.getValidationErrors(key, response).join(',')))
                 return;
@@ -122,9 +121,9 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
         let targetContextCode = contextCode;
         Object.entries(initPageResponse)
             .forEach(([key, value]) => {
-                if (key == codeName) {
-                    if (value != ''
-                        && value != '00000000-0000-0000-0000-000000000000') {
+                if (key === codeName) {
+                    if (value !== ''
+                        && value !== '00000000-0000-0000-0000-000000000000') {
                         targetContextCode = value;
                     } else {
                         return;

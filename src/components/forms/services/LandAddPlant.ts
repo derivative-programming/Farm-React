@@ -29,7 +29,7 @@ import * as FormInit  from "./init/LandAddPlantInitObjWF";
     ) { 
         response.validationErrors.forEach(
             (validationError: SubmitValidationError) => {
-                if(validationError.property.toLowerCase() == propertyName.toLowerCase()){
+                if(validationError.property.toLowerCase() === propertyName.toLowerCase()){
                     result.push(validationError.message);
                 }
             }
@@ -39,7 +39,7 @@ import * as FormInit  from "./init/LandAddPlantInitObjWF";
 } 
 
 export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
-    let result:SubmitRequest = new SubmitRequestInstance;
+    let result:SubmitRequest = new SubmitRequestInstance();
     
     result.flavorCode = initResult.flavorCode;
     result.otherFlavor = initResult.otherFlavor;

@@ -47,7 +47,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
   
-  const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance;
+  const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
 
   const handleInit = (responseFull: any) => {
     const response: InitReportService.InitResult = responseFull.data;
@@ -87,8 +87,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     console.log("navigateTo " + page + " " + codeName);
     let targetContextCode = contextCode;
     Object.entries(initPageResponse).forEach(([key, value]) => {
-      if (key == codeName) {
-        if (value != "" && value != "00000000-0000-0000-0000-000000000000") {
+      if (key === codeName) {
+        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
           targetContextCode = value;
         } else {
           return;
@@ -106,7 +106,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const onSort = (columnName: string) => {
     console.log("onsort " + columnName);
     let orderByDescending = false;
-    if (query.OrderByColumnName == columnName) {
+    if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
     }
     setQuery({

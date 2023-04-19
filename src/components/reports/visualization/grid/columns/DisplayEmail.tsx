@@ -26,7 +26,7 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
     
     try {
       
-      if(value == null || value == "" || !displayValue)
+      if(value === null || value === "" || !displayValue)
       {
           return result;
       }

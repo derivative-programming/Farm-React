@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
+import React, { FC, ReactElement } from "react";
 import { Form, Pagination } from "react-bootstrap";
 import "../../../App.scss"; 
    
@@ -25,7 +25,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
 }): ReactElement => {  
       
   const isHidden = () => {
-    if(totalItemCount == 0 || hidden){
+    if(totalItemCount === 0 || hidden){
       return true;
     } else {
       return false;
@@ -70,14 +70,14 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
     {
       return true;
     }
-    if(currentPage == getMaxPageCount()){
+    if(currentPage === getMaxPageCount()){
       return true
     }
     return false;
   }
   
   const getFirstItemIndex = () => {
-    if(currentPage == 1) {
+    if(currentPage === 1) {
       return 1;
     } else {
       return (currentPage - 1) * pageSize + 1;
@@ -91,7 +91,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
 
   const getMaxPageCount = () => {
     const baseCount = totalItemCount / pageSize
-    if((totalItemCount % pageSize) == 0){
+    if((totalItemCount % pageSize) === 0){
       return baseCount;
     } else {
       return baseCount + 1;

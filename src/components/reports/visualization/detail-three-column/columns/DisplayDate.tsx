@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
 import moment from "moment";
    
@@ -28,7 +28,7 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
     
     try {
         
-      if(value == null || !displayValue)
+      if(value === null || !displayValue)
       {
           return result;
       }
@@ -39,7 +39,7 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
         return result;
       }
       
-      if(dateTime.format("MM-DD-YYYY") == "12-31-1752"){
+      if(dateTime.format("MM-DD-YYYY") === "12-31-1752"){
         return result;
       }
 

@@ -7,13 +7,11 @@ import React, {
   useState,
 } from "react";
 import { Button, Card, Form, Spinner } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
-import { ReportInputButton } from "../../reports/input-fields/InputButton";
+import { useNavigate, useParams } from "react-router-dom"; 
 
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/TacRegister";
-import { AuthContext } from "../../../context/authContext";
-import * as Yup from "yup";
+import { AuthContext } from "../../../context/authContext"; 
 import * as FormInput from "../input-fields";
 
 export interface FormProps {
@@ -68,7 +66,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
           key,
           lastApiSubmission.response
         ).join(",");
-        if (fieldErrors.length > 0 && value == lastApiSubmission.request[key]) {
+        if (fieldErrors.length > 0 && value === lastApiSubmission.request[key]) {
           errors[key] = fieldErrors;
         }
       });
@@ -82,7 +80,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   ) => {
     try {
       setLoading(true);
-      const responseFull: any = await FormService.submitForm(values);
+      const responseFull: any = await FormService.submitForm(values,contextCode);
       const response: FormService.SubmitResult = responseFull.data;
       lastApiSubmission = {
         request: { ...values },

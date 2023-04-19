@@ -1,8 +1,7 @@
-import React, { FC, ReactElement, useContext, useEffect, useRef } from "react";
-import { Button, Form, Card } from "react-bootstrap";
+import React, { FC, ReactElement } from "react";
+import { Form } from "react-bootstrap";
 import "../../../App.scss";
-import {useField } from 'formik';
-import {FormInputErrorDisplay } from './InputErrorDisplay';
+import {useField } from 'formik'; 
    
 export interface FormInputCheckboxProps {
   name: string

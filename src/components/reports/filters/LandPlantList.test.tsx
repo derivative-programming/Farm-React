@@ -18,14 +18,14 @@ const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
  
 const onSubmit = jest.fn();
 
-const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestInstance;
+const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestInstance();
 
 
 describe("LandPlantList Component", () => {
 
   beforeEach(async () => {  
     mockFlavorCodeService.mockResolvedValueOnce({
-        data: new flavorCodeService.QueryResultTestInstance,
+        data: new flavorCodeService.QueryResultTestInstance(),
       }); 
       
 

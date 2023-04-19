@@ -6,8 +6,7 @@ import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services";
 import { ReportPagination } from "../../input-fields";
-import * as ReportInput from "../../input-fields";
-import { ReportInputButton } from "../../input-fields/InputButton";
+import * as ReportInput from "../../input-fields"; 
 
 export interface ReportGridLandPlantListProps {
   name: string;
@@ -75,22 +74,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     } else {
       setCheckedIndexes(initialCheckedIndexes);
     }
-  };
-
-  const updateLinkPlantCodeColumnButtonClick = (code: string) => {
-    onNavigateTo("/plant-edit/" + code);
-  };
-
-  const deleteAsyncButtonLinkPlantCodeColumnButtonClick = (code: string) => {
-    const data: any = {};
-    AsyncServices.PlantUserDeleteSubmitRequest(data, code).then((response) =>
-      onRefreshRequest()
-    );
-  };
-
-  const detailsLinkPlantCodeColumnButtonClick = (code: string) => {
-    onNavigateTo("/plant-user-details/" + code);
-  };
+  };  
 
   const onMultSelectButtonToEditableClick = () => {
     const selectedCodes = items.map(
@@ -433,9 +417,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Update"
                     isButtonCallToAction={false}
                     onClick={() =>
-                      updateLinkPlantCodeColumnButtonClick(
-                        item.updateLinkPlantCode
-                      )
+                      onNavigateTo("/plant-edit/" + item.updateLinkPlantCode)
                     }
                     isVisible={false}
                   />
@@ -446,9 +428,11 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Delete Async"
                     isButtonCallToAction={false}
                     onClick={() =>
-                      deleteAsyncButtonLinkPlantCodeColumnButtonClick(
-                        item.deleteAsyncButtonLinkPlantCode
-                      )
+                      {
+                        const data: any = {};
+                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.deleteAsyncButtonLinkPlantCode).then((response) =>
+                        onRefreshRequest()
+                      )}
                     }
                   />
 
@@ -458,9 +442,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Details"
                     isButtonCallToAction={true}
                     onClick={() =>
-                      detailsLinkPlantCodeColumnButtonClick(
-                        item.detailsLinkPlantCode
-                      )
+                      onNavigateTo("/plant-user-details/" + item.detailsLinkPlantCode) 
                     }
                   />
                 </tr>

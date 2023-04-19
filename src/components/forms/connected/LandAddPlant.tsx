@@ -11,8 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
-import { AuthContext } from "../../../context/authContext";
-import * as Yup from "yup";
+import { AuthContext } from "../../../context/authContext"; 
 import * as InputFields from "../input-fields";
 import * as Lookups from "../lookups";
 
@@ -72,7 +71,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
           key,
           lastApiSubmission.response
         ).join(",");
-        if (fieldErrors.length > 0 && value == lastApiSubmission.request[key]) {
+        if (fieldErrors.length > 0 && value === lastApiSubmission.request[key]) {
           errors[key] = fieldErrors;
         }
       });
@@ -141,8 +140,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const navigateTo = (page: string, codeName: string) => {
     let targetContextCode = contextCode;
     Object.entries(initPageResponse).forEach(([key, value]) => {
-      if (key == codeName) {
-        if (value != "" && value != "00000000-0000-0000-0000-000000000000") {
+      if (key === codeName) {
+        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
           targetContextCode = value;
         } else {
           return;
@@ -233,7 +232,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                     <InputFields.FormInputText name="someNVarCharVal"
                       label="Some N Var Char Val"
                     />
-                    <InputFields.FormInputText name="someVarCharVal"
+                    <InputFields.FormInputPassword name="someVarCharVal"
                       label="Some Var Char Val"
                     />
                     <InputFields.FormInputTextArea name="someTextVal"

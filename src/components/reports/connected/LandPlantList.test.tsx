@@ -33,15 +33,15 @@ describe("LandPlantList Connected Report Component", () => {
   // render the LandPlantList component
   beforeEach(() => {
     mockReportInitService.mockResolvedValueOnce({
-      data: new InitReportService.InitResultInstance,
+      data: new InitReportService.InitResultInstance(),
     });
 
     mockFlavorCodeService.mockResolvedValueOnce({
-      data: new flavorCodeService.QueryResultTestInstance,
+      data: new flavorCodeService.QueryResultTestInstance(),
     }); 
     
     mockReportService.mockResolvedValue({
-      data: new ReportService.QueryResultInstance,
+      data: new ReportService.QueryResultInstance(),
     }); 
 
     render(

@@ -5750,7 +5750,7 @@
                     "requiredErrorText": "Please enter a Password",
                     "isSecured": "true",
                     "isFileUpload": "false",
-                    "detailsText": "The password must contain at least 8 characters that include 1 upper case letter, 1 lower case letter, 1 number, and 1 non-alpha numeric character.",
+                    "detailsText": "",
                     "validationRuleRegExMatchRequired": "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W).{8,50}$",
                     "validationRuleRegExMatchRequiredErrorText": "The password must contain at least 8 characters that include 1 upper case letter, 1 lower case letter, 1 number, and 1 non-alpha numeric character.",
                     "isIgnored": "false",

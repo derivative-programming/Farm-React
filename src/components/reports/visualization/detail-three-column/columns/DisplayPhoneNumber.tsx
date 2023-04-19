@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayPhoneNumberProps {
@@ -27,7 +27,7 @@ export const ReportColumnDisplayPhoneNumber: FC<ReportColumnDisplayPhoneNumberPr
     
     try {
         
-      if(value == null || value == "" || !displayValue)
+      if(value === null || value === "" || !displayValue)
       {
           return result;
       }

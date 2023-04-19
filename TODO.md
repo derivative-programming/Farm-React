@@ -1,13 +1,32 @@
 
-todo...        
+todo...  
+
+farm model... to fabricate...
+- add plant: 'some var char' > 'some secure var char'
+- edit plant: 'some var char' > 'some secure var char' and use password text entry
+- login endpoint: add post with id
+- register endpoint: add post with id
+    
+
+on creation of project, create the initial model and initial version rec?
+request ai processing on creation of project? no. allow for selection of features.
+
+allow pull of version model in ui from api   
+
+add general initialization button in pac config
+
+- fab login and register issue on api post (needs endpoints with guid too, even zero'd ones)
+- add and edit plant - change secured param to  'some secured var char' label and use pwd text entry
+ 
+- if learn stmt has a genval tag on a poolean prop, create a synonym on that prop
+- look for occurrences of '=,' bc a prop may be blank. ignore these in dim phrase build
 - add page random values button isnt working. posting to same page but init not running again.
-- add page new values button necessary?  
-- test harvest. could have issue since name attributes changed lines          
-- harvest testing should run both generated tests and original tests of farm  
+- add page new values button necessary?        
+- harvest testing should run original tests of farm too
 - allow bookmark of report page url to view page with same filters
 - allow bookmark of authorized page. require login then redirect to it.
 - use /init in api url for init of page, instead of put
--on expired api key, redirect to login page
+- job:on expired api key, redirect to login page
 - add gdpr alert
 - in api raise unauthorized error if api key expired
 - common, light, dark theme

@@ -218,6 +218,6 @@ export class QueryResultTestInstance implements QueryResult {
         this.appVersion = '';
         this.request = '';
         
-        this.items.push(new QueryResultItemInstance)
+        this.items.push(new QueryResultItemInstance())
     }
 }

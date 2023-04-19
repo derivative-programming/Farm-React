@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Form, Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayCheckboxProps {
@@ -23,7 +23,7 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
   
   const displayValue = (isVisible && conditionallyVisible);
  
-  if(isChecked == null || !displayValue){
+  if(isChecked === null || !displayValue){
     return (
     
       <Col data-testid={groupName} lg="5" md="5" xs="12" hidden={!isVisible}>

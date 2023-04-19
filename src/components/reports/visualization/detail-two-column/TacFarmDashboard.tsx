@@ -1,9 +1,5 @@
-import React, { FC, ReactElement, useState } from "react";
-import { Button, Col, Form, ListGroup, Row, Table } from "react-bootstrap";
-import * as ReportService from "../../services/TacFarmDashboard";
-import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
-import * as AsyncServices from "../../../services";
-import * as ReportColumnDisplay from "./columns";
+import React, { FC, ReactElement } from "react"; 
+import * as ReportService from "../../services/TacFarmDashboard";  
 import { ReportInputButton } from "../../input-fields";
 
 export interface ReportDetailTwoColTacFarmDashboardProps {
@@ -18,11 +14,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     onNavigateTo,
     onRefreshRequest,
 }): ReactElement => {
-
-    const fieldOnePlantListLinkLandCodeButtonClick = () => {
-        onNavigateTo("/land-plant-list/" + item.fieldOnePlantListLinkLandCode);
-    } 
-
+  
     return ( 
         <div data-testid={name} className="mt-3" > 
           
@@ -33,7 +25,9 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
                 isButtonCallToAction={true}
                 isVisible={true}
                 isEnabled={true}
-                onClick={() => fieldOnePlantListLinkLandCodeButtonClick()} 
+                onClick={() => 
+                    onNavigateTo("/land-plant-list/" + item.fieldOnePlantListLinkLandCode)
+                } 
             />
 
         </div> 
