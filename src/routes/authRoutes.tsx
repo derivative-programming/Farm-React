@@ -13,8 +13,17 @@ const AuthRoute = () => {
             <Route path={"/"} element={
                 <FormConnectedTacLogin />
             } />
+            <Route path={"/tac-register/:id"} element={
+                <FormConnectedTacRegister />
+            } />
             <Route path={"/tac-register"} element={
                 <FormConnectedTacRegister />
+            } />
+            <Route path={"/tac-login/:id"} element={
+                <FormConnectedTacLogin />
+            } />
+            <Route path={"/tac-login"} element={
+                <FormConnectedTacLogin />
             } />
 
             <Route path={"*"} element={<Navigate to={"/"} replace />} />

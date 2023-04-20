@@ -65,24 +65,24 @@ describe("LandAddPlant Component", () => {
   it("renders correctly", async () => { 
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     expect(screen.getByTestId("headerErrors")).toBeInTheDocument();
-    expect(screen.getByTestId("flavorCode")).toBeInTheDocument();
-    expect(screen.getByTestId("otherFlavor")).toBeInTheDocument();
-    expect(screen.getByTestId("someIntVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someBigIntVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someBitVal")).toBeInTheDocument();
-    expect(screen.getByTestId("isEditAllowed")).toBeInTheDocument();
-    expect(screen.getByTestId("isDeleteAllowed")).toBeInTheDocument();
-    expect(screen.getByTestId("someFloatVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someDecimalVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someUTCDateTimeVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someDateVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someMoneyVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someNVarCharVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someVarCharVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someTextVal")).toBeInTheDocument();
-    expect(screen.getByTestId("somePhoneNumber")).toBeInTheDocument();
-    expect(screen.getByTestId("someEmailAddress")).toBeInTheDocument();
-    expect(screen.getByTestId("sampleImageUploadFile")).toBeInTheDocument();
+    expect(screen.getByTestId("requestFlavorCode")).toBeInTheDocument();
+    expect(screen.getByTestId("requestOtherFlavor")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeIntVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeBigIntVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeBitVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestIsEditAllowed")).toBeInTheDocument();
+    expect(screen.getByTestId("requestIsDeleteAllowed")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeFloatVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeDecimalVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeUTCDateTimeVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeDateVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeMoneyVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeNVarCharVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeVarCharVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeTextVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomePhoneNumber")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeEmailAddress")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSampleImageUploadFile")).toBeInTheDocument();
 
     
     expect(screen.getByTestId("submit-button")).toBeInTheDocument();
@@ -96,153 +96,153 @@ describe("LandAddPlant Component", () => {
   });
 
 
-  it("when user enter flavorCode, it set accordingly", async () => {   
+  it("when user enter requestFlavorCode, it set accordingly", async () => {   
 
-    const input = screen.getByTestId("flavorCode");
+    const input = screen.getByTestId("requestFlavorCode");
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     await act(async () => {
       await fireEvent.change(input, { target: { value: "00000000-0000-0000-0000-000000000000" } });
     }); 
-    expect(screen.getByTestId("flavorCode")).toHaveValue("Please Select One");
+    expect(screen.getByTestId("requestFlavorCode")).toHaveValue("Please Select One");
   });
 
 
-  it("when user enter otherFlavor, it set accordingly", async () => {   
+  it("when user enter requestOtherFlavor, it set accordingly", async () => {   
 
-    const input = screen.getByTestId("otherFlavor");
+    const input = screen.getByTestId("requestOtherFlavor");
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     await act(async () => {
       await fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("otherFlavor")).toHaveValue("sample data");
+    expect(screen.getByTestId("requestOtherFlavor")).toHaveValue("sample data");
   });
 
-  it("when user enter someIntVal, it set accordingly", async () => { 
-    const input = screen.getByTestId("someIntVal");
+  it("when user enter requestSomeIntVal, it set accordingly", async () => { 
+    const input = screen.getByTestId("requestSomeIntVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "99" } });
     }); 
-    expect(screen.getByTestId("someIntVal")).toHaveValue(99);
+    expect(screen.getByTestId("requestSomeIntVal")).toHaveValue(99);
   });
 
-  it("when user enter someBigIntVal, it set accordingly", async () => { 
-    const input = screen.getByTestId("someBigIntVal");
+  it("when user enter requestSomeBigIntVal, it set accordingly", async () => { 
+    const input = screen.getByTestId("requestSomeBigIntVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "99" } });
     }); 
-    expect(screen.getByTestId("someBigIntVal")).toHaveValue(99);
+    expect(screen.getByTestId("requestSomeBigIntVal")).toHaveValue(99);
   });
 
-  it("when user enter someBitVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someBitVal");
+  it("when user enter requestSomeBitVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeBitVal");
     await act(async () => {
       await fireEvent.change(input, { target: { checked: true } });
     }); 
-    expect(screen.getByTestId("someBitVal")).toBeChecked();
+    expect(screen.getByTestId("requestSomeBitVal")).toBeChecked();
   });
 
-  it("when user enter isEditAllowed, it set accordingly", async () => {
-    const input = screen.getByTestId("isEditAllowed");
+  it("when user enter requestIsEditAllowed, it set accordingly", async () => {
+    const input = screen.getByTestId("requestIsEditAllowed");
     await act(async () => {
       await fireEvent.change(input, { target: { checked: true } });
     }); 
-    expect(screen.getByTestId("isEditAllowed")).toBeChecked();
+    expect(screen.getByTestId("requestIsEditAllowed")).toBeChecked();
   });
 
-  it("when user enter isDeleteAllowed, it set accordingly", async () => {
-    const input = screen.getByTestId("isDeleteAllowed");
+  it("when user enter requestIsDeleteAllowed, it set accordingly", async () => {
+    const input = screen.getByTestId("requestIsDeleteAllowed");
     await act(async () => {
       await fireEvent.change(input, { target: { checked: true } });
     }); 
-    expect(screen.getByTestId("isDeleteAllowed")).toBeChecked();
+    expect(screen.getByTestId("requestIsDeleteAllowed")).toBeChecked();
   });
 
-  it("when user enter someFloatVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someFloatVal");
+  it("when user enter requestSomeFloatVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeFloatVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "1" } });
     }); 
-    expect(screen.getByTestId("someFloatVal")).toHaveValue(1);
+    expect(screen.getByTestId("requestSomeFloatVal")).toHaveValue(1);
   });
 
-  it("when user enter someDecimalVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someDecimalVal");
+  it("when user enter requestSomeDecimalVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeDecimalVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "1" } });
     }); 
-    expect(screen.getByTestId("someDecimalVal")).toHaveValue(1);
+    expect(screen.getByTestId("requestSomeDecimalVal")).toHaveValue(1);
   });
 
-  it("when user enter someUTCDateTimeVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someUTCDateTimeVal");
+  it("when user enter requestSomeUTCDateTimeVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeUTCDateTimeVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "1/1/2000" } });
     }); 
-    expect(screen.getByTestId("someUTCDateTimeVal")).toHaveValue("1/1/2000");
+    expect(screen.getByTestId("requestSomeUTCDateTimeVal")).toHaveValue("1/1/2000");
   });
 
-  it("when user enter someDateVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someDateVal");
+  it("when user enter requestSomeDateVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeDateVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "1/1/2000" } });
     }); 
-    expect(screen.getByTestId("someDateVal")).toHaveValue("1/1/2000");
+    expect(screen.getByTestId("requestSomeDateVal")).toHaveValue("1/1/2000");
   });
 
-  it("when user enter someMoneyVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someMoneyVal");
+  it("when user enter requestSomeMoneyVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeMoneyVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "1" } });
     }); 
-    expect(screen.getByTestId("someMoneyVal")).toHaveValue(1);
+    expect(screen.getByTestId("requestSomeMoneyVal")).toHaveValue(1);
   });
 
-  it("when user enter someNVarCharVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someNVarCharVal");
+  it("when user enter requestSomeNVarCharVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeNVarCharVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("someNVarCharVal")).toHaveValue("sample data");
+    expect(screen.getByTestId("requestSomeNVarCharVal")).toHaveValue("sample data");
   });
 
-  it("when user enter someVarCharVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someVarCharVal");
+  it("when user enter requestSomeVarCharVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeVarCharVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("someVarCharVal")).toHaveValue("sample data");
+    expect(screen.getByTestId("requestSomeVarCharVal")).toHaveValue("sample data");
   });
 
-  it("when user enter someTextVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someTextVal");
+  it("when user enter requestSomeTextVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeTextVal");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("someTextVal")).toHaveValue("sample data");
+    expect(screen.getByTestId("requestSomeTextVal")).toHaveValue("sample data");
   });
 
-  it("when user enter somePhoneNumber, it set accordingly", async () => {
-    const input = screen.getByTestId("somePhoneNumber");
+  it("when user enter requestSomePhoneNumber, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomePhoneNumber");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("somePhoneNumber")).toHaveValue("sample data");
+    expect(screen.getByTestId("requestSomePhoneNumber")).toHaveValue("sample data");
   });
 
-  it("when user enter someEmailAddress, it set accordingly", async () => {
-    const input = screen.getByTestId("someEmailAddress");
+  it("when user enter requestSomeEmailAddress, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeEmailAddress");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("someEmailAddress")).toHaveValue("sample data");
+    expect(screen.getByTestId("requestSomeEmailAddress")).toHaveValue("sample data");
   });
 
-  it("when user enter sampleImageUploadFile, it set accordingly", async () => {
-    const input = screen.getByTestId("sampleImageUploadFile");
+  it("when user enter requestSampleImageUploadFile, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSampleImageUploadFile");
     await act(async () => {
      // await fireEvent.change(input, { target: { value: "1" } });
     }); 
-  //  expect(screen.getByTestId("sampleImageUploadFile")).toHaveValue(1);
+  //  expect(screen.getByTestId("requestSampleImageUploadFile")).toHaveValue(1);
   });
 
 
@@ -252,95 +252,95 @@ describe("LandAddPlant Component", () => {
       data: formSubmitResponse,
     }); 
    
-    const flavorCodeInput = screen.getByTestId("flavorCode");
+    const requestFlavorCodeInput = screen.getByTestId("requestFlavorCode");
     await act(async () => {
-      await fireEvent.change(flavorCodeInput, { target: { value: "Test@123" } });
-    });
+        await fireEvent.change(requestFlavorCodeInput, { target: { value: "Test@123" } });
+    }); 
  
    
-    const otherFlavorInput = screen.getByTestId("otherFlavor");
+    const requestOtherFlavorInput = screen.getByTestId("requestOtherFlavor");
     await act(async () => {
-      await fireEvent.change(otherFlavorInput, { target: { value: "Test@123" } });
+      await fireEvent.change(requestOtherFlavorInput, { target: { value: "Test@123" } });
     });
  
-    const someIntValInput = screen.getByTestId("someIntVal");
+    const requestSomeIntValInput = screen.getByTestId("requestSomeIntVal");
     await act(async () => {
-      await fireEvent.change(someIntValInput, { target: { value: "99" } });
+      await fireEvent.change(requestSomeIntValInput, { target: { value: "99" } });
     });
  
-    const someBigIntValInput = screen.getByTestId("someBigIntVal");
+    const requestSomeBigIntValInput = screen.getByTestId("requestSomeBigIntVal");
     await act(async () => {
-      await fireEvent.change(someBigIntValInput, { target: { value: "99" } });
+      await fireEvent.change(requestSomeBigIntValInput, { target: { value: "99" } });
     });
  
-    const someBitValInput = screen.getByTestId("someBitVal");
+    const requestSomeBitValInput = screen.getByTestId("requestSomeBitVal");
     await act(async () => {
-      await fireEvent.change(someBitValInput, { target: { checked: true } });
+      await fireEvent.change(requestSomeBitValInput, { target: { checked: true } });
     });
  
-    const isEditAllowedInput = screen.getByTestId("isEditAllowed");
+    const requestIsEditAllowedInput = screen.getByTestId("requestIsEditAllowed");
     await act(async () => {
-      await fireEvent.change(isEditAllowedInput, { target: { checked: true } });
+      await fireEvent.change(requestIsEditAllowedInput, { target: { checked: true } });
     });
  
-    const isDeleteAllowedInput = screen.getByTestId("isDeleteAllowed");
+    const requestIsDeleteAllowedInput = screen.getByTestId("requestIsDeleteAllowed");
     await act(async () => {
-      await fireEvent.change(isDeleteAllowedInput, { target: { checked: true } });
+      await fireEvent.change(requestIsDeleteAllowedInput, { target: { checked: true } });
     });
  
-    const someFloatValInput = screen.getByTestId("someFloatVal");
+    const requestSomeFloatValInput = screen.getByTestId("requestSomeFloatVal");
     await act(async () => {
-      await fireEvent.change(someFloatValInput, { target: { value: "99" } });
+      await fireEvent.change(requestSomeFloatValInput, { target: { value: "99" } });
     });
  
-    const someDecimalValInput = screen.getByTestId("someDecimalVal");
+    const requestSomeDecimalValInput = screen.getByTestId("requestSomeDecimalVal");
     await act(async () => {
-      await fireEvent.change(someDecimalValInput, { target: { value: "99" } });
+      await fireEvent.change(requestSomeDecimalValInput, { target: { value: "99" } });
     });
  
-    const someUTCDateTimeValInput = screen.getByTestId("someUTCDateTimeVal");
+    const requestSomeUTCDateTimeValInput = screen.getByTestId("requestSomeUTCDateTimeVal");
     await act(async () => {
-      await fireEvent.change(someUTCDateTimeValInput, { target: { value: "1/1/2000" } });
+      await fireEvent.change(requestSomeUTCDateTimeValInput, { target: { value: "1/1/2000" } });
     });
  
-    const someDateValInput = screen.getByTestId("someDateVal");
+    const requestSomeDateValInput = screen.getByTestId("requestSomeDateVal");
     await act(async () => {
-      await fireEvent.change(someDateValInput, { target: { value: "1/1/2000" } });
+      await fireEvent.change(requestSomeDateValInput, { target: { value: "1/1/2000" } });
     });
  
-    const someMoneyValInput = screen.getByTestId("someMoneyVal");
+    const requestSomeMoneyValInput = screen.getByTestId("requestSomeMoneyVal");
     await act(async () => {
-      await fireEvent.change(someMoneyValInput, { target: { value: "99" } });
+      await fireEvent.change(requestSomeMoneyValInput, { target: { value: "99" } });
     });
  
-    const someNVarCharValInput = screen.getByTestId("someNVarCharVal");
+    const requestSomeNVarCharValInput = screen.getByTestId("requestSomeNVarCharVal");
     await act(async () => {
-      await fireEvent.change(someNVarCharValInput, { target: { value: "Sample Data" } });
+      await fireEvent.change(requestSomeNVarCharValInput, { target: { value: "Sample Data" } });
     });
  
-    const someVarCharValInput = screen.getByTestId("someVarCharVal");
+    const requestSomeVarCharValInput = screen.getByTestId("requestSomeVarCharVal");
     await act(async () => {
-      await fireEvent.change(someVarCharValInput, { target: { value: "Sample Data" } });
+      await fireEvent.change(requestSomeVarCharValInput, { target: { value: "Sample Data" } });
     });
  
-    const someTextValInput = screen.getByTestId("someTextVal");
+    const requestSomeTextValInput = screen.getByTestId("requestSomeTextVal");
     await act(async () => {
-      await fireEvent.change(someTextValInput, { target: { value: "Sample Data" } });
+      await fireEvent.change(requestSomeTextValInput, { target: { value: "Sample Data" } });
     });
  
-    const somePhoneNumberInput = screen.getByTestId("somePhoneNumber");
+    const requestSomePhoneNumberInput = screen.getByTestId("requestSomePhoneNumber");
     await act(async () => {
-      await fireEvent.change(somePhoneNumberInput, { target: { value: "Sample Data" } });
+      await fireEvent.change(requestSomePhoneNumberInput, { target: { value: "Sample Data" } });
     });
  
-    const someEmailAddressInput = screen.getByTestId("someEmailAddress");
+    const requestSomeEmailAddressInput = screen.getByTestId("requestSomeEmailAddress");
     await act(async () => {
-      await fireEvent.change(someEmailAddressInput, { target: { value: "Sample Data" } });
+      await fireEvent.change(requestSomeEmailAddressInput, { target: { value: "Sample Data" } });
     });
  
-    const sampleImageUploadFileInput = screen.getByTestId("sampleImageUploadFile");
+    const requestSampleImageUploadFileInput = screen.getByTestId("requestSampleImageUploadFile");
     await act(async () => {
-    //  await fireEvent.change(sampleImageUploadFileInput, { target: { value: "Sample Data" } });
+    //  await fireEvent.change(requestSampleImageUploadFileInput, { target: { value: "Sample Data" } });
     });
 
     await act(async () => {

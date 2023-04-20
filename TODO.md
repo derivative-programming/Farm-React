@@ -1,6 +1,14 @@
 
 todo...  
 
+error on fab login and register. success but no redirect
+
+error on fab tests. looking for empty string
+
+remove update plant page? not necessary bc add plant does everything?
+
+landaddplant objwf results need example params of types string,number, bool, guid, date, datetime, money
+
 farm model... to fabricate...
 - add plant: 'some var char' > 'some secure var char'
 - edit plant: 'some var char' > 'some secure var char' and use password text entry
@@ -14,8 +22,7 @@ request ai processing on creation of project? no. allow for selection of feature
 allow pull of version model in ui from api   
 
 add general initialization button in pac config
-
-- fab login and register issue on api post (needs endpoints with guid too, even zero'd ones)
+ 
 - add and edit plant - change secured param to  'some secured var char' label and use pwd text entry
  
 - if learn stmt has a genval tag on a poolean prop, create a synonym on that prop
@@ -25,7 +32,8 @@ add general initialization button in pac config
 - harvest testing should run original tests of farm too
 - allow bookmark of report page url to view page with same filters
 - allow bookmark of authorized page. require login then redirect to it.
-- use /init in api url for init of page, instead of put
+- use /init-page in api url for init of page, instead of put
+- add report export to file endpoint... get [path]/[guid]/ToFile
 - job:on expired api key, redirect to login page
 - add gdpr alert
 - in api raise unauthorized error if api key expired
@@ -43,6 +51,11 @@ add general initialization button in pac config
 
 
 jobs... 
+
+1. audit landaddplant and landplantlist unit tests
+
+
+1. catch 401 unauth api errros and redirect to login page
 
 2. export button to csv (api should return a file?)
  

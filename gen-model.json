@@ -2,7 +2,7 @@
   "root": {
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.18",
+    "projectVersionNumber": "1.0.24",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -1840,7 +1840,7 @@
                 "roleRequired": "",
                 "objectWorkflowParam": [
                   {
-                    "name": "FlavorCode",
+                    "name": "RequestFlavorCode",
                     "codeDescription": "Flavor Code",
                     "labelText": "Select A Flavor",
                     "sqlServerDBDataType": "uniqueidentifier",
@@ -1849,6 +1849,7 @@
                     "isRequired": "true",
                     "requiredErrorText": "Please select a Flavor",
                     "isFK": "true",
+                    "fKObjectName": "Flavor",
                     "isFKLookup": "true",
                     "isFKList": "true",
                     "isFKListSearchable": "true",
@@ -1858,7 +1859,7 @@
                     "sourcePropertyName": "Code"
                   },
                   {
-                    "name": "OtherFlavor",
+                    "name": "RequestOtherFlavor",
                     "codeDescription": "Other Flavor",
                     "labelText": "Other Flavor",
                     "sqlServerDBDataType": "nvarchar",
@@ -1872,7 +1873,7 @@
                     "sourcePropertyName": "OtherFlavor"
                   },
                   {
-                    "name": "SomeIntVal",
+                    "name": "RequestSomeIntVal",
                     "codeDescription": "Some Int Val",
                     "labelText": "Some Int Val",
                     "sqlServerDBDataType": "int",
@@ -1886,7 +1887,7 @@
                     "sourcePropertyName": "SomeIntVal"
                   },
                   {
-                    "name": "SomeBigIntVal",
+                    "name": "RequestSomeBigIntVal",
                     "codeDescription": "Some Big Int Val",
                     "labelText": "Some Big Int Val",
                     "sqlServerDBDataType": "bigint",
@@ -1900,7 +1901,7 @@
                     "sourcePropertyName": "SomeBigIntVal"
                   },
                   {
-                    "name": "SomeBitVal",
+                    "name": "RequestSomeBitVal",
                     "codeDescription": "Some Bit Val",
                     "labelText": "Some Bit Val",
                     "sqlServerDBDataType": "bit",
@@ -1914,7 +1915,7 @@
                     "sourcePropertyName": "SomeBitVal"
                   },
                   {
-                    "name": "IsEditAllowed",
+                    "name": "RequestIsEditAllowed",
                     "codeDescription": "Is Edit Allowed",
                     "labelText": "Is Edit Allowed",
                     "sqlServerDBDataType": "bit",
@@ -1928,7 +1929,7 @@
                     "sourcePropertyName": "IsEditAllowed"
                   },
                   {
-                    "name": "IsDeleteAllowed",
+                    "name": "RequestIsDeleteAllowed",
                     "codeDescription": "Is Delete Allowed",
                     "labelText": "Is Delete Allowed",
                     "sqlServerDBDataType": "bit",
@@ -1942,7 +1943,7 @@
                     "sourcePropertyName": "IsDeleteAllowed"
                   },
                   {
-                    "name": "SomeFloatVal",
+                    "name": "RequestSomeFloatVal",
                     "codeDescription": "Some Float Val",
                     "labelText": "Some Float Val",
                     "sqlServerDBDataType": "float",
@@ -1956,7 +1957,7 @@
                     "sourcePropertyName": "SomeFloatVal"
                   },
                   {
-                    "name": "SomeDecimalVal",
+                    "name": "RequestSomeDecimalVal",
                     "codeDescription": "Some Decimal Val",
                     "labelText": "Some Decimal Val",
                     "sqlServerDBDataType": "decimal",
@@ -1970,7 +1971,7 @@
                     "sourcePropertyName": "SomeDecimalVal"
                   },
                   {
-                    "name": "SomeUTCDateTimeVal",
+                    "name": "RequestSomeUTCDateTimeVal",
                     "codeDescription": "Some UTC Date Time Val",
                     "labelText": "Some UTC Date Time Val",
                     "sqlServerDBDataType": "datetime",
@@ -1984,7 +1985,7 @@
                     "sourcePropertyName": "SomeUTCDateTimeVal"
                   },
                   {
-                    "name": "SomeDateVal",
+                    "name": "RequestSomeDateVal",
                     "codeDescription": "Some Date Val",
                     "labelText": "Some Date Val",
                     "sqlServerDBDataType": "date",
@@ -1998,7 +1999,7 @@
                     "sourcePropertyName": "SomeDateVal"
                   },
                   {
-                    "name": "SomeMoneyVal",
+                    "name": "RequestSomeMoneyVal",
                     "codeDescription": "Some Money Val",
                     "labelText": "Some Money Val",
                     "sqlServerDBDataType": "money",
@@ -2012,7 +2013,7 @@
                     "sourcePropertyName": "SomeMoneyVal"
                   },
                   {
-                    "name": "SomeNVarCharVal",
+                    "name": "RequestSomeNVarCharVal",
                     "codeDescription": "Some N Var Char Val",
                     "labelText": "Some N Var Char Val",
                     "sqlServerDBDataType": "nvarchar",
@@ -2026,7 +2027,7 @@
                     "sourcePropertyName": "SomeNVarCharVal"
                   },
                   {
-                    "name": "SomeVarCharVal",
+                    "name": "RequestSomeVarCharVal",
                     "codeDescription": "Some Secure Var Char Val",
                     "labelText": "Some Secure Var Char Val",
                     "sqlServerDBDataType": "varchar",
@@ -2041,7 +2042,7 @@
                     "sourcePropertyName": "SomeVarCharVal"
                   },
                   {
-                    "name": "SomeTextVal",
+                    "name": "RequestSomeTextVal",
                     "codeDescription": "Some Text Val",
                     "labelText": "Some Text Val",
                     "sqlServerDBDataType": "text",
@@ -2055,7 +2056,7 @@
                     "sourcePropertyName": "SomeTextVal"
                   },
                   {
-                    "name": "SomePhoneNumber",
+                    "name": "RequestSomePhoneNumber",
                     "codeDescription": "Some Phone Number",
                     "labelText": "Some Phone Number",
                     "sqlServerDBDataType": "varchar",
@@ -2069,7 +2070,7 @@
                     "sourcePropertyName": "SomePhoneNumber"
                   },
                   {
-                    "name": "SomeEmailAddress",
+                    "name": "RequestSomeEmailAddress",
                     "codeDescription": "Some Email Address",
                     "labelText": "Some Email Address",
                     "sqlServerDBDataType": "varchar",
@@ -2085,7 +2086,7 @@
                     "sourcePropertyName": "SomeEmailAddress"
                   },
                   {
-                    "name": "SampleImageUploadFile",
+                    "name": "RequestSampleImageUploadFile",
                     "codeDescription": "Sample Image Upload File",
                     "labelText": "Sample Image Upload",
                     "sqlServerDBDataType": "nvarchar",
@@ -2098,6 +2099,152 @@
                   }
                 ],
                 "objectWorkflowOutputVar": [
+                  {
+                    "name": "OutputFlavorCode",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Flavor",
+                    "isFK": "true",
+                    "isFKLookup": "true",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "FlavorCodePeek"
+                  },
+                  {
+                    "name": "OutputOtherFlavor",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "labelText": "Other Flavor",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "OtherFlavor"
+                  },
+                  {
+                    "name": "OutputSomeIntVal",
+                    "sqlServerDBDataType": "int",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Int Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeIntVal"
+                  },
+                  {
+                    "name": "OutputSomeBigIntVal",
+                    "sqlServerDBDataType": "bigint",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Big Int Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeBigIntVal"
+                  },
+                  {
+                    "name": "OutputSomeBitVal",
+                    "sqlServerDBDataType": "bit",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Bit Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeBitVal"
+                  },
+                  {
+                    "name": "OutputIsEditAllowed",
+                    "sqlServerDBDataType": "bit",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Is Edit Allowed",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "IsEditAllowed"
+                  },
+                  {
+                    "name": "OutputIsDeleteAllowed",
+                    "sqlServerDBDataType": "bit",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Is Delete Allowed",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "IsDeleteAllowed"
+                  },
+                  {
+                    "name": "OutputSomeFloatVal",
+                    "sqlServerDBDataType": "float",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Float Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeFloatVal"
+                  },
+                  {
+                    "name": "OutputSomeDecimalVal",
+                    "sqlServerDBDataType": "decimal",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Decimal Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeDecimalVal"
+                  },
+                  {
+                    "name": "OutputSomeUTCDateTimeVal",
+                    "sqlServerDBDataType": "datetime",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some UTC Date Time Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeUTCDateTimeVal"
+                  },
+                  {
+                    "name": "OutputSomeDateVal",
+                    "sqlServerDBDataType": "date",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Date Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeDateVal"
+                  },
+                  {
+                    "name": "OutputSomeMoneyVal",
+                    "sqlServerDBDataType": "money",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Money Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeMoneyVal"
+                  },
+                  {
+                    "name": "OutputSomeNVarCharVal",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "labelText": "Some N Var Char Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeNVarCharVal"
+                  },
+                  {
+                    "name": "OutputSomeVarCharVal",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Var Char Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeVarCharVal"
+                  },
+                  {
+                    "name": "OutputSomeTextVal",
+                    "sqlServerDBDataType": "text",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Text Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeTextVal"
+                  },
+                  {
+                    "name": "OutputSomePhoneNumber",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "labelText": "Some Phone Number",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomePhoneNumber"
+                  },
+                  {
+                    "name": "OutputSomeEmailAddress",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "50",
+                    "labelText": "Some Email Address",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeEmailAddress"
+                  },
+                  {
+                    "name": "LandCode",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Land",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "LandCodePeek"
+                  },
                   {
                     "name": "PlantCode",
                     "sqlServerDBDataType": "uniqueidentifier",
@@ -2138,7 +2285,7 @@
                 "objectWorkflowParam": [],
                 "objectWorkflowOutputVar": [
                   {
-                    "name": "FlavorCode",
+                    "name": "RequestFlavorCode",
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Flavor",
@@ -2147,7 +2294,7 @@
                     "sourcePropertyName": "Code"
                   },
                   {
-                    "name": "OtherFlavor",
+                    "name": "RequestOtherFlavor",
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "labelText": "Other Flavor",
@@ -2155,7 +2302,7 @@
                     "sourcePropertyName": "OtherFlavor"
                   },
                   {
-                    "name": "SomeIntVal",
+                    "name": "RequestSomeIntVal",
                     "sqlServerDBDataType": "int",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Int Val",
@@ -2163,7 +2310,7 @@
                     "sourcePropertyName": "SomeIntVal"
                   },
                   {
-                    "name": "SomeBigIntVal",
+                    "name": "RequestSomeBigIntVal",
                     "sqlServerDBDataType": "bigint",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Big Int Val",
@@ -2171,7 +2318,7 @@
                     "sourcePropertyName": "SomeBigIntVal"
                   },
                   {
-                    "name": "SomeBitVal",
+                    "name": "RequestSomeBitVal",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Bit Val",
@@ -2179,7 +2326,7 @@
                     "sourcePropertyName": "SomeBitVal"
                   },
                   {
-                    "name": "IsDeleteAllowed",
+                    "name": "RequestIsDeleteAllowed",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Is Delete Allowed",
@@ -2187,7 +2334,7 @@
                     "sourcePropertyName": "IsDeleteAllowed"
                   },
                   {
-                    "name": "IsEditAllowed",
+                    "name": "RequestIsEditAllowed",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Is Edit Allowed",
@@ -2195,7 +2342,7 @@
                     "sourcePropertyName": "IsEditAllowed"
                   },
                   {
-                    "name": "SomeFloatVal",
+                    "name": "RequestSomeFloatVal",
                     "sqlServerDBDataType": "float",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Float Val",
@@ -2203,7 +2350,7 @@
                     "sourcePropertyName": "SomeFloatVal"
                   },
                   {
-                    "name": "SomeDecimalVal",
+                    "name": "RequestSomeDecimalVal",
                     "sqlServerDBDataType": "decimal",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Decimal Val",
@@ -2211,7 +2358,7 @@
                     "sourcePropertyName": "SomeDecimalVal"
                   },
                   {
-                    "name": "SomeUTCDateTimeVal",
+                    "name": "RequestSomeUTCDateTimeVal",
                     "sqlServerDBDataType": "datetime",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some UTC Date Time Val",
@@ -2219,7 +2366,7 @@
                     "sourcePropertyName": "SomeUTCDateTimeVal"
                   },
                   {
-                    "name": "SomeDateVal",
+                    "name": "RequestSomeDateVal",
                     "sqlServerDBDataType": "date",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Date Val",
@@ -2227,7 +2374,7 @@
                     "sourcePropertyName": "SomeDateVal"
                   },
                   {
-                    "name": "SomeMoneyVal",
+                    "name": "RequestSomeMoneyVal",
                     "sqlServerDBDataType": "money",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Money Val",
@@ -2235,7 +2382,7 @@
                     "sourcePropertyName": "SomeMoneyVal"
                   },
                   {
-                    "name": "SomeNVarCharVal",
+                    "name": "RequestSomeNVarCharVal",
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "labelText": "Some N Var Char Val",
@@ -2243,7 +2390,7 @@
                     "sourcePropertyName": "SomeNVarCharVal"
                   },
                   {
-                    "name": "SomeVarCharVal",
+                    "name": "RequestSomeVarCharVal",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Var Char Val",
@@ -2251,7 +2398,7 @@
                     "sourcePropertyName": "SomeVarCharVal"
                   },
                   {
-                    "name": "SomeTextVal",
+                    "name": "RequestSomeTextVal",
                     "sqlServerDBDataType": "text",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Text Val",
@@ -2259,7 +2406,7 @@
                     "sourcePropertyName": "SomeTextVal"
                   },
                   {
-                    "name": "SomePhoneNumber",
+                    "name": "RequestSomePhoneNumber",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "labelText": "Some Phone Number",
@@ -2267,7 +2414,7 @@
                     "sourcePropertyName": "SomePhoneNumber"
                   },
                   {
-                    "name": "SomeEmailAddress",
+                    "name": "RequestSomeEmailAddress",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "labelText": "Some Email Address",

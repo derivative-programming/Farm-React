@@ -107,6 +107,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
         );
         return;
       }
+      {/*//GENTrainingBlock[caseGetApiKey]Start*/}
+      {/*//GENLearn[isLoginPage=false]Start*/}
+      {/*//GENLearn[isLoginPage=false]End*/}
+      {/*//GENTrainingBlock[caseGetApiKey]End*/} 
       actions.setSubmitting(false);
       actions.resetForm();
       submitButtonNavigateTo();
@@ -193,58 +197,58 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                       name="headerErrors"
                       errorArray={headerErrors}
                     />
-                    <Lookups.FormSelectFlavor name="flavorCode"
+                    <Lookups.FormSelectFlavor name="requestFlavorCode"
                       label="Select A Flavor"
                     />
-                    <InputFields.FormInputText name="otherFlavor"
+                    <InputFields.FormInputText name="requestOtherFlavor"
                       label="Other Flavor"
                     />
-                    <InputFields.FormInputNumber name="someIntVal"
+                    <InputFields.FormInputNumber name="requestSomeIntVal"
                       label="Some Int Val"
                     />
-                    <InputFields.FormInputNumber name="someBigIntVal"
+                    <InputFields.FormInputNumber name="requestSomeBigIntVal"
                       label="Some Big Int Val"
                     />
-                    <InputFields.FormInputCheckbox name="someBitVal"
+                    <InputFields.FormInputCheckbox name="requestSomeBitVal"
                       label="Some Bit Val"
                     />
-                    <InputFields.FormInputCheckbox name="isEditAllowed"
+                    <InputFields.FormInputCheckbox name="requestIsEditAllowed"
                       label="Is Edit Allowed"
                     />
-                    <InputFields.FormInputCheckbox name="isDeleteAllowed"
+                    <InputFields.FormInputCheckbox name="requestIsDeleteAllowed"
                       label="Is Delete Allowed"
                     />
-                    <InputFields.FormInputNumber name="someFloatVal"
+                    <InputFields.FormInputNumber name="requestSomeFloatVal"
                       label="Some Float Val"
                     />
-                    <InputFields.FormInputNumber name="someDecimalVal"
+                    <InputFields.FormInputNumber name="requestSomeDecimalVal"
                       label="Some Decimal Val"
                     />
-                    <InputFields.FormInputDateTime name="someUTCDateTimeVal"
+                    <InputFields.FormInputDateTime name="requestSomeUTCDateTimeVal"
                       label="Some UTC Date Time Val"
                     />
-                    <InputFields.FormInputDate name="someDateVal"
+                    <InputFields.FormInputDate name="requestSomeDateVal"
                       label="Some Date Val"
                     />
-                    <InputFields.FormInputMoney name="someMoneyVal"
+                    <InputFields.FormInputMoney name="requestSomeMoneyVal"
                       label="Some Money Val"
                     />
-                    <InputFields.FormInputText name="someNVarCharVal"
+                    <InputFields.FormInputText name="requestSomeNVarCharVal"
                       label="Some N Var Char Val"
                     />
-                    <InputFields.FormInputPassword name="someVarCharVal"
-                      label="Some Var Char Val"
+                    <InputFields.FormInputPassword name="requestSomeVarCharVal"
+                      label="Some Secure Var Char Val"
                     />
-                    <InputFields.FormInputTextArea name="someTextVal"
+                    <InputFields.FormInputTextArea name="requestSomeTextVal"
                       label="Some Text Val"
                     />
-                    <InputFields.FormInputText name="somePhoneNumber"
+                    <InputFields.FormInputText name="requestSomePhoneNumber"
                       label="Some Phone Number"
                     />
-                    <InputFields.FormInputEmail name="someEmailAddress"
+                    <InputFields.FormInputEmail name="requestSomeEmailAddress"
                       label="Some Email Address"
                     />
-                    <InputFields.FormInputFile name="sampleImageUploadFile"
+                    <InputFields.FormInputFile name="requestSampleImageUploadFile"
                       label="Sample Image Upload"
                     />
                   </div>

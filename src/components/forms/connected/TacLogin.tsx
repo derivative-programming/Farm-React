@@ -98,8 +98,12 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
         );
         return;
       }
+      {/*//GENTrainingBlock[caseGetApiKey]Start*/}
+      {/*//GENLearn[isLoginPage=true]Start*/}
       authContext.setToken(response.apiKey);
       localStorage.setItem("@token", response.apiKey);
+      {/*//GENLearn[isLoginPage=true]End*/}
+      {/*//GENTrainingBlock[caseGetApiKey]End*/} 
       actions.setSubmitting(false);
       actions.resetForm();
     } catch (error) {

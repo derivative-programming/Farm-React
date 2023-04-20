@@ -1,0 +1,9 @@
+{
+    "templateType":"objWF", 
+    "IsEdgeCase": true,
+    "dimension" :{
+        "name":"TacLogin",
+        "calculatedIsPage":"true",
+        "isLoginPage":"true"
+    }
+}

@@ -180,7 +180,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
                                         <FormInput.FormInputDate name="someDateVal" label="Some Date Val" />
                                         <FormInput.FormInputMoney name="someMoneyVal" label="Some Money Val" />
                                         <FormInput.FormInputText name="someNVarCharVal" label="Some N Var Char Val" />
-                                        <FormInput.FormInputText name="someVarCharVal" label="Some Var Char Val" />
+                                        <FormInput.FormInputPassword name="someVarCharVal" label="Some Secure Var Char Val" />
                                         <FormInput.FormInputTextArea name="someTextVal" label="Some Text Val" />
                                         <FormInput.FormInputText name="somePhoneNumber" label="Some Phone Number" />
                                         <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" />

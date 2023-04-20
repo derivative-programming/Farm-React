@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 import * as FormInit  from "./init/LandAddPlantInitObjWF"; 
   import { apiCall } from "../../../apiConfig/apiCall";
-   
+   //vrdebug
   
   export const initForm = (landCode:string) => { 
     const data ={}; 
@@ -41,65 +41,65 @@ import * as FormInit  from "./init/LandAddPlantInitObjWF";
 export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
     let result:SubmitRequest = new SubmitRequestInstance();
     
-    result.flavorCode = initResult.flavorCode;
-    result.otherFlavor = initResult.otherFlavor;
-    result.someIntVal = initResult.someIntVal;
-    result.someBigIntVal = initResult.someBigIntVal;
-    result.someBitVal = initResult.someBitVal;
-    result.isEditAllowed = initResult.isEditAllowed;
-    result.isDeleteAllowed = initResult.isDeleteAllowed;
-    result.someFloatVal = initResult.someFloatVal;
-    result.someDecimalVal = initResult.someDecimalVal;
-    result.someUTCDateTimeVal = initResult.someUTCDateTimeVal;
-    result.someDateVal = initResult.someDateVal;
-    result.someMoneyVal = initResult.someMoneyVal;
-    result.someNVarCharVal = initResult.someNVarCharVal;
-    result.someVarCharVal = initResult.someVarCharVal;
-    result.someTextVal = initResult.someTextVal;
-    result.somePhoneNumber = initResult.somePhoneNumber;
-    result.someEmailAddress = initResult.someEmailAddress;  
-    result.sampleImageUploadFile = '';
+    result.requestFlavorCode = initResult.requestFlavorCode;
+    result.requestOtherFlavor = initResult.requestOtherFlavor;
+    result.requestSomeIntVal = initResult.requestSomeIntVal;
+    result.requestSomeBigIntVal = initResult.requestSomeBigIntVal;
+    result.requestSomeBitVal = initResult.requestSomeBitVal;
+    result.requestIsEditAllowed = initResult.requestIsEditAllowed;
+    result.requestIsDeleteAllowed = initResult.requestIsDeleteAllowed;
+    result.requestSomeFloatVal = initResult.requestSomeFloatVal;
+    result.requestSomeDecimalVal = initResult.requestSomeDecimalVal;
+    result.requestSomeUTCDateTimeVal = initResult.requestSomeUTCDateTimeVal;
+    result.requestSomeDateVal = initResult.requestSomeDateVal;
+    result.requestSomeMoneyVal = initResult.requestSomeMoneyVal;
+    result.requestSomeNVarCharVal = initResult.requestSomeNVarCharVal;
+    result.requestSomeVarCharVal = initResult.requestSomeVarCharVal;
+    result.requestSomeTextVal = initResult.requestSomeTextVal;
+    result.requestSomePhoneNumber = initResult.requestSomePhoneNumber;
+    result.requestSomeEmailAddress = initResult.requestSomeEmailAddress;  
+    result.requestSampleImageUploadFile = '';
     
     return result;
 }
 
 export const buildValidationSchema = () => {
     const validationSchema  = Yup.object().shape({
-        flavorCode: Yup.string()
+        requestFlavorCode: Yup.string()
         ,
-        otherFlavor: Yup.string()
+        requestOtherFlavor: Yup.string()
         ,
-        someIntVal: Yup.number().required('Please enter a Some Int Val')
+        requestSomeIntVal: Yup.number().required('Please enter a Some Int Val')
         ,
-        someBigIntVal: Yup.number().required('Please enter a Some Big Int Val')
+        requestSomeBigIntVal: Yup.number().required('Please enter a Some Big Int Val')
         ,
-        someBitVal: Yup.boolean().required('Please enter a Some Bit Val')
+        requestSomeBitVal: Yup.boolean().required('Please enter a Some Bit Val')
         ,
-        isEditAllowed: Yup.boolean().required('Please enter a Is Edit Allowed')
+        requestIsEditAllowed: Yup.boolean().required('Please enter a Is Edit Allowed')
         ,
-        isDeleteAllowed: Yup.boolean().required('Please enter a Is Delete Allowed')
+        requestIsDeleteAllowed: Yup.boolean().required('Please enter a Is Delete Allowed')
         ,
-        someFloatVal: Yup.number().required('Please enter a Some Float Val')
+        requestSomeFloatVal: Yup.number().required('Please enter a Some Float Val')
         ,
-        someDecimalVal: Yup.number().required('Please enter a Some Decimal Val')
+        requestSomeDecimalVal: Yup.number().required('Please enter a Some Decimal Val')
         ,
-        someUTCDateTimeVal: Yup.mixed()
+        requestSomeUTCDateTimeVal: Yup.mixed()
         ,
-        someDateVal: Yup.mixed()
+        requestSomeDateVal: Yup.mixed()
         ,
-        someMoneyVal: Yup.number().required('Please enter a Some Money Val')
+        requestSomeMoneyVal: Yup.number().required('Please enter a Some Money Val')
         ,
-        someNVarCharVal: Yup.string()
+        requestSomeNVarCharVal: Yup.string()
         ,
-        someVarCharVal: Yup.string()
+        requestSomeVarCharVal: Yup.string()
         ,
-        someTextVal: Yup.string()
+        requestSomeTextVal: Yup.string()
         ,
-        somePhoneNumber: Yup.string()
+        requestSomePhoneNumber: Yup.string()
         ,
-        someEmailAddress: Yup.string()
+        requestSomeEmailAddress: Yup.string()
         , 
-        sampleImageUploadFile: Yup.string()
+        requestSampleImageUploadFile: Yup.string()
         , 
       });
 
@@ -110,46 +110,83 @@ export const buildValidationSchema = () => {
 
 export interface SubmitRequest {
  
-    flavorCode: string;
+    requestFlavorCode: string;
  
-    otherFlavor: string;
+    requestOtherFlavor: string;
  
-    someIntVal: number;
+    requestSomeIntVal: number;
  
-    someBigIntVal: number;
+    requestSomeBigIntVal: number;
  
-    someBitVal: boolean;
+    requestSomeBitVal: boolean;
  
-    isEditAllowed: boolean;
+    requestIsEditAllowed: boolean;
  
-    isDeleteAllowed: boolean;
+    requestIsDeleteAllowed: boolean;
  
-    someFloatVal: number;
+    requestSomeFloatVal: number;
  
-    someDecimalVal: number;
+    requestSomeDecimalVal: number;
  
-    someUTCDateTimeVal: string;
+    requestSomeUTCDateTimeVal: string;
  
-    someDateVal: string;
+    requestSomeDateVal: string;
  
-    someMoneyVal: number;
+    requestSomeMoneyVal: number;
  
-    someNVarCharVal: string;
+    requestSomeNVarCharVal: string;
  
-    someVarCharVal: string;
+    requestSomeVarCharVal: string;
  
-    someTextVal: string;
+    requestSomeTextVal: string;
  
-    somePhoneNumber: string;
+    requestSomePhoneNumber: string;
  
-    someEmailAddress: string;
+    requestSomeEmailAddress: string;
  
-    sampleImageUploadFile: string;
+    requestSampleImageUploadFile: string;
 }
 
 export interface SubmitResult {
+    
+    outputFlavorCode: string;
  
-    plantCode: string;
+    plantCode: string; 
+    
+    landCode: string;
+ 
+    outputOtherFlavor: string;
+ 
+    outputSomeIntVal: number;
+ 
+    outputSomeBigIntVal: number;
+ 
+    outputSomeBitVal: boolean;
+ 
+    outputIsDeleteAllowed: boolean;
+ 
+    outputIsEditAllowed: boolean;
+ 
+    outputSomeFloatVal: number;
+ 
+    outputSomeDecimalVal: number;
+ 
+    outputSomeUTCDateTimeVal: string;
+ 
+    outputSomeDateVal: string;
+ 
+    outputSomeMoneyVal: number;
+ 
+    outputSomeNVarCharVal: string;
+ 
+    outputSomeVarCharVal: string;
+ 
+    outputSomeTextVal: string;
+ 
+    outputSomePhoneNumber: string;
+ 
+    outputSomeEmailAddress: string;
+
     success: boolean;
     message: string;
     validationErrors: SubmitValidationError[];
@@ -164,80 +201,80 @@ export interface SubmitValidationError {
 
 export class SubmitRequestInstance implements SubmitRequest {
  
-    flavorCode: string;
+    requestFlavorCode: string;
  
-    otherFlavor: string;
+    requestOtherFlavor: string;
  
-    someIntVal: number;
+    requestSomeIntVal: number;
  
-    someBigIntVal: number;
+    requestSomeBigIntVal: number;
  
-    someBitVal: boolean;
+    requestSomeBitVal: boolean;
  
-    isEditAllowed: boolean;
+    requestIsEditAllowed: boolean;
  
-    isDeleteAllowed: boolean;
+    requestIsDeleteAllowed: boolean;
  
-    someFloatVal: number;
+    requestSomeFloatVal: number;
  
-    someDecimalVal: number;
+    requestSomeDecimalVal: number;
  
-    someUTCDateTimeVal: string;
+    requestSomeUTCDateTimeVal: string;
  
-    someDateVal: string;
+    requestSomeDateVal: string;
  
-    someMoneyVal: number;
+    requestSomeMoneyVal: number;
  
-    someNVarCharVal: string;
+    requestSomeNVarCharVal: string;
  
-    someVarCharVal: string;
+    requestSomeVarCharVal: string;
  
-    someTextVal: string;
+    requestSomeTextVal: string;
  
-    somePhoneNumber: string;
+    requestSomePhoneNumber: string;
  
-    someEmailAddress: string;
+    requestSomeEmailAddress: string;
  
-    sampleImageUploadFile: string;
+    requestSampleImageUploadFile: string;
     
 
     constructor() {
  
-        this.flavorCode = '00000000-0000-0000-0000-000000000000';
+        this.requestFlavorCode = '00000000-0000-0000-0000-000000000000';
  
-        this.otherFlavor = '';
+        this.requestOtherFlavor = '';
  
-        this.someIntVal = 0;
+        this.requestSomeIntVal = 0;
  
-        this.someBigIntVal = 0;
+        this.requestSomeBigIntVal = 0;
  
-        this.someBitVal = false;
+        this.requestSomeBitVal = false;
  
-        this.isEditAllowed = false;
+        this.requestIsEditAllowed = false;
  
-        this.isDeleteAllowed = false;
+        this.requestIsDeleteAllowed = false;
  
-        this.someFloatVal = 0;
+        this.requestSomeFloatVal = 0;
  
-        this.someDecimalVal = 0;
+        this.requestSomeDecimalVal = 0;
  
-        this.someUTCDateTimeVal = '01-01-1753 00:00:00'
+        this.requestSomeUTCDateTimeVal = '01-01-1753 00:00:00'
  
-        this.someDateVal = '01-01-1753 00:00:00';
+        this.requestSomeDateVal = '01-01-1753 00:00:00';
  
-        this.someMoneyVal = 0.0;
+        this.requestSomeMoneyVal = 0.0;
  
-        this.someNVarCharVal = '';
+        this.requestSomeNVarCharVal = '';
  
-        this.someVarCharVal = '';
+        this.requestSomeVarCharVal = '';
  
-        this.someTextVal = '';
+        this.requestSomeTextVal = '';
  
-        this.somePhoneNumber = '';
+        this.requestSomePhoneNumber = '';
  
-        this.someEmailAddress = '';
+        this.requestSomeEmailAddress = '';
  
-        this.sampleImageUploadFile = '';
+        this.requestSampleImageUploadFile = '';
     } 
 
 }
@@ -247,14 +284,88 @@ export class SubmitRequestInstance implements SubmitRequest {
 
 export class SubmitResultInstance implements SubmitResult {
  
+    
+    outputFlavorCode: string;
+
     plantCode: string;
+    
+    landCode: string;
+ 
+    outputOtherFlavor: string;
+ 
+    outputSomeIntVal: number;
+ 
+    outputSomeBigIntVal: number;
+ 
+    outputSomeBitVal: boolean;
+ 
+    outputIsDeleteAllowed: boolean;
+ 
+    outputIsEditAllowed: boolean;
+ 
+    outputSomeFloatVal: number;
+ 
+    outputSomeDecimalVal: number;
+ 
+    outputSomeUTCDateTimeVal: string;
+ 
+    outputSomeDateVal: string;
+ 
+    outputSomeMoneyVal: number;
+ 
+    outputSomeNVarCharVal: string;
+ 
+    outputSomeVarCharVal: string;
+ 
+    outputSomeTextVal: string;
+ 
+    outputSomePhoneNumber: string;
+ 
+    outputSomeEmailAddress: string;
+
     success: boolean;
     message: string;
     validationErrors: SubmitValidationError[];
 
     constructor() {
+
+        this.outputFlavorCode = '00000000-0000-0000-0000-000000000000';
  
         this.plantCode = '00000000-0000-0000-0000-000000000000';
+        
+        this.landCode = '00000000-0000-0000-0000-000000000000';
+ 
+        this.outputOtherFlavor = '';
+ 
+        this.outputSomeIntVal = 0;
+ 
+        this.outputSomeBigIntVal = 0;
+ 
+        this.outputSomeBitVal = false;
+ 
+        this.outputIsDeleteAllowed = false;
+ 
+        this.outputIsEditAllowed = false;
+ 
+        this.outputSomeFloatVal = 0;
+ 
+        this.outputSomeDecimalVal = 0;
+ 
+        this.outputSomeUTCDateTimeVal = '01-01-1753 00:00:00'
+ 
+        this.outputSomeDateVal = '01-01-1753 00:00:00';
+ 
+        this.outputSomeMoneyVal = 0.0;
+ 
+        this.outputSomeNVarCharVal = '';
+ 
+        this.outputSomeVarCharVal = '';
+ 
+        this.outputSomeTextVal = '';
+ 
+        this.outputSomePhoneNumber = '';
+ 
+        this.outputSomeEmailAddress = '';
         this.success = false;
         this.message = '';
         this.validationErrors = [];

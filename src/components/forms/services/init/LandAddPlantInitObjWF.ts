@@ -5,39 +5,39 @@ export interface InitRequest {
 
 export interface InitResult {
  
-    flavorCode: string;
+    requestFlavorCode: string;
  
-    otherFlavor: string;
+    requestOtherFlavor: string;
  
-    someIntVal: number;
+    requestSomeIntVal: number;
  
-    someBigIntVal: number;
+    requestSomeBigIntVal: number;
  
-    someBitVal: boolean;
+    requestSomeBitVal: boolean;
  
-    isDeleteAllowed: boolean;
+    requestIsDeleteAllowed: boolean;
  
-    isEditAllowed: boolean;
+    requestIsEditAllowed: boolean;
  
-    someFloatVal: number;
+    requestSomeFloatVal: number;
  
-    someDecimalVal: number;
+    requestSomeDecimalVal: number;
  
-    someUTCDateTimeVal: string;
+    requestSomeUTCDateTimeVal: string;
  
-    someDateVal: string;
+    requestSomeDateVal: string;
  
-    someMoneyVal: number;
+    requestSomeMoneyVal: number;
  
-    someNVarCharVal: string;
+    requestSomeNVarCharVal: string;
  
-    someVarCharVal: string;
+    requestSomeVarCharVal: string;
  
-    someTextVal: string;
+    requestSomeTextVal: string;
  
-    somePhoneNumber: string;
+    requestSomePhoneNumber: string;
  
-    someEmailAddress: string;
+    requestSomeEmailAddress: string;
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
@@ -60,78 +60,78 @@ export class InitRequestInstance implements InitRequest {
 
 export class InitResultInstance implements InitResult {
  
-    flavorCode: string;
+    requestFlavorCode: string;
  
-    otherFlavor: string;
+    requestOtherFlavor: string;
  
-    someIntVal: number;
+    requestSomeIntVal: number;
  
-    someBigIntVal: number;
+    requestSomeBigIntVal: number;
  
-    someBitVal: boolean;
+    requestSomeBitVal: boolean;
  
-    isDeleteAllowed: boolean;
+    requestIsDeleteAllowed: boolean;
  
-    isEditAllowed: boolean;
+    requestIsEditAllowed: boolean;
  
-    someFloatVal: number;
+    requestSomeFloatVal: number;
  
-    someDecimalVal: number;
+    requestSomeDecimalVal: number;
  
-    someUTCDateTimeVal: string;
+    requestSomeUTCDateTimeVal: string;
  
-    someDateVal: string;
+    requestSomeDateVal: string;
  
-    someMoneyVal: number;
+    requestSomeMoneyVal: number;
  
-    someNVarCharVal: string;
+    requestSomeNVarCharVal: string;
  
-    someVarCharVal: string;
+    requestSomeVarCharVal: string;
  
-    someTextVal: string;
+    requestSomeTextVal: string;
  
-    somePhoneNumber: string;
+    requestSomePhoneNumber: string;
  
-    someEmailAddress: string;
+    requestSomeEmailAddress: string;
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
 
     constructor() {
  
-        this.flavorCode = '00000000-0000-0000-0000-000000000000';
+        this.requestFlavorCode = '00000000-0000-0000-0000-000000000000';
  
-        this.otherFlavor = '';
+        this.requestOtherFlavor = '';
  
-        this.someIntVal = 0;
+        this.requestSomeIntVal = 0;
  
-        this.someBigIntVal = 0;
+        this.requestSomeBigIntVal = 0;
  
-        this.someBitVal = false;
+        this.requestSomeBitVal = false;
  
-        this.isDeleteAllowed = false;
+        this.requestIsDeleteAllowed = false;
  
-        this.isEditAllowed = false;
+        this.requestIsEditAllowed = false;
  
-        this.someFloatVal = 0;
+        this.requestSomeFloatVal = 0;
  
-        this.someDecimalVal = 0;
+        this.requestSomeDecimalVal = 0;
  
-        this.someUTCDateTimeVal = '01-01-1753 00:00:00'
+        this.requestSomeUTCDateTimeVal = '01-01-1753 00:00:00'
  
-        this.someDateVal = '01-01-1753 00:00:00';
+        this.requestSomeDateVal = '01-01-1753 00:00:00';
  
-        this.someMoneyVal = 0.0;
+        this.requestSomeMoneyVal = 0.0;
  
-        this.someNVarCharVal = '';
+        this.requestSomeNVarCharVal = '';
  
-        this.someVarCharVal = '';
+        this.requestSomeVarCharVal = '';
  
-        this.someTextVal = '';
+        this.requestSomeTextVal = '';
  
-        this.somePhoneNumber = '';
+        this.requestSomePhoneNumber = '';
  
-        this.someEmailAddress = '';
+        this.requestSomeEmailAddress = '';
         this.success = false;
         this.message = '';
         this.validationErrors =  [];
