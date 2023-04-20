@@ -5,7 +5,7 @@ import * as ReportInit  from "./TacFarmDashboardInitReport";
    
     export const submitRequest = (data:any,tacCode:string) => {
     return apiCall({
-      url: '/tac-farm-dashboard' ,
+      url: '/tac-farm-dashboard/' + tacCode,
       method: "get",
       params: data
     });

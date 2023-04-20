@@ -1,6 +1,10 @@
 
 todo...  
 
+tac-far-dashboard needs to accept an id in url
+
+login edge case is converting boolean var in phrase to a replacement tag. its hitting the code to shortcut control attributes synonyms
+
 error on fab login and register. success but no redirect
 
 error on fab tests. looking for empty string

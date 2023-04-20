@@ -9,6 +9,9 @@
         "objectWorkflowParam.calculatedIsDetailsTextAvailable", 
         "objectWorkflowParam.calculatedIsRequiredCSSClassName", 
         "objectWorkflowParam.calculatedIsConditionalVisible",
-        "objectWorkflowParam.calculatedIsRegExMatchRequired"
+        "objectWorkflowParam.calculatedIsRegExMatchRequired",
+        "objectWorkflowOutputVar.calculatedIsSourceObjectAvailable", 
+        "objectWorkflowOutputVar.calculatedIsConditionalVisible", 
+        "objectWorkflowOutputVar.isAutoRedirectURL" 
     ]
 }
