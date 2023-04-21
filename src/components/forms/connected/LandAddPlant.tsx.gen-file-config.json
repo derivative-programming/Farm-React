@@ -7,6 +7,7 @@
     "ignoreDimensionPropertyList": [
         "objectWorkflowParam.calculatedIsSourceObjectAvailable",
         "objectWorkflowParam.calculatedIsRequiredCSSClassName",
-        "objectWorkflowParam.calculatedIsRegExMatchRequired"
+        "objectWorkflowParam.calculatedIsRegExMatchRequired",
+        "objectWorkflowParam.calculatedIsObjectID"
     ]
 }

@@ -10,7 +10,43 @@ Technologies used in this repo...
 - Typescript
 - formik forms
 
- 
+Features...
+- General Page Elements
+    - Breadcrumbs
+    - Back Button
+    - Title
+    - Intro Text
+    - Routing
+- Form Data Entry
+    - Control Data Types
+        - TextBox
+        - TextArea
+        - Lookup Dropdown
+        - Numeric
+        - Date
+        - Date Time
+        - Password
+        - Money
+        - File Upload
+- Report Display
+    - Filtering Control
+    - Table Result Display
+        - Page Size Dropdown
+        - Paging Control
+        - Count Display
+        - Column Display Types
+            - Text
+            - Money
+            - Numeric
+            - Date
+            - Date Time
+            - Action Button
+            - Navigation Button
+        - Multi Select Action Button
+- Authentication api key set on Login and Register
+- Api Proxy functions, with Request and Response Objects
+- Unit Testing
+- Cypress E2E Testing
 
 
 # Getting Started with Create React App

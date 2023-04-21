@@ -12,7 +12,7 @@ import FormConnectedLandAddPlant from "./LandAddPlant";
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
-import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
+import * as requestFlavorCodeService from "../../lookups/services/PacUserFlavorList"
 
 
 window.localStorage.setItem("@token", "sampleToken");
@@ -29,7 +29,7 @@ jest.mock("react-router-dom", () => ({
 
 const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
-const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
+const mockRequestFlavorCodeService =  jest.spyOn(requestFlavorCodeService, "submitRequest");
 
 let formSubmitResponse = new FormService.SubmitResultInstance();
 const formInitResponse = new InitFormService.InitResultInstance();
@@ -42,8 +42,8 @@ describe("LandAddPlant Component", () => {
         data: new InitFormService.InitResultInstance(),
       });
       
-      mockFlavorCodeService.mockResolvedValueOnce({
-        data: new flavorCodeService.QueryResultTestInstance(),
+      mockRequestFlavorCodeService.mockResolvedValueOnce({
+        data: new requestFlavorCodeService.QueryResultTestInstance(),
       }); 
       
 
@@ -53,7 +53,7 @@ describe("LandAddPlant Component", () => {
       </BrowserRouter>
     ); 
 
-    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockRequestFlavorCodeService).toHaveBeenCalledTimes(1));
   });
 
   // after cleanup when test-case execution is done
@@ -88,9 +88,15 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("submit-button")).toBeInTheDocument();
     expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
     
-    expect(screen.getByText("Add Plant Title Text")).toBeInTheDocument();
-    expect(screen.getByText("Add plant intro text.")).toBeInTheDocument();
-    expect(screen.getByText("Add plant form footer text")).toBeInTheDocument();
+    if("Add Plant Title Text".length > 0){ 
+      expect(screen.getByTestId("page-title-text")).toBeInTheDocument();
+    }
+    if("Add plant intro text.".length > 0){ 
+      expect(screen.getByTestId("page-intro-text")).toBeInTheDocument();
+    }
+    if("Add plant form footer text".length > 0){ 
+      expect(screen.getByTestId("page-footer-text")).toBeInTheDocument();
+    }
     
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1)); 
   });

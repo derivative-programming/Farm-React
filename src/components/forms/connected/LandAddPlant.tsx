@@ -167,8 +167,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
           className="mt-1 page-card"
 
         >
-          <h2>Add Plant Title Text</h2>
-          <h6>Add plant intro text.</h6>
+          <h2 data-testid="page-title-text">Add Plant Title Text</h2>
+          <h6 data-testid="page-intro-text">Add plant intro text.</h6>
 
           <Formik
             enableReinitialize={true}
@@ -293,7 +293,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
             )}
           </Formik>
           <div className="mt-3">
-            <h6>Add plant form footer text</h6>
+            <h6 data-testid="page-footer-text">Add plant form footer text</h6>
           </div>
         </Card>
       </div>

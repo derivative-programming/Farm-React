@@ -56,7 +56,17 @@ describe("LandPlantList Connected Report Component", () => {
 
 
   it("renders correctly", async () => {
+    
     expect(screen.getByTestId("reportConnectedLandPlantList")).toBeInTheDocument();
+       
+
+    if("Plant List title text".length > 0){
+      expect(screen.getByTestId("page-title-text")).toBeInTheDocument();
+    }
+    if("A list of plants on the land".length > 0){ 
+      expect(screen.getByTestId("page-intro-text")).toBeInTheDocument();
+    }
+
   });
  
 });

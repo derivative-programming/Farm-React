@@ -1,46 +1,44 @@
 
 todo...  
+ 
 
-tac-far-dashboard needs to accept an id in url
+on test title, intro text, and footer with data-testid,  verify correct text exists
 
-login edge case is converting boolean var in phrase to a replacement tag. its hitting the code to shortcut control attributes synonyms
+fab: 'O K button Text'  
 
-error on fab login and register. success but no redirect
-
-error on fab tests. looking for empty string
+test err: logout expected mock service call
 
 remove update plant page? not necessary bc add plant does everything?
-
-landaddplant objwf results need example params of types string,number, bool, guid, date, datetime, money
-
-farm model... to fabricate...
-- add plant: 'some var char' > 'some secure var char'
-- edit plant: 'some var char' > 'some secure var char' and use password text entry
-- login endpoint: add post with id
-- register endpoint: add post with id
-    
-
+ 
+  
 on creation of project, create the initial model and initial version rec?
 request ai processing on creation of project? no. allow for selection of features.
 
 allow pull of version model in ui from api   
 
 add general initialization button in pac config
- 
-- add and edit plant - change secured param to  'some secured var char' label and use pwd text entry
- 
-- if learn stmt has a genval tag on a poolean prop, create a synonym on that prop
-- look for occurrences of '=,' bc a prop may be blank. ignore these in dim phrase build
+   
 - add page random values button isnt working. posting to same page but init not running again.
 - add page new values button necessary?        
-- harvest testing should run original tests of farm too
+test:- harvest testing should run original tests of farm too
 - allow bookmark of report page url to view page with same filters
 - allow bookmark of authorized page. require login then redirect to it.
-- use /init-page in api url for init of page, instead of put
-- add report export to file endpoint... get [path]/[guid]/ToFile
+
+- use /init-page in api url for init of page, instead of put.   
+crud should have an init endpoint too****
+init would always be an objwf
+new endpoint props apiGetInitContextTargetName, isApiGetInitAvailable, isApiGetToCSVAvaialble
+would be created for both get and getwithid
+append '/Init' to the get url
+for init use put pattern, with no body model in request 
+
+
+separate endpoint PageEdit,PageEditInit, LandPlantListInit, LandPlantList,LandPlantListExport (woudl need gets. would still use objwf isntead fo reports)
+simple option for get report to have toCSV endpoitn exposed. logic wouldnt be much differnt?
+
+- add report export to file endpoint... get [path]/[guid]/ToFile. max of 1000. ignore page size
 - job:on expired api key, redirect to login page
-- add gdpr alert
-- in api raise unauthorized error if api key expired
+- add gdpr alert 
 - common, light, dark theme
 - internationalization https://www.i18next.com/
 - check for new app version

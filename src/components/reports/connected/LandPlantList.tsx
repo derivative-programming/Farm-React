@@ -153,7 +153,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
       <div className="w-100">
         <Breadcrumb hidden={isBreadcrumbSectionHidden}>
           <Breadcrumb.Item
-            id="TacFarmDashboardBreadcrumb"
+            id="TacFarmDashboardBreadcrumb" 
             onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
           >
             Farm Dashboard breadcrumb text
@@ -170,8 +170,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
          
       > 
       
-        <h2>Plant List title text</h2>
-        <h6>A list of plants on the land</h6>
+        <h2 data-testid="page-title-text">Plant List title text</h2>
+        <h6 data-testid="page-intro-text">A list of plants on the land</h6>
         <Container>  
           <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
             <div className="mb-2 mb-md-0">

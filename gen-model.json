@@ -2,7 +2,7 @@
   "root": {
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.24",
+    "projectVersionNumber": "1.0.25",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -2289,9 +2289,10 @@
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Flavor",
+                    "isFK": "true",
                     "isFKLookup": "true",
-                    "sourceObjectName": "Flavor",
-                    "sourcePropertyName": "Code"
+                    "sourceObjectName": "",
+                    "sourcePropertyName": ""
                   },
                   {
                     "name": "RequestOtherFlavor",
@@ -2418,8 +2419,8 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "labelText": "Some Email Address",
-                    "sourceObjectName": "Plant",
-                    "sourcePropertyName": "SomeEmailAddress"
+                    "sourceObjectName": "",
+                    "sourcePropertyName": ""
                   }
                 ],
                 "objectWorkflowButton": []
@@ -4883,13 +4884,14 @@
                     "isRequired": "true",
                     "requiredErrorText": "Select A Flavor",
                     "isFK": "true",
+                    "fKObjectName": "Flavor",
                     "isFKLookup": "true",
                     "isFKList": "true",
                     "isFKListSearchable": "true",
                     "isFileUpload": "false",
                     "isIgnored": "false",
-                    "sourceObjectName": "Plant",
-                    "sourcePropertyName": "FlavorID"
+                    "sourceObjectName": "Flavor",
+                    "sourcePropertyName": "Code"
                   },
                   {
                     "name": "OtherFlavor",
@@ -5159,8 +5161,8 @@
                     "labelText": "Flavor",
                     "isFK": "true",
                     "isFKLookup": "true",
-                    "sourceObjectName": "Plant",
-                    "sourcePropertyName": "FlavorCodePeek"
+                    "sourceObjectName": "",
+                    "sourcePropertyName": ""
                   },
                   {
                     "name": "OtherFlavor",
@@ -6541,9 +6543,9 @@
               {
                 "name": "TacFarmDashboard",
                 "isAPIAuthorizationRequired": "true",
-                "isGetAvailable": "true",
+                "isGetAvailable": "false",
                 "isGetContextCodeAParam": "false",
-                "isGetWithIdAvailable": "false",
+                "isGetWithIdAvailable": "true",
                 "isPostAvailable": "false",
                 "isPostWithIdAvailable": "false",
                 "isPublic": "false",
