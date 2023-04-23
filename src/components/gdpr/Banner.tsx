@@ -29,13 +29,7 @@ const GDPRBanner: React.FC = () => {
         >
           <Container>
             <Row>
-              <Col
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              <Col className="d-flex align-items-center justify-content-center">
                 <span
                   style={{
                     marginRight: "10px",
