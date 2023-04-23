@@ -6,6 +6,7 @@ import {
     FormikHelpers,
 } from "formik";
 import * as FormService from "../services/PlantEdit";
+import * as InitFormService from "../services/init/PlantEditInitObjWF";
 import { AuthContext } from "../../../context/authContext"; 
 import * as FormInput from "../input-fields"
 import * as Lookups from "../lookups";
@@ -20,7 +21,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
     showProcessingAnimationOnInit = true,
 }): ReactElement => {
 
-    const [initPageResponse, setInitPageResponse] = useState(new FormService.InitResultInstance());
+    const [initPageResponse, setInitPageResponse] = useState(new InitFormService.InitResultInstance());
     const [initialValues, setInitialValues] = useState(new FormService.SubmitRequestInstance());
     let lastApiSubmission: any = {
         request: new FormService.SubmitResultInstance(),
@@ -34,7 +35,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
     const { id } = useParams();
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-    let initFormResponse: FormService.InitResult = new FormService.InitResultInstance();
+    let initFormResponse: InitFormService.InitResult = new InitFormService.InitResultInstance();
 
     const validationSchema = FormService.buildValidationSchema();
 
@@ -44,7 +45,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
 
     const handleInit = (responseFull: any) => {
 
-        const response: FormService.InitResult = responseFull.data;
+        const response: InitFormService.InitResult = responseFull.data;
 
         if (!response.success) {
             return;
@@ -183,8 +184,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
                                         <FormInput.FormInputPassword name="someVarCharVal" label="Some Secure Var Char Val" />
                                         <FormInput.FormInputTextArea name="someTextVal" label="Some Text Val" />
                                         <FormInput.FormInputText name="somePhoneNumber" label="Some Phone Number" />
-                                        <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" />
-                                        <FormInput.FormInputFile name="sampleImageUploadFile" label="Sample Image Upload" />
+                                        <FormInput.FormInputEmail name="someEmailAddress" label="Some Email Address" /> 
                                     </div>
                                 }
                                 <div className="d-flex justify-content-between">

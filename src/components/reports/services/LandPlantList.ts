@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import * as ReportInit  from "./LandPlantListInitReport"; 
+import * as ReportInit  from "./init/LandPlantListInitReport"; 
   import { apiCall } from "../../../apiConfig/apiCall"; 
    
 export const submitRequest = (data:any, landCode:string) => {
@@ -10,11 +10,19 @@ export const submitRequest = (data:any, landCode:string) => {
     });     
   }; 
   
+export const submitCSVRequest = (data:any, landCode:string) => {
+    return apiCall({
+      url:  "/land-plant-list/" + landCode + "/to-csv",
+      method: "get",
+      params: data
+    });     
+  }; 
+  
   export const initPage = (landCode:string) => {
     const data = {};
     return apiCall({
-      url: "/land-plant-list/" + landCode,
-      method: "put",
+      url: "/land-plant-list/" + landCode + '/init',
+      method: "get",
       data
     });
   };

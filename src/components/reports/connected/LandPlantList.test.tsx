@@ -10,7 +10,7 @@ import {
 } from "@testing-library/react";
 import ReportConnectedLandPlantList from "./LandPlantList"; 
 import * as ReportService from "../services/LandPlantList";
-import * as InitReportService from "../services/LandPlantListInitReport";
+import * as InitReportService from "../services/init/LandPlantListInitReport";
 import { BrowserRouter } from "react-router-dom";
 import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
  
@@ -59,6 +59,11 @@ describe("LandPlantList Connected Report Component", () => {
     
     expect(screen.getByTestId("reportConnectedLandPlantList")).toBeInTheDocument();
        
+    expect(screen.getByTestId("TacFarmDashboardBreadcrumb")).toBeInTheDocument();
+
+    expect(screen.getByTestId("back-button")).toBeInTheDocument();
+    expect(screen.getByTestId("add-button")).toBeInTheDocument();
+    expect(screen.getByTestId("otherAddButton")).toBeInTheDocument();
 
     if("Plant List title text".length > 0){
       expect(screen.getByTestId("page-title-text")).toBeInTheDocument();

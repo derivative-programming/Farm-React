@@ -11,6 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/TacRegister";
+import * as InitFormService from "../services/init/TacRegisterInitObjWF";
 import { AuthContext } from "../../../context/authContext"; 
 import * as FormInput from "../input-fields";
 
@@ -45,7 +46,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   let headerErrors: string[] = [];
 
   const handleInit = (responseFull: any) => {
-    const initFormResponse: FormService.InitResult = responseFull.data;
+    const initFormResponse: InitFormService.InitResult = responseFull.data;
 
     if (!initFormResponse.success) { 
       return;
@@ -118,7 +119,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       return;
     }
     isInitializedRef.current = true;
-    FormService.initForm()
+    FormService.initForm(contextCode)
       .then((response) => handleInit(response))
       .finally(() => {setInitForm(false)});
   }, []);
@@ -134,8 +135,8 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
           className=" border-0 overflow-y-auto mt-1 page-card"
         
         >
-          <h2>Register</h2>
-          <h6>Please enter your email and password.</h6>
+          <h2>Create your account</h2>
+          <h6>A Couple Details Then We're Off!</h6>
 
           <Formik
             enableReinitialize={true}

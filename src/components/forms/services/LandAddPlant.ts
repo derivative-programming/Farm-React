@@ -6,8 +6,8 @@ import * as FormInit  from "./init/LandAddPlantInitObjWF";
   export const initForm = (landCode:string) => { 
     const data ={}; 
     return apiCall({
-      url: "/land-add-plant/" + landCode,
-      method: "put" ,
+      url: "/land-add-plant/" + landCode + '/init',
+      method: "get" ,
       data
     });
   }; 

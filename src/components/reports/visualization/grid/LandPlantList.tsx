@@ -15,6 +15,7 @@ export interface ReportGridLandPlantListProps {
   isSortDescending: boolean;
   items: ReportService.QueryResultItem[];
   onSort(columnName: string): void;
+  onExport(): void;
   onNavigateTo(url: string): void;
   onRefreshRequest(): void;
   currentPage: number;
@@ -33,6 +34,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   isSortDescending,
   items,
   onSort,
+  onExport,
   onNavigateTo,
   onRefreshRequest,
   currentPage,
@@ -112,9 +114,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       data,
       contextCode
     ).then((response) => onRefreshRequest());
-  };
-
-  const onExport = () => { };
+  }; 
 
   return (
     <div data-testid={name} className="w-100 mt-3">

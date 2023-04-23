@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ReportService from "../services/TacFarmDashboard";
-import * as InitReportService from "../services/TacFarmDashboardInitReport";
+import * as InitReportService from "../services/init/TacFarmDashboardInitReport";
 import { ReportDetailTwoColTacFarmDashboard } from "../visualization/detail-two-column/TacFarmDashboard";
 
 export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {

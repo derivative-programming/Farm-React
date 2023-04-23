@@ -1,6 +1,13 @@
 
 todo...  
  
+add isIgnored to api endpoints
+
+test:react farm needs to move other form page init services to init folder. so old tests can pass with fab code
+
+remove plantedit page.  change plant detail button to 'add new plant'
+
+add 'other' button to add plant page
 
 on test title, intro text, and footer with data-testid,  verify correct text exists
 
@@ -9,8 +16,8 @@ fab: 'O K button Text'
 test err: logout expected mock service call
 
 remove update plant page? not necessary bc add plant does everything?
- 
-  
+
+
 on creation of project, create the initial model and initial version rec?
 request ai processing on creation of project? no. allow for selection of features.
 
@@ -23,18 +30,8 @@ add general initialization button in pac config
 test:- harvest testing should run original tests of farm too
 - allow bookmark of report page url to view page with same filters
 - allow bookmark of authorized page. require login then redirect to it.
-
-- use /init-page in api url for init of page, instead of put.   
-crud should have an init endpoint too****
-init would always be an objwf
-new endpoint props apiGetInitContextTargetName, isApiGetInitAvailable, isApiGetToCSVAvaialble
-would be created for both get and getwithid
-append '/Init' to the get url
-for init use put pattern, with no body model in request 
-
-
-separate endpoint PageEdit,PageEditInit, LandPlantListInit, LandPlantList,LandPlantListExport (woudl need gets. would still use objwf isntead fo reports)
-simple option for get report to have toCSV endpoitn exposed. logic wouldnt be much differnt?
+ 
+toCSV endpoint for report export
 
 - add report export to file endpoint... get [path]/[guid]/ToFile. max of 1000. ignore page size
 - job:on expired api key, redirect to login page
@@ -56,6 +53,7 @@ jobs...
 
 1. audit landaddplant and landplantlist unit tests
 
+1. implement sonarqube
 
 1. catch 401 unauth api errros and redirect to login page
 

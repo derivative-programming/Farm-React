@@ -11,6 +11,7 @@ import {
 import FormConnectedPlantEdit from "./PlantEdit"; 
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/PlantEdit";
+import * as InitFormService from "../services/init/PlantEditInitObjWF";
 import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
   
 window.localStorage.setItem("@token", "sampleToken");
@@ -30,14 +31,14 @@ const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
 const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 let formSubmitResponse = new FormService.SubmitResultInstance();
-const formInitResponse = new FormService.InitResultInstance();
+const formInitResponse = new InitFormService.InitResultInstance();
 
 
 describe("PlantEdit Component", () => {
 
   beforeEach(async() => { 
       mockFormInitService.mockResolvedValueOnce({
-        data: new FormService.InitResultInstance(),
+        data: new InitFormService.InitResultInstance(),
       });
       
       mockFlavorCodeService.mockResolvedValueOnce({
@@ -213,14 +214,7 @@ describe("PlantEdit Component", () => {
     }); 
     expect(screen.getByTestId("someEmailAddress")).toHaveValue("sample data");
   });
-
-  it("when user enter sampleImageUploadFile, it set accordingly", async () => {
-    const input = screen.getByTestId("sampleImageUploadFile");
-    await act(async () => {
-     // await fireEvent.change(input, { target: { value: "1" } });
-    }); 
-  //  expect(screen.getByTestId("sampleImageUploadFile")).toHaveValue(1);
-  });
+ 
 
 
 
@@ -308,11 +302,7 @@ describe("PlantEdit Component", () => {
     await act(async () => {
       await fireEvent.change(someEmailAddressInput, { target: { value: "Sample Data" } });
     });
- 
-    const sampleImageUploadFileInput = screen.getByTestId("sampleImageUploadFile");
-    await act(async () => {
-    //  await fireEvent.change(sampleImageUploadFileInput, { target: { value: "Sample Data" } });
-    });
+  
 
     await act(async () => {
       await fireEvent.click(screen.getByTestId("submit-button"));

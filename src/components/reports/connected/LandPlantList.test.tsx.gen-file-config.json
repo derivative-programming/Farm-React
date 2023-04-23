@@ -3,5 +3,8 @@
     "dimension" :{
         "name":"LandPlantList",
         "calculatedIsPage":"true"
-    }
+    },
+    "ignoreDimensionPropertyList": [ 
+        "reportButton.calculatedIsDestinationBackBtnDataSet" 
+    ]
 }

@@ -10,7 +10,7 @@ import {
 } from "@testing-library/react";
 import ReportConnectedPlantUserDetails from "./PlantUserDetails";
 import * as ReportService from "../services/PlantUserDetails";
-import * as InitReportService from "../services/PlantUserDetailsInitReport";
+import * as InitReportService from "../services/init/PlantUserDetailsInitReport";
 import { BrowserRouter } from "react-router-dom"; 
  
 window.localStorage.setItem("@token", "sampleToken");
@@ -51,6 +51,11 @@ describe("PlantUserDetails Connected Report Component", () => {
 
   it("renders correctly", async () => {
     expect(screen.getByTestId("reportConnectedPlantUserDetails")).toBeInTheDocument();
+    
+    expect(screen.getByTestId("back-button")).toBeInTheDocument();
+    
+    expect(screen.getByTestId("TacFarmDashboardBreadcrumb")).toBeInTheDocument();
+    expect(screen.getByTestId("landPlantListBreadcrumb")).toBeInTheDocument();
   });
 
 });

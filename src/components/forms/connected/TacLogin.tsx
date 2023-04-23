@@ -11,6 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik"; 
 
 import * as FormService from "../services/TacLogin";
+import * as InitFormService from "../services/init/TacLoginInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as FormInput from "../input-fields"; 
 
@@ -46,7 +47,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   let headerErrors: string[] = [];
 
   const handleInit = (responseFull: any) => {
-    const initFormResponse: FormService.InitResult = responseFull.data;
+    const initFormResponse: InitFormService.InitResult = responseFull.data;
 
     if (!initFormResponse.success) {
       return;
@@ -204,7 +205,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                       registerButtonClick();
                     }}
                     variant="secondary"
-                    data-testid="cancel-button"
+                    data-testid="other-button"
                   >
                     Register
                   </Button> 

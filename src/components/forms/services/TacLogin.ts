@@ -1,11 +1,12 @@
 import * as Yup from "yup";
+import * as FormInit  from "./init/TacLoginInitObjWF"; 
 import { apiCall } from "../../../apiConfig/apiCall";
 
 export const initForm = (tacCode:string) => {
     const data ={};
     return apiCall({
-        url: '/tac-login/' + tacCode,
-        method: "put", 
+        url: '/tac-login/' + tacCode + '/init',
+        method: "get", 
         data
     });
 }; 
@@ -36,7 +37,7 @@ export const getValidationErrors =  (propertyName: string, response:SubmitResult
     return result;
 }
 
-export const buildSubmitRequest = (initResult:InitResult) => {
+export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
     let result:SubmitRequest = new SubmitRequestInstance();
     
     result.email = initResult.email;
@@ -155,69 +156,3 @@ export class SubmitValidationErrorInstance implements SubmitValidationError {
 }
 
 
-
-
-
-export interface InitRequest {
-    
-}
-
-export interface InitResult {
- 
-    email: string;
- 
-    password: string;
-    success: boolean;
-    message: string;
-    validationErrors: InitValidationError[];
-}
-
-export interface InitValidationError {
-    property: string;
-    message: string;
-
-}
-
-export class InitRequestInstance implements InitRequest {
-    
-
-    constructor() {
-        
-    }
-}
-
-
-export class InitResultInstance implements InitResult {
- 
-    email: string;
- 
-    password: string;
-    success: boolean;
-    message: string;
-    validationErrors: InitValidationError[];
-
-    constructor() {
- 
-        this.email = '';
- 
-        this.password = '';
-        this.success = false;
-        this.message = '';
-        this.validationErrors =  [];
-    }
-}
-
-
-
-export class InitValidationErrorInstance implements InitValidationError {
-    property: string;
-    message: string;
-
-    constructor() { 
-        this.property = '';
-        this.message = ''; 
-    }
-}
-
-
- 

@@ -11,6 +11,7 @@ import {
 import FormConnectedTacRegister from "./TacRegister"; 
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/TacRegister";
+import * as InitFormService from "../services/init/TacRegisterInitObjWF";
  
 window.localStorage.setItem("@token", "sampleToken");
 
@@ -26,7 +27,7 @@ const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
 
 let formSubmitResponse = new FormService.SubmitResultInstance();
-const formInitResponse = new FormService.InitResultInstance();
+const formInitResponse = new InitFormService.InitResultInstance();
  
 describe("TacRegister Component", () => {
 
@@ -56,8 +57,8 @@ describe("TacRegister Component", () => {
     expect(screen.getByTestId("submit-button")).toBeInTheDocument();
     expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
     
-    //expect(screen.getByText("Register")).toBeInTheDocument();
-    expect(screen.getByText("Please enter your email and password.")).toBeInTheDocument();
+    expect(screen.getByText("Create your account")).toBeInTheDocument();
+    expect(screen.getByText("A Couple Details Then We're Off!")).toBeInTheDocument();
     
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
   });

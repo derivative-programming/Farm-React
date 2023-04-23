@@ -15,7 +15,7 @@ import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList";
 import { ReportDetailThreeColLandPlantList } from "../visualization/detail-three-column/LandPlantList";
 import { ReportDetailTwoColLandPlantList } from "../visualization/detail-two-column/LandPlantList";
 import * as ReportService from "../services/LandPlantList";
-import * as InitReportService from "../services/LandPlantListInitReport";
+import * as InitReportService from "../services/init/LandPlantListInitReport";
 import * as ReportInput from "../input-fields";
 import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
 
@@ -30,6 +30,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     new ReportService.QueryResultInstance()
   );
   const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
+  const [exportQuery, setExportQuery] = useState(new ReportService.QueryRequestInstance());
   const [initialValues, setInitialValues] = useState(
     new ReportService.QueryRequestInstance()
   );
@@ -65,6 +66,14 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
       return;
     }
     setQueryResult({ ...queryResult });
+  };
+  
+  const handleExportQueryResults = (responseFull: any) => {
+    const queryResult: ReportService.QueryResult = responseFull.data;
+
+    if (!queryResult.success) {
+      return;
+    } 
   };
 
   const onSubmit = (queryRequest: ReportService.QueryRequest) => {
@@ -116,6 +125,11 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     });
   };
 
+  
+  const onExport = () => {
+    setExportQuery({ ...query });
+  };
+
   useEffect(() => {
     if (isInitializedRef.current) {
       return;
@@ -144,6 +158,14 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     )
     .finally(() => {setIsProcessing(false);});
   }, [query]);
+  
+  useEffect(() => { 
+    setIsProcessing(true);
+    ReportService.submitCSVRequest(query, contextCode).then((response) =>
+      handleExportQueryResults(response)
+    )
+    .finally(() => {setIsProcessing(false);});
+  }, [exportQuery]);
 
   return (
     <div
@@ -152,10 +174,9 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     >
       <div className="w-100">
         <Breadcrumb hidden={isBreadcrumbSectionHidden}>
-          <Breadcrumb.Item
-            id="TacFarmDashboardBreadcrumb" 
-            onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
-          >
+          <Breadcrumb.Item id="TacFarmDashboardBreadcrumb" 
+            data-testid="TacFarmDashboardBreadcrumb" 
+            onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}>
             Farm Dashboard breadcrumb text
           </Breadcrumb.Item>
           <Breadcrumb.Item active href="">
@@ -244,6 +265,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
           name="reportConnectedLandPlantList-table"
           contextCode={contextCode}
           onSort={onSort}
+          onExport={onExport}
           onNavigateTo={onNavigateTo}
           onRefreshRequest={onRefreshRequest}
           sortedColumnName={queryResult.orderByColumnName}

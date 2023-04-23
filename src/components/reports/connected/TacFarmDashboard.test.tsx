@@ -10,7 +10,7 @@ import {
 } from "@testing-library/react";
 import ReportConnectedTacFarmDashboard from "./TacFarmDashboard";
 import * as ReportService from "../services/TacFarmDashboard";
-import * as InitReportService from "../services/TacFarmDashboardInitReport";
+import * as InitReportService from "../services/init/TacFarmDashboardInitReport";
 import { BrowserRouter } from "react-router-dom"; 
  
 window.localStorage.setItem("@token", "sampleToken");

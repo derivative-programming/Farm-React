@@ -4,7 +4,7 @@ import { ArrowLeft } from "react-bootstrap-icons";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ReportService from "../services/PlantUserDetails";
 import * as ReportInput from "../input-fields";
-import * as InitReportService from "../services/PlantUserDetailsInitReport"; 
+import * as InitReportService from "../services/init/PlantUserDetailsInitReport"; 
 import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-three-column/PlantUserDetails";
 
 export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
@@ -140,10 +140,14 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
         <div className="d-flex flex-column align-items-center h-90vh pb-2 pl-3 pr-3" data-testid="reportConnectedPlantUserDetails">
             <div className="w-100">
                 <Breadcrumb>
-                    <Breadcrumb.Item id="tacFarmDashboardBreadcrumb" onClick={() => navigateTo('tac-farm-dashboard',"tacCode")}>
+                    <Breadcrumb.Item id="tacFarmDashboardBreadcrumb"  
+                        data-testid="TacFarmDashboardBreadcrumb" 
+                        onClick={() => navigateTo('tac-farm-dashboard',"tacCode")}>
                         Farm Dashboard breadcrumb text
                     </Breadcrumb.Item>
-                    <Breadcrumb.Item id="landPlantListBreadcrumb" onClick={() => navigateTo('land-plant-list',"landCode")}>
+                    <Breadcrumb.Item id="landPlantListBreadcrumb" 
+                        data-testid="landPlantListBreadcrumb" 
+                        onClick={() => navigateTo('land-plant-list',"landCode")}>
                         Plant List breadcrumb text
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active>

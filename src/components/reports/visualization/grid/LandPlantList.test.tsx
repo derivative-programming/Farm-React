@@ -11,6 +11,7 @@ import {
 import {ReportGridLandPlantList} from "./LandPlantList";
  
 const onSort = jest.fn(); 
+const onExport = jest.fn(); 
 const onNavigateTo = jest.fn();
 const onRefreshRequest = jest.fn();
 const onPageSelection = jest.fn();
@@ -26,6 +27,7 @@ describe("LandPlantList Form Component", () => {
           name="testName"  
           contextCode=""
           onSort={onSort}
+          onExport={onExport}
           onNavigateTo={onNavigateTo}
           onRefreshRequest={onRefreshRequest}
           sortedColumnName="testColumnName" 

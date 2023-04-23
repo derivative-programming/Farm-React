@@ -1,6 +1,6 @@
 import { apiCall } from "../../../apiConfig/apiCall";
 import * as Yup from "yup";
-import * as ReportInit  from "./TacFarmDashboardInitReport";
+import * as ReportInit  from "./init/TacFarmDashboardInitReport";
     
    
     export const submitRequest = (data:any,tacCode:string) => {
@@ -15,8 +15,8 @@ import * as ReportInit  from "./TacFarmDashboardInitReport";
   export const initPage = (tacCode:string) => {
     const data = {};
     return apiCall({
-      url: '/tac-farm-dashboard/' + tacCode,
-      method: "put",
+      url: '/tac-farm-dashboard/' + tacCode + '/init',
+      method: "get",
       data
     });
   }; 

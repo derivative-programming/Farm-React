@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import * as ReportInit  from "./PlantUserDetailsInitReport"; 
+import * as ReportInit  from "./init/PlantUserDetailsInitReport"; 
   import { apiCall } from "../../../apiConfig/apiCall";
  
 export const submitRequest = (data:any,plantCode:string) => {
@@ -14,8 +14,8 @@ export const submitRequest = (data:any,plantCode:string) => {
   export const initPage = (plantCode:string) => {
     const data = {};
     return apiCall({
-      url: "/plant-user-details/" + plantCode,
-      method: "put",
+      url: "/plant-user-details/" + plantCode + '/init',
+      method: "get",
       data
     });
   };
