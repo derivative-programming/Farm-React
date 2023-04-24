@@ -8,9 +8,7 @@ todo...
 
 job: lazy loading on router
 
-Job: create list of unit tests to be added
-
-job: catch 401 unauth api errros and redirect to login page
+Job: create list of unit tests to be added 
 
 job: gdpr alert
 
@@ -99,6 +97,9 @@ style changes...
 Custom validation controls need same style as bootstrap Val error  
 
 features... 
+chat visualization
+never ending scroll
+twitter visualization
 Sched report button on grid with indicator icon
 Fav report button on grid with indicator icon 
 >>>report header display form initobjwf output params
@@ -117,8 +118,7 @@ job:report folder view
 >>>report param is unknown lokup allowed
 form credit card
 form captcha
-form auto submit  
-logout form
+form auto submit   
 impersonation page
 form is custom page used
 from control tool tip  
