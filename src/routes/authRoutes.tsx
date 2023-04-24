@@ -1,13 +1,14 @@
 import React from "react";
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
-import FormConnectedTacLogin from "../components/forms/connected/TacLogin";
-import FormConnectedTacRegister from "../components/forms/connected/TacRegister"; 
+import { Routes, Route, Navigate } from "react-router-dom";
 import LayoutComponent from "../components/Layout/Layout";
+
+import loadable from '@loadable/component';
+const FormConnectedTacLogin = loadable(() => import('../components/forms/connected/TacLogin'));
+const FormConnectedTacRegister = loadable(() => import('../components/forms/connected/TacRegister'));
 
 const AuthRoute = () => {
 
     return (
-        // <BrowserRouter>
     <LayoutComponent>
         <Routes>
             <Route path={"/"} element={
@@ -26,7 +27,6 @@ const AuthRoute = () => {
                 <FormConnectedTacLogin />
             } />
 
-            <Route path={"/logout"} element={<Navigate to={"/tac-login"} replace />} />    
             <Route path={"*"} element={<Navigate to={"/"} replace />} />
 
         </Routes>
