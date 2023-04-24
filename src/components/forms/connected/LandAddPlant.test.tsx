@@ -89,13 +89,20 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
     
     if("Add Plant Title Text".length > 0){ 
-      expect(screen.getByTestId("page-title-text")).toBeInTheDocument();
+      expect(screen.getByTestId("page-title-text")) 
+        .toBeInTheDocument();
+      expect(screen.getByTestId("page-title-text"))
+        .toHaveTextContent("Add Plant Title Text");
     }
     if("Add plant intro text.".length > 0){ 
       expect(screen.getByTestId("page-intro-text")).toBeInTheDocument();
+      expect(screen.getByTestId("page-intro-text"))
+        .toHaveTextContent("Add plant intro text.");
     }
     if("Add plant form footer text".length > 0){ 
       expect(screen.getByTestId("page-footer-text")).toBeInTheDocument();
+      expect(screen.getByTestId("page-footer-text"))
+        .toHaveTextContent("Add plant form footer text");
     }
     
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1)); 

@@ -26,6 +26,7 @@ const AuthRoute = () => {
                 <FormConnectedTacLogin />
             } />
 
+            <Route path={"/logout"} element={<Navigate to={"/tac-login"} replace />} />    
             <Route path={"*"} element={<Navigate to={"/"} replace />} />
 
         </Routes>

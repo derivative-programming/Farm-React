@@ -35,6 +35,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
     response: new FormService.SubmitRequestInstance(),
   };
   const isInitializedRef = useRef(false);
+  
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -42,7 +43,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
 
   const validationSchema = FormService.buildValidationSchema();
 
-  const authContext = useContext(AuthContext);
+  const authContext = useContext(AuthContext); 
 
   let headerErrors: string[] = [];
 

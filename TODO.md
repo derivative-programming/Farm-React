@@ -1,42 +1,47 @@
+job text...
+The public repo is at https://github.com/derivative-programming/Farm-React.
+You will be submitting a PR to this repository.
+
+
 
 todo...  
- 
-add isIgnored to api endpoints
 
-test:react farm needs to move other form page init services to init folder. so old tests can pass with fab code
+job: lazy loading on router
 
-remove plantedit page.  change plant detail button to 'add new plant'
+Job: create list of unit tests to be added
 
-add 'other' button to add plant page
+job: catch 401 unauth api errros and redirect to login page
 
-on test title, intro text, and footer with data-testid,  verify correct text exists
+job: gdpr alert
+
+job: no internet connection alert
+  
+test forceerror on add plant init and submit and its display.
+    looks like just report page has this?
+
+plant list report query not working
+
+remove plantedit page.  
+change plant detail update plant button to 'add another plant'
+change add plant other button to 'Go To Dashboard'
+
+deploy farm api:default add plant flavor should be sweet
+
+when creating seed data, int should never be 0?
+   
 
 fab: 'O K button Text'  
 
-test err: logout expected mock service call
-
-remove update plant page? not necessary bc add plant does everything?
-
-
-on creation of project, create the initial model and initial version rec?
-request ai processing on creation of project? no. allow for selection of features.
-
-allow pull of version model in ui from api   
-
-add general initialization button in pac config
-   
-- add page random values button isnt working. posting to same page but init not running again.
-- add page new values button necessary?        
-test:- harvest testing should run original tests of farm too
+test err...logout expected mock service call. set ispage=false? clear out api token? 
+    
 - allow bookmark of report page url to view page with same filters
-- allow bookmark of authorized page. require login then redirect to it.
- 
-toCSV endpoint for report export
 
-- add report export to file endpoint... get [path]/[guid]/ToFile. max of 1000. ignore page size
-- job:on expired api key, redirect to login page
-- add gdpr alert 
-- common, light, dark theme
+- allow bookmark of authorized page. require login then redirect to it.
+  
+- to-csv endpoint needs to stream out a file. react app needs to handle it.
+
+- need page not found page.  redirect unknown urls to it?
+   
 - internationalization https://www.i18next.com/
 - check for new app version
 - no internet connection message  https://medium.com/@kirichuk/7-must-have-features-for-any-react-app-10b086038d9a
@@ -50,17 +55,14 @@ toCSV endpoint for report export
 
 
 jobs... 
-
-1. audit landaddplant and landplantlist unit tests
+ 
+1. add landaddplant and landplantlist and plantuserdetails unit tests
 
 1. implement sonarqube
 
-1. catch 401 unauth api errros and redirect to login page
-
 2. export button to csv (api should return a file?)
  
-
-4. recommendations
+4. react app feature recommendations
 
 5. >>>Simple Cypress implementation. 
     1 test suite on each page. no intercept of api requests. from login page, go to target page. test for existance of title. at start of spec, if target page requires authorization, register a user. Use that user in spec. Would like to use the page object pattern (each page having an object in supprot folder that exposes functions that return specific items on the page.  Example getTitle())
@@ -75,12 +77,7 @@ jobs...
 6. unit testing...
 
 6.1 fix warnings and errors on existing unit tests
-
-6.2 audit unit testing - plant list page
-
-6.3 audit unit testing - add plant page
-
-6.4 add missing unit testing
+  
 
 
 7. >>>visualization - line chart...
@@ -96,6 +93,7 @@ create new page. Copy land-plant-list page to create land-plant-card-list. Repla
 10. fix npm dependency alerts and warnings 
 
 
+light\dark mode toggle. requires bootstrap 5.3 first. react boostrap is just on 5.2
 
 style changes...   
 Custom validation controls need same style as bootstrap Val error  
@@ -106,7 +104,7 @@ Fav report button on grid with indicator icon
 >>>report header display form initobjwf output params
 report row is button drop down allowed
 reprot rating level col name  
-job:report export 
+report table row button to stream out file 
 report auto refresh
 report badge display
 >>>report is header visible
@@ -119,9 +117,7 @@ job:report folder view
 >>>report param is unknown lokup allowed
 form credit card
 form captcha
-form auto submit 
-login form 
-- page changes with learn statement
+form auto submit  
 logout form
 impersonation page
 form is custom page used
@@ -177,8 +173,7 @@ CHANGE REPO names from r18 b5 to react18_bootstrap5
 
 
 if a genval variable is in the genif statement, you can remove it from the dimensional phrase?
-
-instead of putting all booleans in the dimension phrase, use wildcard 'is*=false,' and remove all false ones.  
+ 
 
 Create simple stmt that tells us it’s a loop of reports or objwf instead of that big section I had to manually add. Have it convert automatically
  
@@ -191,7 +186,7 @@ authContext.js should be authContext.tsx. stop converting .js to .gen.js. create
 
 react demo app instead of static html
 
-remove {/*[any number of spaces or newlines]*/}
+remove {/*[any number of spaces or newlines]*/} from fabrication results
 
 reverse template tag substitution: 
 create separate replacement dictionary until full file is processed

@@ -14,3 +14,4 @@ export { FormConnectedTacLogin} from "./TacLogin"
 export { FormConnectedTacRegister} from "./TacRegister"  
 //GENTrainingBlock[a]End
 //GENLOOPObjectEnd
+export { Logout} from "./logout"  

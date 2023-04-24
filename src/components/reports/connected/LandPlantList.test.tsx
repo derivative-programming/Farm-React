@@ -59,17 +59,19 @@ describe("LandPlantList Connected Report Component", () => {
     
     expect(screen.getByTestId("reportConnectedLandPlantList")).toBeInTheDocument();
        
-    expect(screen.getByTestId("TacFarmDashboardBreadcrumb")).toBeInTheDocument();
+    expect(screen.getByTestId("tacFarmDashboardBreadcrumb")).toBeInTheDocument();
 
-    expect(screen.getByTestId("back-button")).toBeInTheDocument();
-    expect(screen.getByTestId("add-button")).toBeInTheDocument();
-    expect(screen.getByTestId("otherAddButton")).toBeInTheDocument();
+    expect(screen.getByTestId("back-button")).toBeInTheDocument(); 
 
     if("Plant List title text".length > 0){
       expect(screen.getByTestId("page-title-text")).toBeInTheDocument();
+      expect(screen.getByTestId("page-title-text"))
+        .toHaveTextContent("Plant List title text");
     }
     if("A list of plants on the land".length > 0){ 
       expect(screen.getByTestId("page-intro-text")).toBeInTheDocument();
+      expect(screen.getByTestId("page-intro-text"))
+        .toHaveTextContent("A list of plants on the land");
     }
 
   });

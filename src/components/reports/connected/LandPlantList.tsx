@@ -174,8 +174,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     >
       <div className="w-100">
         <Breadcrumb hidden={isBreadcrumbSectionHidden}>
-          <Breadcrumb.Item id="TacFarmDashboardBreadcrumb" 
-            data-testid="TacFarmDashboardBreadcrumb" 
+          <Breadcrumb.Item id="tacFarmDashboardBreadcrumb" 
+            data-testid="tacFarmDashboardBreadcrumb" 
             onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}>
             Farm Dashboard breadcrumb text
           </Breadcrumb.Item>

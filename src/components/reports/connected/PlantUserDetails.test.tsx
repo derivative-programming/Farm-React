@@ -54,7 +54,7 @@ describe("PlantUserDetails Connected Report Component", () => {
     
     expect(screen.getByTestId("back-button")).toBeInTheDocument();
     
-    expect(screen.getByTestId("TacFarmDashboardBreadcrumb")).toBeInTheDocument();
+    expect(screen.getByTestId("tacFarmDashboardBreadcrumb")).toBeInTheDocument();
     expect(screen.getByTestId("landPlantListBreadcrumb")).toBeInTheDocument();
   });
 

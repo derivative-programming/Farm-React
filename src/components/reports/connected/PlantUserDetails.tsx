@@ -141,7 +141,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
             <div className="w-100">
                 <Breadcrumb>
                     <Breadcrumb.Item id="tacFarmDashboardBreadcrumb"  
-                        data-testid="TacFarmDashboardBreadcrumb" 
+                        data-testid="tacFarmDashboardBreadcrumb" 
                         onClick={() => navigateTo('tac-farm-dashboard',"tacCode")}>
                         Farm Dashboard breadcrumb text
                     </Breadcrumb.Item>

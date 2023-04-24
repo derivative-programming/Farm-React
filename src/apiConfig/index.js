@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from "axios";  
  
  
 export const apiInstance = axios.create({
   baseURL:
-    "https://dp-farm-pageapi.azurewebsites.net/api/v1_0",
+    "https://localhost:44358/api/v1_0",
 });
 
 apiInstance.interceptors.request.use(
@@ -21,6 +21,11 @@ apiInstance.interceptors.response.use(
     return response;
   },
   function (error) {
+    
+    if (error.response && error.response.status === 401) { 
+      window.location.href = '/logout'; 
+    }
+
     return Promise.reject(error);
   }
 );
