@@ -28,7 +28,7 @@ describe("ReportColumnDisplayUrl Component", () => {
  
   it("renders no value correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayUrl forColumn="testColumn" label="test label" value="" linkText="Test Text" /></tr></tbody></table>
+       <ReportColumnDisplayUrl forColumn="testColumn" label="test label" value="" linkText="Test Text" />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -40,7 +40,7 @@ describe("ReportColumnDisplayUrl Component", () => {
     const noVal:any = null;
 
     render(
-       <table><tbody><tr><ReportColumnDisplayUrl forColumn="testColumn" label="test label" value={noVal} linkText="Test Text" /></tr></tbody></table>
+       <ReportColumnDisplayUrl forColumn="testColumn" label="test label" value={noVal} linkText="Test Text" />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe("ReportColumnDisplayUrl Component", () => {
   it("renders isVisible=false correctly", async () => { 
 
     render(
-      <table><tbody><tr><ReportColumnDisplayUrl forColumn="testColumn" label="test label" value="test value" isVisible={false} linkText="Test Text" /></tr></tbody></table>
+      <ReportColumnDisplayUrl forColumn="testColumn" label="test label" value="test value" isVisible={false} linkText="Test Text" />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();

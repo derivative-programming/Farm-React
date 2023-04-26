@@ -16,6 +16,7 @@ import { ReportDetailThreeColLandPlantList } from "../visualization/detail-three
 import { ReportDetailTwoColLandPlantList } from "../visualization/detail-two-column/LandPlantList";
 import * as ReportService from "../services/LandPlantList";
 import * as InitReportService from "../services/init/LandPlantListInitReport";
+import HeaderLandPlantList from "../headers/LandPlantListInitReport";
 import * as ReportInput from "../input-fields";
 import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
 
@@ -193,40 +194,50 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
       
         <h2 data-testid="page-title-text">Plant List title text</h2>
         <h6 data-testid="page-intro-text">A list of plants on the land</h6>
-        <Container>  
-          <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
+        
+
+        <HeaderLandPlantList  
+          name="headerLandPlantList"
+          initData={initPageResponse}
+          isHeaderVisible={true}
+        />
+
+
+          
+        <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
+          <div className="mb-2 mb-md-0">
+            <ReportInput.ReportInputButton name="back-button"
+              onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
+              buttonText={<><ArrowLeft className="mb-1"/> Farm Dashboard</>}
+              isButtonCallToAction={false}
+              isVisible={true}
+              isEnabled={true}
+            />
+          </div>
+          <div className="d-flex flex-column flex-md-row">
             <div className="mb-2 mb-md-0">
-              <ReportInput.ReportInputButton name="back-button"
-                onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
-                buttonText={<><ArrowLeft className="mb-1"/> Farm Dashboard</>}
+              <ReportInput.ReportInputButton name="otherAddButton"
+                onClick={() => navigateTo("land-add-plant", "landCode")}
+                buttonText="Other Add Button"
                 isButtonCallToAction={false}
                 isVisible={true}
                 isEnabled={true}
               />
             </div>
-            <div className="d-flex flex-column flex-md-row">
-              <div className="mb-2 mb-md-0">
-                <ReportInput.ReportInputButton name="otherAddButton"
-                  onClick={() => navigateTo("land-add-plant", "landCode")}
-                  buttonText="Other Add Button"
-                  isButtonCallToAction={false}
-                  isVisible={true}
-                  isEnabled={true}
-                />
-              </div>
-              <div>
-                <ReportInput.ReportInputButton name="add-button"
-                  onClick={() => navigateTo("land-add-plant", "landCode")}
-                  buttonText={<><PlusCircle className="mb-1"/> Add A Plant</>}
-                  className="ms-md-2"
-                  isButtonCallToAction={true}
-                  isVisible={true}
-                  isEnabled={true}
-                />
-              </div>
+            <div>
+              <ReportInput.ReportInputButton name="add-button"
+                onClick={() => navigateTo("land-add-plant", "landCode")}
+                buttonText={<><PlusCircle className="mb-1"/> Add A Plant</>}
+                className="ms-md-2"
+                isButtonCallToAction={true}
+                isVisible={true}
+                isEnabled={true}
+              />
             </div>
-          </div> 
-        </Container> 
+          </div>
+        </div> 
+        
+        
 
         {/*//GENTrainingBlock[visualizationType]Start*/}
         {/*//GENLearn[visualizationType=Grid]Start*/}

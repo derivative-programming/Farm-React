@@ -16,7 +16,9 @@ Features...
     - Back Button
     - Title
     - Intro Text
-    - Routing
+    - Routing, with lazy loading
+    - GDPR alert
+    - Handle Authorization loss
 - Form Data Entry
     - Control Data Types
         - TextBox
@@ -30,7 +32,7 @@ Features...
         - File Upload
 - Report Display
     - Filtering Control
-    - Table Result Display
+    - Table Display
         - Page Size Dropdown
         - Paging Control
         - Count Display
@@ -48,11 +50,7 @@ Features...
 - Unit Testing
 - Cypress E2E Testing
 
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+ 
 ## Available Scripts
 
 In the project directory, you can run:

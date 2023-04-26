@@ -27,7 +27,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 01-03-2034 13:45:00 correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayDate forColumn="testColumn" label="test label" value={"01-03-2034 13:45:00"} /></tr></tbody></table>
+       <ReportColumnDisplayDate forColumn="testColumn" label="test label" value={"01-03-2034 13:45:00"} />
     );
 
     expect(screen.getByText("1/3/2034")).toBeInTheDocument(); 
@@ -36,7 +36,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 01-03-2034 00:45:00 correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayDate forColumn="testColumn" label="test label" value={"01-03-2034 00:45:00"} /></tr></tbody></table>
+       <ReportColumnDisplayDate forColumn="testColumn" label="test label" value={"01-03-2034 00:45:00"} />
     );
 
     expect(screen.getByText("1/2/2034")).toBeInTheDocument();  
@@ -45,7 +45,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 01-01-1753 00:00:00 correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayDate forColumn="testColumn" label="test label" value={"01-01-1753 00:00:00"} /></tr></tbody></table>
+       <ReportColumnDisplayDate forColumn="testColumn" label="test label" value={"01-01-1753 00:00:00"} />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();

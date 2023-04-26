@@ -27,7 +27,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
   it("renders 1234567 correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="1234567" /></tr></tbody></table>
+       <ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="1234567" />
     );
 
     expect(screen.getByText("123-4567")).toBeInTheDocument(); 
@@ -36,7 +36,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   
   it("renders 123 4567 correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="123 4567" /></tr></tbody></table>
+       <ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="123 4567" />
     );
 
     expect(screen.getByText("123-4567")).toBeInTheDocument(); 
@@ -45,7 +45,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   
   it("renders 123-4567 correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="123-4567" /></tr></tbody></table>
+       <ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="123-4567" />
     );
 
     expect(screen.getByText("123-4567")).toBeInTheDocument(); 
@@ -54,7 +54,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   
   it("renders 1234567890 correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="1234567890" /></tr></tbody></table>
+       <ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="1234567890" />
     );
 
     expect(screen.getByText("(123) 456-7890")).toBeInTheDocument(); 
@@ -63,7 +63,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
  
   it("renders no value correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="" /></tr></tbody></table>
+       <ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="" />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -75,7 +75,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
     const noVal:any = null;
 
     render(
-       <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value={noVal} /></tr></tbody></table>
+       <ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value={noVal} />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -86,7 +86,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   it("renders isVisible=false correctly", async () => { 
 
     render(
-      <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="test value" isVisible={false} /></tr></tbody></table>
+      <ReportColumnDisplayPhoneNumber forColumn="testColumn" label="test label" value="test value" isVisible={false} />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();

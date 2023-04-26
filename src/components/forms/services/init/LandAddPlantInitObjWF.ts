@@ -38,6 +38,9 @@ export interface InitResult {
     requestSomePhoneNumber: string;
  
     requestSomeEmailAddress: string;
+ 
+    landName: string;
+
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
@@ -93,6 +96,9 @@ export class InitResultInstance implements InitResult {
     requestSomePhoneNumber: string;
  
     requestSomeEmailAddress: string;
+ 
+    landName: string;
+
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
@@ -132,6 +138,9 @@ export class InitResultInstance implements InitResult {
         this.requestSomePhoneNumber = '';
  
         this.requestSomeEmailAddress = '';
+
+        this.landName = '';
+
         this.success = false;
         this.message = '';
         this.validationErrors =  [];

@@ -8,9 +8,6 @@
         "objectWorkflowOutputVar.calculatedIsSourceObjectAvailable", 
         "objectWorkflowOutputVar.calculatedIsConditionalVisible", 
         "objectWorkflowOutputVar.calculatedIsObjectID",   
-        "objectWorkflowOutputVar.isAutoRedirectURL",   
-        "objectWorkflowOutputVar.isLabelVisible",   
-        "objectWorkflowOutputVar.isHeaderText",   
-        "objectWorkflowOutputVar.isVisible" 
+        "objectWorkflowOutputVar.isAutoRedirectURL"
     ]
 }

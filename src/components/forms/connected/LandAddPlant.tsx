@@ -11,6 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
+import HeaderLandAddPlant from "../headers/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext"; 
 import * as InputFields from "../input-fields";
 import * as Lookups from "../lookups";
@@ -169,6 +170,12 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
         >
           <h2 data-testid="page-title-text">Add Plant Title Text</h2>
           <h6 data-testid="page-intro-text">Add plant intro text.</h6>
+
+          <HeaderLandAddPlant  
+            name="headerLandAddPlant"
+            initData={initPageResponse}
+            isHeaderVisible={true}
+          />
 
           <Formik
             enableReinitialize={true}

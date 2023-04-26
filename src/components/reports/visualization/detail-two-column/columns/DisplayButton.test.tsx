@@ -28,7 +28,7 @@ describe("ReportColumnDisplayButton Component", () => {
 
   it("renders 'test Value' correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" buttonText="test text" value="test Value" onClick={onClick} /></tr></tbody></table>
+       <ReportColumnDisplayButton forColumn="testColumn" buttonText="test text" value="test Value" onClick={onClick} />
     );
 
     expect(screen.getByText("test text")).toBeInTheDocument(); 
@@ -37,7 +37,7 @@ describe("ReportColumnDisplayButton Component", () => {
  
   it("renders no value correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" buttonText="test label" value="" onClick={onClick} /></tr></tbody></table>
+       <ReportColumnDisplayButton forColumn="testColumn" buttonText="test label" value="" onClick={onClick} />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -49,7 +49,7 @@ describe("ReportColumnDisplayButton Component", () => {
     const noVal:any = null;
 
     render(
-       <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" buttonText="test label" value={noVal} onClick={onClick} /></tr></tbody></table>
+       <ReportColumnDisplayButton forColumn="testColumn" buttonText="test label" value={noVal} onClick={onClick} />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -60,7 +60,7 @@ describe("ReportColumnDisplayButton Component", () => {
   it("renders isVisible=false correctly", async () => { 
 
     render(
-      <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" buttonText="test label" value="test value"  onClick={onClick} isVisible={false} /></tr></tbody></table>
+      <ReportColumnDisplayButton forColumn="testColumn" buttonText="test label" value="test value"  onClick={onClick} isVisible={false} />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();

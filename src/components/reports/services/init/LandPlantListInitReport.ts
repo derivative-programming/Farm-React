@@ -36,6 +36,8 @@ export interface InitResult {
  
     someEmailAddress: string;
  
+    landName: string;
+ 
     flavorCode: string;
  
     landCode: string;
@@ -93,6 +95,8 @@ export class InitResultInstance implements InitResult {
  
     someEmailAddress: string;
  
+    landName: string;
+ 
     flavorCode: string;
  
     landCode: string;
@@ -133,6 +137,8 @@ export class InitResultInstance implements InitResult {
         this.somePhoneNumber = '';
  
         this.someEmailAddress = '';
+ 
+        this.landName = '';
  
         this.flavorCode = '00000000-0000-0000-0000-000000000000';
  

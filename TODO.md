@@ -2,28 +2,44 @@ job text...
 The public repo is at https://github.com/derivative-programming/Farm-React.
 You will be submitting a PR to this repository.
 
+todo...    
+
+C:\Users\vince\Downloads\possible-test-cases
+
+test:remove {/*[any number of spaces or newlines]*/} from fabrication results
+
+Create Boolean Gen Val Tags_ProcessLine calculatedis should override simple is prop if its available
+
+page headers - report... 
+test:- add header to landplantlist model and api. show land name
+test:- above filters, below intro text   
+- no border on table?
+- left justified
+- need to look at isLabelVisible prop. should be attribute of ctrl displaying line item. use calculatedLabelText
 
 
-todo...  
+page header - form....
+test:- add header to add plant model and api. show land name 
+test:- show under intro text   
+- no border on table
+- left justified
+- need to look at isLabelVisible prop. should be attribute of ctrl displaying line item. use calculatedLabelText
 
-job: lazy loading on router
 
-Job: create list of unit tests to be added 
+remove plantedit page.  
+change plant detail update plant button to 'add another plant'
+change add plant other button to 'Go To Dashboard'
 
-job: gdpr alert
+create page components so forms and reports connected components can be used on the same page
+
+Job: create list of unit tests to be added  
 
 job: no internet connection alert
   
 test forceerror on add plant init and submit and its display.
     looks like just report page has this?
 
-plant list report query not working
-
-remove plantedit page.  
-change plant detail update plant button to 'add another plant'
-change add plant other button to 'Go To Dashboard'
-
-deploy farm api:default add plant flavor should be sweet
+ 
 
 when creating seed data, int should never be 0?
    
@@ -43,8 +59,7 @@ test err...logout expected mock service call. set ispage=false? clear out api to
 - internationalization https://www.i18next.com/
 - check for new app version
 - no internet connection message  https://medium.com/@kirichuk/7-must-have-features-for-any-react-app-10b086038d9a
-- run on google lighthouse
-- code splitting and lazy route https://medium.com/@kirichuk/7-must-have-features-for-any-react-app-10b086038d9a
+- run on google lighthouse 
 - maintain a list ofr all feaatures
 - collect analytics
 - web push notifications
@@ -186,7 +201,6 @@ authContext.js should be authContext.tsx. stop converting .js to .gen.js. create
 
 react demo app instead of static html
 
-remove {/*[any number of spaces or newlines]*/} from fabrication results
 
 reverse template tag substitution: 
 create separate replacement dictionary until full file is processed
