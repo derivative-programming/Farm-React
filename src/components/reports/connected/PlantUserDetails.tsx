@@ -133,10 +133,10 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
         setIsProcessing(true);
         ReportService.submitRequest(query, contextCode)
             .then(response => handleQueryResults(response))
-            .finally(() => {act(()=>{
+            .finally(() => 
                 setIsProcessing(false)
-            }) 
-        });
+            );    
+    
     }, [query]); 
 
     return (
