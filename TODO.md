@@ -4,42 +4,85 @@ You will be submitting a PR to this repository.
 
 todo...    
 
+>>need to return userid when logging in. use for signalr later. this is customerCode and email? store in localstoragevalue like api key
+
+report... if results match current displayed results, ignore
+
+job...analytics queue...
+use indexeddb to store data locally
+on click of langplantlist search button, create rec with utcdatetime and 'refresh button clicked', even if no internet connection exists.
+Separately, another part of the app should monitor both internet connection and data entry into this db. if connected and a row exists, delete the row. if connection is lost, delete all recs when connection is made. 
+
+job...web push...
+create a simple c# .net core signalr hub
+have the react app connect to hub on login. 
+reconnect if internet connection lost
+disconnect on logout
+channel specific for the logged in user. use customercode in local storage as the channel identifier 
+protected the connection. no client knowing the customercode should be able to connect.
+allow client to send and recieve simple string message with the hub
+allow a trusted server app to send a message to a particular client userid channel through the hub. create a simple c# console app to demonstrate. 
+
+
+job to fix error... 
+    console.error
+      Warning: An update to ReportConnectedPlantUserDetails inside a test was not wrapped in act(...).        
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at ReportConnectedPlantUserDetails (C:\VR\Source\DP\Farm-React\src\components\reports\connected\PlantUserDetails.tsx:11:43)
+          at Router (C:\VR\Source\DP\packages\react-router\lib\components.tsx:173:13)
+          at BrowserRouter (C:\VR\Source\DP\packages\react-router-dom\index.tsx:147:3)
+
+      133 |         ReportService.submitRequest(query, contextCode)
+      134 |             .then(response => handleQueryResults(response))
+    > 135 |             .finally(() => {setIsProcessing(false);});
+          |                             ^
+      136 |     }, [query]);
+      137 |
+      138 |     return (
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27543:9)      
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25404:5)
+      at setIsProcessing (node_modules/react-dom/cjs/react-dom.development.js:17389:16)
+      at src/components/reports/connected/PlantUserDetails.tsx:135:29
+
+job...gdpr banner test,HeaderLandAddPlant unit test,HeaderLandPlantList unit test
+
+  
+
+
 C:\Users\vince\Downloads\possible-test-cases
-
-test:remove {/*[any number of spaces or newlines]*/} from fabrication results
-
+  
 Create Boolean Gen Val Tags_ProcessLine calculatedis should override simple is prop if its available
 
-page headers - report... 
-test:- add header to landplantlist model and api. show land name
-test:- above filters, below intro text   
-- no border on table?
-- left justified
-- need to look at isLabelVisible prop. should be attribute of ctrl displaying line item. use calculatedLabelText
+page headers - report...  
+- need to look at isLabelVisible prop. should be attribute of ctrl displaying line item.  
 
 
-page header - form....
-test:- add header to add plant model and api. show land name 
-test:- show under intro text   
-- no border on table
-- left justified
-- need to look at isLabelVisible prop. should be attribute of ctrl displaying line item. use calculatedLabelText
+page header - form.... 
+- need to look at isLabelVisible prop. should be attribute of ctrl displaying line item.   
+
+>>>>remove plantedit page.   
 
 
-remove plantedit page.  
-change plant detail update plant button to 'add another plant'
 change add plant other button to 'Go To Dashboard'
 
-create page components so forms and reports connected components can be used on the same page
-
-Job: create list of unit tests to be added  
+create page components so forms and reports connected components can be used on the same page. form may be ok since no breadcrumb or buttons around title shown. options to hide breadcrumb, title, nav buttons?
+  
 
 job: no internet connection alert
   
 test forceerror on add plant init and submit and its display.
     looks like just report page has this?
-
- 
 
 when creating seed data, int should never be 0?
    
@@ -61,7 +104,7 @@ test err...logout expected mock service call. set ispage=false? clear out api to
 - no internet connection message  https://medium.com/@kirichuk/7-must-have-features-for-any-react-app-10b086038d9a
 - run on google lighthouse 
 - maintain a list ofr all feaatures
-- collect analytics
+- collect analytics. 
 - web push notifications
 - document management
 - google sso
@@ -104,6 +147,7 @@ create new page. Copy land-plant-list page to create land-plant-card-list. Repla
 9. visualization - folder view
 
 10. fix npm dependency alerts and warnings 
+ 
 
 
 light\dark mode toggle. requires bootstrap 5.3 first. react boostrap is just on 5.2
@@ -112,24 +156,22 @@ style changes...
 Custom validation controls need same style as bootstrap Val error  
 
 features... 
-chat visualization
+visualization chat 
 never ending scroll
-twitter visualization
+visualization twitter 
 Sched report button on grid with indicator icon
-Fav report button on grid with indicator icon 
->>>report header display form initobjwf output params
+Fav report button on grid with indicator icon  
 report row is button drop down allowed
 reprot rating level col name  
 report table row button to stream out file 
 report auto refresh
-report badge display
->>>report is header visible
-report grid group by
-reprot pie chart
-job:report line chart
-report flow chart
-job:report card view
-job:report folder view
+report badge display 
+visualization report grid group by
+visualization reprot pie chart
+job:visualization report line chart
+visualization report flow chart
+job:visualization report card view
+job:visualization report folder view
 >>>report param is unknown lokup allowed
 form credit card
 form captcha
@@ -218,7 +260,15 @@ Model feature?
 Root Top level setting ?
 Send to queue. No db write
 All go to one endpoint
-
+any button click? any link click?
+use signalr to send analytics
+create analytics specific hub? channel?
+collect all events in local storage, even if connection is lost. 
+store datetime with each event.
+when connected to analytics hub, send queued events. then remove event from client queue.
 
 Cache api keys? To redis? Mem cache?
+
+voice assistant?
+learn from api data and app model?
 

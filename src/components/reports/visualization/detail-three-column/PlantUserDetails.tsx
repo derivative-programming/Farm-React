@@ -143,15 +143,29 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     buttonText="Update Button Text"
                     value={item.updateButtonTextLinkPlantCode}
                     isButtonCallToAction={true}
+                    isVisible={false}
                     onClick={() => 
                         onNavigateTo("/plant-edit/" + item.updateButtonTextLinkPlantCode)
                     }
                 />
 
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="backToDashboardLinkTacCode"
+                    buttonText="Update Button Text"
+                    value={item.backToDashboardLinkTacCode}
+                    isButtonCallToAction={true}
+                    isVisible={true}
+                    onClick={() => 
+                        onNavigateTo("/tac-farm-dashboard/" + item.backToDashboardLinkTacCode)
+                    }
+                />
+
+
+
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="randomPropertyUpdatesLinkPlantCode"
                     buttonText="Random Property Updates"
                     value={item.randomPropertyUpdatesLinkPlantCode}
                     isButtonCallToAction={false}
+                    isVisible={true}
                     onClick={() =>{
                         const data: any = {};
                         AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.randomPropertyUpdatesLinkPlantCode)

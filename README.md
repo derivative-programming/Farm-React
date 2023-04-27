@@ -12,14 +12,17 @@ Technologies used in this repo...
 
 Features...
 - General Page Elements
-    - Breadcrumbs
-    - Back Button
+    - Optional Breadcrumbs
+    - Optional Back Button
     - Title
-    - Intro Text
+    - Optional Intro Text
+    - Optional Header displaying page instance specific name/ value pairs
     - Routing, with lazy loading
     - GDPR alert
     - Handle Authorization loss
 - Form Data Entry
+    - loading animation on initialization 
+    - form submit processing button animation
     - Control Data Types
         - TextBox
         - TextArea
@@ -45,6 +48,7 @@ Features...
             - Action Button
             - Navigation Button
         - Multi Select Action Button
+        - report query running animation
 - Authentication api key set on Login and Register
 - Api Proxy functions, with Request and Response Objects
 - Unit Testing

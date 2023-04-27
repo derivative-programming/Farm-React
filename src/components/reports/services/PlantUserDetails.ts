@@ -77,8 +77,10 @@ export interface QueryResultItem {
     phoneNumConditionalOnIsEditable: string;  
  
     nVarCharAsUrl: string;  
+
+    updateButtonTextLinkPlantCode: string;
  
-    updateButtonTextLinkPlantCode: string;  
+    backToDashboardLinkTacCode: string;  
  
     randomPropertyUpdatesLinkPlantCode: string;  
 }
@@ -155,8 +157,10 @@ export class QueryResultItemInstance implements QueryResultItem {
     phoneNumConditionalOnIsEditable: string;  
  
     nVarCharAsUrl: string;  
+
+    updateButtonTextLinkPlantCode: string;
  
-    updateButtonTextLinkPlantCode: string;  
+    backToDashboardLinkTacCode: string;  
  
     randomPropertyUpdatesLinkPlantCode: string;  
 
@@ -203,6 +207,8 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.nVarCharAsUrl = '';  
 
         this.updateButtonTextLinkPlantCode = '00000000-0000-0000-0000-000000000000';
+
+        this.backToDashboardLinkTacCode = '00000000-0000-0000-0000-000000000000';
 
         this.randomPropertyUpdatesLinkPlantCode = '00000000-0000-0000-0000-000000000000'; 
         
