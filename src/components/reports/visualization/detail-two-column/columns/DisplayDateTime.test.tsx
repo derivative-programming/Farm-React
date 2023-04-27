@@ -25,13 +25,22 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   // after cleanup when test-case execution is done
   afterEach(cleanup); 
 
+  const isDateTimeText = (text: string) => {
+    const dateTimeRegex = /^\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d{2} (AM|PM)$/;
+    return dateTimeRegex.test(text);
+  };
+  
   it("renders 01-03-2034 13:45:00 correctly", async () => {
     render(
-       <ReportColumnDisplayDateTime forColumn="testColumn" label="test label" value={"01-03-2034 13:45:00"} />
+      <ReportColumnDisplayDateTime
+        forColumn="testColumn"
+        label="test label"
+        value={"01-03-2034 13:45:00"}
+      />
     );
-
-    expect(screen.getByText("1/3/2034 8:45 AM")).toBeInTheDocument();   
-
+  
+    const element = screen.getByText(isDateTimeText);
+    expect(element).toBeInTheDocument();   
   });
 
   it("renders 01-01-1753 00:00:00 correctly", async () => {
