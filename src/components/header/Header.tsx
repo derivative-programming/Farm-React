@@ -12,6 +12,8 @@ const Header: FC = (): ReactElement => {
   const onLogout = () => {
     authContext.setToken("");
     localStorage.setItem("@token", "");
+    localStorage.setItem("customerCode","");
+    localStorage.setItem("email", "");
   };
 
   const onLogin = () => {

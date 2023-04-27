@@ -2,18 +2,20 @@ job text...
 The public repo is at https://github.com/derivative-programming/Farm-React.
 You will be submitting a PR to this repository.
 
-todo...    
-
->>need to return userid when logging in. use for signalr later. this is customerCode and email? store in localstoragevalue like api key
+todo...     
 
 report... if results match current displayed results, ignore
 
-job...analytics queue...
+job...error display component unit testing...posted...
+/components/forms/input-fields/ErrorDisplay
+/components/reports/input-fields/ErrorDisplay
+
+job...analytics queue...posted....
 use indexeddb to store data locally
 on click of langplantlist search button, create rec with utcdatetime and 'refresh button clicked', even if no internet connection exists.
 Separately, another part of the app should monitor both internet connection and data entry into this db. if connected and a row exists, delete the row. if connection is lost, delete all recs when connection is made. 
 
-job...web push...
+job...web push...posted...
 create a simple c# .net core signalr hub
 have the react app connect to hub on login. 
 reconnect if internet connection lost
@@ -24,7 +26,7 @@ allow client to send and recieve simple string message with the hub
 allow a trusted server app to send a message to a particular client userid channel through the hub. create a simple c# console app to demonstrate. 
 
 
-job to fix error... 
+job to fix error... posted...
     console.error
       Warning: An update to ReportConnectedPlantUserDetails inside a test was not wrapped in act(...).        
 
@@ -55,7 +57,8 @@ job to fix error...
       at setIsProcessing (node_modules/react-dom/cjs/react-dom.development.js:17389:16)
       at src/components/reports/connected/PlantUserDetails.tsx:135:29
 
-job...gdpr banner test,HeaderLandAddPlant unit test,HeaderLandPlantList unit test
+
+job...posted...gdpr banner test,HeaderLandAddPlant unit test,HeaderLandPlantList unit test
 
   
 

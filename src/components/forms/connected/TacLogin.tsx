@@ -104,6 +104,8 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       {/*//GENLearn[isLoginPage=true]Start*/}
       authContext.setToken(response.apiKey);
       localStorage.setItem("@token", response.apiKey);
+      localStorage.setItem("customerCode", response.customerCode);
+      localStorage.setItem("email", response.email);
       {/*//GENLearn[isLoginPage=true]End*/}
       {/*//GENTrainingBlock[caseGetApiKey]End*/} 
       actions.setSubmitting(false);

@@ -25,6 +25,8 @@ export const Logout: FC<FormProps> = ({
   
   authContext.setToken("");
   localStorage.setItem("@token", "");
+  localStorage.setItem("customerCode","");
+  localStorage.setItem("email", "");
 
   navigate("/tac-login");
  

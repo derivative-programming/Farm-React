@@ -100,6 +100,8 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       }
       authContext.setToken(response.apiKey);
       localStorage.setItem("@token", response.apiKey);
+      localStorage.setItem("customerCode", response.customerCode);
+      localStorage.setItem("email", response.email);
       actions.setSubmitting(false);
       actions.resetForm();
     } catch (error) {
