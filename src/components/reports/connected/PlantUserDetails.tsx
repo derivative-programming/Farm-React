@@ -6,6 +6,7 @@ import * as ReportService from "../services/PlantUserDetails";
 import * as ReportInput from "../input-fields";
 import * as InitReportService from "../services/init/PlantUserDetailsInitReport"; 
 import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-three-column/PlantUserDetails";
+import { act } from "react-dom/test-utils";
 
 export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -132,7 +133,10 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
         setIsProcessing(true);
         ReportService.submitRequest(query, contextCode)
             .then(response => handleQueryResults(response))
-            .finally(() => {setIsProcessing(false);});
+            .finally(() => {act(()=>{
+                setIsProcessing(false)
+            }) 
+        });
     }, [query]); 
 
     return (

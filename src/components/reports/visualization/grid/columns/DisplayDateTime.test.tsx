@@ -31,6 +31,8 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
     );
 
     expect(screen.getByText("1/3/2034 8:45 AM")).toBeInTheDocument();   
+    // expect(screen.queryByText(/1\/2\/2034/)).toBeInTheDocument();
+
 
   });
 
