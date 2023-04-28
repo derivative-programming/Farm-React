@@ -123,9 +123,9 @@ export class InitResultInstance implements InitResult {
  
         this.requestSomeDecimalVal = 0;
  
-        this.requestSomeUTCDateTimeVal = '01-01-1753 00:00:00'
+        this.requestSomeUTCDateTimeVal = '1753-01-01T00:00:00Z'
  
-        this.requestSomeDateVal = '01-01-1753 00:00:00';
+        this.requestSomeDateVal = '1753-01-01T00:00:00Z';
  
         this.requestSomeMoneyVal = 0.0;
  

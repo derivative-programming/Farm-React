@@ -22,15 +22,17 @@ const onRefreshRequest = jest.fn();
 
 describe("PlantUserDetails Form Component", () => {
   // render the PlantUserDetails Form component
-  beforeEach(() => {
-    render(
+  beforeEach(async() => {
+    await act(async () => {
+      render(
         <ReportDetailThreeColPlantUserDetails  
           item={new ReportService.QueryResultItemInstance}
           name="testName"  
           onNavigateTo={onNavigateTo} 
           onRefreshRequest={onRefreshRequest}
           />
-    );
+      )
+    });
   });
 
   // after cleanup when test-case execution is done

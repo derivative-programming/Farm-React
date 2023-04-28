@@ -19,8 +19,9 @@ const onPageSizeChange = jest.fn();
 
 describe("LandPlantList Form Component", () => {
   // render the LandPlantList Form component
-  beforeEach(() => {
-    render(
+  beforeEach(async() => {
+    await act(async () => {
+      render(
         <ReportGridLandPlantList 
           isSortDescending={true}
           items={[]}
@@ -37,7 +38,9 @@ describe("LandPlantList Form Component", () => {
           pageSize={10}
           totalItemCount={0} 
           />
-    );
+    
+      )
+    });
   });
 
   // after cleanup when test-case execution is done

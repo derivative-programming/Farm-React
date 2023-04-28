@@ -258,9 +258,9 @@ export class SubmitRequestInstance implements SubmitRequest {
  
         this.requestSomeDecimalVal = 0;
  
-        this.requestSomeUTCDateTimeVal = '01-01-1753 00:00:00'
+        this.requestSomeUTCDateTimeVal = '1753-01-01T00:00:00Z'
  
-        this.requestSomeDateVal = '01-01-1753 00:00:00';
+        this.requestSomeDateVal = '1753-01-01T00:00:00Z';
  
         this.requestSomeMoneyVal = 0.0;
  
@@ -351,9 +351,9 @@ export class SubmitResultInstance implements SubmitResult {
  
         this.outputSomeDecimalVal = 0;
  
-        this.outputSomeUTCDateTimeVal = '01-01-1753 00:00:00'
+        this.outputSomeUTCDateTimeVal = '1753-01-01T00:00:00Z'
  
-        this.outputSomeDateVal = '01-01-1753 00:00:00';
+        this.outputSomeDateVal = '1753-01-01T00:00:00Z';
  
         this.outputSomeMoneyVal = 0.0;
  

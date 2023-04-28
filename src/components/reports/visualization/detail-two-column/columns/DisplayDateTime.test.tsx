@@ -25,18 +25,18 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   // after cleanup when test-case execution is done
   afterEach(cleanup); 
 
-  it("renders 01-03-2034 13:45:00 correctly", async () => {
+  it("renders 2034-01-03T13:45:00Z correctly", async () => {
     render(
-       <ReportColumnDisplayDateTime forColumn="testColumn" label="test label" value={"01-03-2034 13:45:00"} />
+       <ReportColumnDisplayDateTime forColumn="testColumn" label="test label" value={"2034-01-03T13:45:00Z"} />
     );
 
     expect(screen.getByText("1/3/2034 8:45 AM")).toBeInTheDocument();   
 
   });
 
-  it("renders 01-01-1753 00:00:00 correctly", async () => {
+  it("renders 1753-01-01T00:00:00Z correctly", async () => {
     render(
-       <ReportColumnDisplayDateTime forColumn="testColumn" label="test label" value={"01-01-1753 00:00:00"} />
+       <ReportColumnDisplayDateTime forColumn="testColumn" label="test label" value={"1753-01-01T00:00:00Z"} />
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();

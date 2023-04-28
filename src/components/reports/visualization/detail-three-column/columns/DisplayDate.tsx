@@ -31,8 +31,8 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
       if(value === null || !displayValue)
       {
           return result;
-      }
-
+      } 
+      
       const dateTime:moment.Moment = moment.utc(value).local();
 
       if(!dateTime.isValid()){

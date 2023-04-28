@@ -25,18 +25,18 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   // after cleanup when test-case execution is done
   afterEach(cleanup); 
 
-  it("renders 01-03-2034 13:45:00 correctly", async () => {
+  it("renders 2034-01-03T13:45:00Z correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={"01-03-2034 13:45:00"} /></tr></tbody></table>
+       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={"2034-01-03T13:45:00Z"} /></tr></tbody></table>
     );
 
     expect(screen.getByText("1/3/2034 8:45 AM")).toBeInTheDocument();   
 
   });
 
-  it("renders 01-01-1753 00:00:00 correctly", async () => {
+  it("renders 1753-01-01T00:00:00Z correctly", async () => {
     render(
-       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={"01-01-1753 00:00:00"} /></tr></tbody></table>
+       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value={"1753-01-01T00:00:00Z"} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
@@ -59,7 +59,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   it("renders isVisible=false correctly", async () => { 
 
     render(
-       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value="01-03-2034 00:45:00" isVisible={false} /></tr></tbody></table>
+       <table><tbody><tr><ReportColumnDisplayDateTime forColumn="testColumn" rowIndex={1} value="2034-01-03T00:45:00Z" isVisible={false} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();

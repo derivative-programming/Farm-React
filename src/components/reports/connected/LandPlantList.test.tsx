@@ -31,7 +31,7 @@ const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 describe("LandPlantList Connected Report Component", () => {
   // render the LandPlantList component
-  beforeEach(() => {
+  beforeEach(async() => {
     mockReportInitService.mockResolvedValueOnce({
       data: new InitReportService.InitResultInstance(),
     });
@@ -44,11 +44,14 @@ describe("LandPlantList Connected Report Component", () => {
       data: new ReportService.QueryResultInstance(),
     }); 
 
-    render(
-      <BrowserRouter>
-        <ReportConnectedLandPlantList />
-      </BrowserRouter>
-    );
+    await act(async () => {
+      render(
+        <BrowserRouter>
+          <ReportConnectedLandPlantList />
+        </BrowserRouter>
+      
+      )
+    });
   });
 
   // after cleanup when test-case execution is done

@@ -9,7 +9,7 @@ export interface ReportInputTextProps {
   autoFocus?:boolean
   disabled?: boolean
 }
-   
+    
 export const ReportInputText: FC<ReportInputTextProps> = ({
   name,
   label,

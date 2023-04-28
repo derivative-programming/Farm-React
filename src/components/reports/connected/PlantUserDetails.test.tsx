@@ -29,7 +29,7 @@ const mockReportService = jest.spyOn(ReportService, "submitRequest");
 
 describe("PlantUserDetails Connected Report Component", () => {
   // render the PlantUserDetails component
-  beforeEach(() => {
+  beforeEach(async() => {
     mockReportInitService.mockResolvedValueOnce({
       data: new InitReportService.InitResultInstance(),
     }); 
@@ -38,11 +38,13 @@ describe("PlantUserDetails Connected Report Component", () => {
       data: new ReportService.QueryResultTestInstance(),
     });
 
-    render(
-      <BrowserRouter>
-        <ReportConnectedPlantUserDetails />
-      </BrowserRouter>
-    );
+    await act(async () => {
+      render(
+        <BrowserRouter>
+          <ReportConnectedPlantUserDetails />
+        </BrowserRouter>
+      )
+    });
   });
 
   // after cleanup when test-case execution is done

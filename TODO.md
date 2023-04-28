@@ -4,7 +4,8 @@ You will be submitting a PR to this repository.
 
 todo...     
 
-report... if results match current displayed results, ignore
+>>stream csv in api
+
 
 job...error display component unit testing...posted...
 /components/forms/input-fields/ErrorDisplay
@@ -60,11 +61,10 @@ job to fix error... posted...
 
 job...posted...gdpr banner test,HeaderLandAddPlant unit test,HeaderLandPlantList unit test
 
-  
 
 
 C:\Users\vince\Downloads\possible-test-cases
-  
+
 Create Boolean Gen Val Tags_ProcessLine calculatedis should override simple is prop if its available
 
 page headers - report...  
@@ -77,7 +77,7 @@ page header - form....
 >>>>remove plantedit page.   
 
 
-change add plant other button to 'Go To Dashboard'
+>>>change add plant other button to 'Go To Dashboard'
 
 create page components so forms and reports connected components can be used on the same page. form may be ok since no breadcrumb or buttons around title shown. options to hide breadcrumb, title, nav buttons?
   
@@ -87,7 +87,7 @@ job: no internet connection alert
 test forceerror on add plant init and submit and its display.
     looks like just report page has this?
 
-when creating seed data, int should never be 0?
+test:when creating seed data, int should never be 0?
    
 
 fab: 'O K button Text'  
@@ -106,7 +106,7 @@ test err...logout expected mock service call. set ispage=false? clear out api to
 - check for new app version
 - no internet connection message  https://medium.com/@kirichuk/7-must-have-features-for-any-react-app-10b086038d9a
 - run on google lighthouse 
-- maintain a list ofr all feaatures
+- maintain a list of all features
 - collect analytics. 
 - web push notifications
 - document management

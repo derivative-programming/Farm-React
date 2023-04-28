@@ -178,7 +178,7 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someBitVal = false;
  
-        this.someDateVal = '01-01-1753 00:00:00';
+        this.someDateVal = '1753-01-01T00:00:00Z';
  
         this.someDecimalVal = 0;
  
@@ -198,7 +198,7 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someUniqueidentifierVal = '00000000-0000-0000-0000-000000000000';
  
-        this.someUTCDateTimeVal = '01-01-1753 00:00:00'
+        this.someUTCDateTimeVal = '1753-01-01T00:00:00Z'
  
         this.someVarCharVal = '';  
  

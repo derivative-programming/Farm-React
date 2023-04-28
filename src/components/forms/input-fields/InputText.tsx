@@ -10,7 +10,7 @@ export interface FormInputTextProps {
   autoFocus?:boolean
   disabled?: boolean
 }
-   
+    
 export const FormInputText: FC<FormInputTextProps> = ({
   name,
   label,
