@@ -1,10 +1,10 @@
 import { FC } from "react";
-import * as InitReportService from "../services/init/LandPlantListInitReport";
+import { InitResultInstance } from "../services/init/LandPlantListInitReport";
 
 export interface HeaderLandPlantListProps {
   name: string;
   isHeaderVisible: boolean;
-  initData: InitReportService.InitResultInstance;
+  initData: InitResultInstance;
 }
 
 const HeaderLandPlantList: FC<HeaderLandPlantListProps> = (props) => {

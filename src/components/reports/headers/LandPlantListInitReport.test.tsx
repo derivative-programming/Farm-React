@@ -1,19 +1,19 @@
 import { render, screen } from "@testing-library/react";
 
-import { InitResultInstance } from "../services/init/LandAddPlantInitObjWF";
-import HeaderLandAddPlant, {
-  HeaderLandAddPlantProps,
-} from "./LandAddPlantInitObjWF";
+import { InitResultInstance } from "../services/init/LandPlantListInitReport";
+import HeaderLandPlantList, {
+  HeaderLandPlantListProps,
+} from "./LandPlantListInitReport";
 
 const TEST_ID = "test-header";
 const LAND_NAME = "Test Land";
 const LAND_NAME_LABEL = "Land Name";
-const mockInitData: HeaderLandAddPlantProps["initData"] =
+const mockInitData: HeaderLandPlantListProps["initData"] =
   new InitResultInstance();
 mockInitData.landName = LAND_NAME;
 
-const renderHeader = (props: HeaderLandAddPlantProps) => {
-  return render(<HeaderLandAddPlant {...props} />);
+const renderHeader = (props: HeaderLandPlantListProps) => {
+  return render(<HeaderLandPlantList {...props} />);
 };
 
 describe("HeaderLandAddPlant", () => {
