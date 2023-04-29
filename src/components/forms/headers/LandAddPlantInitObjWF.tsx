@@ -1,15 +1,15 @@
 import { FC } from "react";
-import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
+import { InitResultInstance } from "../services/init/LandAddPlantInitObjWF";
 
 export interface HeaderLandAddPlantProps {
   name: string;
   isHeaderVisible: boolean;
-  initData: InitFormService.InitResultInstance;
+  initData: InitResultInstance;
 }
 
 const HeaderLandAddPlant: FC<HeaderLandAddPlantProps> = (props) => {
   const { name, isHeaderVisible = false, initData } = props;
-  
+
   return (
     <dl
       data-testid={name}
