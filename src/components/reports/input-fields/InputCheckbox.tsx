@@ -23,10 +23,12 @@ export const ReportInputCheckbox: FC<ReportInputCheckboxProps> = ({
       
   return (
     <div className="">
-      <Form.Group controlId={name} className="mt-2 text-start"> 
+      <Form.Group controlId={name} 
+        data-testid={name}
+        className="mt-2 text-start"> 
           <Form.Check
             // ref={inputRef}
-            data-testid={name}
+            data-testid={name + '-field'}
             type="checkbox"
             placeholder={placeholder}
             checked={field.value}

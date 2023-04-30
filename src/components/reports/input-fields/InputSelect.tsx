@@ -30,10 +30,11 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
       
   return (
     <div className="" >
-      <Form.Group controlId={name} className="mt-2 text-start">
+      <Form.Group controlId={name}
+        data-testid={name} className="mt-2 text-start">
           <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <Form.Select
-              data-testid={name}
+              data-testid={name + '-field'}
               aria-label={name}  
               {...field} 
               disabled={disabled}

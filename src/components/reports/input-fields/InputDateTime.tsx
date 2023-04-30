@@ -40,13 +40,14 @@ export const ReportInputDateTime: FC<ReportInputDateTimeProps> = ({
   
   return (
     <div className="">
-      <Form.Group controlId={name} className="mt-2 text-start">
+      <Form.Group controlId={name}
+        data-testid={name} className="mt-2 text-start">
           <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <DatePicker
             // ref={inputRef}
             showTime={true}
             format="M/D/YYYY h:mm A"
-            data-testid={name} 
+            data-testid={name + '-field'} 
             aria-label={name} 
             placeholder={placeholder}
             name={field.name}

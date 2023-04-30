@@ -182,17 +182,17 @@ export class LandPlantListPage {
           
          
         //row buttons
-        else if (destinationPageName == 'plantUserDetails') {  //updateLinkPlantCode
+        else if (destinationPageName == 'PlantUserDetails') {  //updateLinkPlantCode
             cy.log('click row button updateLinkPlantCode...');
             cy.get(PageSelectors.updateLinkPlantCodeRowButton).eq(0) 
             .click();
         } 
-        else if (destinationPageName == 'plantUserDelete') { //deleteAsyncButtonLinkPlantCode
+        else if (destinationPageName == 'PlantUserDelete') { //deleteAsyncButtonLinkPlantCode
             cy.log('click row button deleteAsyncButtonLinkPlantCode...');
             cy.get(PageSelectors.deleteAsyncButtonLinkPlantCodeRowButton).eq(0) 
             .click();
         }
-        else if (destinationPageName == 'plantUserDetails') { //detailsLinkPlantCode
+        else if (destinationPageName == 'PlantUserDetails') { //detailsLinkPlantCode
             cy.log('click row button detailsLinkPlantCode...');
             cy.get(PageSelectors.detailsLinkPlantCodeRowButton).eq(0) 
             .click();

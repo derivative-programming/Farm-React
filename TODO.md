@@ -9,9 +9,9 @@ redactable invoice
 keyur chat?
 buy hat 
 
-todo...     
+todo...      
 
-dashboard footer text?
+>>plantuserdetails button needs differnt text
 
 >>report landplantlist otherAddButton > otherNewRecordButton
 
@@ -46,17 +46,12 @@ protected the connection. no client knowing the customercode should be able to c
 allow client to send and recieve simple string message with the hub
 allow a trusted server app to send a message to a particular client userid channel through the hub. create a simple c# console app to demonstrate. 
 
-  
-
-
-
 C:\Users\vince\Downloads\possible-test-cases
 
 Create Boolean Gen Val Tags_ProcessLine calculatedis should override simple is prop if its available
 
 page headers - report...  
 - need to look at isLabelVisible prop. should be attribute of ctrl displaying line item.  
-
 
 page header - form.... 
 - need to look at isLabelVisible prop. should be attribute of ctrl displaying line item.   

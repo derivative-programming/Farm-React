@@ -18,15 +18,16 @@ export const PlantUserDetailsPageSelectors = {
     someUTCDateTimeValHeader: "[data-testid='someUTCDateTimeVal-header']",
     someVarCharValHeader: "[data-testid='someVarCharVal-header']",
     nVarCharAsUrlHeader: "[data-testid='nVarCharAsUrl-header']",
+    updateButtonTextLinkPlantCodeHeader:  "[data-testid='updateButtonTextLinkPlantCode-header']",
     randomPropertyUpdatesLinkPlantCodeHeader: "[data-testid='randomPropertyUpdatesLinkPlantCode-header']",
+    backToDashboardLinkTacCodeHeader: "[data-testid='backToDashboardLinkTacCode-header']",
     title: "[data-testid='page-title-text']", 
     introText: "[data-testid='page-intro-text']",
     //breadcrumbs
     tacFarmDashboardBreadcrumbText: "[data-testid='tacFarmDashboardBreadcrumb']",
     //row button text - not ignored
-    updateLinkCodeRowButton: "[data-testid='detailsLinkCode']",
-    deleteAsyncButtonLinkCodeRowButton: "[data-testid='detailsLinkCode']",
-    detailsLinkCodeRowButton: "[data-testid='detailsLinkCode']",
-
+    updateButtonTextLinkPlantCodeRowButton: "[data-testid='updateButtonTextLinkPlantCode']",
+    randomPropertyUpdatesLinkPlantCodeRowButton: "[data-testid='randomPropertyUpdatesLinkPlantCode']",
+    backToDashboardLinkTacCodeRowButton: "[data-testid='backToDashboardLinkTacCode']",
 }
 

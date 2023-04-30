@@ -100,9 +100,15 @@ export class PlantUserDetailsPage {
         cy.get(PageSelectors.nVarCharAsUrlHeader)
             .should('be.visible')
             .should('include.text', PageTexts.nVarCharAsUrlHeaderText);
+        cy.get(PageSelectors.updateButtonTextLinkPlantCodeHeader)
+            .should('be.visible')
+            .should('include.text', PageTexts.updateButtonTextLinkPlantCodeHeaderText);
         cy.get(PageSelectors.randomPropertyUpdatesLinkPlantCodeHeader)
             .should('be.visible')
             .should('include.text', PageTexts.randomPropertyUpdatesLinkPlantCodeHeaderText);
+        cy.get(PageSelectors.backToDashboardLinkTacCodeHeader)
+            .should('be.visible')
+            .should('include.text', PageTexts.backToDashboardLinkTacCodeHeaderText);
         cy.log('Verifying title text...');
         if(PageTexts.titleText.length > 0){
             cy.get(PageSelectors.title)
@@ -133,6 +139,7 @@ export class PlantUserDetailsPage {
         //    .should('include.text', PageTexts.detailsLinkCodeRowButtonText);
     }
     clickButtonWithDestination(destinationPageName) {
+		cy.log('PlantUserDetailsPage.clickButtonWithDestination() destinationPageName: ' + destinationPageName); 
         if (destinationPageName == 'XXXX') { //placeholder
         } 
         //report buttons 
@@ -140,9 +147,20 @@ export class PlantUserDetailsPage {
             cy.log('click add button...');
 
         }
+        //row buttons
+        else if (destinationPageName == 'plantUserDetails') {  //updateButtonTextLinkPlantCode
+            cy.log('click row button updateButtonTextLinkPlantCode...');
+            cy.get(PageSelectors.updateButtonTextLinkPlantCodeRowButton).eq(0)
+            .click();
+        }
         else if (destinationPageName == 'plantUserPropertyRandomUpdate') { //randomPropertyUpdatesLinkPlantCode
             cy.log('click row button randomPropertyUpdatesLinkPlantCode...');
             cy.get(PageSelectors.randomPropertyUpdatesLinkPlantCodeRowButton).eq(0)
+            .click();
+        }
+        else if (destinationPageName == 'tacFarmDashboard') { //backToDashboardLinkTacCode
+            cy.log('click row button backToDashboardLinkTacCode...');
+            cy.get(PageSelectors.backToDashboardLinkTacCodeRowButton).eq(0)
             .click();
         }
         else {

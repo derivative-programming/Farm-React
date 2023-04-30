@@ -24,11 +24,12 @@ export const ReportInputNumber: FC<ReportInputNumberProps> = ({
       
   return (
     <div className="">
-      <Form.Group controlId={name} className="mt-2 text-start">
+      <Form.Group controlId={name}
+        data-testid={name} className="mt-2 text-start">
           <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <Form.Control
             // ref={inputRef}
-            data-testid={name}
+            data-testid={name + '-field'}
             type="number"
             placeholder={placeholder}
             {...field} 

@@ -39,7 +39,9 @@ export class TacFarmDashboardPage {
 
         //column headers
         cy.log('Verifying column headers...');
-
+        cy.get(PageSelectors.fieldOnePlantListLinkLandCodeHeader)
+            .should('be.visible')
+            .should('include.text', PageTexts.fieldOnePlantListLinkLandCodeHeaderText);
         cy.log('Verifying title text...');
         if(PageTexts.titleText.length > 0){
             cy.get(PageSelectors.title)
@@ -77,8 +79,12 @@ export class TacFarmDashboardPage {
         else if (destinationPageName == 'TacAdd') {  //add button
             cy.log('click add button...');
 
-        }  
-
+        }
+        else if (destinationPageName == 'LandPlantList') { //fieldOnePlantListLinkLandCode
+            cy.log('click row button fieldOnePlantListLinkLandCode...');
+            cy.get(PageSelectors.fieldOnePlantListLinkLandCodeRowButton).eq(0)
+            .click();
+        }
         else {
             //throw error
         }

@@ -76,103 +76,103 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                   onSubmit={props.handleSubmit}
                 >
                   <Row>
-                    <Col lg="4" md="6" xs="12" id="flavorCode-filter">
+                    <Col lg="4" md="6" xs="12" id="flavorCode">
                       <Lookups.ReportSelectFlavor
-                        name="flavorCode"
+                        name="flavorCode-filter"
                         label="Select A Flavor"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someIntVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someIntVal">
                       <ReportInput.ReportInputNumber
-                        name="someIntVal"
+                        name="someIntVal-filter"
                         label="Some Int Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someBigIntVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someBigIntVal">
                       <ReportInput.ReportInputNumber
-                        name="someBigIntVal"
+                        name="someBigIntVal-filter"
                         label="Some Big Int Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someBitVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someBitVal">
                       <ReportInput.ReportInputCheckbox
-                        name="someBitVal"
+                        name="someBitVal-filter"
                         label="Some Bit Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="isEditAllowed-filter">
+                    <Col lg="4" md="6" xs="12" id="isEditAllowed">
                       <ReportInput.ReportInputCheckbox
-                        name="isEditAllowed"
+                        name="isEditAllowed-filter"
                         label="Is Edit Allowed"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="isDeleteAllowed-filter">
+                    <Col lg="4" md="6" xs="12" id="isDeleteAllowed">
                       <ReportInput.ReportInputCheckbox
-                        name="isDeleteAllowed"
+                        name="isDeleteAllowed-filter"
                         label="Is Delete Allowed"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someFloatVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someFloatVal">
                       <ReportInput.ReportInputNumber
-                        name="someFloatVal"
+                        name="someFloatVal-filter"
                         label="Some Float Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someDecimalVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someDecimalVal">
                       <ReportInput.ReportInputNumber
-                        name="someDecimalVal"
+                        name="someDecimalVal-filter"
                         label="Some Decimal Val"
                       />
                     </Col>
-                    <Col  id="someMinUTCDateTimeVal-filter"
+                    <Col  id="someMinUTCDateTimeVal"
                       lg="4"
                       md="6"
                       xs="12" 
                     >
                       <ReportInput.ReportInputDateTime
-                        name="someMinUTCDateTimeVal"
+                        name="someMinUTCDateTimeVal-filter"
                         label="Some Min UTC Date Time Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someMinDateVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someMinDateVal">
                       <ReportInput.ReportInputDate
-                        name="someMinDateVal"
+                        name="someMinDateVal-filter"
                         label="Some Min Date Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someMoneyVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someMoneyVal">
                       <ReportInput.ReportInputMoney
-                        name="someMoneyVal"
+                        name="someMoneyVal-filter"
                         label="Some Money Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someNVarCharVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someNVarCharVal">
                       <ReportInput.ReportInputText
-                        name="someNVarCharVal"
+                        name="someNVarCharVal-filter"
                         label="Some N Var Char Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someVarCharVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someVarCharVal">
                       <ReportInput.ReportInputText
-                        name="someVarCharVal"
+                        name="someVarCharVal-filter"
                         label="Some Var Char Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someTextVal-filter">
+                    <Col lg="4" md="6" xs="12" id="someTextVal">
                       <ReportInput.ReportInputText
-                        name="someTextVal"
+                        name="someTextVal-filter"
                         label="Some Text Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="somePhoneNumber-filter">
+                    <Col lg="4" md="6" xs="12" id="somePhoneNumber">
                       <ReportInput.ReportInputText
-                        name="somePhoneNumber"
+                        name="somePhoneNumber-filter"
                         label="Some Phone Number"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someEmailAddress-filter">
+                    <Col lg="4" md="6" xs="12" id="someEmailAddress">
                       <ReportInput.ReportInputEmail
-                        name="someEmailAddress"
+                        name="someEmailAddress-filter"
                         label="Some Email Address"
                       />
                     </Col>
