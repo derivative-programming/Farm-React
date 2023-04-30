@@ -70,9 +70,7 @@ const AppRoute = () => {
       {/*//GENTrainingBlock[b2]End*/}
       {/*//GENLOOPObjectWorkflowEnd*/}
       {/*//GENLearn[modelType=object,name=Land]End*/}
-      <Route path={"/plant-edit/:id"} element={<FormConnectedPlantEdit />} />
-      <Route path={"/tac-login/:id"} element={<FormConnectedTacLogin />} />
-      <Route path={"/tac-register/:id"} element={<FormConnectedTacRegister />} />
+      <Route path={"/plant-edit/:id"} element={<FormConnectedPlantEdit />} /> 
       {/*//GENTrainingBlock[a2]End*/}
       {/*//GENLOOPObjectEnd*/}
  

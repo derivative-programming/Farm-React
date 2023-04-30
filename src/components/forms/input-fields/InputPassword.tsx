@@ -27,7 +27,7 @@ export const FormInputPassword: FC<FormInputPasswordProps> = ({
   return (
     <div className="">
       <Form.Group controlId={name} className="mb-2 text-start">
-          <Form.Label>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <Form.Control
             // ref={inputRef}
             data-testid={name}

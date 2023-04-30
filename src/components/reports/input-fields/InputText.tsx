@@ -17,14 +17,14 @@ export const ReportInputText: FC<ReportInputTextProps> = ({
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name);  
+  const [field, meta] = useField(name);  
   
   const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
     <div className="">
       <Form.Group controlId={name} className="mt-2 text-start">
-          <Form.Label>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <Form.Control
             // ref={inputRef}
             data-testid={name}

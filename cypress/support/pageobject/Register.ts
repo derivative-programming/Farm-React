@@ -7,7 +7,7 @@ export class Register {
 		shouldHave ?
 			cy.get(".card h2").should("have.text", title) :
 			cy.get(".card h2").should("not.have.text", title);
-		return Register;
+		return Register; 
 	}
 
 	public static openRegister(): typeof Register {

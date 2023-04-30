@@ -1,13 +1,9 @@
 import React, {
   FC,
   ReactElement,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { Button, Form, Card, Spinner } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom"; 
+  useContext, 
+} from "react"; 
+import { useNavigate } from "react-router-dom"; 
  
 import { AuthContext } from "../../../context/authContext"; 
 

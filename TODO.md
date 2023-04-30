@@ -2,10 +2,30 @@ job text...
 The public repo is at https://github.com/derivative-programming/Farm-React.
 You will be submitting a PR to this repository.
 
+
+sunday... 
+redactable work
+redactable invoice
+keyur chat?
+buy hat 
+
 todo...     
+
+dashboard footer text?
+
+>>report landplantlist otherAddButton > otherNewRecordButton
+
+>>report landplantlist add button > addrecord button
 
 >>stream csv in api
 
+>>>>remove plantedit page.   
+
+>>>change add plant other button to 'Go To Dashboard'
+
+>> merge 3 test component PR.  need to fix changes for template gen.
+
+api...python with flask and django
 
 job...error display component unit testing...posted...
 /components/forms/input-fields/ErrorDisplay
@@ -26,40 +46,7 @@ protected the connection. no client knowing the customercode should be able to c
 allow client to send and recieve simple string message with the hub
 allow a trusted server app to send a message to a particular client userid channel through the hub. create a simple c# console app to demonstrate. 
 
-
-job to fix error... posted...
-    console.error
-      Warning: An update to ReportConnectedPlantUserDetails inside a test was not wrapped in act(...).        
-
-      When testing, code that causes React state updates should be wrapped into act(...):
-
-      act(() => {
-        /* fire events that update state */
-      });
-      /* assert on the output */
-
-      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
-          at ReportConnectedPlantUserDetails (C:\VR\Source\DP\Farm-React\src\components\reports\connected\PlantUserDetails.tsx:11:43)
-          at Router (C:\VR\Source\DP\packages\react-router\lib\components.tsx:173:13)
-          at BrowserRouter (C:\VR\Source\DP\packages\react-router-dom\index.tsx:147:3)
-
-      133 |         ReportService.submitRequest(query, contextCode)
-      134 |             .then(response => handleQueryResults(response))
-    > 135 |             .finally(() => {setIsProcessing(false);});
-          |                             ^
-      136 |     }, [query]);
-      137 |
-      138 |     return (
-
-      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
-      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
-      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27543:9)      
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25404:5)
-      at setIsProcessing (node_modules/react-dom/cjs/react-dom.development.js:17389:16)
-      at src/components/reports/connected/PlantUserDetails.tsx:135:29
-
-
-job...posted...gdpr banner test,HeaderLandAddPlant unit test,HeaderLandPlantList unit test
+  
 
 
 
@@ -74,10 +61,6 @@ page headers - report...
 page header - form.... 
 - need to look at isLabelVisible prop. should be attribute of ctrl displaying line item.   
 
->>>>remove plantedit page.   
-
-
->>>change add plant other button to 'Go To Dashboard'
 
 create page components so forms and reports connected components can be used on the same page. form may be ok since no breadcrumb or buttons around title shown. options to hide breadcrumb, title, nav buttons?
   
@@ -88,6 +71,25 @@ test forceerror on add plant init and submit and its display.
     looks like just report page has this?
 
 test:when creating seed data, int should never be 0?
+
+
+Cypress tests...
+need to create seed data?
+gdpr test.. is visible, go to another page and is visible, accept and is hidden, go to another page and is hidden
+submit add button and fill out form with seed data, if available? do this to create rows? can only do this in dev? not pac or tac? not config pages?
+thse page tests should just look for elements on page, test sort, etc.? dont click async buttons? dont submit forms?
+functional tests are separate from page testS?
+report tests...
+- open close filter
+- filter controls and labels
+- table cell data format display
+- sort on col header
+- paging controls data-testid="reportGridLandPlantList-paginator-pageination"
+- table count display (data-testid="reportGridLandPlantList-paginator-pageination-count-display")
+- page size control (data-testid="items-per-page-label") (data-testid="reportGridLandPlantList-paginator-pageination-select-page-size")
+site header tests (data-testids exist)
+site footer tests (data-testid="footer-text")
+
    
 
 fab: 'O K button Text'  
@@ -115,27 +117,15 @@ test err...logout expected mock service call. set ispage=false? clear out api to
 
 jobs... 
  
-1. add landaddplant and landplantlist and plantuserdetails unit tests
-
-1. implement sonarqube
+1. add landaddplant and landplantlist and plantuserdetails unit tests 
 
 2. export button to csv (api should return a file?)
  
 4. react app feature recommendations
-
-5. >>>Simple Cypress implementation. 
-    1 test suite on each page. no intercept of api requests. from login page, go to target page. test for existance of title. at start of spec, if target page requires authorization, register a user. Use that user in spec. Would like to use the page object pattern (each page having an object in supprot folder that exposes functions that return specific items on the page.  Example getTitle())
-- (job posted) login
-- (job posted) register
-- (job posted) dashboard
-- plant list
-- add plant
-- plant detail
-- update plant
+ 
 
 6. unit testing...
-
-6.1 fix warnings and errors on existing unit tests
+ 
   
 
 

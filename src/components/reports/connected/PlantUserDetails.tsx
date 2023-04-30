@@ -161,8 +161,8 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                 className="mt-1 page-card report-card"
                 
             > 
-                    <h2>Plant Details</h2>
-                    <h6>Plant Details page intro text</h6>
+                    <h2 data-testid="page-title-text">Plant Details</h2>
+                    <h6 data-testid="page-intro-text">Plant Details page intro text</h6>
                     <Container>  
                         <div className="d-flex w-100 justify-content-center justify-content-md-start">
                             <ReportInput.ReportInputButton

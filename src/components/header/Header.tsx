@@ -1,9 +1,7 @@
 import React, { FC, ReactElement, useContext } from "react";
-import { Button, Dropdown, Nav, NavItem } from "react-bootstrap";
+import { Dropdown, Nav, NavItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/authContext";
-import MenuDivider from "antd/lib/menu/MenuDivider";
-import { ReportInputButton } from "../reports/input-fields";
+import { AuthContext } from "../../context/authContext"; 
 
 const Header: FC = (): ReactElement => {
   const authContext = useContext(AuthContext);
@@ -50,6 +48,7 @@ const Header: FC = (): ReactElement => {
                   onMouseLeave={handleMouseLeave}
                 >
                   <span
+                    data-testid="header-dashboard-link"
                     className={`nav-link${isHovered ? ' text-underline' : ''}`}
                     onClick={onDashboard}
                   >
@@ -63,6 +62,7 @@ const Header: FC = (): ReactElement => {
                   onMouseLeave={handleMouseLeave}
                 >
                   <span
+                    data-testid='header-logout-link'
                     className={`nav-link${isHovered ? ' text-underline' : ''}`}
                     onClick={onLogout}
                   >
@@ -77,6 +77,7 @@ const Header: FC = (): ReactElement => {
                   onMouseLeave={handleMouseLeave}
                 >
                   <span
+                    data-testid='header-login-link'
                     className={`nav-link${isHovered ? ' text-underline' : ''}`}
                     onClick={onLogin}
                   >
@@ -85,6 +86,7 @@ const Header: FC = (): ReactElement => {
                 </NavItem>
                 
                 <NavItem
+                  data-testid='header-register-link'
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -112,16 +114,24 @@ const Header: FC = (): ReactElement => {
                 {authContext && authContext.token ? (
                   <>
                 
-                    <Dropdown.Item onClick={onDashboard}>
+                    <Dropdown.Item 
+                      data-testid="header-dashboard-link"
+                      onClick={onDashboard}>
                   
                       Dashboard
                     </Dropdown.Item>
-                    <Dropdown.Item onClick={onLogout}> Logout</Dropdown.Item>
+                    <Dropdown.Item
+                      data-testid="header-logout-link"
+                      onClick={onLogout}> Logout</Dropdown.Item>
                   </>
                 ) : (
                   <>
-                    <Dropdown.Item onClick={onLogin}> Login</Dropdown.Item>
-                    <Dropdown.Item onClick={onRegister}> Register</Dropdown.Item>
+                    <Dropdown.Item
+                      data-testid="header-login-link" 
+                      onClick={onLogin}> Login</Dropdown.Item>
+                    <Dropdown.Item
+                      data-testid="header-register-link" 
+                      onClick={onRegister}> Register</Dropdown.Item>
                   </>
                 )}
               </Dropdown.Menu>

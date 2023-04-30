@@ -172,7 +172,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     <div
       className="d-flex flex-column align-items-center h-90vh pb-2 pl-3 pr-3 "
       data-testid="reportConnectedLandPlantList"
-    >
+    > 
       <div className="w-100">
         <Breadcrumb hidden={isBreadcrumbSectionHidden}>
           <Breadcrumb.Item id="tacFarmDashboardBreadcrumb" 
@@ -212,7 +212,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
               isButtonCallToAction={false}
               isVisible={true}
               isEnabled={true}
-            />
+            /> 
           </div>
           <div className="d-flex flex-column flex-md-row">
             <div className="mb-2 mb-md-0">

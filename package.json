@@ -35,7 +35,8 @@
     "sass": "node-sass --include-path ./src --include-path ./node_modules src/ -o src/",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [

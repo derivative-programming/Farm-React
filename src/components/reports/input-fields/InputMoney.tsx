@@ -27,7 +27,7 @@ export const ReportInputMoney: FC<ReportInputMoneyProps> = ({
   return (
     <div className="">
       <Form.Group controlId={name} className="mt-2 text-start">
-          <Form.Label>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
             <Form.Control

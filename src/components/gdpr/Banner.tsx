@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
 
 const GDPRBanner: React.FC = () => {
-  const [showBanner, setShowBanner] = useState<boolean>(true);
+  const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
     const hasAccepted = localStorage.getItem("gdpr_accepted");

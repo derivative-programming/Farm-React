@@ -143,8 +143,8 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
           className=" overflow-y-auto border-0 rounded mt-1 page-card"
         
         >
-          <h2>Login</h2>
-          <h6>Please enter your email and password.</h6>
+          <h2 data-testid="page-title-text">Log In</h2>
+          <h6 data-testid="page-intro-text">Please enter your email and password.</h6>
 
           <Formik
             enableReinitialize={true}
@@ -216,6 +216,9 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
               </Form>
             )}
           </Formik>
+          <div className="mt-3">
+            <h6 data-testid="page-footer-text"></h6>
+          </div>
         </Card>
       </div>
     </div>

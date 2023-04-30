@@ -140,8 +140,8 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
                 className="mt-1 page-card report-card"
                 
             > 
-                    <h2>Farm Dashboard</h2>
-                    <h6>Farm Dashboard page intro text</h6>
+                    <h2 data-testid="page-title-text">Farm Dashboard</h2>
+                    <h6 data-testid="page-intro-text">Farm Dashboard page intro text</h6>
                     <div className="d-flex w-100 justify-content-between"> 
                     </div>  
                     {/*//GENTrainingBlock[visualizationType]Start*/}

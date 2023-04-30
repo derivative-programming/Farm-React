@@ -4,9 +4,7 @@ import {
   render,
   cleanup,
   screen,
-  act,
-  fireEvent,
-  waitFor,
+  act, 
 } from "@testing-library/react";
 import ReportConnectedPlantUserDetails from "./PlantUserDetails";
 import * as ReportService from "../services/PlantUserDetails";

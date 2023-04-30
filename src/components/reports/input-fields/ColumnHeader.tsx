@@ -25,8 +25,8 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
 
   return (
     <th className="cursor-pointer"
-      data-testid={controlName}
-      id={controlName}
+      data-testid={forColumn + '-header'}
+      id={forColumn + '-header'}
       onClick={() => onSort(forColumn)}
     >
       {label}{" "}

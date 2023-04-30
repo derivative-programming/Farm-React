@@ -59,7 +59,7 @@ export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
     result.requestSomePhoneNumber = initResult.requestSomePhoneNumber;
     result.requestSomeEmailAddress = initResult.requestSomeEmailAddress;  
     result.requestSampleImageUploadFile = '';
-    
+     
     return result;
 }
 

@@ -1804,7 +1804,7 @@
                     "isMultiSelectColumn": "false",
                     "isButtonAsyncObjWF": "true",
                     "isAsyncObjWFResultFileStreamedOut": "false",
-                    "isJoinedToLeftColumn": "false",
+                    "isJoinedToLeftColumn": "false", 
                     "isJoinedToRightColumn": "false",
                     "isIgnored": "false"
                   },
@@ -2264,7 +2264,7 @@
                     "destinationContextObjectName": "Land",
                     "isButtonCallToAction": "true"
                   },
-                  {
+                  { 
                     "buttonType": "cancel",
                     "buttonText": "Cancel Button Text",
                     "destinationTargetName": "LandPlantList",

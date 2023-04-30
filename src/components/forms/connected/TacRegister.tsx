@@ -137,8 +137,8 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
           className=" border-0 overflow-y-auto mt-1 page-card"
         
         >
-          <h2>Create your account</h2>
-          <h6>A Couple Details Then We're Off!</h6>
+          <h2 data-testid="page-title-text">Create your account</h2>
+          <h6 data-testid="page-intro-text">A Couple Details Then We're Off!</h6>
 
           <Formik
             enableReinitialize={true}
@@ -215,6 +215,9 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
               </Form>
             )}
           </Formik>
+          <div className="mt-3">
+            <h6 data-testid="page-footer-text"></h6>
+          </div>
         </Card>
       </div>
     </div>

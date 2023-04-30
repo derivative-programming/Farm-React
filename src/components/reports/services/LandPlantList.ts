@@ -138,7 +138,7 @@ export interface QueryResultItem {
     deleteAsyncButtonLinkPlantCode: string;
  
     detailsLinkPlantCode: string;  
-}
+} 
 
 export interface QueryRequest {
  

@@ -146,7 +146,7 @@ export const FormConnectedPlantEdit: FC<FormProps> = ({
                     className="mt-1 page-card"
 
                 >
-                    <h2>Update Plant</h2>
+                    <h2 data-testid="page-title-text">Update Plant</h2>
 
                     <Formik
                         enableReinitialize={true}

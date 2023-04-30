@@ -18,16 +18,14 @@ export const FormInputText: FC<FormInputTextProps> = ({
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
-
-  const errorDisplayControlName = name + "ErrorDisplay";
+  const [field, meta] = useField(name);  
   
   const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
     <div>
       <Form.Group controlId={name} className="mb-2 text-start" >
-          <Form.Label>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <Form.Control
             // ref={inputRef}
             data-testid={name}

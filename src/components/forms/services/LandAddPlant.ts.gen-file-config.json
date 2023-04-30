@@ -3,7 +3,7 @@
     "dimension" :{
         "name":"LandAddPlant",
         "calculatedIsPage":"true"
-    },
+    }, 
     "ignoreDimensionPropertyList": [
         "objectWorkflowParam.calculatedIsSourceObjectAvailable", 
         "objectWorkflowParam.calculatedIsDetailsTextAvailable", 

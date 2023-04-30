@@ -1,0 +1,13 @@
+{
+    "templateType":"objectWorkflow", 
+    "dimension" :{
+        "name":"LandPlantListInitReport",
+        "calculatedIsInitObjWFForReport":"true"
+    },
+    "ignoreDimensionPropertyList": [
+        "objectWorkflowOutputVar.calculatedIsSourceObjectAvailable", 
+        "objectWorkflowOutputVar.calculatedIsConditionalVisible", 
+        "objectWorkflowOutputVar.calculatedIsObjectID",   
+        "objectWorkflowOutputVar.isAutoRedirectURL"
+    ]
+}
