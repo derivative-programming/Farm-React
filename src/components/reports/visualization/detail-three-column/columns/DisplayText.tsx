@@ -18,7 +18,7 @@ export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
   conditionallyVisible = true
 }): ReactElement => { 
 
-  const groupName = forColumn +'-column';
+  const groupName = forColumn;
   
   const displayValue = (isVisible && conditionallyVisible);
       
@@ -45,7 +45,7 @@ export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
             className="text-start"
         >
             <div className="ms-2 me-auto">
-                <div className="fw-bold">{label}</div>
+                <div className="fw-bold" data-testid={groupName + '-header'}>{label}</div>
                 {formatText()}&nbsp;
             </div>
 

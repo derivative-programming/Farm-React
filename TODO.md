@@ -11,6 +11,8 @@ buy hat
 
 todo...      
 
+>>"Some UT C Date Time Val" output of gen
+
 >>plantuserdetails button needs differnt text
 
 >>report landplantlist otherAddButton > otherNewRecordButton

@@ -15,17 +15,20 @@ export const PlantUserDetailsPageTexts = {
     somePhoneNumberHeaderText: "Some Phone Number",
     someTextValHeaderText: "Some Text Val",
     someUniqueidentifierValHeaderText: "",
-    someUTCDateTimeValHeaderText: "Some UT C Date Time Val",
+    someUTCDateTimeValHeaderText: "Some UTC Date Time Val",
     someVarCharValHeaderText: "Some Var Char Val",
     nVarCharAsUrlHeaderText: "N Var Char As Url",
     updateButtonTextLinkPlantCodeHeaderText: "",
     randomPropertyUpdatesLinkPlantCodeHeaderText: "",
     backToDashboardLinkTacCodeHeaderText: "",
+
     //page title
     titleText: "Plant Details",
     introText: "Plant Details page intro text",
     //breadcrumbs
     tacFarmDashboardBreadcrumbText: "Farm Dashboard breadcrumb text",
+    //breadcrumbs
+    landPlantListBreadcrumbText: "Plant List breadcrumb text",
     //row button text
     updateButtonTextLinkPlantCodeRowButtonText: "Update Button Text",
     randomPropertyUpdatesLinkPlantCodeRowButtonText: "Random Property Updates",

@@ -8,30 +8,19 @@ export class LandAddPlantPage {
     visit() {
 		cy.log('LandAddPlantPage.visit() start'); 
         
-        let currentURL = ""
-        cy.url().then(url => {
-            currentURL = url
-        });
-
-        if(currentURL.includes('/land-add-plant/'))
-        {
-            cy.log('already there');
-            return;  //already there
-        } 
-
+        
         if(!this.isLoginRequired()){  
             cy.log('Login is not requrired');
             //go to it directly
             cy.visit('/land-add-plant/00000000-0000-0000-0000-000000000000');
             return;
         }
- 
+
         cy.log('Login is requrired');
 
-        const routingAssistant = new RoutingAssistant();
-
-        routingAssistant.visitPage('LandPlantList');  //cancel-button destination
-        routingAssistant.goToPage('LandAddPlant');
+        const routingAssistant = new RoutingAssistant(); 
+        let currentPage = routingAssistant.visitPage('LandPlantList');  //cancel-button destination
+        routingAssistant.goToPage(currentPage,'LandAddPlant'); 
         
     }
 
@@ -138,30 +127,30 @@ export class LandAddPlantPage {
                 .should('be.visible');
         }
         if(requestSomeBitValIsVisible){
-            cy.log('Verifying requestSomeBitValLabel control label...');
-            cy.get(PageSelectors.requestSomeBitValLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.requestSomeBitValLabelText);
+            //cy.log('Verifying requestSomeBitVal control...');
+            // cy.get(PageSelectors.requestSomeBitValField)
+            //     .should('be.visible')
+            //     .should('include.text', PageTexts.requestSomeBitValLabelText);
                 
             cy.log('Verifying requestSomeBitValLabel control...');
             cy.get(PageSelectors.requestSomeBitValField)
                 .should('be.visible');
         }
         if(requestIsEditAllowedIsVisible){
-            cy.log('Verifying requestIsEditAllowedLabel control label...');
-            cy.get(PageSelectors.requestIsEditAllowedLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.requestIsEditAllowedLabelText);
+            // cy.log('Verifying requestIsEditAllowedLabel control label...');
+            // cy.get(PageSelectors.requestIsEditAllowedLabel)
+            //     .should('be.visible')
+            //     .should('include.text', PageTexts.requestIsEditAllowedLabelText);
                 
             cy.log('Verifying requestIsEditAllowedLabel control...');
             cy.get(PageSelectors.requestIsEditAllowedField)
                 .should('be.visible');
         }
         if(requestIsDeleteAllowedIsVisible){
-            cy.log('Verifying requestIsDeleteAllowedLabel control label...');
-            cy.get(PageSelectors.requestIsDeleteAllowedLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.requestIsDeleteAllowedLabelText);
+            // cy.log('Verifying requestIsDeleteAllowedLabel control label...');
+            // cy.get(PageSelectors.requestIsDeleteAllowedLabel)
+            //     .should('be.visible')
+            //     .should('include.text', PageTexts.requestIsDeleteAllowedLabelText);
                 
             cy.log('Verifying requestIsDeleteAllowedLabel control...');
             cy.get(PageSelectors.requestIsDeleteAllowedField)

@@ -15,7 +15,7 @@ const initialValues = { testName:"" }
 
 const handleSubmit = jest.fn();
 
-const testId = 'testColumn-column';
+const testId = 'testColumn';
  
 describe("ReportColumnDisplayPhoneNumber Component", () => {
   // render the ReportColumnDisplayPhoneNumber component
@@ -68,7 +68,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-1\" />");
   });
   
   it("renders null correctly", async () => {
@@ -80,7 +80,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-1\" />");
   });
   
   it("renders isVisible=false correctly", async () => { 
@@ -91,7 +91,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();
 
-    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
+    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-1\" />");
   });
  
   

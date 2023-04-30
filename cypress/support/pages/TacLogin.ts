@@ -3,16 +3,8 @@ import { TacLoginPageTexts as PageTexts } from '../texts/TacLogin';
 import   RoutingAssistant   from '../routingAssistant'
 export class TacLoginPage {
     visit() {
-		cy.log('TacLoginPage.visit() start'); 
-        let currentURL = ""
-        cy.url().then(url => {
-            currentURL = url
-        });
-        if(currentURL.includes('/tac-login/'))
-        {
-            cy.log('already there');
-            return;  //already there
-        } 
+		cy.log('TacLoginPage.visit() start');  
+
         if(!this.isLoginRequired()){  
             cy.log('Login is not requrired');
             //go to it directly
@@ -21,8 +13,8 @@ export class TacLoginPage {
         }
         cy.log('Login is requrired');
         const routingAssistant = new RoutingAssistant();
-
-        routingAssistant.goToPage('TacLogin');
+        let currentPage = ""
+        routingAssistant.goToPage(currentPage,'TacLogin');
     }
     isLoginRequired():boolean {
         const isLoginPage = true;

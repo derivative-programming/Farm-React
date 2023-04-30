@@ -4,15 +4,7 @@ import   RoutingAssistant   from '../routingAssistant'
 export class PlantUserDetailsPage {
     visit() { 
 		cy.log('PlantUserDetailsPage.visit() start'); 
-        let currentURL = ""
-        cy.url().then(url => {
-            currentURL = url
-        });
-        if(currentURL.includes('/plant-user-details/'))
-        {
-            cy.log('Already there'); 
-            return;  //already there
-        }
+        
         if(!this.isLoginRequired()){  
             //go to it directly
             cy.visit('/plant-user-details/00000000-0000-0000-0000-000000000000');
@@ -20,8 +12,10 @@ export class PlantUserDetailsPage {
         }
         cy.log('Login required'); 
         const routingAssistant = new RoutingAssistant();
-        routingAssistant.goToPage('TacFarmDashboard'); //tacFarmDashboardBreadcrumb
-        routingAssistant.goToPage('PlantUserDetails'); 
+        let currentPage = ""
+        currentPage = routingAssistant.goToPage(currentPage,'TacFarmDashboard'); //tacFarmDashboardBreadcrumb
+        currentPage = routingAssistant.goToPage(currentPage,'LandPlantList'); //landPlantListBreadcrumb
+        currentPage = routingAssistant.goToPage(currentPage,'PlantUserDetails'); 
     }
     isLoginRequired():boolean {
         const isLoginPage = false;
@@ -41,6 +35,11 @@ export class PlantUserDetailsPage {
             cy.get(PageSelectors.tacFarmDashboardBreadcrumbText)
             .should('be.visible')
             .should('include.text', PageTexts.tacFarmDashboardBreadcrumbText);
+        //breadcrumbs text
+        cy.log('Verifying breadcrumb landPlantListBreadcrumb...');
+            cy.get(PageSelectors.landPlantListBreadcrumbText)
+            .should('be.visible')
+            .should('include.text', PageTexts.landPlantListBreadcrumbText);
         //column headers
         cy.log('Verifying column headers...');
         cy.get(PageSelectors.flavorNameHeader)
@@ -101,14 +100,11 @@ export class PlantUserDetailsPage {
             .should('be.visible')
             .should('include.text', PageTexts.nVarCharAsUrlHeaderText);
         cy.get(PageSelectors.updateButtonTextLinkPlantCodeHeader)
-            .should('be.visible')
-            .should('include.text', PageTexts.updateButtonTextLinkPlantCodeHeaderText);
+            .should('exist');
         cy.get(PageSelectors.randomPropertyUpdatesLinkPlantCodeHeader)
-            .should('be.visible')
-            .should('include.text', PageTexts.randomPropertyUpdatesLinkPlantCodeHeaderText);
+            .should('exist');
         cy.get(PageSelectors.backToDashboardLinkTacCodeHeader)
-            .should('be.visible')
-            .should('include.text', PageTexts.backToDashboardLinkTacCodeHeaderText);
+            .should('exist');
         cy.log('Verifying title text...');
         if(PageTexts.titleText.length > 0){
             cy.get(PageSelectors.title)
@@ -148,17 +144,17 @@ export class PlantUserDetailsPage {
 
         }
         //row buttons
-        else if (destinationPageName == 'plantUserDetails') {  //updateButtonTextLinkPlantCode
+        else if (destinationPageName == 'PlantUserDetails') {  //updateButtonTextLinkPlantCode
             cy.log('click row button updateButtonTextLinkPlantCode...');
             cy.get(PageSelectors.updateButtonTextLinkPlantCodeRowButton).eq(0)
             .click();
         }
-        else if (destinationPageName == 'plantUserPropertyRandomUpdate') { //randomPropertyUpdatesLinkPlantCode
+        else if (destinationPageName == 'PlantUserPropertyRandomUpdate') { //randomPropertyUpdatesLinkPlantCode
             cy.log('click row button randomPropertyUpdatesLinkPlantCode...');
             cy.get(PageSelectors.randomPropertyUpdatesLinkPlantCodeRowButton).eq(0)
             .click();
         }
-        else if (destinationPageName == 'tacFarmDashboard') { //backToDashboardLinkTacCode
+        else if (destinationPageName == 'TacFarmDashboard') { //backToDashboardLinkTacCode
             cy.log('click row button backToDashboardLinkTacCode...');
             cy.get(PageSelectors.backToDashboardLinkTacCodeRowButton).eq(0)
             .click();

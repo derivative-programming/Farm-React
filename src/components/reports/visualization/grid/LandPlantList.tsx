@@ -147,7 +147,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       >
         <thead>
           <tr>
-            <th id="plantCodeColumnHeader">
+            <th id="plantCode-header">
               {" "}
               <Form.Check
                 type="checkbox"
@@ -180,14 +180,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
             <ReportColumnHeader forColumn="isEditAllowed"
               isSortDescending={isSortDescending}
-              label="is Edit Allowed"
+              label="Is Edit Allowed"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
 
             <ReportColumnHeader forColumn="isDeleteAllowed"
               isSortDescending={isSortDescending}
-              label="is Delete Allowed"
+              label="Is Delete Allowed"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />
@@ -264,7 +264,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
             <ReportColumnHeader forColumn="flavorName"
               isSortDescending={isSortDescending}
-              label="flavor Name"
+              label="Flavor Name"
               onSort={onSort}
               sortedColumnName={sortedColumnName}
             />

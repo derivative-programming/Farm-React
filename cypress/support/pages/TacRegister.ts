@@ -4,15 +4,7 @@ import   RoutingAssistant   from '../routingAssistant'
 export class TacRegisterPage {
     visit() {
 		cy.log('TacRegisterPage.visit() start'); 
-        let currentURL = ""
-        cy.url().then(url => {
-            currentURL = url
-        });
-        if(currentURL.includes('/tac-register/'))
-        {
-            cy.log('already there');
-            return;  //already there
-        } 
+        
         if(!this.isLoginRequired()){  
             cy.log('Login is not requrired');
             //go to it directly
@@ -21,8 +13,9 @@ export class TacRegisterPage {
         }
         cy.log('Login is requrired');
         const routingAssistant = new RoutingAssistant();
-        routingAssistant.visitPage('TacLogin');  //cancel-button destination
-        routingAssistant.goToPage('TacRegister');
+        let currentPage = ""
+        currentPage = routingAssistant.visitPage('TacLogin');  //cancel-button destination
+        routingAssistant.goToPage(currentPage,'TacRegister');
     }
     isLoginRequired():boolean {
         const isLoginPage = true;

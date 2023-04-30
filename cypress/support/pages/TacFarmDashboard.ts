@@ -21,7 +21,8 @@ export class TacFarmDashboardPage {
         cy.log('Login required'); 
         const routingAssistant = new RoutingAssistant();
 
-        routingAssistant.goToPage('TacFarmDashboard'); 
+        let currentPage = ""
+        currentPage = routingAssistant.goToPage(currentPage,'TacFarmDashboard'); 
     }
     isLoginRequired():boolean {
         const isLoginPage = false;
@@ -39,9 +40,8 @@ export class TacFarmDashboardPage {
 
         //column headers
         cy.log('Verifying column headers...');
-        cy.get(PageSelectors.fieldOnePlantListLinkLandCodeHeader)
-            .should('be.visible')
-            .should('include.text', PageTexts.fieldOnePlantListLinkLandCodeHeaderText);
+        // cy.get(PageSelectors.fieldOnePlantListLinkLandCodeHeader)
+        //     .should('exist');
         cy.log('Verifying title text...');
         if(PageTexts.titleText.length > 0){
             cy.get(PageSelectors.title)

@@ -35,6 +35,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
 
   return ( 
     <Col lg="2" md="2" xs="12" className='mobile-edit mt-3' id={groupName} data-testid={groupName} hidden={!displayValue}>
+        <div data-testid={forColumn + '-header'} ></div>
         <Button data-testid={buttonName} id={buttonName} onClick={onClick} 
           className='' 
            variant={buttonVariant} 

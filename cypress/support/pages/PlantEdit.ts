@@ -4,15 +4,7 @@ import   RoutingAssistant   from '../routingAssistant'
 export class PlantEditPage {
     visit() {
 		cy.log('PlantEditPage.visit() start'); 
-        let currentURL = ""
-        cy.url().then(url => {
-            currentURL = url
-        });
-        if(currentURL.includes('/plant-edit/'))
-        {
-            cy.log('already there');
-            return;  //already there
-        } 
+        
         if(!this.isLoginRequired()){  
             cy.log('Login is not requrired');
             //go to it directly
@@ -21,8 +13,8 @@ export class PlantEditPage {
         }
         cy.log('Login is requrired');
         const routingAssistant = new RoutingAssistant();
-        routingAssistant.visitPage('PlantUserDetails');  //cancel-button destination
-        routingAssistant.goToPage('PlantEdit');
+        let currentPage = routingAssistant.visitPage('PlantUserDetails');  //cancel-button destination
+        routingAssistant.goToPage(currentPage, 'PlantEdit');
     }
     isLoginRequired():boolean {
         const isLoginPage = false;

@@ -57,7 +57,7 @@ export const LandPlantListPageTexts = {
     introText: "A list of plants on the land",
 
     
-    //breadcrumbs
+    //breadcrumb
     tacFarmDashboardBreadcrumbText: "Farm Dashboard breadcrumb text",
 
     //report buttons 

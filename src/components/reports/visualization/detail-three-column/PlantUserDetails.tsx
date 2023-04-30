@@ -117,7 +117,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                             value={item.someNVarCharVal}
                         />
 
-                        <ReportColumnDisplay.ReportColumnDisplayText forColumn="SomeUniqueidentifierVal"
+                        <ReportColumnDisplay.ReportColumnDisplayText forColumn="someUniqueidentifierVal"
                             label="Some Uniqueidentifier Val"
                             value={item.someUniqueidentifierVal}
                         />

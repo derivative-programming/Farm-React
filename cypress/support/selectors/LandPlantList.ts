@@ -67,14 +67,13 @@ export const LandPlantListPageSelectors = {
     introText: "[data-testid='page-intro-text']",
  
     
-    //breadcrumbs
+    //breadcrumb
     tacFarmDashboardBreadcrumbText: "[data-testid='tacFarmDashboardBreadcrumb']",
- 
-     
+  
     //row button text - not ignored
-    updateLinkPlantCodeRowButton: "[data-testid='updateLinkPlantCode']",
-    deleteAsyncButtonLinkPlantCodeRowButton: "[data-testid='deleteAsyncButtonLinkPlantCode']",
-    detailsLinkPlantCodeRowButton: "[data-testid='detailsLinkPlantCode']",
+    updateLinkPlantCodeRowButton: "[data-testid='updateLinkPlantCode-column-0-button']",
+    deleteAsyncButtonLinkPlantCodeRowButton: "[data-testid='deleteAsyncButtonLinkPlantCode-column-0-button']",
+    detailsLinkPlantCodeRowButton: "[data-testid='detailsLinkPlantCode-column-0-button']",
     
     addButton: "[data-testid='add-button']",
 }

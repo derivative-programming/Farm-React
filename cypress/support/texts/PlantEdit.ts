@@ -9,7 +9,7 @@ export const PlantEditPageTexts = {
     isDeleteAllowedLabelText: "Is Delete Allowed",
     someFloatValLabelText: "Some Float Val",
     someDecimalValLabelText: "Some Decimal Val",
-    someUTCDateTimeValLabelText: "Some UT C Date Time Val",
+    someUTCDateTimeValLabelText: "Some UTC Date Time Val",
     someDateValLabelText: "Some Date Val",
     someMoneyValLabelText: "Some Money Val",
     someNVarCharValLabelText: "Some N Var Char Val",

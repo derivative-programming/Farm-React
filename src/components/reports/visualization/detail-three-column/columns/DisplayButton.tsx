@@ -22,7 +22,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
   isButtonCallToAction = false,
 }): ReactElement => { 
 
-  const groupName = forColumn +'-column';
+  const groupName = forColumn;
   const buttonName = groupName + '-button'; 
   
   const displayValue = (isVisible && conditionallyVisible);
@@ -36,6 +36,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
   return ( 
     <Row  className=' mt-3 ms-3 me-3 ' 
       id={groupName} data-testid={groupName} hidden={!isVisible}> 
+      <div data-testid={forColumn + '-header'} ></div>
         <Button data-testid={buttonName} 
           id={buttonName} 
           onClick={onClick} 

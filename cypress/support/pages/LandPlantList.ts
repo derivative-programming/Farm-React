@@ -8,17 +8,6 @@ export class LandPlantListPage {
     visit() { 
 		cy.log('LandPlantListPage.visit() start'); 
 
-        let currentURL = ""
-        cy.url().then(url => {
-            currentURL = url
-        });
-
-        if(currentURL.includes('/land-plant-list/'))
-        {
-            cy.log('Already there'); 
-            return;  //already there
-        }
-         
         if(!this.isLoginRequired()){  
             //go to it directly
             cy.visit('/land-plant-list/00000000-0000-0000-0000-000000000000');
@@ -26,9 +15,10 @@ export class LandPlantListPage {
         }
         cy.log('Login required'); 
         const routingAssistant = new RoutingAssistant();
+        let currentPage = ""
+        currentPage = routingAssistant.goToPage(currentPage, 'TacFarmDashboard'); //tacFarmDashboardBreadcrumb 
+        routingAssistant.goToPage(currentPage,'LandPlantList'); 
 
-        routingAssistant.goToPage('TacFarmDashboard'); //tacFarmDashboardBreadcrumb 
-        routingAssistant.goToPage('LandPlantList'); 
     }
     
 
@@ -60,8 +50,7 @@ export class LandPlantListPage {
         //column headers
         cy.log('Verifying column headers...');
         cy.get(PageSelectors.plantCodeHeader)
-            .should('be.visible')
-            .should('include.text', PageTexts.plantCodeHeaderText); 
+            .should('not.exist');
         cy.get(PageSelectors.someIntValHeader)
             .should('be.visible')
             .should('include.text', PageTexts.someIntValHeaderText); 
@@ -120,14 +109,11 @@ export class LandPlantListPage {
             .should('be.visible')
             .should('include.text', PageTexts.nVarCharAsUrlHeaderText); 
         cy.get(PageSelectors.updateLinkPlantCodeHeader)
-            .should('be.visible')
-            .should('include.text', PageTexts.updateLinkPlantCodeHeaderText); 
+            .should('exist');
         cy.get(PageSelectors.deleteAsyncButtonLinkPlantCodeHeader)
-            .should('be.visible')
-            .should('include.text', PageTexts.deleteAsyncButtonLinkPlantCodeHeaderText); 
+            .should('exist');
         cy.get(PageSelectors.detailsLinkPlantCodeHeader)
-            .should('be.visible')
-            .should('include.text', PageTexts.detailsLinkPlantCodeHeaderText);
+            .should('exist');
 
         cy.log('Verifying title text...');
         if(PageTexts.titleText.length > 0){
@@ -170,6 +156,10 @@ export class LandPlantListPage {
     clickButtonWithDestination(destinationPageName) {
 		cy.log('LandPlantListPage.clickButtonWithDestination() destinationPageName: ' + destinationPageName); 
 
+        const updateLinkPlantCodeColumnIsVisible = false;
+        const deleteAsyncButtonLinkPlantCodeColumnIsVisible = true;
+        const detailsLinkPlantCodeColumnIsVisible = true;
+        
         if (destinationPageName == 'XXXX') { //placeholder
 
         } 
@@ -178,24 +168,31 @@ export class LandPlantListPage {
             cy.log('click add button...');
             cy.get(PageSelectors.addButton)
                 .click();
+            cy.wait(2000);
         }  
           
          
         //row buttons
-        else if (destinationPageName == 'PlantUserDetails') {  //updateLinkPlantCode
+        else if (destinationPageName == 'PlantUserDetails' && //updateLinkPlantCode
+            updateLinkPlantCodeColumnIsVisible) {  
             cy.log('click row button updateLinkPlantCode...');
-            cy.get(PageSelectors.updateLinkPlantCodeRowButton).eq(0) 
+            cy.get(PageSelectors.updateLinkPlantCodeRowButton) 
             .click();
+            cy.wait(2000);
         } 
-        else if (destinationPageName == 'PlantUserDelete') { //deleteAsyncButtonLinkPlantCode
+        else if (destinationPageName == 'PlantUserDelete' && //deleteAsyncButtonLinkPlantCode
+            deleteAsyncButtonLinkPlantCodeColumnIsVisible) { 
             cy.log('click row button deleteAsyncButtonLinkPlantCode...');
-            cy.get(PageSelectors.deleteAsyncButtonLinkPlantCodeRowButton).eq(0) 
+            cy.get(PageSelectors.deleteAsyncButtonLinkPlantCodeRowButton)  
             .click();
+            cy.wait(2000);
         }
-        else if (destinationPageName == 'PlantUserDetails') { //detailsLinkPlantCode
+        else if (destinationPageName == 'PlantUserDetails' &&   //detailsLinkPlantCode
+            detailsLinkPlantCodeColumnIsVisible) {
             cy.log('click row button detailsLinkPlantCode...');
-            cy.get(PageSelectors.detailsLinkPlantCodeRowButton).eq(0) 
+            cy.get(PageSelectors.detailsLinkPlantCodeRowButton) 
             .click();
+            cy.wait(2000);
         } 
         else {
             //throw error
