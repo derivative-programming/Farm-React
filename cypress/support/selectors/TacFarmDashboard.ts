@@ -4,6 +4,6 @@ export const TacFarmDashboardPageSelectors = {
 
     title: "[data-testid='page-title-text']", 
     introText: "[data-testid='page-intro-text']",
-    fieldOnePlantListLinkLandCodeRowButton: "[data-testid='fieldOnePlantListLinkLandCode']",
+    fieldOnePlantListLinkLandCodeRowButton: "[data-testid='fieldOnePlantListLinkLandCode-column-0-button']",
 }
 

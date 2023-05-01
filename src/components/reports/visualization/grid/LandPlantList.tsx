@@ -345,7 +345,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     isChecked={item.isEditAllowed}
                   />
-
+ 
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isDeleteAllowed"
                     rowIndex={index}
                     isChecked={item.isDeleteAllowed}
@@ -421,7 +421,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     }
                     isVisible={false}
                   />
-
+ 
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="deleteAsyncButtonLinkPlantCode"
                     rowIndex={index}
                     value={item.deleteAsyncButtonLinkPlantCode}

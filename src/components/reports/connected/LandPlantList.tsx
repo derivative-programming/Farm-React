@@ -93,8 +93,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     navigate(url);
   };
 
-  const navigateTo = (page: string, codeName: string) => {
-    console.log("navigateTo " + page + " " + codeName);
+  const navigateTo = (page: string, codeName: string) => { 
     let targetContextCode = contextCode;
     Object.entries(initPageResponse).forEach(([key, value]) => {
       if (key === codeName) {
@@ -113,8 +112,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     setQuery({ ...query });
   };
 
-  const onSort = (columnName: string) => {
-    console.log("onsort " + columnName);
+  const onSort = (columnName: string) => { 
     let orderByDescending = false;
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;

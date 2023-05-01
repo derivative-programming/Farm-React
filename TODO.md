@@ -3,17 +3,16 @@ The public repo is at https://github.com/derivative-programming/Farm-React.
 You will be submitting a PR to this repository.
 
 
-sunday... 
-redactable work
-redactable invoice
+sunday...  
 keyur chat?
 buy hat 
 
 todo...      
 
+>>fab: 'O K Button Text'  
 >>"Some UT C Date Time Val" output of gen
 
->>plantuserdetails button needs differnt text
+>>plantuserdetails dashboard button needs differnt text
 
 >>report landplantlist otherAddButton > otherNewRecordButton
 
@@ -24,10 +23,10 @@ todo...
 >>>>remove plantedit page.   
 
 >>>change add plant other button to 'Go To Dashboard'
-
->> merge 3 test component PR.  need to fix changes for template gen.
-
+ 
 api...python with flask and django
+
+job...better design? similar to upword?
 
 job...error display component unit testing...posted...
 /components/forms/input-fields/ErrorDisplay
@@ -89,7 +88,6 @@ site footer tests (data-testid="footer-text")
 
    
 
-fab: 'O K button Text'  
 
 test err...logout expected mock service call. set ispage=false? clear out api token? 
     

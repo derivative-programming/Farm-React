@@ -54,6 +54,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     const response: InitFormService.InitResult = responseFull.data;
 
     if (!response.success) {
+      headerErrors = ["An unexpected error occurred."];
       return;
     }
 
@@ -133,7 +134,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     }
     isInitializedRef.current = true;
     FormService.initForm(contextCode)
-      .then((response) => handleInit(response))
+      .then((response) => handleInit(response)) 
       .finally(() => {setInitForm(false)});
   }, []);
 
@@ -153,8 +154,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
         }
       }
     });
-    const url = "/" + page + "/" + targetContextCode;
-    console.log("navigateTo " + page + " " + codeName);
+    const url = "/" + page + "/" + targetContextCode; 
     navigate(url);
   };
 

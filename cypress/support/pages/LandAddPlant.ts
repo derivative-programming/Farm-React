@@ -94,7 +94,8 @@ export class LandAddPlantPage {
 
             cy.log('Verifying requestFlavorCode control...');
             cy.get(PageSelectors.requestFlavorCodeField)
-                .should('be.visible');
+                .should('be.visible'); 
+            
         }
         if(requestOtherFlavorIsVisible){
             cy.log('Verifying requestOtherFlavorLabel control label...');
@@ -105,6 +106,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestOtherFlavor control...');
             cy.get(PageSelectors.requestOtherFlavorField)
                 .should('be.visible');
+
+            this.setFieldRequestOtherFlavor("requestOtherFlavorTestVal");
+            
+            cy.get(PageSelectors.requestOtherFlavorField) 
+                .should('have.value', 'requestOtherFlavorTestVal');
         }
         if(requestSomeIntValIsVisible){
             cy.log('Verifying requestSomeIntValLabel control label...');
@@ -114,7 +120,12 @@ export class LandAddPlantPage {
                 
             cy.log('Verifying requestSomeIntVal control...');
             cy.get(PageSelectors.requestSomeIntValField)
-                .should('be.visible');
+                .should('be.visible'); 
+
+            this.setFieldRequestSomeIntVal(111);
+            
+            cy.get(PageSelectors.requestSomeIntValField) 
+                .should('have.value', '111');
         }
         if(requestSomeBigIntValIsVisible){
             cy.log('Verifying requestSomeBigIntValLabel control label...');
@@ -125,6 +136,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSomeBigIntValLabel control...');
             cy.get(PageSelectors.requestSomeBigIntValField)
                 .should('be.visible');
+
+            this.setFieldRequestSomeBigIntVal(111);
+            
+            cy.get(PageSelectors.requestSomeBigIntValField) 
+                .should('have.value', '111');
         }
         if(requestSomeBitValIsVisible){
             //cy.log('Verifying requestSomeBitVal control...');
@@ -165,6 +181,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSomeFloatValLabel control...');
             cy.get(PageSelectors.requestSomeFloatValField)
                 .should('be.visible');
+
+            this.setFieldRequestSomeFloatVal(111);
+            
+            cy.get(PageSelectors.requestSomeFloatValField) 
+                .should('have.value', '111');
         }
         if(requestSomeDecimalValIsVisible){
             cy.log('Verifying requestSomeDecimalValLabel control label...');
@@ -175,6 +196,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSomeDecimalValLabel control...');
             cy.get(PageSelectors.requestSomeDecimalValField)
                 .should('be.visible');
+
+            this.setFieldRequestSomeDecimalVal(111);
+            
+            cy.get(PageSelectors.requestSomeDecimalValField) 
+                .should('have.value', '111');
         }
         if(requestSomeUTCDateTimeValIsVisible){
             cy.log('Verifying requestSomeUTCDateTimeValLabel control label...');
@@ -205,6 +231,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSomeMoneyValLabel control...');
             cy.get(PageSelectors.requestSomeMoneyValField)
                 .should('be.visible');
+
+            this.setFieldRequestSomeMoneyVal(111);
+            
+            cy.get(PageSelectors.requestSomeMoneyValField) 
+                .should('have.value', '111');
         }
         if(requestSomeNVarCharValIsVisible){
             cy.log('Verifying requestSomeNVarCharValLabel control label...');
@@ -215,6 +246,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSomeNVarCharValLabel control...');
             cy.get(PageSelectors.requestSomeNVarCharValField)
                 .should('be.visible');
+
+            this.setFieldRequestSomeNVarCharVal("requestSomeNVarCharValTestVal");
+            
+            cy.get(PageSelectors.requestSomeNVarCharValField) 
+                .should('have.value', 'requestSomeNVarCharValTestVal');
         }
         if(requestSomeVarCharValIsVisible){
             cy.log('Verifying requestSomeVarCharValLabel control label...');
@@ -225,6 +261,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSomeVarCharValLabel control...');
             cy.get(PageSelectors.requestSomeVarCharValField)
                 .should('be.visible');
+
+            this.setFieldRequestSomeVarCharVal("requestSomeVarCharValTestVal");
+            
+            cy.get(PageSelectors.requestSomeVarCharValField) 
+                .should('have.value', 'requestSomeVarCharValTestVal');
         }
         if(requestSomeTextValIsVisible){
             cy.log('Verifying requestSomeTextValLabel control label...');
@@ -234,7 +275,12 @@ export class LandAddPlantPage {
                 
             cy.log('Verifying requestSomeTextValLabel control...');
             cy.get(PageSelectors.requestSomeTextValField)
-                .should('be.visible');
+                .should('be.visible'); 
+
+            this.setFieldRequestSomeTextVal("requestSomeTextValTestVal");
+            
+            cy.get(PageSelectors.requestSomeTextValField) 
+                .should('have.value', 'requestSomeTextValTestVal');
         }
         if(requestSomePhoneNumberIsVisible){
             cy.log('Verifying requestSomePhoneNumberLabel control label...');
@@ -245,6 +291,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSomePhoneNumberLabel control...');
             cy.get(PageSelectors.requestSomePhoneNumberField)
                 .should('be.visible');
+
+            this.setFieldRequestSomePhoneNumber("111-111-1111");
+            
+            cy.get(PageSelectors.requestSomePhoneNumberField) 
+                .should('have.value', '111-111-1111');
         }
         if(requestSomeEmailAddressIsVisible){
             cy.log('Verifying requestSomeEmailAddressLabel control label...');
@@ -255,6 +306,11 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSomeEmailAddressLabel control...');
             cy.get(PageSelectors.requestSomeEmailAddressField)
                 .should('be.visible');
+
+            this.setFieldRequestSomeEmailAddress("test@test.com");
+            
+            cy.get(PageSelectors.requestSomeEmailAddressField) 
+                .should('have.value', 'test@test.com');
         }
         if(requestSampleImageUploadFileIsVisible){
             cy.log('Verifying requestSampleImageUploadFileLabel control label...');
@@ -265,6 +321,7 @@ export class LandAddPlantPage {
             cy.log('Verifying requestSampleImageUploadFileLabel control...');
             cy.get(PageSelectors.requestSampleImageUploadFileField)
                 .should('be.visible');
+ 
         }
   
 

@@ -47,11 +47,13 @@ describe("LandAddPlant Component", () => {
       }); 
       
 
-    render(
-      <BrowserRouter>
-        <FormConnectedLandAddPlant name="testForm" showProcessingAnimationOnInit={false} />
-      </BrowserRouter>
-    ); 
+      await act(async () => {
+        render(
+          <BrowserRouter>
+            <FormConnectedLandAddPlant name="testForm" showProcessingAnimationOnInit={false} />
+          </BrowserRouter>
+        ); 
+      })
 
     await waitFor(() => expect(mockRequestFlavorCodeService).toHaveBeenCalledTimes(1));
   });
@@ -114,10 +116,11 @@ describe("LandAddPlant Component", () => {
 
     const input = screen.getByTestId("requestFlavorCode");
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
+    expect(screen.getByTestId("requestFlavorCode")).toHaveTextContent("Please Select One");
     await act(async () => {
       await fireEvent.change(input, { target: { value: "00000000-0000-0000-0000-000000000000" } });
     }); 
-    expect(screen.getByTestId("requestFlavorCode")).toHaveValue("Please Select One");
+    expect(screen.getByTestId("requestFlavorCode")).toHaveValue("00000000-0000-0000-0000-000000000000");
   });
 
 

@@ -43,4 +43,4 @@ export const ReportInputButton: FC<ReportInputButtonProps> = ({
       {buttonText}
     </Button>
   );
-};
+}; 

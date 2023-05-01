@@ -8,21 +8,22 @@ export interface ReportColumnDisplayButtonProps {
   buttonText:string  
   onClick():void
   isVisible?:boolean
+  isEnabled?: boolean;
   conditionallyVisible?:boolean
   isButtonCallToAction?:boolean
 }
    
 export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
-  forColumn, 
-  value,
+  forColumn,  
   buttonText, 
   onClick,
   isVisible = true,
+  isEnabled = true,
   conditionallyVisible = true,
   isButtonCallToAction = false,
 }): ReactElement => { 
 
-  const groupName = forColumn +'-column';
+  const groupName = forColumn +'-column-0';
   const buttonName = groupName + '-button'; 
   
   const displayValue = (isVisible && conditionallyVisible);
@@ -34,15 +35,18 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
   }
 
   return ( 
-    <Col lg="2" md="2" xs="12" className='mobile-edit mt-3' id={groupName} data-testid={groupName} hidden={!displayValue}>
-        <div data-testid={forColumn + '-header'} ></div>
-        <Button data-testid={buttonName} id={buttonName} onClick={onClick} 
-          className='' 
-           variant={buttonVariant} 
-           type="button" hidden={!displayValue}>
-            {buttonText}
-        </Button>
-    </Col>
+    <div>
+      <Button 
+        data-testid={buttonName} 
+        id={buttonName} 
+        onClick={onClick} 
+        className='' 
+        variant={buttonVariant} 
+        disabled={!isEnabled}
+        type="button" hidden={!displayValue}>
+          {buttonText}
+      </Button>
+    </div>
   );
-};
+}; 
    

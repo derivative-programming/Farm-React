@@ -16,7 +16,7 @@ const initialValues = { testName:"" }
 const handleSubmit = jest.fn();
 const onClick = jest.fn();
 
-const testId = 'testColumn-column';
+const testId = 'testColumn-column-0-button';
  
 describe("ReportColumnDisplayButton Component", () => {
   // render the ReportColumnDisplayButton component

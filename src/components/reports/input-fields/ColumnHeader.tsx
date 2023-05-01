@@ -33,7 +33,11 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
       <span>
         {" "}
         {sortedColumnName === forColumn ? (
-          <img src={isSortDescending ? sortUp : sortDown} hidden={!isVisible}  className="w-12 ms-3"/>
+          <img 
+            src={isSortDescending ? sortUp : sortDown}
+            data-testid={isSortDescending ? forColumn + '-header-sortUp' : forColumn + '-header-sortDown'} 
+            hidden={!isVisible}  
+            className="w-12 ms-3"/>
         ) : null}
       </span>
     </th>
