@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import AuthProvider from "./context/authContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import SubscribeDbProvider from "./providers/subscribeDB-provider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <App />
+      <SubscribeDbProvider>
+        <App />
+      </SubscribeDbProvider>
     </AuthProvider>
   </React.StrictMode>
 );

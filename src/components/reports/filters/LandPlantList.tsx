@@ -10,7 +10,9 @@ import { Formik, FormikHelpers } from "formik";
 import * as ReportService from "../services/LandPlantList";
 import { AuthContext } from "../../../context/authContext";
 import * as ReportInput from "../input-fields";
-import * as Lookups from "../lookups"; 
+import * as Lookups from "../lookups";
+import useIndexedDB from "../../../hooks/useIndexedDB";
+import { DBNAME, DBTABLE } from "../../../constants/dbName";
 
 export interface ReportFilterLandPlantListProps {
   name: string;
@@ -28,7 +30,8 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
   isCollapsible = true,
 }): ReactElement => {
   const [initialValues, setInitialValues] = useState(initialQuery);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
+  const { addDB } = useIndexedDB(DBNAME, DBTABLE);
 
   const validationSchema = ReportService.buildValidationSchema();
 
@@ -54,6 +57,9 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
     setInitialValues({ ...initialQuery });
   };
 
+  const handleClick = () => {
+    addDB({ title: "Search button clicked", date: new Date().toISOString() });
+  };
   return (
     <div className="mt-3 w-100" hidden={hidden}>
       <Accordion defaultActiveKey="0" alwaysOpen={!isCollapsible}>
@@ -179,14 +185,14 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                     <Col lg="4" md="6" xs="12"></Col>
                     <Col lg="4" md="6" xs="12">
                       <div className="d-flex h-100 align-items-end justify-content-end">
-                        <Button 
-                            type="submit"
-                            className="ms-2 mt-3"
-                            data-testid="submit-button"
-                          >
-                          {
-                            loading &&
-                            (<Spinner
+                        <Button
+                          onClick={handleClick}
+                          type="submit"
+                          className="ms-2 mt-3"
+                          data-testid="submit-button"
+                        >
+                          {loading && (
+                            <Spinner
                               as="span"
                               animation="border"
                               size="sm"

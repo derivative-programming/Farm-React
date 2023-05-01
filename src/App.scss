@@ -62,13 +62,14 @@
     span {
       color: black;
       padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
     }
   }
 
   div:hover {
     span {
       color: black;
-      border-bottom: 1px solid black;
+      border-color: black;
     }
   }
 }
