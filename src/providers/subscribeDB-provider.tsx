@@ -19,8 +19,8 @@ const SubscribeDbProvider = ({ children }: ISubscribeDbProvider) => {
     handleClear();
   }, [isOnline, db, isSubscribe]);
 
-  async function handleClear() {
-    if (!!db && isOnline && (await getIsRowDB())) {
+  async function handleClear() { 
+    if (!!db && isOnline && (await getIsRowDB())) { 
       clearDB();
     }
   }

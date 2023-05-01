@@ -41,19 +41,16 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
         setQueryResult({ ...queryResult });
     }
 
-    const onSubmit = (queryRequest: ReportService.QueryRequest) => {
-        console.log('onSubmit setQuery');
+    const onSubmit = (queryRequest: ReportService.QueryRequest) => { 
         setQuery({ ...queryRequest });
     }
 
-    const onPageSelection = (pageNumber: number) => {
-        console.log('onPageSelection setQuery');
+    const onPageSelection = (pageNumber: number) => { 
         setQuery({ ...query, pageNumber: pageNumber });
     }
 
 
-    const onPageSizeChange = (pageSize: number) => {
-        console.log('onPageSizeChange setQuery');
+    const onPageSizeChange = (pageSize: number) => { 
         setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
     }
 
@@ -95,13 +92,11 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
         let orderByDescending = false;
         if (query.OrderByColumnName === columnName) {
             orderByDescending = !query.OrderByDescending;
-        }
-        console.log('onSort setQuery');
+        } 
         setQuery({ ...query, OrderByColumnName: columnName, OrderByDescending: orderByDescending })
     }
 
-    const onRefreshRequest =() => {
-        console.log('onRefreshRequest setQuery');
+    const onRefreshRequest =() => { 
         setQuery({ ...query});
     }
 

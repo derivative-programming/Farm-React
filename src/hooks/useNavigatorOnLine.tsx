@@ -4,7 +4,7 @@ function useNavigatorOnline() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
 
   useEffect(() => {
-    function handleOnlineStatus() {
+    function handleOnlineStatus() { 
       setIsOnline(window.navigator.onLine);
     }
 

@@ -26,14 +26,14 @@ function useIndexedDB(nameDB: string, nameTable: string) {
     },
   });
 
-  const getIsRowDB = async () => {
+  const getIsRowDB = async () => { 
     const arrKeys = await db.getAllKeys(nameTable);
     return !!arrKeys.length;
   };
-  const clearDB = () => {
+  const clearDB = () => { 
     db.clear(nameTable);
   };
-  const addDB = (objInfo: TObjInfo) => {
+  const addDB = (objInfo: TObjInfo) => { 
     db.add(DBTABLE, { ...objInfo, id: uuidv4() });
     updateDB();
   };

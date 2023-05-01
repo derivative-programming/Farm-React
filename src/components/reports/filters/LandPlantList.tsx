@@ -56,10 +56,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
   const resetButtonClick = () => {
     setInitialValues({ ...initialQuery });
   };
-
-  const handleClick = () => {
-    addDB({ title: "Search button clicked", date: new Date().toISOString() });
-  };
+ 
   return (
     <div className="mt-3 w-100" hidden={hidden}>
       <Accordion defaultActiveKey="0" alwaysOpen={!isCollapsible}>
@@ -71,6 +68,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
+                //addDB({ title: "Search button clicked", date: new Date().toISOString() });
                 await submitButtonClick(values, actions);
               }}
             >
@@ -185,8 +183,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                     <Col lg="4" md="6" xs="12"></Col>
                     <Col lg="4" md="6" xs="12">
                       <div className="d-flex h-100 align-items-end justify-content-end">
-                        <Button
-                          onClick={handleClick}
+                        <Button 
                           type="submit"
                           className="ms-2 mt-3"
                           data-testid="submit-button"
