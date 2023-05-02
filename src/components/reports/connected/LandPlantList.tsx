@@ -53,6 +53,9 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   
   const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
 
+  // console.log('report ctrl initial values...');
+  // console.log(initialValues);
+
   const handleInit = (responseFull: any) => {
     const response: InitReportService.InitResult = responseFull.data;
 
@@ -149,6 +152,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
   useEffect(() => {
     const newInitalValues = ReportService.buildQueryRequest(initPageResponse);
+    // console.log('initial values...');
+    // console.log(newInitalValues);
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 

@@ -9,7 +9,7 @@ import GDPRBanner from "./components/gdpr/Banner";
 const App: FC = (): ReactElement => {
   const authValue = useContext(AuthContext);
 
-  console.log("AUTH CONTEXT:::", authValue);
+  //console.log("AUTH CONTEXT:::", authValue);
 
   return (
     <div className=" App " data-testid="app">

@@ -40,7 +40,7 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
   
   return (
     <div className=" ">
-      <Form.Group controlId={name}
+      <Form.Group controlId={name} 
         data-testid={name} className="mt-2 text-start">
           <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <DatePicker
