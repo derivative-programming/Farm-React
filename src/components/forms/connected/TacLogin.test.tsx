@@ -11,11 +11,11 @@ import {
 import FormConnectedTacLogin from "./TacLogin"; 
 import { BrowserRouter } from "react-router-dom";
 import * as FormService from "../services/TacLogin";
-import * as InitFormService from "../services/init/TacLoginInitObjWF";
+import * as InitFormService from "../services/init/TacLoginInitObjWF"; 
  
 window.localStorage.setItem("@token", "sampleToken");
 
-const mockedUsedNavigate = jest.fn();
+const mockedUsedNavigate = jest.fn(); 
 
 // mock the useNavigate method
 jest.mock("react-router-dom", () => ({
@@ -24,7 +24,7 @@ jest.mock("react-router-dom", () => ({
 }));
 
 const mockFormInitService = jest.spyOn(FormService, "initForm");
-const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
+const mockFormSubmitService =  jest.spyOn(FormService, "submitForm"); 
 
 let formSubmitResponse = new FormService.SubmitResultInstance();
 const formInitResponse = new InitFormService.InitResultInstance();

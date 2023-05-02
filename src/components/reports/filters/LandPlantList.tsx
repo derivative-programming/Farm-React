@@ -57,12 +57,16 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
     logClick("ReportFilterLandPlantList","refresh","");
     setInitialValues({ ...initialQuery });
   };
+
+  const onAccordianHeaderClick = () => { 
+    logClick("ReportFilterLandPlantList","accordianClick","");
+  }
  
   return (
     <div className="mt-3 w-100" hidden={hidden}>
       <Accordion defaultActiveKey="0" alwaysOpen={!isCollapsible}>
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Filters</Accordion.Header>
+          <Accordion.Header onClick={onAccordianHeaderClick}>Filters</Accordion.Header>
           <Accordion.Body>
             <Formik
               enableReinitialize={true}

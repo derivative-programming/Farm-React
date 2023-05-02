@@ -59,18 +59,63 @@ function useAnalyticsDB() {
     updateDB();
   };
   const logClick = (controlName: string, sourceObjectName: string, param1: string) => {
-    //console.log('logClick ' + controlName + ' ' + sourceObjectName + ' ' + param1);
+    console.log('logClick ' + controlName + ' ' + sourceObjectName + ' ' + param1);
     const eventData = { 
-      messageType: "ButtonClick", 
+      messageType: "UI Click", 
       controlName: controlName,  
       sourceObjectName: sourceObjectName, 
       param1: param1,  
-      description: "Button Click", 
+      description: "Click", 
     }
     addDB(eventData);
   };
+  
+  const logInitStartEvent = (controlName: string) => {
+    console.log('logInitStartEvent ' + controlName);
+    const eventData = { 
+      messageType: "event", 
+      controlName: 'Init Start ' + controlName,  
+      sourceObjectName: "", 
+      param1: "",  
+      description: "", 
+    }
+    addDB(eventData);
+  }
+  
+  const logInitCompleteEvent = (controlName: string) => {
+    console.log('logInitCompleteEvent ' + controlName);
+    const eventData = { 
+      messageType: "event", 
+      controlName: 'Init Complete ' + controlName,  
+      sourceObjectName: "", 
+      param1: "",  
+      description: "", 
+    }
+    addDB(eventData);
+  }
 
+  const logEvent = (eventName:string) => {
+    console.log('logEvent ' + eventName);
+    const eventData = { 
+      messageType: "event", 
+      controlName: eventName,  
+      sourceObjectName: "", 
+      param1: "",  
+      description: "", 
+    }
+    addDB(eventData);
+  }
+  
 
-  return { db, getIsRowDB, clearDB, addDB, logClick };
+  const logInternetConnectionLost = () => { 
+    logEvent("InternetConnectionLost");
+  }
+  
+  const logInternetConnectionRegained = () => { 
+    logEvent("logInternetConnectionRegained"); 
+  }
+
+  return { db, getIsRowDB, clearDB, addDB, logClick, logInternetConnectionLost, logInternetConnectionRegained,
+    logInitStartEvent,logInitCompleteEvent };
 }
 export default useAnalyticsDB;

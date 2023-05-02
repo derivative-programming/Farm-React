@@ -26,19 +26,14 @@ todo...
 
 >>>change add plant other button to 'Go To Dashboard'
 
-implement analytics collection storing to local db... 
-- messsage...     message type, object name,  [friendly message]
-- log button clicks... form submit, form cancel, form other, report filter search, report filter reset, report back, report add, report other, column header click, row button click, 
+implement analytics collection storing to local db...  
+- log button clicks... filter refresh
 - log report query stats... duration, nubmer of rows, total rows, sort by, 
-- log errors
-- log internetion connection and disconnection
-- log filter expand and collapse
-- log validation error. before api ? from api?
-- log page view
-- log page view duration?
+- log errors 
+- log validation error. before api ? from api? 
 - log page scroll to bottom? view of bottom?
-- log page init start, page init complete
-- log click processing start and completed
+- log page init start, page init complete (with duration and if success)
+- log async click processing start and completed
 
  
 api...python with flask and django

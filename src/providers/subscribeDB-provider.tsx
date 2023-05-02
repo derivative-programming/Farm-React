@@ -7,16 +7,25 @@ interface ISubscribeDbProvider {
 }
 
 const SubscribeDbProvider = ({ children }: ISubscribeDbProvider) => {
-  const { db, clearDB, getIsRowDB } = useAnalyticsDB();
+  const { db, clearDB, getIsRowDB,logInternetConnectionLost, logInternetConnectionRegained } = useAnalyticsDB();
   const isOnline = useNavigatorOnline();
   const [isSubscribe, setIsSubscribe] = useState<boolean>(false);
   const updateDB = useCallback(() => {
     setIsSubscribe((current) => !current);
   }, []);
 
-  useEffect(() => {
+  useEffect(() => { 
     handleClear();
   }, [isOnline, db, isSubscribe]);
+  
+  useEffect(() => {
+     if(!!db && isOnline) {
+      logInternetConnectionRegained();
+    } 
+    if(!!db && !isOnline) {
+      logInternetConnectionLost();
+    }
+  }, [isOnline]);
 
   async function handleClear() { 
     if (!!db && isOnline && (await getIsRowDB())) { 
