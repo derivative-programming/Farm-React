@@ -33,7 +33,10 @@ implement analytics collection storing to local db...
 - log validation error. before api ? from api? 
 - log page scroll to bottom? view of bottom?
 - log page init start, page init complete (with duration and if success)
-- log async click processing start and completed
+- log async report grid row async button click processing start and completed
+- log async report grid multiselect button click processing start and completed
+- log async report 3 col vis async other button click processing start and completed 
+- log async form submit button click processing start and completed
 
  
 api...python with flask and django

@@ -8,6 +8,7 @@ import {
 } from "@testing-library/react";
 import {ReportDetailThreeColPlantUserDetails} from "./PlantUserDetails";
 import * as ReportService from "../../services/PlantUserDetails";
+import "fake-indexeddb/auto";
 
 const onRowSelect = jest.fn();
 const onRowUnselect = jest.fn();

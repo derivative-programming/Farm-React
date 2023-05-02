@@ -11,6 +11,7 @@ import * as ReportService from "../services/LandPlantList";
 import * as InitReportService from "../services/init/LandPlantListInitReport";
 import { BrowserRouter } from "react-router-dom";
 import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
+import "fake-indexeddb/auto";
  
 window.localStorage.setItem("@token", "sampleToken");
 

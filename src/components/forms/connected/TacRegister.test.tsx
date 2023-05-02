@@ -12,6 +12,7 @@ import FormConnectedTacRegister from "./TacRegister";
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/TacRegister";
 import * as InitFormService from "../services/init/TacRegisterInitObjWF";
+import "fake-indexeddb/auto";
  
 window.localStorage.setItem("@token", "sampleToken");
 

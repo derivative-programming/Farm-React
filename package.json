@@ -61,6 +61,7 @@
   "devDependencies": {
     "@types/uuid": "^9.0.1",
     "cypress": "^12.9.0",
+    "fake-indexeddb": "^4.0.1",
     "node-sass": "^8.0.0",
     "sass-loader": "^13.2.0"
   }

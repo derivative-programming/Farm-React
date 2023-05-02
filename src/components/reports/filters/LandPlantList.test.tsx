@@ -11,6 +11,7 @@ import {
 import ReportFilterLandPlantList from "./LandPlantList";  
 import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
 import * as ReportService from "../services/LandPlantList";  
+import "fake-indexeddb/auto";
  
 window.localStorage.setItem("@token", "sampleToken");
  

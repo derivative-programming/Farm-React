@@ -29,7 +29,7 @@ const SubscribeDbProvider = ({ children }: ISubscribeDbProvider) => {
 
   async function handleClear() { 
     if (!!db && isOnline && (await getIsRowDB())) { 
-      clearDB();
+      //clearDB();
     }
   }
 

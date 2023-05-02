@@ -10,6 +10,7 @@ import {
 } from "@testing-library/react";
 import {ReportDetailTwoColTacFarmDashboard} from "./TacFarmDashboard";
 import * as ReportService from "../../services/TacFarmDashboard";
+import "fake-indexeddb/auto";
 
 const onRowSelect = jest.fn();
 const onRowUnselect = jest.fn();

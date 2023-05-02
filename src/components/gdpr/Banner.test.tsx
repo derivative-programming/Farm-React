@@ -1,5 +1,6 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 import GDPRBanner from "./Banner";
+import "fake-indexeddb/auto";
 
 describe("GDPRBanner", () => {
   beforeEach(() => {

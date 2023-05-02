@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { SubscribeDBContext } from "../context/subscribeDB-context";
 import { ANALYTICS_DBNAME, ANALYTICS_DBTABLE } from "../constants/dbName";
 import { useNavigate, useParams } from "react-router-dom";
+//import "fake-indexeddb/auto";
 
 type TAnalyticsEvent = {
   messageType: string;
@@ -55,8 +56,10 @@ function useAnalyticsDB() {
         hostName: window.location.hostname, 
         pathName: window.location.pathname, 
       }
-    db.add(ANALYTICS_DBTABLE, dbData);
-    updateDB();
+    if(!!db){
+      db.add(ANALYTICS_DBTABLE, dbData);
+      updateDB();
+    }
   };
   const logClick = (controlName: string, sourceObjectName: string, param1: string) => {
     console.log('logClick ' + controlName + ' ' + sourceObjectName + ' ' + param1);

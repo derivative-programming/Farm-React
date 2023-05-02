@@ -7,6 +7,7 @@ import {
   act, 
 } from "@testing-library/react";
 import {ReportGridLandPlantList} from "./LandPlantList";
+import "fake-indexeddb/auto";
  
 const onSort = jest.fn(); 
 const onExport = jest.fn(); 

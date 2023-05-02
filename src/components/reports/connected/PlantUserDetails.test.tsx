@@ -10,6 +10,7 @@ import ReportConnectedPlantUserDetails from "./PlantUserDetails";
 import * as ReportService from "../services/PlantUserDetails";
 import * as InitReportService from "../services/init/PlantUserDetailsInitReport";
 import { BrowserRouter } from "react-router-dom"; 
+import "fake-indexeddb/auto";
  
 window.localStorage.setItem("@token", "sampleToken");
 
