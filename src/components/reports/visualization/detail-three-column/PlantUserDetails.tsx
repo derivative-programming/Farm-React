@@ -3,6 +3,7 @@ import { Col, ListGroup, Row, Spinner } from "react-bootstrap";
 import * as ReportService from "../../services/PlantUserDetails"; 
 import * as AsyncServices from "../../../services";
 import * as ReportColumnDisplay from "./columns";
+import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
 
 export interface ReportDetailThreeColPlantUserDetailsProps {
     name: string
@@ -18,6 +19,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
     onRefreshRequest,
     showProcessing = false,
 }): ReactElement => { 
+    const { logClick } = useAnalyticsDB();
     
     return (
         <div data-testid={name} className='mt-3 w-100'> 
@@ -144,9 +146,10 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     value={item.updateButtonTextLinkPlantCode}
                     isButtonCallToAction={true}
                     isVisible={false}
-                    onClick={() => 
-                        onNavigateTo("/plant-edit/" + item.updateButtonTextLinkPlantCode)
-                    }
+                    onClick={() => {
+                        logClick("ReportDetailThreeColPlantUserDetails","updateButtonTextLinkPlantCode","");
+                        onNavigateTo("/plant-edit/" + item.updateButtonTextLinkPlantCode);
+                    }}
                 />
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="backToDashboardLinkTacCode"
@@ -154,9 +157,10 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     value={item.backToDashboardLinkTacCode}
                     isButtonCallToAction={true}
                     isVisible={true}
-                    onClick={() => 
+                    onClick={() => {
+                        logClick("ReportDetailThreeColPlantUserDetails","backToDashboardLinkTacCode","");
                         onNavigateTo("/tac-farm-dashboard/" + item.backToDashboardLinkTacCode)
-                    }
+                    }}
                 />
 
 
@@ -167,6 +171,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     isButtonCallToAction={false}
                     isVisible={true}
                     onClick={() =>{
+                        logClick("ReportDetailThreeColPlantUserDetails","randomPropertyUpdatesLinkPlantCode","");
                         const data: any = {};
                         AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.randomPropertyUpdatesLinkPlantCode)
                             .then((response) => onRefreshRequest())

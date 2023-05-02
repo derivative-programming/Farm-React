@@ -1,2 +1,2 @@
-export const DBNAME = "clickeds-db";
-export const DBTABLE = "clicked-button";
+export const ANALYTICS_DBNAME = "analytics-db";
+export const ANALYTICS_DBTABLE = "analytics-table";

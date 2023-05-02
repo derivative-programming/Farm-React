@@ -3,6 +3,7 @@ import * as ReportService from "../../services/TacFarmDashboard";
 import { ReportInputButton } from "../../input-fields";
 import { Row } from "react-bootstrap";
 import * as ReportColumnDisplay from "./columns";
+import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
 
 export interface ReportDetailTwoColTacFarmDashboardProps {
     name: string
@@ -16,6 +17,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     onNavigateTo,
     onRefreshRequest,
 }): ReactElement => {
+    const { logClick } = useAnalyticsDB();
   
     return ( 
         <div data-testid={name}>
@@ -28,9 +30,10 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
                     isButtonCallToAction={true}
                     isVisible={true}
                     isEnabled={true}
-                    onClick={() =>
+                    onClick={() =>{
+                        logClick("ReportDetailTwoColTacFarmDashboard","fieldOnePlantListLinkLandCode","");
                         onNavigateTo("/land-plant-list/" + item.fieldOnePlantListLinkLandCode)
-                    } 
+                    }} 
                 />
             </Row> 
         </div>

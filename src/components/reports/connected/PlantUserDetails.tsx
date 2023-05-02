@@ -6,6 +6,7 @@ import * as ReportService from "../services/PlantUserDetails";
 import * as ReportInput from "../input-fields";
 import * as InitReportService from "../services/init/PlantUserDetailsInitReport"; 
 import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-three-column/PlantUserDetails";
+import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
 
 export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -16,6 +17,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance());
     const isInitializedRef = useRef(false);
+    const { logClick } = useAnalyticsDB();
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -137,12 +139,18 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                 <Breadcrumb>
                     <Breadcrumb.Item id="tacFarmDashboardBreadcrumb"  
                         data-testid="tacFarmDashboardBreadcrumb" 
-                        onClick={() => navigateTo('tac-farm-dashboard',"tacCode")}>
+                        onClick={() => {
+                            logClick("ReportConnectedPlantUserDetails","tacFarmDashboardBreadcrumb","");
+                            navigateTo('tac-farm-dashboard',"tacCode")
+                        }}>
                         Farm Dashboard breadcrumb text
                     </Breadcrumb.Item>
                     <Breadcrumb.Item id="landPlantListBreadcrumb" 
                         data-testid="landPlantListBreadcrumb" 
-                        onClick={() => navigateTo('land-plant-list',"landCode")}>
+                        onClick={() => {
+                            logClick("ReportConnectedPlantUserDetails","landPlantListBreadcrumb","");
+                            navigateTo('land-plant-list',"landCode");
+                        }}>
                         Plant List breadcrumb text
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active>
@@ -162,7 +170,10 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                         <div className="d-flex w-100 justify-content-center justify-content-md-start">
                             <ReportInput.ReportInputButton
                                 name="back-button"
-                                onClick={() => navigateTo("land-plant-list","landCode")}
+                                onClick={() => {
+                                    logClick("ReportConnectedPlantUserDetails","back","");
+                                    navigateTo("land-plant-list","landCode")
+                                }}
                                 buttonText={<><ArrowLeft className="mb-1"/> Plant List</>} 
                                 isButtonCallToAction={false}
                                 isVisible={true}

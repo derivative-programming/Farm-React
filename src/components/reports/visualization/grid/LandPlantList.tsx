@@ -7,6 +7,7 @@ import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services";
 import { ReportPagination } from "../../input-fields";
 import * as ReportInput from "../../input-fields"; 
+import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
 
 export interface ReportGridLandPlantListProps {
   name: string;
@@ -48,6 +49,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 }): ReactElement => {
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
+  const { logClick } = useAnalyticsDB();
 
   const handleRowSelectCheckboxChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -68,17 +70,20 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
   const onSelectAllRows = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
+      logClick("ReportGridLandPlantList","selectAllRows","");
       setCheckedIndexes(
         items.map((item: ReportService.QueryResultItem, index) =>
           index.toString()
         )
       );
     } else {
+      logClick("ReportGridLandPlantList","uncheckSelectAllRows","");
       setCheckedIndexes(initialCheckedIndexes);
     }
   };  
 
   const onMultSelectButtonToEditableClick = () => {
+    logClick("ReportGridLandPlantList","multSelectButtonToEditable","");
     const selectedCodes = items.map(
       (item: ReportService.QueryResultItem, index) => {
         if (checkedIndexes.includes(index.toString())) {
@@ -98,6 +103,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   };
 
   const onMultSelectButtonToNotEditableClick = () => {
+    logClick("ReportGridLandPlantList","multSelectButtonToNotEditable","");
     const selectedCodes = items.map(
       (item: ReportService.QueryResultItem, index) => {
         if (checkedIndexes.includes(index.toString())) {
@@ -416,9 +422,10 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     value={item.updateLinkPlantCode}
                     buttonText="Update"
                     isButtonCallToAction={false}
-                    onClick={() =>
+                    onClick={() => {
+                      logClick("ReportGridLandPlantList","updateLinkPlantCode","");
                       onNavigateTo("/plant-edit/" + item.updateLinkPlantCode)
-                    }
+                    }}
                     isVisible={false}
                   />
  
@@ -429,11 +436,12 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isButtonCallToAction={false}
                     onClick={() =>
                       {
+                        logClick("ReportGridLandPlantList","deleteAsyncButtonLinkPlantCode","");
                         const data: any = {};
                         AsyncServices.PlantUserDeleteSubmitRequest(data, item.deleteAsyncButtonLinkPlantCode).then((response) =>
                         onRefreshRequest()
-                      )}
-                    }
+                      )
+                    }}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="detailsLinkPlantCode"
@@ -441,9 +449,10 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     value={item.detailsLinkPlantCode}
                     buttonText="Details"
                     isButtonCallToAction={true}
-                    onClick={() =>
-                      onNavigateTo("/plant-user-details/" + item.detailsLinkPlantCode) 
-                    }
+                    onClick={() => {
+                      logClick("ReportGridLandPlantList","detailsLinkPlantCode","");
+                      onNavigateTo("/plant-user-details/" + item.detailsLinkPlantCode);
+                    }}
                   />
                 </tr>
               );

@@ -2,12 +2,15 @@ import React, { FC, ReactElement, useContext } from "react";
 import { Dropdown, Nav, NavItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext"; 
+import useAnalyticsDB from "../../hooks/useAnalyticsDB"; 
 
 const Header: FC = (): ReactElement => {
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
+  const { logClick } = useAnalyticsDB();
 
   const onLogout = () => {
+    logClick("Header","logOut","");
     authContext.setToken("");
     localStorage.setItem("@token", "");
     localStorage.setItem("customerCode","");
@@ -15,13 +18,16 @@ const Header: FC = (): ReactElement => {
   };
 
   const onLogin = () => {
+    logClick("Header","login","");
     navigate("/");
   };
   const onDashboard = () => {
+    logClick("Header","dashboard","");
     navigate("/tac-farm-dashboard/00000000-0000-0000-0000-000000000000");
   };
 
   const onRegister = () => {
+    logClick("Header","register","");
     navigate("/tac-register");
   };
   const [isHovered, setIsHovered] = React.useState(false);

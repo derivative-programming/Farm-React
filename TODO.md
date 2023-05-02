@@ -22,7 +22,24 @@ todo...
 
 >>>>remove plantedit page.   
 
+>>add 'Filter' to landplantlist param names
+
 >>>change add plant other button to 'Go To Dashboard'
+
+implement analytics collection storing to local db... 
+- messsage...     message type, object name,  [friendly message]
+- log button clicks... form submit, form cancel, form other, report filter search, report filter reset, report back, report add, report other, column header click, row button click, 
+- log report query stats... duration, nubmer of rows, total rows, sort by, 
+- log errors
+- log internetion connection and disconnection
+- log filter expand and collapse
+- log validation error. before api ? from api?
+- log page view
+- log page view duration?
+- log page scroll to bottom? view of bottom?
+- log page init start, page init complete
+- log click processing start and completed
+
  
 api...python with flask and django
 
@@ -31,11 +48,7 @@ job...better design? similar to upword?
 job...error display component unit testing...posted...
 /components/forms/input-fields/ErrorDisplay
 /components/reports/input-fields/ErrorDisplay
-
-job...analytics queue...posted....
-use indexeddb to store data locally
-on click of langplantlist search button, create rec with utcdatetime and 'refresh button clicked', even if no internet connection exists.
-Separately, another part of the app should monitor both internet connection and data entry into this db. if connected and a row exists, delete the row. if connection is lost, delete all recs when connection is made. 
+ 
 
 job...web push...posted...
 create a simple c# .net core signalr hub
@@ -103,8 +116,7 @@ test err...logout expected mock service call. set ispage=false? clear out api to
 - check for new app version
 - no internet connection message  https://medium.com/@kirichuk/7-must-have-features-for-any-react-app-10b086038d9a
 - run on google lighthouse 
-- maintain a list of all features
-- collect analytics. 
+- maintain a list of all features 
 - web push notifications
 - document management
 - google sso

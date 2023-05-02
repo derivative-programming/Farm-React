@@ -14,6 +14,7 @@ import * as FormService from "../services/TacLogin";
 import * as InitFormService from "../services/init/TacLoginInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as FormInput from "../input-fields"; 
+import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
 
 
 export interface FormProps {
@@ -35,6 +36,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
     response: new FormService.SubmitRequestInstance(),
   };
   const isInitializedRef = useRef(false);
+  const { logClick } = useAnalyticsDB();
   
 
   const navigate = useNavigate();
@@ -83,6 +85,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   ) => {
     try {
       setLoading(true);
+      logClick("FormConnectedTacLogin","submit","");
       const responseFull: any = await FormService.submitForm(values,contextCode);
       const response: FormService.SubmitResult = responseFull.data;
       lastApiSubmission = {
@@ -119,6 +122,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   };
 
   const registerButtonClick = () => {
+    logClick("FormConnectedTacLogin","otherButton","");
     navigate("/tac-register");
   };
 

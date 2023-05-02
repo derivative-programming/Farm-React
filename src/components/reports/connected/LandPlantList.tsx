@@ -19,6 +19,7 @@ import * as InitReportService from "../services/init/LandPlantListInitReport";
 import HeaderLandPlantList from "../headers/LandPlantListInitReport";
 import * as ReportInput from "../input-fields";
 import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
+import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
 
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,6 +37,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     new ReportService.QueryRequestInstance()
   );
   const isInitializedRef = useRef(false);
+  const { logClick } = useAnalyticsDB();
 
   const isRefreshButtonHidden = false;
   const isPagingAvailable = true;
@@ -78,14 +80,17 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   };
 
   const onSubmit = (queryRequest: ReportService.QueryRequest) => {
+    logClick("ReportConnectedLandPlantList","search","");
     setQuery({ ...queryRequest });
   };
 
   const onPageSelection = (pageNumber: number) => {
+    logClick("ReportConnectedLandPlantList","selectPage",pageNumber.toString());
     setQuery({ ...query, pageNumber: pageNumber });
   };
 
   const onPageSizeChange = (pageSize: number) => {
+    logClick("ReportConnectedLandPlantList","pageSizeChange",pageSize.toString());
     setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
   };
 
@@ -109,10 +114,12 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   };
 
   const onRefreshRequest = () => {
+    logClick("ReportConnectedLandPlantList","refresh","");
     setQuery({ ...query });
   };
 
   const onSort = (columnName: string) => { 
+    logClick("ReportConnectedLandPlantList","sort",columnName);
     let orderByDescending = false;
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
@@ -126,6 +133,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
   
   const onExport = () => {
+    logClick("ReportConnectedLandPlantList","export","");
     setExportQuery({ ...query });
   };
 
@@ -175,7 +183,12 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
         <Breadcrumb hidden={isBreadcrumbSectionHidden}>
           <Breadcrumb.Item id="tacFarmDashboardBreadcrumb" 
             data-testid="tacFarmDashboardBreadcrumb" 
-            onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}>
+            onClick={() => 
+              {
+                logClick("ReportConnectedLandPlantList","tacFarmDashboardBreadcrumb","");
+                navigateTo("tac-farm-dashboard", "tacCode");
+              }}
+            >
             Farm Dashboard breadcrumb text
           </Breadcrumb.Item>
           <Breadcrumb.Item active href="">
@@ -205,7 +218,10 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
         <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
           <div className="mb-2 mb-md-0">
             <ReportInput.ReportInputButton name="back-button"
-              onClick={() => navigateTo("tac-farm-dashboard", "tacCode")}
+              onClick={() => {
+                  logClick("ReportConnectedLandPlantList","back","");
+                  navigateTo("tac-farm-dashboard", "tacCode");
+              }}
               buttonText={<><ArrowLeft className="mb-1"/> Farm Dashboard</>}
               isButtonCallToAction={false}
               isVisible={true}
@@ -215,7 +231,10 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
           <div className="d-flex flex-column flex-md-row">
             <div className="mb-2 mb-md-0">
               <ReportInput.ReportInputButton name="otherAddButton"
-                onClick={() => navigateTo("land-add-plant", "landCode")}
+                onClick={() => {
+                  logClick("ReportConnectedLandPlantList","otherAddButton","");
+                  navigateTo("land-add-plant", "landCode");
+                }}
                 buttonText="Other Add Button"
                 isButtonCallToAction={false}
                 isVisible={true}
@@ -224,7 +243,10 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
             </div>
             <div>
               <ReportInput.ReportInputButton name="add-button"
-                onClick={() => navigateTo("land-add-plant", "landCode")}
+                onClick={() => {
+                  logClick("ReportConnectedLandPlantList","add","");
+                  navigateTo("land-add-plant", "landCode");
+                }}
                 buttonText={<><PlusCircle className="mb-1"/> Add A Plant</>}
                 className="ms-md-2"
                 isButtonCallToAction={true}

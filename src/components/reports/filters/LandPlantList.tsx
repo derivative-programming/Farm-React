@@ -11,8 +11,7 @@ import * as ReportService from "../services/LandPlantList";
 import { AuthContext } from "../../../context/authContext";
 import * as ReportInput from "../input-fields";
 import * as Lookups from "../lookups";
-import useIndexedDB from "../../../hooks/useIndexedDB";
-import { DBNAME, DBTABLE } from "../../../constants/dbName";
+import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
 
 export interface ReportFilterLandPlantListProps {
   name: string;
@@ -31,7 +30,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
 }): ReactElement => {
   const [initialValues, setInitialValues] = useState(initialQuery);
   const [loading, setLoading] = useState(false);
-  const { addDB } = useIndexedDB(DBNAME, DBTABLE);
+  const { logClick } = useAnalyticsDB();
 
   const validationSchema = ReportService.buildValidationSchema();
 
@@ -45,6 +44,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
   ) => { 
     try {  
       setLoading(true);
+      logClick("ReportFilterLandPlantList","submit","");
       onSubmit(values); 
     }
     finally { 
@@ -54,6 +54,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
   };
 
   const resetButtonClick = () => {
+    logClick("ReportFilterLandPlantList","refresh","");
     setInitialValues({ ...initialQuery });
   };
  
@@ -68,7 +69,6 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
-                //addDB({ title: "Search button clicked", date: new Date().toISOString() });
                 await submitButtonClick(values, actions);
               }}
             >

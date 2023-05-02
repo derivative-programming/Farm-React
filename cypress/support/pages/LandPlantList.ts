@@ -39,262 +39,6 @@ export class LandPlantListPage {
 
     verifyPageElements() {
 
-        const isFilterSectionHidden = false;
- 
-        const someIntValIsVisible = true;
-        const someBigIntValIsVisible = true;
-        const someBitValIsVisible = true;
-        const isEditAllowedIsVisible = true;
-        const isDeleteAllowedIsVisible = true;
-        const someFloatValIsVisible = true;
-        const someDecimalValIsVisible = true;
-        const someMinUTCDateTimeValIsVisible = true;
-        const someMinDateValIsVisible = true;
-        const someMoneyValIsVisible = true;
-        const someNVarCharValIsVisible = true;
-        const someVarCharValIsVisible = true;
-        const someTextValIsVisible = true;
-        const somePhoneNumberIsVisible = true;
-        const someEmailAddressIsVisible = true;
-        const flavorCodeIsVisible = true; 
-        
-        
-        //breadcrumbs text 
-        cy.log('Verifying breadcrumb tacFarmDashboardBreadcrumb...');
-            cy.get(PageSelectors.tacFarmDashboardBreadcrumbText)
-            .should('be.visible')
-            .should('include.text', PageTexts.tacFarmDashboardBreadcrumbText);
-
-        //test filter fields
-        if(flavorCodeIsVisible){
-            cy.log('Verifying flavorCodeLabel control label...');
-            cy.get(PageSelectors.flavorCodeFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.flavorCodeFilterLabel);
-
-            cy.log('Verifying flavorCode control...');
-            cy.get(PageSelectors.flavorCodeFilterField)
-                .should('be.visible'); 
-            
-        } 
-
-        if(someIntValIsVisible){
-            cy.log('Verifying someIntValLabel control label...');
-            cy.get(PageSelectors.someIntValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someIntValFilterLabel);
-                
-            cy.log('Verifying someIntVal control...');
-            cy.get(PageSelectors.someIntValFilterField)
-                .should('be.visible'); 
-
-            this.setFilterFieldSomeIntVal(111);
-            
-            cy.get(PageSelectors.someIntValFilterField) 
-                .should('have.value', '111');
-        }
-
-        if(someBigIntValIsVisible){
-            cy.log('Verifying someBigIntValLabel control label...');
-            cy.get(PageSelectors.someBigIntValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someBigIntValFilterLabel);
-                
-            cy.log('Verifying someBigIntValLabel control...');
-            cy.get(PageSelectors.someBigIntValFilterField)
-                .should('be.visible');
-
-            this.setFilterFieldSomeBigIntVal(111);
-            
-            cy.get(PageSelectors.someBigIntValFilterField) 
-                .should('have.value', '111');
-        }
-
-        if(someBitValIsVisible){
-            //cy.log('Verifying someBitVal control...');
-            // cy.get(PageSelectors.someBitValField)
-            //     .should('be.visible')
-            //     .should('include.text', PageTexts.someBitValLabelText);
-                
-            cy.log('Verifying someBitValLabel control...');
-            cy.get(PageSelectors.someBitValFilterField)
-                .should('be.visible');
-        }
-
-        if(isEditAllowedIsVisible){
-            // cy.log('Verifying isEditAllowedLabel control label...');
-            // cy.get(PageSelectors.isEditAllowedLabel)
-            //     .should('be.visible')
-            //     .should('include.text', PageTexts.isEditAllowedLabelText);
-                
-            cy.log('Verifying isEditAllowedLabel control...');
-            cy.get(PageSelectors.isEditAllowedFilterField)
-                .should('be.visible');
-        }
-
-        if(isDeleteAllowedIsVisible){
-            // cy.log('Verifying isDeleteAllowedLabel control label...');
-            // cy.get(PageSelectors.isDeleteAllowedLabel)
-            //     .should('be.visible')
-            //     .should('include.text', PageTexts.isDeleteAllowedLabelText);
-                
-            cy.log('Verifying isDeleteAllowedLabel control...');
-            cy.get(PageSelectors.isDeleteAllowedFilterField)
-                .should('be.visible');
-        }
-
-        if(someFloatValIsVisible){
-            cy.log('Verifying someFloatValLabel control label...');
-            cy.get(PageSelectors.someFloatValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someFloatValFilterLabel);
-                
-            cy.log('Verifying someFloatValLabel control...');
-            cy.get(PageSelectors.someFloatValFilterField)
-                .should('be.visible');
-
-            this.setFilterFieldSomeFloatVal(111);
-            
-            cy.get(PageSelectors.someFloatValFilterField) 
-                .should('have.value', '111');
-        }
-
-        if(someDecimalValIsVisible){
-            cy.log('Verifying someDecimalValLabel control label...');
-            cy.get(PageSelectors.someDecimalValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someDecimalValFilterLabel);
-                
-            cy.log('Verifying someDecimalValLabel control...');
-            cy.get(PageSelectors.someDecimalValFilterField)
-                .should('be.visible');
-
-            this.setFilterFieldSomeDecimalVal(111);
-            
-            cy.get(PageSelectors.someDecimalValFilterField) 
-                .should('have.value', '111');
-        }
-
-        if(someMinUTCDateTimeValIsVisible){
-            cy.log('Verifying someMinUTCDateTimeValLabel control label...');
-            cy.get(PageSelectors.someMinUTCDateTimeValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someMinUTCDateTimeValFilterLabel);
-                
-            cy.log('Verifying someMinUTCDateTimeValLabel control...');
-            cy.get(PageSelectors.someMinUTCDateTimeValFilterField)
-                .should('be.visible');
-        }
-
-        if(someMinDateValIsVisible){
-            cy.log('Verifying someMinDateValLabel control label...');
-            cy.get(PageSelectors.someMinDateValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someMinDateValFilterLabel);
-                
-            cy.log('Verifying someMinDateValLabel control...');
-            cy.get(PageSelectors.someMinDateValFilterField)
-                .should('be.visible');
-        }
-
-        if(someMoneyValIsVisible){
-            cy.log('Verifying someMoneyValLabel control label...');
-            cy.get(PageSelectors.someMoneyValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someMoneyValFilterLabel);
-                
-            cy.log('Verifying someMoneyValLabel control...');
-            cy.get(PageSelectors.someMoneyValFilterField)
-                .should('be.visible');
-
-            this.setFilterFieldSomeMoneyVal(111);
-            
-            cy.get(PageSelectors.someMoneyValFilterField) 
-                .should('have.value', '111');
-        }
-
-        if(someNVarCharValIsVisible){
-            cy.log('Verifying someNVarCharValLabel control label...');
-            cy.get(PageSelectors.someNVarCharValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someNVarCharValFilterLabel);
-                
-            cy.log('Verifying someNVarCharValLabel control...');
-            cy.get(PageSelectors.someNVarCharValFilterField)
-                .should('be.visible');
-
-            this.setFilterFieldSomeNVarCharVal("someNVarCharValTestVal");
-            
-            cy.get(PageSelectors.someNVarCharValFilterField) 
-                .should('have.value', 'someNVarCharValTestVal');
-        }
-
-        if(someVarCharValIsVisible){
-            cy.log('Verifying someVarCharValLabel control label...');
-            cy.get(PageSelectors.someVarCharValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someVarCharValFilterLabel);
-                
-            cy.log('Verifying someVarCharValLabel control...');
-            cy.get(PageSelectors.someVarCharValFilterField)
-                .should('be.visible');
-
-            this.setFilterFieldSomeVarCharVal("someVarCharValTestVal");
-            
-            cy.get(PageSelectors.someVarCharValFilterField) 
-                .should('have.value', 'someVarCharValTestVal');
-        }
-
-        if(someTextValIsVisible){
-            cy.log('Verifying someTextValLabel control label...');
-            cy.get(PageSelectors.someTextValFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someTextValFilterLabel);
-                
-            cy.log('Verifying someTextValLabel control...');
-            cy.get(PageSelectors.someTextValFilterField)
-                .should('be.visible'); 
-
-            this.setFilterFieldSomeTextVal("someTextValTestVal");
-            
-            cy.get(PageSelectors.someTextValFilterField) 
-                .should('have.value', 'someTextValTestVal');
-        }
-
-        if(somePhoneNumberIsVisible){
-            cy.log('Verifying somePhoneNumberLabel control label...');
-            cy.get(PageSelectors.somePhoneNumberFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.somePhoneNumberFilterLabel);
-            
-            cy.log('Verifying somePhoneNumberLabel control...');
-            cy.get(PageSelectors.somePhoneNumberFilterField)
-                .should('be.visible');
-
-            this.setFilterFieldSomePhoneNumber("111-111-1111");
-            
-            cy.get(PageSelectors.somePhoneNumberFilterField) 
-                .should('have.value', '111-111-1111');
-        }
-
-        if(someEmailAddressIsVisible){
-            cy.log('Verifying someEmailAddressLabel control label...');
-            cy.get(PageSelectors.someEmailAddressFilterLabel)
-                .should('be.visible')
-                .should('include.text', PageTexts.someEmailAddressFilterLabel);
-                
-            cy.log('Verifying someEmailAddressLabel control...');
-            cy.get(PageSelectors.someEmailAddressFilterField)
-                .should('be.visible');
-
-            this.setFilterFieldSomeEmailAddress("test@test.com");
-            
-            cy.get(PageSelectors.someEmailAddressFilterField) 
-                .should('have.value', 'test@test.com');
-        }
-
-
-        
         const plantCodeHeaderIsVisible = true;
         const someIntValHeaderIsVisible = true;
         const someBigIntValHeaderIsVisible = true;
@@ -740,6 +484,264 @@ export class LandPlantListPage {
             cy.get(PageSelectors.introText)
             .should('not.be.visible');
         }
+
+        
+
+        
+        const isFilterSectionHidden = false;
+    
+        const someIntValIsVisible = true;
+        const someBigIntValIsVisible = true;
+        const someBitValIsVisible = true;
+        const isEditAllowedIsVisible = true;
+        const isDeleteAllowedIsVisible = true;
+        const someFloatValIsVisible = true;
+        const someDecimalValIsVisible = true;
+        const someMinUTCDateTimeValIsVisible = true;
+        const someMinDateValIsVisible = true;
+        const someMoneyValIsVisible = true;
+        const someNVarCharValIsVisible = true;
+        const someVarCharValIsVisible = true;
+        const someTextValIsVisible = true;
+        const somePhoneNumberIsVisible = true;
+        const someEmailAddressIsVisible = true;
+        const flavorCodeIsVisible = true; 
+        
+        
+        //breadcrumbs text 
+        cy.log('Verifying breadcrumb tacFarmDashboardBreadcrumb...');
+            cy.get(PageSelectors.tacFarmDashboardBreadcrumbText)
+            .should('be.visible')
+            .should('include.text', PageTexts.tacFarmDashboardBreadcrumbText);
+
+        //test filter fields
+        if(flavorCodeIsVisible){
+            cy.log('Verifying flavorCodeLabel control label...');
+            cy.get(PageSelectors.flavorCodeFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.flavorCodeFilterLabel);
+
+            cy.log('Verifying flavorCode control...');
+            cy.get(PageSelectors.flavorCodeFilterField)
+                .should('be.visible'); 
+            
+        } 
+
+        if(someIntValIsVisible){
+            cy.log('Verifying someIntValLabel control label...');
+            cy.get(PageSelectors.someIntValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someIntValFilterLabel);
+                
+            cy.log('Verifying someIntVal control...');
+            cy.get(PageSelectors.someIntValFilterField)
+                .should('be.visible'); 
+
+            this.setFilterFieldSomeIntVal(111);
+            
+            cy.get(PageSelectors.someIntValFilterField) 
+                .should('have.value', '111');
+        }
+
+        if(someBigIntValIsVisible){
+            cy.log('Verifying someBigIntValLabel control label...');
+            cy.get(PageSelectors.someBigIntValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someBigIntValFilterLabel);
+                
+            cy.log('Verifying someBigIntValLabel control...');
+            cy.get(PageSelectors.someBigIntValFilterField)
+                .should('be.visible');
+
+            this.setFilterFieldSomeBigIntVal(111);
+            
+            cy.get(PageSelectors.someBigIntValFilterField) 
+                .should('have.value', '111');
+        }
+
+        if(someBitValIsVisible){
+            //cy.log('Verifying someBitVal control...');
+            // cy.get(PageSelectors.someBitValField)
+            //     .should('be.visible')
+            //     .should('include.text', PageTexts.someBitValLabelText);
+                
+            cy.log('Verifying someBitValLabel control...');
+            cy.get(PageSelectors.someBitValFilterField)
+                .should('be.visible');
+        }
+
+        if(isEditAllowedIsVisible){
+            // cy.log('Verifying isEditAllowedLabel control label...');
+            // cy.get(PageSelectors.isEditAllowedLabel)
+            //     .should('be.visible')
+            //     .should('include.text', PageTexts.isEditAllowedLabelText);
+                
+            cy.log('Verifying isEditAllowedLabel control...');
+            cy.get(PageSelectors.isEditAllowedFilterField)
+                .should('be.visible');
+        }
+
+        if(isDeleteAllowedIsVisible){
+            // cy.log('Verifying isDeleteAllowedLabel control label...');
+            // cy.get(PageSelectors.isDeleteAllowedLabel)
+            //     .should('be.visible')
+            //     .should('include.text', PageTexts.isDeleteAllowedLabelText);
+                
+            cy.log('Verifying isDeleteAllowedLabel control...');
+            cy.get(PageSelectors.isDeleteAllowedFilterField)
+                .should('be.visible');
+        }
+
+        if(someFloatValIsVisible){
+            cy.log('Verifying someFloatValLabel control label...');
+            cy.get(PageSelectors.someFloatValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someFloatValFilterLabel);
+                
+            cy.log('Verifying someFloatValLabel control...');
+            cy.get(PageSelectors.someFloatValFilterField)
+                .should('be.visible');
+
+            this.setFilterFieldSomeFloatVal(111);
+            
+            cy.get(PageSelectors.someFloatValFilterField) 
+                .should('have.value', '111');
+        }
+
+        if(someDecimalValIsVisible){
+            cy.log('Verifying someDecimalValLabel control label...');
+            cy.get(PageSelectors.someDecimalValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someDecimalValFilterLabel);
+                
+            cy.log('Verifying someDecimalValLabel control...');
+            cy.get(PageSelectors.someDecimalValFilterField)
+                .should('be.visible');
+
+            this.setFilterFieldSomeDecimalVal(111);
+            
+            cy.get(PageSelectors.someDecimalValFilterField) 
+                .should('have.value', '111');
+        }
+
+        if(someMinUTCDateTimeValIsVisible){
+            cy.log('Verifying someMinUTCDateTimeValLabel control label...');
+            cy.get(PageSelectors.someMinUTCDateTimeValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someMinUTCDateTimeValFilterLabel);
+                
+            cy.log('Verifying someMinUTCDateTimeValLabel control...');
+            cy.get(PageSelectors.someMinUTCDateTimeValFilterField)
+                .should('be.visible');
+        }
+
+        if(someMinDateValIsVisible){
+            cy.log('Verifying someMinDateValLabel control label...');
+            cy.get(PageSelectors.someMinDateValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someMinDateValFilterLabel);
+                
+            cy.log('Verifying someMinDateValLabel control...');
+            cy.get(PageSelectors.someMinDateValFilterField)
+                .should('be.visible');
+        }
+
+        if(someMoneyValIsVisible){
+            cy.log('Verifying someMoneyValLabel control label...');
+            cy.get(PageSelectors.someMoneyValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someMoneyValFilterLabel);
+                
+            cy.log('Verifying someMoneyValLabel control...');
+            cy.get(PageSelectors.someMoneyValFilterField)
+                .should('be.visible');
+
+            this.setFilterFieldSomeMoneyVal(111);
+            
+            cy.get(PageSelectors.someMoneyValFilterField) 
+                .should('have.value', '111');
+        }
+
+        if(someNVarCharValIsVisible){
+            cy.log('Verifying someNVarCharValLabel control label...');
+            cy.get(PageSelectors.someNVarCharValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someNVarCharValFilterLabel);
+                
+            cy.log('Verifying someNVarCharValLabel control...');
+            cy.get(PageSelectors.someNVarCharValFilterField)
+                .should('be.visible');
+
+            this.setFilterFieldSomeNVarCharVal("someNVarCharValTestVal");
+            
+            cy.get(PageSelectors.someNVarCharValFilterField) 
+                .should('have.value', 'someNVarCharValTestVal');
+        }
+
+        if(someVarCharValIsVisible){
+            cy.log('Verifying someVarCharValLabel control label...');
+            cy.get(PageSelectors.someVarCharValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someVarCharValFilterLabel);
+                
+            cy.log('Verifying someVarCharValLabel control...');
+            cy.get(PageSelectors.someVarCharValFilterField)
+                .should('be.visible');
+
+            this.setFilterFieldSomeVarCharVal("someVarCharValTestVal");
+            
+            cy.get(PageSelectors.someVarCharValFilterField) 
+                .should('have.value', 'someVarCharValTestVal');
+        }
+
+        if(someTextValIsVisible){
+            cy.log('Verifying someTextValLabel control label...');
+            cy.get(PageSelectors.someTextValFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someTextValFilterLabel);
+                
+            cy.log('Verifying someTextValLabel control...');
+            cy.get(PageSelectors.someTextValFilterField)
+                .should('be.visible'); 
+
+            this.setFilterFieldSomeTextVal("someTextValTestVal");
+            
+            cy.get(PageSelectors.someTextValFilterField) 
+                .should('have.value', 'someTextValTestVal');
+        }
+
+        if(somePhoneNumberIsVisible){
+            cy.log('Verifying somePhoneNumberLabel control label...');
+            cy.get(PageSelectors.somePhoneNumberFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.somePhoneNumberFilterLabel);
+            
+            cy.log('Verifying somePhoneNumberLabel control...');
+            cy.get(PageSelectors.somePhoneNumberFilterField)
+                .should('be.visible');
+
+            this.setFilterFieldSomePhoneNumber("111-111-1111");
+            
+            cy.get(PageSelectors.somePhoneNumberFilterField) 
+                .should('have.value', '111-111-1111');
+        }
+
+        if(someEmailAddressIsVisible){
+            cy.log('Verifying someEmailAddressLabel control label...');
+            cy.get(PageSelectors.someEmailAddressFilterLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.someEmailAddressFilterLabel);
+                
+            cy.log('Verifying someEmailAddressLabel control...');
+            cy.get(PageSelectors.someEmailAddressFilterField)
+                .should('be.visible');
+
+            this.setFilterFieldSomeEmailAddress("test@test.com");
+            
+            cy.get(PageSelectors.someEmailAddressFilterField) 
+                .should('have.value', 'test@test.com');
+        }
+
 
         
 

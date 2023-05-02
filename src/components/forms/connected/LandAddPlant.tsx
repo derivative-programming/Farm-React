@@ -15,6 +15,7 @@ import HeaderLandAddPlant from "../headers/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext"; 
 import * as InputFields from "../input-fields";
 import * as Lookups from "../lookups";
+import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
 
 export interface FormProps {
   name?: string;
@@ -33,6 +34,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   );
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
+  const { logClick } = useAnalyticsDB();
 
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
@@ -87,6 +89,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   ) => {
     try {
       setLoading(true);
+      logClick("FormConnectedLandAddPlant","submit","");
       const responseFull: any = await FormService.submitForm(
         values,
         contextCode
@@ -280,6 +283,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                   <InputFields.FormInputButton name="cancel-button"
                     buttonText="Cancel Button Text"
                     onClick={() => {
+                      logClick("FormConnectedLandAddPlant","cancel","");
                       navigateTo("land-plant-list", "landCode");
                     }}
                     isButtonCallToAction={false}
@@ -289,6 +293,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                   <InputFields.FormInputButton name="other-button"
                     buttonText="New Random Values"
                     onClick={() => {
+                      logClick("FormConnectedLandAddPlant","otherButton","");
                       navigateTo("land-add-plant", "landCode");
                     }}
                     isButtonCallToAction={false}

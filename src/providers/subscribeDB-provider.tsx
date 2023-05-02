@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { SubscribeDBContext } from "../context/subscribeDB-context";
 import useNavigatorOnline from "../hooks/useNavigatorOnLine";
-import useIndexedDB from "../hooks/useIndexedDB";
-import { DBNAME, DBTABLE } from "../constants/dbName";
+import useAnalyticsDB from "../hooks/useAnalyticsDB"; 
 interface ISubscribeDbProvider {
   children: React.ReactNode;
 }
 
 const SubscribeDbProvider = ({ children }: ISubscribeDbProvider) => {
-  const { db, clearDB, getIsRowDB } = useIndexedDB(DBNAME, DBTABLE);
+  const { db, clearDB, getIsRowDB } = useAnalyticsDB();
   const isOnline = useNavigatorOnline();
   const [isSubscribe, setIsSubscribe] = useState<boolean>(false);
   const updateDB = useCallback(() => {

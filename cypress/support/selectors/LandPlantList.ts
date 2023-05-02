@@ -27,6 +27,31 @@ export const LandPlantListPageSelectors = {
     deleteAsyncButtonLinkPlantCodeHeader: "[data-testid='deleteAsyncButtonLinkPlantCode-header']",
     detailsLinkPlantCodeHeader: "[data-testid='detailsLinkPlantCode-header']",
 
+    //column headerSortDownIndicator
+    plantCodeHeaderSortDownIndicator: "[data-testid='plantCode-header-sortDown']",
+    someIntValHeaderSortDownIndicator: "[data-testid='someIntVal-header-sortDown']",
+    someBigIntValHeaderSortDownIndicator: "[data-testid='someBigIntVal-header-sortDown']",
+    someBitValHeaderSortDownIndicator: "[data-testid='someBitVal-header-sortDown']",
+    isEditAllowedHeaderSortDownIndicator: "[data-testid='isEditAllowed-header-sortDown']",
+    isDeleteAllowedHeaderSortDownIndicator: "[data-testid='isDeleteAllowed-header-sortDown']",
+    someFloatValHeaderSortDownIndicator: "[data-testid='someFloatVal-header-sortDown']",
+    someDecimalValHeaderSortDownIndicator: "[data-testid='someDecimalVal-header-sortDown']",
+    someUTCDateTimeValHeaderSortDownIndicator: "[data-testid='someUTCDateTimeVal-header-sortDown']",
+    someDateValHeaderSortDownIndicator: "[data-testid='someDateVal-header-sortDown']",
+    someMoneyValHeaderSortDownIndicator: "[data-testid='someMoneyVal-header-sortDown']",
+    someNVarCharValHeaderSortDownIndicator: "[data-testid='someNVarCharVal-header-sortDown']",
+    someVarCharValHeaderSortDownIndicator: "[data-testid='someVarCharVal-header-sortDown']",
+    someTextValHeaderSortDownIndicator: "[data-testid='someTextVal-header-sortDown']",
+    somePhoneNumberHeaderSortDownIndicator: "[data-testid='somePhoneNumber-header-sortDown']",
+    someEmailAddressHeaderSortDownIndicator: "[data-testid='someEmailAddress-header-sortDown']",
+    flavorNameHeaderSortDownIndicator: "[data-testid='flavorName-header-sortDown']",
+    flavorCodeHeaderSortDownIndicator: "[data-testid='flavorCode-header-sortDown']",
+    someIntConditionalOnDeletableHeaderSortDownIndicator: "[data-testid='someIntConditionalOnDeletable-header-sortDown']",
+    nVarCharAsUrlHeaderSortDownIndicator: "[data-testid='nVarCharAsUrl-header-sortDown']", 
+    updateLinkPlantCodeHeaderSortDownIndicator:  "[data-testid='updateLinkPlantCode-header-sortDown']",
+    deleteAsyncButtonLinkPlantCodeHeaderSortDownIndicator: "[data-testid='deleteAsyncButtonLinkPlantCode-header-sortDown']",
+    detailsLinkPlantCodeHeaderSortDownIndicator: "[data-testid='detailsLinkPlantCode-header-sortDown']",
+  
     
     someIntValFilterLabel: "[data-testid='someIntVal-filter-label']",
     someBigIntValFilterLabel: "[data-testid='someBigIntVal-filter-label']",
@@ -89,36 +114,12 @@ export const LandPlantListPageSelectors = {
     deleteAsyncButtonLinkPlantCodeHeaderSortUpIndicator: "[data-testid='deleteAsyncButtonLinkPlantCode-header-sortUp']",
     detailsLinkPlantCodeHeaderSortUpIndicator: "[data-testid='detailsLinkPlantCode-header-sortUp']",
  
+        otherAddButton: "[data-testid='otherAddButton']",
+
     title: "[data-testid='page-title-text']", 
     introText: "[data-testid='page-intro-text']",
      
-        otherAddButton: "[data-testid='otherAddButton']",
  
-    //column headerSortDownIndicator
-    plantCodeHeaderSortDownIndicator: "[data-testid='plantCode-header-sortDown']",
-    someIntValHeaderSortDownIndicator: "[data-testid='someIntVal-header-sortDown']",
-    someBigIntValHeaderSortDownIndicator: "[data-testid='someBigIntVal-header-sortDown']",
-    someBitValHeaderSortDownIndicator: "[data-testid='someBitVal-header-sortDown']",
-    isEditAllowedHeaderSortDownIndicator: "[data-testid='isEditAllowed-header-sortDown']",
-    isDeleteAllowedHeaderSortDownIndicator: "[data-testid='isDeleteAllowed-header-sortDown']",
-    someFloatValHeaderSortDownIndicator: "[data-testid='someFloatVal-header-sortDown']",
-    someDecimalValHeaderSortDownIndicator: "[data-testid='someDecimalVal-header-sortDown']",
-    someUTCDateTimeValHeaderSortDownIndicator: "[data-testid='someUTCDateTimeVal-header-sortDown']",
-    someDateValHeaderSortDownIndicator: "[data-testid='someDateVal-header-sortDown']",
-    someMoneyValHeaderSortDownIndicator: "[data-testid='someMoneyVal-header-sortDown']",
-    someNVarCharValHeaderSortDownIndicator: "[data-testid='someNVarCharVal-header-sortDown']",
-    someVarCharValHeaderSortDownIndicator: "[data-testid='someVarCharVal-header-sortDown']",
-    someTextValHeaderSortDownIndicator: "[data-testid='someTextVal-header-sortDown']",
-    somePhoneNumberHeaderSortDownIndicator: "[data-testid='somePhoneNumber-header-sortDown']",
-    someEmailAddressHeaderSortDownIndicator: "[data-testid='someEmailAddress-header-sortDown']",
-    flavorNameHeaderSortDownIndicator: "[data-testid='flavorName-header-sortDown']",
-    flavorCodeHeaderSortDownIndicator: "[data-testid='flavorCode-header-sortDown']",
-    someIntConditionalOnDeletableHeaderSortDownIndicator: "[data-testid='someIntConditionalOnDeletable-header-sortDown']",
-    nVarCharAsUrlHeaderSortDownIndicator: "[data-testid='nVarCharAsUrl-header-sortDown']", 
-    updateLinkPlantCodeHeaderSortDownIndicator:  "[data-testid='updateLinkPlantCode-header-sortDown']",
-    deleteAsyncButtonLinkPlantCodeHeaderSortDownIndicator: "[data-testid='deleteAsyncButtonLinkPlantCode-header-sortDown']",
-    detailsLinkPlantCodeHeaderSortDownIndicator: "[data-testid='detailsLinkPlantCode-header-sortDown']",
-  
         addButton: "[data-testid='add-button']",
     
     //breadcrumb
