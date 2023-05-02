@@ -1,40 +1,58 @@
-/* eslint-disable testing-library/no-render-in-setup */
-/* eslint-disable testing-library/no-unnecessary-act */
-import {
-  render,
-  cleanup,
-  screen,
-  act,
-  fireEvent,
-  waitFor,
-} from "@testing-library/react";
-import {ReportErrorDisplay} from "./ErrorDisplay";   
-import { Formik } from "formik";
-import { Form } from "react-bootstrap";
+import { render, screen } from "@testing-library/react";
+import { ReportErrorDisplay } from "./ErrorDisplay";
 
-const initialValues = { testName:"" } 
- 
 describe("ReportErrorDisplay Component", () => {
-  // render the ReportErrorDisplay component
-  beforeEach(() => {
-    render(
-      <ReportErrorDisplay name="testName" errorCsv="test error"/> 
-    );
+  it("renders correctly when no errors are provided", () => {
+    render(<ReportErrorDisplay name="testName" />);
+    expect(screen.queryByTestId("testName")).toBeInTheDocument();
+    expect(screen.queryByTestId("testName").textContent).toBe("");
   });
 
-  // after cleanup when test-case execution is done
-  afterEach(cleanup); 
-
-  it("renders correctly", async () => {
-    expect(screen.getByTestId("testName")).toBeInTheDocument();
+  it("renders correctly when only errorCsv is provided", () => {
+    render(<ReportErrorDisplay name="testName" errorCsv="error1,error2,error3" />);
+    expect(screen.getByText("error1")).toBeInTheDocument();
+    expect(screen.getByText("error2")).toBeInTheDocument();
+    expect(screen.getByText("error3")).toBeInTheDocument();
   });
 
-  it("when user enter value, it set accordingly in control", async () => {
-    const input = screen.getByTestId("testName");
-    // await act(async () => {
-    //   await fireEvent.change(input, { target: { value: "test@gmail.com" } });
-    // });
+  it("renders correctly when only errorArray is provided", () => {
+    render(<ReportErrorDisplay name="testName" errorArray={["error1", "error2", "error3"]} />);
+    expect(screen.getByText("error1")).toBeInTheDocument();
+    expect(screen.getByText("error2")).toBeInTheDocument();
+    expect(screen.getByText("error3")).toBeInTheDocument();
+  });
 
-    // expect(screen.getByTestId("testName")).toHaveValue("test@gmail.com");
-  }); 
+  it("renders correctly when both errorCsv and errorArray are provided", () => {
+    render(<ReportErrorDisplay name="testName" errorCsv="error1,error2,error3" errorArray={["error4", "error5", "error6"]} />);
+    expect(screen.getByText("error1")).toBeInTheDocument();
+    expect(screen.getByText("error2")).toBeInTheDocument();
+    expect(screen.getByText("error3")).toBeInTheDocument();
+    expect(screen.getByText("error4")).toBeInTheDocument();
+    expect(screen.getByText("error5")).toBeInTheDocument();
+    expect(screen.getByText("error6")).toBeInTheDocument();
+  });
+
+  it("renders correctly with an empty errorCsv and a non-empty errorArray", () => {
+    render(<ReportErrorDisplay name="testName" errorCsv="" errorArray={["error1", "error2", "error3"]} />);
+    expect(screen.getByText("error1")).toBeInTheDocument();
+    expect(screen.getByText("error2")).toBeInTheDocument();
+    expect(screen.getByText("error3")).toBeInTheDocument();
+  });
+
+  it("renders correctly with a non-empty errorCsv and an empty errorArray", () => {
+    render(<ReportErrorDisplay name="testName" errorCsv="error1,error2,error3" errorArray={[]} />);
+    expect(screen.getByText("error1")).toBeInTheDocument();
+    expect(screen.getByText("error2")).toBeInTheDocument();
+    expect(screen.getByText("error3")).toBeInTheDocument();
+  });
+
+  it("renders correctly with duplicate error messages in errorCsv and errorArray", () => {
+    render(<ReportErrorDisplay name="testName" errorCsv="error1,error2,error3" errorArray={["error2", "error3", "error4"]} />);
+    expect(screen.getByText("error1")).toBeInTheDocument();
+    expect(screen.getByText("error4")).toBeInTheDocument();
+    const error2Elements = screen.getAllByText("error2");
+    const error3Elements = screen.getAllByText("error3");
+    expect(error2Elements).toHaveLength(2); // Expecting two occurrences of "error2"
+    expect(error3Elements).toHaveLength(2); // Expecting two occurrences of "error3"
+  });
 });
