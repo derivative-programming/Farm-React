@@ -9,6 +9,18 @@ buy hat
 
 todo...      
 
+grid button text 'delete async' > 'delete'
+
+template gen addloop and add synonyms meed to be done in memory and not in files to speed it up
+
+clean out cypress test screenshot folder before harvesting. 
+handle png files on harvest? add to ignore list?
+
+cleaner report grid page...
+- shorter header text... no 'Some', no 'Val'. col A B C?
+
+
+
 >>fab: 'O K Button Text'  
 >>"Some UT C Date Time Val" output of gen
 

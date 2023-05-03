@@ -53,41 +53,6 @@ export const LandPlantListPageSelectors = {
     detailsLinkPlantCodeHeaderSortDownIndicator: "[data-testid='detailsLinkPlantCode-header-sortDown']",
   
     
-    someIntValFilterLabel: "[data-testid='someIntVal-filter-label']",
-    someBigIntValFilterLabel: "[data-testid='someBigIntVal-filter-label']",
-    someBitValFilterLabel: "[data-testid='someBitVal-filter-label']",
-    isEditAllowedFilterLabel: "[data-testid='isEditAllowed-filter-label']",
-    isDeleteAllowedFilterLabel: "[data-testid='isDeleteAllowed-filter-label']",
-    someFloatValFilterLabel: "[data-testid='someFloatVal-filter-label']",
-    someDecimalValFilterLabel: "[data-testid='someDecimalVal-filter-label']",
-    someMinUTCDateTimeValFilterLabel: "[data-testid='someMinUTCDateTimeVal-filter-label']",
-    someMinDateValFilterLabel: "[data-testid='someMinDateVal-filter-label']",
-    someMoneyValFilterLabel: "[data-testid='someMoneyVal-filter-label']",
-    someNVarCharValFilterLabel: "[data-testid='someNVarCharVal-filter-label']",
-    someVarCharValFilterLabel: "[data-testid='someVarCharVal-filter-label']",
-    someTextValFilterLabel: "[data-testid='someTextVal-filter-label']",
-    somePhoneNumberFilterLabel: "[data-testid='somePhoneNumber-filter-label']",
-    someEmailAddressFilterLabel: "[data-testid='someEmailAddress-filter-label']",
-    flavorCodeFilterLabel: "[data-testid='flavorCode-filter-label']",
-
-    
-    someIntValFilterField: "[data-testid='someIntVal-filter-field']",
-    someBigIntValFilterField: "[data-testid='someBigIntVal-filter-field']",
-    someBitValFilterField: "[data-testid='someBitVal-filter-field']",
-    isEditAllowedFilterField: "[data-testid='isEditAllowed-filter-field']",
-    isDeleteAllowedFilterField: "[data-testid='isDeleteAllowed-filter-field']",
-    someFloatValFilterField: "[data-testid='someFloatVal-filter-field']",
-    someDecimalValFilterField: "[data-testid='someDecimalVal-filter-field']",
-    someMinUTCDateTimeValFilterField: "[data-testid='someMinUTCDateTimeVal-filter-field']",
-    someMinDateValFilterField: "[data-testid='someMinDateVal-filter-field']",
-    someMoneyValFilterField: "[data-testid='someMoneyVal-filter-field']",
-    someNVarCharValFilterField: "[data-testid='someNVarCharVal-filter-field']",
-    someVarCharValFilterField: "[data-testid='someVarCharVal-filter-field']",
-    someTextValFilterField: "[data-testid='someTextVal-filter-field']",
-    somePhoneNumberFilterField: "[data-testid='somePhoneNumber-filter-field']",
-    someEmailAddressFilterField: "[data-testid='someEmailAddress-filter-field']",
-    flavorCodeFilterField: "[data-testid='flavorCode-filter-field']",
-
     
     //column headerSortUpIndicator
     plantCodeHeaderSortUpIndicator: "[data-testid='plantCode-header-sortUp']",
@@ -132,4 +97,40 @@ export const LandPlantListPageSelectors = {
 
     
         backButton: "[data-testid='back-button']",
+
+    someIntValFilterLabel: "[data-testid='someIntVal-label']",
+    someBigIntValFilterLabel: "[data-testid='someBigIntVal-label']",
+    someBitValFilterLabel: "[data-testid='someBitVal-label']",
+    isEditAllowedFilterLabel: "[data-testid='isEditAllowed-label']",
+    isDeleteAllowedFilterLabel: "[data-testid='isDeleteAllowed-label']",
+    someFloatValFilterLabel: "[data-testid='someFloatVal-label']",
+    someDecimalValFilterLabel: "[data-testid='someDecimalVal-label']",
+    someMinUTCDateTimeValFilterLabel: "[data-testid='someMinUTCDateTimeVal-label']",
+    someMinDateValFilterLabel: "[data-testid='someMinDateVal-label']",
+    someMoneyValFilterLabel: "[data-testid='someMoneyVal-label']",
+    someNVarCharValFilterLabel: "[data-testid='someNVarCharVal-label']",
+    someVarCharValFilterLabel: "[data-testid='someVarCharVal-label']",
+    someTextValFilterLabel: "[data-testid='someTextVal-label']",
+    somePhoneNumberFilterLabel: "[data-testid='somePhoneNumber-label']",
+    someEmailAddressFilterLabel: "[data-testid='someEmailAddress-label']",
+    flavorCodeFilterLabel: "[data-testid='flavorCode-label']",
+
+    
+    someIntValFilterField: "[data-testid='someIntVal-field']",
+    someBigIntValFilterField: "[data-testid='someBigIntVal-field']",
+    someBitValFilterField: "[data-testid='someBitVal-field']",
+    isEditAllowedFilterField: "[data-testid='isEditAllowed-field']",
+    isDeleteAllowedFilterField: "[data-testid='isDeleteAllowed-field']",
+    someFloatValFilterField: "[data-testid='someFloatVal-field']",
+    someDecimalValFilterField: "[data-testid='someDecimalVal-field']",
+    someMinUTCDateTimeValFilterField: "[data-testid='someMinUTCDateTimeVal-field']",
+    someMinDateValFilterField: "[data-testid='someMinDateVal-field']",
+    someMoneyValFilterField: "[data-testid='someMoneyVal-field']",
+    someNVarCharValFilterField: "[data-testid='someNVarCharVal-field']",
+    someVarCharValFilterField: "[data-testid='someVarCharVal-field']",
+    someTextValFilterField: "[data-testid='someTextVal-field']",
+    somePhoneNumberFilterField: "[data-testid='somePhoneNumber-field']",
+    someEmailAddressFilterField: "[data-testid='someEmailAddress-field']",
+    flavorCodeFilterField: "[data-testid='flavorCode-field']",
+    
 }

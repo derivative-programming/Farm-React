@@ -4,6 +4,7 @@ import * as ReportService from "../../services/PlantUserDetails";
 import * as AsyncServices from "../../../services";
 import * as ReportColumnDisplay from "./columns";
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
+import "fake-indexeddb/auto";
 
 export interface ReportDetailThreeColPlantUserDetailsProps {
     name: string

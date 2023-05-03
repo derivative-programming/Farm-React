@@ -13,6 +13,7 @@ import { BrowserRouter } from "react-router-dom";
 import * as FormService from "../services/PlantEdit";
 import * as InitFormService from "../services/init/PlantEditInitObjWF";
 import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
+import "fake-indexeddb/auto";
   
 window.localStorage.setItem("@token", "sampleToken");
 

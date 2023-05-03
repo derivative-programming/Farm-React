@@ -4,6 +4,7 @@ import { ReportInputButton } from "../../input-fields";
 import { Row } from "react-bootstrap";
 import * as ReportColumnDisplay from "./columns";
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
+import "fake-indexeddb/auto";
 
 export interface ReportDetailTwoColTacFarmDashboardProps {
     name: string
