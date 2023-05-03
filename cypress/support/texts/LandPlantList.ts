@@ -69,7 +69,7 @@ export const LandPlantListPageTexts = {
 
     //row button text 
     updateLinkPlantCodeRowButtonText: "Update",
-    deleteAsyncButtonLinkPlantCodeRowButtonText: "Delete Async",
+    deleteAsyncButtonLinkPlantCodeRowButtonText: "Delete",
     detailsLinkPlantCodeRowButtonText: "Details",
 
 

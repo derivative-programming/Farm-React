@@ -1795,7 +1795,7 @@
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
                     "isButton": "true",
-                    "buttonText": "Delete Async",
+                    "buttonText": "Delete",
                     "destinationTargetName": "PlantUserDelete",
                     "destinationContextObjectName": "Plant",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
@@ -1804,7 +1804,7 @@
                     "isMultiSelectColumn": "false",
                     "isButtonAsyncObjWF": "true",
                     "isAsyncObjWFResultFileStreamedOut": "false",
-                    "isJoinedToLeftColumn": "false", 
+                    "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "isIgnored": "false"
                   },
@@ -2264,7 +2264,7 @@
                     "destinationContextObjectName": "Land",
                     "isButtonCallToAction": "true"
                   },
-                  { 
+                  {
                     "buttonType": "cancel",
                     "buttonText": "Cancel Button Text",
                     "destinationTargetName": "LandPlantList",
@@ -4854,7 +4854,7 @@
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
                     "isButton": "true",
-                    "buttonText": "Delete Async",
+                    "buttonText": "Delete",
                     "destinationTargetName": "PlantUserDelete",
                     "destinationContextObjectName": "Plant",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",

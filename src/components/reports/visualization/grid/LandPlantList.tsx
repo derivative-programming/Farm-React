@@ -432,7 +432,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="deleteAsyncButtonLinkPlantCode"
                     rowIndex={index}
                     value={item.deleteAsyncButtonLinkPlantCode}
-                    buttonText="Delete Async"
+                    buttonText="Delete"
                     isButtonCallToAction={false}
                     onClick={() =>
                       {

@@ -9,26 +9,14 @@ buy hat
 
 todo...      
 
-grid button text 'delete async' > 'delete'
+test:grid button text 'delete async' > 'delete'
 
 template gen addloop and add synonyms meed to be done in memory and not in files to speed it up
-
-clean out cypress test screenshot folder before harvesting. 
-handle png files on harvest? add to ignore list?
 
 cleaner report grid page...
 - shorter header text... no 'Some', no 'Val'. col A B C?
 
-
-
->>fab: 'O K Button Text'  
->>"Some UT C Date Time Val" output of gen
-
->>plantuserdetails dashboard button needs differnt text
-
->>report landplantlist otherAddButton > otherNewRecordButton
-
->>report landplantlist add button > addrecord button
+test:plantuserdetails dashboard button needs differnt text
 
 >>stream csv in api
 
@@ -54,12 +42,7 @@ implement analytics collection storing to local db...
 api...python with flask and django
 
 job...better design? similar to upword?
-
-job...error display component unit testing...posted...
-/components/forms/input-fields/ErrorDisplay
-/components/reports/input-fields/ErrorDisplay
  
-
 job...web push...posted...
 create a simple c# .net core signalr hub
 have the react app connect to hub on login. 
@@ -99,10 +82,8 @@ submit add button and fill out form with seed data, if available? do this to cre
 thse page tests should just look for elements on page, test sort, etc.? dont click async buttons? dont submit forms?
 functional tests are separate from page testS?
 report tests...
-- open close filter
-- filter controls and labels
-- table cell data format display
-- sort on col header
+- open close filter 
+- table cell data format display 
 - paging controls data-testid="reportGridLandPlantList-paginator-pageination"
 - table count display (data-testid="reportGridLandPlantList-paginator-pageination-count-display")
 - page size control (data-testid="items-per-page-label") (data-testid="reportGridLandPlantList-paginator-pageination-select-page-size")
@@ -237,9 +218,7 @@ Check success add navigation on result code
 
 Translator… 
 CHANGE REPO names from r18 b5 to react18_bootstrap5
-
-
-if a genval variable is in the genif statement, you can remove it from the dimensional phrase?
+ 
  
 
 Create simple stmt that tells us it’s a loop of reports or objwf instead of that big section I had to manually add. Have it convert automatically
@@ -267,14 +246,10 @@ remove IsConditionalVisible prop. its not used. a calculated one is instead
 Analytics…
 Need… Api key, page , context code
 Model feature?
-Root Top level setting ?
-Send to queue. No db write
-All go to one endpoint
-any button click? any link click?
+Root Top level setting ? 
+All go to one endpoint 
 use signalr to send analytics
-create analytics specific hub? channel?
-collect all events in local storage, even if connection is lost. 
-store datetime with each event.
+create analytics specific hub? channel?  
 when connected to analytics hub, send queued events. then remove event from client queue.
 
 Cache api keys? To redis? Mem cache?

@@ -154,7 +154,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                 />
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="backToDashboardLinkTacCode"
-                    buttonText="Update Button Text"
+                    buttonText="Back To Dashboard"
                     value={item.backToDashboardLinkTacCode}
                     isButtonCallToAction={true}
                     isVisible={true}
