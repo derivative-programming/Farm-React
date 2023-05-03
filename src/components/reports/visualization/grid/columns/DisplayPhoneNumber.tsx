@@ -61,7 +61,7 @@ export const ReportColumnDisplayPhoneNumber: FC<ReportColumnDisplayPhoneNumberPr
 }
       
   return (
-    <td data-testid={groupName}>{formatPhoneNumber()}</td>
+    <td data-testid={groupName} className="text-nowrap" hidden={!isVisible}>{formatPhoneNumber()}</td>
   );
 };
    

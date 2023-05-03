@@ -41,7 +41,7 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   }
 
   return (
-    <td data-testid={groupName}>{formatEmail()}</td>
+    <td data-testid={groupName} className="text-nowrap" hidden={!isVisible}>{formatEmail()}</td>
   );
 };
    

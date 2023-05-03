@@ -37,7 +37,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
   }
 
   return ( 
-    <td data-testid={groupName}>
+    <td data-testid={groupName} hidden={!isVisible}>
         <Button
             hidden={!displayValue}
             className="ms-2"

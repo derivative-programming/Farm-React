@@ -24,7 +24,9 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   const displayValue = (isVisible && conditionallyVisible);
        
   return (
-    <td data-testid={groupName}>
+    <td data-testid={groupName} 
+      className="text-nowrap" 
+      hidden={!isVisible}>
         <a href={value}
           hidden={!displayValue}
           >

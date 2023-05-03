@@ -29,7 +29,7 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
     );
   } else {  
     return (
-      <td data-testid={groupName}>   
+      <td data-testid={groupName} hidden={!isVisible}>   
           <Form.Check 
             readOnly={true}
             type="checkbox"

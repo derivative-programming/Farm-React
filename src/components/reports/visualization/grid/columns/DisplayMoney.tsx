@@ -49,7 +49,7 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
   }
 
   return (
-    <td data-testid={groupName}>{formatMoney()}</td>
+    <td data-testid={groupName} className="text-nowrap" hidden={!isVisible}>{formatMoney()}</td>
   );
 };
    

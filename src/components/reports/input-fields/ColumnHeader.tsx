@@ -24,9 +24,10 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   const controlName = name.length > 0 ? name : { forColumn } + "ColumnHeader";
 
   return (
-    <th className="cursor-pointer"
+    <th className="cursor-pointer text-nowrap"
       data-testid={forColumn + '-header'}
       id={forColumn + '-header'}
+      hidden={!isVisible}
       onClick={() => onSort(forColumn)}
     >
       {label}{" "}

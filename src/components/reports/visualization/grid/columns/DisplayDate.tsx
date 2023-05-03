@@ -52,7 +52,7 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
   }
 
   return (
-    <td data-testid={groupName}>{formatDate()}</td>
+    <td data-testid={groupName} className="text-nowrap" hidden={!isVisible}>{formatDate()}</td>
   );
 };
    

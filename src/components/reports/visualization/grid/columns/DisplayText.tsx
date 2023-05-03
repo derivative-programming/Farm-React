@@ -38,7 +38,7 @@ export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
   }
 
   return (
-    <td data-testid={groupName}>{formatText()}</td>
+    <td data-testid={groupName} hidden={!isVisible}>{formatText()}</td>
   );
 };
    

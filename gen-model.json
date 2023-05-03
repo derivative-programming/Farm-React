@@ -1435,7 +1435,7 @@
                   {
                     "name": "SomeIntVal",
                     "codeDescription": "Land Plant List Report Some Int Val Column",
-                    "headerText": "Some Int Val",
+                    "headerText": "Int Val",
                     "sqlServerDBDataType": "int",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1452,7 +1452,7 @@
                   {
                     "name": "SomeBigIntVal",
                     "codeDescription": "Land Plant List Report Some Big Int Val Column",
-                    "headerText": "Some Big Int Val",
+                    "headerText": "Big Int Val",
                     "sqlServerDBDataType": "bigint",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1469,7 +1469,7 @@
                   {
                     "name": "SomeBitVal",
                     "codeDescription": "Land Plant List Report Some Bit Val Column",
-                    "headerText": "Some Bit Val",
+                    "headerText": "Bit Val",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1486,7 +1486,7 @@
                   {
                     "name": "IsEditAllowed",
                     "codeDescription": "Land Plant List Report Is Edit Allowed Column",
-                    "headerText": "Is Edit Allowed",
+                    "headerText": "Edit Allowed",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1503,7 +1503,7 @@
                   {
                     "name": "IsDeleteAllowed",
                     "codeDescription": "Land Plant List Report Is Delete Allowed Column",
-                    "headerText": "Is Delete Allowed",
+                    "headerText": "Delete Allowed",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1520,7 +1520,7 @@
                   {
                     "name": "SomeFloatVal",
                     "codeDescription": "Land Plant List Report Some Float Val Column",
-                    "headerText": "Some Float Val",
+                    "headerText": "Float Val",
                     "sqlServerDBDataType": "float",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1537,7 +1537,7 @@
                   {
                     "name": "SomeDecimalVal",
                     "codeDescription": "Land Plant List Report Some Decimal Val Column",
-                    "headerText": "Some Decimal Val",
+                    "headerText": "Decimal Val",
                     "sqlServerDBDataType": "decimal",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1554,7 +1554,7 @@
                   {
                     "name": "SomeUTCDateTimeVal",
                     "codeDescription": "Land Plant List Report Some UTC Date Time Val Column",
-                    "headerText": "Some Date Time Val",
+                    "headerText": "Date Time Val",
                     "sqlServerDBDataType": "datetime",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1571,7 +1571,7 @@
                   {
                     "name": "SomeDateVal",
                     "codeDescription": "Land Plant List Report Some Date Val Column",
-                    "headerText": "Some Date Val",
+                    "headerText": "Date Val",
                     "sqlServerDBDataType": "date",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1588,7 +1588,7 @@
                   {
                     "name": "SomeMoneyVal",
                     "codeDescription": "Land Plant List Report Some Money Val Column",
-                    "headerText": "Some Money Val",
+                    "headerText": "Money Val",
                     "sqlServerDBDataType": "money",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1605,7 +1605,7 @@
                   {
                     "name": "SomeNVarCharVal",
                     "codeDescription": "Land Plant List Report Some N Var Char Val Column",
-                    "headerText": "Some N Var Char Val",
+                    "headerText": "N Var Char Val",
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
@@ -1622,7 +1622,7 @@
                   {
                     "name": "SomeVarCharVal",
                     "codeDescription": "Land Plant List Report Some Var Char Val Column",
-                    "headerText": "Some Var Char Val",
+                    "headerText": "Var Char Val",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1639,7 +1639,7 @@
                   {
                     "name": "SomeTextVal",
                     "codeDescription": "Land Plant List Report Some Text Val Column",
-                    "headerText": "Some Text Val",
+                    "headerText": "Text Val",
                     "sqlServerDBDataType": "text",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1656,7 +1656,7 @@
                   {
                     "name": "SomePhoneNumber",
                     "codeDescription": "Land Plant List Report Some Phone Number Column",
-                    "headerText": "Some Phone Number",
+                    "headerText": "Phone Number",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
@@ -1673,7 +1673,7 @@
                   {
                     "name": "SomeEmailAddress",
                     "codeDescription": "Land Plant List Report Some Email Address Column",
-                    "headerText": "Some Email Address",
+                    "headerText": "Email Address",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
@@ -1710,7 +1710,7 @@
                     "headerText": "",
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
-                    "isVisible": "true",
+                    "isVisible": "false",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -1724,7 +1724,7 @@
                   {
                     "name": "SomeIntConditionalOnDeletable",
                     "codeDescription": "Land Plant List Report Some Int Conditional On Deletable Column",
-                    "headerText": "Int Conditional On Deleteable",
+                    "headerText": "Int Conditional",
                     "sourceObjectName": "Plant",
                     "sourcePropertyName": "SomeIntVal",
                     "sqlServerDBDataType": "int",
@@ -1745,7 +1745,7 @@
                   {
                     "name": "NVarCharAsUrl",
                     "codeDescription": "Land Plant List Report N Var Char As Url Column",
-                    "headerText": "N Var Char As Url",
+                    "headerText": "Url",
                     "sourceObjectName": "Plant",
                     "sourcePropertyName": "SomeNVarCharVal",
                     "sqlServerDBDataType": "nvarchar",

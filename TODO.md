@@ -8,16 +8,11 @@ keyur chat?
 buy hat 
 
 todo...      
-
-test:grid button text 'delete async' > 'delete'
+ 
 
 template gen addloop and add synonyms meed to be done in memory and not in files to speed it up
-
-cleaner report grid page...
-- shorter header text... no 'Some', no 'Val'. col A B C?
-
-test:plantuserdetails dashboard button needs differnt text
-
+ 
+ 
 >>stream csv in api
 
 >>>>remove plantedit page.   
@@ -25,6 +20,8 @@ test:plantuserdetails dashboard button needs differnt text
 >>add 'Filter' to landplantlist param names
 
 >>>change add plant other button to 'Go To Dashboard'
+
+>>plant list row 'Click here' to 'link'
 
 implement analytics collection storing to local db...  
 - log button clicks... filter refresh

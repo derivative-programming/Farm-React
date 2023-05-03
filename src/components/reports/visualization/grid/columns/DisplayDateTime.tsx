@@ -51,7 +51,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
   }
 
   return (
-    <td data-testid={groupName}>{formatDateTime()}</td>
+    <td data-testid={groupName} className="text-nowrap" hidden={!isVisible}>{formatDateTime()}</td>
   );
 };
    

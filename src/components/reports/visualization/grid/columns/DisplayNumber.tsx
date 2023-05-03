@@ -45,7 +45,7 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
   }
 
   return (
-    <td data-testid={groupName}>{formatNumber()}</td>
+    <td data-testid={groupName} className="text-nowrap" hidden={!isVisible}>{formatNumber()}</td>
   );
 };
    
