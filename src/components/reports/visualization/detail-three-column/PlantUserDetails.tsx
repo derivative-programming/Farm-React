@@ -3,8 +3,7 @@ import { Col, ListGroup, Row, Spinner } from "react-bootstrap";
 import * as ReportService from "../../services/PlantUserDetails"; 
 import * as AsyncServices from "../../../services";
 import * as ReportColumnDisplay from "./columns";
-import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
-import "fake-indexeddb/auto";
+import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";  
 
 export interface ReportDetailThreeColPlantUserDetailsProps {
     name: string
