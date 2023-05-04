@@ -45,7 +45,8 @@ export const FormInputDate: FC<FormInputDateProps> = ({
     <div className="">
       <Form.Group controlId={name} className="mb-2 text-start">
           <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
-          <DatePicker
+          <DatePicker 
+            size="small"
             // ref={inputRef}
             data-testid={name} 
             aria-label={name} 

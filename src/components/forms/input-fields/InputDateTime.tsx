@@ -47,6 +47,7 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
           <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <DatePicker
             // ref={inputRef}
+            size="small"
             showTime={true}
             format="M/D/YYYY h:mm A"
             data-testid={name} 

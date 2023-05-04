@@ -7,28 +7,20 @@ sunday...
 keyur chat = 10am Sunday
 buy hat 
 
-todo...      
-test:no readme.me in tempaltes
- 
+todo...       
 
-close filter accordian by default.
+test:plant list cypress update column is hidden but did not know it
 
-test:fab plant list flavorcode header is set as visible in cypres test. 
+close filter accordian by default. 
 
 fab cypress issue on if sortup or sortdown is expected? separate test so it can retry?
 
-separate cypress tests on filter and table and page?
-
-fab platn list click here col url shoudl open separate tab. 
-
-test: title on repo readme
-
-g e nerate sections in cypress routing assistant
+separate cypress tests on filter and table and page?  
 
 break out legacy templates into own repos...
 - python django
 - php laravel
-- objective c\
+- objective c
 - Win App
 - Fixed Html Demo?
 
@@ -41,8 +33,7 @@ react app... handle primary model nav links to diff role sections (admin, config
 links in header? sidebar?
 
 filter ctrls are differnt.  hid search on guid? Just fabricated is diff?
-
-xs fields and table?
+ 
 
 change filter design? more columns? differnt closed accordian?
 
@@ -50,13 +41,12 @@ use local storage to hold values for...
 - filter accordian open
 - default page size
  
->>stream csv in api
-
->>>>remove plantedit page.   
+>>stream csv in api 
 
 >>add 'Filter' to landplantlist param names
 
->>>change add plant other button to 'Go To Dashboard'
+>>>change add plant other button to 'Go To Dashboard'...
+- needs taccode , so change in model ui app and run ai
  
 
 implement analytics collection storing to local db...  
@@ -72,7 +62,7 @@ implement analytics collection storing to local db...
 - log async form submit button click processing start and completed
 
  
-api...python with flask and django
+api...python with django
 
 job...better design? similar to upword?
  

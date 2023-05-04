@@ -463,7 +463,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isButtonCallToAction={false}
                     onClick={() => {
                       logClick("ReportGridLandPlantList","updateLinkPlantCode","");
-                      onNavigateTo("/plant-edit/" + item.updateLinkPlantCode)
+                      onNavigateTo("/plant-user-details/" + item.updateLinkPlantCode)
                     }}
                     isVisible={false}
                   />

@@ -20,6 +20,12 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
+
+  let url = value;
+  if(!linkText.toLowerCase().startsWith("http"))
+  {
+    url = "https://" + url;
+  }
   
   const displayValue = (isVisible && conditionallyVisible);
        
@@ -27,8 +33,9 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
     <td data-testid={groupName} 
       className="text-nowrap" 
       hidden={!isVisible}>
-        <a href={value}
+        <a href={url}
           hidden={!displayValue}
+          target="_blank"
           >
           {linkText}
         </a>

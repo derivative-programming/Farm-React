@@ -42,8 +42,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
         onClick={onClick} 
         className='' 
         variant={buttonVariant} 
-        disabled={!isEnabled}
-        size="sm"
+        disabled={!isEnabled} 
         type="button" hidden={!displayValue}>
           {buttonText}
       </Button>

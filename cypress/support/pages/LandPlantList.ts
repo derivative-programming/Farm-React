@@ -69,7 +69,7 @@ export class LandPlantListPage {
         const flavorCodeHeaderIsVisible = false;
         const someIntConditionalOnDeletableHeaderIsVisible = true;
         const nVarCharAsUrlHeaderIsVisible = true;
-        const updateLinkPlantCodeHeaderIsVisible = true;
+        const updateLinkPlantCodeHeaderIsVisible = false;
         const deleteAsyncButtonLinkPlantCodeHeaderIsVisible = true;
         const detailsLinkPlantCodeHeaderIsVisible = true;
 

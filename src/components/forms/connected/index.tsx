@@ -8,8 +8,7 @@ export { FormConnectedLandAddPlant} from "./LandAddPlant"
 //GENLearn[modelType=objectWorkflow,name=LandAddPlant,calculatedIsPage=true]End
 //GENTrainingBlock[b]End
 //GENLOOPObjectWorkflowEnd
-//GENLearn[modelType=object,name=Land]End
-export { FormConnectedPlantEdit} from "./PlantEdit" 
+//GENLearn[modelType=object,name=Land]End 
 export { FormConnectedTacLogin} from "./TacLogin" 
 export { FormConnectedTacRegister} from "./TacRegister"  
 //GENTrainingBlock[a]End

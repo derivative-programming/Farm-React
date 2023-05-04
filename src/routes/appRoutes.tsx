@@ -28,8 +28,7 @@ const FormConnectedLandAddPlant = loadable(() => import('../components/forms/con
 //GENLearn[modelType=objectWorkflow,name=LandAddPlant,calculatedIsPage=true]End
 //GENTrainingBlock[b]End
 //GENLOOPObjectWorkflowEnd
-//GENLearn[modelType=object,name=Land]End
-const FormConnectedPlantEdit = loadable(() => import('../components/forms/connected/PlantEdit'));
+//GENLearn[modelType=object,name=Land]End 
 const FormConnectedTacLogin = loadable(() => import('../components/forms/connected/TacLogin'));
 const FormConnectedTacRegister = loadable(() => import('../components/forms/connected/TacRegister'));
 //GENTrainingBlock[a]End
@@ -69,8 +68,7 @@ const AppRoute = () => {
       {/*//GENLearn[modelType=objectWorkflow,name=LandAddPlant,calculatedIsPage=true]End*/}
       {/*//GENTrainingBlock[b2]End*/}
       {/*//GENLOOPObjectWorkflowEnd*/}
-      {/*//GENLearn[modelType=object,name=Land]End*/}
-      <Route path={"/plant-edit/:id"} element={<FormConnectedPlantEdit />} /> 
+      {/*//GENLearn[modelType=object,name=Land]End*/} 
       {/*//GENTrainingBlock[a2]End*/}
       {/*//GENLOOPObjectEnd*/}
  

@@ -45,6 +45,7 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
           <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <DatePicker
             // ref={inputRef}
+            size="small"
             data-testid={name + '-field'} 
             aria-label={name} 
             placeholder={placeholder}
