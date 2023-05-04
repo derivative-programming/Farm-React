@@ -28,7 +28,8 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
   return (
     <div className="">
       <Form.Group controlId={name} className="mb-2 text-start">
-          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}
+            size="sm">{label}</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
             <Form.Control
@@ -41,6 +42,7 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
               autoFocus={autoFocus}
               onKeyDown={onKeyDown}
               isInvalid={isInvalid}
+              size="sm"
             />
             <Form.Control.Feedback  className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
           </InputGroup>

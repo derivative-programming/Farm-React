@@ -68,8 +68,7 @@ describe("LandAddPlant Component", () => {
   it("renders correctly", async () => { 
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     expect(screen.getByTestId("headerErrors")).toBeInTheDocument();
-
-    //vrdebug
+ 
     expect(screen.getByTestId("requestFlavorCode")).toBeInTheDocument();
     expect(screen.getByTestId("requestOtherFlavor")).toBeInTheDocument();
     expect(screen.getByTestId("requestSomeIntVal")).toBeInTheDocument();

@@ -23,6 +23,7 @@
         "reportColumn.calculatedIsObjectID",
         "reportColumn.isButtonCallToAction",
         "reportColumn.isJoinedToLeftColumn",
-        "reportColumn.isForcedIntoExport"
+        "reportColumn.isForcedIntoExport",
+        "reportColumn.isVisible"
     ]
 }

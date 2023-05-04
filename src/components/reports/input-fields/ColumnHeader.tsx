@@ -1,6 +1,5 @@
-import React, { FC, ReactElement } from "react"; 
-import sortUp from "../../../assets/caret-up.png";
-import sortDown from "../../../assets/caret-down.png";
+import React, { FC, ReactElement } from "react";  
+import { SortUp,SortDownAlt } from "react-bootstrap-icons";
 
 export interface ReportColumnHeaderProps {
   name?: string;
@@ -24,7 +23,7 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   const controlName = name.length > 0 ? name : { forColumn } + "ColumnHeader";
 
   return (
-    <th className="cursor-pointer text-nowrap"
+    <th className="cursor-pointer text-nowrap ps-2 pe-2"
       data-testid={forColumn + '-header'}
       id={forColumn + '-header'}
       hidden={!isVisible}
@@ -32,13 +31,17 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
     >
       {label}{" "}
       <span>
-        {" "}
-        {sortedColumnName === forColumn ? (
-          <img 
-            src={isSortDescending ? sortUp : sortDown}
-            data-testid={isSortDescending ? forColumn + '-header-sortUp' : forColumn + '-header-sortDown'} 
-            hidden={!isVisible}  
-            className="w-12 ms-3"/>
+        {" "} 
+        {sortedColumnName === forColumn && !isSortDescending && isVisible ? ( 
+            <SortDownAlt className="w-12 ms-1"  
+              data-testid={forColumn + '-header-sortDown'} 
+            />
+        ) : null}
+        
+        {sortedColumnName === forColumn && isSortDescending && isVisible ? ( 
+            <SortUp className="w-12 ms-1"
+              data-testid={forColumn + '-header-sortUp'} 
+            />
         ) : null}
       </span>
     </th>

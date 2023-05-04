@@ -4,14 +4,51 @@ You will be submitting a PR to this repository.
 
 
 sunday...  
-keyur chat?
+keyur chat = 10am Sunday
 buy hat 
 
 todo...      
+test:no readme.me in tempaltes
  
 
-template gen addloop and add synonyms meed to be done in memory and not in files to speed it up
- 
+close filter accordian by default.
+
+test:fab plant list flavorcode header is set as visible in cypres test. 
+
+fab cypress issue on if sortup or sortdown is expected? separate test so it can retry?
+
+separate cypress tests on filter and table and page?
+
+fab platn list click here col url shoudl open separate tab. 
+
+test: title on repo readme
+
+g e nerate sections in cypress routing assistant
+
+break out legacy templates into own repos...
+- python django
+- php laravel
+- objective c\
+- Win App
+- Fixed Html Demo?
+
+can break out cypress tests in a separate repo? separate template set? 
+
+create repo with larger react app that demostrates what can be built.  would need a api too. heroku is free?
+what model? JC order system? public repo. something massive. link on readme of other to this one with size spects (# of pages, number of unti tests, number of cypress tests)
+
+react app... handle primary model nav links to diff role sections (admin, config, etc)
+links in header? sidebar?
+
+filter ctrls are differnt.  hid search on guid? Just fabricated is diff?
+
+xs fields and table?
+
+change filter design? more columns? differnt closed accordian?
+
+use local storage to hold values for...
+- filter accordian open
+- default page size
  
 >>stream csv in api
 
@@ -20,8 +57,7 @@ template gen addloop and add synonyms meed to be done in memory and not in files
 >>add 'Filter' to landplantlist param names
 
 >>>change add plant other button to 'Go To Dashboard'
-
->>plant list row 'Click here' to 'link'
+ 
 
 implement analytics collection storing to local db...  
 - log button clicks... filter refresh
@@ -52,7 +88,7 @@ allow a trusted server app to send a message to a particular client userid chann
 
 C:\Users\vince\Downloads\possible-test-cases
 
-Create Boolean Gen Val Tags_ProcessLine calculatedis should override simple is prop if its available
+Create Boolean Ge n Val Tags_ProcessLine calculatedis should override simple is prop if its available
 
 page headers - report...  
 - need to look at isLabelVisible prop. should be attribute of ctrl displaying line item.  
@@ -118,7 +154,6 @@ jobs...
  
 4. react app feature recommendations
  
-
 6. unit testing...
  
   
@@ -168,7 +203,7 @@ impersonation page
 form is custom page used
 from control tool tip  
 
-display friendly generic message on hard unexpected error in api... 
+display friendly ge neric message on hard unexpected error in api... 
 - form init and post 
 - report grid init and query and async button
 - report 3 col init and query and async button
@@ -225,7 +260,7 @@ create file that has list of all files (except index)?  if it matches one of the
 folder name can identify folder type? report? objwf? form? set those as 'none' and make others default of namespace?
 
 
-authContext.js should be authContext.tsx. stop converting .js to .gen.js. create suppress extension substitution tag?
+authContext.js should be authContext.tsx. stop converting .js to .ge n.js. create suppress extension substitution tag?
 
 react demo app instead of static html
 

@@ -26,7 +26,8 @@ describe("InputFile Component", () => {
           {(props) => (
             <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
               <FormInputFile label="Test Label" name="testName"/>  
-              <Button type="submit" data-testid="submit-button"> 
+              <Button type="submit" data-testid="submit-button"
+                    size="sm"> 
                   Submit
               </Button>
             </Form>  

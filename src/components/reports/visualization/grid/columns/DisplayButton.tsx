@@ -44,6 +44,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
            variant={buttonVariant} 
             data-testid={buttonName}
             onClick={onClick}
+            size="sm"
         >{buttonText}</Button>
     </td>
   );

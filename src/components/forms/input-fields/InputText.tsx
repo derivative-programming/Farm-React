@@ -25,7 +25,8 @@ export const FormInputText: FC<FormInputTextProps> = ({
   return (
     <div>
       <Form.Group controlId={name} className="mb-2 text-start" >
-          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}
+            size="sm">{label}</Form.Label>
           <Form.Control
             // ref={inputRef}
             data-testid={name}
@@ -35,6 +36,7 @@ export const FormInputText: FC<FormInputTextProps> = ({
             disabled={disabled}
             autoFocus={autoFocus}  
             isInvalid={isInvalid}
+            size="sm"
           />
           <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
       </Form.Group> 

@@ -45,12 +45,12 @@ export class LandPlantListPage {
         cy.url().should('include', '/land-plant-list');
     }
 
-    verifyPageElements() {
+    verifyPageElements() { 
 
         const calculatedIsVisualizationGrid = true;
 
         const plantCodeHeaderIsVisible = true;
-        const someIntValHeaderIsVisible = true;
+        const someIntValHeaderIsVisible = true; 
         const someBigIntValHeaderIsVisible = true;
         const someBitValHeaderIsVisible = true;
         const isEditAllowedHeaderIsVisible = true;
@@ -66,7 +66,7 @@ export class LandPlantListPage {
         const somePhoneNumberHeaderIsVisible = true;
         const someEmailAddressHeaderIsVisible = true;
         const flavorNameHeaderIsVisible = true;
-        const flavorCodeHeaderIsVisible = true;
+        const flavorCodeHeaderIsVisible = false;
         const someIntConditionalOnDeletableHeaderIsVisible = true;
         const nVarCharAsUrlHeaderIsVisible = true;
         const updateLinkPlantCodeHeaderIsVisible = true;

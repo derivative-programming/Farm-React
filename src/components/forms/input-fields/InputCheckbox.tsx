@@ -40,7 +40,7 @@ export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
             disabled={disabled}
             autoFocus={autoFocus}
             label={label}
-            isInvalid={isInvalid}
+            isInvalid={isInvalid} 
           />
           <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
       </Form.Group> 

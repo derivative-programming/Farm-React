@@ -34,7 +34,8 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
   return (
     <div className="">
       <Form.Group controlId={name} className="mb-2 text-start">
-          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}
+            size="sm">{label}</Form.Label>
           <Form.Select
               data-testid={name}
               aria-label={name}  
@@ -42,6 +43,7 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
               disabled={disabled}
               autoFocus={autoFocus}
               isInvalid={isInvalid}
+              size="sm"
           >
               <option>Please Select One</option>
               {options.map((item, index) => {

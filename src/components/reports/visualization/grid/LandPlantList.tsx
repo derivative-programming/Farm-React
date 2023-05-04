@@ -149,7 +149,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
         //bordered 
         hover
         responsive
-        size="xl"
+        size="sm"
       >
         <thead>
           <tr>
@@ -531,6 +531,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
         <Button data-testidid="export-button"
           onClick={() => onExport()}
           className='me-md-2'
+          size="sm"
           variant="secondary">
           Export
         </Button>

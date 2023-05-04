@@ -32,7 +32,8 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
     <div className="" >
       <Form.Group controlId={name}
         data-testid={name} className="mt-2 text-start">
-          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}
+            size="sm">{label}</Form.Label>
           <Form.Select
               data-testid={name + '-field'}
               aria-label={name}  
@@ -40,6 +41,7 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
               disabled={disabled}
               autoFocus={autoFocus}
               isInvalid={isInvalid}
+              size="sm"
           >
               <option>Please Select One</option>
               {options.map((item, index) => {
