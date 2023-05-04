@@ -33,4 +33,8 @@ describe("LandPlantList Page", () => {
 	it("verify page elements", () => {  
 		subjectPage.verifyPageElements();
 	});
+	
+	it("verify sort feature", () => {  
+		subjectPage.verifySort();
+	});
 });

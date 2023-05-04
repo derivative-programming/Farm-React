@@ -133,4 +133,9 @@ export const LandPlantListPageSelectors = {
     someEmailAddressFilterField: "[data-testid='someEmailAddress-field']",
     flavorCodeFilterField: "[data-testid='flavorCode-field']",
     
+
+    pagingControl: "[data-testid='reportGridLandPlantList-paginator-pageination']",
+    pageSizeControl: "[data-testid='reportGridLandPlantList-paginator-pageination-select-page-size']",
+    pageSizeControlLabel: "[data-testid='items-per-page-label']",
+    tableRowCountDisplay: "[data-testid='reportGridLandPlantList-paginator-pageination-count-display']",
 }

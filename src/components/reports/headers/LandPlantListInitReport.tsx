@@ -19,12 +19,17 @@ const HeaderLandPlantList: FC<HeaderLandPlantListProps> = ({
   initData,
 }): ReactElement => {
 
+  const landNameHeaderIsVisible = true; 
+
   return ( 
     <div className="ms-3">
       <dl data-testid={name} 
         className="row text-start w-100 mt-3 p-3 border" 
         hidden={!isHeaderVisible}>
-        <dt className="col-sm-3">Land Name</dt><dd className="col-sm-9">{initData.landName}</dd>
+        <> {/*landName*/}
+          <dt className="col-sm-3" hidden={!landNameHeaderIsVisible}>Land Name</dt>
+          <dd className="col-sm-9" hidden={!landNameHeaderIsVisible}>{initData.landName}</dd>
+        </> 
       </dl> 
     </div>
   );

@@ -9,44 +9,38 @@ buy hat
 
 todo...       
 
-test:plant list cypress update column is hidden but did not know it
+cypress tests..
+site header tests (not page header) (data-testids exist)
+site footer tests (copyright text, etc) (data-testid="footer-text")
+ 
 
-close filter accordian by default. 
+stream csv in api 
 
-fab cypress issue on if sortup or sortdown is expected? separate test so it can retry?
+test:when creating seed data, int should never be 0? . farm api deploy required
 
-separate cypress tests on filter and table and page?  
+test:fab filter ctrls are differnt.  flavorcode moved to first position
+   
 
-break out legacy templates into own repos...
-- python django
-- php laravel
-- objective c
-- Win App
-- Fixed Html Demo?
-
-can break out cypress tests in a separate repo? separate template set? 
-
-create repo with larger react app that demostrates what can be built.  would need a api too. heroku is free?
-what model? JC order system? public repo. something massive. link on readme of other to this one with size spects (# of pages, number of unti tests, number of cypress tests)
+test:fab cypress issue on if sortup or sortdown is expected
 
 react app... handle primary model nav links to diff role sections (admin, config, etc)
-links in header? sidebar?
+links in header? sidebar? NavButton is in root, not namespace, so that complicates things. copy it to namespace in 
+workign model?
 
-filter ctrls are differnt.  hid search on guid? Just fabricated is diff?
  
 
 change filter design? more columns? differnt closed accordian?
 
-use local storage to hold values for...
-- filter accordian open
-- default page size
- 
->>stream csv in api 
 
->>add 'Filter' to landplantlist param names
+>>add 'Filter' to landplantlist param names...
+- need to run ai
+- would break existing apps
+- would need an api depoly
 
 >>>change add plant other button to 'Go To Dashboard'...
 - needs taccode , so change in model ui app and run ai
+- would need an api deploy
+- would break existing apps
  
 
 implement analytics collection storing to local db...  
@@ -76,16 +70,8 @@ protected the connection. no client knowing the customercode should be able to c
 allow client to send and recieve simple string message with the hub
 allow a trusted server app to send a message to a particular client userid channel through the hub. create a simple c# console app to demonstrate. 
 
-C:\Users\vince\Downloads\possible-test-cases
-
-Create Boolean Ge n Val Tags_ProcessLine calculatedis should override simple is prop if its available
-
-page headers - report...  
-- need to look at isLabelVisible prop. should be attribute of ctrl displaying line item.  
-
-page header - form.... 
-- need to look at isLabelVisible prop. should be attribute of ctrl displaying line item.   
-
+C:\Users\vince\Downloads\possible-test-cases 
+ 
 
 create page components so forms and reports connected components can be used on the same page. form may be ok since no breadcrumb or buttons around title shown. options to hide breadcrumb, title, nav buttons?
   
@@ -95,23 +81,14 @@ job: no internet connection alert
 test forceerror on add plant init and submit and its display.
     looks like just report page has this?
 
-test:when creating seed data, int should never be 0?
 
 
-Cypress tests...
-need to create seed data?
+Cypress tests... 
 gdpr test.. is visible, go to another page and is visible, accept and is hidden, go to another page and is hidden
 submit add button and fill out form with seed data, if available? do this to create rows? can only do this in dev? not pac or tac? not config pages?
-thse page tests should just look for elements on page, test sort, etc.? dont click async buttons? dont submit forms?
-functional tests are separate from page testS?
 report tests...
 - open close filter 
-- table cell data format display 
-- paging controls data-testid="reportGridLandPlantList-paginator-pageination"
-- table count display (data-testid="reportGridLandPlantList-paginator-pageination-count-display")
-- page size control (data-testid="items-per-page-label") (data-testid="reportGridLandPlantList-paginator-pageination-select-page-size")
-site header tests (data-testids exist)
-site footer tests (data-testid="footer-text")
+- table cell data format display  
 
    
 
@@ -193,7 +170,7 @@ impersonation page
 form is custom page used
 from control tool tip  
 
-display friendly ge neric message on hard unexpected error in api... 
+display friendly generic message on hard unexpected error in api... 
 - form init and post 
 - report grid init and query and async button
 - report 3 col init and query and async button
@@ -205,27 +182,9 @@ report grid page template
 report three column template
 report navigation template
 form template
-
-add examples of use...infinite
  
  
-unit testing...infinite
-component\forms\connected
-component\forms\input-fields @disabled, @autofocus, @label done
-component\forms\lookups
-component\forms\services
-component\lookups
-component\reports\connected
-component\reports\filters
-component\reports\input-fields  @disabled, @autofocus, @label done
-component\reports\lookups
-component\reports\services
-component\reports\visualization\detail-three-column
-component\reports\visualization\detail-three-column\columns
-component\reports\visualization\grid
-component\reports\visualization\grid\columns
-component\services
-  
+   
 
 special lists...
 report
@@ -235,8 +194,6 @@ subsets of any array. try setting each boolean prop to true or false in the dime
   
   
 Check success add navigation on result code 
-
-
 
 Translator… 
 CHANGE REPO names from r18 b5 to react18_bootstrap5
@@ -252,7 +209,7 @@ folder name can identify folder type? report? objwf? form? set those as 'none' a
 
 authContext.js should be authContext.tsx. stop converting .js to .ge n.js. create suppress extension substitution tag?
 
-react demo app instead of static html
+create react demo app instead of static html? use fixture json for data?
 
 
 reverse template tag substitution: 
@@ -265,10 +222,8 @@ sort on property value length is relevant
 
 remove IsConditionalVisible prop. its not used. a calculated one is instead
 
-Analytics…
-Need… Api key, page , context code
-Model feature?
-Root Top level setting ? 
+Analytics… 
+this is a Model feature?  Root Top level setting ? 
 All go to one endpoint 
 use signalr to send analytics
 create analytics specific hub? channel?  
@@ -279,3 +234,19 @@ Cache api keys? To redis? Mem cache?
 voice assistant?
 learn from api data and app model?
 
+
+can break out cypress tests in a separate repo? separate template set? 
+
+
+separate cypress tests on filter and table and page?  
+
+
+break out legacy templates into own repos...
+- python django
+- php laravel
+- objective c
+- Win App
+- Fixed Html Demo?
+
+create repo with larger react app that demostrates what can be built.  would need a api too. heroku is free?
+what model? JC order system? public repo. something massive. link on readme of other to this one with size spects (# of pages, number of unti tests, number of cypress tests)

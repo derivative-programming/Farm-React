@@ -1267,6 +1267,18 @@
                 ],
                 "reportParam": [
                   {
+                    "name": "FlavorCode",
+                    "codeDescription": "Land Plant List Report Flavor Code Filter",
+                    "labelText": "Select A Flavor",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "sqlServerDBDataTypeSize": "",
+                    "isVisible": "true",
+                    "isFKList": "true",
+                    "isFK": "true",
+                    "isFKLookup": "true",
+                    "isFKListSearchable": "true"
+                  },
+                  {
                     "name": "SomeIntVal",
                     "codeDescription": "Land Plant List Report Some Int Val Filter",
                     "labelText": "Some Int Val",
@@ -1400,18 +1412,6 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true"
-                  },
-                  {
-                    "name": "FlavorCode",
-                    "codeDescription": "Land Plant List Report Flavor Code Filter",
-                    "labelText": "Select A Flavor",
-                    "sqlServerDBDataType": "uniqueidentifier",
-                    "sqlServerDBDataTypeSize": "",
-                    "isVisible": "true",
-                    "isFKList": "true",
-                    "isFK": "true",
-                    "isFKLookup": "true",
-                    "isFKListSearchable": "true"
                   }
                 ],
                 "reportColumn": [

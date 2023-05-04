@@ -38,6 +38,9 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
   // console.log(initialValues); 
 
   const validationSchema = ReportService.buildValidationSchema();
+ 
+  const isFiltersVisibleDefault = localStorage.getItem("isFiltersVisible");
+  const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
 
   const authContext = useContext(AuthContext);
 
@@ -65,11 +68,24 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
 
   const onAccordianHeaderClick = () => { 
     logClick("ReportFilterLandPlantList","accordianClick","");
+    const isFiltersVisible = localStorage.getItem("isFiltersVisible");
+    if(isFiltersVisible === null)
+    {
+      localStorage.setItem("isFiltersVisible","true")
+    }
+    if(isFiltersVisible === "true")
+    {
+      localStorage.setItem("isFiltersVisible","false")
+    }
+    if(isFiltersVisible === "false")
+    {
+      localStorage.setItem("isFiltersVisible","true")
+    }
   }
  
   return (
     <div className="mt-3 w-100" hidden={hidden}>
-      <Accordion defaultActiveKey="0" alwaysOpen={!isCollapsible}>
+      <Accordion defaultActiveKey={defaultAccordianKey} alwaysOpen={!isCollapsible}>
         <Accordion.Item eventKey="0">
           <Accordion.Header onClick={onAccordianHeaderClick}>Filters</Accordion.Header>
           <Accordion.Body>

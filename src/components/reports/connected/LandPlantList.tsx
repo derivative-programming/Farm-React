@@ -93,7 +93,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   };
 
   const onPageSizeChange = (pageSize: number) => {
-    logClick("ReportConnectedLandPlantList","pageSizeChange",pageSize.toString());
+    logClick("ReportConnectedLandPlantList","pageSizeChange",pageSize.toString());  
+    localStorage.setItem("pageSize",pageSize.toString());
     setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
   };
 
@@ -151,14 +152,17 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   }, []);
 
   useEffect(() => {
-    const newInitalValues = ReportService.buildQueryRequest(initPageResponse);
-    // console.log('initial values...');
-    // console.log(newInitalValues);
+    const newInitalValues = ReportService.buildQueryRequest(initPageResponse); 
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 
   useEffect(() => {
-    if (JSON.stringify(initialValues) !== JSON.stringify(query)) {
+    if (JSON.stringify(initialValues) !== JSON.stringify(query)) { 
+      let pageSize = localStorage.getItem("pageSize");
+      if(pageSize !== null)
+      { 
+        initialValues.ItemCountPerPage = parseInt(pageSize);
+      }
       setQuery({ ...initialValues });
     }
   }, [initialValues]);
@@ -271,7 +275,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
           initialQuery={initialValues}
           onSubmit={onSubmit}
           isCollapsible={isFilterSectionCollapsable}
-          hidden={isFilterSectionHidden}
+          hidden={isFilterSectionHidden} 
         />
 
         <div

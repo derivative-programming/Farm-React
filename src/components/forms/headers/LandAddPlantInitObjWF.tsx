@@ -19,12 +19,18 @@ const HeaderLandAddPlant: FC<HeaderLandAddPlantProps> = ({
   initData,
 }): ReactElement => {
 
-  return ( 
-    <dl data-testid={name} 
-      className="row text-start w-100 mt-3" 
-      hidden={!isHeaderVisible}>
-      <dt className="col-sm-3">Land Name</dt><dd className="col-sm-9">{initData.landName}</dd>
-    </dl> 
+  const landNameHeaderIsVisible = true; 
+
+
+  return (
+    <dl data-testid={name}
+      className="row text-start w-100 mt-3"
+      hidden={!isHeaderVisible}>  
+      <> {/*landName*/}
+        <dt className="col-sm-3" hidden={!landNameHeaderIsVisible}>Land Name</dt>
+        <dd className="col-sm-9" hidden={!landNameHeaderIsVisible}>{initData.landName}</dd>
+      </>
+    </dl>
   );
 };
 
