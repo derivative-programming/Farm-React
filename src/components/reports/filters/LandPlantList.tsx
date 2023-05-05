@@ -87,7 +87,8 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
     <div className="mt-3 w-100" hidden={hidden}>
       <Accordion defaultActiveKey={defaultAccordianKey} alwaysOpen={!isCollapsible}>
         <Accordion.Item eventKey="0">
-          <Accordion.Header onClick={onAccordianHeaderClick}>Filters</Accordion.Header>
+          <Accordion.Header onClick={onAccordianHeaderClick}
+            data-testid={name + '-header'}>Filters</Accordion.Header>
           <Accordion.Body>
             <Formik
               enableReinitialize={true}
@@ -105,56 +106,56 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                   onSubmit={props.handleSubmit}
                 >
                   <Row>
-                    <Col lg="4" md="6" xs="12" id="flavorCode">
+                    <Col xl="3" lg="4" md="6" xs="12" id="flavorCode">
                       <Lookups.ReportSelectFlavor
                         name="flavorCode"
                         label="Select A Flavor"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someIntVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someIntVal">
                       <ReportInput.ReportInputNumber
                         name="someIntVal"
                         label="Some Int Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someBigIntVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someBigIntVal">
                       <ReportInput.ReportInputNumber
                         name="someBigIntVal"
                         label="Some Big Int Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someBitVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someBitVal">
                       <ReportInput.ReportInputCheckbox
                         name="someBitVal"
                         label="Some Bit Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="isEditAllowed">
+                    <Col xl="3" lg="4" md="6" xs="12" id="isEditAllowed">
                       <ReportInput.ReportInputCheckbox
                         name="isEditAllowed"
                         label="Is Edit Allowed"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="isDeleteAllowed">
+                    <Col xl="3" lg="4" md="6" xs="12" id="isDeleteAllowed">
                       <ReportInput.ReportInputCheckbox
                         name="isDeleteAllowed"
                         label="Is Delete Allowed"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someFloatVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFloatVal">
                       <ReportInput.ReportInputNumber
                         name="someFloatVal"
                         label="Some Float Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someDecimalVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someDecimalVal">
                       <ReportInput.ReportInputNumber
                         name="someDecimalVal"
                         label="Some Decimal Val"
                       />
                     </Col>
                     <Col  id="someMinUTCDateTimeVal"
-                      lg="4"
+                      xl="3" lg="4"
                       md="6"
                       xs="12" 
                     >
@@ -163,50 +164,51 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                         label="Some Min UTC Date Time Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someMinDateVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someMinDateVal">
                       <ReportInput.ReportInputDate
                         name="someMinDateVal"
                         label="Some Min Date Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someMoneyVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someMoneyVal">
                       <ReportInput.ReportInputMoney
                         name="someMoneyVal"
                         label="Some Money Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someNVarCharVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someNVarCharVal">
                       <ReportInput.ReportInputText
                         name="someNVarCharVal"
                         label="Some N Var Char Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someVarCharVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someVarCharVal">
                       <ReportInput.ReportInputText
                         name="someVarCharVal"
                         label="Some Var Char Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someTextVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someTextVal">
                       <ReportInput.ReportInputText
                         name="someTextVal"
                         label="Some Text Val"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="somePhoneNumber">
+                    <Col xl="3" lg="4" md="6" xs="12" id="somePhoneNumber">
                       <ReportInput.ReportInputText
                         name="somePhoneNumber"
                         label="Some Phone Number"
                       />
                     </Col>
-                    <Col lg="4" md="6" xs="12" id="someEmailAddress">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someEmailAddress">
                       <ReportInput.ReportInputEmail
                         name="someEmailAddress"
                         label="Some Email Address"
                       />
-                    </Col>
-                    <Col lg="4" md="6" xs="12"></Col>
-                    <Col lg="4" md="6" xs="12">
+                    </Col> 
+                  </Row>
+                  <Row>
+                    <Col xl="12" lg="12" md="12" xs="12">
                       <div className="d-flex h-100 align-items-end justify-content-end">
                         <Button 
                           type="submit"

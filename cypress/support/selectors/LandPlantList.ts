@@ -138,4 +138,6 @@ export const LandPlantListPageSelectors = {
     pageSizeControl: "[data-testid='reportGridLandPlantList-paginator-pageination-select-page-size']",
     pageSizeControlLabel: "[data-testid='items-per-page-label']",
     tableRowCountDisplay: "[data-testid='reportGridLandPlantList-paginator-pageination-count-display']",
+
+    filterHeader: "[data-testid='reportConnectedLandPlantList-filter-header']",
 }

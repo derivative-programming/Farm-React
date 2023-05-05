@@ -11,6 +11,7 @@ export const submitRequest = (data:any, landCode:string) => {
   }; 
   
 export const submitCSVRequest = (data:any, landCode:string) => {
+  console.log('csv request');
     return apiCall({
       url:  "/land-plant-list/" + landCode + "/to-csv",
       method: "get",

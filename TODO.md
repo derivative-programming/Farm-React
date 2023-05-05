@@ -9,38 +9,41 @@ buy hat
 
 todo...       
 
-cypress tests..
-site header tests (not page header) (data-testids exist)
-site footer tests (copyright text, etc) (data-testid="footer-text")
- 
+xl filter needs textbox in top row
+
+authContext.js should be authContext.tsx. 
+
 label "url" hardcoded in template? 
 label="Url". string too short?
 buttonText=" Field One-Plants". extra space? doenst match model?
- 
-test:when creating seed data, int should never be 0? . farm api deploy required
- 
-
-test:fab cypress issue on if sortup or sortdown is expected
 
 react app... handle primary model nav links to diff role sections (admin, config, etc)
 links in header? sidebar? NavButton is in root, not namespace, so that complicates things. copy it to namespace in 
 workign model?
 
+cypress tests..
+site header tests (not page header) (data-testids exist)
+site footer tests (copyright text, etc) (data-testid="footer-text")
  
+ 
+test:when creating seed data, int should never be 0? . farm api deploy required
+  
+fab cypress issue on if sortup or sortdown is expected
+  
 
-change filter design? more columns? differnt closed accordian?
-
-
->>add 'Filter' to landplantlist param names...
+add 'Filter' to landplantlist param names...
 - need to run ai
 - would break existing apps
 - would need an api depoly
 
->>>change add plant other button to 'Go To Dashboard'...
+change add plant other button to 'Go To Dashboard'...
 - needs taccode , so change in model ui app and run ai
 - would need an api deploy
 - would break existing apps
+
+report table row button to stream out file 
  
+ api...python with django
 
 implement analytics collection storing to local db...  
 - log button clicks... filter refresh
@@ -55,7 +58,7 @@ implement analytics collection storing to local db...
 - log async form submit button click processing start and completed
 
  
-api...python with django
+
 
 job...better design? similar to upword?
  
@@ -89,8 +92,10 @@ report tests...
 - open close filter 
 - table cell data format display  
 
-   
 
+processsing animation on report export button
+   
+allow copy of link on report that contains report query
 
 test err...logout expected mock service call. set ispage=false? clear out api token? 
     
@@ -121,12 +126,12 @@ jobs...
   
 
 
-7. >>>visualization - line chart...
+7. visualization - line chart...
 Create a new page.  Copy land-plant-list page to create land-plant-line-chart.  Replace result table with a chart that uses 'Some Date Time Val' and 'Some Decimal Val' values as data. 
 Horizontal axis... datetime is horizontal axis. Dispaly dates on axis label (not time). labels for individual days should be shown on the axis, even if no data exists on that day
 Vertical axis should show integers as labels. 
 
-8. >>>visualization - card view...
+8. visualization - card view...
 create new page. Copy land-plant-list page to create land-plant-card-list. Replace result table with a card display.  Card will use 'Some Var Char Val' column as the card title and 'Some text Val' colummn as the card body. 
 
 9. visualization - folder view
@@ -157,7 +162,7 @@ job:visualization report line chart
 visualization report flow chart
 job:visualization report card view
 job:visualization report folder view
->>>report param is unknown lokup allowed
+report param is unknown lokup allowed
 form credit card
 form captcha
 form auto submit   
@@ -201,8 +206,7 @@ create file that has list of all files (except index)?  if it matches one of the
 
 folder name can identify folder type? report? objwf? form? set those as 'none' and make others default of namespace?
 
-
-authContext.js should be authContext.tsx. stop converting .js to .ge n.js. create suppress extension substitution tag?
+stop converting .js to .gen.js? create suppress extension substitution tag?
 
 create react demo app instead of static html? use fixture json for data?
 

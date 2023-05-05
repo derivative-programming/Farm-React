@@ -137,8 +137,11 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   };
 
   
-  const onExport = () => { 
+  const onExport = () => {   
     logClick("ReportConnectedLandPlantList","export","");
+    if(isProcessing){
+      return;
+    } 
     setExportQuery({ ...query });
   };
 
@@ -176,8 +179,14 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     .finally(() => {setIsProcessing(false);});
   }, [query]);
   
-  useEffect(() => {  
-    setIsProcessing(true);
+  useEffect(() => {   
+    if (!isInitializedRef.current) {
+      return;
+    } 
+    if(!queryResult.success){
+      return;
+    }
+    setIsProcessing(true); 
     ReportService.submitCSVRequest(query, contextCode).then((response) => { 
       //handleExportQueryResults(response);
       const blob = new Blob([response.data], { type: "text/csv" });
