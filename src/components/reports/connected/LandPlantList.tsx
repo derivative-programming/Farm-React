@@ -20,6 +20,7 @@ import HeaderLandPlantList from "../headers/LandPlantListInitReport";
 import * as ReportInput from "../input-fields";
 import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
+import { v4 as uuidv4 } from "uuid";
 
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -136,7 +137,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   };
 
   
-  const onExport = () => {
+  const onExport = () => { 
     logClick("ReportConnectedLandPlantList","export","");
     setExportQuery({ ...query });
   };
@@ -175,11 +176,18 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     .finally(() => {setIsProcessing(false);});
   }, [query]);
   
-  useEffect(() => { 
+  useEffect(() => {  
     setIsProcessing(true);
-    ReportService.submitCSVRequest(query, contextCode).then((response) =>
-      handleExportQueryResults(response)
-    )
+    ReportService.submitCSVRequest(query, contextCode).then((response) => { 
+      //handleExportQueryResults(response);
+      const blob = new Blob([response.data], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);  
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'LandPlantList-' + uuidv4() + '.csv');
+      document.body.appendChild(link);
+      link.click();
+    })
     .finally(() => {setIsProcessing(false);});
   }, [exportQuery]);
 

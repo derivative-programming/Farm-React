@@ -13,13 +13,12 @@ cypress tests..
 site header tests (not page header) (data-testids exist)
 site footer tests (copyright text, etc) (data-testid="footer-text")
  
-
-stream csv in api 
-
+label "url" hardcoded in template? 
+label="Url". string too short?
+buttonText=" Field One-Plants". extra space? doenst match model?
+ 
 test:when creating seed data, int should never be 0? . farm api deploy required
-
-test:fab filter ctrls are differnt.  flavorcode moved to first position
-   
+ 
 
 test:fab cypress issue on if sortup or sortdown is expected
 
@@ -97,9 +96,7 @@ test err...logout expected mock service call. set ispage=false? clear out api to
     
 - allow bookmark of report page url to view page with same filters
 
-- allow bookmark of authorized page. require login then redirect to it.
-  
-- to-csv endpoint needs to stream out a file. react app needs to handle it.
+- allow bookmark of authorized page. require login then redirect to it. 
 
 - need page not found page.  redirect unknown urls to it?
    
@@ -116,8 +113,6 @@ test err...logout expected mock service call. set ispage=false? clear out api to
 jobs... 
  
 1. add landaddplant and landplantlist and plantuserdetails unit tests 
-
-2. export button to csv (api should return a file?)
  
 4. react app feature recommendations
  
