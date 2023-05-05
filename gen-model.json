@@ -1297,6 +1297,15 @@
                     "isFKList": "false"
                   },
                   {
+                    "name": "SomeFloatVal",
+                    "codeDescription": "Land Plant List Report Some Float Val Filter",
+                    "labelText": "Some Float Val",
+                    "sqlServerDBDataType": "float",
+                    "sqlServerDBDataTypeSize": "",
+                    "isVisible": "true",
+                    "isFKList": "false"
+                  },
+                  {
                     "name": "SomeBitVal",
                     "codeDescription": "Land Plant List Report Some Bit Val Filter",
                     "labelText": "Some Bit Val",
@@ -1324,15 +1333,6 @@
                     "isVisible": "true",
                     "isFKList": "false",
                     "defaultValue": "true"
-                  },
-                  {
-                    "name": "SomeFloatVal",
-                    "codeDescription": "Land Plant List Report Some Float Val Filter",
-                    "labelText": "Some Float Val",
-                    "sqlServerDBDataType": "float",
-                    "sqlServerDBDataTypeSize": "",
-                    "isVisible": "true",
-                    "isFKList": "false"
                   },
                   {
                     "name": "SomeDecimalVal",
@@ -1745,7 +1745,7 @@
                   {
                     "name": "NVarCharAsUrl",
                     "codeDescription": "Land Plant List Report N Var Char As Url Column",
-                    "headerText": "Url",
+                    "headerText": "N Var Char As Url",
                     "sourceObjectName": "Plant",
                     "sourcePropertyName": "SomeNVarCharVal",
                     "sqlServerDBDataType": "nvarchar",
@@ -2272,9 +2272,9 @@
                   },
                   {
                     "buttonType": "other",
-                    "buttonText": "New Random Values",
-                    "destinationTargetName": "LandAddPlant",
-                    "destinationContextObjectName": "Land"
+                    "buttonText": "Go To Dashboard",
+                    "destinationTargetName": "TacFarmDashboard",
+                    "destinationContextObjectName": "Tac"
                   }
                 ],
                 "initObjectWorkflowName": "LandAddPlantInitObjWF",
@@ -2435,6 +2435,14 @@
                     "isHeaderText": "true",
                     "sourceObjectName": "Land",
                     "sourcePropertyName": "Name"
+                  },
+                  {
+                    "name": "TacCode",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Tac",
+                    "sourceObjectName": "Tac",
+                    "sourcePropertyName": "Code"
                   }
                 ],
                 "objectWorkflowButton": []
@@ -4916,7 +4924,7 @@
                 ]
               }
             ],
-            "objectWorkflow": [ 
+            "objectWorkflow": [
               {
                 "name": "PlantUserDelete",
                 "isPage": "false",
@@ -5347,7 +5355,7 @@
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
                     "isButton": "true",
-                    "buttonText": "Field One - Plants",
+                    "buttonText": "Field One-Plants",
                     "destinationTargetName": "LandPlantList",
                     "destinationContextObjectName": "Land",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
@@ -6034,9 +6042,9 @@
               {
                 "name": "PacUserFlavorList",
                 "isAPIAuthorizationRequired": "true",
-                "isGetAvailable": "true",
+                "isGetAvailable": "false",
                 "isGetContextCodeAParam": "false",
-                "isGetWithIdAvailable": "false",
+                "isGetWithIdAvailable": "true",
                 "isGetInitAvailable": "true",
                 "apiGetInitContextTargetName": "PacUserFlavorListInitReport",
                 "apiGetInitContextObjectName": "Pac",
@@ -6155,7 +6163,7 @@
                 "apiPutContextObjectName": "",
                 "apiPutContextTargetName": "",
                 "isEndPointLoggingEnabled": "false"
-              }, 
+              },
               {
                 "name": "PlantUserDetails",
                 "isAPIAuthorizationRequired": "true",

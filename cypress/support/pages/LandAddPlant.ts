@@ -355,6 +355,10 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.footerText)
             .should('not.be.visible');
         }
+        
+        cy.get(PageSelectors.siteFooter)
+            .should('be.visible')
+            .should('include.text', PageTexts.siteFooterText);
          
     }
 

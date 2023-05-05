@@ -3,7 +3,7 @@
     
   export const submitRequest = () => {
     return apiCall({
-      url: '/pac-user-flavor-list',
+      url: '/pac-user-flavor-list/00000000-0000-0000-0000-000000000000',
       method: "get"
     });
   };

@@ -30,11 +30,8 @@ export const LandAddPlantPageTexts = {
 
     submitButtonText: "OK Button Text",
     cancelButtonText: "Cancel Button Text",
-    otherButtonText: "New Random Values",
+    otherButtonText: "Go To Dashboard",
 
 
-    
-      
-
-
+    siteFooterText: "Copyright © 2023 • NewCo, Inc.",
 }

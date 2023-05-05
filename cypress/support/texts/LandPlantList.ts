@@ -29,7 +29,7 @@ export const LandPlantListPageTexts = {
     flavorNameHeaderText: "Flavor Name",
     flavorCodeHeaderText: "",
     someIntConditionalOnDeletableHeaderText: "Int Conditional",
-    nVarCharAsUrlHeaderText: "Url",
+    nVarCharAsUrlHeaderText: "N Var Char As Url",
     updateLinkPlantCodeHeaderText: "",
     deleteAsyncButtonLinkPlantCodeHeaderText: "",
     detailsLinkPlantCodeHeaderText: "",
@@ -72,5 +72,6 @@ export const LandPlantListPageTexts = {
     deleteAsyncButtonLinkPlantCodeRowButtonText: "Delete",
     detailsLinkPlantCodeRowButtonText: "Details",
 
+    siteFooterText: "Copyright © 2023 • NewCo, Inc.",
 
 }

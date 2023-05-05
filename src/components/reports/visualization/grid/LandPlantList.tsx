@@ -309,7 +309,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
             <ReportColumnHeader forColumn="nVarCharAsUrl"
               isSortDescending={isSortDescending}
-              label="Url"
+              label="N Var Char As Url"
               onSort={onSort}
               isVisible={true}
               sortedColumnName={sortedColumnName}

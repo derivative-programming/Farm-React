@@ -40,6 +40,8 @@ export interface InitResult {
     requestSomeEmailAddress: string;
  
     landName: string;
+ 
+    tacCode: string;
 
     success: boolean;
     message: string;
@@ -98,6 +100,8 @@ export class InitResultInstance implements InitResult {
     requestSomeEmailAddress: string;
  
     landName: string;
+ 
+    tacCode: string;
 
     success: boolean;
     message: string;
@@ -140,6 +144,8 @@ export class InitResultInstance implements InitResult {
         this.requestSomeEmailAddress = '';
 
         this.landName = '';
+ 
+        this.tacCode = '';
 
         this.success = false;
         this.message = '';

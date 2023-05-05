@@ -7,15 +7,16 @@ sunday...
 keyur chat = 10am Sunday
 buy hat 
 
-todo...       
+todo...        
+  
+  
 
-xl filter needs textbox in top row
+add 'Filter' to landplantlist param names...
+- need to run ai
+- need to run db updates
+- would break existing apps
+- would need an api depoly
 
-authContext.js should be authContext.tsx. 
-
-label "url" hardcoded in template? 
-label="Url". string too short?
-buttonText=" Field One-Plants". extra space? doenst match model?
 
 react app... handle primary model nav links to diff role sections (admin, config, etc)
 links in header? sidebar? NavButton is in root, not namespace, so that complicates things. copy it to namespace in 
@@ -23,23 +24,17 @@ workign model?
 
 cypress tests..
 site header tests (not page header) (data-testids exist)
-site footer tests (copyright text, etc) (data-testid="footer-text")
  
  
 test:when creating seed data, int should never be 0? . farm api deploy required
-  
-fab cypress issue on if sortup or sortdown is expected
-  
+   
+ios swift app 
 
-add 'Filter' to landplantlist param names...
-- need to run ai
-- would break existing apps
-- would need an api depoly
+android Kotlin app
 
-change add plant other button to 'Go To Dashboard'...
-- needs taccode , so change in model ui app and run ai
-- would need an api deploy
-- would break existing apps
+flutter app (ios and android)
+
+react native app (ios and android)
 
 report table row button to stream out file 
  
@@ -57,7 +52,7 @@ implement analytics collection storing to local db...
 - log async report 3 col vis async other button click processing start and completed 
 - log async form submit button click processing start and completed
 
- 
+
 
 
 job...better design? similar to upword?
@@ -89,7 +84,6 @@ Cypress tests...
 gdpr test.. is visible, go to another page and is visible, accept and is hidden, go to another page and is hidden
 submit add button and fill out form with seed data, if available? do this to create rows? can only do this in dev? not pac or tac? not config pages?
 report tests...
-- open close filter 
 - table cell data format display  
 
 
@@ -233,6 +227,8 @@ Cache api keys? To redis? Mem cache?
 voice assistant?
 learn from api data and app model?
 
+
+authContext.js should be authContext.tsx. 
 
 can break out cypress tests in a separate repo? separate template set? 
 

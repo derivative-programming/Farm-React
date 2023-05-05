@@ -48,6 +48,7 @@ export const LandAddPlantPageSelectors = {
     //page title
     title: "[data-testid='page-title-text']",
     //page intro text
+
     introText: "[data-testid='page-intro-text']",
     
     footerText: "[data-testid='page-footer-text']",
@@ -55,5 +56,7 @@ export const LandAddPlantPageSelectors = {
     submitButton: "[data-testid='submit-button']",
     cancelButton: "[data-testid='cancel-button']",
     otherButton: "[data-testid='other-button']",
+    
+    siteFooter: "[data-testid='footer-text']",
     
 }

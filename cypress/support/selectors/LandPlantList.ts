@@ -140,4 +140,9 @@ export const LandPlantListPageSelectors = {
     tableRowCountDisplay: "[data-testid='reportGridLandPlantList-paginator-pageination-count-display']",
 
     filterHeader: "[data-testid='reportConnectedLandPlantList-filter-header']",
+
+    siteFooter: "[data-testid='footer-text']",
+
+    filterSearchButton: "[data-testid='submit-button']",
+    filterRefreshButton: "[data-testid='reset']",
 }

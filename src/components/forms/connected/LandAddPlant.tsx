@@ -291,10 +291,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                     className="me-2 mt-3"
                   />
                   <InputFields.FormInputButton name="other-button"
-                    buttonText="New Random Values"
+                    buttonText="Go To Dashboard"
                     onClick={() => {
                       logClick("FormConnectedLandAddPlant","otherButton","");
-                      navigateTo("land-add-plant", "landCode");
+                      navigateTo("tac-farm-dashboard", "tacCode");
                     }}
                     isButtonCallToAction={false}
                     isVisible={true}

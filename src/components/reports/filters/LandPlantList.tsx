@@ -124,6 +124,12 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                         label="Some Big Int Val"
                       />
                     </Col>
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFloatVal">
+                      <ReportInput.ReportInputNumber
+                        name="someFloatVal"
+                        label="Some Float Val"
+                      />
+                    </Col>
                     <Col xl="3" lg="4" md="6" xs="12" id="someBitVal">
                       <ReportInput.ReportInputCheckbox
                         name="someBitVal"
@@ -140,12 +146,6 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                       <ReportInput.ReportInputCheckbox
                         name="isDeleteAllowed"
                         label="Is Delete Allowed"
-                      />
-                    </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someFloatVal">
-                      <ReportInput.ReportInputNumber
-                        name="someFloatVal"
-                        label="Some Float Val"
                       />
                     </Col>
                     <Col xl="3" lg="4" md="6" xs="12" id="someDecimalVal">

@@ -335,7 +335,9 @@ export class LandPlantListPage {
             .should('not.be.visible');
         }
 
-        
+        cy.get(PageSelectors.siteFooter)
+            .should('be.visible')
+            .should('include.text', PageTexts.siteFooterText);
 
         
         const isFilterSectionHidden = false;
@@ -366,8 +368,19 @@ export class LandPlantListPage {
 
         if(calculatedIsVisualizationGrid && !isFilterSectionHidden){
 
+            cy.get(PageSelectors.filterSearchButton)
+            .should('not.be.visible');
+            
+            cy.get(PageSelectors.filterRefreshButton)
+            .should('not.be.visible');
+
             //default is closed
-            cy.get(PageSelectors.filterHeader).click();
+            cy.get(PageSelectors.filterHeader)
+            .click()
+            .get(PageSelectors.filterSearchButton)
+            .should('be.visible')
+            .get(PageSelectors.filterRefreshButton)
+            .should('be.visible');
 
             //test filter fields
             if(flavorCodeIsVisible){
