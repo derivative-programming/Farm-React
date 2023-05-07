@@ -13,9 +13,10 @@ export const startConnection = () => {
             .build();
 
         connection.start();
+        console.log('Connection Start');
 
         SetConnectionId(connectionId);
-        checkAliveConnection();
+        checkAliveConnection(connectionId);
 
         connection.on('ReceiveMessage', (user: any, message: any) => {
             console.log(message);
@@ -30,6 +31,7 @@ const SetConnectionId = async (connectionId: string) => {
         await timeout(2000);
         if (connection && connection.state == HubConnectionState.Connected) {
             connection.invoke('SetConnectionId', connectionId);
+            console.log('Set ConnectionId');
             return;
         }
     }
@@ -37,6 +39,7 @@ const SetConnectionId = async (connectionId: string) => {
 
 export const stopConnection = () => {
     if (connection) {
+        console.log('Connection Stop');
         return connection.stop();
     }
 }
@@ -45,7 +48,9 @@ export const reconnectOnRefresh = () => {
     window.addEventListener('beforeunload', () => {
         stopConnection()
             .then(() => {
+                console.log('SignalR connection stopped on page refresh');
                 startConnection();
+                console.log('SignalR connection re-established on page refresh');
             })
             .catch((error: any) => console.error(error));
     });
@@ -53,6 +58,7 @@ export const reconnectOnRefresh = () => {
 
 export const reconnectWhenOnline = () => {
     window.addEventListener('online', () => {
+        console.log('Internet connection restored - attempting to reconnect SignalR connection');
         startConnection();
     });
 }
@@ -61,11 +67,14 @@ function timeout(delay: number) {
     return new Promise(res => setTimeout(res, delay));
 }
 
-const checkAliveConnection = async () => {
+const checkAliveConnection = async (connectionId: string) => {
     while (true) {
         await timeout(2000);
         if (connection && connection.state == HubConnectionState.Connected) {
-            connection.invoke('SendAllMessage');
+            console.log('Send Message to Hub');
+            connection.invoke('SendMessageFromHub', connectionId);
+            console.log('Alive connection invoked');
+
             return;
         }
     }
