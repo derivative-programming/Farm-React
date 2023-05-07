@@ -15,6 +15,7 @@ import * as InitFormService from "../services/init/TacLoginInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as FormInput from "../input-fields"; 
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
+import { reconnectOnRefresh, reconnectWhenOnline, startConnection } from "../services/SignalRService";
 
 
 export interface FormProps {
@@ -113,6 +114,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       {/*//GENTrainingBlock[caseGetApiKey]End*/} 
       actions.setSubmitting(false);
       actions.resetForm();
+      startSignalRConnection();
     } catch (error) {
       actions.setSubmitting(false);
     }
@@ -120,6 +122,12 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       setLoading(false);
     }
   };
+
+  const startSignalRConnection = () => {
+    startConnection();
+    reconnectOnRefresh();   
+    reconnectWhenOnline(); 
+  }
 
   const registerButtonClick = () => {
     logClick("FormConnectedTacLogin","otherButton","");

@@ -3,6 +3,7 @@ import { Dropdown, Nav, NavItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext"; 
 import useAnalyticsDB from "../../hooks/useAnalyticsDB"; 
+import { stopConnection } from "../forms/services/SignalRService";
 
 const Header: FC = (): ReactElement => {
   const authContext = useContext(AuthContext);
@@ -15,6 +16,7 @@ const Header: FC = (): ReactElement => {
     localStorage.setItem("@token", "");
     localStorage.setItem("customerCode","");
     localStorage.setItem("email", "");
+    stopConnection();
   };
 
   const onLogin = () => {
