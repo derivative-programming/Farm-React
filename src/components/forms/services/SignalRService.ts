@@ -13,7 +13,6 @@ export const startConnection = () => {
             .build();
 
         connection.start();
-        console.log('Connection Start');
 
         SetConnectionId(connectionId);
         checkAliveConnection(connectionId);
@@ -31,7 +30,6 @@ const SetConnectionId = async (connectionId: string) => {
         await timeout(2000);
         if (connection && connection.state == HubConnectionState.Connected) {
             connection.invoke('SetConnectionId', connectionId);
-            console.log('Set ConnectionId');
             return;
         }
     }
@@ -39,7 +37,6 @@ const SetConnectionId = async (connectionId: string) => {
 
 export const stopConnection = () => {
     if (connection) {
-        console.log('Connection Stop');
         return connection.stop();
     }
 }
@@ -48,9 +45,7 @@ export const reconnectOnRefresh = () => {
     window.addEventListener('beforeunload', () => {
         stopConnection()
             .then(() => {
-                console.log('SignalR connection stopped on page refresh');
                 startConnection();
-                console.log('SignalR connection re-established on page refresh');
             })
             .catch((error: any) => console.error(error));
     });
@@ -58,7 +53,6 @@ export const reconnectOnRefresh = () => {
 
 export const reconnectWhenOnline = () => {
     window.addEventListener('online', () => {
-        console.log('Internet connection restored - attempting to reconnect SignalR connection');
         startConnection();
     });
 }
@@ -71,9 +65,7 @@ const checkAliveConnection = async (connectionId: string) => {
     while (true) {
         await timeout(2000);
         if (connection && connection.state == HubConnectionState.Connected) {
-            console.log('Send Message to Hub');
             connection.invoke('SendMessageFromHub', connectionId);
-            console.log('Alive connection invoked');
 
             return;
         }
