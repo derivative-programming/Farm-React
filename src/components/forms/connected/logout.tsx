@@ -6,6 +6,7 @@ import React, {
 import { useNavigate } from "react-router-dom"; 
  
 import { AuthContext } from "../../../context/authContext"; 
+import * as AnalyticsService from "../../services/analyticsService";
 
 export interface FormProps {
   name?: string; 
@@ -19,6 +20,7 @@ export const Logout: FC<FormProps> = ({
 
   const authContext = useContext(AuthContext); 
   
+  AnalyticsService.stop();
   authContext.setToken("");
   localStorage.setItem("@token", "");
   localStorage.setItem("customerCode","");

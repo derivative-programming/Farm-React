@@ -16,6 +16,9 @@ const SubscribeDbProvider = ({ children }: ISubscribeDbProvider) => {
 
   useEffect(() => { 
     handleClear();
+    //get all rows and send analytics
+    // let data = "test data" 
+    // sendClientAnalyticsData(data);
   }, [isOnline, db, isSubscribe]);
   
   useEffect(() => {
@@ -29,7 +32,7 @@ const SubscribeDbProvider = ({ children }: ISubscribeDbProvider) => {
 
   async function handleClear() { 
     if (!!db && isOnline && (await getIsRowDB())) { 
-      //clearDB();
+      clearDB();
     }
   }
 

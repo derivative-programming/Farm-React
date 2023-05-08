@@ -2,14 +2,11 @@ job text...
 The public repo is at https://github.com/derivative-programming/Farm-React.
 You will be submitting a PR to this repository.
 
-
-sunday...  
-keyur chat = 10am Sunday
-buy hat 
+ 
 
 todo...        
-  
-  
+
+spacing issue around mobile view web
 
 add 'Filter' to landplantlist param names...
 - need to run ai
@@ -28,9 +25,80 @@ site header tests (not page header) (data-testids exist)
  
 test:when creating seed data, int should never be 0? . farm api deploy required
    
-ios swift app 
+ios swift app - keyur?
+- ios app 
+- single view app
+- 
 
-android Kotlin app
+android Kotlin app, jetpack compose....
+- 3 pages... login, register, and dashboard
+- folder structure?
+    - put all under gen folder?
+- using existing ui
+-table view
+    - use reclycling via lazy col and row
+-api framework.  retrofit?
+
+ios swift app...
+- project options:
+    - include tests (unit tests,ui tests)
+    - swift language
+    - swiftUI interface
+    - use core data (for metrics) 
+- app types: ios, IPadOS, tvOS, WatchOS, macOS
+- for (current ios phone version  - 3 version)
+- app developer program not necessary, not releasing an app 
+- Container View for each page
+- canvas device settings
+    - handle dark and light mode
+    - handle portrait and landscape
+    - handle dynamic type
+- use 'sf symbols' icons
+- Title page view
+- all pages need...
+    - z stack
+        - color modifier in z stack (white, all 1s)
+        - vstack
+            - page title (black largetitle font)
+    - dont ignore safe space
+    - title bar
+        - displays page name
+        - displays drop down menu
+    - loading animaiton on init api call
+- table page
+    - swipe left on row to show button  options
+    - create instance of dataservice used
+    - pull down to refresh list
+    - @State of items
+        - call dataservice to get array of listitems
+    - never ending scroll (auto query for next page)
+    - show as cards? click to expand? show as list?
+        - list
+            - list item needs to inherit 'identifiable'
+                - needs id property which is UUID
+                    - can auto generate?
+            -onappear modifier on list
+                - call dataservice to getdata. assign to state prop
+    - menu
+        - sort by : show dropdown of all column names
+        - soft order: descending\ascending
+        - filter :
+            - show page to enter values
+- nav page
+    - hstack
+    - primary
+    - rectangle background
+        - cornerradius 15
+        - shadow
+        - padding
+    - padding
+    - button
+        padding with border
+
+
+macos model ui viewer?
+
+fivvr?
 
 flutter app (ios and android)
 
@@ -55,17 +123,7 @@ implement analytics collection storing to local db...
 
 
 
-job...better design? similar to upword?
- 
-job...web push...posted...
-create a simple c# .net core signalr hub
-have the react app connect to hub on login. 
-reconnect if internet connection lost
-disconnect on logout
-channel specific for the logged in user. use customercode in local storage as the channel identifier 
-protected the connection. no client knowing the customercode should be able to connect.
-allow client to send and recieve simple string message with the hub
-allow a trusted server app to send a message to a particular client userid channel through the hub. create a simple c# console app to demonstrate. 
+job...better design? similar to upword? 
 
 C:\Users\vince\Downloads\possible-test-cases 
  
@@ -216,11 +274,7 @@ sort on property value length is relevant
 remove IsConditionalVisible prop. its not used. a calculated one is instead
 
 Analytics… 
-this is a Model feature?  Root Top level setting ? 
-All go to one endpoint 
-use signalr to send analytics
-create analytics specific hub? channel?  
-when connected to analytics hub, send queued events. then remove event from client queue.
+this is a Model feature?  Root Top level setting ?    
 
 Cache api keys? To redis? Mem cache?
 

@@ -15,6 +15,7 @@ import * as InitFormService from "../services/init/TacLoginInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as FormInput from "../input-fields"; 
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
+import * as AnalyticsService from "../../services/analyticsService";
 
 
 export interface FormProps {
@@ -109,6 +110,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       localStorage.setItem("@token", response.apiKey);
       localStorage.setItem("customerCode", response.customerCode);
       localStorage.setItem("email", response.email);
+      AnalyticsService.start();
       {/*//GENLearn[isLoginPage=true]End*/}
       {/*//GENTrainingBlock[caseGetApiKey]End*/} 
       actions.setSubmitting(false);

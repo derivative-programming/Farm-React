@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { SubscribeDBContext } from "../context/subscribeDB-context";
 import { ANALYTICS_DBNAME, ANALYTICS_DBTABLE } from "../constants/dbName";
 import { useNavigate, useParams } from "react-router-dom";
+import { sendClientAnalyticsData } from "../components/services/analyticsService";
 //import "fake-indexeddb/auto";
 
 type TAnalyticsEvent = {
@@ -39,7 +40,12 @@ function useAnalyticsDB() {
     const arrKeys = await db.getAllKeys(ANALYTICS_DBTABLE);
     return !!arrKeys.length;
   };
-  const clearDB = () => {
+  const clearDB = () => { 
+    db.getAll(ANALYTICS_DBTABLE).then((allObjs: any[]) => {
+      allObjs.forEach(item => {  
+        sendClientAnalyticsData(JSON.stringify(item));
+      });
+    })
     db.clear(ANALYTICS_DBTABLE);
   };
   const addDB = (event: TAnalyticsEvent) => {

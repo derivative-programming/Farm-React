@@ -15,6 +15,7 @@ import * as InitFormService from "../services/init/TacRegisterInitObjWF";
 import { AuthContext } from "../../../context/authContext"; 
 import * as FormInput from "../input-fields";
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
+import * as AnalyticsService from "../../services/analyticsService";
 
 export interface FormProps {
   name?: string;
@@ -105,6 +106,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       localStorage.setItem("@token", response.apiKey);
       localStorage.setItem("customerCode", response.customerCode);
       localStorage.setItem("email", response.email);
+      AnalyticsService.start();
       actions.setSubmitting(false);
       actions.resetForm();
     } catch (error) {

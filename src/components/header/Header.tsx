@@ -3,6 +3,7 @@ import { Dropdown, Nav, NavItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext"; 
 import useAnalyticsDB from "../../hooks/useAnalyticsDB"; 
+import * as AnalyticsService from "../services/analyticsService";
 
 const Header: FC = (): ReactElement => {
   const authContext = useContext(AuthContext);
@@ -11,6 +12,7 @@ const Header: FC = (): ReactElement => {
 
   const onLogout = () => {
     logClick("Header","logOut","");
+    AnalyticsService.stop();
     authContext.setToken("");
     localStorage.setItem("@token", "");
     localStorage.setItem("customerCode","");
