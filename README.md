@@ -12,7 +12,9 @@ testing with node version 18.12.0
 - React 18
 - Bootstrap 5.2 (react-boostrap 2.3)
 - Typescript
-- formik forms
+- Formik forms
+- SignalR
+- Local Storage IndexedDB
 - Cypress 12.9
 
 ### Features...
@@ -56,8 +58,33 @@ testing with node version 18.12.0
         - report query running animation
 - Authentication api key set on Login and Register
 - Api Proxy functions, with Request and Response Objects
+- Analytics Collection
+    - Online and Offline UI event collection
+    - transmitted to SignalR Analytics Hub when online
 - Unit Testing
 - Cypress E2E Testing
+
+
+# Getting Started
+Before you can contribute, you'll need to set up a local copy of the repository:
+
+* Fork the repository by clicking on the "Fork" button in the top right corner of the repository page.
+* Clone the forked repository to your local machine: git clone https://github.com/YOUR_USERNAME/Farm-React.git
+* Navigate to the repository directory: cd Farm-React
+* Now you're ready to make changes to the code!
+
+# Making Changes
+* Create a new branch for your changes: git checkout -b my-new-branch
+* Make your changes to the code.
+* Commit your changes: git commit -am "Added some new feature"
+* Push your changes to your fork: git push origin my-new-branch
+
+# Creating a Pull Request
+* Go to your forked repository on GitHub and click the "New pull request" button.
+* Select the branch you just pushed your changes to.
+* Give your pull request a meaningful title and description.
+* Submit the pull request and wait for a project maintainer to review your changes.
+
 
  
 ## Available Scripts

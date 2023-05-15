@@ -16,6 +16,7 @@ import { AuthContext } from "../../../context/authContext";
 import * as InputFields from "../input-fields";
 import * as Lookups from "../lookups";
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
+import * as AnalyticsService from "../../services/analyticsService";
 
 export interface FormProps {
   name?: string;
