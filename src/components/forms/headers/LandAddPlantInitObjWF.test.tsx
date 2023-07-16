@@ -6,7 +6,7 @@ import HeaderLandAddPlant, {
 } from "./LandAddPlantInitObjWF";
 
 const TEST_ID = "test-header";
-const LAND_NAME = "Test Land";
+const LAND_NAME = "Test Land Name";
 const LAND_NAME_LABEL = "Land Name";
 const mockInitData: HeaderLandAddPlantProps["initData"] =
   new InitResultInstance();
