@@ -154,25 +154,19 @@ describe("LandAddPlant Component", () => {
 
   it("when user enter requestSomeBitVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeBitVal");
-    await act(async () => {
-      await fireEvent.change(input, { target: { checked: true } });
-    }); 
+    fireEvent.click(screen.getByTestId("requestSomeBitVal"));
     expect(screen.getByTestId("requestSomeBitVal")).toBeChecked();
   });
 
   it("when user enter requestIsEditAllowed, it set accordingly", async () => {
-    const input = screen.getByTestId("requestIsEditAllowed");
-    await act(async () => {
-      await fireEvent.change(input, { target: { checked: true } });
-    }); 
+    const input = screen.getByTestId("requestIsEditAllowed"); 
+    fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
     expect(screen.getByTestId("requestIsEditAllowed")).toBeChecked();
   });
 
   it("when user enter requestIsDeleteAllowed, it set accordingly", async () => {
-    const input = screen.getByTestId("requestIsDeleteAllowed");
-    await act(async () => {
-      await fireEvent.change(input, { target: { checked: true } });
-    }); 
+    const input = screen.getByTestId("requestIsDeleteAllowed"); 
+    fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
     expect(screen.getByTestId("requestIsDeleteAllowed")).toBeChecked();
   });
 
@@ -293,19 +287,13 @@ describe("LandAddPlant Component", () => {
     });
  
     const requestSomeBitValInput = screen.getByTestId("requestSomeBitVal");
-    await act(async () => {
-      await fireEvent.change(requestSomeBitValInput, { target: { checked: true } });
-    });
+    fireEvent.click(screen.getByTestId("requestSomeBitVal"));
  
-    const requestIsEditAllowedInput = screen.getByTestId("requestIsEditAllowed");
-    await act(async () => {
-      await fireEvent.change(requestIsEditAllowedInput, { target: { checked: true } });
-    });
+    const requestIsEditAllowedInput = screen.getByTestId("requestIsEditAllowed"); 
+    fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
  
-    const requestIsDeleteAllowedInput = screen.getByTestId("requestIsDeleteAllowed");
-    await act(async () => {
-      await fireEvent.change(requestIsDeleteAllowedInput, { target: { checked: true } });
-    });
+    const requestIsDeleteAllowedInput = screen.getByTestId("requestIsDeleteAllowed"); 
+    fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
  
     const requestSomeFloatValInput = screen.getByTestId("requestSomeFloatVal");
     await act(async () => {

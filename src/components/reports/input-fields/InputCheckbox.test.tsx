@@ -42,11 +42,8 @@ describe("ReportInputCheckbox Component", () => {
   });
 
   it("when user checks, it set accordingly in control", async () => {
-    const input = screen.getByTestId("testName-field");
-    await act(async () => {
-        await fireEvent.change(input, { target: { checked: true } });
-    });
-
+    const input = screen.getByTestId("testName-field"); 
+    fireEvent.click(screen.getByTestId("testName-field"));
     expect(screen.getByTestId("testName-field")).toBeChecked();
   }); 
 

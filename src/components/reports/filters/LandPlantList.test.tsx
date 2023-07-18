@@ -125,27 +125,21 @@ describe("LandPlantList Component", () => {
   });
 
   it("when user enter someBitVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someBitVal-field");
-    await act(async () => {
-      await fireEvent.change(input, { target: { checked: true } });
-    }); 
-   // expect(screen.getByTestId("someBitVal-field")).toBeChecked();
+    const input = screen.getByTestId("someBitVal-field"); 
+    fireEvent.click(screen.getByTestId("someBitVal-field"));
+    expect(screen.getByTestId("someBitVal-field")).toBeChecked();
   });
 
   it("when user enter isEditAllowed, it set accordingly", async () => {
     const input = screen.getByTestId("isEditAllowed-field");
-    await act(async () => {
-      await fireEvent.change(input, { target: { checked: true } });
-    }); 
-    //expect(screen.getByTestId("isEditAllowed-field")).toBeChecked();
+    fireEvent.click(screen.getByTestId("isEditAllowed-field"));
+    expect(screen.getByTestId("isEditAllowed-field")).toBeChecked();
   });
 
   it("when user enter isDeleteAllowed, it set accordingly", async () => {
     const input = screen.getByTestId("isDeleteAllowed-field");
-    await act(async () => {
-      await fireEvent.change(input, { target: { checked: true } });
-    }); 
-    //expect(screen.getByTestId("isDeleteAllowed-field")).toBeChecked();
+    fireEvent.click(screen.getByTestId("isDeleteAllowed-field"));
+    expect(screen.getByTestId("isDeleteAllowed-field")).toBeChecked();
   });
 
   it("when user enter someFloatVal, it set accordingly", async () => {
