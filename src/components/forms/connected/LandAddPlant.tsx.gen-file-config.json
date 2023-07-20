@@ -8,6 +8,9 @@
         "objectWorkflowParam.calculatedIsSourceObjectAvailable",
         "objectWorkflowParam.calculatedIsRequiredCSSClassName",
         "objectWorkflowParam.calculatedIsRegExMatchRequired",
-        "objectWorkflowParam.calculatedIsObjectID"
+        "objectWorkflowParam.calculatedIsObjectID",
+        "objectWorkflowButton.isButtonCallToAction",
+        "objectWorkflowButton.calculatedIsDestinationContextObjectTheOwnerObject",
+        "objectWorkflowButton.calculatedIsDestinationContextObjectNameSet" 
     ]
 } 

@@ -3,5 +3,14 @@
     "dimension" :{
         "name":"LandAddPlant",
         "calculatedIsPage":"true"
-    }
+    },
+    "ignoreDimensionPropertyList": [
+        "objectWorkflowParam.calculatedIsSourceObjectAvailable",
+        "objectWorkflowParam.calculatedIsRequiredCSSClassName",
+        "objectWorkflowParam.calculatedIsRegExMatchRequired",
+        "objectWorkflowParam.calculatedIsObjectID",
+        "objectWorkflowButton.isButtonCallToAction",
+        "objectWorkflowButton.calculatedIsDestinationContextObjectTheOwnerObject",
+        "objectWorkflowButton.calculatedIsDestinationContextObjectNameSet" 
+    ]
 }
