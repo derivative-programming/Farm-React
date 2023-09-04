@@ -1,5 +1,6 @@
 import { TacRegisterPageSelectors as PageSelectors } from '../selectors/TacRegister';
 import { TacRegisterPageTexts as PageTexts } from '../texts/TacRegister';
+import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
 export class TacRegisterPage {
     visit() {

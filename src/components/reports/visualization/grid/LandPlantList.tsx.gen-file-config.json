@@ -7,6 +7,8 @@
     "ignoreDimensionPropertyList": [ 
         "reportColumn.calculatedIsConditionalSqlLogicAvailable",
         "reportColumn.calculatedIsSourceObjectAvailable",
+        "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
+        "reportButton.calculatedIsDestinationContextObjectNameSet", 
         "reportButton.isVisible",
         "reportButton.isEnabled"
     ]

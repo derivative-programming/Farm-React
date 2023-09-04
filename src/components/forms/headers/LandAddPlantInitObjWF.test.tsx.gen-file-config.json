@@ -7,7 +7,7 @@
     "ignoreDimensionPropertyList": [
         "objectWorkflowOutputVar.calculatedIsSourceObjectAvailable", 
         "objectWorkflowOutputVar.calculatedIsConditionalVisible", 
-        "objectWorkflowOutputVar.calculatedIsObjectID",   
+        "objectWorkflowOutputVar.calculatedIsObjectID",    
         "objectWorkflowOutputVar.isAutoRedirectURL"
     ]
 }

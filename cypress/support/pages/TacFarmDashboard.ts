@@ -1,5 +1,6 @@
 import { TacFarmDashboardPageSelectors  as PageSelectors } from '../selectors/TacFarmDashboard';
 import { TacFarmDashboardPageTexts as PageTexts } from '../texts/TacFarmDashboard';
+import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
 export class TacFarmDashboardPage {
     visit() { 
@@ -8,14 +9,14 @@ export class TacFarmDashboardPage {
         cy.url().then(url => {
             currentURL = url
         });
-        if(currentURL.includes('/tac-farm-dashboard/'))
+        if(currentURL.includes(PageUrlPrefixes.tacFarmDashboard + '/'))
         {
             cy.log('Already there'); 
             return;  //already there
         }
         if(!this.isLoginRequired()){  
             //go to it directly
-            cy.visit('/tac-farm-dashboard/00000000-0000-0000-0000-000000000000');
+            cy.visit(PageUrlPrefixes.tacFarmDashboard + '/00000000-0000-0000-0000-000000000000');
             return;
         }
         cy.log('Login required'); 
@@ -34,7 +35,7 @@ export class TacFarmDashboardPage {
     }
     verifyUrl() {
         cy.log('Verifying url...');
-        cy.url().should('include', '/tac-farm-dashboard');
+        cy.url().should('include', PageUrlPrefixes.tacFarmDashboard);
     }
     verifyPageElements() {
 

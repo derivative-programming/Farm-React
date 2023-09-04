@@ -10,6 +10,8 @@
         "objectWorkflowParam.calculatedIsRegExMatchRequired",
         "objectWorkflowParam.calculatedIsObjectID",
         "objectWorkflowButton.isButtonCallToAction",
+        "objectWorkflowButton.calculatedIsDestinationContextObjectTheOwnerObject", 
+        "objectWorkflowButton.calculatedIsDestinationContextObjectNameSet", 
         "objectWorkflowButton.calculatedIsDestinationContextObjectTheOwnerObject",
         "objectWorkflowButton.calculatedIsDestinationContextObjectNameSet" 
     ]

@@ -17,6 +17,8 @@
         "objectWorkflowParam.isFKListOptionRecommended",
         "objectWorkflowParam.isFKListInactiveIncluded",
         "objectWorkflowParam.isTimeZoneDetermined", 
+        "objectWorkflowButton.calculatedIsDestinationContextObjectTheOwnerObject", 
+        "objectWorkflowButton.calculatedIsDestinationContextObjectNameSet", 
         "objectWorkflowOutputVar.calculatedIsSourceObjectAvailable", 
         "objectWorkflowOutputVar.calculatedIsConditionalVisible", 
         "objectWorkflowOutputVar.isAutoRedirectURL" 

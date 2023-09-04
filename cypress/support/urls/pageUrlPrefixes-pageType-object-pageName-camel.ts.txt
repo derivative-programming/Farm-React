@@ -1,0 +1,33 @@
+export const pageUrlPrefixes = {  
+      /*//GENLOOPObjectStart*/
+      /*//GENTrainingBlock[c2]Start*/
+      /*//GENLearn[modelType=object,name=Land]Start*/
+      /*//GENLOOPReportStart*/
+      /*//GENTrainingBlock[d2]Start*/
+      /*//GENLearn[modelType=report,name=LandPlantList]Start*/
+      landPlantList: "/Report/LandPlantList",
+      /*//GENLearn[modelType=report,name=LandPlantList]End*/
+      /*//GENTrainingBlock[d2]End*/
+      /*//GENLOOPReportEnd*/
+      /*//GENLearn[modelType=object,name=Land]End*/
+      tacFarmDashboard: "/Report/TacFarmDashboard",
+      plantUserDetails: "/Report/PlantUserDetails",
+      /*//GENTrainingBlock[c2]End*/
+      /*//GENLOOPObjectEnd*/
+
+      /*//GENLOOPObjectStart*/
+      /*//GENTrainingBlock[a2]Start*/
+      /*//GENLearn[modelType=object,name=Land]Start*/
+      /*//GENLOOPObjectWorkflowStart*/
+      /*//GENTrainingBlock[b2]Start*/
+      /*//GENLearn[modelType=objectWorkflow,name=LandAddPlant,calculatedIsPage=true]Start*/
+      landAddPlant: "/ObjWF/Land/LandAddPlant", 
+      /*//GENLearn[modelType=objectWorkflow,name=LandAddPlant,calculatedIsPage=true]End*/
+      /*//GENTrainingBlock[b2]End*/
+      /*//GENLOOPObjectWorkflowEnd*/
+      /*//GENLearn[modelType=object,name=Land]End*/ 
+      /*//GENTrainingBlock[a2]End*/
+      /*//GENLOOPObjectEnd*/
+
+}
+

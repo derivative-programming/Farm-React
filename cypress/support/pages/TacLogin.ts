@@ -1,5 +1,6 @@
 import { TacLoginPageSelectors as PageSelectors } from '../selectors/TacLogin';
 import { TacLoginPageTexts as PageTexts } from '../texts/TacLogin';
+import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
 export class TacLoginPage {
     visit() {

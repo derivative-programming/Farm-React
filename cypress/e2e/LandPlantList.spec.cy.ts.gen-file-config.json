@@ -5,5 +5,7 @@
         "calculatedIsPage":"true"
     },
     "ignoreDimensionPropertyList": [  
+        "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
+        "reportButton.calculatedIsDestinationContextObjectNameSet"
     ]
 }

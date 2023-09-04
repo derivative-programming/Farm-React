@@ -1,6 +1,7 @@
 
 import { LandAddPlantPageSelectors as PageSelectors } from '../selectors/LandAddPlant';
 import { LandAddPlantPageTexts as PageTexts } from '../texts/LandAddPlant';
+import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
  
 
@@ -12,7 +13,7 @@ export class LandAddPlantPage {
         if(!this.isLoginRequired()){  
             cy.log('Login is not requrired');
             //go to it directly
-            cy.visit('/land-add-plant/00000000-0000-0000-0000-000000000000');
+            cy.visit(PageUrlPrefixes.landAddPlant + '/00000000-0000-0000-0000-000000000000');
             return;
         }
 
@@ -61,7 +62,7 @@ export class LandAddPlantPage {
 
     verifyUrl() {
         cy.log('Verifying url...');
-        cy.url().should('include', '/land-add-plant');
+        cy.url().should('include', PageUrlPrefixes.landAddPlant);
     }
 
     verifyPageElements() {

@@ -21,6 +21,8 @@
         "objectWorkflowParam.calculatedIsEmailAddress", 
         "objectWorkflowParam.calculatedIsPhoneNumber", 
         "objectWorkflowParam.calculatedIsPercentage",  
+        "objectWorkflowButton.calculatedIsDestinationContextObjectTheOwnerObject", 
+        "objectWorkflowButton.calculatedIsDestinationContextObjectNameSet", 
         "objectWorkflowOutputVar.calculatedIsSourceObjectAvailable", 
         "objectWorkflowOutputVar.calculatedIsConditionalVisible", 
         "objectWorkflowOutputVar.isAutoRedirectURL" 

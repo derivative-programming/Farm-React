@@ -1,6 +1,7 @@
 
 import { LandPlantListPageSelectors  as PageSelectors } from '../selectors/LandPlantList';
 import { LandPlantListPageTexts as PageTexts } from '../texts/LandPlantList';
+import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
 
 
@@ -10,7 +11,7 @@ export class LandPlantListPage {
 
         if(!this.isLoginRequired()){  
             //go to it directly
-            cy.visit('/land-plant-list/00000000-0000-0000-0000-000000000000');
+            cy.visit(PageUrlPrefixes.landPlantList + '/00000000-0000-0000-0000-000000000000');
             return;
         }
         cy.log('Login required'); 
@@ -20,10 +21,10 @@ export class LandPlantListPage {
         routingAssistant.goToPage(currentPage,'LandPlantList'); 
         
         cy.url().then(url => { 
-            if(!url.includes( '/land-plant-list/')) 
+            if(!url.includes( PageUrlPrefixes.landPlantList + '/')) 
             {
                 //try just in case. Api may override empty url context code
-                cy.visit("/land-plant-list/00000000-0000-0000-0000-000000000000");
+                cy.visit(PageUrlPrefixes.landPlantList + '/00000000-0000-0000-0000-000000000000');
             } 
         }); 
 
@@ -42,7 +43,7 @@ export class LandPlantListPage {
 
     verifyUrl() {
         cy.log('Verifying url...');
-        cy.url().should('include', '/land-plant-list');
+        cy.url().should('include', PageUrlPrefixes.landPlantList);
     }
 
     verifyPageElements() { 

@@ -1,5 +1,6 @@
 import { PlantUserDetailsPageSelectors  as PageSelectors } from '../selectors/PlantUserDetails';
 import { PlantUserDetailsPageTexts as PageTexts } from '../texts/PlantUserDetails';
+import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
 export class PlantUserDetailsPage {
     visit() { 
@@ -7,7 +8,7 @@ export class PlantUserDetailsPage {
         
         if(!this.isLoginRequired()){  
             //go to it directly
-            cy.visit('/plant-user-details/00000000-0000-0000-0000-000000000000');
+            cy.visit(PageUrlPrefixes.plantUserDetails + '/00000000-0000-0000-0000-000000000000');
             return;
         }
         cy.log('Login required'); 
@@ -27,7 +28,7 @@ export class PlantUserDetailsPage {
     }
     verifyUrl() {
         cy.log('Verifying url...');
-        cy.url().should('include', '/plant-user-details');
+        cy.url().should('include', PageUrlPrefixes.plantUserDetails);
     }
     verifyPageElements() {
         //breadcrumbs text

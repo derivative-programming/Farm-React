@@ -24,6 +24,8 @@
         "reportColumn.isButtonCallToAction",
         "reportColumn.isJoinedToLeftColumn",
         "reportColumn.isForcedIntoExport",
+        "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
+        "reportButton.calculatedIsDestinationContextObjectNameSet", 
         "reportColumn.isVisible"
     ]
 }

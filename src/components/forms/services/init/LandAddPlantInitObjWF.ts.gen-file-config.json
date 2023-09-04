@@ -10,7 +10,7 @@
         "objectWorkflowOutputVar.calculatedIsObjectID",   
         "objectWorkflowOutputVar.isAutoRedirectURL",   
         "objectWorkflowOutputVar.isLabelVisible",   
-        "objectWorkflowOutputVar.isHeaderText",   
+        "objectWorkflowOutputVar.isHeaderText",    
         "objectWorkflowOutputVar.isVisible" 
     ]
 }
