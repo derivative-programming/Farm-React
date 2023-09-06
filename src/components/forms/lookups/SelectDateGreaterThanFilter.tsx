@@ -10,6 +10,7 @@ export interface FormSelectDateGreaterThanFilterProps {
     placeholder?: string
     autoFocus?:boolean
     disabled?: boolean
+    isVisible?:boolean
   }
 
 export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilterProps> = ({
@@ -18,6 +19,7 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
     placeholder,
     autoFocus = false,
     disabled = false,
+    isVisible = true,
   }): ReactElement => { 
     const [field, meta, helpers] = useField(name); 
     
@@ -45,7 +47,8 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
         <FormInputSelect 
             label={label} 
             name={name}
-            options={dateGreaterThanFilters}
+            options={dateGreaterThanFilters} 
+            isVisible={isVisible}
             />
          
     );

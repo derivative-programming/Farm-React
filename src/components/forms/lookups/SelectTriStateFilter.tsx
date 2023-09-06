@@ -10,6 +10,7 @@ export interface FormSelectTriStateFilterProps {
     placeholder?: string
     autoFocus?:boolean
     disabled?: boolean
+    isVisible?:boolean
   }
 
 export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
@@ -18,6 +19,7 @@ export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
     placeholder,
     autoFocus = false,
     disabled = false,
+    isVisible = true,
   }): ReactElement => { 
     const [field, meta, helpers] = useField(name); 
     
@@ -46,6 +48,7 @@ export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
             label={label} 
             name={name}
             options={triStateFilters}
+            isVisible={isVisible}
             />
          
     );

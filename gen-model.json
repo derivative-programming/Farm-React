@@ -1857,8 +1857,8 @@
                     "isFKListSearchable": "true",
                     "isFileUpload": "false",
                     "isIgnored": "false",
-                    "sourceObjectName": "Flavor",
-                    "sourcePropertyName": "Code"
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "FlavorID"
                   },
                   {
                     "name": "RequestOtherFlavor",

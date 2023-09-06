@@ -41,7 +41,7 @@ class Helper {
     const firstName = this.getUniqueString(10);
     const lastName = this.getUniqueString(10);
     
-
+    
     page.setFieldEmail(email);
     page.setFieldPassword(password);
     page.setFieldConfirmPassword(password);

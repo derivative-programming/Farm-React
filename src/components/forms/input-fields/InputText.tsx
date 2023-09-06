@@ -9,6 +9,7 @@ export interface FormInputTextProps {
   placeholder?: string
   autoFocus?:boolean
   disabled?: boolean
+  isVisible?:boolean
 }
     
 export const FormInputText: FC<FormInputTextProps> = ({
@@ -17,13 +18,14 @@ export const FormInputText: FC<FormInputTextProps> = ({
   placeholder,
   autoFocus = false,
   disabled = false,
+  isVisible = true,
 }): ReactElement => {
   const [field, meta] = useField(name);  
   
   const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
-    <div>
+    <div hidden={!isVisible}>
       <Form.Group controlId={name} className="mb-2 text-start" >
           <Form.Label data-testid={name + '-label'}
             size="sm">{label}</Form.Label>

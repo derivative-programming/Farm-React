@@ -9,6 +9,7 @@ export interface FormInputCheckboxProps {
   placeholder?: string
   autoFocus?:boolean
   disabled?: boolean
+  isVisible?:boolean
 }
    
 export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
@@ -17,6 +18,7 @@ export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
   placeholder,
   autoFocus = false,
   disabled = false,
+  isVisible = true,
 }): ReactElement => {
   const [field, meta, helpers] = useField(name);  
 
@@ -25,7 +27,7 @@ export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
   const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
-    <div className="">
+    <div className="" hidden={!isVisible}>
       <Form.Group controlId={name} className="mt-3 mb-3 text-start"> 
           <Form.Check
             // ref={inputRef}

@@ -10,6 +10,7 @@ export interface FormInputSelectProps {
   placeholder?: string
   autoFocus?:boolean
   disabled?: boolean
+  isVisible?:boolean
 }
 
 export interface FormInputSelectOption {
@@ -24,6 +25,7 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
   placeholder,
   autoFocus = false,
   disabled = false,
+  isVisible = true,
 }): ReactElement => {
   const [field, meta, helpers] = useField(name); 
 
@@ -32,7 +34,7 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
   const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       
   return (
-    <div className="">
+    <div className="" hidden={!isVisible}>
       <Form.Group controlId={name} className="mb-2 text-start">
           <Form.Label data-testid={name + '-label'}
             size="sm">{label}</Form.Label>

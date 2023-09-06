@@ -10,6 +10,7 @@ export interface FormSelectLandProps {
     placeholder?: string
     autoFocus?:boolean
     disabled?: boolean
+    isVisible?:boolean
   }
 
 export const FormSelectLand: FC<FormSelectLandProps> = ({
@@ -18,6 +19,7 @@ export const FormSelectLand: FC<FormSelectLandProps> = ({
     placeholder,
     autoFocus = false,
     disabled = false,
+    isVisible = true,
   }): ReactElement => { 
     const [field, meta, helpers] = useField(name); 
     
@@ -46,6 +48,7 @@ export const FormSelectLand: FC<FormSelectLandProps> = ({
             label={label} 
             name={name}
             options={lands}
+            isVisible={isVisible}
             />
          
     );

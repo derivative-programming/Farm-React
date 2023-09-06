@@ -7,12 +7,12 @@ export class TacLoginPage {
 		cy.log('TacLoginPage.visit() start');  
 
         if(!this.isLoginRequired()){  
-            cy.log('Login is not requrired');
+            cy.log('Login is not required');
             //go to it directly
             cy.visit('/tac-login/00000000-0000-0000-0000-000000000000');
             return;
         }
-        cy.log('Login is requrired');
+        cy.log('Login is required');
         const routingAssistant = new RoutingAssistant();
         let currentPage = ""
         routingAssistant.goToPage(currentPage,'TacLogin');

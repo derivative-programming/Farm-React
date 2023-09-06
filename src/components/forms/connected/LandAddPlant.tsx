@@ -210,57 +210,75 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                     />
                     <Lookups.FormSelectFlavor name="requestFlavorCode"
                       label="Select A Flavor"
+                      isVisible={true}
                     />
                     <InputFields.FormInputText name="requestOtherFlavor"
                       label="Other Flavor"
+                      isVisible={true}
                     />
                     <InputFields.FormInputNumber name="requestSomeIntVal"
                       label="Some Int Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputNumber name="requestSomeBigIntVal"
                       label="Some Big Int Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputCheckbox name="requestSomeBitVal"
                       label="Some Bit Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputCheckbox name="requestIsEditAllowed"
                       label="Is Edit Allowed"
+                      isVisible={true}
                     />
                     <InputFields.FormInputCheckbox name="requestIsDeleteAllowed"
                       label="Is Delete Allowed"
+                      isVisible={true}
                     />
                     <InputFields.FormInputNumber name="requestSomeFloatVal"
                       label="Some Float Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputNumber name="requestSomeDecimalVal"
                       label="Some Decimal Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputDateTime name="requestSomeUTCDateTimeVal"
                       label="Some UTC Date Time Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputDate name="requestSomeDateVal"
                       label="Some Date Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputMoney name="requestSomeMoneyVal"
                       label="Some Money Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputText name="requestSomeNVarCharVal"
                       label="Some N Var Char Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputPassword name="requestSomeVarCharVal"
                       label="Some Secure Var Char Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputTextArea name="requestSomeTextVal"
                       label="Some Text Val"
+                      isVisible={true}
                     />
                     <InputFields.FormInputText name="requestSomePhoneNumber"
-                      label="Some Phone Number"
+                      label="Some Phone Number" 
+                      isVisible={true}
                     />
                     <InputFields.FormInputEmail name="requestSomeEmailAddress"
                       label="Some Email Address"
+                      isVisible={true}
                     />
                     <InputFields.FormInputFile name="requestSampleImageUploadFile"
                       label="Sample Image Upload"
+                      isVisible={true}
                     />
                   </div>
                 }
