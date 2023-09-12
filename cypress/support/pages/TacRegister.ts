@@ -2,6 +2,7 @@ import { TacRegisterPageSelectors as PageSelectors } from '../selectors/TacRegis
 import { TacRegisterPageTexts as PageTexts } from '../texts/TacRegister';
 import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
+import Helper from '../helper';
 export class TacRegisterPage {
     visit() {
 		cy.log('TacRegisterPage.visit() start'); 
@@ -128,6 +129,20 @@ export class TacRegisterPage {
             .should('not.be.visible');
         }
     }
+     
+    
+    populateFormWithRandomValues(){
+        
+        const helper = new Helper();
+ 
+        this.setFieldEmail(helper.getRandomEmail(50));
+        this.setFieldPassword(helper.getUniqueString(50));
+        this.setFieldConfirmPassword(helper.getUniqueString(50));
+        this.setFieldFirstName(helper.getUniqueString(50));
+        this.setFieldLastName(helper.getUniqueString(50));
+
+    }
+
     populateForm(
         email: string,
         password: string,

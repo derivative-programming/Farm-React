@@ -14,7 +14,7 @@ describe("PlantUserDetails Page", () => {
 		if(subjectPage.isLoginRequired()){
 			cy.log('test email:' + email);
 			cy.log('test pwd:' + password);
-			helper.registerUser(email,password); 
+			helper.register(email,password); 
 			helper.logOut();
 		} 
 	});
@@ -22,7 +22,7 @@ describe("PlantUserDetails Page", () => {
 	beforeEach(() => { 
 		cy.clearLocalStorage();  
 		cy.visit('/');
-		helper.loginUser(email, password);
+		helper.login(email, password);
 		subjectPage.visit();
 	}); 
 

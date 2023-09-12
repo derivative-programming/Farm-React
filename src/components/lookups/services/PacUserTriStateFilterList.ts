@@ -72,15 +72,7 @@ export interface InitValidationError {
     message: string;
 
 }
-
-export class InitRequestInstance implements InitRequest {
-    
-
-    constructor() {
-        
-    }
-}
-
+ 
 
 export class InitResultInstance implements InitResult {
     

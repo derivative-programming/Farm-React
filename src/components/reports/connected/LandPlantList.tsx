@@ -215,10 +215,10 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
                 navigateTo("tac-farm-dashboard", "tacCode");
               }}
             >
-            Farm Dashboard breadcrumb text
+            Farm Dashboard
           </Breadcrumb.Item>
           <Breadcrumb.Item active href="">
-            Plant List title text
+            Plant List
           </Breadcrumb.Item>
         </Breadcrumb>
       </div>
@@ -229,7 +229,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
          
       > 
       
-        <h2 data-testid="page-title-text">Plant List title text</h2>
+        <h2 data-testid="page-title-text">Plant List</h2>
         <h6 data-testid="page-intro-text">A list of plants on the land</h6>
         
 

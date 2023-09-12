@@ -143,7 +143,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                             logClick("ReportConnectedPlantUserDetails","tacFarmDashboardBreadcrumb","");
                             navigateTo('tac-farm-dashboard',"tacCode")
                         }}>
-                        Farm Dashboard breadcrumb text
+                        Farm Dashboard
                     </Breadcrumb.Item>
                     <Breadcrumb.Item id="landPlantListBreadcrumb" 
                         data-testid="landPlantListBreadcrumb" 
@@ -151,7 +151,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
                             logClick("ReportConnectedPlantUserDetails","landPlantListBreadcrumb","");
                             navigateTo('land-plant-list',"landCode");
                         }}>
-                        Plant List breadcrumb text
+                        Plant List
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active>
                         Plant Details

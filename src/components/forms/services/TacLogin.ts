@@ -1,4 +1,3 @@
-import * as Yup from "yup";
 import * as FormInit  from "./init/TacLoginInitObjWF"; 
 import { apiCall } from "../../../apiConfig/apiCall";
 
@@ -45,21 +44,7 @@ export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
     
     return result;
 }
-
-export const buildValidationSchema = () => {
-    
-    const validationSchema  = Yup.object().shape({
-        email: Yup.string()
-        .required('Please enter a Email')
-        ,
-        password: Yup.string()
-        .required('Please enter a Password')
-        , 
-      });
-      
-    return validationSchema;
-}
-
+ 
 export interface SubmitRequest {
  
     email: string;

@@ -1,8 +1,11 @@
 {
   "root": {
+    "appName": "DemoApp",
+    "companyLegalName": "NewCo Inc.",
+    "companyDomain": "newco.com",
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.29",
+    "projectVersionNumber": "1.0.31",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -435,14 +438,18 @@
                     "destinationTargetName": "TacLogin",
                     "destinationContextObjectName": "Tac",
                     "isVisible": "true",
-                    "isButtonCallToAction": "true"
+                    "isButtonCallToAction": "true",
+                    "accessKey": "O",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "cancel",
                     "buttonText": "Cancel",
                     "destinationTargetName": "TacFarmDashboard",
                     "destinationContextObjectName": "Tac",
-                    "isVisible": "true"
+                    "isVisible": "true",
+                    "accessKey": "C",
+                    "isAccessKeyAvailable": "true"
                   }
                 ],
                 "initObjectWorkflowName": "CustomerUserLogOutInitObjWF",
@@ -1042,6 +1049,26 @@
                 "isSubscribed": "true"
               }
             ],
+            "lookupItem": [
+              {
+                "name": "Unknown",
+                "displayName": "Unknown",
+                "description": "Unknown",
+                "isActive": "true"
+              },
+              {
+                "name": "Sweet",
+                "displayName": "Sweet",
+                "description": "Sweet",
+                "isActive": "true"
+              },
+              {
+                "name": "Sour",
+                "displayName": "Sour",
+                "description": "Sour",
+                "isActive": "true"
+              }
+            ],
             "report": [],
             "objectWorkflow": [],
             "isSoftDeleteUsed": "false",
@@ -1174,7 +1201,20 @@
                 "isSubscribed": "true"
               }
             ],
-            "lookupItem": [],
+            "lookupItem": [
+              {
+                "name": "Unknown",
+                "displayName": "Unknown",
+                "description": "Unknown",
+                "isActive": "true"
+              },
+              {
+                "name": "Field_One",
+                "displayName": "Field One",
+                "description": "Field One",
+                "isActive": "true"
+              }
+            ],
             "report": [
               {
                 "name": "LandPlantList",
@@ -1183,8 +1223,9 @@
                 "initObjectWorkflowName": "LandPlantListInitReport",
                 "defaultOrderByColumnName": "",
                 "defaultOrderByDescending": "false",
-                "titleText": "Plant List title text",
+                "titleText": "Plant List",
                 "introText": "A list of plants on the land",
+                "roleRequired": "User",
                 "isCustomSqlUsed": "true",
                 "targetChildObject": "Plant",
                 "isAutoRefresh": "true",
@@ -1201,18 +1242,22 @@
                 "isButtonDropDownAllowed": "false",
                 "isHeaderVisible": "true",
                 "noRowsReturnedText": "No rows returned text",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "visualizationGridGroupByColumnName": "FlavorName",
                 "visualizationGridGroupByInfoTextColumnName": "",
                 "reportButton": [
                   {
                     "buttonType": "breadcrumb",
                     "buttonName": "TacFarmDashboardBreadcrumb",
-                    "buttonText": "Farm Dashboard breadcrumb text",
+                    "buttonText": "Farm Dashboard",
                     "destinationContextObjectName": "Tac",
                     "destinationTargetName": "TacFarmDashboard",
                     "isVisible": "true",
                     "isButtonCallToAction": "false",
-                    "isEnabled": "true"
+                    "isEnabled": "true",
+                    "buttonTypeDisplayOrder": "1"
                   },
                   {
                     "buttonType": "back",
@@ -1222,7 +1267,9 @@
                     "destinationTargetName": "TacFarmDashboard",
                     "isVisible": "true",
                     "isButtonCallToAction": "false",
-                    "isEnabled": "true"
+                    "isEnabled": "true",
+                    "accessKey": "B",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "other",
@@ -1232,7 +1279,9 @@
                     "destinationTargetName": "LandAddPlant",
                     "isVisible": "true",
                     "isButtonCallToAction": "false",
-                    "isEnabled": "true"
+                    "isEnabled": "true",
+                    "accessKey": "O",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "add",
@@ -1242,7 +1291,9 @@
                     "destinationTargetName": "LandAddPlant",
                     "isVisible": "true",
                     "isButtonCallToAction": "true",
-                    "isEnabled": "true"
+                    "isEnabled": "true",
+                    "accessKey": "A",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "multiSelectProcessing",
@@ -1252,7 +1303,9 @@
                     "destinationTargetName": "LandUserPlantMultiSelectToEditable",
                     "isVisible": "true",
                     "isButtonCallToAction": "false",
-                    "isEnabled": "true"
+                    "isEnabled": "true",
+                    "accessKey": "T",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "multiSelectProcessing",
@@ -1262,7 +1315,9 @@
                     "destinationTargetName": "LandUserPlantMultiSelectToNotEditable",
                     "isVisible": "true",
                     "isButtonCallToAction": "false",
-                    "isEnabled": "true"
+                    "isEnabled": "true",
+                    "accessKey": "N",
+                    "isAccessKeyAvailable": "true"
                   }
                 ],
                 "reportParam": [
@@ -1274,6 +1329,7 @@
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
                     "isFKList": "true",
+                    "targetColumnName": "FlavorCode",
                     "isFK": "true",
                     "isFKLookup": "true",
                     "isFKListSearchable": "true"
@@ -1285,7 +1341,8 @@
                     "sqlServerDBDataType": "int",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeIntVal"
                   },
                   {
                     "name": "SomeBigIntVal",
@@ -1294,7 +1351,8 @@
                     "sqlServerDBDataType": "bigint",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeBigIntVal"
                   },
                   {
                     "name": "SomeFloatVal",
@@ -1303,7 +1361,8 @@
                     "sqlServerDBDataType": "float",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeFloatVal"
                   },
                   {
                     "name": "SomeBitVal",
@@ -1312,7 +1371,8 @@
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeBitVal"
                   },
                   {
                     "name": "IsEditAllowed",
@@ -1322,6 +1382,7 @@
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
                     "isFKList": "false",
+                    "targetColumnName": "IsEditAllowed",
                     "defaultValue": "true"
                   },
                   {
@@ -1332,6 +1393,7 @@
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
                     "isFKList": "false",
+                    "targetColumnName": "IsEditAllowed",
                     "defaultValue": "true"
                   },
                   {
@@ -1341,7 +1403,8 @@
                     "sqlServerDBDataType": "decimal",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeDecimalVal"
                   },
                   {
                     "name": "SomeMinUTCDateTimeVal",
@@ -1350,7 +1413,8 @@
                     "sqlServerDBDataType": "datetime",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeUTCDateTimeVal"
                   },
                   {
                     "name": "SomeMinDateVal",
@@ -1359,7 +1423,8 @@
                     "sqlServerDBDataType": "date",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeDateVal"
                   },
                   {
                     "name": "SomeMoneyVal",
@@ -1368,7 +1433,8 @@
                     "sqlServerDBDataType": "money",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeMoneyVal"
                   },
                   {
                     "name": "SomeNVarCharVal",
@@ -1377,7 +1443,8 @@
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeNVarCharVal"
                   },
                   {
                     "name": "SomeVarCharVal",
@@ -1386,7 +1453,8 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeVarCharVal"
                   },
                   {
                     "name": "SomeTextVal",
@@ -1395,7 +1463,8 @@
                     "sqlServerDBDataType": "text",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
-                    "isFKList": "false"
+                    "isFKList": "false",
+                    "targetColumnName": "SomeTextVal"
                   },
                   {
                     "name": "SomePhoneNumber",
@@ -1403,7 +1472,8 @@
                     "labelText": "Some Phone Number",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
-                    "isVisible": "true"
+                    "isVisible": "true",
+                    "targetColumnName": "SomePhoneNumber"
                   },
                   {
                     "name": "SomeEmailAddress",
@@ -1411,7 +1481,8 @@
                     "labelText": "Some Email Address",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
-                    "isVisible": "true"
+                    "isVisible": "true",
+                    "targetColumnName": "SomeEmailAddress"
                   }
                 ],
                 "reportColumn": [
@@ -1419,6 +1490,8 @@
                     "name": "PlantCode",
                     "codeDescription": "Land Plant List Report Plant Code Column",
                     "headerText": "",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "Code",
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1436,6 +1509,8 @@
                     "name": "SomeIntVal",
                     "codeDescription": "Land Plant List Report Some Int Val Column",
                     "headerText": "Int Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeIntVal",
                     "sqlServerDBDataType": "int",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1453,6 +1528,8 @@
                     "name": "SomeBigIntVal",
                     "codeDescription": "Land Plant List Report Some Big Int Val Column",
                     "headerText": "Big Int Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeBigIntVal",
                     "sqlServerDBDataType": "bigint",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1470,6 +1547,8 @@
                     "name": "SomeBitVal",
                     "codeDescription": "Land Plant List Report Some Bit Val Column",
                     "headerText": "Bit Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeBitVal",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1487,6 +1566,7 @@
                     "name": "IsEditAllowed",
                     "codeDescription": "Land Plant List Report Is Edit Allowed Column",
                     "headerText": "Edit Allowed",
+                    "sourceObjectName": "",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1521,6 +1601,8 @@
                     "name": "SomeFloatVal",
                     "codeDescription": "Land Plant List Report Some Float Val Column",
                     "headerText": "Float Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeFloatVal",
                     "sqlServerDBDataType": "float",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1538,6 +1620,8 @@
                     "name": "SomeDecimalVal",
                     "codeDescription": "Land Plant List Report Some Decimal Val Column",
                     "headerText": "Decimal Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeDecimalVal",
                     "sqlServerDBDataType": "decimal",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1555,6 +1639,8 @@
                     "name": "SomeUTCDateTimeVal",
                     "codeDescription": "Land Plant List Report Some UTC Date Time Val Column",
                     "headerText": "Date Time Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeUTCDateTimeVal",
                     "sqlServerDBDataType": "datetime",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1572,6 +1658,8 @@
                     "name": "SomeDateVal",
                     "codeDescription": "Land Plant List Report Some Date Val Column",
                     "headerText": "Date Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeDateVal",
                     "sqlServerDBDataType": "date",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1589,6 +1677,8 @@
                     "name": "SomeMoneyVal",
                     "codeDescription": "Land Plant List Report Some Money Val Column",
                     "headerText": "Money Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeMoneyVal",
                     "sqlServerDBDataType": "money",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1606,6 +1696,8 @@
                     "name": "SomeNVarCharVal",
                     "codeDescription": "Land Plant List Report Some N Var Char Val Column",
                     "headerText": "N Var Char Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeNVarCharVal",
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
@@ -1623,6 +1715,8 @@
                     "name": "SomeVarCharVal",
                     "codeDescription": "Land Plant List Report Some Var Char Val Column",
                     "headerText": "Var Char Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeVarCharVal",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1640,6 +1734,8 @@
                     "name": "SomeTextVal",
                     "codeDescription": "Land Plant List Report Some Text Val Column",
                     "headerText": "Text Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeTextVal",
                     "sqlServerDBDataType": "text",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -1657,6 +1753,8 @@
                     "name": "SomePhoneNumber",
                     "codeDescription": "Land Plant List Report Some Phone Number Column",
                     "headerText": "Phone Number",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomePhoneNumber",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
@@ -1674,6 +1772,8 @@
                     "name": "SomeEmailAddress",
                     "codeDescription": "Land Plant List Report Some Email Address Column",
                     "headerText": "Email Address",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeEmailAddress",
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
@@ -1691,6 +1791,9 @@
                     "name": "FlavorName",
                     "codeDescription": "Land Plant List Report Flavor Name Column",
                     "headerText": "Flavor Name",
+                    "sourceLookupObjImplementationObjName": "Plant",
+                    "sourceObjectName": "Flavor",
+                    "sourcePropertyName": "Name",
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
@@ -1708,6 +1811,9 @@
                     "name": "FlavorCode",
                     "codeDescription": "Land Plant List Report Flavor Code Column",
                     "headerText": "",
+                    "sourceLookupObjImplementationObjName": "Plant",
+                    "sourceObjectName": "Flavor",
+                    "sourcePropertyName": "Code",
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "false",
@@ -1768,6 +1874,8 @@
                     "name": "UpdateLinkPlantCode",
                     "codeDescription": "Land Plant List Report Update Link Plant Code Column",
                     "headerText": "",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "Code",
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "false",
@@ -1837,9 +1945,9 @@
             "objectWorkflow": [
               {
                 "name": "LandAddPlant",
-                "titleText": "Add Plant Title Text",
+                "titleText": "Add Plant",
                 "introText": "Add plant intro text.",
-                "roleRequired": "",
+                "roleRequired": "User",
                 "objectWorkflowParam": [
                   {
                     "name": "RequestFlavorCode",
@@ -2262,26 +2370,33 @@
                     "buttonText": "OK Button Text",
                     "destinationTargetName": "LandPlantList",
                     "destinationContextObjectName": "Land",
-                    "isButtonCallToAction": "true"
+                    "isButtonCallToAction": "true",
+                    "accessKey": "O",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "cancel",
                     "buttonText": "Cancel Button Text",
                     "destinationTargetName": "LandPlantList",
-                    "destinationContextObjectName": "Land"
+                    "destinationContextObjectName": "Land",
+                    "accessKey": "C",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "other",
                     "buttonText": "Go To Dashboard",
                     "destinationTargetName": "TacFarmDashboard",
-                    "destinationContextObjectName": "Tac"
+                    "destinationContextObjectName": "Tac",
+                    "accessKey": "G",
+                    "isAccessKeyAvailable": "true"
                   }
                 ],
                 "initObjectWorkflowName": "LandAddPlantInitObjWF",
                 "isInitObjWFSubscribedToParams": "false",
                 "layoutName": "",
                 "formFooterText": "Add plant form footer text",
-                "isHeaderVisible": "true"
+                "isHeaderVisible": "true",
+                "targetChildObject": "Plant"
               },
               {
                 "name": "LandAddPlantInitObjWF",
@@ -3066,6 +3181,7 @@
                 "isAutoRefreshFrequencyVisible": "false",
                 "isAutoRefreshDegraded": "true",
                 "autoRefreshFrequencyInMinutes": "1",
+                "isAuthorizationRequired": "false",
                 "isRefreshButtonHidden": "false",
                 "isPagingAvailable": "true",
                 "isExportButtonsHidden": "false",
@@ -3073,6 +3189,9 @@
                 "isFilterSectionCollapsable": "true",
                 "isBreadcrumbSectionHidden": "false",
                 "isButtonDropDownAllowed": "true",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "visualizationGridGroupByColumnName": "",
                 "visualizationGridGroupByInfoTextColumnName": "",
                 "reportButton": [],
@@ -3227,6 +3346,7 @@
                 "isAutoRefreshFrequencyVisible": "false",
                 "isAutoRefreshDegraded": "true",
                 "autoRefreshFrequencyInMinutes": "1",
+                "isAuthorizationRequired": "false",
                 "isRefreshButtonHidden": "false",
                 "isPagingAvailable": "true",
                 "isExportButtonsHidden": "false",
@@ -3234,6 +3354,9 @@
                 "isFilterSectionCollapsable": "true",
                 "isBreadcrumbSectionHidden": "false",
                 "isButtonDropDownAllowed": "true",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "visualizationGridGroupByColumnName": "",
                 "visualizationGridGroupByInfoTextColumnName": "",
                 "reportButton": [],
@@ -3388,6 +3511,7 @@
                 "isAutoRefreshFrequencyVisible": "false",
                 "isAutoRefreshDegraded": "true",
                 "autoRefreshFrequencyInMinutes": "1",
+                "isAuthorizationRequired": "false",
                 "isRefreshButtonHidden": "false",
                 "isPagingAvailable": "true",
                 "isExportButtonsHidden": "false",
@@ -3395,6 +3519,9 @@
                 "isFilterSectionCollapsable": "true",
                 "isBreadcrumbSectionHidden": "false",
                 "isButtonDropDownAllowed": "true",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "visualizationGridGroupByColumnName": "",
                 "visualizationGridGroupByInfoTextColumnName": "",
                 "reportButton": [],
@@ -3549,6 +3676,7 @@
                 "isAutoRefreshFrequencyVisible": "false",
                 "isAutoRefreshDegraded": "true",
                 "autoRefreshFrequencyInMinutes": "1",
+                "isAuthorizationRequired": "false",
                 "isRefreshButtonHidden": "false",
                 "isPagingAvailable": "true",
                 "isExportButtonsHidden": "false",
@@ -3556,6 +3684,9 @@
                 "isFilterSectionCollapsable": "true",
                 "isBreadcrumbSectionHidden": "false",
                 "isButtonDropDownAllowed": "true",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "visualizationGridGroupByColumnName": "",
                 "visualizationGridGroupByInfoTextColumnName": "",
                 "reportButton": [],
@@ -3710,6 +3841,7 @@
                 "isAutoRefreshFrequencyVisible": "false",
                 "isAutoRefreshDegraded": "true",
                 "autoRefreshFrequencyInMinutes": "1",
+                "isAuthorizationRequired": "false",
                 "isRefreshButtonHidden": "false",
                 "isPagingAvailable": "true",
                 "isExportButtonsHidden": "false",
@@ -3717,6 +3849,9 @@
                 "isFilterSectionCollapsable": "true",
                 "isBreadcrumbSectionHidden": "false",
                 "isButtonDropDownAllowed": "true",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "visualizationGridGroupByColumnName": "",
                 "visualizationGridGroupByInfoTextColumnName": "",
                 "reportButton": [],
@@ -3871,6 +4006,7 @@
                 "isAutoRefreshFrequencyVisible": "false",
                 "isAutoRefreshDegraded": "true",
                 "autoRefreshFrequencyInMinutes": "1",
+                "isAuthorizationRequired": "false",
                 "isRefreshButtonHidden": "false",
                 "isPagingAvailable": "true",
                 "isExportButtonsHidden": "false",
@@ -3878,6 +4014,9 @@
                 "isFilterSectionCollapsable": "true",
                 "isBreadcrumbSectionHidden": "false",
                 "isButtonDropDownAllowed": "true",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "visualizationGridGroupByColumnName": "",
                 "visualizationGridGroupByInfoTextColumnName": "",
                 "reportButton": [],
@@ -4367,6 +4506,7 @@
                 "isSubscribed": "true"
               }
             ],
+            "lookupItem": [],
             "report": [
               {
                 "name": "PlantUserDetails",
@@ -4390,12 +4530,15 @@
                 "isFilterSectionHidden": "true",
                 "isFilterSectionCollapsable": "false",
                 "isBreadcrumbSectionHidden": "false",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "isPage": "true",
                 "reportButton": [
                   {
                     "buttonType": "breadcrumb",
                     "buttonName": "TacFarmDashboardBreadcrumb",
-                    "buttonText": "Farm Dashboard breadcrumb text",
+                    "buttonText": "Farm Dashboard",
                     "destinationContextObjectName": "Tac",
                     "destinationTargetName": "TacFarmDashboard",
                     "isVisible": "true",
@@ -4405,22 +4548,25 @@
                   {
                     "buttonType": "breadcrumb",
                     "buttonName": "LandPlantListBreadcrumb",
-                    "buttonText": "Plant List breadcrumb text",
+                    "buttonText": "Plant List",
                     "destinationContextObjectName": "Land",
                     "destinationTargetName": "LandPlantList",
                     "isVisible": "true",
                     "isButtonCallToAction": "false",
-                    "isEnabled": "true"
+                    "isEnabled": "true",
+                    "buttonTypeDisplayOrder": "2"
                   },
                   {
                     "buttonType": "back",
                     "buttonName": "Back",
-                    "buttonText": "Plant List title text",
+                    "buttonText": "Plant List",
                     "destinationContextObjectName": "Land",
                     "destinationTargetName": "LandPlantList",
                     "isVisible": "true",
                     "isButtonCallToAction": "false",
-                    "isEnabled": "true"
+                    "isEnabled": "true",
+                    "accessKey": "B",
+                    "isAccessKeyAvailable": "true"
                   }
                 ],
                 "reportParam": [],
@@ -4850,7 +4996,9 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "buttonAccessKey": "U",
+                    "isButtonAccessKeyAvailable": "true"
                   },
                   {
                     "name": "DeleteAsyncButtonLinkPlantCode",
@@ -4896,7 +5044,9 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "buttonAccessKey": "R",
+                    "isButtonAccessKeyAvailable": "true"
                   },
                   {
                     "name": "BackToDashboardLinkTacCode",
@@ -4919,7 +5069,9 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "buttonAccessKey": "D",
+                    "isButtonAccessKeyAvailable": "true"
                   }
                 ]
               }
@@ -5290,6 +5442,9 @@
                 "isFilterSectionCollapsable": "false",
                 "isBreadcrumbSectionHidden": "false",
                 "isCachingAllowed": "true",
+                "defaultPageSize": "10",
+                "isPageUserSettingsDistinctForApp": "false",
+                "isFilterPersistant": "false",
                 "reportButton": [
                   {
                     "buttonType": "breadcrumb",
@@ -5305,7 +5460,7 @@
                   {
                     "buttonType": "breadcrumb",
                     "buttonName": "LandPlantListBreadcrumb",
-                    "buttonText": "Plant List title text",
+                    "buttonText": "Plant List",
                     "destinationContextObjectName": "Land",
                     "destinationTargetName": "LandPlantList",
                     "isVisible": "false",
@@ -5351,6 +5506,8 @@
                     "name": "FieldOnePlantListLinkLandCode",
                     "codeDescription": "Tac Farm Dashboard Report Field One Plant List Link Land Code Column",
                     "headerText": "",
+                    "sourceObjectName": "Land",
+                    "sourcePropertyName": "Code",
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
@@ -5360,6 +5517,53 @@
                     "destinationContextObjectName": "Land",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
+                    "isUnixEpochDateTime": "false",
+                    "isMultiSelectColumn": "false",
+                    "isButtonAsyncObjWF": "false",
+                    "isAsyncObjWFResultFileStreamedOut": "false",
+                    "isJoinedToLeftColumn": "false",
+                    "isJoinedToRightColumn": "false",
+                    "isIgnored": "false",
+                    "buttonAccessKey": "F",
+                    "isButtonAccessKeyAvailable": "true"
+                  },
+                  {
+                    "name": "ConditionalBtnExampleLinkLandCode",
+                    "codeDescription": "Tac Farm Dashboard Report Conditional Btn Example Link Land Code Column",
+                    "headerText": "",
+                    "sourceObjectName": "Land",
+                    "sourcePropertyName": "Code",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "sqlServerDBDataTypeSize": "",
+                    "isVisible": "true",
+                    "isButton": "true",
+                    "buttonText": "Conditional Btn Example",
+                    "destinationTargetName": "LandPlantList",
+                    "destinationContextObjectName": "Land",
+                    "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
+                    "isButtonCallToAction": "false",
+                    "isUnixEpochDateTime": "false",
+                    "isMultiSelectColumn": "false",
+                    "isButtonAsyncObjWF": "false",
+                    "isAsyncObjWFResultFileStreamedOut": "false",
+                    "isJoinedToLeftColumn": "false",
+                    "isJoinedToRightColumn": "false",
+                    "conditionalVisiblePropertyName": "IsConditionalBtnAvailable",
+                    "isIgnored": "false",
+                    "buttonAccessKey": "C",
+                    "isButtonAccessKeyAvailable": "true"
+                  },
+                  {
+                    "name": "IsConditionalBtnAvailable",
+                    "codeDescription": "Tac Farm Dashboard Report Is Conditional Btn Available Column",
+                    "headerText": "Is Conditional Btn Available",
+                    "sqlServerDBDataType": "bit",
+                    "sqlServerDBDataTypeSize": "",
+                    "isVisible": "false",
+                    "isButton": "false",
+                    "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
+                    "isButtonCallToAction": "false",
+                    "conditionalSqlLogic": "1=0",
                     "isUnixEpochDateTime": "false",
                     "isMultiSelectColumn": "false",
                     "isButtonAsyncObjWF": "false",
@@ -5491,13 +5695,17 @@
                     "destinationTargetName": "TacFarmDashboard",
                     "destinationContextObjectName": "Tac",
                     "isVisible": "true",
-                    "isButtonCallToAction": "true"
+                    "isButtonCallToAction": "true",
+                    "accessKey": "L",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "other",
                     "buttonText": "Register",
                     "destinationTargetName": "TacRegister",
-                    "destinationContextObjectName": "Tac"
+                    "destinationContextObjectName": "Tac",
+                    "accessKey": "R",
+                    "isAccessKeyAvailable": "true"
                   }
                 ],
                 "initObjectWorkflowName": "TacLoginInitObjWF",
@@ -5677,14 +5885,18 @@
                     "destinationTargetName": "TacFarmDashboard",
                     "destinationContextObjectName": "Tac",
                     "isVisible": "true",
-                    "isButtonCallToAction": "true"
+                    "isButtonCallToAction": "true",
+                    "accessKey": "R",
+                    "isAccessKeyAvailable": "true"
                   },
                   {
                     "buttonType": "cancel",
                     "buttonText": "Back To Log In",
                     "destinationTargetName": "TacLogin",
                     "destinationContextObjectName": "Tac",
-                    "isVisible": "true"
+                    "isVisible": "true",
+                    "accessKey": "B",
+                    "isAccessKeyAvailable": "true"
                   }
                 ],
                 "initObjectWorkflowName": "TacRegisterInitObjWF",

@@ -22,7 +22,7 @@ export const LandAddPlantPageTexts = {
     requestSampleImageUploadFileLabelText: "Sample Image Upload",
 
     //page title
-    titleText: "Add Plant Title Text",
+    titleText: "Add Plant",
 
     introText: "Add plant intro text.",
 
@@ -33,5 +33,5 @@ export const LandAddPlantPageTexts = {
     otherButtonText: "Go To Dashboard",
 
 
-    siteFooterText: "Copyright © 2023 • NewCo, Inc.",
+    siteFooterText: "Copyright © 2023 • NewCo Inc.",
 }

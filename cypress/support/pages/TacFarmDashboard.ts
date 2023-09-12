@@ -86,6 +86,11 @@ export class TacFarmDashboardPage {
             cy.get(PageSelectors.fieldOnePlantListLinkLandCodeRowButton).eq(0)
             .click();
         }
+        else if (destinationPageName == 'LandPlantList') { //conditionalBtnExampleLinkLandCode
+            cy.log('click row button conditionalBtnExampleLinkLandCode...');
+            cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeRowButton).eq(0)
+            .click();
+        }
         else {
             //throw error
         }

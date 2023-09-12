@@ -3,6 +3,7 @@ import { LandAddPlantPageSelectors as PageSelectors } from '../selectors/LandAdd
 import { LandAddPlantPageTexts as PageTexts } from '../texts/LandAddPlant';
 import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
+import Helper from '../helper';
  
 
 export class LandAddPlantPage {
@@ -361,6 +362,48 @@ export class LandAddPlantPage {
             .should('be.visible')
             .should('include.text', PageTexts.siteFooterText);
          
+    }
+
+    populateFormWithRandomValues(){
+        
+        const helper = new Helper();
+
+        // this.setFieldRequestFlavorCode(requestFlavorCode); 
+    
+        this.setFieldRequestOtherFlavor(helper.getUniqueString(50)); 
+    
+        this.setFieldRequestSomeIntVal(helper.getRandomNumber(3)); 
+    
+        this.setFieldRequestSomeBigIntVal(helper.getRandomNumber(3)); 
+    
+        this.setFieldRequestSomeBitVal(helper.getRandomBool()); 
+    
+        this.setFieldRequestIsEditAllowed(helper.getRandomBool()); 
+    
+        this.setFieldRequestIsDeleteAllowed(helper.getRandomBool()); 
+    
+        this.setFieldRequestSomeFloatVal(helper.getRandomNumber(3)); 
+    
+        this.setFieldRequestSomeDecimalVal(helper.getRandomNumber(3)); 
+    
+        this.setFieldRequestSomeUTCDateTimeVal(helper.getRandomDateString()); 
+    
+        this.setFieldRequestSomeDateVal(helper.getRandomDateString()); 
+    
+        this.setFieldRequestSomeMoneyVal(helper.getRandomNumber(3)); 
+    
+        this.setFieldRequestSomeNVarCharVal(helper.getUniqueString(50)); 
+    
+        this.setFieldRequestSomeVarCharVal(helper.getUniqueString(50));
+    
+        this.setFieldRequestSomeTextVal(helper.getUniqueString(50));
+    
+        this.setFieldRequestSomePhoneNumber(helper.getRandomPhoneNumber());
+    
+        this.setFieldRequestSomeEmailAddress(helper.getRandomEmail(50));
+        
+        // this.setFieldRequestSampleImageUploadFile(requestSampleImageUploadFile); 
+
     }
 
     populateForm(

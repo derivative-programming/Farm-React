@@ -18,6 +18,7 @@
         "objectWorkflowParam.isFKListInactiveIncluded",
         "objectWorkflowParam.isTimeZoneDetermined",  
         "objectWorkflowParam.isFKListSearchable",
+        "objectWorkflowParam.isRequired",
         "objectWorkflowParam.calculatedSqlServerDBDataType", 
         "objectWorkflowParam.calculatedIsEmailAddress", 
         "objectWorkflowParam.calculatedIsPhoneNumber", 

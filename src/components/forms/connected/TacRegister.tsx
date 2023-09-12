@@ -11,6 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/TacRegister";
+import * as FormValidation from "../validation/TacRegister";
 import * as InitFormService from "../services/init/TacRegisterInitObjWF";
 import { AuthContext } from "../../../context/authContext"; 
 import * as FormInput from "../input-fields";
@@ -42,7 +43,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-  const validationSchema = FormService.buildValidationSchema();
+  const validationSchema = FormValidation.buildValidationSchema();
 
   const authContext = useContext(AuthContext);
 

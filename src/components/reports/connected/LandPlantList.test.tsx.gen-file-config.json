@@ -7,6 +7,8 @@
     "ignoreDimensionPropertyList": [ 
         "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
         "reportButton.calculatedIsDestinationContextObjectNameSet", 
-        "reportButton.calculatedIsDestinationBackBtnDataSet" 
+        "reportButton.calculatedIsDestinationBackBtnDataSet",
+        "reportParam.calculatedIsTargetColumnNameAvailable",
+        "reportParam.calculatedIsTargetObjectAvailable"
     ]
 }

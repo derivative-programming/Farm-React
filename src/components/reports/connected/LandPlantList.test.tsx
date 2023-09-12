@@ -65,10 +65,10 @@ describe("LandPlantList Connected Report Component", () => {
 
     expect(screen.getByTestId("back-button")).toBeInTheDocument(); 
 
-    if("Plant List title text".length > 0){
+    if("Plant List".length > 0){
       expect(screen.getByTestId("page-title-text")).toBeInTheDocument();
       expect(screen.getByTestId("page-title-text"))
-        .toHaveTextContent("Plant List title text");
+        .toHaveTextContent("Plant List");
     }
     if("A list of plants on the land".length > 0){ 
       expect(screen.getByTestId("page-intro-text")).toBeInTheDocument();

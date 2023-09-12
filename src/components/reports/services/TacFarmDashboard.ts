@@ -39,6 +39,8 @@ export const buildValidationSchema = () => {
 export interface QueryResultItem {
  
     fieldOnePlantListLinkLandCode: string;  
+    conditionalBtnExampleLinkLandCode: string;  
+    isConditionalBtnAvailable: boolean;  
 }
 
 
@@ -88,15 +90,7 @@ export interface InitValidationError {
     message: string;
 
 }
-
-export class InitRequestInstance implements InitRequest {
-    
-
-    constructor() {
-        
-    }
-}
-
+ 
 
 export class InitResultInstance implements InitResult {
  
@@ -132,10 +126,14 @@ export class InitValidationErrorInstance implements InitValidationError {
 export class QueryResultItemInstance implements QueryResultItem {
  
     fieldOnePlantListLinkLandCode: string;
+    conditionalBtnExampleLinkLandCode: string;
+    isConditionalBtnAvailable: boolean;
 
     constructor() {
  
-        this.fieldOnePlantListLinkLandCode = '00000000-0000-0000-0000-000000000000';  
+        this.fieldOnePlantListLinkLandCode = '00000000-0000-0000-0000-000000000000'; 
+        this.conditionalBtnExampleLinkLandCode = '00000000-0000-0000-0000-000000000000';  
+        this.isConditionalBtnAvailable = false;   
     }
 }
 

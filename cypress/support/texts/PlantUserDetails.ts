@@ -26,9 +26,9 @@ export const PlantUserDetailsPageTexts = {
     titleText: "Plant Details",
     introText: "Plant Details page intro text",
     //breadcrumbs
-    tacFarmDashboardBreadcrumbText: "Farm Dashboard breadcrumb text",
+    tacFarmDashboardBreadcrumbText: "Farm Dashboard",
     //breadcrumbs
-    landPlantListBreadcrumbText: "Plant List breadcrumb text",
+    landPlantListBreadcrumbText: "Plant List",
     //row button text
     updateButtonTextLinkPlantCodeRowButtonText: "Update Button Text",
     randomPropertyUpdatesLinkPlantCodeRowButtonText: "Random Property Updates",

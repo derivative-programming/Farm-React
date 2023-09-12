@@ -10,6 +10,7 @@ import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as FormService from "../services/LandAddPlant";
+import * as FormValidation from "../validation/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 import HeaderLandAddPlant from "../headers/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext"; 
@@ -47,7 +48,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-  const validationSchema = FormService.buildValidationSchema();
+  const validationSchema = FormValidation.buildValidationSchema();
 
   const authContext = useContext(AuthContext);
 
@@ -172,7 +173,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
           className="mt-1 page-card"
 
         >
-          <h2 data-testid="page-title-text">Add Plant Title Text</h2>
+          <h2 data-testid="page-title-text">Add Plant</h2>
           <h6 data-testid="page-intro-text">Add plant intro text.</h6>
 
           <HeaderLandAddPlant  

@@ -53,12 +53,12 @@ export const LandPlantListPageTexts = {
     flavorCodeFilterLabel: "Select A Flavor",
 
     //page title
-    titleText: "Plant List title text",
+    titleText: "Plant List",
     introText: "A list of plants on the land",
 
     
     //breadcrumb
-    tacFarmDashboardBreadcrumbText: "Farm Dashboard breadcrumb text",
+    tacFarmDashboardBreadcrumbText: "Farm Dashboard",
 
     //report buttons 
     backButtonText: "Farm Dashboard",
@@ -72,6 +72,6 @@ export const LandPlantListPageTexts = {
     deleteAsyncButtonLinkPlantCodeRowButtonText: "Delete",
     detailsLinkPlantCodeRowButtonText: "Details",
 
-    siteFooterText: "Copyright © 2023 • NewCo, Inc.",
+    siteFooterText: "Copyright © 2023 • NewCo Inc.",
 
 }

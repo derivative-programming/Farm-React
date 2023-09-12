@@ -1,5 +1,4 @@
-import React, { FC, ReactElement } from 'react';
-import { Button } from "react-bootstrap";
+import { FC, ReactElement } from 'react';
 import '../../App.scss';
 
 const Footer: FC = (): ReactElement => {
@@ -8,7 +7,7 @@ const Footer: FC = (): ReactElement => {
 
         <div className="mt-1 mb-3" data-testid="footer-text">
             <hr/>
-            Copyright © 2023 • NewCo, Inc.
+            Copyright © 2023 • NewCo Inc.
         </div>
     )
 }

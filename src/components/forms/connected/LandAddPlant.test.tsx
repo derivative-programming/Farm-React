@@ -95,11 +95,11 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
     expect(screen.getByTestId("other-button")).toBeInTheDocument();
     
-    if("Add Plant Title Text".length > 0){ 
+    if("Add Plant".length > 0){ 
       expect(screen.getByTestId("page-title-text")) 
         .toBeInTheDocument();
       expect(screen.getByTestId("page-title-text"))
-        .toHaveTextContent("Add Plant Title Text");
+        .toHaveTextContent("Add Plant");
     }
     if("Add plant intro text.".length > 0){ 
       expect(screen.getByTestId("page-intro-text")).toBeInTheDocument();
