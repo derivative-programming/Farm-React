@@ -8,6 +8,8 @@
         "reportColumn.calculatedIsConditionalSqlLogicAvailable",
         "reportColumn.isVisible",
         "reportColumn.isButtonCallToAction",
+        "reportColumn.calculatedIsMaxWidthAvailable",
+        "reportColumn.calculatedIsMinWidthAvailable",
         "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
         "reportButton.calculatedIsDestinationContextObjectNameSet", 
         "reportColumn.calculatedIsSourceObjectAvailable"

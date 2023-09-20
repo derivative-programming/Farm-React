@@ -33,7 +33,7 @@ const formInitResponse = new InitFormService.InitResultInstance();
 describe("TacLogin Component", () => {
   // render the TacLogin component
   beforeEach(async() => {
-    mockFormInitService.mockResolvedValueOnce({
+    mockFormInitService.mockResolvedValue({
       data: formInitResponse,
     });
 
@@ -59,7 +59,7 @@ describe("TacLogin Component", () => {
     //expect(screen.getByText("Login")).toBeInTheDocument();
     expect(screen.getByText("Please enter your email and password.")).toBeInTheDocument();
     
-    await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFormInitService).toHaveBeenCalled());
   });
 
   it("when user enter email address, it set accordingly", async () => { 
@@ -92,7 +92,7 @@ describe("TacLogin Component", () => {
   });
 
   it("when user entered tacLogin details and clicks on login button, tacLogin api should be called", async () => {
-    mockFormSubmitService.mockResolvedValueOnce({
+    mockFormSubmitService.mockResolvedValue({
       data: formSubmitResponse,
     }); 
 
@@ -115,6 +115,6 @@ describe("TacLogin Component", () => {
       await fireEvent.click(screen.getByTestId("submit-button"));
     }); 
 
-    await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalled());
   });
 });

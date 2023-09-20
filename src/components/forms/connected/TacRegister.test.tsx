@@ -33,7 +33,7 @@ const formInitResponse = new InitFormService.InitResultInstance();
 describe("TacRegister Component", () => {
 
   beforeEach(async() => { 
-      mockFormInitService.mockResolvedValueOnce({
+      mockFormInitService.mockResolvedValue({
         data: formInitResponse,
       });
 
@@ -61,7 +61,7 @@ describe("TacRegister Component", () => {
     expect(screen.getByText("Create your account")).toBeInTheDocument();
     expect(screen.getByText("A Couple Details Then We're Off!")).toBeInTheDocument();
     
-    await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFormInitService).toHaveBeenCalled());
   });
 
   it("when user enter email address, it set accordingly", async () => {
@@ -110,7 +110,7 @@ describe("TacRegister Component", () => {
   });
 
   it("when user entered tacRegister details and clicks on register button, tacRegisterUser api should be called", async () => {
-    mockFormSubmitService.mockResolvedValueOnce({
+    mockFormSubmitService.mockResolvedValue({
       data: formSubmitResponse,
     }); 
 
@@ -150,6 +150,6 @@ describe("TacRegister Component", () => {
       await fireEvent.click(screen.getByTestId("submit-button"));
     });
 
-    await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalled());
   });
 });

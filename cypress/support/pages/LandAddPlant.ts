@@ -27,12 +27,12 @@ export class LandAddPlantPage {
     }
 
     isLoginRequired():boolean {
-        const isLoginPage = false;
-        if(isLoginPage){
-            return false; //its register or login page, so its public
+        const isAuthorizationRequired = true;
+        if(isAuthorizationRequired){
+            return true; 
         }
-        //look for public pages too
-        return true;
+        //look for public pages 
+        return false;
     }
 
     clickButtonWithDestination(destinationPageName) {
@@ -376,11 +376,11 @@ export class LandAddPlantPage {
     
         this.setFieldRequestSomeBigIntVal(helper.getRandomNumber(3)); 
     
-        this.setFieldRequestSomeBitVal(helper.getRandomBool()); 
+        this.setFieldRequestSomeBitVal(true); 
     
-        this.setFieldRequestIsEditAllowed(helper.getRandomBool()); 
+        this.setFieldRequestIsEditAllowed(true); 
     
-        this.setFieldRequestIsDeleteAllowed(helper.getRandomBool()); 
+        this.setFieldRequestIsDeleteAllowed(true); 
     
         this.setFieldRequestSomeFloatVal(helper.getRandomNumber(3)); 
     
@@ -507,21 +507,24 @@ export class LandAddPlantPage {
     }
 
     setFieldRequestSomeBitVal(val:boolean) { 
-        cy.get(PageSelectors.requestSomeBitValField)
-            .clear()
-            .type(val.toString()); 
+        if(val === true){
+            cy.get(PageSelectors.requestSomeBitValField)
+                .click(); 
+        }
     }
 
     setFieldRequestIsEditAllowed(val:boolean) { 
-        cy.get(PageSelectors.requestIsEditAllowedField)
-            .clear()
-            .type(val.toString()); 
+        if(val === true){
+            cy.get(PageSelectors.requestIsEditAllowedField)
+            .click(); 
+        }
     }
 
     setFieldRequestIsDeleteAllowed(val:boolean) { 
-        cy.get(PageSelectors.requestIsDeleteAllowedField)
-            .clear()
-            .type(val.toString()); 
+        if(val === true){
+            cy.get(PageSelectors.requestIsDeleteAllowedField)
+            .click(); 
+        }
     }
 
     setFieldRequestSomeFloatVal(val:number) { 

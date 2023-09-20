@@ -1,10 +1,9 @@
 
-
   import { apiCall } from "../../../apiConfig/apiCall";
     
   export const submitRequest = () => {
     return apiCall({
-      url: '/pac-user-date-greater-than-filter-list/00000000-0000-0000-0000-000000000000',
+      url: '/pac-user-tri-state-filter-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=triStateFilterDisplayOrder&orderByDescending=false',
       method: "get"
     });
   };
@@ -12,19 +11,19 @@
 
 export interface QueryResultItem {
  
-    dateGreaterThanFilterCode: string;
+    triStateFilterCode: string;
  
-    dateGreaterThanFilterDayCount: number;
+    triStateFilterDescription: string;
  
-    dateGreaterThanFilterDescription: string;
+    triStateFilterDisplayOrder: number;
  
-    dateGreaterThanFilterDisplayOrder: number;
+    triStateFilterIsActive: boolean;
  
-    dateGreaterThanFilterIsActive: boolean;
+    triStateFilterLookupEnumName: string;
  
-    dateGreaterThanFilterLookupEnumName: string;
+    triStateFilterName: string;
  
-    dateGreaterThanFilterName: string;  
+    triStateFilterStateIntValue: number;  
 }
 
 
@@ -100,41 +99,39 @@ export class InitValidationErrorInstance implements InitValidationError {
         this.message = ''; 
     }
 }
-
-
-  
+ 
 
 export class QueryResultItemInstance implements QueryResultItem {
  
-    dateGreaterThanFilterCode: string;
+    triStateFilterCode: string;
  
-    dateGreaterThanFilterDayCount: number;
+    triStateFilterDescription: string;
  
-    dateGreaterThanFilterDescription: string;
+    triStateFilterDisplayOrder: number;
  
-    dateGreaterThanFilterDisplayOrder: number;
+    triStateFilterIsActive: boolean;
  
-    dateGreaterThanFilterIsActive: boolean;
+    triStateFilterLookupEnumName: string;
  
-    dateGreaterThanFilterLookupEnumName: string;
+    triStateFilterName: string;
  
-    dateGreaterThanFilterName: string;
+    triStateFilterStateIntValue: number;
 
     constructor() {
  
-        this.dateGreaterThanFilterCode = '00000000-0000-0000-0000-000000000000';
+        this.triStateFilterCode = '00000000-0000-0000-0000-000000000000';
  
-        this.dateGreaterThanFilterDayCount = 0;
+        this.triStateFilterDescription = '';
  
-        this.dateGreaterThanFilterDescription = '';
+        this.triStateFilterDisplayOrder = 0;
  
-        this.dateGreaterThanFilterDisplayOrder = 0;
+        this.triStateFilterIsActive = false;
  
-        this.dateGreaterThanFilterIsActive = false;
+        this.triStateFilterLookupEnumName = '';
  
-        this.dateGreaterThanFilterLookupEnumName = '';
+        this.triStateFilterName = '';
  
-        this.dateGreaterThanFilterName = '';  
+        this.triStateFilterStateIntValue = 0;  
     }
 }
 
@@ -185,7 +182,6 @@ export class QueryResultInstance implements QueryResult {
         this.request = '';
     }
 }
-
 
 export class QueryResultTestInstance implements QueryResult {
     pageNumber: number;

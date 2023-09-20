@@ -14,6 +14,7 @@ const Header: FC = (): ReactElement => {
     logClick("Header","logOut","");
     AnalyticsService.stop();
     authContext.setToken("");
+    authContext.setRoles("");
     localStorage.setItem("@token", "");
     localStorage.setItem("customerCode","");
     localStorage.setItem("email", "");
@@ -25,7 +26,19 @@ const Header: FC = (): ReactElement => {
   };
   const onDashboard = () => {
     logClick("Header","dashboard","");
-    navigate("/tac-farm-dashboard/00000000-0000-0000-0000-000000000000");
+    navigate("/");
+  };
+  const onProfile = () => {
+    logClick("Header","profile","");
+    navigate("/customer-user-update-profile/00000000-0000-0000-0000-000000000000");
+  };
+  const onAdminDashboard = () => {
+    logClick("Header","admin","");
+    navigate("/customer-admin-dashboard/00000000-0000-0000-0000-000000000000");
+  };
+  const onConfigDashboard = () => {
+    logClick("Header","config","");
+    navigate("/pac-config-dashboard/00000000-0000-0000-0000-000000000000");
   };
 
   const onRegister = () => {
@@ -51,6 +64,30 @@ const Header: FC = (): ReactElement => {
           <Nav className="menu-options-container justify-content-end">
             {authContext && authContext.token ? (  
               <>
+              <NavItem
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <span
+                  data-testid="header-config-dashboard-link"
+                  className={`nav-link${isHovered ? ' text-underline' : ''}`}
+                  onClick={onConfigDashboard}
+                >
+                  {authContext && authContext.token && authContext.roles.includes('Config') === true ? "Config" : null}
+                </span>
+              </NavItem>
+                <NavItem
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <span
+                    data-testid="header-admin-dashboard-link"
+                    className={`nav-link${isHovered ? ' text-underline' : ''}`}
+                    onClick={onAdminDashboard}
+                  >
+                    {authContext && authContext.token && authContext.roles.includes('Admin') === true ? "Admin" : null}
+                  </span>
+                </NavItem>
                 <NavItem
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
@@ -60,7 +97,20 @@ const Header: FC = (): ReactElement => {
                     className={`nav-link${isHovered ? ' text-underline' : ''}`}
                     onClick={onDashboard}
                   >
-                    {authContext && authContext.token ? "Dashboard" : null}
+                    {authContext && authContext.token && authContext.roles.includes('User') === true ? "Dashboard" : null}
+                  </span>
+                </NavItem>
+                
+                <NavItem
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <span
+                    data-testid="header-profile-link"
+                    className={`nav-link${isHovered ? ' text-underline' : ''}`}
+                    onClick={onProfile}
+                  >
+                    {authContext && authContext.token && authContext.roles.includes('User') === true ? "Profile" : null}
                   </span>
                 </NavItem>
 
@@ -112,7 +162,7 @@ const Header: FC = (): ReactElement => {
           </div>
           <div className="mobile-menu">
             <Dropdown>
-              <Dropdown.Toggle  id="dropdown-basic">
+              <Dropdown.Toggle  id="dropdown-basic"  data-testid="header-dropdown-menu">
                 <hr></hr>
                 <hr></hr>
                 <hr></hr>
@@ -127,6 +177,26 @@ const Header: FC = (): ReactElement => {
                       onClick={onDashboard}>
                   
                       Dashboard
+                    </Dropdown.Item>
+                    <Dropdown.Item 
+                      data-testid="header-profile-link"
+                      onClick={onProfile}>
+                  
+                      Profile
+                    </Dropdown.Item>
+                    <Dropdown.Item 
+                      data-testid="header-dashboard-link"
+                      onClick={onAdminDashboard}>
+                  
+                      
+                      {authContext && authContext.token && authContext.roles.includes('Admin') === true ? "Admin" : null}
+                    </Dropdown.Item>
+                    <Dropdown.Item 
+                      data-testid="header-dashboard-link"
+                      onClick={onConfigDashboard}>
+                  
+                      
+                      {authContext && authContext.token && authContext.roles.includes('Config') === true ? "Config" : null}
                     </Dropdown.Item>
                     <Dropdown.Item
                       data-testid="header-logout-link"

@@ -1,28 +1,30 @@
 
+
   import { apiCall } from "../../../apiConfig/apiCall";
     
   export const submitRequest = () => {
     return apiCall({
-      url: '/pac-user-flavor-list/00000000-0000-0000-0000-000000000000',
+      url: '/pac-user-date-greater-than-filter-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=dateGreaterThanFilterDisplayOrder&orderByDescending=false',
       method: "get"
     });
   };
 
+
 export interface QueryResultItem {
-  
-    flavorCode: string;
  
-    flavorDescription: string;
+    dateGreaterThanFilterCode: string;
  
-    flavorDisplayOrder: number;
+    dateGreaterThanFilterDayCount: number;
  
-    flavorIsActive: boolean;
+    dateGreaterThanFilterDescription: string;
  
-    flavorLookupEnumName: string;
+    dateGreaterThanFilterDisplayOrder: number;
  
-    flavorName: string;
+    dateGreaterThanFilterIsActive: boolean;
  
-    pacName: string;  
+    dateGreaterThanFilterLookupEnumName: string;
+ 
+    dateGreaterThanFilterName: string;  
 }
 
 
@@ -73,7 +75,6 @@ export interface InitValidationError {
 }
  
 
-
 export class InitResultInstance implements InitResult {
     
     success: boolean;
@@ -101,40 +102,39 @@ export class InitValidationErrorInstance implements InitValidationError {
 }
 
 
- 
- 
+  
 
 export class QueryResultItemInstance implements QueryResultItem {
  
-    flavorCode: string;
+    dateGreaterThanFilterCode: string;
  
-    flavorDescription: string;
+    dateGreaterThanFilterDayCount: number;
  
-    flavorDisplayOrder: number;
+    dateGreaterThanFilterDescription: string;
  
-    flavorIsActive: boolean;
+    dateGreaterThanFilterDisplayOrder: number;
  
-    flavorLookupEnumName: string;
+    dateGreaterThanFilterIsActive: boolean;
  
-    flavorName: string;
+    dateGreaterThanFilterLookupEnumName: string;
  
-    pacName: string;
+    dateGreaterThanFilterName: string;
 
     constructor() {
  
-        this.flavorCode = '00000000-0000-0000-0000-000000000000';
+        this.dateGreaterThanFilterCode = '00000000-0000-0000-0000-000000000000';
  
-        this.flavorDescription = '';
+        this.dateGreaterThanFilterDayCount = 0;
  
-        this.flavorDisplayOrder = 0;
+        this.dateGreaterThanFilterDescription = '';
  
-        this.flavorIsActive = false;
+        this.dateGreaterThanFilterDisplayOrder = 0;
  
-        this.flavorLookupEnumName = '';
+        this.dateGreaterThanFilterIsActive = false;
  
-        this.flavorName = '';
+        this.dateGreaterThanFilterLookupEnumName = '';
  
-        this.pacName = '';  
+        this.dateGreaterThanFilterName = '';  
     }
 }
 
@@ -212,7 +212,7 @@ export class QueryResultTestInstance implements QueryResult {
         this.message = '';
         this.appVersion = '';
         this.request = '';
-
+        
         this.items.push(new QueryResultItemInstance())
     }
 }

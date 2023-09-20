@@ -32,12 +32,12 @@ export class LandPlantListPage {
     
 
     isLoginRequired():boolean {
-        const isLoginPage = false;
-        if(isLoginPage){
-            return false; //its register or login page, so its public
+        const isAuthorizationRequired = true;
+        if(isAuthorizationRequired){
+            return true; 
         }
-        //look for public pages too
-        return true;
+        //look for public pages 
+        return false;
     }
 
 
@@ -1422,21 +1422,24 @@ export class LandPlantListPage {
     }
 
     setFilterFieldSomeBitVal(val:boolean) { 
-        cy.get(PageSelectors.someBitValFilterField)
-            .clear()
-            .type(val.toString()); 
+        if(val === true){
+            cy.get(PageSelectors.someBitValFilterField)
+            .click(); 
+        }
     }
 
     setFilterFieldIsEditAllowed(val:boolean) { 
-        cy.get(PageSelectors.isEditAllowedFilterField)
-            .clear()
-            .type(val.toString()); 
+        if(val === true){
+            cy.get(PageSelectors.isEditAllowedFilterField)
+                .click(); 
+        }
     }
 
     setFilterFieldIsDeleteAllowed(val:boolean) { 
-        cy.get(PageSelectors.isDeleteAllowedFilterField)
-            .clear()
-            .type(val.toString()); 
+        if(val === true){
+            cy.get(PageSelectors.isDeleteAllowedFilterField)
+            .click(); 
+        }
     }
 
     setFilterFieldSomeFloatVal(val:number) { 

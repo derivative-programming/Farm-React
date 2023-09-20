@@ -10,5 +10,6 @@ export const TacLoginPageSelectors = {
     footerText: "[data-testid='page-footer-text']",
     submitButton: "[data-testid='submit-button']",
     otherButton: "[data-testid='other-button']",
+    headerDropDownMenu: "[data-testid='header-dropdown-menu']",
 }
 

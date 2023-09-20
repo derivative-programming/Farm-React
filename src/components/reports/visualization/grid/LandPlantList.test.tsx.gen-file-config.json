@@ -3,5 +3,18 @@
     "dimension" :{
         "name":"LandPlantList",
         "calculatedIsPage":"true"
-    }
+    },
+    "ignoreDimensionPropertyList": [ 
+        "reportColumn.calculatedIsConditionalSqlLogicAvailable",
+        "reportColumn.calculatedIsSourceObjectAvailable",
+        "reportColumn.isVisible",
+        "reportColumn.isButtonCallToAction",
+        "reportColumn.calculatedIsMaxWidthAvailable",
+        "reportColumn.calculatedIsMinWidthAvailable",
+        "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
+        "reportButton.calculatedIsDestinationContextObjectNameSet", 
+        "reportButton.isVisible",
+        "reportButton.isButtonCallToAction",
+        "reportButton.isEnabled"
+    ]
 }

@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import "../../../App.scss"; 
-import * as PacUserFlavorListService from "../../lookups/services/PacUserFlavorList";
+import * as PacUserFlavorListService from "../../lookups/services/Flavor";
 import {useField } from 'formik';
 import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
    

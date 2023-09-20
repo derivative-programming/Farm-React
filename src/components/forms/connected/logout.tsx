@@ -22,6 +22,7 @@ export const Logout: FC<FormProps> = ({
   
   AnalyticsService.stop();
   authContext.setToken("");
+  authContext.setRoles("");
   localStorage.setItem("@token", "");
   localStorage.setItem("customerCode","");
   localStorage.setItem("email", "");

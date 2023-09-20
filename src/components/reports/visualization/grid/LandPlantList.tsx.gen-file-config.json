@@ -9,6 +9,8 @@
         "reportColumn.calculatedIsSourceObjectAvailable",
         "reportColumn.isVisible",
         "reportColumn.isButtonCallToAction",
+        "reportColumn.calculatedIsMaxWidthAvailable",
+        "reportColumn.calculatedIsMinWidthAvailable",
         "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
         "reportButton.calculatedIsDestinationContextObjectNameSet", 
         "reportButton.isVisible",

@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("@token"));
+  const [roles, setRoles] = useState([]);
 
   useEffect(() => {
     apiInstance.defaults.headers.common["Api-Key"] = token;
@@ -14,11 +15,23 @@ const AuthProvider = ({ children }) => {
     setToken(token);
   };
 
+  
+  useEffect(() => {
+     console.log(roles);
+  }, [roles]);
+
+  const onRoles = (rolesCSV) => { 
+    const roles  = rolesCSV.split(','); 
+    setRoles(roles);
+  };
+
   return (
     <AuthContext.Provider
       value={{
         token,
         setToken: onToken,
+        roles,
+        setRoles: onRoles
       }}
     >
       {children}

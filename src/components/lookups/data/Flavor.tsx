@@ -1,5 +1,5 @@
 import { useEffect,useState} from "react";
-import * as PacUserFlavorListService from "../services/PacUserFlavorList";
+import * as PacUserFlavorListService from "../services/Flavor";
 
 export const getFlavors= () => {
     let items:PacUserFlavorListService.QueryResultItem[] = []

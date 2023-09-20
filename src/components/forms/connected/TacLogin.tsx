@@ -49,7 +49,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
 
   const authContext = useContext(AuthContext); 
 
-  let headerErrors: string[] = [];
+  let headerErrors: string[] = ["test"];
 
   const handleInit = (responseFull: any) => {
     const initFormResponse: InitFormService.InitResult = responseFull.data;
@@ -108,6 +108,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       {/*//GENTrainingBlock[caseGetApiKey]Start*/}
       {/*//GENLearn[isLoginPage=true]Start*/}
       authContext.setToken(response.apiKey);
+      authContext.setRoles(response.roleNameCSVList);
       localStorage.setItem("@token", response.apiKey);
       localStorage.setItem("customerCode", response.customerCode);
       localStorage.setItem("email", response.email);

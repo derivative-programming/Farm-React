@@ -3,7 +3,7 @@
     
   export const submitRequest = () => {
     return apiCall({
-      url: '/pac-user-tri-state-filter-list/00000000-0000-0000-0000-000000000000',
+      url: '/pac-user-land-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=landDisplayOrder&orderByDescending=false',
       method: "get"
     });
   };
@@ -11,19 +11,19 @@
 
 export interface QueryResultItem {
  
-    triStateFilterCode: string;
+    landCode: string;
  
-    triStateFilterDescription: string;
+    landDescription: string;
  
-    triStateFilterDisplayOrder: number;
+    landDisplayOrder: number;
  
-    triStateFilterIsActive: boolean;
+    landIsActive: boolean;
  
-    triStateFilterLookupEnumName: string;
+    landLookupEnumName: string;
  
-    triStateFilterName: string;
+    landName: string;
  
-    triStateFilterStateIntValue: number;  
+    pacName: string;  
 }
 
 
@@ -74,6 +74,7 @@ export interface InitValidationError {
 }
  
 
+
 export class InitResultInstance implements InitResult {
     
     success: boolean;
@@ -99,39 +100,40 @@ export class InitValidationErrorInstance implements InitValidationError {
         this.message = ''; 
     }
 }
+
  
 
 export class QueryResultItemInstance implements QueryResultItem {
  
-    triStateFilterCode: string;
+    landCode: string;
  
-    triStateFilterDescription: string;
+    landDescription: string;
  
-    triStateFilterDisplayOrder: number;
+    landDisplayOrder: number;
  
-    triStateFilterIsActive: boolean;
+    landIsActive: boolean;
  
-    triStateFilterLookupEnumName: string;
+    landLookupEnumName: string;
  
-    triStateFilterName: string;
+    landName: string;
  
-    triStateFilterStateIntValue: number;
+    pacName: string;
 
     constructor() {
  
-        this.triStateFilterCode = '00000000-0000-0000-0000-000000000000';
+        this.landCode = '00000000-0000-0000-0000-000000000000';
  
-        this.triStateFilterDescription = '';
+        this.landDescription = '';
  
-        this.triStateFilterDisplayOrder = 0;
+        this.landDisplayOrder = 0;
  
-        this.triStateFilterIsActive = false;
+        this.landIsActive = false;
  
-        this.triStateFilterLookupEnumName = '';
+        this.landLookupEnumName = '';
  
-        this.triStateFilterName = '';
+        this.landName = '';
  
-        this.triStateFilterStateIntValue = 0;  
+        this.pacName = '';  
     }
 }
 

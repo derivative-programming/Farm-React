@@ -1,5 +1,5 @@
 import { useEffect,useState} from "react";  
-import * as PacUserDateGreaterThanFilterListService from "../services/PacUserDateGreaterThanFilterList";
+import * as PacUserDateGreaterThanFilterListService from "../services/DateGreaterThanFilter";
 
 export const getDateGreaterThanFilters= () => {
     let items:PacUserDateGreaterThanFilterListService.QueryResultItem[] = []

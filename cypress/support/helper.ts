@@ -77,10 +77,7 @@ class Helper {
 
     const page = new TacRegisterPage();
 
-    page.visit();
-
-    const firstName = this.getUniqueString(10);
-    const lastName = this.getUniqueString(10);
+    page.visit(); 
     
     page.populateFormWithRandomValues();
     page.setFieldEmail(email);
@@ -106,13 +103,30 @@ class Helper {
 	}
 
   logOut() {
-    cy.log('Logout...');
-		cy.visit("/");  
 
-    cy.get("[data-testid='header-logout-link']") 
-    .click();
-    cy.wait(2000);
+
+    
+    cy.log('Logout...');  
+    
+    cy.get('body').then($body => {
+      if ($body.find("[data-testid='header-dropdown-menu']").length > 0) {
+          const $dropdown = $body.find("[data-testid='header-dropdown-menu']");
+          if ($dropdown.is(':visible')) {
+              cy.wrap($dropdown).click();
+
+              cy.get("[data-testid='header-logout-link']") 
+              .click();
+          }
+      } else {
+        cy.get("[data-testid='header-logout-link']") 
+        .click();
+      } 
+    }); 
+
+    cy.wait(2000); 
+    
   }
+  
  
 }
 export default Helper;

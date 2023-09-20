@@ -3,7 +3,7 @@
     
   export const submitRequest = () => {
     return apiCall({
-      url: '/pac-user-land-list/00000000-0000-0000-0000-000000000000',
+      url: '/pac-user-tac-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=tacDisplayOrder&orderByDescending=false',
       method: "get"
     });
   };
@@ -11,17 +11,17 @@
 
 export interface QueryResultItem {
  
-    landCode: string;
+    tacCode: string;
  
-    landDescription: string;
+    tacDescription: string;
  
-    landDisplayOrder: number;
+    tacDisplayOrder: number;
  
-    landIsActive: boolean;
+    tacIsActive: boolean;
  
-    landLookupEnumName: string;
+    tacLookupEnumName: string;
  
-    landName: string;
+    tacName: string;
  
     pacName: string;  
 }
@@ -105,33 +105,33 @@ export class InitValidationErrorInstance implements InitValidationError {
 
 export class QueryResultItemInstance implements QueryResultItem {
  
-    landCode: string;
+    tacCode: string;
  
-    landDescription: string;
+    tacDescription: string;
  
-    landDisplayOrder: number;
+    tacDisplayOrder: number;
  
-    landIsActive: boolean;
+    tacIsActive: boolean;
  
-    landLookupEnumName: string;
+    tacLookupEnumName: string;
  
-    landName: string;
+    tacName: string;
  
     pacName: string;
 
     constructor() {
  
-        this.landCode = '00000000-0000-0000-0000-000000000000';
+        this.tacCode = '00000000-0000-0000-0000-000000000000';
  
-        this.landDescription = '';
+        this.tacDescription = '';
  
-        this.landDisplayOrder = 0;
+        this.tacDisplayOrder = 0;
  
-        this.landIsActive = false;
+        this.tacIsActive = false;
  
-        this.landLookupEnumName = '';
+        this.tacLookupEnumName = '';
  
-        this.landName = '';
+        this.tacName = '';
  
         this.pacName = '';  
     }
@@ -184,6 +184,7 @@ export class QueryResultInstance implements QueryResult {
         this.request = '';
     }
 }
+
 
 export class QueryResultTestInstance implements QueryResult {
     pageNumber: number;

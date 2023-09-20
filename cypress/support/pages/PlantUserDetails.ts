@@ -19,12 +19,12 @@ export class PlantUserDetailsPage {
         currentPage = routingAssistant.goToPage(currentPage,'PlantUserDetails'); 
     }
     isLoginRequired():boolean {
-        const isLoginPage = false;
-        if(isLoginPage){
-            return false; //its register or login page, so its public
+        const isAuthorizationRequired = true;
+        if(isAuthorizationRequired){
+            return true; 
         }
-        //look for public pages too
-        return true;
+        //look for public pages 
+        return false;
     }
     verifyUrl() {
         cy.log('Verifying url...');

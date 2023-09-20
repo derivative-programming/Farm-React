@@ -31,7 +31,7 @@ const mockReportService = jest.spyOn(ReportService, "submitRequest");
 describe("TacFarmDashboard Connected Report Component", () => {
   // render the TacFarmDashboard component
   beforeEach(() => {
-    mockReportInitService.mockResolvedValueOnce({
+    mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
     }); 
 

@@ -20,12 +20,12 @@ export class TacRegisterPage {
         routingAssistant.goToPage(currentPage,'TacRegister');
     }
     isLoginRequired():boolean {
-        const isLoginPage = true;
-        if(isLoginPage){
-            return false; //its register or login page, so its public
+        const isAuthorizationRequired = false;
+        if(isAuthorizationRequired){
+            return true; 
         }
-        //look for public pages too
-        return true;
+        //look for public pages 
+        return false;
     }
     clickButtonWithDestination(destinationPageName) {
         if (destinationPageName == 'XXXX') { //placeholder

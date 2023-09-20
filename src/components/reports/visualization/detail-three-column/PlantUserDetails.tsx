@@ -168,7 +168,7 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     isVisible={false}
                     onClick={() => {
                         logClick("ReportDetailThreeColPlantUserDetails","updateButtonTextLinkPlantCode","");
-                        onNavigateTo("/plant-edit/" + item.updateButtonTextLinkPlantCode);
+                        onNavigateTo("/plant-user-details/" + item.updateButtonTextLinkPlantCode);
                     }}
                 />
 

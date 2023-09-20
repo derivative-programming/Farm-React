@@ -29,7 +29,7 @@ const mockReportService = jest.spyOn(ReportService, "submitRequest");
 describe("PlantUserDetails Connected Report Component", () => {
   // render the PlantUserDetails component
   beforeEach(async() => {
-    mockReportInitService.mockResolvedValueOnce({
+    mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
     }); 
 

@@ -1,5 +1,5 @@
 import { useEffect,useState} from "react";  
-import * as PacUserRoleListService from "../services/PacUserRoleList";
+import * as PacUserRoleListService from "../services/Role";
 
 export const getRoles= () => {
     let items:PacUserRoleListService.QueryResultItem[] = []

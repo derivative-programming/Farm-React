@@ -16,6 +16,7 @@ export const TacRegisterPageSelectors = {
     footerText: "[data-testid='page-footer-text']",
     submitButton: "[data-testid='submit-button']",
     cancelButton: "[data-testid='cancel-button']",
+    headerDropDownMenu: "[data-testid='header-dropdown-menu']",
 
 }
 

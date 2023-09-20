@@ -3,25 +3,24 @@
     
   export const submitRequest = () => {
     return apiCall({
-      url: '/pac-user-tac-list/00000000-0000-0000-0000-000000000000',
+      url: '/pac-user-flavor-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=flavorDisplayOrder&orderByDescending=false',
       method: "get"
     });
   };
 
-
 export interface QueryResultItem {
+  
+    flavorCode: string;
  
-    tacCode: string;
+    flavorDescription: string;
  
-    tacDescription: string;
+    flavorDisplayOrder: number;
  
-    tacDisplayOrder: number;
+    flavorIsActive: boolean;
  
-    tacIsActive: boolean;
+    flavorLookupEnumName: string;
  
-    tacLookupEnumName: string;
- 
-    tacName: string;
+    flavorName: string;
  
     pacName: string;  
 }
@@ -101,37 +100,39 @@ export class InitValidationErrorInstance implements InitValidationError {
     }
 }
 
+
+ 
  
 
 export class QueryResultItemInstance implements QueryResultItem {
  
-    tacCode: string;
+    flavorCode: string;
  
-    tacDescription: string;
+    flavorDescription: string;
  
-    tacDisplayOrder: number;
+    flavorDisplayOrder: number;
  
-    tacIsActive: boolean;
+    flavorIsActive: boolean;
  
-    tacLookupEnumName: string;
+    flavorLookupEnumName: string;
  
-    tacName: string;
+    flavorName: string;
  
     pacName: string;
 
     constructor() {
  
-        this.tacCode = '00000000-0000-0000-0000-000000000000';
+        this.flavorCode = '00000000-0000-0000-0000-000000000000';
  
-        this.tacDescription = '';
+        this.flavorDescription = '';
  
-        this.tacDisplayOrder = 0;
+        this.flavorDisplayOrder = 0;
  
-        this.tacIsActive = false;
+        this.flavorIsActive = false;
  
-        this.tacLookupEnumName = '';
+        this.flavorLookupEnumName = '';
  
-        this.tacName = '';
+        this.flavorName = '';
  
         this.pacName = '';  
     }
@@ -211,7 +212,7 @@ export class QueryResultTestInstance implements QueryResult {
         this.message = '';
         this.appVersion = '';
         this.request = '';
-        
+
         this.items.push(new QueryResultItemInstance())
     }
 }

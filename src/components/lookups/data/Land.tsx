@@ -1,5 +1,5 @@
 import { useEffect,useState} from "react";  
-import * as PacUserLandListService from "../services/PacUserLandList";
+import * as PacUserLandListService from "../services/Land";
 
 export const getLands= () => {
     let items:PacUserLandListService.QueryResultItem[] = []

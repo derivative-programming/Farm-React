@@ -59,4 +59,5 @@ export const LandAddPlantPageSelectors = {
     
     siteFooter: "[data-testid='footer-text']",
     
+    headerDropDownMenu: "[data-testid='header-dropdown-menu']",
 }

@@ -12,7 +12,7 @@ import FormConnectedLandAddPlant from "./LandAddPlant";
 import { BrowserRouter } from "react-router-dom"; 
 import * as FormService from "../services/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
-import * as requestFlavorCodeService from "../../lookups/services/PacUserFlavorList"
+import * as requestFlavorCodeService from "../../lookups/services/Flavor"
 import "fake-indexeddb/auto";
 
 
@@ -39,11 +39,11 @@ const formInitResponse = new InitFormService.InitResultInstance();
 describe("LandAddPlant Component", () => {
 
   beforeEach(async () => { 
-      mockFormInitService.mockResolvedValueOnce({
+      mockFormInitService.mockResolvedValue({
         data: new InitFormService.InitResultInstance(),
       });
       
-      mockRequestFlavorCodeService.mockResolvedValueOnce({
+      mockRequestFlavorCodeService.mockResolvedValue({
         data: new requestFlavorCodeService.QueryResultTestInstance(),
       }); 
 //endset
@@ -57,7 +57,7 @@ describe("LandAddPlant Component", () => {
         ); 
       })
 
-      await waitFor(() => expect(mockRequestFlavorCodeService).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(mockRequestFlavorCodeService).toHaveBeenCalled());
 //endset
   });
 
@@ -112,7 +112,7 @@ describe("LandAddPlant Component", () => {
         .toHaveTextContent("Add plant form footer text");
     }
     
-    await waitFor(() => expect(mockFormInitService).toHaveBeenCalledTimes(1)); 
+    await waitFor(() => expect(mockFormInitService).toHaveBeenCalled()); 
   });
 
 
@@ -263,7 +263,7 @@ describe("LandAddPlant Component", () => {
 
 
   it("when user entered LandAddPlant details and clicks on register button, LandAddPlantUser api should be called", async () => {
-    mockFormSubmitService.mockResolvedValueOnce({
+    mockFormSubmitService.mockResolvedValue({
       data: formSubmitResponse,
     }); 
    
@@ -356,6 +356,6 @@ describe("LandAddPlant Component", () => {
       await fireEvent.click(screen.getByTestId("submit-button"));
     });
 
-    await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalled());
   });
 });

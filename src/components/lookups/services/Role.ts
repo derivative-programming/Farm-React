@@ -3,7 +3,7 @@
     
   export const submitRequest = () => {
     return apiCall({
-      url: '/pac-user-role-list/00000000-0000-0000-0000-000000000000',
+      url: '/pac-user-role-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=roleDisplayOrder&orderByDescending=false',
       method: "get"
     });
   };

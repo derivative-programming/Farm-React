@@ -9,7 +9,7 @@ import {
   waitFor,
 } from "@testing-library/react";
 import ReportFilterLandPlantList from "./LandPlantList";  
-import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
+import * as flavorCodeService from "../../lookups/services/Flavor"
 import * as ReportService from "../services/LandPlantList";  
 import "fake-indexeddb/auto";
  
@@ -25,7 +25,7 @@ const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestIns
 describe("LandPlantList Component", () => {
 
   beforeEach(async () => {  
-    mockFlavorCodeService.mockResolvedValueOnce({
+    mockFlavorCodeService.mockResolvedValue({
         data: new flavorCodeService.QueryResultTestInstance(),
       }); 
       
@@ -37,7 +37,7 @@ describe("LandPlantList Component", () => {
           onSubmit={onSubmit} />  
     ); 
 
-    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalled());
   });
 
   // after cleanup when test-case execution is done

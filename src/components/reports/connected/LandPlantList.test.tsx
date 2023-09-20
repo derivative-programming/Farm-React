@@ -10,7 +10,7 @@ import ReportConnectedLandPlantList from "./LandPlantList";
 import * as ReportService from "../services/LandPlantList";
 import * as InitReportService from "../services/init/LandPlantListInitReport";
 import { BrowserRouter } from "react-router-dom";
-import * as flavorCodeService from "../../lookups/services/PacUserFlavorList"
+import * as flavorCodeService from "../../lookups/services/Flavor"
 import "fake-indexeddb/auto";
  
 window.localStorage.setItem("@token", "sampleToken");
@@ -31,11 +31,11 @@ const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 describe("LandPlantList Connected Report Component", () => {
   // render the LandPlantList component
   beforeEach(async() => {
-    mockReportInitService.mockResolvedValueOnce({
+    mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
     });
 
-    mockFlavorCodeService.mockResolvedValueOnce({
+    mockFlavorCodeService.mockResolvedValue({
       data: new flavorCodeService.QueryResultTestInstance(),
     }); 
     

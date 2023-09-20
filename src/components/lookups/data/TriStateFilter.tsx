@@ -1,5 +1,5 @@
 import { useEffect,useState} from "react";  
-import * as PacUserTriStateFilterListService from "../services/PacUserTriStateFilterList";
+import * as PacUserTriStateFilterListService from "../services/TriStateFilter";
 
 export const getTriStateFilters= () => {
     let items:PacUserTriStateFilterListService.QueryResultItem[] = []
