@@ -36,6 +36,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   );
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
+  const initHeaderErrors: string[] = [];
+  const [headerErrors, setHeaderErrors] = useState(initHeaderErrors);
   const { logClick } = useAnalyticsDB();
 
   let lastApiSubmission: any = {
@@ -50,15 +52,13 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
 
   const validationSchema = FormValidation.buildValidationSchema();
 
-  const authContext = useContext(AuthContext);
-
-  let headerErrors: string[] = [];
+  const authContext = useContext(AuthContext); 
 
   const handleInit = (responseFull: any) => {
     const response: InitFormService.InitResult = responseFull.data;
 
     if (!response.success) {
-      headerErrors = ["An unexpected error occurred."];
+      setHeaderErrors(["An unexpected error occurred."]);
       return;
     }
 
@@ -68,10 +68,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const handleValidate = async (values: FormService.SubmitRequest) => {
     let errors: any = {};
     if (!lastApiSubmission.response.success) {
-      headerErrors = FormService.getValidationErrors(
+      setHeaderErrors(FormService.getValidationErrors(
         "",
         lastApiSubmission.response
-      );
+      ));
       Object.entries(values).forEach(([key, value]) => {
         const fieldErrors: string = FormService.getValidationErrors(
           key,
@@ -102,7 +102,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
         response: { ...response },
       };
       if (!response.success) {
-        headerErrors = FormService.getValidationErrors("", response);
+        setHeaderErrors(FormService.getValidationErrors("", response));
         Object.entries(new FormService.SubmitRequestInstance()).forEach(
           ([key, value]) => {
             const fieldErrors: string = FormService.getValidationErrors(

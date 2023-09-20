@@ -33,6 +33,8 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   );
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
+  const initHeaderErrors: string[] = [];
+  const [headerErrors, setHeaderErrors] = useState(initHeaderErrors);
   let lastApiSubmission: any = {
     request: new FormService.SubmitResultInstance(),
     response: new FormService.SubmitRequestInstance(),
@@ -49,7 +51,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
 
   const authContext = useContext(AuthContext); 
 
-  let headerErrors: string[] = ["test"];
+  // let headerErrors: string[] = [];
 
   const handleInit = (responseFull: any) => {
     const initFormResponse: InitFormService.InitResult = responseFull.data;
@@ -64,10 +66,10 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   const handleValidate = async (values: FormService.SubmitRequest) => {
     let errors: any = {};
     if (!lastApiSubmission.response.success) {
-      headerErrors = FormService.getValidationErrors(
+      setHeaderErrors(FormService.getValidationErrors(
         "",
         lastApiSubmission.response
-      );
+      ));
       Object.entries(values).forEach(([key, value]) => {
         const fieldErrors: string = FormService.getValidationErrors(
           key,
@@ -95,7 +97,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
         response: { ...response },
       };
       if (!response.success) {
-        headerErrors = FormService.getValidationErrors("", response);
+        setHeaderErrors(FormService.getValidationErrors("", response));
         Object.entries(new FormService.SubmitRequestInstance()).forEach(
           ([key, value]) =>
             actions.setFieldError(
