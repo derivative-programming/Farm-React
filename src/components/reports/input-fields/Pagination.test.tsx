@@ -8,7 +8,7 @@ import {
   fireEvent,
   waitFor,
 } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 import {ReportPagination} from "./Pagination";   
 import { Formik } from "formik";
 import { Form } from "react-bootstrap";

@@ -62,6 +62,7 @@ function useAnalyticsDB() {
         hostName: window.location.hostname, 
         pathName: window.location.pathname, 
       }
+
     if(!!db){
       db.add(ANALYTICS_DBTABLE, dbData);
       updateDB();
