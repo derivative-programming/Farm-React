@@ -195,7 +195,7 @@ describe("LandAddPlant Component", () => {
     await act(async () => {
       await fireEvent.change(input, { target: { value: validDateFormat } });
     }); 
-    expect(screen.getByTestId("requestSomeUTCDateTimeVal")).toHaveValue("1/1/2000");
+    expect(screen.getByTestId("requestSomeUTCDateTimeVal")).toHaveValue("2000-01-01");
   });
 
   it("when user enter requestSomeDateVal, it set accordingly", async () => {

@@ -1,4 +1,5 @@
 // src/polyfills.js
-if (typeof global.structuredClone === 'undefined') {
-    global.structuredClone = (obj) => JSON.parse(JSON.stringify(obj));
+if (typeof window.structuredClone === 'undefined') {
+    window.structuredClone = (obj) => JSON.parse(JSON.stringify(obj));
   }
+  

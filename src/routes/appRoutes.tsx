@@ -29,8 +29,8 @@ const FormConnectedLandAddPlant = loadable(() => import('../components/forms/con
 //GENTrainingBlock[b]End
 //GENLOOPObjectWorkflowEnd
 //GENLearn[modelType=object,name=Land]End 
-const FormConnectedTacLogin = loadable(() => import('../components/forms/connected/TacLogin'));
-const FormConnectedTacRegister = loadable(() => import('../components/forms/connected/TacRegister'));
+// const FormConnectedTacLogin = loadable(() => import('../components/forms/connected/TacLogin'));
+// const FormConnectedTacRegister = loadable(() => import('../components/forms/connected/TacRegister'));
 //GENTrainingBlock[a]End
 //GENLOOPObjectEnd
 

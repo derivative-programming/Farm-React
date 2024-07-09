@@ -1,6 +1,6 @@
 import { HttpTransportType, HubConnection, HubConnectionBuilder, HubConnectionState } from "@microsoft/signalr";
 
-var connection: any = null;
+let connection: any = null;
 export const startConnection = () => { 
     const connectionId = localStorage.getItem("customerCode");
     if (connectionId) {

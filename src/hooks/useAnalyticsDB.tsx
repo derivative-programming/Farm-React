@@ -3,7 +3,7 @@ import { openDB } from "idb";
 import { v4 as uuidv4 } from "uuid";
 import { SubscribeDBContext } from "../context/subscribeDB-context";
 import { ANALYTICS_DBNAME, ANALYTICS_DBTABLE } from "../constants/dbName";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { sendClientAnalyticsData } from "../components/services/analyticsService";
 //import "fake-indexeddb/auto";
 
@@ -63,7 +63,7 @@ function useAnalyticsDB() {
         pathName: window.location.pathname, 
       }
 
-    if(!!db){
+    if(db){
       db.add(ANALYTICS_DBTABLE, dbData);
       updateDB();
     }
