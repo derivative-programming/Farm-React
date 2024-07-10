@@ -1,16 +1,11 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
-  act,
-  fireEvent,
 } from "@testing-library/react";
 import {ReportColumnDisplayEmail} from "./DisplayEmail";   
-import { Formik } from "formik";
-import { Form } from "react-bootstrap";
-
 const initialValues = { testName:"" } 
 
 const handleSubmit = jest.fn();

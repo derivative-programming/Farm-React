@@ -7,8 +7,8 @@ import * as InitReportService from "../services/init/TacFarmDashboardInitReport"
 import { ReportDetailTwoColTacFarmDashboard } from "../visualization/detail-two-column/TacFarmDashboard";
 
 export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(1);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [pageSize, setPageSize] = useState(1);
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance()); 
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
@@ -52,18 +52,6 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
 
     const onPageSizeChange = (pageSize: number) => { 
         setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
-    }
-
-    const onRowSelect = (index: number) => {
-    }
-
-    const onRowUnselect = (index: number) => {
-    }
-
-    const onSelectAll = () => {
-    }
-
-    const onUnselectAll = () => {
     }
 
     const onNavigateTo = (url: string) => { 

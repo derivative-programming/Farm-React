@@ -23,7 +23,7 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
   const displayValue = (isVisible && conditionallyVisible);
       
   const formatNumber = () => {  
-    let result:string = "";
+    let result = "";
     
     try {
         

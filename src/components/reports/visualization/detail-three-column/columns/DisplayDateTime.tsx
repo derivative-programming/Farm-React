@@ -24,7 +24,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
   const displayValue = (isVisible && conditionallyVisible);
       
   const formatDateTime = () => {  
-    let result:string = "";
+    let result = "";
     
     try {
         

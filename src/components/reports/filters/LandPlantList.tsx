@@ -44,7 +44,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
 
   const authContext = useContext(AuthContext);
 
-  let headerErrors: string[] = [];
+  const headerErrors: string[] = [];
 
   const submitButtonClick = async (
     values: ReportService.QueryRequest,

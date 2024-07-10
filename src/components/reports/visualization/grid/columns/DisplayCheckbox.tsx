@@ -1,5 +1,6 @@
 import React, { FC, ReactElement,} from "react";
 import { Form } from "react-bootstrap";
+
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayCheckboxProps {

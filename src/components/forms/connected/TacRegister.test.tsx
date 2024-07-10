@@ -1,8 +1,9 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
@@ -27,7 +28,7 @@ jest.mock("react-router-dom", () => ({
 const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
 
-let formSubmitResponse = new FormService.SubmitResultInstance();
+const formSubmitResponse = new FormService.SubmitResultInstance();
 const formInitResponse = new InitFormService.InitResultInstance();
  
 describe("TacRegister Component", () => {
@@ -67,7 +68,7 @@ describe("TacRegister Component", () => {
   it("when user enter email address, it set accordingly", async () => {
     const input = screen.getByTestId("email");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "test@gmail.com" } });
+      fireEvent.change(input, { target: { value: "test@gmail.com" } });
     });
 
     expect(screen.getByTestId("email")).toHaveValue("test@gmail.com");
@@ -76,7 +77,7 @@ describe("TacRegister Component", () => {
   it("when user enter password, it set accordingly", async () => {
     const input = screen.getByTestId("password");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "Test@123" } });
+      fireEvent.change(input, { target: { value: "Test@123" } });
     });
 
     expect(screen.getByTestId("password")).toHaveValue("Test@123");
@@ -85,7 +86,7 @@ describe("TacRegister Component", () => {
   it("when user enter confirm password, it set accordingly", async () => {
     const input = screen.getByTestId("confirmPassword");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "Test@123" } });
+      fireEvent.change(input, { target: { value: "Test@123" } });
     });
 
     expect(screen.getByTestId("confirmPassword")).toHaveValue("Test@123");
@@ -94,7 +95,7 @@ describe("TacRegister Component", () => {
   it("when user enter first name, it set accordingly", async () => {
     const input = screen.getByTestId("firstName");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "jerry" } });
+      fireEvent.change(input, { target: { value: "jerry" } });
     });
 
     expect(screen.getByTestId("firstName")).toHaveValue("jerry");
@@ -103,7 +104,7 @@ describe("TacRegister Component", () => {
   it("when user enter last name, it set accordingly", async () => {
     const input = screen.getByTestId("lastName");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "beggar" } });
+      fireEvent.change(input, { target: { value: "beggar" } });
     });
 
     expect(screen.getByTestId("lastName")).toHaveValue("beggar");
@@ -117,7 +118,7 @@ describe("TacRegister Component", () => {
     // enter email address
     const emailInput = screen.getByTestId("email");
     await act(async () => {
-      await fireEvent.change(emailInput, {
+      fireEvent.change(emailInput, {
         target: { value: "test@gmail.com" },
       });
     });
@@ -125,25 +126,25 @@ describe("TacRegister Component", () => {
     // enter password
     const passwordInput = screen.getByTestId("password");
     await act(async () => {
-      await fireEvent.change(passwordInput, { target: { value: "Test@123" } });
+      fireEvent.change(passwordInput, { target: { value: "Test@123" } });
     });
 
     // confirm password
     const confirmInput = screen.getByTestId("confirmPassword");
     await act(async () => {
-      await fireEvent.change(confirmInput, { target: { value: "Test@123" } });
+      fireEvent.change(confirmInput, { target: { value: "Test@123" } });
     });
 
     // first name
     const firstNameInput = screen.getByTestId("firstName");
     await act(async () => {
-      await fireEvent.change(firstNameInput, { target: { value: "jerry" } });
+      fireEvent.change(firstNameInput, { target: { value: "jerry" } });
     });
 
     // last name
     const lastNameInput = screen.getByTestId("lastName");
     await act(async () => {
-      await fireEvent.change(lastNameInput, { target: { value: "beggar" } });
+      fireEvent.change(lastNameInput, { target: { value: "beggar" } });
     });
 
     await act(async () => {

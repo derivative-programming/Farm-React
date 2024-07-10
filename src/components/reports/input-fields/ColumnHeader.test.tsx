@@ -1,8 +1,9 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
@@ -35,7 +36,7 @@ describe("ReportColumnHeader Component", () => {
   it("when user enter value, it set accordingly in control", async () => {
     const input = screen.getByTestId("testName");
     // await act(async () => {
-    //   await fireEvent.change(input, { target: { value: "test@gmail.com" } });
+    //   fireEvent.change(input, { target: { value: "test@gmail.com" } });
     // });
 
     // expect(screen.getByTestId("testName")).toHaveValue("test@gmail.com");

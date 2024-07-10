@@ -107,7 +107,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
   const paginationCountDisplayId = paginationId  + "-count-display";
   
   const getAvailablePageItems = () => {
-    let items: any = [];
+    const items: any = [];
     let start = currentPage - 2;
     if(start < 1){
       start = 1;

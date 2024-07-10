@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayNumberProps {
@@ -23,7 +23,7 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
   const displayValue = (isVisible && conditionallyVisible);
       
   const formatNumber = () => {  
-    let result:string = "";
+    let result = "";
     
     try {
         

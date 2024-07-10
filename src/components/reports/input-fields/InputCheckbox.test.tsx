@@ -1,26 +1,32 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
-  waitFor,
 } from "@testing-library/react";
 import {ReportInputCheckbox} from "./InputCheckbox";   
 import { Formik } from "formik";
 import { Form } from "react-bootstrap";
 
 const initialValues = { testName:"" } 
- 
+
+const handleSubmit = async (values:any, actions:any) => {
+  // Add your form submission logic here
+  console.log('Form values:', values);
+  actions.setSubmitting(false);
+};
+
 describe("ReportInputCheckbox Component", () => {
   // render the ReportInputCheckbox component
   beforeEach(() => {
     render(
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
                 <ReportInputCheckbox label="Test Label" name="testName"/> 
@@ -50,7 +56,7 @@ describe("ReportInputCheckbox Component", () => {
   it("when user unchecks, it set accordingly in control", async () => {
     const input = screen.getByTestId("testName-field");
     await act(async () => {
-        await fireEvent.change(input, { target: { checked: false } });
+        fireEvent.change(input, { target: { checked: false } });
     });
 
     expect(screen.getByTestId("testName-field")).not.toBeChecked();
@@ -60,7 +66,7 @@ describe("ReportInputCheckbox Component", () => {
     const input = screen.getByTestId("testName-field");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { disabled: true } });
+      fireEvent.change(input, { target: { disabled: true } });
     });
 
     expect(screen.getByTestId("testName-field")).toBeDisabled();
@@ -70,7 +76,7 @@ describe("ReportInputCheckbox Component", () => {
     const input = screen.getByTestId("testName-field");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { disabled: false } });
+      fireEvent.change(input, { target: { disabled: false } });
     });
 
     expect(screen.getByTestId("testName-field")).not.toBeDisabled();
@@ -80,7 +86,7 @@ describe("ReportInputCheckbox Component", () => {
     render( 
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
                 <ReportInputCheckbox label="Test Label" name="testName2" autoFocus={true}/> 
@@ -92,7 +98,7 @@ describe("ReportInputCheckbox Component", () => {
     const input = screen.getByTestId("testName2-field");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { autoFocus: true } });
+      fireEvent.change(input, { target: { autoFocus: true } });
     });
 
     expect(screen.getByTestId("testName2-field")).toHaveFocus();

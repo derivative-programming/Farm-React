@@ -1,7 +1,7 @@
 export const onKeyDown = (e: any) => {
   const decimal_index = e.target.value.indexOf(".");
   if (decimal_index > -1) {
-    var decimals = e.target.value.substring(
+    const decimals = e.target.value.substring(
       decimal_index,
       e.target.value.length + 1
     );

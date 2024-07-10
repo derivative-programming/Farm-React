@@ -1,12 +1,12 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
-  waitFor,
 } from "@testing-library/react";
 import {FormInputButton} from "./InputButton";   
 import { Formik } from "formik";
@@ -15,6 +15,12 @@ import { Form } from "react-bootstrap";
 const initialValues = { testName:"" } 
 
 const mockedOnClick = jest.fn();
+
+const handleSubmit = async (values:any, actions:any) => {
+  // Add your form submission logic here
+  console.log('Form values:', values);
+  actions.setSubmitting(false);
+};
  
 describe("InputButton Component", () => {
   // render the InputButton component
@@ -22,7 +28,7 @@ describe("InputButton Component", () => {
     render(
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
                 <FormInputButton buttonText="Test Label" name="testName" onClick={mockedOnClick}/> 
@@ -45,7 +51,7 @@ describe("InputButton Component", () => {
   //   const input = screen.getByTestId("testName");
 
   //   await act(async () => {
-  //     await fireEvent.change(input, { target: { isEnabled: false } });
+  //     fireEvent.change(input, { target: { isEnabled: false } });
   //   });
 
   //   expect(screen.getByTestId("testName")).toBeDisabled();
@@ -55,7 +61,7 @@ describe("InputButton Component", () => {
   //   const input = screen.getByTestId("testName");
 
   //   await act(async () => {
-  //     await fireEvent.change(input, { target: { isEnabled: true } });
+  //     fireEvent.change(input, { target: { isEnabled: true } });
   //   });
 
   //   expect(screen.getByTestId("testName")).not.toBeDisabled();
@@ -65,7 +71,7 @@ describe("InputButton Component", () => {
     render( 
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
                 <FormInputButton buttonText="Test Label" name="testName2" autoFocus={true}  onClick={mockedOnClick}/> 
@@ -77,7 +83,7 @@ describe("InputButton Component", () => {
     const input = screen.getByTestId("testName2");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { autoFocus: true } });
+      fireEvent.change(input, { target: { autoFocus: true } });
     });
 
     expect(screen.getByTestId("testName2")).toHaveFocus();

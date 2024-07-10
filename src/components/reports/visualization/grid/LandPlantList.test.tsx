@@ -1,10 +1,11 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
-  act, 
+  act,
 } from "@testing-library/react";
 import {ReportGridLandPlantList} from "./LandPlantList";
 import "fake-indexeddb/auto";

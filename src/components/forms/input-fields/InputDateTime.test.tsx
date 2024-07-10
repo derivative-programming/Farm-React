@@ -1,12 +1,13 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
-  waitFor,
+  // waitFor,
 } from "@testing-library/react";
 import {FormInputDateTime} from "./InputDateTime";   
 import { Formik } from "formik";
@@ -14,13 +15,19 @@ import { Form } from "react-bootstrap";
 
 const initialValues = { testName:"" } 
  
+const handleSubmit = async (values:any, actions:any) => {
+  // Add your form submission logic here
+  console.log('Form values:', values);
+  actions.setSubmitting(false);
+};
+
 describe("InputDateTime Component", () => {
   // render the InputDateTime component
   beforeEach(() => {
     render(
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
       <FormInputDateTime label="Test Label" name="testName"/> 
@@ -44,7 +51,7 @@ describe("InputDateTime Component", () => {
     const input = screen.getByTestId("testName");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "1/1/2000" } });
+      fireEvent.change(input, { target: { value: "1/1/2000" } });
     });
 
     expect(screen.getByTestId("testName")).toHaveValue("1/1/2000"); 
@@ -54,7 +61,7 @@ describe("InputDateTime Component", () => {
     const input = screen.getByTestId("testName");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { disabled: true } });
+      fireEvent.change(input, { target: { disabled: true } });
     });
 
     expect(screen.getByTestId("testName")).toBeDisabled();
@@ -64,7 +71,7 @@ describe("InputDateTime Component", () => {
     const input = screen.getByTestId("testName");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { disabled: false } });
+      fireEvent.change(input, { target: { disabled: false } });
     });
 
     expect(screen.getByTestId("testName")).not.toBeDisabled();
@@ -74,7 +81,7 @@ describe("InputDateTime Component", () => {
     render( 
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
       <FormInputDateTime label="Test Label" name="testName2" autoFocus={true}/> 
@@ -86,7 +93,7 @@ describe("InputDateTime Component", () => {
     const input = screen.getByTestId("testName2");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { autoFocus: true } });
+      fireEvent.change(input, { target: { autoFocus: true } });
     });
 
     expect(screen.getByTestId("testName2")).toHaveFocus();

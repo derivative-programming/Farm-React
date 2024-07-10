@@ -5,10 +5,10 @@ import { TacLoginPage } from "./pages/TacLogin";
 class Helper {
     
   getUniqueString(length: number): string {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
@@ -60,11 +60,11 @@ class Helper {
   }
 
   getRandomPassword(length: number): string {
-    var result = '';
-    var upperCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var lowerCharacters = 'abcdefghijklmnopqrstuvwxyz';
-    var numbers = '0123456789';
-    for (var i = 0; i < length; i++) {
+    let result = '';
+    const upperCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowerCharacters = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+    for (let i = 0; i < length; i++) {
       result += upperCharacters.charAt(Math.floor(Math.random() * upperCharacters.length));
       result += lowerCharacters.charAt(Math.floor(Math.random() * lowerCharacters.length));
       result += numbers.charAt(Math.floor(Math.random() * numbers.length));

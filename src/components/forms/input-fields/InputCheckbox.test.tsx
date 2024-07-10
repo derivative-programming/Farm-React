@@ -1,18 +1,24 @@
-/* eslint-disable testing-library/no-render-in-setup */
+/* eslint-disable testing-library/no-render-in-lifecycle */
+
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
-  waitFor,
 } from "@testing-library/react";
 import {FormInputCheckbox} from "./InputCheckbox";   
 import { Formik } from "formik";
 import { Form } from "react-bootstrap";
 
 const initialValues = { testName:"" } 
+
+const handleSubmit = async (values:any, actions:any) => {
+  // Add your form submission logic here
+  console.log('Form values:', values);
+  actions.setSubmitting(false);
+};
  
 describe("InputCheckbox Component", () => {
   // render the InputCheckbox component
@@ -20,7 +26,7 @@ describe("InputCheckbox Component", () => {
     render(
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
                 <FormInputCheckbox label="Test Label" name="testName"/> 
@@ -49,7 +55,7 @@ describe("InputCheckbox Component", () => {
   it("when user unchecks, it set accordingly in control", async () => {
     const input = screen.getByTestId("testName");
     await act(async () => {
-        await fireEvent.change(input, { target: { checked: false } });
+        fireEvent.change(input, { target: { checked: false } });
     });
 
     expect(screen.getByTestId("testName")).not.toBeChecked();
@@ -59,7 +65,7 @@ describe("InputCheckbox Component", () => {
     const input = screen.getByTestId("testName");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { disabled: true } });
+      fireEvent.change(input, { target: { disabled: true } });
     });
 
     expect(screen.getByTestId("testName")).toBeDisabled();
@@ -69,7 +75,7 @@ describe("InputCheckbox Component", () => {
     const input = screen.getByTestId("testName");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { disabled: false } });
+      fireEvent.change(input, { target: { disabled: false } });
     });
 
     expect(screen.getByTestId("testName")).not.toBeDisabled();
@@ -79,7 +85,7 @@ describe("InputCheckbox Component", () => {
     render( 
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
                 <FormInputCheckbox label="Test Label" name="testName2" autoFocus={true}/> 
@@ -91,7 +97,7 @@ describe("InputCheckbox Component", () => {
     const input = screen.getByTestId("testName2");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { autoFocus: true } });
+      fireEvent.change(input, { target: { autoFocus: true } });
     });
 
     expect(screen.getByTestId("testName2")).toHaveFocus();

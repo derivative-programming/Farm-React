@@ -21,7 +21,7 @@ export class LandAddPlantPage {
         cy.log('Login is required');
 
         const routingAssistant = new RoutingAssistant(); 
-        let currentPage = routingAssistant.visitPage('LandPlantList');  //cancel-button destination
+        const currentPage = routingAssistant.visitPage('LandPlantList');  //cancel-button destination
         routingAssistant.goToPage(currentPage,'LandAddPlant'); 
         
     }

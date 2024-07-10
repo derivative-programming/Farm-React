@@ -41,7 +41,7 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
 
   const errorDisplayControlName = name + "ErrorDisplay";
   
-  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  // const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
   
   return (
     <div className="" hidden={!isVisible}>

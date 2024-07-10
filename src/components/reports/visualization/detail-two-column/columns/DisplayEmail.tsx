@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayEmailProps {
@@ -23,7 +23,7 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   const displayValue = (isVisible && conditionallyVisible);
       
   const formatEmail = () => {  
-    let result:string = ""; 
+    let result = ""; 
     
     try {
       

@@ -22,7 +22,7 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   const displayValue = (isVisible && conditionallyVisible);
       
   const formatEmail = () => {  
-    let result:string = ""; 
+    let result = ""; 
     
     try {
       

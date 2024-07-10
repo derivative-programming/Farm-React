@@ -1,12 +1,11 @@
 import React, {
   FC,
   ReactElement,
-  useContext,
   useState,
   useEffect,
   useRef,
 } from "react";
-import { Button, Form, Card, Breadcrumb, Container } from "react-bootstrap";
+import { Button, Card, Breadcrumb } from "react-bootstrap";
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
@@ -23,8 +22,8 @@ import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
 import { v4 as uuidv4 } from "uuid";
 
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [pageSize, setPageSize] = useState(10);
   const [isProcessing, setIsProcessing] = useState(false);
   const [initPageResponse, setInitPageResponse] = useState(
     new InitReportService.InitResultInstance()
@@ -46,7 +45,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
   const isBreadcrumbSectionHidden = false;
-  const isButtonDropDownAllowed = false;
+  // const isButtonDropDownAllowed = false;
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -162,7 +161,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
   useEffect(() => {
     if (JSON.stringify(initialValues) !== JSON.stringify(query)) { 
-      let pageSize = localStorage.getItem("pageSize");
+      const pageSize = localStorage.getItem("pageSize");
       if(pageSize !== null)
       { 
         initialValues.ItemCountPerPage = parseInt(pageSize);

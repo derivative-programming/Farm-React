@@ -1,28 +1,35 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
-  act,
-  fireEvent,
-  waitFor,
+  // act,
+  // fireEvent,
+  // waitFor,
 } from "@testing-library/react";
-import {FormInputText} from "./InputText";   
-import {FormInputErrorDisplay} from "./InputErrorDisplay";   
+// import {FormInputText} from "./InputText";   
+// import {FormInputErrorDisplay} from "./InputErrorDisplay";   
 import { Formik } from "formik";
 import { Form } from "react-bootstrap";
 import { FormInputDate } from "./InputDate";
 
 const initialValues = { testName:"" } 
- 
+
+const handleSubmit = async (values:any, actions:any) => {
+  // Add your form submission logic here
+  console.log('Form values:', values);
+  actions.setSubmitting(false);
+};
+
 describe("InputErrorDisplay Component", () => {
   // render the InputErrorDisplay component
   beforeEach(() => {
     render(
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
               <FormInputDate label="Test Label" name="testInputName"/> 
@@ -43,7 +50,7 @@ describe("InputErrorDisplay Component", () => {
   it("when user enter value, it set accordingly in control", async () => {
     const input = screen.getByTestId("testInputNameErrorDisplay");
     // await act(async () => {
-    //   await fireEvent.change(input, { target: { value: "test@gmail.com" } });
+    //   fireEvent.change(input, { target: { value: "test@gmail.com" } });
     // });
 
     // expect(screen.getByTestId("testName")).toHaveValue("test@gmail.com");

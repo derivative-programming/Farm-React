@@ -1,5 +1,5 @@
 import React, { FC, ReactElement,} from "react";
-import { Button, Form, Card, Col, ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 import "../../../../../App.scss"; 
 import moment from "moment";
    
@@ -24,7 +24,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
   const displayValue = (isVisible && conditionallyVisible);
       
   const formatDateTime = () => {  
-    let result:string = "";
+    let result = "";
     
     try {
         

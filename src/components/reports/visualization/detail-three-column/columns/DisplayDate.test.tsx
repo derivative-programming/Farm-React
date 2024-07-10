@@ -1,8 +1,8 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen, 
 } from "@testing-library/react";
 import {ReportColumnDisplayDate} from "./DisplayDate";    

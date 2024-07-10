@@ -1,9 +1,7 @@
-import { render, cleanup, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ErrorDisplay from "./ErrorDisplay";
 
 describe("ErrorDisplay Component", () => {
-  afterEach(cleanup);
-
   it("renders correctly when no errors are provided", () => {
     render(<ErrorDisplay name="testName" />);
     expect(screen.queryByText(/.+/)).toBeNull();

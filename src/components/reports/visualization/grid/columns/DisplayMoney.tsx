@@ -22,7 +22,7 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
   const displayValue = (isVisible && conditionallyVisible);
       
   const formatMoney = () => { 
-    let result:string = "";
+    let result = "";
     
     try {
       

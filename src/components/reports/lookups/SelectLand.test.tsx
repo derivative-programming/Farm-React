@@ -1,12 +1,10 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
-  act,
-  fireEvent,
-  waitFor,
 } from "@testing-library/react";
 import ReportSelectLand from "./SelectLand";  
 import { Formik } from "formik";
@@ -15,6 +13,12 @@ import { Form } from "react-bootstrap";
 const initialValues = { testName:"" }
 const validationSchema  = {}
 
+const handleSubmit = async (values:any, actions:any) => {
+  // Add your form submission logic here
+  console.log('Form values:', values);
+  actions.setSubmitting(false);
+};
+
 describe("ReportSelectLand Component", () => {
   // render the ReportSelectLand component
   beforeEach(() => {
@@ -22,7 +26,7 @@ describe("ReportSelectLand Component", () => {
       <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
                 <ReportSelectLand label="Test Label" name="testName" />

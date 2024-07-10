@@ -1,8 +1,9 @@
-/* eslint-disable testing-library/no-render-in-setup */
+/* eslint-disable testing-library/no-render-in-lifecycle */
+
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
@@ -32,7 +33,7 @@ const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm");
 const mockRequestFlavorCodeService =  jest.spyOn(requestFlavorCodeService, "submitRequest");
 
-let formSubmitResponse = new FormService.SubmitResultInstance();
+const formSubmitResponse = new FormService.SubmitResultInstance();
 const formInitResponse = new InitFormService.InitResultInstance();
 
 
@@ -63,9 +64,6 @@ describe("LandAddPlant Component", () => {
 
   // after cleanup when test-case execution is done
   afterEach(cleanup);
-
-  const initTest = async () => {
-  }
 
   it("renders correctly", async () => { 
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
@@ -122,7 +120,7 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     expect(screen.getByTestId("requestFlavorCode")).toHaveTextContent("Please Select One");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "00000000-0000-0000-0000-000000000000" } });
+      fireEvent.change(input, { target: { value: "00000000-0000-0000-0000-000000000000" } });
     }); 
     expect(screen.getByTestId("requestFlavorCode")).toHaveValue("00000000-0000-0000-0000-000000000000");
   });
@@ -133,7 +131,7 @@ describe("LandAddPlant Component", () => {
     const input = screen.getByTestId("requestOtherFlavor");
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "sample data" } });
+      fireEvent.change(input, { target: { value: "sample data" } });
     }); 
     expect(screen.getByTestId("requestOtherFlavor")).toHaveValue("sample data");
   });
@@ -141,7 +139,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("requestSomeIntVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "99" } });
+      fireEvent.change(input, { target: { value: "99" } });
     }); 
     expect(screen.getByTestId("requestSomeIntVal")).toHaveValue(99);
   });
@@ -149,25 +147,25 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeBigIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("requestSomeBigIntVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "99" } });
+      fireEvent.change(input, { target: { value: "99" } });
     }); 
     expect(screen.getByTestId("requestSomeBigIntVal")).toHaveValue(99);
   });
 
   it("when user enter requestSomeBitVal, it set accordingly", async () => {
-    const input = screen.getByTestId("requestSomeBitVal");
+    // const input = screen.getByTestId("requestSomeBitVal");
     fireEvent.click(screen.getByTestId("requestSomeBitVal"));
     expect(screen.getByTestId("requestSomeBitVal")).toBeChecked();
   });
 
   it("when user enter requestIsEditAllowed, it set accordingly", async () => {
-    const input = screen.getByTestId("requestIsEditAllowed"); 
+    // const input = screen.getByTestId("requestIsEditAllowed"); 
     fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
     expect(screen.getByTestId("requestIsEditAllowed")).toBeChecked();
   });
 
   it("when user enter requestIsDeleteAllowed, it set accordingly", async () => {
-    const input = screen.getByTestId("requestIsDeleteAllowed"); 
+    // const input = screen.getByTestId("requestIsDeleteAllowed"); 
     fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
     expect(screen.getByTestId("requestIsDeleteAllowed")).toBeChecked();
   });
@@ -175,7 +173,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeFloatVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeFloatVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "1" } });
+      fireEvent.change(input, { target: { value: "1" } });
     }); 
     expect(screen.getByTestId("requestSomeFloatVal")).toHaveValue(1);
   });
@@ -183,7 +181,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeDecimalVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeDecimalVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "1" } });
+      fireEvent.change(input, { target: { value: "1" } });
     }); 
     expect(screen.getByTestId("requestSomeDecimalVal")).toHaveValue(1);
   });
@@ -193,7 +191,7 @@ describe("LandAddPlant Component", () => {
     // Use a compatible date format
     const validDateFormat = "2000-01-01";
     await act(async () => {
-      await fireEvent.change(input, { target: { value: validDateFormat } });
+      fireEvent.change(input, { target: { value: validDateFormat } });
     }); 
     expect(screen.getByTestId("requestSomeUTCDateTimeVal")).toHaveValue("2000-01-01");
   });
@@ -201,7 +199,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeDateVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeDateVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "1/1/2000" } });
+      fireEvent.change(input, { target: { value: "1/1/2000" } });
     }); 
     expect(screen.getByTestId("requestSomeDateVal")).toHaveValue("1/1/2000");
   });
@@ -209,7 +207,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeMoneyVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeMoneyVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "1" } });
+      fireEvent.change(input, { target: { value: "1" } });
     }); 
     expect(screen.getByTestId("requestSomeMoneyVal")).toHaveValue(1);
   });
@@ -217,7 +215,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeNVarCharVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeNVarCharVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "sample data" } });
+      fireEvent.change(input, { target: { value: "sample data" } });
     }); 
     expect(screen.getByTestId("requestSomeNVarCharVal")).toHaveValue("sample data");
   });
@@ -225,7 +223,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeVarCharVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeVarCharVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "sample data" } });
+      fireEvent.change(input, { target: { value: "sample data" } });
     }); 
     expect(screen.getByTestId("requestSomeVarCharVal")).toHaveValue("sample data");
   });
@@ -233,7 +231,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeTextVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeTextVal");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "sample data" } });
+      fireEvent.change(input, { target: { value: "sample data" } });
     }); 
     expect(screen.getByTestId("requestSomeTextVal")).toHaveValue("sample data");
   });
@@ -241,7 +239,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomePhoneNumber, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomePhoneNumber");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "sample data" } });
+      fireEvent.change(input, { target: { value: "sample data" } });
     }); 
     expect(screen.getByTestId("requestSomePhoneNumber")).toHaveValue("sample data");
   });
@@ -249,7 +247,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSomeEmailAddress, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeEmailAddress");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "sample data" } });
+      fireEvent.change(input, { target: { value: "sample data" } });
     }); 
     expect(screen.getByTestId("requestSomeEmailAddress")).toHaveValue("sample data");
   });
@@ -257,7 +255,7 @@ describe("LandAddPlant Component", () => {
   it("when user enter requestSampleImageUploadFile, it set accordingly", async () => {
     const input = screen.getByTestId("requestSampleImageUploadFile");
     await act(async () => {
-     // await fireEvent.change(input, { target: { value: "1" } });
+     // fireEvent.change(input, { target: { value: "1" } });
     }); 
   //  expect(screen.getByTestId("requestSampleImageUploadFile")).toHaveValue(1);
   });
@@ -271,87 +269,87 @@ describe("LandAddPlant Component", () => {
    
     const requestFlavorCodeInput = screen.getByTestId("requestFlavorCode");
     await act(async () => {
-        await fireEvent.change(requestFlavorCodeInput, { target: { value: "Test@123" } });
+        fireEvent.change(requestFlavorCodeInput, { target: { value: "Test@123" } });
     }); 
  
    
     const requestOtherFlavorInput = screen.getByTestId("requestOtherFlavor");
     await act(async () => {
-      await fireEvent.change(requestOtherFlavorInput, { target: { value: "Test@123" } });
+      fireEvent.change(requestOtherFlavorInput, { target: { value: "Test@123" } });
     });
  
     const requestSomeIntValInput = screen.getByTestId("requestSomeIntVal");
     await act(async () => {
-      await fireEvent.change(requestSomeIntValInput, { target: { value: "99" } });
+      fireEvent.change(requestSomeIntValInput, { target: { value: "99" } });
     });
  
     const requestSomeBigIntValInput = screen.getByTestId("requestSomeBigIntVal");
     await act(async () => {
-      await fireEvent.change(requestSomeBigIntValInput, { target: { value: "99" } });
+      fireEvent.change(requestSomeBigIntValInput, { target: { value: "99" } });
     });
  
-    const requestSomeBitValInput = screen.getByTestId("requestSomeBitVal");
+    // const requestSomeBitValInput = screen.getByTestId("requestSomeBitVal");
     fireEvent.click(screen.getByTestId("requestSomeBitVal"));
  
-    const requestIsEditAllowedInput = screen.getByTestId("requestIsEditAllowed"); 
+    // const requestIsEditAllowedInput = screen.getByTestId("requestIsEditAllowed"); 
     fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
  
-    const requestIsDeleteAllowedInput = screen.getByTestId("requestIsDeleteAllowed"); 
+    // const requestIsDeleteAllowedInput = screen.getByTestId("requestIsDeleteAllowed"); 
     fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
  
     const requestSomeFloatValInput = screen.getByTestId("requestSomeFloatVal");
     await act(async () => {
-      await fireEvent.change(requestSomeFloatValInput, { target: { value: "99" } });
+      fireEvent.change(requestSomeFloatValInput, { target: { value: "99" } });
     });
  
     const requestSomeDecimalValInput = screen.getByTestId("requestSomeDecimalVal");
     await act(async () => {
-      await fireEvent.change(requestSomeDecimalValInput, { target: { value: "99" } });
+      fireEvent.change(requestSomeDecimalValInput, { target: { value: "99" } });
     });
  
     const requestSomeUTCDateTimeValInput = screen.getByTestId("requestSomeUTCDateTimeVal");
     await act(async () => {
-      await fireEvent.change(requestSomeUTCDateTimeValInput, { target: { value: "1/1/2000" } });
+      fireEvent.change(requestSomeUTCDateTimeValInput, { target: { value: "1/1/2000" } });
     });
  
     const requestSomeDateValInput = screen.getByTestId("requestSomeDateVal");
     await act(async () => {
-      await fireEvent.change(requestSomeDateValInput, { target: { value: "1/1/2000" } });
+      fireEvent.change(requestSomeDateValInput, { target: { value: "1/1/2000" } });
     });
  
     const requestSomeMoneyValInput = screen.getByTestId("requestSomeMoneyVal");
     await act(async () => {
-      await fireEvent.change(requestSomeMoneyValInput, { target: { value: "99" } });
+      fireEvent.change(requestSomeMoneyValInput, { target: { value: "99" } });
     });
  
     const requestSomeNVarCharValInput = screen.getByTestId("requestSomeNVarCharVal");
     await act(async () => {
-      await fireEvent.change(requestSomeNVarCharValInput, { target: { value: "Sample Data" } });
+      fireEvent.change(requestSomeNVarCharValInput, { target: { value: "Sample Data" } });
     });
  
     const requestSomeVarCharValInput = screen.getByTestId("requestSomeVarCharVal");
     await act(async () => {
-      await fireEvent.change(requestSomeVarCharValInput, { target: { value: "Sample Data" } });
+      fireEvent.change(requestSomeVarCharValInput, { target: { value: "Sample Data" } });
     });
  
     const requestSomeTextValInput = screen.getByTestId("requestSomeTextVal");
     await act(async () => {
-      await fireEvent.change(requestSomeTextValInput, { target: { value: "Sample Data" } });
+      fireEvent.change(requestSomeTextValInput, { target: { value: "Sample Data" } });
     });
  
     const requestSomePhoneNumberInput = screen.getByTestId("requestSomePhoneNumber");
     await act(async () => {
-      await fireEvent.change(requestSomePhoneNumberInput, { target: { value: "Sample Data" } });
+      fireEvent.change(requestSomePhoneNumberInput, { target: { value: "Sample Data" } });
     });
  
     const requestSomeEmailAddressInput = screen.getByTestId("requestSomeEmailAddress");
     await act(async () => {
-      await fireEvent.change(requestSomeEmailAddressInput, { target: { value: "Sample Data" } });
+      fireEvent.change(requestSomeEmailAddressInput, { target: { value: "Sample Data" } });
     });
  
     const requestSampleImageUploadFileInput = screen.getByTestId("requestSampleImageUploadFile");
     await act(async () => {
-    //  await fireEvent.change(requestSampleImageUploadFileInput, { target: { value: "Sample Data" } });
+    //  fireEvent.change(requestSampleImageUploadFileInput, { target: { value: "Sample Data" } });
     });
 
     await act(async () => {

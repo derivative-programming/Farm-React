@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  react-ui-sonarqube:
+    image: sonarqube:lts
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+    environment:
+      - SONARQUBE_JDBC_USERNAME=user
+      - SONARQUBE_JDBC_PASSWORD=password
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://react-ui-sonarqube-db:5432/sonarqube
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+      - SONAR_WEB_HOST=0.0.0.0
+      - SONAR_WEB_PORT=9000
+    volumes:
+      - react_ui_sonarqube_conf:/opt/sonarqube/conf
+      - react_ui_sonarqube_data:/opt/sonarqube/data
+      - react_ui_sonarqube_logs:/opt/sonarqube/logs
+      - react_ui_sonarqube_extensions:/opt/sonarqube/extensions
+    depends_on:
+      - react-ui-sonarqube-db
+    networks:
+      - react-ui-sonarqube-network
+
+  react-ui-sonarscanner:
+    build:
+      context: .
+      dockerfile: Dockerfile.sonarscanner.app
+    container_name: sonarscanner
+    depends_on:
+      - react-ui-sonarqube
+    environment:
+      SONAR_HOST_URL: "http://react-ui-sonarqube:9000"
+      SONAR_PROJECT_KEY: "DemoApp-React-UI"
+      SONAR_LOGIN: "sqa_8d74becd9f582f197a32f92543b68d90c38e1057"  # Replace with your SonarQube token
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - react-ui-sonarqube-network
+
+  react-ui-sonarqube-db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=sonarqube
+    volumes:
+      - react_ui_sonarqube_postgres_data:/var/lib/postgresql/data
+    networks:
+      - react-ui-sonarqube-network
+
+networks:
+  react-ui-sonarqube-network:
+    driver: bridge
+
+volumes:
+  react_ui_sonarqube_conf:
+  react_ui_sonarqube_data:
+  react_ui_sonarqube_logs:
+  react_ui_sonarqube_extensions:
+  react_ui_sonarqube_postgres_data:

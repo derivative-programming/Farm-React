@@ -9,8 +9,8 @@ import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-th
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
 
 export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(1);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [pageSize, setPageSize] = useState(1);
     const [isProcessing, setIsProcessing] = useState(false);
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance()); 
@@ -56,18 +56,6 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     const onPageSizeChange = (pageSize: number) => { 
         setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
-    }
-
-    const onRowSelect = (index: number) => {
-    }
-
-    const onRowUnselect = (index: number) => {
-    }
-
-    const onSelectAll = () => {
-    }
-
-    const onUnselectAll = () => {
     }
 
     const onNavigateTo = (url: string) => { 

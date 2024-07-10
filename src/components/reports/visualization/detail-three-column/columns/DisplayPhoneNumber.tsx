@@ -23,7 +23,7 @@ export const ReportColumnDisplayPhoneNumber: FC<ReportColumnDisplayPhoneNumberPr
   const displayValue = (isVisible && conditionallyVisible);
   
   const formatPhoneNumber = () => { 
-    let result:string = "";
+    const result = "";
     
     try {
         
@@ -35,8 +35,8 @@ export const ReportColumnDisplayPhoneNumber: FC<ReportColumnDisplayPhoneNumberPr
       value = value.replace(" ", "");
 
       if (value && value.length === 10) {
-          let cleaned = ('' + value).replace(/\D/g, '');
-          let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+          const cleaned = ('' + value).replace(/\D/g, '');
+          const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
           if (match) {
               return '(' + match[1] + ') ' + match[2] + '-' + match[3];
           } else {
@@ -45,8 +45,8 @@ export const ReportColumnDisplayPhoneNumber: FC<ReportColumnDisplayPhoneNumberPr
       }
 
       if (value && value.length === 7) {
-          let cleaned = ('' + value).replace(/\D/g, '');
-          let match = cleaned.match(/^(\d{3})(\d{4})$/);
+          const cleaned = ('' + value).replace(/\D/g, '');
+          const match = cleaned.match(/^(\d{3})(\d{4})$/);
           if (match) {
               return match[1] + '-' + match[2];
           } else {

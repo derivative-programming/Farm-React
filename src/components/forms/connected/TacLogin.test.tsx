@@ -1,8 +1,9 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
@@ -27,7 +28,7 @@ jest.mock("react-router-dom", () => ({
 const mockFormInitService = jest.spyOn(FormService, "initForm");
 const mockFormSubmitService =  jest.spyOn(FormService, "submitForm"); 
 
-let formSubmitResponse = new FormService.SubmitResultInstance();
+const formSubmitResponse = new FormService.SubmitResultInstance();
 const formInitResponse = new InitFormService.InitResultInstance();
 
 describe("TacLogin Component", () => {
@@ -66,7 +67,7 @@ describe("TacLogin Component", () => {
 
     const input = screen.getByTestId("email");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "test@gmail.com" } });
+      fireEvent.change(input, { target: { value: "test@gmail.com" } });
     });
 
     expect(screen.getByTestId("email")).toHaveValue("test@gmail.com");
@@ -76,7 +77,7 @@ describe("TacLogin Component", () => {
 
     const input = screen.getByTestId("password");
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "Test@123" } });
+      fireEvent.change(input, { target: { value: "Test@123" } });
     });
 
     expect(screen.getByTestId("password")).toHaveValue("Test@123");
@@ -100,7 +101,7 @@ describe("TacLogin Component", () => {
     // enter email address
     const emailInput = screen.getByTestId("email");
     await act(async () => {
-      await fireEvent.change(emailInput, {
+      fireEvent.change(emailInput, {
         target: { value: "test@gmail.com" },
       });
     });
@@ -108,7 +109,7 @@ describe("TacLogin Component", () => {
     // enter password
     const passwordInput = screen.getByTestId("password");
     await act(async () => {
-      await fireEvent.change(passwordInput, { target: { value: "Test@123" } });
+      fireEvent.change(passwordInput, { target: { value: "Test@123" } });
     });
 
     await act(async () => {

@@ -30,7 +30,7 @@ export const submitCSVRequest = (data:any, landCode:string) => {
 
   
 export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
-    let result:QueryRequest = new QueryRequestInstance();
+  const result:QueryRequest = new QueryRequestInstance();
     
     result.flavorCode = initResult.flavorCode; 
     result.someIntVal = initResult.someIntVal;

@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from "react";
 import { Form } from "react-bootstrap";
 import "../../../App.scss";
 import {useField } from 'formik';
-import {FormInputErrorDisplay } from './InputErrorDisplay';
    
 export interface FormInputTextAreaProps {
   name: string

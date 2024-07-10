@@ -64,7 +64,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
-    let errors: any = {};
+    const errors: any = {};
     if (!lastApiSubmission.response.success) {
       setHeaderErrors(FormService.getValidationErrors(
         "",

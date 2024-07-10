@@ -1,17 +1,12 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
-  act,
-  fireEvent,
-  waitFor,
 } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import {ReportPagination} from "./Pagination";   
-import { Formik } from "formik";
-import { Form } from "react-bootstrap";
 
 const initialValues = { testName:"" } 
 
@@ -169,7 +164,7 @@ describe("ReportPagination Component", () => {
   it("when user enter value, it set accordingly in control", async () => {
     
     // await act(async () => {
-    //   await fireEvent.change(input, { target: { value: "test@gmail.com" } });
+    //   fireEvent.change(input, { target: { value: "test@gmail.com" } });
     // });
 
     // expect(screen.getByTestId("testName")).toHaveValue("test@gmail.com");

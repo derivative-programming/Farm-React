@@ -1,12 +1,10 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
-  act,
-  fireEvent,
-  waitFor,
 } from "@testing-library/react";
 import FormSelectTriStateFilter from "./SelectTriStateFilter";  
 import { Formik } from "formik";
@@ -15,6 +13,12 @@ import { Form } from "react-bootstrap";
 const initialValues = { testName:"" }
 const validationSchema  = {}
 
+const handleSubmit = async (values:any, actions:any) => {
+  // Add your form submission logic here
+  console.log('Form values:', values);
+  actions.setSubmitting(false);
+};
+
 describe("FormSelectTriStateFilter Component", () => {
   // render the FormSelectTriStateFilter component
   beforeEach(() => {
@@ -22,7 +26,7 @@ describe("FormSelectTriStateFilter Component", () => {
       <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
               <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
                 <FormSelectTriStateFilter label="Test Label" name="testName" />

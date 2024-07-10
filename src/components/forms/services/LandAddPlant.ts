@@ -20,7 +20,7 @@ import * as FormInit  from "./init/LandAddPlantInitObjWF";
   };
   
   export const getValidationErrors =  (propertyName: string, response:SubmitResult) => {
-    let result: string[] = [];
+    const result: string[] = [];
     if (
         response &&
         response.validationErrors &&
@@ -38,7 +38,7 @@ import * as FormInit  from "./init/LandAddPlantInitObjWF";
 } 
 
 export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
-    let result:SubmitRequest = new SubmitRequestInstance();
+    const result:SubmitRequest = new SubmitRequestInstance();
     
     result.requestFlavorCode = initResult.requestFlavorCode;
     result.requestOtherFlavor = initResult.requestOtherFlavor;

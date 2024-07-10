@@ -1,8 +1,9 @@
-/* eslint-disable testing-library/no-render-in-setup */
+
+/* eslint-disable testing-library/no-render-in-lifecycle */
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  cleanup,
+  
   screen,
   act,
   fireEvent,
@@ -13,8 +14,12 @@ import { Form } from "react-bootstrap";
 
 const initialValues = { testName:"" } 
 
-const handleSubmit = jest.fn();
 
+const handleSubmit = async (values:any, actions:any) => {
+  // Add your form submission logic here
+  console.log('Form values:', values);
+  actions.setSubmitting(false);
+};
  
 describe("ReportInputText Component", () => {
   // render the ReportInputText component
@@ -22,9 +27,9 @@ describe("ReportInputText Component", () => {
     render(
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
-              <Form onReset={props.handleReset} onSubmit={handleSubmit}> 
+              <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
       <ReportInputText label="Test Label" name="testName"/> 
       </Form>  
   )}
@@ -48,7 +53,7 @@ describe("ReportInputText Component", () => {
     const input = screen.getByTestId("testName-field");  
 
     await act(async () => {
-      await fireEvent.change(input, { target: { value: "test@gmail.com" } });
+      fireEvent.change(input, { target: { value: "test@gmail.com" } });
     });
 
     expect(screen.getByTestId("testName-field")).toHaveValue("test@gmail.com");
@@ -58,7 +63,7 @@ describe("ReportInputText Component", () => {
     const input = screen.getByTestId("testName-field");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { disabled: true } });
+      fireEvent.change(input, { target: { disabled: true } });
     });
 
     expect(screen.getByTestId("testName-field")).toBeDisabled();
@@ -68,7 +73,7 @@ describe("ReportInputText Component", () => {
     const input = screen.getByTestId("testName-field");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { disabled: false } });
+      fireEvent.change(input, { target: { disabled: false } });
     });
 
     expect(screen.getByTestId("testName-field")).not.toBeDisabled();
@@ -78,9 +83,9 @@ describe("ReportInputText Component", () => {
     render( 
       <Formik
           initialValues={initialValues} 
-          onSubmit={async (values,actions) => {}}>
+          onSubmit={handleSubmit}>
           {(props) => (
-              <Form onReset={props.handleReset} onSubmit={handleSubmit}> 
+              <Form onReset={props.handleReset} onSubmit={props.handleSubmit}> 
       <ReportInputText label="Test Label" name="testName2" autoFocus={true}/> 
       </Form>  
   )}
@@ -90,7 +95,7 @@ describe("ReportInputText Component", () => {
     const input = screen.getByTestId("testName2-field");
 
     await act(async () => {
-      await fireEvent.change(input, { target: { autoFocus: true } });
+      fireEvent.change(input, { target: { autoFocus: true } });
     });
 
     expect(screen.getByTestId("testName2-field")).toHaveFocus();
