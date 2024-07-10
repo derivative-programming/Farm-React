@@ -6,9 +6,7 @@ import {
   screen,
 } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {ReportPagination} from "./Pagination";   
-
-const initialValues = { testName:"" } 
+import {ReportPagination} from "./Pagination";
 
 const onPageSelection = jest.fn();
 const onPageSizeChange = jest.fn();
@@ -29,7 +27,7 @@ describe("ReportPagination Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup); 
+   
 
   it("renders correctly", async () => {
     render(

@@ -42,7 +42,7 @@ describe("LandPlantList Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup);
+  
 
   const initTest = async () => {
   }
@@ -306,7 +306,7 @@ describe("LandPlantList Component", () => {
     });
   
     await act(async () => {
-      await fireEvent.click(screen.getByTestId("submit-button"));
+      fireEvent.click(screen.getByTestId("submit-button"));
     }); 
     
   });

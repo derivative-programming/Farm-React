@@ -18,7 +18,7 @@ export const ReportInputNumber: FC<ReportInputNumberProps> = ({
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name);  
+  const [field, meta] = useField(name);  
   
   const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
       

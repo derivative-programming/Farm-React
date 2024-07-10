@@ -7,13 +7,8 @@ import {
 
   
 } from "@testing-library/react";
-import {ReportColumnDisplayButton} from "./DisplayButton";   
+import {ReportColumnDisplayButton} from "./DisplayButton";
 
-
-
-const initialValues = { testName:"" } 
-
-const handleSubmit = jest.fn();
 const onClick = jest.fn();
 
 const testId = 'testColumn-column-1';
@@ -24,7 +19,7 @@ describe("ReportColumnDisplayButton Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup); 
+   
 
   it("renders 'test Value' correctly", async () => {
     render(

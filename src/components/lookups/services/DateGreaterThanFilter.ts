@@ -152,7 +152,7 @@ export class QueryRequestInstance implements QueryRequest {
         this.pageNumber = 1;
         this.ItemCountPerPage = 10;
         this.OrderByColumnName = '';
-        this.OrderByDescending = false;;
+        this.OrderByDescending = false;
         this.ForceErrorMessage = '';
     }
 }

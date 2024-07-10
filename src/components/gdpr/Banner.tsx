@@ -41,7 +41,7 @@ const GDPRBanner: React.FC = () => {
                   }}
                 >
                   This website uses cookies to improve your experience. By
-                  clicking "Accept", you consent to the use of all cookies in
+                  clicking &quot;Accept&quot;, you consent to the use of all cookies in
                   accordance with GDPR.
                 </span>
               </Col>

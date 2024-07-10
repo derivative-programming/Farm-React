@@ -11,7 +11,7 @@ export const ReportInputErrorDisplay: FC<ReportInputErrorDisplayProps> = ({
   name,
   forInputName,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(forInputName);  
+  const [field, meta] = useField(forInputName);  
 
   const errorControlName = forInputName + "Error"
       

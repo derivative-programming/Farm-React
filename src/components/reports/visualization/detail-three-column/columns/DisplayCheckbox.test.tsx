@@ -7,10 +7,6 @@ import {
 } from "@testing-library/react";  
 import { ReportColumnDisplayCheckbox } from "./DisplayCheckbox";
 
-const initialValues = { testName:"" } 
-
-const handleSubmit = jest.fn();
-
 const testId = 'testColumn';
  
 describe("ReportColumnDisplayPhoneNumber Component", () => {
@@ -19,7 +15,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup); 
+   
 
   it("renders checked correctly", async () => {
     render(

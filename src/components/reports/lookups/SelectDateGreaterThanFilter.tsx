@@ -19,7 +19,7 @@ export interface ReportSelectDateGreaterThanFilterProps {
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
+    const [field, meta] = useField(name); 
     
     const [dateGreaterThanFilters, setDateGreaterThanFilters] = useState<ReportInputSelectOption[]>([])
 

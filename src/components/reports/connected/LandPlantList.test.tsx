@@ -55,7 +55,7 @@ describe("LandPlantList Connected Report Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup);
+  
 
 
   it("renders correctly", async () => {

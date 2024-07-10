@@ -46,7 +46,7 @@ describe("TacRegister Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup);
+  
 
   it("renders correctly", async () => {
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
@@ -148,7 +148,7 @@ describe("TacRegister Component", () => {
     });
 
     await act(async () => {
-      await fireEvent.click(screen.getByTestId("submit-button"));
+      fireEvent.click(screen.getByTestId("submit-button"));
     });
 
     await waitFor(() => expect(mockFormSubmitService).toHaveBeenCalled());

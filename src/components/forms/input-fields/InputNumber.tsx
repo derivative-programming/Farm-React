@@ -21,7 +21,7 @@ export const FormInputNumber: FC<FormInputNumberProps> = ({
   disabled = false,
   isVisible = true,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
+  const [field, meta] = useField(name); 
 
   const errorDisplayControlName = name + "ErrorDisplay";
   

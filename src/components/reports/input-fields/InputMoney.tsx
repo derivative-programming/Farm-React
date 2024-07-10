@@ -18,7 +18,7 @@ export const ReportInputMoney: FC<ReportInputMoneyProps> = ({
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
+  const [field, meta] = useField(name); 
 
   const errorDisplayControlName = name + "ErrorDisplay";
   

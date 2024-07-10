@@ -12,7 +12,7 @@ export const FormInputErrorDisplay: FC<FormInputErrorDisplayProps> = ({
   name,
   forInputName,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(forInputName);   
+  const [field, meta] = useField(forInputName);   
 
   const errorControlName = forInputName + "Error"
       

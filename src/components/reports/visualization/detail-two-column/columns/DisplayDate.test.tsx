@@ -7,13 +7,7 @@ import {
 
   
 } from "@testing-library/react";
-import {ReportColumnDisplayDate} from "./DisplayDate";   
-
-
-
-const initialValues = { testName:"" } 
-
-const handleSubmit = jest.fn();
+import {ReportColumnDisplayDate} from "./DisplayDate";
 
 const testId = 'testColumn-column';
  
@@ -23,7 +17,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup); 
+   
 
   it("renders 2034-01-03T13:45:00Z correctly", async () => {
     render(

@@ -7,13 +7,7 @@ import {
 
   
 } from "@testing-library/react";
-import {ReportColumnDisplayNumber} from "./DisplayNumber";   
-
-
-
-const initialValues = { testName:"" } 
-
-const handleSubmit = jest.fn();
+import {ReportColumnDisplayNumber} from "./DisplayNumber";
 
 const testId = 'testColumn-column-1';
  
@@ -23,7 +17,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup); 
+   
 
   it("renders 123 correctly", async () => {
     

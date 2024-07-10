@@ -37,7 +37,7 @@ describe("ReportSelectRole Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup);
+  
 
   it("renders correctly", async () => {
     expect(screen.getByTestId("testName")).toBeInTheDocument();

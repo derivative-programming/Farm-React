@@ -5,11 +5,7 @@ import {
   
   screen,
 } from "@testing-library/react";
-import {ReportColumnDisplayText} from "./DisplayText";   
-
-const initialValues = { testName:"" } 
-
-const handleSubmit = jest.fn();
+import {ReportColumnDisplayText} from "./DisplayText";
 
 const testId = 'testColumn';
  
@@ -19,7 +15,7 @@ describe("ReportColumnDisplayText Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup); 
+   
 
   it("renders 'test Value' correctly", async () => {
     render(

@@ -5,16 +5,9 @@ import {
   render,
   
   screen,
-  act,
-  fireEvent,
-  waitFor,
 } from "@testing-library/react";
-import {ReportColumnHeader} from "./ColumnHeader";   
-import { Formik } from "formik";
-import { Form } from "react-bootstrap";
+import {ReportColumnHeader} from "./ColumnHeader";  
 import React from "react";
-
-const initialValues = { testName:"" } 
 
 const onSort = jest.fn();
  
@@ -27,14 +20,14 @@ describe("ReportColumnHeader Component", () => {
   });
 
   // after cleanup when test-case execution is done
-  afterEach(cleanup); 
+   
 
   it("renders correctly", async () => {
-    expect(screen.getByTestId("testName")).toBeInTheDocument();
+    expect(screen.getByTestId("testColumn-header")).toBeInTheDocument();
   });
 
   it("when user enter value, it set accordingly in control", async () => {
-    const input = screen.getByTestId("testName");
+    const input = screen.getByTestId("testColumn-header");
     // await act(async () => {
     //   fireEvent.change(input, { target: { value: "test@gmail.com" } });
     // });
