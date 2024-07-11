@@ -21,11 +21,10 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
     disabled = false,
     isVisible = true,
   }): ReactElement => { 
-    const [field, meta] = useField(name); 
     
     const [dateGreaterThanFilters, setDateGreaterThanFilters] = useState<FormInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserDateGreaterThanFilterListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

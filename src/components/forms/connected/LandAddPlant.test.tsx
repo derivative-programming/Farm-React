@@ -1,6 +1,3 @@
-/* eslint-disable testing-library/no-render-in-lifecycle */
-
-/* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
   

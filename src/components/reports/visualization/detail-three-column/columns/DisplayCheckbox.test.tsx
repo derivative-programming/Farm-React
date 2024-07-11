@@ -38,7 +38,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   }); 
   
   it("renders null correctly", async () => {
-    const noVal:any = null;
+    const noVal = null;
 
     render(
        <ReportColumnDisplayCheckbox forColumn="testColumn" label="test label" isChecked={noVal} />

@@ -4,7 +4,7 @@ import "../../../../../App.scss";
    
 export interface ReportColumnDisplayPhoneNumberProps {
   forColumn:string 
-  value: string 
+  value: string | null 
   label: string 
   isVisible?:boolean
   conditionallyVisible?:boolean

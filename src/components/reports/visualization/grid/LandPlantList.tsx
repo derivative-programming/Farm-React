@@ -112,9 +112,9 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       }
     );
 
-    const plantCodeListCsv = selectedCodes.join(",");
+    const codeListCsv = selectedCodes.join(",");
 
-    const data: any = { plantCodeListCsv };
+    const data: any = { codeListCsv };
 
     AsyncServices.LandUserPlantMultiSelectToNotEditableSubmitRequest(
       data,

@@ -5,7 +5,7 @@ export const getRoles= () => {
     let items:PacUserRoleListService.QueryResultItem[] = []
 
     const getItems = async() => {
-        const response:any  = PacUserRoleListService.submitRequest(); 
+        const response:PacUserRoleListService.ResponseFull  = await PacUserRoleListService.submitRequest(); 
 
         if(response && response.data)
         {

@@ -102,6 +102,9 @@ export interface SubmitRequest {
  
     requestSampleImageUploadFile: string;
 }
+export interface ResponseFull {
+    data: SubmitResult;
+}
 
 export interface SubmitResult {
     

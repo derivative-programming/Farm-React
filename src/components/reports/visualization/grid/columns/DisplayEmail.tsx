@@ -4,7 +4,7 @@ import "../../../../../App.scss";
 export interface ReportColumnDisplayEmailProps {
   forColumn:string
   rowIndex: number
-  value: string 
+  value: string | null 
   isVisible?:boolean
   conditionallyVisible?:boolean
 }

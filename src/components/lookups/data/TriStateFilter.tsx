@@ -5,7 +5,7 @@ export const getTriStateFilters= () => {
     let items:PacUserTriStateFilterListService.QueryResultItem[] = []
 
     const getItems = async() => {
-        const response:any  = PacUserTriStateFilterListService.submitRequest(); 
+        const response:PacUserTriStateFilterListService.ResponseFull  = await PacUserTriStateFilterListService.submitRequest(); 
 
         if(response && response.data)
         {

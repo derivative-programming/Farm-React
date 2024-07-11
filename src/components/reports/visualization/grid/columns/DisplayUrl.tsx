@@ -4,7 +4,7 @@ import "../../../../../App.scss";
 export interface ReportColumnDisplayUrlProps {
   forColumn:string
   rowIndex: number
-  value: string 
+  value: string | null 
   linkText: string 
   isVisible?:boolean
   conditionallyVisible?:boolean
@@ -22,6 +22,11 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   const groupName = forColumn +'-column-' + rowIndex.toString();
 
   let url = value;
+
+  if(url === null)
+  {
+    url = "";
+  }
   if(!linkText.toLowerCase().startsWith("http"))
   {
     url = "https://" + url;

@@ -56,7 +56,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   // console.log('report ctrl initial values...');
   // console.log(initialValues);
 
-  const handleInit = (responseFull: any) => {
+  const handleInit = (responseFull: InitReportService.ResponseFull) => {
     const response: InitReportService.InitResult = responseFull.data;
 
     if (!response.success) {
@@ -65,7 +65,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     setInitPageResponse({ ...response });
   };
 
-  const handleQueryResults = (responseFull: any) => {
+  const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
     const queryResult: ReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
@@ -74,7 +74,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     setQueryResult({ ...queryResult });
   };
   
-  const handleExportQueryResults = (responseFull: any) => {
+  const handleExportQueryResults = (responseFull: ReportService.ResponseFull) => {
     const queryResult: ReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {

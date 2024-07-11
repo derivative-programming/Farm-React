@@ -4,7 +4,7 @@ import "../../../../../App.scss";
    
 export interface ReportColumnDisplayUrlProps {
   forColumn:string 
-  value: string 
+  value: string | null 
   label:string
   linkText: string 
   isVisible?:boolean
@@ -24,6 +24,13 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   
   const displayValue = (isVisible && conditionallyVisible);
         
+  let url = value;
+
+  if(url === null)
+  {
+    url = "";
+  }
+
   return ( 
     <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!isVisible}>
         <ListGroup.Item
@@ -32,7 +39,7 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold" data-testid={groupName + '-header'}>{label}</div>
-                <a href={value} 
+                <a href={url} 
                   hidden={!displayValue}
                 >
                     {linkText}

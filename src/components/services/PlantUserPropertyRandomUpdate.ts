@@ -16,6 +16,9 @@ import { apiCall } from "../../apiConfig/apiCall";
 export interface SubmitRequest {
     
 }
+export interface ResponseFull {
+    data: SubmitResult;
+}
 
 export interface SubmitResult {
     

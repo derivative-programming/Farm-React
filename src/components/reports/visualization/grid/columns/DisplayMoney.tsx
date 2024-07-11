@@ -4,7 +4,7 @@ import "../../../../../App.scss";
 export interface ReportColumnDisplayMoneyProps {
   forColumn:string
   rowIndex: number
-  value: number 
+  value: number | null 
   isVisible?:boolean
   conditionallyVisible?:boolean
 }

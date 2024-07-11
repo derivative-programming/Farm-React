@@ -22,6 +22,10 @@ export interface FormProps {
   name?: string;
   showProcessingAnimationOnInit?: boolean;
 }
+interface FormErrors {
+  [key: string]: string;
+}
+
 
 export const FormConnectedTacRegister: FC<FormProps> = ({
   name = "formConnectedTacRegister",
@@ -49,7 +53,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 
   let headerErrors: string[] = [];
 
-  const handleInit = (responseFull: any) => {
+  const handleInit = (responseFull: InitFormService.ResponseFull) => {
     const initFormResponse: InitFormService.InitResult = responseFull.data;
 
     if (!initFormResponse.success) { 
@@ -60,7 +64,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
-    let errors: any = {};
+    const errors: FormErrors = {};
     if (!lastApiSubmission.response.success) {
       headerErrors = FormService.getValidationErrors(
         "",
@@ -86,7 +90,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     try {
       setLoading(true);
       logClick("FormConnectedTacRegister","submit","");
-      const responseFull: any = await FormService.submitForm(values,contextCode);
+      const responseFull: FormService.ResponseFull = await FormService.submitForm(values,contextCode);
       const response: FormService.SubmitResult = responseFull.data;
       lastApiSubmission = {
         request: { ...values },

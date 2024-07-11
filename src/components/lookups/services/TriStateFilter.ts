@@ -1,7 +1,7 @@
 
   import { apiCall } from "../../../apiConfig/apiCall";
     
-  export const submitRequest = () => {
+  export const submitRequest = ():Promise<ResponseFull> => {
     return apiCall({
       url: '/pac-user-tri-state-filter-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=triStateFilterDisplayOrder&orderByDescending=false',
       method: "get"
@@ -36,6 +36,9 @@ export interface QueryRequest {
     ForceErrorMessage: string;
 }
 
+export interface ResponseFull {
+    data: QueryResult;
+}
 
 export interface QueryResult {
     pageNumber: number;
@@ -149,7 +152,7 @@ export class QueryRequestInstance implements QueryRequest {
         this.pageNumber = 1;
         this.ItemCountPerPage = 10;
         this.OrderByColumnName = '';
-        this.OrderByDescending = false;;
+        this.OrderByDescending = false;
         this.ForceErrorMessage = '';
     }
 }

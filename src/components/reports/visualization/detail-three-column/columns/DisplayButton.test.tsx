@@ -39,7 +39,7 @@ describe("ReportColumnDisplayButton Component", () => {
   });
   
   it("renders null correctly", async () => {
-    const noVal:any = null;
+    const noVal = null;
 
     render(
        <ReportColumnDisplayButton forColumn="testColumn" buttonText="test label" value={noVal} onClick={onClick} />

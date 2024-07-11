@@ -18,11 +18,10 @@ export interface ReportSelectTacProps {
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [tacs, setTacs] = useState<ReportInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserTacListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

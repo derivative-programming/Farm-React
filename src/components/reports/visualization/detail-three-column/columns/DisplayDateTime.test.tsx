@@ -37,7 +37,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   }); 
   
   it("renders null correctly", async () => {
-    const noVal:any = null;
+    const noVal = null;
 
     render(
       <ReportColumnDisplayDateTime forColumn="testColumn" label="test label" value={noVal} /> 

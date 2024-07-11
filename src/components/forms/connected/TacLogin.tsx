@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import { Formik, FormikHelpers } from "formik"; 
+import { Formik, FormikHelpers, FormikProps } from "formik"; 
 
 import * as FormService from "../services/TacLogin";
 import * as FormValidation from "../validation/TacLogin";
@@ -22,6 +22,9 @@ import * as AnalyticsService from "../../services/analyticsService";
 export interface FormProps {
   name?: string;
   showProcessingAnimationOnInit?: boolean;
+}
+interface FormErrors {
+  [key: string]: string;
 }
 
 export const FormConnectedTacLogin: FC<FormProps> = ({
@@ -53,7 +56,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
 
   // let headerErrors: string[] = [];
 
-  const handleInit = (responseFull: any) => {
+  const handleInit = (responseFull: InitFormService.ResponseFull) => {
     const initFormResponse: InitFormService.InitResult = responseFull.data;
 
     if (!initFormResponse.success) {
@@ -64,7 +67,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
-    const errors: any = {};
+    const errors: FormErrors = {};
     if (!lastApiSubmission.response.success) {
       setHeaderErrors(FormService.getValidationErrors(
         "",
@@ -90,7 +93,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
     try {
       setLoading(true);
       logClick("FormConnectedTacLogin","submit","");
-      const responseFull: any = await FormService.submitForm(values,contextCode);
+      const responseFull: FormService.ResponseFull = await FormService.submitForm(values,contextCode);
       const response: FormService.SubmitResult = responseFull.data;
       lastApiSubmission = {
         request: { ...values },
@@ -165,7 +168,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
               await submitButtonClick(values, actions);
             }}
           >
-            {(props) => (
+            {(props: FormikProps<FormService.SubmitRequest>) => (
               <Form
                 className="m-0  w-100"
                 name={name}

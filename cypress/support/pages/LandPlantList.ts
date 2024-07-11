@@ -6,6 +6,55 @@ import   RoutingAssistant   from '../routingAssistant'
 
 
 export class LandPlantListPage {
+
+    
+    private static calculatedIsVisualizationGrid = true;
+
+    private static plantCodeHeaderIsVisible = true;
+    private static someIntValHeaderIsVisible = true; 
+    private static someBigIntValHeaderIsVisible = true;
+    private static someBitValHeaderIsVisible = true;
+    private static isEditAllowedHeaderIsVisible = true;
+    private static isDeleteAllowedHeaderIsVisible = true;
+    private static someFloatValHeaderIsVisible = true;
+    private static someDecimalValHeaderIsVisible = true;
+    private static someUTCDateTimeValHeaderIsVisible = true;
+    private static someDateValHeaderIsVisible = true;
+    private static someMoneyValHeaderIsVisible = true;
+    private static someNVarCharValHeaderIsVisible = true;
+    private static someVarCharValHeaderIsVisible = true;
+    private static someTextValHeaderIsVisible = true;
+    private static somePhoneNumberHeaderIsVisible = true;
+    private static someEmailAddressHeaderIsVisible = true;
+    private static flavorNameHeaderIsVisible = true;
+    private static flavorCodeHeaderIsVisible = false;
+    private static someIntConditionalOnDeletableHeaderIsVisible = true;
+    private static nVarCharAsUrlHeaderIsVisible = true;
+    private static updateLinkPlantCodeHeaderIsVisible = false;
+    private static deleteAsyncButtonLinkPlantCodeHeaderIsVisible = true;
+    private static detailsLinkPlantCodeHeaderIsVisible = true;
+
+    
+    private static isFilterSectionHidden = false;
+    
+    private static someIntValIsVisible = true;
+    private static someBigIntValIsVisible = true;
+    private static someBitValIsVisible = true;
+    private static isEditAllowedIsVisible = true;
+    private static isDeleteAllowedIsVisible = true;
+    private static someFloatValIsVisible = true;
+    private static someDecimalValIsVisible = true;
+    private static someMinUTCDateTimeValIsVisible = true;
+    private static someMinDateValIsVisible = true;
+    private static someMoneyValIsVisible = true;
+    private static someNVarCharValIsVisible = true;
+    private static someVarCharValIsVisible = true;
+    private static someTextValIsVisible = true;
+    private static somePhoneNumberIsVisible = true;
+    private static someEmailAddressIsVisible = true;
+    private static flavorCodeIsVisible = true; 
+    
+
     visit() { 
 		cy.log('LandPlantListPage.visit() start'); 
 
@@ -48,40 +97,15 @@ export class LandPlantListPage {
 
     verifyPageElements() { 
 
-        const calculatedIsVisualizationGrid = true;
-
-        const plantCodeHeaderIsVisible = true;
-        const someIntValHeaderIsVisible = true; 
-        const someBigIntValHeaderIsVisible = true;
-        const someBitValHeaderIsVisible = true;
-        const isEditAllowedHeaderIsVisible = true;
-        const isDeleteAllowedHeaderIsVisible = true;
-        const someFloatValHeaderIsVisible = true;
-        const someDecimalValHeaderIsVisible = true;
-        const someUTCDateTimeValHeaderIsVisible = true;
-        const someDateValHeaderIsVisible = true;
-        const someMoneyValHeaderIsVisible = true;
-        const someNVarCharValHeaderIsVisible = true;
-        const someVarCharValHeaderIsVisible = true;
-        const someTextValHeaderIsVisible = true;
-        const somePhoneNumberHeaderIsVisible = true;
-        const someEmailAddressHeaderIsVisible = true;
-        const flavorNameHeaderIsVisible = true;
-        const flavorCodeHeaderIsVisible = false;
-        const someIntConditionalOnDeletableHeaderIsVisible = true;
-        const nVarCharAsUrlHeaderIsVisible = true;
-        const updateLinkPlantCodeHeaderIsVisible = false;
-        const deleteAsyncButtonLinkPlantCodeHeaderIsVisible = true;
-        const detailsLinkPlantCodeHeaderIsVisible = true;
 
         //column headers
-        if(calculatedIsVisualizationGrid){
+        if(LandPlantListPage.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
-            if(plantCodeHeaderIsVisible){
+            if(LandPlantListPage.plantCodeHeaderIsVisible){
                 cy.get(PageSelectors.plantCodeHeader)
                 .should('not.exist');
             }
-            if(someIntValHeaderIsVisible){
+            if(LandPlantListPage.someIntValHeaderIsVisible){
                 cy.get(PageSelectors.someIntValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someIntValHeaderText); 
@@ -91,7 +115,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someIntValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someBigIntValHeaderIsVisible){
+            if(LandPlantListPage.someBigIntValHeaderIsVisible){
                 cy.get(PageSelectors.someBigIntValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someBigIntValHeaderText); 
@@ -101,7 +125,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someBigIntValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someBitValHeaderIsVisible){
+            if(LandPlantListPage.someBitValHeaderIsVisible){
                 cy.get(PageSelectors.someBitValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someBitValHeaderText); 
@@ -111,7 +135,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someBitValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(isEditAllowedHeaderIsVisible){
+            if(LandPlantListPage.isEditAllowedHeaderIsVisible){
                 cy.get(PageSelectors.isEditAllowedHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.isEditAllowedHeaderText); 
@@ -121,7 +145,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.isEditAllowedHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(isDeleteAllowedHeaderIsVisible){
+            if(LandPlantListPage.isDeleteAllowedHeaderIsVisible){
                 cy.get(PageSelectors.isDeleteAllowedHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.isDeleteAllowedHeaderText); 
@@ -131,7 +155,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.isDeleteAllowedHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someFloatValHeaderIsVisible){
+            if(LandPlantListPage.someFloatValHeaderIsVisible){
                 cy.get(PageSelectors.someFloatValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someFloatValHeaderText); 
@@ -141,7 +165,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someFloatValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someDecimalValHeaderIsVisible){
+            if(LandPlantListPage.someDecimalValHeaderIsVisible){
                 cy.get(PageSelectors.someDecimalValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someDecimalValHeaderText); 
@@ -151,7 +175,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someDecimalValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someUTCDateTimeValHeaderIsVisible){
+            if(LandPlantListPage.someUTCDateTimeValHeaderIsVisible){
                 cy.get(PageSelectors.someUTCDateTimeValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someUTCDateTimeValHeaderText); 
@@ -161,7 +185,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someUTCDateTimeValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someDateValHeaderIsVisible){
+            if(LandPlantListPage.someDateValHeaderIsVisible){
                 cy.get(PageSelectors.someDateValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someDateValHeaderText); 
@@ -171,7 +195,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someDateValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someMoneyValHeaderIsVisible){
+            if(LandPlantListPage.someMoneyValHeaderIsVisible){
                 cy.get(PageSelectors.someMoneyValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someMoneyValHeaderText); 
@@ -181,7 +205,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someMoneyValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someNVarCharValHeaderIsVisible){
+            if(LandPlantListPage.someNVarCharValHeaderIsVisible){
                 cy.get(PageSelectors.someNVarCharValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someNVarCharValHeaderText); 
@@ -191,7 +215,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someNVarCharValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someVarCharValHeaderIsVisible){
+            if(LandPlantListPage.someVarCharValHeaderIsVisible){
                 cy.get(PageSelectors.someVarCharValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someVarCharValHeaderText); 
@@ -201,7 +225,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someVarCharValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someTextValHeaderIsVisible){
+            if(LandPlantListPage.someTextValHeaderIsVisible){
                 cy.get(PageSelectors.someTextValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someTextValHeaderText); 
@@ -211,7 +235,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someTextValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(somePhoneNumberHeaderIsVisible){
+            if(LandPlantListPage.somePhoneNumberHeaderIsVisible){
                 cy.get(PageSelectors.somePhoneNumberHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.somePhoneNumberHeaderText);
@@ -221,7 +245,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.somePhoneNumberHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someEmailAddressHeaderIsVisible){ 
+            if(LandPlantListPage.someEmailAddressHeaderIsVisible){ 
                 cy.get(PageSelectors.someEmailAddressHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someEmailAddressHeaderText); 
@@ -231,7 +255,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someEmailAddressHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(flavorNameHeaderIsVisible){
+            if(LandPlantListPage.flavorNameHeaderIsVisible){
                 cy.get(PageSelectors.flavorNameHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.flavorNameHeaderText); 
@@ -241,7 +265,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.flavorNameHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(flavorCodeHeaderIsVisible){
+            if(LandPlantListPage.flavorCodeHeaderIsVisible){
                 cy.get(PageSelectors.flavorCodeHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.flavorCodeHeaderText); 
@@ -251,7 +275,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.flavorCodeHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(someIntConditionalOnDeletableHeaderIsVisible){
+            if(LandPlantListPage.someIntConditionalOnDeletableHeaderIsVisible){
                 cy.get(PageSelectors.someIntConditionalOnDeletableHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someIntConditionalOnDeletableHeaderText); 
@@ -261,7 +285,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someIntConditionalOnDeletableHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(nVarCharAsUrlHeaderIsVisible){
+            if(LandPlantListPage.nVarCharAsUrlHeaderIsVisible){
                 cy.get(PageSelectors.nVarCharAsUrlHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.nVarCharAsUrlHeaderText); 
@@ -271,7 +295,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.nVarCharAsUrlHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(updateLinkPlantCodeHeaderIsVisible){
+            if(LandPlantListPage.updateLinkPlantCodeHeaderIsVisible){
                 cy.get(PageSelectors.updateLinkPlantCodeHeader)
                 .should('exist');
                 
@@ -280,7 +304,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.updateLinkPlantCodeHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(deleteAsyncButtonLinkPlantCodeHeaderIsVisible){
+            if(LandPlantListPage.deleteAsyncButtonLinkPlantCodeHeaderIsVisible){
                 cy.get(PageSelectors.deleteAsyncButtonLinkPlantCodeHeader)
                 .should('exist');
                 
@@ -289,7 +313,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.deleteAsyncButtonLinkPlantCodeHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
-            if(detailsLinkPlantCodeHeaderIsVisible){
+            if(LandPlantListPage.detailsLinkPlantCodeHeaderIsVisible){
                 cy.get(PageSelectors.detailsLinkPlantCodeHeader)
                 .should('exist');
                 
@@ -341,24 +365,6 @@ export class LandPlantListPage {
             .should('include.text', PageTexts.siteFooterText);
 
         
-        const isFilterSectionHidden = false;
-    
-        const someIntValIsVisible = true;
-        const someBigIntValIsVisible = true;
-        const someBitValIsVisible = true;
-        const isEditAllowedIsVisible = true;
-        const isDeleteAllowedIsVisible = true;
-        const someFloatValIsVisible = true;
-        const someDecimalValIsVisible = true;
-        const someMinUTCDateTimeValIsVisible = true;
-        const someMinDateValIsVisible = true;
-        const someMoneyValIsVisible = true;
-        const someNVarCharValIsVisible = true;
-        const someVarCharValIsVisible = true;
-        const someTextValIsVisible = true;
-        const somePhoneNumberIsVisible = true;
-        const someEmailAddressIsVisible = true;
-        const flavorCodeIsVisible = true; 
         
         
         //breadcrumbs text 
@@ -367,7 +373,7 @@ export class LandPlantListPage {
             .should('be.visible')
             .should('include.text', PageTexts.tacFarmDashboardBreadcrumbText);
 
-        if(calculatedIsVisualizationGrid && !isFilterSectionHidden){
+        if(LandPlantListPage.calculatedIsVisualizationGrid && !isFilterSectionHidden){
 
             cy.get(PageSelectors.filterSearchButton)
             .should('not.be.visible');
@@ -384,7 +390,7 @@ export class LandPlantListPage {
             .should('be.visible');
 
             //test filter fields
-            if(flavorCodeIsVisible){
+            if(LandPlantListPage.flavorCodeIsVisible){
                 cy.log('Verifying flavorCodeLabel control label...');
                 cy.get(PageSelectors.flavorCodeFilterLabel)
                     .should('be.visible')
@@ -396,7 +402,7 @@ export class LandPlantListPage {
                 
             } 
 
-            if(someIntValIsVisible){
+            if(LandPlantListPage.someIntValIsVisible){
                 cy.log('Verifying someIntValLabel control label...');
                 cy.get(PageSelectors.someIntValFilterLabel)
                     .should('be.visible')
@@ -412,7 +418,7 @@ export class LandPlantListPage {
                     .should('have.value', '111');
             }
 
-            if(someBigIntValIsVisible){
+            if(LandPlantListPage.someBigIntValIsVisible){
                 cy.log('Verifying someBigIntValLabel control label...');
                 cy.get(PageSelectors.someBigIntValFilterLabel)
                     .should('be.visible')
@@ -428,7 +434,7 @@ export class LandPlantListPage {
                     .should('have.value', '111');
             }
 
-            if(someBitValIsVisible){
+            if(LandPlantListPage.someBitValIsVisible){
                 //cy.log('Verifying someBitVal control...');
                 // cy.get(PageSelectors.someBitValField)
                 //     .should('be.visible')
@@ -439,7 +445,7 @@ export class LandPlantListPage {
                     .should('be.visible');
             }
 
-            if(isEditAllowedIsVisible){
+            if(LandPlantListPage.isEditAllowedIsVisible){
                 // cy.log('Verifying isEditAllowedLabel control label...');
                 // cy.get(PageSelectors.isEditAllowedLabel)
                 //     .should('be.visible')
@@ -450,7 +456,7 @@ export class LandPlantListPage {
                     .should('be.visible');
             }
 
-            if(isDeleteAllowedIsVisible){
+            if(LandPlantListPage.isDeleteAllowedIsVisible){
                 // cy.log('Verifying isDeleteAllowedLabel control label...');
                 // cy.get(PageSelectors.isDeleteAllowedLabel)
                 //     .should('be.visible')
@@ -461,7 +467,7 @@ export class LandPlantListPage {
                     .should('be.visible');
             }
 
-            if(someFloatValIsVisible){
+            if(LandPlantListPage.someFloatValIsVisible){
                 cy.log('Verifying someFloatValLabel control label...');
                 cy.get(PageSelectors.someFloatValFilterLabel)
                     .should('be.visible')
@@ -477,7 +483,7 @@ export class LandPlantListPage {
                     .should('have.value', '111');
             }
 
-            if(someDecimalValIsVisible){
+            if(LandPlantListPage.someDecimalValIsVisible){
                 cy.log('Verifying someDecimalValLabel control label...');
                 cy.get(PageSelectors.someDecimalValFilterLabel)
                     .should('be.visible')
@@ -493,7 +499,7 @@ export class LandPlantListPage {
                     .should('have.value', '111');
             }
 
-            if(someMinUTCDateTimeValIsVisible){
+            if(LandPlantListPage.someMinUTCDateTimeValIsVisible){
                 cy.log('Verifying someMinUTCDateTimeValLabel control label...');
                 cy.get(PageSelectors.someMinUTCDateTimeValFilterLabel)
                     .should('be.visible')
@@ -504,7 +510,7 @@ export class LandPlantListPage {
                     .should('be.visible');
             }
 
-            if(someMinDateValIsVisible){
+            if(LandPlantListPage.someMinDateValIsVisible){
                 cy.log('Verifying someMinDateValLabel control label...');
                 cy.get(PageSelectors.someMinDateValFilterLabel)
                     .should('be.visible')
@@ -515,7 +521,7 @@ export class LandPlantListPage {
                     .should('be.visible');
             }
 
-            if(someMoneyValIsVisible){
+            if(LandPlantListPage.someMoneyValIsVisible){
                 cy.log('Verifying someMoneyValLabel control label...');
                 cy.get(PageSelectors.someMoneyValFilterLabel)
                     .should('be.visible')
@@ -531,7 +537,7 @@ export class LandPlantListPage {
                     .should('have.value', '111');
             }
 
-            if(someNVarCharValIsVisible){
+            if(LandPlantListPage.someNVarCharValIsVisible){
                 cy.log('Verifying someNVarCharValLabel control label...');
                 cy.get(PageSelectors.someNVarCharValFilterLabel)
                     .should('be.visible')
@@ -547,7 +553,7 @@ export class LandPlantListPage {
                     .should('have.value', 'someNVarCharValTestVal');
             }
 
-            if(someVarCharValIsVisible){
+            if(LandPlantListPage.someVarCharValIsVisible){
                 cy.log('Verifying someVarCharValLabel control label...');
                 cy.get(PageSelectors.someVarCharValFilterLabel)
                     .should('be.visible')
@@ -563,7 +569,7 @@ export class LandPlantListPage {
                     .should('have.value', 'someVarCharValTestVal');
             }
 
-            if(someTextValIsVisible){
+            if(LandPlantListPage.someTextValIsVisible){
                 cy.log('Verifying someTextValLabel control label...');
                 cy.get(PageSelectors.someTextValFilterLabel)
                     .should('be.visible')
@@ -579,7 +585,7 @@ export class LandPlantListPage {
                     .should('have.value', 'someTextValTestVal');
             }
 
-            if(somePhoneNumberIsVisible){
+            if(LandPlantListPage.somePhoneNumberIsVisible){
                 cy.log('Verifying somePhoneNumberLabel control label...');
                 cy.get(PageSelectors.somePhoneNumberFilterLabel)
                     .should('be.visible')
@@ -595,7 +601,7 @@ export class LandPlantListPage {
                     .should('have.value', '111-111-1111');
             }
 
-            if(someEmailAddressIsVisible){
+            if(LandPlantListPage.someEmailAddressIsVisible){
                 cy.log('Verifying someEmailAddressLabel control label...');
                 cy.get(PageSelectors.someEmailAddressFilterLabel)
                     .should('be.visible')
@@ -633,40 +639,15 @@ export class LandPlantListPage {
     
     verifySort() { 
 
-        const calculatedIsVisualizationGrid = true;
-
-        const plantCodeHeaderIsVisible = true;
-        const someIntValHeaderIsVisible = true; 
-        const someBigIntValHeaderIsVisible = true;
-        const someBitValHeaderIsVisible = true;
-        const isEditAllowedHeaderIsVisible = true;
-        const isDeleteAllowedHeaderIsVisible = true;
-        const someFloatValHeaderIsVisible = true;
-        const someDecimalValHeaderIsVisible = true;
-        const someUTCDateTimeValHeaderIsVisible = true;
-        const someDateValHeaderIsVisible = true;
-        const someMoneyValHeaderIsVisible = true;
-        const someNVarCharValHeaderIsVisible = true;
-        const someVarCharValHeaderIsVisible = true;
-        const someTextValHeaderIsVisible = true;
-        const somePhoneNumberHeaderIsVisible = true;
-        const someEmailAddressHeaderIsVisible = true;
-        const flavorNameHeaderIsVisible = true;
-        const flavorCodeHeaderIsVisible = false;
-        const someIntConditionalOnDeletableHeaderIsVisible = true;
-        const nVarCharAsUrlHeaderIsVisible = true;
-        const updateLinkPlantCodeHeaderIsVisible = false;
-        const deleteAsyncButtonLinkPlantCodeHeaderIsVisible = true;
-        const detailsLinkPlantCodeHeaderIsVisible = true;
 
         //column headers
-        if(calculatedIsVisualizationGrid){
+        if(LandPlantListPage.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
-            if(plantCodeHeaderIsVisible){
+            if(LandPlantListPage.plantCodeHeaderIsVisible){
                 cy.get(PageSelectors.plantCodeHeader)
                 .should('not.exist');
             }
-            if(someIntValHeaderIsVisible){
+            if(LandPlantListPage.someIntValHeaderIsVisible){
                 cy.get(PageSelectors.someIntValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someIntValHeaderText); 
@@ -697,7 +678,7 @@ export class LandPlantListPage {
                 });
                  
             }
-            if(someBigIntValHeaderIsVisible){
+            if(LandPlantListPage.someBigIntValHeaderIsVisible){
                 cy.get(PageSelectors.someBigIntValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someBigIntValHeaderText); 
@@ -727,7 +708,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someBitValHeaderIsVisible){
+            if(LandPlantListPage.someBitValHeaderIsVisible){
                 cy.get(PageSelectors.someBitValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someBitValHeaderText); 
@@ -757,7 +738,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(isEditAllowedHeaderIsVisible){
+            if(LandPlantListPage.isEditAllowedHeaderIsVisible){
                 cy.get(PageSelectors.isEditAllowedHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.isEditAllowedHeaderText); 
@@ -787,7 +768,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(isDeleteAllowedHeaderIsVisible){
+            if(LandPlantListPage.isDeleteAllowedHeaderIsVisible){
                 cy.get(PageSelectors.isDeleteAllowedHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.isDeleteAllowedHeaderText); 
@@ -817,7 +798,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someFloatValHeaderIsVisible){
+            if(LandPlantListPage.someFloatValHeaderIsVisible){
                 cy.get(PageSelectors.someFloatValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someFloatValHeaderText); 
@@ -847,7 +828,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someDecimalValHeaderIsVisible){
+            if(LandPlantListPage.someDecimalValHeaderIsVisible){
                 cy.get(PageSelectors.someDecimalValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someDecimalValHeaderText); 
@@ -877,7 +858,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someUTCDateTimeValHeaderIsVisible){
+            if(LandPlantListPage.someUTCDateTimeValHeaderIsVisible){
                 cy.get(PageSelectors.someUTCDateTimeValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someUTCDateTimeValHeaderText); 
@@ -907,7 +888,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someDateValHeaderIsVisible){
+            if(LandPlantListPage.someDateValHeaderIsVisible){
                 cy.get(PageSelectors.someDateValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someDateValHeaderText); 
@@ -937,7 +918,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someMoneyValHeaderIsVisible){
+            if(LandPlantListPage.someMoneyValHeaderIsVisible){
                 cy.get(PageSelectors.someMoneyValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someMoneyValHeaderText); 
@@ -967,7 +948,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someNVarCharValHeaderIsVisible){
+            if(LandPlantListPage.someNVarCharValHeaderIsVisible){
                 cy.get(PageSelectors.someNVarCharValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someNVarCharValHeaderText); 
@@ -997,7 +978,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someVarCharValHeaderIsVisible){
+            if(LandPlantListPage.someVarCharValHeaderIsVisible){
                 cy.get(PageSelectors.someVarCharValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someVarCharValHeaderText); 
@@ -1027,7 +1008,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someTextValHeaderIsVisible){
+            if(LandPlantListPage.someTextValHeaderIsVisible){
                 cy.get(PageSelectors.someTextValHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someTextValHeaderText); 
@@ -1057,7 +1038,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(somePhoneNumberHeaderIsVisible){
+            if(LandPlantListPage.somePhoneNumberHeaderIsVisible){
                 cy.get(PageSelectors.somePhoneNumberHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.somePhoneNumberHeaderText);
@@ -1087,7 +1068,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someEmailAddressHeaderIsVisible){ 
+            if(LandPlantListPage.someEmailAddressHeaderIsVisible){ 
                 cy.get(PageSelectors.someEmailAddressHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someEmailAddressHeaderText); 
@@ -1117,7 +1098,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(flavorNameHeaderIsVisible){
+            if(LandPlantListPage.flavorNameHeaderIsVisible){
                 cy.get(PageSelectors.flavorNameHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.flavorNameHeaderText); 
@@ -1147,7 +1128,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(flavorCodeHeaderIsVisible){
+            if(LandPlantListPage.flavorCodeHeaderIsVisible){
                 cy.get(PageSelectors.flavorCodeHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.flavorCodeHeaderText); 
@@ -1177,7 +1158,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(someIntConditionalOnDeletableHeaderIsVisible){
+            if(LandPlantListPage.someIntConditionalOnDeletableHeaderIsVisible){
                 cy.get(PageSelectors.someIntConditionalOnDeletableHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.someIntConditionalOnDeletableHeaderText); 
@@ -1207,7 +1188,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(nVarCharAsUrlHeaderIsVisible){
+            if(LandPlantListPage.nVarCharAsUrlHeaderIsVisible){
                 cy.get(PageSelectors.nVarCharAsUrlHeader)
                 .should('be.visible')
                 .should('include.text', PageTexts.nVarCharAsUrlHeaderText); 
@@ -1237,7 +1218,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(updateLinkPlantCodeHeaderIsVisible){
+            if(LandPlantListPage.updateLinkPlantCodeHeaderIsVisible){
                 cy.get(PageSelectors.updateLinkPlantCodeHeader)
                 .should('exist');
                 
@@ -1266,7 +1247,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(deleteAsyncButtonLinkPlantCodeHeaderIsVisible){
+            if(LandPlantListPage.deleteAsyncButtonLinkPlantCodeHeaderIsVisible){
                 cy.get(PageSelectors.deleteAsyncButtonLinkPlantCodeHeader)
                 .should('exist');
                 
@@ -1295,7 +1276,7 @@ export class LandPlantListPage {
                     }
                 });
             }
-            if(detailsLinkPlantCodeHeaderIsVisible){
+            if(LandPlantListPage.detailsLinkPlantCodeHeaderIsVisible){
                 cy.get(PageSelectors.detailsLinkPlantCodeHeader)
                 .should('exist');
                 

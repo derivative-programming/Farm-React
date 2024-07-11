@@ -18,11 +18,10 @@ export const ReportSelectLand: FC<ReportSelectLandProps> = ({
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [lands, setLands] = useState<ReportInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserLandListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

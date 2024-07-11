@@ -18,11 +18,10 @@ export interface ReportSelectTriStateFilterProps {
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [triStateFilters, setTriStateFilters] = useState<ReportInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserTriStateFilterListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

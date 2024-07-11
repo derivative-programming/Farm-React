@@ -27,6 +27,19 @@
         "react/react-in-jsx-scope": "off", // Disable the rule requiring React in scope
         "testing-library/no-unnecessary-act": "warn"
     },
+    "overrides": [
+      {
+        "files": ["*.test.tsx"],
+        "rules": {
+          "no-unused-vars": "off",
+          "no-empty-function": "off",
+          "@typescript-eslint/no-empty-function": "off",
+          "testing-library/no-render-in-lifecycle": "off",
+          "testing-library/no-unnecessary-act": "off",
+          "@typescript-eslint/no-unused-vars": "off"
+        }
+      }
+    ],
     "settings": {
       "react": {
         "version": "detect"

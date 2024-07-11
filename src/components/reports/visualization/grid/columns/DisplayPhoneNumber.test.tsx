@@ -66,7 +66,7 @@ describe("ReportColumnDisplayPhoneNumber Component", () => {
   });
   
   it("renders null correctly", async () => {
-    const noVal:any = null;
+    const noVal = null;
 
     render(
        <table><tbody><tr><ReportColumnDisplayPhoneNumber forColumn="testColumn" rowIndex={1} value={noVal} /></tr></tbody></table>

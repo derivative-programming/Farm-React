@@ -6,7 +6,7 @@ import "../../../../../App.scss";
 export interface ReportColumnDisplayCheckboxProps {
   forColumn:string
   rowIndex: number
-  isChecked: boolean 
+  isChecked: boolean | null 
   isVisible?:boolean
   conditionallyVisible?:boolean
 }

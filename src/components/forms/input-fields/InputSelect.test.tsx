@@ -9,14 +9,17 @@ import {
   fireEvent,
 } from "@testing-library/react";
 import {FormInputSelect, FormInputSelectOption} from "./InputSelect";   
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import { Form } from "react-bootstrap";
 
-const initialValues = { testName:"" } 
+interface FormValues {
+  testName: string;
+}
+const initialValues: FormValues  = { testName:"" }  
 
 const options:FormInputSelectOption[] = [{label:"testlabel1",value:"testvalue1"},{label:"testlabel2",value:"testvalue2"}]
 
-const handleSubmit = async (values:any, actions:any) => {
+const handleSubmit = async (values:FormValues, actions:FormikHelpers<FormValues>) => {
   // Add your form submission logic here
   console.log('Form values:', values);
   actions.setSubmitting(false);

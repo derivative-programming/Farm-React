@@ -2,7 +2,7 @@
 
   import { apiCall } from "../../../apiConfig/apiCall";
     
-  export const submitRequest = () => {
+  export const submitRequest = ():Promise<ResponseFull> => {
     return apiCall({
       url: '/pac-user-date-greater-than-filter-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=dateGreaterThanFilterDisplayOrder&orderByDescending=false',
       method: "get"
@@ -37,6 +37,10 @@ export interface QueryRequest {
     ForceErrorMessage: string;
 }
 
+
+export interface ResponseFull {
+    data: QueryResult;
+}
 
 export interface QueryResult {
     pageNumber: number;

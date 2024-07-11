@@ -1,6 +1,5 @@
 import { TacLoginPage as SubjectPage } from "../support/pages/TacLogin"; 
 import Helper from '../support/helper';
-import Password from "antd/lib/input/Password";
 
 const subjectPage = new SubjectPage();
 

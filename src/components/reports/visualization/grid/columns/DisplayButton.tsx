@@ -6,7 +6,7 @@ import "../../../../../index.css";
 export interface ReportColumnDisplayButtonProps {
   forColumn:string
   rowIndex: number
-  value: string 
+  value: string | null 
   buttonText:string
   onClick():void
   isVisible?:boolean

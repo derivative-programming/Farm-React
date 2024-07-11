@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { TacRegisterPage } from "./pages/TacRegister"; 
 import { TacLoginPage } from "./pages/TacLogin";

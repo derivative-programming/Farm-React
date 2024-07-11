@@ -21,11 +21,10 @@ export const FormSelectRole: FC<FormSelectRoleProps> = ({
     disabled = false,
     isVisible = true,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [roles, setRoles] = useState<FormInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserRoleListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

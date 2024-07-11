@@ -14,6 +14,9 @@ import { apiCall } from "../../apiConfig/apiCall";
 export interface SubmitRequest {
     plantCodeListCsv:string
 }
+export interface ResponseFull {
+    data: SubmitResult;
+}
 
 export interface SubmitResult {
     

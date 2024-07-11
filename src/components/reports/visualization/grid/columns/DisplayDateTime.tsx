@@ -5,7 +5,7 @@ import moment from "moment";
 export interface ReportColumnDisplayDateTimeProps {
   forColumn:string
   rowIndex: number
-  value: string 
+  value: string | null 
   isVisible?:boolean
   conditionallyVisible?:boolean
 }

@@ -5,7 +5,7 @@ import moment from "moment";
    
 export interface ReportColumnDisplayDateProps {
   forColumn:string 
-  value: string 
+  value: string | null 
   label:string
   isVisible?:boolean
   conditionallyVisible?:boolean

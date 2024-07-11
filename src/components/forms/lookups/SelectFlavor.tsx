@@ -21,11 +21,10 @@ export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
     disabled = false,
     isVisible = true,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [flavors, setFlavors] = useState<FormInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserFlavorListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

@@ -4,7 +4,7 @@ import "../../../../../App.scss";
    
 export interface ReportColumnDisplayButtonProps {
   forColumn:string 
-  value: string 
+  value: string | null
   buttonText:string  
   onClick():void
   isVisible?:boolean

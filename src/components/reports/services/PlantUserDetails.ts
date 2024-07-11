@@ -23,7 +23,7 @@ export const submitRequest = (data:any,plantCode:string) => {
   
   
 export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
-    let result:QueryRequest = new QueryRequestInstance();
+    const result:QueryRequest = new QueryRequestInstance();
      
     return result;
 }
@@ -96,6 +96,9 @@ export interface QueryRequest {
 }
 
 
+export interface ResponseFull {
+    data: QueryResult;
+  }
 export interface QueryResult {
     pageNumber: number;
     items: QueryResultItem[];
@@ -229,7 +232,7 @@ export class QueryRequestInstance implements QueryRequest {
         this.pageNumber = 1;
         this.ItemCountPerPage = 10;
         this.OrderByColumnName = '';
-        this.OrderByDescending = false;;
+        this.OrderByDescending = false;
         this.ForceErrorMessage = '';
     }
 }

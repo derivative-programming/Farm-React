@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import { Button, Form, Accordion, Row, Col, Spinner } from "react-bootstrap"; 
 
-import { Formik, FormikHelpers } from "formik";
+import { Formik, FormikHelpers, FormikProps } from "formik";
 import * as ReportService from "../services/LandPlantList";
 import { AuthContext } from "../../../context/authContext";
 import * as ReportInput from "../input-fields";
@@ -98,7 +98,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                 await submitButtonClick(values, actions);
               }}
             >
-              {(props) => (
+              {(props: FormikProps<ReportService.QueryRequest>) => (
                 <Form
                   name={name}
                   data-testid={name}

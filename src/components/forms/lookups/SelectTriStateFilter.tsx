@@ -21,11 +21,10 @@ export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
     disabled = false,
     isVisible = true,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [triStateFilters, setTriStateFilters] = useState<FormInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserTriStateFilterListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

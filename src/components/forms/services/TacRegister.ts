@@ -20,7 +20,7 @@ export const submitForm = (data:SubmitRequest,tacCode:string) => {
 }; 
 
 export const getValidationErrors =  (propertyName: string, response:SubmitResult) => {
-    let result: string[] = [];
+    const result: string[] = [];
     if (
         response &&
         response.validationErrors &&
@@ -38,7 +38,7 @@ export const getValidationErrors =  (propertyName: string, response:SubmitResult
 }
 
 export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
-    let result:SubmitRequest = new SubmitRequestInstance();
+    const result:SubmitRequest = new SubmitRequestInstance();
     
     result.email = initResult.email;
     result.password = initResult.password;
@@ -60,6 +60,9 @@ export interface SubmitRequest {
     firstName: string;
  
     lastName: string;
+}
+export interface ResponseFull {
+    data: SubmitResult;
 }
 
 export interface SubmitResult {

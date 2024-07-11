@@ -21,11 +21,10 @@ export const FormSelectLand: FC<FormSelectLandProps> = ({
     disabled = false,
     isVisible = true,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [lands, setLands] = useState<FormInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserLandListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

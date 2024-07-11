@@ -3,18 +3,21 @@ import { apiCall } from "../../apiConfig/apiCall";
   
    
   
-  export const PlantUserDeleteSubmitRequest = (data:any, plantCode:string) => { 
+export const PlantUserDeleteSubmitRequest = (data:any, plantCode:string) => { 
     return apiCall({
-      url: "/plant-user-delete/" + plantCode,
-      method: "post",
-      data
+        url: "/plant-user-delete/" + plantCode,
+        method: "post",
+        data
     });
-  };
+};
 
 
 
 export interface SubmitRequest {
     
+}
+export interface ResponseFull {
+    data: SubmitResult;
 }
 
 export interface SubmitResult {

@@ -8,13 +8,16 @@ import {
 } from "@testing-library/react";
 import {ReportInputText} from "./InputText";   
 import {ReportInputErrorDisplay} from "./InputErrorDisplay";   
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import { Form } from "react-bootstrap";
 import { ReportInputDate } from "./InputDate";
 
-const initialValues = { testName:"" } 
+interface FormValues {
+  testName: string;
+}
+const initialValues: FormValues  = { testName:"" }  
 
-const handleSubmit = async (values:any, actions:any) => {
+const handleSubmit = async (values:FormValues, actions:FormikHelpers<FormValues>) => {
   // Add your form submission logic here
   console.log('Form values:', values);
   actions.setSubmitting(false);

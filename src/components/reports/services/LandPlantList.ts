@@ -182,6 +182,9 @@ export interface QueryRequest {
 }
 
 
+export interface ResponseFull {
+  data: QueryResult;
+}
 export interface QueryResult {
     pageNumber: number;
     items: QueryResultItem[];

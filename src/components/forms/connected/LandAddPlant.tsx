@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import { Formik, FormikHelpers } from "formik";
+import { Formik, FormikHelpers, FormikProps } from "formik";
 import * as FormService from "../services/LandAddPlant";
 import * as FormValidation from "../validation/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
@@ -22,6 +22,10 @@ import * as AnalyticsService from "../../services/analyticsService";
 export interface FormProps {
   name?: string;
   showProcessingAnimationOnInit?: boolean;
+}
+
+interface FormErrors {
+  [key: string]: string;
 }
 
 export const FormConnectedLandAddPlant: FC<FormProps> = ({
@@ -54,7 +58,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
 
   const authContext = useContext(AuthContext); 
 
-  const handleInit = (responseFull: any) => {
+  const handleInit = (responseFull: InitFormService.ResponseFull) => {
     const response: InitFormService.InitResult = responseFull.data;
 
     if (!response.success) {
@@ -66,7 +70,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   };
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
-    const errors: any = {};
+    const errors: FormErrors  = {};
     if (!lastApiSubmission.response.success) {
       setHeaderErrors(FormService.getValidationErrors(
         "",
@@ -92,7 +96,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     try {
       setLoading(true);
       logClick("FormConnectedLandAddPlant","submit","");
-      const responseFull: any = await FormService.submitForm(
+      const responseFull: FormService.ResponseFull = await FormService.submitForm(
         values,
         contextCode
       );
@@ -191,7 +195,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
               await submitClick(values, actions);
             }}
           >
-            {(props) => (
+            {(props: FormikProps<FormService.SubmitRequest>) => (
               <Form
                 className=""
                 name={name}

@@ -25,7 +25,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
 
-    const handleInit = (responseFull: any) => {
+    const handleInit = (responseFull: InitReportService.ResponseFull) => {
         
         const response: InitReportService.InitResult = responseFull.data;
 
@@ -35,7 +35,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
         setInitPageResponse({...response})
     }
 
-    const handleQueryResults = (responseFull: any) => {
+    const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
         const queryResult: ReportService.QueryResult = responseFull.data;
 
         if (!queryResult.success) {

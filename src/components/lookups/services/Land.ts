@@ -1,7 +1,7 @@
 
   import { apiCall } from "../../../apiConfig/apiCall";
     
-  export const submitRequest = () => {
+  export const submitRequest = ():Promise<ResponseFull> => {
     return apiCall({
       url: '/pac-user-land-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=landDisplayOrder&orderByDescending=false',
       method: "get"
@@ -37,6 +37,9 @@ export interface QueryRequest {
 }
 
 
+export interface ResponseFull {
+    data: QueryResult;
+}
 export interface QueryResult {
     pageNumber: number;
     items: QueryResultItem[];
@@ -151,7 +154,7 @@ export class QueryRequestInstance implements QueryRequest {
         this.pageNumber = 1;
         this.ItemCountPerPage = 10;
         this.OrderByColumnName = '';
-        this.OrderByDescending = false;;
+        this.OrderByDescending = false;
         this.ForceErrorMessage = '';
     }
 }

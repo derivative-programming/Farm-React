@@ -7,13 +7,16 @@ import {
   screen,
 } from "@testing-library/react";
 import ReportSelectDateGreaterThanFilter from "./SelectDateGreaterThanFilter";  
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import { Form } from "react-bootstrap";
 
-const initialValues = { testName:"" }
+interface FormValues {
+  testName: string;
+}
+const initialValues: FormValues  = { testName:"" } 
 const validationSchema  = {}
 
-const handleSubmit = async (values:any, actions:any) => {
+const handleSubmit = async (values:FormValues, actions:FormikHelpers<FormValues>) => {
   // Add your form submission logic here
   console.log('Form values:', values);
   actions.setSubmitting(false);

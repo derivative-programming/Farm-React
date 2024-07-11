@@ -4,6 +4,10 @@ export interface InitRequest {
     
 }
 
+export interface ResponseFull {
+    data: InitResult;
+}
+
 export interface InitResult {
  
     someIntVal: number;

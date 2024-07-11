@@ -21,11 +21,10 @@ export const FormSelectTac: FC<FormSelectTacProps> = ({
     disabled = false,
     isVisible = true,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [tacs, setTacs] = useState<FormInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserTacListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

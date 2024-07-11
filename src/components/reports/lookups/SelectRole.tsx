@@ -18,11 +18,10 @@ export interface ReportSelectRoleProps {
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
-    const [field, meta, helpers] = useField(name); 
     
     const [roles, setRoles] = useState<ReportInputSelectOption[]>([])
 
-    const initList = (response:any) => {  
+    const initList = (response:PacUserRoleListService.ResponseFull) => {  
 
         if(response && 
             response.data &&

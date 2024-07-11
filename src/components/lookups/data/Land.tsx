@@ -5,7 +5,7 @@ export const getLands= () => {
     let items:PacUserLandListService.QueryResultItem[] = []
 
     const getItems = async() => {
-        const response:any  = PacUserLandListService.submitRequest(); 
+        const response:PacUserLandListService.ResponseFull  = await PacUserLandListService.submitRequest(); 
 
         if(response && response.data)
         {
