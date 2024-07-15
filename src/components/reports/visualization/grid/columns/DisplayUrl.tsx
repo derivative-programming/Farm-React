@@ -41,6 +41,7 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
         <a href={url}
           hidden={!displayValue}
           target="_blank"
+          rel="noreferrer"
           >
           {linkText}
         </a>

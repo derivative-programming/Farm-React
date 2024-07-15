@@ -8376,7 +8376,7 @@
               {
                 "name": "TacRegister",
                 "titleText": "Create your account",
-                "introText": "A Couple Details Then We're Off!",
+                "introText": "A Couple Details Then We Are Off!",
                 "isPage": "true",
                 "roleRequired": "",
                 "objectWorkflowParam": [

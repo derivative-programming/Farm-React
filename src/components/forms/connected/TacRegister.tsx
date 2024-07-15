@@ -147,7 +147,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
         
         >
           <h2 data-testid="page-title-text">Create your account</h2>
-          <h6 data-testid="page-intro-text">A Couple Details Then We're Off!</h6>
+          <h6 data-testid="page-intro-text">A Couple Details Then We Are Off!</h6>
 
           <Formik
             enableReinitialize={true}

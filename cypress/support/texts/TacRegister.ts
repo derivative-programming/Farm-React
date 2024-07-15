@@ -6,7 +6,7 @@ export const TacRegisterPageTexts = {
     lastNameLabelText: "Last Name",
     //page title
     titleText: "Create your account",
-    introText: "A Couple Details Then We're Off!",
+    introText: "A Couple Details Then We Are Off!",
     footerText: "",
     submitButtonText: "Register",
     cancelButtonText: "Back To Log In",

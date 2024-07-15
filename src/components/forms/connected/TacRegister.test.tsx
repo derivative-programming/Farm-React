@@ -60,7 +60,7 @@ describe("TacRegister Component", () => {
     expect(screen.getByTestId("cancel-button")).toBeInTheDocument();
     
     expect(screen.getByText("Create your account")).toBeInTheDocument();
-    expect(screen.getByText("A Couple Details Then We're Off!")).toBeInTheDocument();
+    expect(screen.getByText("A Couple Details Then We Are Off!")).toBeInTheDocument();
     
     await waitFor(() => expect(mockFormInitService).toHaveBeenCalled());
   });
