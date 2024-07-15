@@ -6,7 +6,6 @@ import "../../../../../index.css";
 export interface ReportColumnDisplayButtonProps {
   forColumn:string
   rowIndex: number
-  value: string | null 
   buttonText:string
   onClick():void
   isVisible?:boolean
@@ -17,7 +16,6 @@ export interface ReportColumnDisplayButtonProps {
 export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
   forColumn,
   rowIndex,
-  value, 
   buttonText,
   onClick,
   isVisible = true,

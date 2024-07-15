@@ -102,7 +102,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       if (!response.success) {
         setHeaderErrors(FormService.getValidationErrors("", response));
         Object.entries(new FormService.SubmitRequestInstance()).forEach(
-          ([key, value]) =>
+          ([key]) =>
             actions.setFieldError(
               key,
               FormService.getValidationErrors(key, response).join(",")

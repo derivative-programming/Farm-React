@@ -1,4 +1,3 @@
-import { useEffect,useState} from "react";  
 import * as PacUserLandListService from "../services/Land";
 
 export const getLands= () => {

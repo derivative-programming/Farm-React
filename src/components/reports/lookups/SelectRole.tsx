@@ -1,20 +1,17 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import * as PacUserRoleListService from "../../lookups/services/Role";
-import {useField } from 'formik';
 import { ReportInputSelect,ReportInputSelectOption } from "../input-fields/InputSelect";
    
 export interface ReportSelectRoleProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
   }
 
   export const ReportSelectRole: FC<ReportSelectRoleProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
@@ -44,6 +41,8 @@ export interface ReportSelectRoleProps {
             label={label} 
             name={name}
             options={roles}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

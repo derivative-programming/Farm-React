@@ -1,21 +1,18 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import "../../../App.scss"; 
 import * as PacUserDateGreaterThanFilterListService from "../../lookups/services/DateGreaterThanFilter";
-import {useField } from 'formik';
 import { ReportInputSelect,ReportInputSelectOption } from "../input-fields/InputSelect";
    
 export interface ReportSelectDateGreaterThanFilterProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
   }
 
   export const ReportSelectDateGreaterThanFilter: FC<ReportSelectDateGreaterThanFilterProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
@@ -45,6 +42,8 @@ export interface ReportSelectDateGreaterThanFilterProps {
             label={label} 
             name={name}
             options={dateGreaterThanFilters}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

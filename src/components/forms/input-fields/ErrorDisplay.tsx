@@ -21,7 +21,7 @@ export const ErrorDisplay: FC<ErrorDisplayProps> = ({
       {allErrors && allErrors.length > 0 ? ( 
           allErrors.map((item, index) => {
             return (
-              <div className="text-left text-danger mt-2 mb-2" key={item}>{item}</div>  
+              <div className="text-left text-danger mt-2 mb-2" key={index}>{item}</div>  
           );
         })
       ) : null}

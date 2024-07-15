@@ -24,7 +24,7 @@ export const FormInputPassword: FC<FormInputPasswordProps> = ({
 
   const errorDisplayControlName = name + "ErrorDisplay";
   
-  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  const isInvalid:boolean = !!meta.error && !!meta.touched
       
   return (
     <div className="" hidden={!isVisible}>
@@ -42,7 +42,7 @@ export const FormInputPassword: FC<FormInputPasswordProps> = ({
             isInvalid={isInvalid}
             size="sm"
           />
-          <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+          <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
       </Form.Group> 
   </div>
   );

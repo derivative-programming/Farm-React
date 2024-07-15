@@ -23,7 +23,7 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
   disabled = false,
   isVisible = true,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
+  const [field, , helpers] = useField(name);
 
   const getDisplayDateTime = () => {
     const dt:moment.Moment = moment.utc(
@@ -40,8 +40,6 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
   const selectedDateTimeLocal:moment.Moment = getDisplayDateTime();
 
   const errorDisplayControlName = name + "ErrorDisplay";
-  
-  // const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
   
   return (
     <div className="" hidden={!isVisible}>
@@ -65,6 +63,7 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
           /> 
       </Form.Group>
       <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
+      
   </div>
   );
 };

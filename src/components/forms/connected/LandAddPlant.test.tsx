@@ -21,7 +21,7 @@ const mockUserParams = jest.fn();
 
 // mock the useNavigate method
 jest.mock("react-router-dom", () => ({
-  ...(jest.requireActual("react-router-dom") as any),
+  ...(jest.requireActual("react-router-dom")),
   useNavigate: () => mockedUsedNavigate,
   useParams: () => mockUserParams.mockReturnValue({ id: "00000000-0000-0000-0000-000000000000",}),
 }));
@@ -150,19 +150,16 @@ describe("LandAddPlant Component", () => {
   });
 
   it("when user enter requestSomeBitVal, it set accordingly", async () => {
-    // const input = screen.getByTestId("requestSomeBitVal");
     fireEvent.click(screen.getByTestId("requestSomeBitVal"));
     expect(screen.getByTestId("requestSomeBitVal")).toBeChecked();
   });
 
   it("when user enter requestIsEditAllowed, it set accordingly", async () => {
-    // const input = screen.getByTestId("requestIsEditAllowed"); 
     fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
     expect(screen.getByTestId("requestIsEditAllowed")).toBeChecked();
   });
 
   it("when user enter requestIsDeleteAllowed, it set accordingly", async () => {
-    // const input = screen.getByTestId("requestIsDeleteAllowed"); 
     fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
     expect(screen.getByTestId("requestIsDeleteAllowed")).toBeChecked();
   });

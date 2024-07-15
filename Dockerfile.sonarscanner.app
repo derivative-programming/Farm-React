@@ -16,10 +16,10 @@ COPY . .
 RUN npm install
 
 # Ensure the entrypoint script has Unix line endings and is executable
-RUN apt-get install -y dos2unix && \
-    dos2unix /usr/src/app/dockerfile_sonarscanner_app_entrypoint.sh && \
-    chmod +x /usr/src/app/dockerfile_sonarscanner_app_entrypoint.sh && \
-    apt-get remove -y dos2unix && apt-get autoremove -y
+# RUN apt-get install -y dos2unix && \
+#     dos2unix /usr/src/app/dockerfile_sonarscanner_app_entrypoint.sh && \
+#     chmod +x /usr/src/app/dockerfile_sonarscanner_app_entrypoint.sh && \
+#     apt-get remove -y dos2unix && apt-get autoremove -y
 
 # Define the entrypoint
 ENTRYPOINT ["/usr/src/app/dockerfile_sonarscanner_app_entrypoint.sh"]

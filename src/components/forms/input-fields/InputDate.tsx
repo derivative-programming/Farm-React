@@ -23,8 +23,8 @@ export const FormInputDate: FC<FormInputDateProps> = ({
   disabled = false,
   isVisible = true,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
-
+  const [field, , helpers] = useField(name);
+  
   const getDisplayDateTime = () => {
     const dt:moment.Moment = moment.utc(
         field.value,
@@ -40,8 +40,6 @@ export const FormInputDate: FC<FormInputDateProps> = ({
   const selectedDateTimeLocal:moment.Moment = getDisplayDateTime();
 
   const errorDisplayControlName = name + "ErrorDisplay";
-  
-  // const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
   
   return (
     <div className="" hidden={!isVisible}>
@@ -62,7 +60,8 @@ export const FormInputDate: FC<FormInputDateProps> = ({
             autoFocus={autoFocus}
           /> 
       </Form.Group>
-      <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
+      <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} />
+      
   </div>
   );
 };

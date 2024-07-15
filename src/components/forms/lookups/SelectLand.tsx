@@ -1,13 +1,11 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import "../../../App.scss"; 
 import * as PacUserLandListService from "../../lookups/services/Land";
-import {useField } from 'formik';
 import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
    
 export interface FormSelectLandProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
@@ -15,8 +13,7 @@ export interface FormSelectLandProps {
 
 export const FormSelectLand: FC<FormSelectLandProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
     isVisible = true,
@@ -48,6 +45,8 @@ export const FormSelectLand: FC<FormSelectLandProps> = ({
             name={name}
             options={lands}
             isVisible={isVisible}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

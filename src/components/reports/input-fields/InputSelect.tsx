@@ -6,7 +6,6 @@ export interface ReportInputSelectProps {
   name: string
   label: string
   options:ReportInputSelectOption[]
-  placeholder?: string
   autoFocus?:boolean
   disabled?: boolean
 }
@@ -20,13 +19,12 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
   name,
   label,
   options,
-  placeholder,
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
   const [field, meta] = useField(name);  
 
-  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  const isInvalid: boolean = !!meta.error && !!meta.touched
       
   return (
     <div className="" >
@@ -43,12 +41,12 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
               isInvalid={isInvalid}
               size="sm"
           >
-              <option>Please Select One</option>
-              {options.map((item, index) => {
+              <option value="00000000-0000-0000-0000-000000000000">Please Select One</option>
+              {options.map((item) => {
                   return (
                   <option
                       data-test-option-id="select-option"
-                      key={index}
+                      key={item.value}
                       value={item.value}
                   >
                     {item.label}

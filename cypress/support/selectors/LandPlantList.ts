@@ -134,10 +134,10 @@ export const LandPlantListPageSelectors = {
     flavorCodeFilterField: "[data-testid='flavorCode-field']",
     
 
-    pagingControl: "[data-testid='reportGridLandPlantList-paginator-pageination']",
-    pageSizeControl: "[data-testid='reportGridLandPlantList-paginator-pageination-select-page-size']",
+    pagingControl: "[data-testid='reportGridLandPlantList-paginator-pagination']",
+    pageSizeControl: "[data-testid='reportGridLandPlantList-paginator-pagination-select-page-size']",
     pageSizeControlLabel: "[data-testid='items-per-page-label']",
-    tableRowCountDisplay: "[data-testid='reportGridLandPlantList-paginator-pageination-count-display']",
+    tableRowCountDisplay: "[data-testid='reportGridLandPlantList-paginator-pagination-count-display']",
 
     filterHeader: "[data-testid='reportConnectedLandPlantList-filter-header']",
 

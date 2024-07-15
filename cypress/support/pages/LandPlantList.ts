@@ -373,7 +373,7 @@ export class LandPlantListPage {
             .should('be.visible')
             .should('include.text', PageTexts.tacFarmDashboardBreadcrumbText);
 
-        if(LandPlantListPage.calculatedIsVisualizationGrid && !isFilterSectionHidden){
+        if(LandPlantListPage.calculatedIsVisualizationGrid && !LandPlantListPage.isFilterSectionHidden){
 
             cy.get(PageSelectors.filterSearchButton)
             .should('not.be.visible');

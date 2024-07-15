@@ -20,35 +20,41 @@ export const FormInputFile: FC<FormInputFileProps> = ({
   disabled = false,
   isVisible = true,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name); 
+  const [field, meta] = useField(name); 
 
   const errorDisplayControlName = name + "ErrorDisplay";
   
-  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  const isInvalid:boolean = !!meta.error && !!meta.touched
     
-  const convertBase64 = (file:any) => {
+  const convertBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
 
-        fileReader.onload = () => { 
-            let result = fileReader.result;
-            if(result?.toString().includes(","))
-            {
-              result = result.toString().split(",")[1];
+        fileReader.onload = () => {
+            let result = fileReader.result as string;
+            if (result.includes(",")) {
+                result = result.split(",")[1];
             }
-            helpers.setValue(result)
+            resolve(result);
         };
- 
+
+        fileReader.onerror = (error) => {
+            reject(error);
+        };
     });
   };
-    
-  const uploadImage = async (event: any) => {
-    const files =  Array.from(event.target.files ?? []); 
-    
-    Array.from(files).forEach(file => {
-      const base64 = convertBase64(file); 
-    });  
+     
+  const uploadImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+        try {
+            const base64 = await convertBase64(file);
+            console.log(base64);
+        } catch (error) {
+            console.error("Error converting file to base64:", error);
+        }
+    }
   };
       
   return (
@@ -60,17 +66,17 @@ export const FormInputFile: FC<FormInputFileProps> = ({
             // ref={inputRef}
             data-testid={name}
             type="file" 
-           // placeholder={placeholder}
+           placeholder={placeholder}
             name={field.name}
             //value={field.value}
             onBlur={field.onBlur} 
-            onChange={(e) => uploadImage(e)}
+            onChange={uploadImage}
             disabled={disabled}
             autoFocus={autoFocus}
             isInvalid={isInvalid} 
             size="sm"
           />
-          <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+          <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
       </Form.Group> 
   </div>
   );

@@ -458,7 +458,6 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateLinkPlantCode"
                     rowIndex={index}
-                    value={item.updateLinkPlantCode}
                     buttonText="Update"
                     isButtonCallToAction={false}
                     onClick={() => {
@@ -470,7 +469,6 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
  
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="deleteAsyncButtonLinkPlantCode"
                     rowIndex={index}
-                    value={item.deleteAsyncButtonLinkPlantCode}
                     buttonText="Delete"
                     isButtonCallToAction={false}
                     isVisible={true}
@@ -486,7 +484,6 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="detailsLinkPlantCode"
                     rowIndex={index}
-                    value={item.detailsLinkPlantCode}
                     buttonText="Details"
                     isButtonCallToAction={true}
                     isVisible={true}

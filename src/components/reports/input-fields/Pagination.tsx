@@ -24,7 +24,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
   hidden = false,
 }): ReactElement => {  
       
-  const isHidden = () => {
+  const isHidden = (): boolean => {
     if(totalItemCount === 0 || hidden){
       return true;
     } else {
@@ -32,7 +32,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
     } 
   }
 
-  const isFirstPageButtonHidden = () => {
+  const isFirstPageButtonHidden = (): boolean => {
     if(isHidden())
     {
       return true;
@@ -43,7 +43,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
     return false;
   }
 
-  const isPreviousPageButtonHidden = () => {
+  const isPreviousPageButtonHidden = (): boolean => {
     if(isHidden())
     {
       return true;
@@ -54,7 +54,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
     return false;
   }
   
-  const isNextPageButtonHidden = () => {
+  const isNextPageButtonHidden = (): boolean => {
     if(isHidden())
     {
       return true;
@@ -65,7 +65,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
     return false;
   }
   
-  const isLastPageButtonHidden = () => {
+  const isLastPageButtonHidden = (): boolean => {
     if(isHidden())
     {
       return true;
@@ -76,7 +76,7 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
     return false;
   }
   
-  const getFirstItemIndex = () => {
+  const getFirstItemIndex = (): number => {
     if(currentPage === 1) {
       return 1;
     } else {
@@ -84,12 +84,12 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
     }
   };
 
-  const getLastItemIndex = () => {
+  const getLastItemIndex = (): number => {
     const baseCount = (currentPage - 1) * pageSize;
     return baseCount + currentPageItemCount; 
   };
 
-  const getMaxPageCount = () => {
+  const getMaxPageCount = (): number => {
     const baseCount = totalItemCount / pageSize
     if((totalItemCount % pageSize) === 0){
       return baseCount;
@@ -97,17 +97,16 @@ export const ReportPagination: FC<ReportPaginationProps> = ({
       return baseCount + 1;
     }
   }
+  const paginationId = `${name}-pagination`;
+  const paginationPageSizeSelectId = `${paginationId}-select-page-size`;
+  const paginationFirstId = `${paginationId}-first`;
+  const paginationPrevId = `${paginationId}-prev`;
+  const paginationNextId = `${paginationId}-next`;
+  const paginationLastId = `${paginationId}-last`;
+  const paginationCountDisplayId = `${paginationId}-count-display`;
   
-  const paginationId = name  + "-pageination";
-  const paginationPageSizeSelectId = paginationId  + "-select-page-size";
-  const paginationFirstId = paginationId  + "-first";
-  const paginationPrevId = paginationId  + "-prev";
-  const paginationNextId = paginationId  + "-next";
-  const paginationLastId = paginationId  + "-last";
-  const paginationCountDisplayId = paginationId  + "-count-display";
-  
-  const getAvailablePageItems = () => {
-    const items: any = [];
+  const getAvailablePageItems = (): ReactElement[] => {
+    const items: ReactElement[] = [];
     let start = currentPage - 2;
     if(start < 1){
       start = 1;

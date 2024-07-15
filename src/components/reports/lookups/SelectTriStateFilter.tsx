@@ -1,20 +1,17 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import * as PacUserTriStateFilterListService from "../../lookups/services/TriStateFilter";
-import {useField } from 'formik';
 import { ReportInputSelect,ReportInputSelectOption } from "../input-fields/InputSelect";
    
 export interface ReportSelectTriStateFilterProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
   }
 
   export const ReportSelectTriStateFilter: FC<ReportSelectTriStateFilterProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
@@ -44,6 +41,8 @@ export interface ReportSelectTriStateFilterProps {
             label={label} 
             name={name}
             options={triStateFilters}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

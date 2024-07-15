@@ -12,7 +12,7 @@ const onPageSelection = jest.fn();
 const onPageSizeChange = jest.fn();
 
 const controlName = "testName";
-const paginationId = controlName  + "-pageination";
+const paginationId = controlName  + "-pagination";
 const paginationPageSizeSelectId = paginationId  + "-select-page-size";
 const paginationFirstId = paginationId  + "-first";
 const paginationPrevId = paginationId  + "-prev";

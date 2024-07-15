@@ -15,10 +15,12 @@ export const FormInputErrorDisplay: FC<FormInputErrorDisplayProps> = ({
   const [, meta] = useField(forInputName);   
 
   const errorControlName = forInputName + "Error"
+
+  const isInvalid:boolean = !!meta.error && !!meta.touched
       
   return (
     <div data-testid={name}> 
-      {meta.error && meta.touched ? (
+      {isInvalid ? (
           <ErrorDisplay name={errorControlName} errorCsv={meta.error}/> 
       ) : null}
     </div>

@@ -163,7 +163,6 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateButtonTextLinkPlantCode"
                     buttonText="Update Button Text"
-                    value={item.updateButtonTextLinkPlantCode}
                     isButtonCallToAction={true}
                     isVisible={false}
                     onClick={() => {
@@ -174,7 +173,6 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="backToDashboardLinkTacCode"
                     buttonText="Back To Dashboard"
-                    value={item.backToDashboardLinkTacCode}
                     isButtonCallToAction={true}
                     isVisible={true}
                     onClick={() => {
@@ -187,7 +185,6 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="randomPropertyUpdatesLinkPlantCode"
                     buttonText="Random Property Updates"
-                    value={item.randomPropertyUpdatesLinkPlantCode}
                     isButtonCallToAction={false}
                     isVisible={true}
                     onClick={() =>{

@@ -1,13 +1,11 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import "../../../App.scss"; 
 import * as PacUserFlavorListService from "../../lookups/services/Flavor";
-import {useField } from 'formik';
 import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
    
 export interface FormSelectFlavorProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
@@ -15,8 +13,7 @@ export interface FormSelectFlavorProps {
 
 export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
     isVisible = true,
@@ -48,6 +45,8 @@ export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
             name={name}
             options={flavors}
             isVisible={isVisible}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

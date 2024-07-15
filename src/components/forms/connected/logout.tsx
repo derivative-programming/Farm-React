@@ -30,7 +30,7 @@ export const Logout: FC<FormProps> = ({
   navigate("/tac-login");
  
   return (
-    <div >
+    <div  data-testid={name}>
        
     </div>
   );

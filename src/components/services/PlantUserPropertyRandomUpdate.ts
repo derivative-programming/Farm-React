@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { apiCall } from "../../apiConfig/apiCall";
    
   
    
   
-  export const PlantUserPropertyRandomUpdateSubmitRequest = (data:any, plantCode:string) => { 
+  export const PlantUserPropertyRandomUpdateSubmitRequest = (data:SubmitRequest, plantCode:string) => { 
     return apiCall({
       url: "/plant-user-property-random-update/" + plantCode,
       method: "POST",

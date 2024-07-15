@@ -108,7 +108,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       if (!response.success) {
         setHeaderErrors(FormService.getValidationErrors("", response));
         Object.entries(new FormService.SubmitRequestInstance()).forEach(
-          ([key, value]) => {
+          ([key]) => {
             const fieldErrors: string = FormService.getValidationErrors(
               key,
               response

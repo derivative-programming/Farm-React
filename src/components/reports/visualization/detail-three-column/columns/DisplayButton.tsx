@@ -3,8 +3,7 @@ import { Button, Row } from "react-bootstrap";
 import "../../../../../App.scss"; 
    
 export interface ReportColumnDisplayButtonProps {
-  forColumn:string 
-  value: string | null
+  forColumn:string
   buttonText:string  
   onClick():void
   isVisible?:boolean
@@ -13,8 +12,7 @@ export interface ReportColumnDisplayButtonProps {
 }
    
 export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
-  forColumn, 
-  value,
+  forColumn,
   buttonText, 
   onClick,
   isVisible = true,

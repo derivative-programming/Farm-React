@@ -1,13 +1,11 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import "../../../App.scss"; 
 import * as PacUserRoleListService from "../../lookups/services/Role";
-import {useField } from 'formik';
 import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
    
 export interface FormSelectRoleProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
@@ -15,8 +13,7 @@ export interface FormSelectRoleProps {
 
 export const FormSelectRole: FC<FormSelectRoleProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
     isVisible = true,
@@ -48,6 +45,8 @@ export const FormSelectRole: FC<FormSelectRoleProps> = ({
             name={name}
             options={roles}
             isVisible={isVisible}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

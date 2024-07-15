@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { apiCall } from "../../apiConfig/apiCall";
    
   
    
   
-export const PlantUserDeleteSubmitRequest = (data:any, plantCode:string) => { 
+export const PlantUserDeleteSubmitRequest = (data:SubmitRequest, plantCode:string) => { 
     return apiCall({
         url: "/plant-user-delete/" + plantCode,
         method: "post",

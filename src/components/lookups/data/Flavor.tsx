@@ -1,4 +1,3 @@
-import { useEffect,useState} from "react";
 import * as PacUserFlavorListService from "../services/Flavor";
 
 export const getFlavors= () => {

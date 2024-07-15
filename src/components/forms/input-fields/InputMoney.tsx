@@ -25,7 +25,7 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
 
   const errorDisplayControlName = name + "ErrorDisplay";
   
-  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  const isInvalid:boolean = !!meta.error && !!meta.touched
       
   return (
     <div className="" hidden={!isVisible}>
@@ -44,9 +44,10 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
               autoFocus={autoFocus}
               onKeyDown={onKeyDown}
               isInvalid={isInvalid}
+              placeholder={placeholder}
               size="sm"
             />
-            <Form.Control.Feedback  className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+            <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
           </InputGroup>
       </Form.Group> 
   </div>

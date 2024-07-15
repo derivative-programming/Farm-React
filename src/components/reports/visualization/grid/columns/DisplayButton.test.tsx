@@ -19,43 +19,11 @@ describe("ReportColumnDisplayButton Component", () => {
   });
 
   // after cleanup when test-case execution is done
-   
-
-  it("renders 'test Value' correctly", async () => {
-    render(
-       <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" rowIndex={1} value="test Value" buttonText="test text" onClick={onClick} /></tr></tbody></table>
-    );
-
-    expect(screen.getByText("test text")).toBeInTheDocument(); 
-    
-  });
- 
-  it("renders no value correctly", async () => {
-    render(
-       <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" rowIndex={1} value="" buttonText="test text" onClick={onClick} /></tr></tbody></table>
-    );
-
-    expect(screen.getByTestId(testId)).toBeInTheDocument();
-
-    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
-  });
-  
-  it("renders null correctly", async () => {
-    const noVal = null;
-
-    render(
-       <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" rowIndex={1} value={noVal} buttonText="test text" onClick={onClick} /></tr></tbody></table>
-    );
-
-    expect(screen.getByTestId(testId)).toBeInTheDocument();
-
-    expect(screen.getByTestId(testId)).toContainHTML("<td data-testid=\"testColumn-column-1\" />");
-  });
   
   it("renders isVisible=false correctly", async () => { 
 
     render(
-       <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" rowIndex={1} value="test Value" buttonText="test text" onClick={onClick} isVisible={false} /></tr></tbody></table>
+       <table><tbody><tr><ReportColumnDisplayButton forColumn="testColumn" rowIndex={1} buttonText="test text" onClick={onClick} isVisible={false} /></tr></tbody></table>
     );
 
     expect(screen.getByTestId(testId)).toBeInTheDocument();

@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 export interface ReportInputButtonProps {
   name: string;
-  buttonText: any;
+  buttonText: string;
   onClick(): void;
   isButtonCallToAction?: boolean;
   isVisible?: boolean;

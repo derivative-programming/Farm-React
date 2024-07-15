@@ -4,8 +4,7 @@ import { ReportErrorDisplay } from "./ErrorDisplay";
 describe("ReportErrorDisplay Component", () => {
   it("renders correctly when no errors are provided", () => {
     render(<ReportErrorDisplay name="testName" />);
-    expect(screen.queryByTestId("testName")).toBeInTheDocument();
-    //expect(screen.queryByTestId("testName").textContent).toBe("");
+    expect(screen.getByTestId("testName")).toBeInTheDocument();
   });
 
   it("renders correctly when only errorCsv is provided", () => {

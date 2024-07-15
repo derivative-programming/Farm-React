@@ -22,7 +22,7 @@ export const FormInputText: FC<FormInputTextProps> = ({
 }): ReactElement => {
   const [field, meta] = useField(name);  
   
-  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  const isInvalid:boolean = !!meta.error && !!meta.touched
       
   return (
     <div hidden={!isVisible}>

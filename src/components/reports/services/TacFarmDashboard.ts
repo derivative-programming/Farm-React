@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { apiCall } from "../../../apiConfig/apiCall";
 import * as Yup from "yup";
 import * as ReportInit  from "./init/TacFarmDashboardInitReport";

@@ -1,20 +1,17 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import * as PacUserLandListService from "../../lookups/services/Land";
-import {useField } from 'formik';
 import { ReportInputSelect,ReportInputSelectOption } from "../input-fields/InputSelect";
    
 export interface ReportSelectLandProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
   }
 
 export const ReportSelectLand: FC<ReportSelectLandProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
@@ -44,6 +41,8 @@ export const ReportSelectLand: FC<ReportSelectLandProps> = ({
             label={label} 
             name={name}
             options={lands}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

@@ -1,13 +1,11 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import "../../../App.scss"; 
 import * as PacUserDateGreaterThanFilterListService from "../../lookups/services/DateGreaterThanFilter";
-import {useField } from 'formik';
 import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
    
 export interface FormSelectDateGreaterThanFilterProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
@@ -15,8 +13,7 @@ export interface FormSelectDateGreaterThanFilterProps {
 
 export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilterProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
     isVisible = true,
@@ -47,7 +44,9 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
             label={label} 
             name={name}
             options={dateGreaterThanFilters} 
+            disabled={disabled}
             isVisible={isVisible}
+            autoFocus={autoFocus}
             />
          
     );

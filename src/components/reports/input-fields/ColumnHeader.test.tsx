@@ -15,7 +15,7 @@ describe("ReportColumnHeader Component", () => {
   // render the ReportColumnHeader component
   beforeEach(() => {
     render(
-      <ReportColumnHeader onSort={onSort} name="testName" forColumn="testColumn" isSortDescending={true} label="test label" sortedColumnName=""/> 
+      <ReportColumnHeader onSort={onSort} forColumn="testColumn" isSortDescending={true} label="test label" sortedColumnName=""/> 
     );
   });
 

@@ -1,20 +1,17 @@
 import React, { FC, ReactElement, useState,useEffect } from "react";
 import * as PacUserFlavorListService from "../../lookups/services/Flavor";
-import {useField } from 'formik';
 import { ReportInputSelect,ReportInputSelectOption } from "../input-fields/InputSelect";
    
 export interface ReportSelectFlavorProps {
     name: string
-    label: string
-    placeholder?: string
+    label: string 
     autoFocus?:boolean
     disabled?: boolean
   }
 
   export const ReportSelectFlavor: FC<ReportSelectFlavorProps> = ({
     name,
-    label,
-    placeholder,
+    label, 
     autoFocus = false,
     disabled = false,
   }): ReactElement => { 
@@ -44,6 +41,8 @@ export interface ReportSelectFlavorProps {
             label={label} 
             name={name}
             options={flavors}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

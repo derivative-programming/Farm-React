@@ -20,7 +20,7 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
   autoFocus = false,
   disabled = false,
 }): ReactElement => {
-  const [field, meta, helpers] = useField(name);  
+  const [field, , helpers] = useField(name);
 
   const getDisplayDateTime = () => {
     const dt:moment.Moment = moment.utc(
@@ -58,7 +58,9 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
             autoFocus={autoFocus}
           />
       </Form.Group>
+      
       <ReportInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
+      
   </div>
   );
 };

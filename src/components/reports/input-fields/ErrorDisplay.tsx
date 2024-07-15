@@ -20,7 +20,7 @@ export const ReportErrorDisplay: FC<ReportErrorDisplayProps> = ({
       {allErrors && allErrors.length > 0 ? ( 
           allErrors.map((item, index) => {
             return (
-              <div className="error-message" key={item}>{item}</div>  
+              <div className="error-message" key={index}>{item}</div>  
           );
         })
       ) : null}

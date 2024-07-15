@@ -21,8 +21,7 @@ export interface FormInputSelectOption {
 export const FormInputSelect: FC<FormInputSelectProps> = ({
   name,
   label,
-  options,
-  placeholder,
+  options, 
   autoFocus = false,
   disabled = false,
   isVisible = true,
@@ -31,7 +30,7 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
 
   const errorDisplayControlName = name + "ErrorDisplay";
   
-  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  const isInvalid:boolean = !!meta.error && !!meta.touched
       
   return (
     <div className="" hidden={!isVisible}>
@@ -47,12 +46,12 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
               isInvalid={isInvalid}
               size="sm"
           >
-              <option>Please Select One</option>
-              {options.map((item, index) => {
+              <option value="00000000-0000-0000-0000-000000000000">Please Select One</option>
+              {options.map((item) => {
                   return (
                   <option
                       data-test-option-id="select-option"
-                      key={index}
+                      key={item.value}
                       value={item.value}
                   >
                     {item.label}
@@ -60,7 +59,7 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
                   );
               })}
           </Form.Select>
-          <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+          <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
       </Form.Group>  
     </div>
   );

@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from "react";
 import { SortUp,SortDownAlt } from "react-bootstrap-icons";
 
 export interface ReportColumnHeaderProps {
-  name?: string;
   forColumn: string;
   label: string;
   sortedColumnName: string;
@@ -12,7 +11,6 @@ export interface ReportColumnHeaderProps {
 }
 
 export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
-  name = "",
   forColumn,
   label,
   sortedColumnName,
@@ -20,7 +18,6 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   onSort,
   isVisible = true,
 }): ReactElement => {
-  const controlName = name.length > 0 ? name : { forColumn } + "ColumnHeader";
 
   return (
     <th className="cursor-pointer text-nowrap ps-2 pe-2"

@@ -1,7 +1,6 @@
 import React, { FC, ReactElement, useState,useEffect } from "react"; 
 import "../../../App.scss"; 
 import * as PacUserTriStateFilterListService from "../../lookups/services/TriStateFilter";
-import {useField } from 'formik';
 import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
    
 export interface FormSelectTriStateFilterProps {
@@ -48,6 +47,9 @@ export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
             name={name}
             options={triStateFilters}
             isVisible={isVisible}
+            placeholder={placeholder}
+            disabled={disabled}
+            autoFocus={autoFocus}
             />
          
     );

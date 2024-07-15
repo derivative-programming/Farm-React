@@ -1,4 +1,3 @@
-import { useEffect,useState} from "react";  
 import * as PacUserTacListService from "../services/Tac";
 
 export const getTacs= () => {

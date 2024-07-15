@@ -20,7 +20,7 @@ const mockedUsedNavigate = jest.fn();
 const mockUserParams = jest.fn();
 
 jest.mock("react-router-dom", () => ({
-  ...(jest.requireActual("react-router-dom") as any),
+  ...(jest.requireActual("react-router-dom")),
   useNavigate: () => mockedUsedNavigate,
   useParams: () => mockUserParams.mockReturnValue({ id: "00000000-0000-0000-0000-000000000000",}),
 }));

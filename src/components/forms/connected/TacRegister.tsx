@@ -99,7 +99,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       if (!response.success) {
         headerErrors = FormService.getValidationErrors("", response);
         Object.entries(new FormService.SubmitRequestInstance()).forEach(
-          ([key, value]) =>
+          ([key]) =>
             actions.setFieldError(
               key,
               FormService.getValidationErrors(key, response).join(",")

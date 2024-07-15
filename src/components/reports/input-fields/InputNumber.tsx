@@ -20,7 +20,7 @@ export const ReportInputNumber: FC<ReportInputNumberProps> = ({
 }): ReactElement => {
   const [field, meta] = useField(name);  
   
-  const isInvalid:boolean = (meta.error && meta.touched) ? true : false;
+  const isInvalid:boolean = !!meta.error && !!meta.touched
       
   return (
     <div className="">
