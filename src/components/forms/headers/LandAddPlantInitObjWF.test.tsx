@@ -16,7 +16,7 @@ const renderHeader = (props: HeaderLandAddPlantProps) => {
   return render(<HeaderLandAddPlant {...props} />);
 };
 
-describe("HeaderLandAddPlant", () => {
+describe("HeaderLandAddPlantIntObjWF", () => {
   it("should render the component with the correct land name", () => {
     renderHeader({
       name: TEST_ID,

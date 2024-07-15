@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import * as ReportInit  from "./init/TacFarmDashboardInitReport";
     
    
-    export const submitRequest = (data:any,tacCode:string) => {
+    export const submitRequest = (data:QueryRequest,tacCode:string) => {
     return apiCall({
       url: '/tac-farm-dashboard/' + tacCode,
       method: "get",

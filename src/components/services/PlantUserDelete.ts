@@ -5,7 +5,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
    
   
-export const PlantUserDeleteSubmitRequest = (data:SubmitRequest, plantCode:string) => { 
+export const PlantUserDeleteSubmitRequest = (data:PlantUserDeleteRequest, plantCode:string) => { 
     return apiCall({
         url: "/plant-user-delete/" + plantCode,
         method: "post",
@@ -15,7 +15,7 @@ export const PlantUserDeleteSubmitRequest = (data:SubmitRequest, plantCode:strin
 
 
 
-export interface SubmitRequest {
+export interface PlantUserDeleteRequest {
     
 }
 export interface ResponseFull {
@@ -36,7 +36,7 @@ export interface SubmitValidationError {
 }
 
 
-export class SubmitRequestInstance implements SubmitRequest {
+export class SubmitRequestInstance implements PlantUserDeleteRequest {
     
 
     constructor() {

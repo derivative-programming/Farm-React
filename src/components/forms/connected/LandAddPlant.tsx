@@ -44,10 +44,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const [headerErrors, setHeaderErrors] = useState(initHeaderErrors);
   const { logClick } = useAnalyticsDB();
 
-  let lastApiSubmission: any = {
-    request: new FormService.SubmitResultInstance(),
-    response: new FormService.SubmitRequestInstance(),
-  };
+  let lastApiSubmissionRequest = new FormService.SubmitRequestInstance();
+  let lastApiSubmissionResponse = new FormService.SubmitResultInstance(); 
   const isInitializedRef = useRef(false);
 
   const navigate = useNavigate();
@@ -71,17 +69,18 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
     const errors: FormErrors  = {};
-    if (!lastApiSubmission.response.success) {
+    if (!lastApiSubmissionResponse.success) {
       setHeaderErrors(FormService.getValidationErrors(
         "",
-        lastApiSubmission.response
+        lastApiSubmissionResponse
       ));
       Object.entries(values).forEach(([key, value]) => {
         const fieldErrors: string = FormService.getValidationErrors(
           key,
-          lastApiSubmission.response
+          lastApiSubmissionResponse
         ).join(",");
-        if (fieldErrors.length > 0 && value === lastApiSubmission.request[key]) {
+        const requestKey = key as unknown as keyof FormService.SubmitRequest;
+        if (fieldErrors.length > 0 && value === lastApiSubmissionRequest[requestKey]) {
           errors[key] = fieldErrors;
         }
       });
@@ -101,10 +100,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
         contextCode
       );
       const response: FormService.SubmitResult = responseFull.data;
-      lastApiSubmission = {
-        request: { ...values },
-        response: { ...response },
-      };
+      lastApiSubmissionRequest = { ...values };
+      lastApiSubmissionResponse = { ...response };
       if (!response.success) {
         setHeaderErrors(FormService.getValidationErrors("", response));
         Object.entries(new FormService.SubmitRequestInstance()).forEach(

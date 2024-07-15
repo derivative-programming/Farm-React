@@ -94,12 +94,12 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
     const plantCodeListCsv = selectedCodes.join(",");
 
-    const data: any = { plantCodeListCsv };
+    const data: AsyncServices.LandUserPlantMultiSelectToEditableRequest = { plantCodeListCsv };
 
     AsyncServices.LandUserPlantMultiSelectToEditableSubmitRequest(
       data,
       contextCode
-    ).then((response) => onRefreshRequest());
+    ).then(() => onRefreshRequest());
   };
 
   const onMultSelectButtonToNotEditableClick = () => {
@@ -112,14 +112,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       }
     );
 
-    const codeListCsv = selectedCodes.join(",");
+    const plantCodeListCsv = selectedCodes.join(",");
 
-    const data: any = { codeListCsv };
+    const data: AsyncServices.LandUserPlantMultiSelectToNotEditableRequest = { plantCodeListCsv };
 
     AsyncServices.LandUserPlantMultiSelectToNotEditableSubmitRequest(
       data,
       contextCode
-    ).then((response) => onRefreshRequest());
+    ).then(() => onRefreshRequest());
   }; 
 
   return (
@@ -475,8 +475,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() =>
                       {
                         logClick("ReportGridLandPlantList","deleteAsyncButtonLinkPlantCode","");
-                        const data: any = {};
-                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.deleteAsyncButtonLinkPlantCode).then((response) =>
+                        const data: AsyncServices.PlantUserDeleteRequest = {};
+                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.deleteAsyncButtonLinkPlantCode).then(() =>
                         onRefreshRequest()
                       )
                     }}

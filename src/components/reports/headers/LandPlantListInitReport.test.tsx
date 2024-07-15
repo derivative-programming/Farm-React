@@ -16,7 +16,7 @@ const renderHeader = (props: HeaderLandPlantListProps) => {
   return render(<HeaderLandPlantList {...props} />);
 };
 
-describe("HeaderLandAddPlant", () => {
+describe("HeaderLandPlantListInitReport", () => {
   it("should render the component with the correct land name", () => {
     renderHeader({
       name: TEST_ID,

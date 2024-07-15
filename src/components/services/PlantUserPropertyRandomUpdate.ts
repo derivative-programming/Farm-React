@@ -5,7 +5,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
    
   
-  export const PlantUserPropertyRandomUpdateSubmitRequest = (data:SubmitRequest, plantCode:string) => { 
+  export const PlantUserPropertyRandomUpdateSubmitRequest= (data:PlantUserPropertyRandomUpdateRequest, plantCode:string) => { 
     return apiCall({
       url: "/plant-user-property-random-update/" + plantCode,
       method: "POST",
@@ -15,7 +15,7 @@ import { apiCall } from "../../apiConfig/apiCall";
 
 
 
-export interface SubmitRequest {
+export interface PlantUserPropertyRandomUpdateRequest {
     
 }
 export interface ResponseFull {
@@ -36,7 +36,7 @@ export interface SubmitValidationError {
 }
 
 
-export class SubmitRequestInstance implements SubmitRequest {
+export class SubmitRequestInstance implements PlantUserPropertyRandomUpdateRequest {
     
 
     constructor() {

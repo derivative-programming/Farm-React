@@ -3,7 +3,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
    
   
-export const LandUserPlantMultiSelectToNotEditableSubmitRequest = (data:any, landCode:string) => { 
+export const LandUserPlantMultiSelectToNotEditableSubmitRequest = (data:LandUserPlantMultiSelectToNotEditableRequest, landCode:string) => { 
 return apiCall({
     url: "/land-user-plant-multi-select-to-not-editable/" + landCode,
     method: "post",
@@ -11,7 +11,7 @@ return apiCall({
 });
 }; 
 
-export interface SubmitRequest {
+export interface LandUserPlantMultiSelectToNotEditableRequest {
     plantCodeListCsv:string
 }
 export interface ResponseFull {
@@ -32,7 +32,7 @@ export interface SubmitValidationError {
 }
 
 
-export class SubmitRequestInstance implements SubmitRequest {
+export class SubmitRequestInstance implements LandUserPlantMultiSelectToNotEditableRequest {
 
     plantCodeListCsv:string 
 

@@ -9,7 +9,7 @@ import React, {
 import { Button, Card, Form, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom"; 
 
-import { Formik, FormikHelpers } from "formik";
+import { Formik, FormikHelpers, FormikProps } from "formik";
 import * as FormService from "../services/TacRegister";
 import * as FormValidation from "../validation/TacRegister";
 import * as InitFormService from "../services/init/TacRegisterInitObjWF";
@@ -36,10 +36,8 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   ); 
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
-  let lastApiSubmission: any = {
-    request: new FormService.SubmitResultInstance(),
-    response: new FormService.SubmitRequestInstance(),
-  };
+  let lastApiSubmissionRequest = new FormService.SubmitRequestInstance();
+  let lastApiSubmissionResponse = new FormService.SubmitResultInstance(); 
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
 
@@ -65,17 +63,18 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 
   const handleValidate = async (values: FormService.SubmitRequest) => {
     const errors: FormErrors = {};
-    if (!lastApiSubmission.response.success) {
+    if (!lastApiSubmissionResponse.success) {
       headerErrors = FormService.getValidationErrors(
         "",
-        lastApiSubmission.response
+        lastApiSubmissionResponse
       );
       Object.entries(values).forEach(([key, value]) => {
         const fieldErrors: string = FormService.getValidationErrors(
           key,
-          lastApiSubmission.response
+          lastApiSubmissionResponse
         ).join(",");
-        if (fieldErrors.length > 0 && value === lastApiSubmission.request[key]) {
+        const requestKey = key as unknown as keyof FormService.SubmitRequest;
+        if (fieldErrors.length > 0 && value === lastApiSubmissionRequest[requestKey]) {
           errors[key] = fieldErrors;
         }
       });
@@ -92,10 +91,8 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       logClick("FormConnectedTacRegister","submit","");
       const responseFull: FormService.ResponseFull = await FormService.submitForm(values,contextCode);
       const response: FormService.SubmitResult = responseFull.data;
-      lastApiSubmission = {
-        request: { ...values },
-        response: { ...response },
-      };
+      lastApiSubmissionRequest = { ...values };
+      lastApiSubmissionResponse = { ...response };
       if (!response.success) {
         headerErrors = FormService.getValidationErrors("", response);
         Object.entries(new FormService.SubmitRequestInstance()).forEach(
@@ -161,7 +158,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
               await submitButtonClick(values, actions);
             }}
           >
-            {(props) => (
+            {(props: FormikProps<FormService.SubmitRequest>) => (
               <Form
                 className="m-0 w-100"
                 name={name}

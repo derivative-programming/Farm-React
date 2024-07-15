@@ -4,7 +4,7 @@
 import { apiCall } from "../../apiConfig/apiCall";
    
   
-  export const CustomerUserLogOutSubmitRequest = (data:any, customerCode:string) => {
+  export const CustomerUserLogOutSubmitRequest = (data:CustomerUserLogOutRequest, customerCode:string) => {
     return apiCall({
       url: "/plant-user-delete/" + customerCode,
       method: "post",
@@ -14,7 +14,7 @@ import { apiCall } from "../../apiConfig/apiCall";
 
   
 
-export interface SubmitRequest {
+export interface CustomerUserLogOutRequest {
     
 }
 export interface ResponseFull {
@@ -35,7 +35,7 @@ export interface SubmitValidationError {
 }
 
 
-export class SubmitRequestInstance implements SubmitRequest {
+export class SubmitRequestInstance implements CustomerUserLogOutRequest {
     
 
     constructor() {

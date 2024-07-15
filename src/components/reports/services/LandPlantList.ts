@@ -2,7 +2,7 @@ import * as Yup from "yup";
 import * as ReportInit  from "./init/LandPlantListInitReport"; 
   import { apiCall } from "../../../apiConfig/apiCall"; 
    
-export const submitRequest = (data:any, landCode:string) => {
+export const submitRequest = (data:QueryRequest, landCode:string) => {
     return apiCall({
       url:  "/land-plant-list/" + landCode,
       method: "get",
@@ -10,7 +10,7 @@ export const submitRequest = (data:any, landCode:string) => {
     });     
   }; 
   
-export const submitCSVRequest = (data:any, landCode:string) => {
+export const submitCSVRequest = (data:QueryRequest, landCode:string) => {
   console.log('csv request');
     return apiCall({
       url:  "/land-plant-list/" + landCode + "/to-csv",

@@ -189,9 +189,9 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     isVisible={true}
                     onClick={() =>{
                         logClick("ReportDetailThreeColPlantUserDetails","randomPropertyUpdatesLinkPlantCode","");
-                        const data: any = {};
+                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
                         AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.randomPropertyUpdatesLinkPlantCode)
-                            .then((response) => onRefreshRequest())
+                            .then(() => onRefreshRequest())
                     } }
                 />
             </Col>

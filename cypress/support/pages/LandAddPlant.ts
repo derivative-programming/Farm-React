@@ -479,7 +479,7 @@ export class LandAddPlantPage {
     
         this.setFieldRequestSomeEmailAddress(requestSomeEmailAddress);
         
-        this.setFieldRequestSampleImageUploadFile(requestSampleImageUploadFile); 
+        this.setFieldRequestSampleImageUploadFile(); 
     }
 
     setFieldRequestFlavorCode(val:string) { 
@@ -587,8 +587,8 @@ export class LandAddPlantPage {
             .type(val); 
     }
 
-    setFieldRequestSampleImageUploadFile(val:string) { 
-        // cy.get(PageSelectors.requestSampleImageUploadFileField)
+    setFieldRequestSampleImageUploadFile() { 
+        cy.get(PageSelectors.requestSampleImageUploadFileField)
         //     .clear()
         //     .type(val); 
     }

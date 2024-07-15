@@ -1,9 +1,9 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, ReactNode } from "react";
 import { Button } from "react-bootstrap"; 
 
 export interface ReportInputButtonProps {
   name: string;
-  buttonText: string;
+  buttonText: ReactNode;
   onClick(): void;
   isButtonCallToAction?: boolean;
   isVisible?: boolean;

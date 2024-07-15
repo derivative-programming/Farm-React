@@ -2,7 +2,7 @@ import * as Yup from "yup";
 import * as ReportInit  from "./init/PlantUserDetailsInitReport"; 
   import { apiCall } from "../../../apiConfig/apiCall";
  
-export const submitRequest = (data:any,plantCode:string) => {
+export const submitRequest = (data:QueryRequest,plantCode:string) => {
     return apiCall({
       url: "/plant-user-details/" + plantCode,
       method: "get",

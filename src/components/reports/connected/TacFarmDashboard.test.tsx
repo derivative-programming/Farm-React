@@ -5,9 +5,6 @@ import {
   render,
   
   screen,
-  act,
-  fireEvent,
-  waitFor,
 } from "@testing-library/react";
 import ReportConnectedTacFarmDashboard from "./TacFarmDashboard";
 import * as ReportService from "../services/TacFarmDashboard";

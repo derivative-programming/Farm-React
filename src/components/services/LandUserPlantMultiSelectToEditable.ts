@@ -3,7 +3,7 @@ import { apiCall } from "../../apiConfig/apiCall";
   
    
   
-  export const LandUserPlantMultiSelectToEditableSubmitRequest = (data:any, landCode:string) => { 
+  export const LandUserPlantMultiSelectToEditableSubmitRequest = (data:LandUserPlantMultiSelectToEditableRequest, landCode:string) => { 
     return apiCall({
       url: "/land-user-plant-multi-select-to-editable/" + landCode,
       method: "post",
@@ -11,7 +11,7 @@ import { apiCall } from "../../apiConfig/apiCall";
     });
   }; 
 
-export interface SubmitRequest {
+export interface LandUserPlantMultiSelectToEditableRequest {
     plantCodeListCsv:string
 }
 export interface ResponseFull {
@@ -32,7 +32,7 @@ export interface SubmitValidationError {
 }
 
 
-export class SubmitRequestInstance implements SubmitRequest {
+export class SubmitRequestInstance implements LandUserPlantMultiSelectToEditableRequest {
 
     plantCodeListCsv:string 
 
