@@ -7,9 +7,9 @@ import loadable from "@loadable/component";
 //GENLearn[modelType=object,name=Land]Start 
 //GENLOOPReportStart
 //GENTrainingBlock[d]Start
-//GENLearn[modelType=report,name=LandPlantList]Start 
+//GENLearn[modelType=report,name=LandPlantList,calculatedIsPage=true]Start 
 const ReportConnectedLandPlantList = loadable(() => import('../components/reports/connected/LandPlantList'));
-//GENLearn[modelType=report,name=LandPlantList]End
+//GENLearn[modelType=report,name=LandPlantList,calculatedIsPage=true]End
 //GENTrainingBlock[d]End
 //GENLOOPReportEnd
 //GENLearn[modelType=object,name=Land]End
@@ -47,9 +47,9 @@ const AppRoute = () => {
       {/*//GENLearn[modelType=object,name=Land]Start*/}
       {/*//GENLOOPReportStart*/}
       {/*//GENTrainingBlock[d2]Start*/}
-      {/*//GENLearn[modelType=report,name=LandPlantList]Start*/}
+      {/*//GENLearn[modelType=report,name=LandPlantList,calculatedIsPage=true]Start*/}
       <Route path={"/land-plant-list/:id"} element={<ReportConnectedLandPlantList />} />
-      {/*//GENLearn[modelType=report,name=LandPlantList]End*/}
+      {/*//GENLearn[modelType=report,name=LandPlantList,calculatedIsPage=true]End*/}
       {/*//GENTrainingBlock[d2]End*/}
       {/*//GENLOOPReportEnd*/}
       {/*//GENLearn[modelType=object,name=Land]End*/}

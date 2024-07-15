@@ -3,9 +3,9 @@
 //GENLearn[modelType=object,name=Land]Start 
 //GENLOOPReportStart
 //GENTrainingBlock[d]Start
-//GENLearn[modelType=report,name=LandPlantList]Start 
+//GENLearn[modelType=report,name=LandPlantList,calculatedIsPage=true]Start 
 export { ReportConnectedLandPlantList} from "./LandPlantList"
-//GENLearn[modelType=report,name=LandPlantList]End
+//GENLearn[modelType=report,name=LandPlantList,calculatedIsPage=true]End
 //GENTrainingBlock[d]End
 //GENLOOPReportEnd
 //GENLearn[modelType=object,name=Land]End

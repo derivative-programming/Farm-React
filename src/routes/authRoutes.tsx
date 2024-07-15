@@ -8,9 +8,9 @@ import loadable from "@loadable/component";
 //GENLearn[modelType=object,name=Tac]Start 
 //GENLOOPObjectWorkflowStart
 //GENTrainingBlock[b]Start
-//GENLearn[modelType=objectWorkflow,name=TacLogin,isAuthorizationRequired=false]Start 
+//GENLearn[modelType=objectWorkflow,name=TacLogin,isAuthorizationRequired=false,calculatedIsPage=true]Start 
 const FormConnectedTacLogin = loadable(() => import('../components/forms/connected/TacLogin'));
-//GENLearn[modelType=objectWorkflow,name=TacLogin,isAuthorizationRequired=false]End
+//GENLearn[modelType=objectWorkflow,name=TacLogin,isAuthorizationRequired=false,calculatedIsPage=true]End
 //GENTrainingBlock[b]End
 //GENLOOPObjectWorkflowEnd
 //GENLearn[modelType=object,name=Tac]End 

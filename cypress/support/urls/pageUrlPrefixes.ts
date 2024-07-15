@@ -4,9 +4,9 @@ export const pageUrlPrefixes = {
       /*//GENLearn[modelType=object,name=Land]Start*/
       /*//GENLOOPReportStart*/
       /*//GENTrainingBlock[d2]Start*/
-      /*//GENLearn[modelType=report,name=LandPlantList]Start*/
+      /*//GENLearn[modelType=report,name=LandPlantList,calculatedIsPage=true]Start*/
       landPlantList: "/land-plant-list",
-      /*//GENLearn[modelType=report,name=LandPlantList]End*/
+      /*//GENLearn[modelType=report,name=LandPlantList,calculatedIsPage=true]End*/
       /*//GENTrainingBlock[d2]End*/
       /*//GENLOOPReportEnd*/
       /*//GENLearn[modelType=object,name=Land]End*/
