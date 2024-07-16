@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
 import { Card } from "react-bootstrap";
 import "../../../App.scss";

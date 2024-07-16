@@ -1,6 +1,7 @@
 import { HttpTransportType, HubConnection, HubConnectionBuilder, HubConnectionState } from "@microsoft/signalr";
 
-let connection: any = null;
+let connection: HubConnection | null = null;
+
 export const startConnection = () => { 
     const connectionId = localStorage.getItem("customerCode");
     if (connectionId) {
@@ -14,10 +15,12 @@ export const startConnection = () => {
  
         connection.start()
         .then( () => { 
-            connection.invoke('SetConnectionId', connectionId); 
+            if (connection) {
+                connection.invoke('SetConnectionId', connectionId); 
+            }
         }); 
  
-        connection.on('ReceiveMessage', (user: any, message: any) => {
+        connection.on('ReceiveMessage', (user: string, message: string) => {
             console.log(message);
         });
 
@@ -25,10 +28,11 @@ export const startConnection = () => {
     }
 } 
 
-export const stopConnection = () => { 
+export const stopConnection = (): Promise<void> => { 
     if (connection) {
         return connection.stop();
     }
+    return Promise.resolve();
 }
 
 export const reconnectOnRefresh = () => {
@@ -37,7 +41,7 @@ export const reconnectOnRefresh = () => {
             .then(() => {
                 startConnection();
             })
-            .catch((error: any) => console.error(error));
+            .catch((error: Error) => console.error(error));
     });
 }
 
@@ -49,9 +53,7 @@ export const reconnectWhenOnline = () => {
 
 export const CollectDataFromClient = async(data:string) => {  
     if (connection && connection.state == HubConnectionState.Connected) { 
-        connection.invoke('CollectDataFromClient', data);
-
-        return;
+        await connection.invoke('CollectDataFromClient', data); 
     }
 }
  
