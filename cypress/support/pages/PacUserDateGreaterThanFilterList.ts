@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-else-if */
 
 import { PacUserDateGreaterThanFilterListPageSelectors  as PageSelectors } from '../selectors/PacUserDateGreaterThanFilterList';
 import { PacUserDateGreaterThanFilterListPageSettings  as PageSettings } from './settings/PacUserDateGreaterThanFilterList';

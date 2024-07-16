@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-dupe-else-if */
 
 import { TacLoginPageSelectors as PageSelectors } from '../selectors/TacLogin';
 import { TacLoginPageSettings as PageSettings } from './settings/TacLogin';

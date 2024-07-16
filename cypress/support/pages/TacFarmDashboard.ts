@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-else-if */
 
 import { TacFarmDashboardPageSelectors  as PageSelectors } from '../selectors/TacFarmDashboard';
 import { TacFarmDashboardPageSettings  as PageSettings } from './settings/TacFarmDashboard';

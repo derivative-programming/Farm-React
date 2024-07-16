@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-else-if */
 
 import { PacUserRoleListPageSelectors  as PageSelectors } from '../selectors/PacUserRoleList';
 import { PacUserRoleListPageSettings  as PageSettings } from './settings/PacUserRoleList';

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as Yup from "yup";
 import * as ReportInit  from "./init/PacUserLandListInitReport";
   import { apiCall } from "../../../apiConfig/apiCall";

@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-else-if */
 
 import { PacUserTacListPageSelectors  as PageSelectors } from '../selectors/PacUserTacList';
 import { PacUserTacListPageSettings  as PageSettings } from './settings/PacUserTacList';

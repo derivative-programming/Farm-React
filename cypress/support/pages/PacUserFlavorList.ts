@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-else-if */
 
 import { PacUserFlavorListPageSelectors  as PageSelectors } from '../selectors/PacUserFlavorList';
 import { PacUserFlavorListPageSettings  as PageSettings } from './settings/PacUserFlavorList';

@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-else-if */
 
 import { PacUserTriStateFilterListPageSelectors  as PageSelectors } from '../selectors/PacUserTriStateFilterList';
 import { PacUserTriStateFilterListPageSettings  as PageSettings } from './settings/PacUserTriStateFilterList';

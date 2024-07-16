@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement, useState } from "react";
 import { Button, Form, Table, Spinner } from "react-bootstrap";
 import "../../../../App.scss";

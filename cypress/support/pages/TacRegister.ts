@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-dupe-else-if */
 
 import { TacRegisterPageSelectors as PageSelectors } from '../selectors/TacRegister';
 import { TacRegisterPageSettings as PageSettings } from './settings/TacRegister';

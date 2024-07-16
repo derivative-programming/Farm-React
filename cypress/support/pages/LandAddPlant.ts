@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-dupe-else-if */
 
 import { LandAddPlantPageSelectors as PageSelectors } from '../selectors/LandAddPlant';
 import { LandAddPlantPageSettings as PageSettings } from './settings/LandAddPlant';

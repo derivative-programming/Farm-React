@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-else-if */
 
 import { PlantUserDetailsPageSelectors  as PageSelectors } from '../selectors/PlantUserDetails';
 import { PlantUserDetailsPageSettings  as PageSettings } from './settings/PlantUserDetails';

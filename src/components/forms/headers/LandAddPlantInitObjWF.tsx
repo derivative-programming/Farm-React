@@ -1,10 +1,7 @@
 import React, {
   FC,
   ReactElement,
-  // useContext,
-  // useState,
 } from "react";
-// import { Table } from "react-bootstrap";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 
 export interface HeaderLandAddPlantProps {

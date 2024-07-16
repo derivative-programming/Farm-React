@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement } from "react"; 
 import * as ReportService from "../../services/TacFarmDashboard";   
 import { Row } from "react-bootstrap";

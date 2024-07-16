@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-else-if */
 
 import { LandPlantListPageSelectors  as PageSelectors } from '../selectors/LandPlantList';
 import { LandPlantListPageSettings  as PageSettings } from './settings/LandPlantList';
