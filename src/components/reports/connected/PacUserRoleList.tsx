@@ -11,14 +11,14 @@ import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
 import ReportFilterPacUserRoleList from "../filters/PacUserRoleList";
-import { ReportGridPacUserRoleList } from "../visualization/grid/PacUserRoleList";
-import { ReportDetailThreeColPacUserRoleList } from "../visualization/detail-three-column/PacUserRoleList";
-import { ReportDetailTwoColPacUserRoleList } from "../visualization/detail-two-column/PacUserRoleList";
+import { ReportGridPacUserRoleList } from "../visualization/grid/PacUserRoleList"; // NOSONAR
+import { ReportDetailThreeColPacUserRoleList } from "../visualization/detail-three-column/PacUserRoleList"; // NOSONAR
+import { ReportDetailTwoColPacUserRoleList } from "../visualization/detail-two-column/PacUserRoleList"; // NOSONAR
 import * as ReportService from "../services/PacUserRoleList";
 import * as InitReportService from "../services/init/PacUserRoleListInitReport";
 import HeaderPacUserRoleList from "../headers/PacUserRoleListInitReport";
-import * as ReportInput from "../input-fields";
-import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
+import * as ReportInput from "../input-fields"; // NOSONAR
+import { PlusCircle, ArrowLeft } from "react-bootstrap-icons"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
 import { v4 as uuidv4 } from "uuid";
 

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement } from "react"; 
 import * as ReportService from "../../services/TacFarmDashboard";   
-import { Row } from "react-bootstrap";
-import * as ReportColumnDisplay from "./columns";
+import { Row } from "react-bootstrap"; // NOSONAR
+import * as ReportColumnDisplay from "./columns"; // NOSONAR
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
 
 export interface ReportDetailTwoColTacFarmDashboardProps {

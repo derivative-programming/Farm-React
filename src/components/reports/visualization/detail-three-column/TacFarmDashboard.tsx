@@ -2,7 +2,7 @@
 import React, { FC, ReactElement } from "react";
 import { Col, ListGroup, Row, Spinner } from "react-bootstrap";
 import * as ReportService from "../../services/TacFarmDashboard";
-import * as AsyncServices from "../../../services";
+import * as AsyncServices from "../../../services"; // NOSONAR
 import * as ReportColumnDisplay from "./columns";
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";
 

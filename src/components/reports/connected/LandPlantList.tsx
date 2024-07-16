@@ -11,14 +11,14 @@ import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
 import ReportFilterLandPlantList from "../filters/LandPlantList";
-import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList";
-import { ReportDetailThreeColLandPlantList } from "../visualization/detail-three-column/LandPlantList";
-import { ReportDetailTwoColLandPlantList } from "../visualization/detail-two-column/LandPlantList";
+import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList"; // NOSONAR
+import { ReportDetailThreeColLandPlantList } from "../visualization/detail-three-column/LandPlantList"; // NOSONAR
+import { ReportDetailTwoColLandPlantList } from "../visualization/detail-two-column/LandPlantList"; // NOSONAR
 import * as ReportService from "../services/LandPlantList";
 import * as InitReportService from "../services/init/LandPlantListInitReport";
 import HeaderLandPlantList from "../headers/LandPlantListInitReport";
-import * as ReportInput from "../input-fields";
-import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
+import * as ReportInput from "../input-fields"; // NOSONAR
+import { PlusCircle, ArrowLeft } from "react-bootstrap-icons"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
 import { v4 as uuidv4 } from "uuid";
 

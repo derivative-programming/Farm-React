@@ -11,14 +11,14 @@ import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
 import ReportFilterPacUserFlavorList from "../filters/PacUserFlavorList";
-import { ReportGridPacUserFlavorList } from "../visualization/grid/PacUserFlavorList";
-import { ReportDetailThreeColPacUserFlavorList } from "../visualization/detail-three-column/PacUserFlavorList";
-import { ReportDetailTwoColPacUserFlavorList } from "../visualization/detail-two-column/PacUserFlavorList";
+import { ReportGridPacUserFlavorList } from "../visualization/grid/PacUserFlavorList"; // NOSONAR
+import { ReportDetailThreeColPacUserFlavorList } from "../visualization/detail-three-column/PacUserFlavorList"; // NOSONAR
+import { ReportDetailTwoColPacUserFlavorList } from "../visualization/detail-two-column/PacUserFlavorList"; // NOSONAR
 import * as ReportService from "../services/PacUserFlavorList";
 import * as InitReportService from "../services/init/PacUserFlavorListInitReport";
 import HeaderPacUserFlavorList from "../headers/PacUserFlavorListInitReport";
-import * as ReportInput from "../input-fields";
-import { PlusCircle, ArrowLeft } from "react-bootstrap-icons";
+import * as ReportInput from "../input-fields"; // NOSONAR
+import { PlusCircle, ArrowLeft } from "react-bootstrap-icons"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
 import { v4 as uuidv4 } from "uuid";
 

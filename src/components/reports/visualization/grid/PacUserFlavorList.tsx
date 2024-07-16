@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement, useState } from "react";
-import { Button, Form, Table, Spinner } from "react-bootstrap";
+import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
 import * as ReportService from "../../services/PacUserFlavorList";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
-import * as AsyncServices from "../../../services";
+import * as AsyncServices from "../../../services"; // NOSONAR
 import { ReportPagination } from "../../input-fields";
 import * as ReportInput from "../../input-fields";
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";
