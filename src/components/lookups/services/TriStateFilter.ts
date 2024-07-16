@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
   import { apiCall } from "../../../apiConfig/apiCall";
-    
+
   export const submitRequest = ():Promise<ResponseFull> => {
     return apiCall({
       url: '/pac-user-tri-state-filter-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=triStateFilterDisplayOrder&orderByDescending=false',
@@ -9,27 +9,25 @@
     });
   };
 
-
 export interface QueryResultItem {
- 
+
     triStateFilterCode: string;
- 
+
+    triStateFilterStateIntValue: number;
+
     triStateFilterDescription: string;
- 
+
     triStateFilterDisplayOrder: number;
- 
+
     triStateFilterIsActive: boolean;
- 
+
     triStateFilterLookupEnumName: string;
- 
+
     triStateFilterName: string;
- 
-    triStateFilterStateIntValue: number;  
 }
 
-
 export interface QueryRequest {
-    
+
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
@@ -54,18 +52,13 @@ export interface QueryResult {
     appVersion: string;
     request: string;
 }
- 
-
-
-
-
 
 export interface InitRequest {
-    
+
 }
 
 export interface InitResult {
-    
+
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
@@ -76,72 +69,67 @@ export interface InitValidationError {
     message: string;
 
 }
- 
 
 export class InitResultInstance implements InitResult {
-    
+
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
 
     constructor() {
-        
+
         this.success = false;
         this.message = '';
         this.validationErrors =  [];
     }
 }
 
-
-
 export class InitValidationErrorInstance implements InitValidationError {
     property: string;
     message: string;
 
-    constructor() { 
+    constructor() {
         this.property = '';
-        this.message = ''; 
+        this.message = '';
     }
 }
- 
 
 export class QueryResultItemInstance implements QueryResultItem {
- 
+
     triStateFilterCode: string;
- 
-    triStateFilterDescription: string;
- 
-    triStateFilterDisplayOrder: number;
- 
-    triStateFilterIsActive: boolean;
- 
-    triStateFilterLookupEnumName: string;
- 
-    triStateFilterName: string;
- 
+
     triStateFilterStateIntValue: number;
 
+    triStateFilterDescription: string;
+
+    triStateFilterDisplayOrder: number;
+
+    triStateFilterIsActive: boolean;
+
+    triStateFilterLookupEnumName: string;
+
+    triStateFilterName: string;
+
     constructor() {
- 
+
         this.triStateFilterCode = '00000000-0000-0000-0000-000000000000';
- 
+
+        this.triStateFilterStateIntValue = 0;
+
         this.triStateFilterDescription = '';
- 
+
         this.triStateFilterDisplayOrder = 0;
- 
+
         this.triStateFilterIsActive = false;
- 
+
         this.triStateFilterLookupEnumName = '';
- 
+
         this.triStateFilterName = '';
- 
-        this.triStateFilterStateIntValue = 0;  
     }
 }
 
-
 export class QueryRequestInstance implements QueryRequest {
-    
+
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
@@ -149,7 +137,7 @@ export class QueryRequestInstance implements QueryRequest {
     ForceErrorMessage: string;
 
     constructor() {
-        
+
         this.pageNumber = 1;
         this.ItemCountPerPage = 10;
         this.OrderByColumnName = '';
@@ -157,7 +145,6 @@ export class QueryRequestInstance implements QueryRequest {
         this.ForceErrorMessage = '';
     }
 }
-
 
 export class QueryResultInstance implements QueryResult {
     pageNumber: number;
@@ -212,7 +199,8 @@ export class QueryResultTestInstance implements QueryResult {
         this.message = '';
         this.appVersion = '';
         this.request = '';
-        
+
         this.items.push(new QueryResultItemInstance())
     }
 }
+

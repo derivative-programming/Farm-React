@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
   import { apiCall } from "../../../apiConfig/apiCall";
-    
+
   export const submitRequest = ():Promise<ResponseFull> => {
     return apiCall({
       url: '/pac-user-flavor-list/00000000-0000-0000-0000-000000000000?pageNumber=1&itemCountPerPage=100&orderByColumnName=flavorDisplayOrder&orderByDescending=false',
@@ -10,25 +10,24 @@
   };
 
 export interface QueryResultItem {
-  
+
     flavorCode: string;
- 
+
+    flavor: number;
+
     flavorDescription: string;
- 
+
     flavorDisplayOrder: number;
- 
+
     flavorIsActive: boolean;
- 
+
     flavorLookupEnumName: string;
- 
+
     flavorName: string;
- 
-    pacName: string;  
 }
 
-
 export interface QueryRequest {
-    
+
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
@@ -36,10 +35,10 @@ export interface QueryRequest {
     ForceErrorMessage: string;
 }
 
-
 export interface ResponseFull {
     data: QueryResult;
 }
+
 export interface QueryResult {
     pageNumber: number;
     items: QueryResultItem[];
@@ -53,18 +52,13 @@ export interface QueryResult {
     appVersion: string;
     request: string;
 }
- 
-
-
-
-
 
 export interface InitRequest {
-    
+
 }
 
 export interface InitResult {
-    
+
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
@@ -75,76 +69,67 @@ export interface InitValidationError {
     message: string;
 
 }
- 
-
 
 export class InitResultInstance implements InitResult {
-    
+
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
 
     constructor() {
-        
+
         this.success = false;
         this.message = '';
         this.validationErrors =  [];
     }
 }
 
-
-
 export class InitValidationErrorInstance implements InitValidationError {
     property: string;
     message: string;
 
-    constructor() { 
+    constructor() {
         this.property = '';
-        this.message = ''; 
+        this.message = '';
     }
 }
-
-
- 
- 
 
 export class QueryResultItemInstance implements QueryResultItem {
- 
+
     flavorCode: string;
- 
+
+    flavor: number;
+
     flavorDescription: string;
- 
+
     flavorDisplayOrder: number;
- 
+
     flavorIsActive: boolean;
- 
+
     flavorLookupEnumName: string;
- 
+
     flavorName: string;
- 
-    pacName: string;
 
     constructor() {
- 
+
         this.flavorCode = '00000000-0000-0000-0000-000000000000';
- 
+
+        this.flavor = 0;
+
         this.flavorDescription = '';
- 
+
         this.flavorDisplayOrder = 0;
- 
+
         this.flavorIsActive = false;
- 
+
         this.flavorLookupEnumName = '';
- 
+
         this.flavorName = '';
- 
-        this.pacName = '';  
     }
 }
 
-
 export class QueryRequestInstance implements QueryRequest {
-    
+
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
@@ -152,7 +137,7 @@ export class QueryRequestInstance implements QueryRequest {
     ForceErrorMessage: string;
 
     constructor() {
-        
+
         this.pageNumber = 1;
         this.ItemCountPerPage = 10;
         this.OrderByColumnName = '';
@@ -160,7 +145,6 @@ export class QueryRequestInstance implements QueryRequest {
         this.ForceErrorMessage = '';
     }
 }
-
 
 export class QueryResultInstance implements QueryResult {
     pageNumber: number;
@@ -189,7 +173,6 @@ export class QueryResultInstance implements QueryResult {
         this.request = '';
     }
 }
-
 
 export class QueryResultTestInstance implements QueryResult {
     pageNumber: number;
@@ -220,3 +203,4 @@ export class QueryResultTestInstance implements QueryResult {
         this.items.push(new QueryResultItemInstance())
     }
 }
+

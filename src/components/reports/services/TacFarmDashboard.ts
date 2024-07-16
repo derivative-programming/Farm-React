@@ -1,52 +1,56 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
-import { apiCall } from "../../../apiConfig/apiCall";
 import * as Yup from "yup";
 import * as ReportInit  from "./init/TacFarmDashboardInitReport";
-    
-   
-    export const submitRequest = (data:QueryRequest,tacCode:string) => {
+  import { apiCall } from "../../../apiConfig/apiCall";
+
+export const submitRequest = (data:QueryRequest, tacCode:string) => {
     return apiCall({
-      url: '/tac-farm-dashboard/' + tacCode,
+      url:  "/tac-farm-dashboard/" + tacCode,
       method: "get",
       params: data
     });
   };
-  
-  
+
+export const submitCSVRequest = (data:QueryRequest, tacCode:string) => {
+  console.log('csv request');
+    return apiCall({
+      url:  "/tac-farm-dashboard/" + tacCode + "/to-csv",
+      method: "get",
+      params: data
+    });
+  };
+
   export const initPage = (tacCode:string) => {
     const data = {};
     return apiCall({
-      url: '/tac-farm-dashboard/' + tacCode + '/init',
+      url: "/tac-farm-dashboard/" + tacCode + '/init',
       method: "get",
       data
     });
-  }; 
+  };
 
-  
 export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
-    const result:QueryRequest = new QueryRequestInstance();
-     
+  const result:QueryRequest = new QueryRequestInstance();
+
     return result;
 }
 
 export const buildValidationSchema = () => {
-    
-    const validationSchema  = Yup.object().shape({ 
+
+    const validationSchema  = Yup.object().shape({
+
       });
-      
+
     return validationSchema;
 }
 
 export interface QueryResultItem {
- 
-    fieldOnePlantListLinkLandCode: string;  
-    conditionalBtnExampleLinkLandCode: string;  
-    isConditionalBtnAvailable: boolean;  
+    fieldOnePlantListLinkLandCode: string;
+    conditionalBtnExampleLinkLandCode: string;
+    isConditionalBtnAvailable: boolean;
 }
 
-
 export interface QueryRequest {
-    
+
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
@@ -54,10 +58,9 @@ export interface QueryRequest {
     ForceErrorMessage: string;
 }
 
-
 export interface ResponseFull {
-    data: QueryResult;
-  }
+  data: QueryResult;
+}
 export interface QueryResult {
     pageNumber: number;
     items: QueryResultItem[];
@@ -71,79 +74,20 @@ export interface QueryResult {
     appVersion: string;
     request: string;
 }
- 
 
-
-
-
-
-export interface InitRequest {
-    
-}
-
-export interface InitResult {
- 
-    customerCode: string;
-    success: boolean;
-    message: string;
-    validationErrors: InitValidationError[];
-}
-
-export interface InitValidationError {
-    property: string;
-    message: string;
-
-}
- 
-
-export class InitResultInstance implements InitResult {
- 
-    customerCode: string;
-    success: boolean;
-    message: string;
-    validationErrors: InitValidationError[];
-
-    constructor() {
- 
-        this.customerCode = '00000000-0000-0000-0000-000000000000';
-        this.success = false;
-        this.message = '';
-        this.validationErrors =  [];
-    }
-}
-
-
-
-export class InitValidationErrorInstance implements InitValidationError {
-    property: string;
-    message: string;
-
-    constructor() { 
-        this.property = '';
-        this.message = ''; 
-    }
-}
-
-
- 
- 
 export class QueryResultItemInstance implements QueryResultItem {
- 
     fieldOnePlantListLinkLandCode: string;
     conditionalBtnExampleLinkLandCode: string;
     isConditionalBtnAvailable: boolean;
-
     constructor() {
- 
-        this.fieldOnePlantListLinkLandCode = '00000000-0000-0000-0000-000000000000'; 
-        this.conditionalBtnExampleLinkLandCode = '00000000-0000-0000-0000-000000000000';  
-        this.isConditionalBtnAvailable = false;   
+        this.fieldOnePlantListLinkLandCode = '00000000-0000-0000-0000-000000000000';
+        this.conditionalBtnExampleLinkLandCode = '00000000-0000-0000-0000-000000000000';
+        this.isConditionalBtnAvailable = false;
     }
 }
 
-
 export class QueryRequestInstance implements QueryRequest {
-    
+
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
@@ -151,7 +95,7 @@ export class QueryRequestInstance implements QueryRequest {
     ForceErrorMessage: string;
 
     constructor() {
-        
+
         this.pageNumber = 1;
         this.ItemCountPerPage = 10;
         this.OrderByColumnName = '';
@@ -159,7 +103,6 @@ export class QueryRequestInstance implements QueryRequest {
         this.ForceErrorMessage = '';
     }
 }
-
 
 export class QueryResultInstance implements QueryResult {
     pageNumber: number;
@@ -188,7 +131,6 @@ export class QueryResultInstance implements QueryResult {
         this.request = '';
     }
 }
-
 
 export class QueryResultTestInstance implements QueryResult {
     pageNumber: number;
@@ -219,3 +161,4 @@ export class QueryResultTestInstance implements QueryResult {
         this.items.push(new QueryResultItemInstance())
     }
 }
+

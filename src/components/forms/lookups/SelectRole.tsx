@@ -1,11 +1,11 @@
-import React, { FC, ReactElement, useState,useEffect } from "react"; 
-import "../../../App.scss"; 
+import React, { FC, ReactElement, useState,useEffect } from "react";
+import "../../../App.scss";
 import * as PacUserRoleListService from "../../lookups/services/Role";
 import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
-   
+
 export interface FormSelectRoleProps {
     name: string
-    label: string 
+    label: string
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
@@ -13,42 +13,43 @@ export interface FormSelectRoleProps {
 
 export const FormSelectRole: FC<FormSelectRoleProps> = ({
     name,
-    label, 
+    label,
     autoFocus = false,
     disabled = false,
     isVisible = true,
-  }): ReactElement => { 
-    
+  }): ReactElement => {
+
     const [roles, setRoles] = useState<FormInputSelectOption[]>([])
 
-    const initList = (response:PacUserRoleListService.ResponseFull) => {  
+    const initList = (response:PacUserRoleListService.ResponseFull) => {
 
-        if(response && 
+        if(response &&
             response.data &&
             response.data.items )
         {
-            const data:PacUserRoleListService.QueryResult = response.data; 
+            const data:PacUserRoleListService.QueryResult = response.data;
             const roles = data.items.map(({ roleCode, roleName }) => ({ label: roleName, value:roleCode }));
 
-            setRoles(roles); 
-        } 
-    } 
+            setRoles(roles);
+        }
+    }
 
     useEffect(() => {
         PacUserRoleListService.submitRequest()
         .then((response) => initList(response));
-    },[]); 
+    },[]);
 
-    return ( 
-        <FormInputSelect 
-            label={label} 
+    return (
+        <FormInputSelect
+            label={label}
             name={name}
             options={roles}
-            isVisible={isVisible}
             disabled={disabled}
+            isVisible={isVisible}
             autoFocus={autoFocus}
             />
-         
+
     );
 };
 export default FormSelectRole;
+

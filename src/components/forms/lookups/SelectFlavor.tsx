@@ -1,11 +1,11 @@
-import React, { FC, ReactElement, useState,useEffect } from "react"; 
-import "../../../App.scss"; 
+import React, { FC, ReactElement, useState,useEffect } from "react";
+import "../../../App.scss";
 import * as PacUserFlavorListService from "../../lookups/services/Flavor";
 import { FormInputSelect,FormInputSelectOption } from "../input-fields/InputSelect";
-   
+
 export interface FormSelectFlavorProps {
     name: string
-    label: string 
+    label: string
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
@@ -13,42 +13,43 @@ export interface FormSelectFlavorProps {
 
 export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
     name,
-    label, 
+    label,
     autoFocus = false,
     disabled = false,
     isVisible = true,
-  }): ReactElement => { 
-    
+  }): ReactElement => {
+
     const [flavors, setFlavors] = useState<FormInputSelectOption[]>([])
 
-    const initList = (response:PacUserFlavorListService.ResponseFull) => {  
+    const initList = (response:PacUserFlavorListService.ResponseFull) => {
 
-        if(response && 
+        if(response &&
             response.data &&
             response.data.items )
         {
-            const data:PacUserFlavorListService.QueryResult = response.data; 
+            const data:PacUserFlavorListService.QueryResult = response.data;
             const flavors = data.items.map(({ flavorCode, flavorName }) => ({ label: flavorName, value:flavorCode }));
 
-            setFlavors(flavors); 
-        } 
-    } 
+            setFlavors(flavors);
+        }
+    }
 
     useEffect(() => {
         PacUserFlavorListService.submitRequest()
         .then((response) => initList(response));
-    },[]); 
+    },[]);
 
-    return ( 
-        <FormInputSelect 
-            label={label} 
+    return (
+        <FormInputSelect
+            label={label}
             name={name}
             options={flavors}
-            isVisible={isVisible}
             disabled={disabled}
+            isVisible={isVisible}
             autoFocus={autoFocus}
             />
-         
+
     );
 };
 export default FormSelectFlavor;
+

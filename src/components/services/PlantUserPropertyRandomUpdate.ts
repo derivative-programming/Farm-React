@@ -1,29 +1,24 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { apiCall } from "../../apiConfig/apiCall";
-   
-  
-   
-  
-  export const PlantUserPropertyRandomUpdateSubmitRequest= (data:PlantUserPropertyRandomUpdateRequest, plantCode:string) => { 
+
+  export const PlantUserPropertyRandomUpdateSubmitRequest = (data:PlantUserPropertyRandomUpdateRequest, plantCode:string) => {
     return apiCall({
       url: "/plant-user-property-random-update/" + plantCode,
-      method: "POST",
+      method: "post",
       data
     });
   };
 
-
-
 export interface PlantUserPropertyRandomUpdateRequest {
-    
+
 }
 export interface ResponseFull {
     data: SubmitResult;
 }
 
 export interface SubmitResult {
-    
+
     success: boolean;
     message: string;
     validationErrors: SubmitValidationError[];
@@ -35,31 +30,26 @@ export interface SubmitValidationError {
 
 }
 
-
 export class SubmitRequestInstance implements PlantUserPropertyRandomUpdateRequest {
-    
 
     constructor() {
-        
+
     }
 }
 
-
 export class SubmitResultInstance implements SubmitResult {
-    
+
     success: boolean;
     message: string;
     validationErrors: SubmitValidationError[];
 
     constructor() {
-        
+
         this.success = false;
         this.message = '';
         this.validationErrors = [];
     }
 }
-
-
 
 export class SubmitValidationErrorInstance implements SubmitValidationError {
     property: string;
@@ -71,5 +61,3 @@ export class SubmitValidationErrorInstance implements SubmitValidationError {
     }
 }
 
-
- 

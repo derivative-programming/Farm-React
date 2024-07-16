@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
-
-
 export interface InitRequest {
-    
+
 }
 
 export interface ResponseFull {
@@ -11,9 +9,7 @@ export interface ResponseFull {
 }
 
 export interface InitResult {
- 
     email: string;
- 
     password: string;
     success: boolean;
     message: string;
@@ -25,22 +21,16 @@ export interface InitValidationError {
     message: string;
 
 }
- 
-
 
 export class InitResultInstance implements InitResult {
- 
     email: string;
- 
     password: string;
     success: boolean;
     message: string;
     validationErrors: InitValidationError[];
 
     constructor() {
- 
         this.email = '';
- 
         this.password = '';
         this.success = false;
         this.message = '';
@@ -48,17 +38,13 @@ export class InitResultInstance implements InitResult {
     }
 }
 
-
-
 export class InitValidationErrorInstance implements InitValidationError {
     property: string;
     message: string;
 
-    constructor() { 
+    constructor() {
         this.property = '';
-        this.message = ''; 
+        this.message = '';
     }
 }
 
-
- 

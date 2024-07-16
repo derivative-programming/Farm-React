@@ -3,11 +3,9 @@
 /* eslint-disable testing-library/no-unnecessary-act */
 import {
   render,
-  
-  screen,
 
-  
-  waitFor,
+  screen,
+  act,
 } from "@testing-library/react";
 import {ReportDetailThreeColLandPlantList} from "./LandPlantList";
 import * as ReportService from "../../services/LandPlantList";
@@ -20,22 +18,24 @@ const onRefreshRequest = jest.fn();
 
 describe("LandPlantList Form Component", () => {
   // render the LandPlantList Form component
-  beforeEach(() => {
-    render(
-        <ReportDetailThreeColLandPlantList  
+  beforeEach(async() => {
+    await act(async () => {
+      render(
+        <ReportDetailThreeColLandPlantList
           item={new ReportService.QueryResultItemInstance}
-          name="testName"  
-          onNavigateTo={onNavigateTo} 
+          name="testName"
+          onNavigateTo={onNavigateTo}
           onRefreshRequest={onRefreshRequest}
           />
-    );
+      )
+    });
   });
 
   // after cleanup when test-case execution is done
-  
 
   it("renders correctly", async () => {
     expect(screen.getByTestId("testName")).toBeInTheDocument();
   });
- 
+
 });
+

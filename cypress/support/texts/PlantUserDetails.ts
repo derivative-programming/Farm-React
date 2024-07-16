@@ -1,3 +1,5 @@
+
+
 export const PlantUserDetailsPageTexts = {
     flavorNameHeaderText: "Name",
     isDeleteAllowedHeaderText: "Is Delete Allowed",
@@ -14,7 +16,6 @@ export const PlantUserDetailsPageTexts = {
     someNVarCharValHeaderText: "Some N Var Char Val",
     somePhoneNumberHeaderText: "Some Phone Number",
     someTextValHeaderText: "Some Text Val",
-    someUniqueidentifierValHeaderText: "",
     someUTCDateTimeValHeaderText: "Some UTC Date Time Val",
     someVarCharValHeaderText: "Some Var Char Val",
     nVarCharAsUrlHeaderText: "N Var Char As Url",
@@ -25,13 +26,17 @@ export const PlantUserDetailsPageTexts = {
     //page title
     titleText: "Plant Details",
     introText: "Plant Details page intro text",
-    //breadcrumbs
+    //breadcrumb
     tacFarmDashboardBreadcrumbText: "Farm Dashboard",
-    //breadcrumbs
+    //breadcrumb
     landPlantListBreadcrumbText: "Plant List",
+    //report buttons
+    backButtonText: "Plant List",
     //row button text
     updateButtonTextLinkPlantCodeRowButtonText: "Update Button Text",
     randomPropertyUpdatesLinkPlantCodeRowButtonText: "Random Property Updates",
     backToDashboardLinkTacCodeRowButtonText: "Back To Dashboard",
+    siteFooterText: "Copyright © 2023 • NewCo Inc.",
+
 }
 

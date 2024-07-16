@@ -1,9 +1,8 @@
-import React, { FC, ReactElement, useState } from "react";
-import { Button, Col, Form, ListGroup, Row, Table } from "react-bootstrap";
+import React, { FC, ReactElement } from "react";
 import * as ReportService from "../../services/LandPlantList";
-import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
-import * as AsyncServices from "../../../services";
+import { Row } from "react-bootstrap";
 import * as ReportColumnDisplay from "./columns";
+import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";
 
 export interface ReportDetailTwoColLandPlantListProps {
     name: string
@@ -16,10 +15,57 @@ export const ReportDetailTwoColLandPlantList: FC<ReportDetailTwoColLandPlantList
     item,
     onNavigateTo,
     onRefreshRequest,
-}): ReactElement => { 
+}): ReactElement => {
+    const { logClick } = useAnalyticsDB();
 
-    return ( 
-        <div data-testid={name} className="mt-3" >  
-        </div> 
+    return (
+        <div data-testid={name}>
+            <Row data-testid="flavorCode-header"
+                className="mt-3" >
+                <ReportColumnDisplay.ReportColumnDisplayButton
+                    forColumn="flavorCode"
+                    value={item.flavorCode}
+                    buttonText=" "
+                    isButtonCallToAction={false}
+                    isVisible={false}
+                    isEnabled={true}
+                    onClick={() =>{
+                        logClick("ReportDetailTwoColLandPlantList","flavorCode","");
+                        onNavigateTo("//" + item.flavorCode)
+                    }}
+                />
+            </Row>
+            <Row data-testid="updateLinkPlantCode-header"
+                className="mt-3" >
+                <ReportColumnDisplay.ReportColumnDisplayButton
+                    forColumn="updateLinkPlantCode"
+                    value={item.updateLinkPlantCode}
+                    buttonText=" Update"
+                    isButtonCallToAction={true}
+                    isVisible={false}
+                    isEnabled={true}
+                    onClick={() =>{
+                        logClick("ReportDetailTwoColLandPlantList","updateLinkPlantCode","");
+                        onNavigateTo("/plant-user-details/" + item.updateLinkPlantCode)
+                    }}
+                />
+            </Row>
+            <Row data-testid="detailsLinkPlantCode-header"
+                className="mt-3" >
+                <ReportColumnDisplay.ReportColumnDisplayButton
+                    forColumn="detailsLinkPlantCode"
+                    value={item.detailsLinkPlantCode}
+                    buttonText=" Details"
+                    isButtonCallToAction={true}
+                    isVisible={true}
+                    isEnabled={true}
+                    onClick={() =>{
+                        logClick("ReportDetailTwoColLandPlantList","detailsLinkPlantCode","");
+                        onNavigateTo("/plant-user-details/" + item.detailsLinkPlantCode)
+                    }}
+                />
+            </Row>
+        </div>
     );
-}; 
+};
+
