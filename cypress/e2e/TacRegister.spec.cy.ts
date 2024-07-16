@@ -1,10 +1,10 @@
-import { TacRegisterPage as SubjectPage } from "../support/pages/TacRegister"; 
+import { TacRegisterPage as SubjectPage } from "../support/pages/TacRegister";
 import Helper from '../support/helper';
 
 const subjectPage = new SubjectPage();
 
 const helper = new Helper();
-const email = helper.getRandomEmail(10); 
+const email = helper.getRandomEmail(10);
 const password = helper.getRandomPassword(10);
 
 describe("TacRegister Page", () => {
@@ -14,22 +14,22 @@ describe("TacRegister Page", () => {
 		if(subjectPage.isLoginRequired()){
 			cy.log('test email:' + email);
 			cy.log('test pwd:' + password);
-			helper.register(email,password); 
+			helper.register(email,password);
 			helper.logOut();
-		} 
+		}
 	});
-	
-	beforeEach(() => { 
+
+	beforeEach(() => {
 		cy.visit('/');
 		helper.login(email, password);
 		subjectPage.visit();
-	}); 
+	});
 
-	it("verify page url", () => {  
+	it("verify page url", () => {
 		subjectPage.verifyUrl();
 	});
 
-	it("verify page elements", () => {  
+	it("verify page elements", () => {
 		subjectPage.verifyPageElements();
 	});
 });

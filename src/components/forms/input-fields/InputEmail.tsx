@@ -42,7 +42,7 @@ export const FormInputEmail: FC<FormInputEmailProps> = ({
             isInvalid={isInvalid}
             size="sm"
           />
-          <Form.Control.Feedback  className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+          <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
       </Form.Group> 
   </div>
   );

@@ -13,8 +13,8 @@ module.exports = {
       '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     },
     setupFilesAfterEnv: [
-      '<rootDir>/src/setupTests.js',
-      '<rootDir>/src/polyfills.js'
+      '<rootDir>/src/setupTests.ts',
+      '<rootDir>/src/polyfills.ts'
     ],
     collectCoverage: true,
     coverageReporters: ['lcov', 'text'],

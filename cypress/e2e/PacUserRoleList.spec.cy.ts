@@ -1,4 +1,4 @@
-import { PlantUserDetailsPage as SubjectPage } from "../support/pages/PlantUserDetails";
+import { PacUserRoleListPage as SubjectPage } from "../support/pages/PacUserRoleList";
 import Helper from '../support/helper';
 
 const subjectPage = new SubjectPage();
@@ -7,7 +7,7 @@ const helper = new Helper();
 const email = helper.getRandomEmail(10);
 const password = helper.getRandomPassword(10);
 
-describe("PlantUserDetails Page", () => {
+describe("PacUserRoleList Page", () => {
 	before(() => {
 		cy.clearLocalStorage();
 		cy.visit("/");

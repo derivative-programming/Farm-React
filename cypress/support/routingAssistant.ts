@@ -4,9 +4,9 @@
 {/*//GENLearn[modelType=object,name=Tac]Start*/}
 {/*//GENLOOPReportStart*/}
 {/*//GENTrainingBlock[d3]Start*/}
-{/*//GENLearn[modelType=report,name=TacFarmDashboard]Start*/}
+{/*//GENLearn[modelType=report,name=TacFarmDashboard,calculatedIsPage=true]Start*/}
 import { TacFarmDashboardPage } from "./pages/TacFarmDashboard"; 
-{/*//GENLearn[modelType=report,name=TacFarmDashboard]End*/}
+{/*//GENLearn[modelType=report,name=TacFarmDashboard,calculatedIsPage=true]End*/}
 {/*//GENTrainingBlock[d3]End*/}
 {/*//GENLOOPReportEnd*/}
 {/*//GENLearn[modelType=object,name=Tac]End*/}
@@ -32,13 +32,13 @@ class RoutingAssistant {
     {/*//GENLearn[modelType=object,name=Tac]Start*/}
     {/*//GENLOOPReportStart*/}
     {/*//GENTrainingBlock[d]Start*/}
-    {/*//GENLearn[modelType=report,name=TacFarmDashboard]Start*/}
+    {/*//GENLearn[modelType=report,name=TacFarmDashboard,calculatedIsPage=true]Start*/}
     if(curentPage === "TacFarmDashboard")
     {
       const page = new TacFarmDashboardPage();
       page.clickButtonWithDestination(nextPageName);
     }
-    {/*//GENLearn[modelType=report,name=TacFarmDashboard]End*/}
+    {/*//GENLearn[modelType=report,name=TacFarmDashboard,calculatedIsPage=true]End*/}
     {/*//GENTrainingBlock[d]End*/}
     {/*//GENLOOPReportEnd*/}
     {/*//GENLearn[modelType=object,name=Tac]End*/}
@@ -64,13 +64,13 @@ class RoutingAssistant {
     {/*//GENLearn[modelType=object,name=Tac]Start*/}
     {/*//GENLOOPReportStart*/}
     {/*//GENTrainingBlock[d2]Start*/}
-    {/*//GENLearn[modelType=report,name=TacFarmDashboard]Start*/}
+    {/*//GENLearn[modelType=report,name=TacFarmDashboard,calculatedIsPage=true]Start*/}
     if(pageName === "TacFarmDashboard")
     {
       const page = new TacFarmDashboardPage();
       page.visit();
     }
-    {/*//GENLearn[modelType=report,name=TacFarmDashboard]End*/}
+    {/*//GENLearn[modelType=report,name=TacFarmDashboard,calculatedIsPage=true]End*/}
     {/*//GENTrainingBlock[d2]End*/}
     {/*//GENLOOPReportEnd*/}
     {/*//GENLearn[modelType=object,name=Tac]End*/}

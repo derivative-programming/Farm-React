@@ -1,30 +1,13 @@
 
 import { LandAddPlantPageSelectors as PageSelectors } from '../selectors/LandAddPlant';
+import { LandAddPlantPageSettings as PageSettings } from './settings/LandAddPlant';
 import { LandAddPlantPageTexts as PageTexts } from '../texts/LandAddPlant';
 import { pageUrlPrefixes as PageUrlPrefixes } from '../urls/pageUrlPrefixes';
 import   RoutingAssistant   from '../routingAssistant'
 import Helper from '../helper';
  
 
-export class LandAddPlantPage {
-    private static requestFlavorCodeIsVisible = true;
-    private static requestOtherFlavorIsVisible = true;
-    private static requestSomeIntValIsVisible = true;
-    private static requestSomeBigIntValIsVisible = true;
-    private static requestSomeBitValIsVisible = true;
-    private static requestIsEditAllowedIsVisible = true;
-    private static requestIsDeleteAllowedIsVisible = true;
-    private static requestSomeFloatValIsVisible = true;
-    private static requestSomeDecimalValIsVisible = true;
-    private static requestSomeUTCDateTimeValIsVisible = true;
-    private static requestSomeDateValIsVisible = true;
-    private static requestSomeMoneyValIsVisible = true;
-    private static requestSomeNVarCharValIsVisible = true;
-    private static requestSomeVarCharValIsVisible = true;
-    private static requestSomeTextValIsVisible = true;
-    private static requestSomePhoneNumberIsVisible = true;
-    private static requestSomeEmailAddressIsVisible = true;
-    private static requestSampleImageUploadFileIsVisible = true;
+export class LandAddPlantPage { 
 
     visit() {
 		cy.log('LandAddPlantPage.visit() start'); 
@@ -88,7 +71,7 @@ export class LandAddPlantPage {
     verifyPageElements() {
 
 
-        if(LandAddPlantPage.requestFlavorCodeIsVisible){
+        if(PageSettings.requestFlavorCodeIsVisible){
             cy.log('Verifying requestFlavorCodeLabel control label...');
             cy.get(PageSelectors.requestFlavorCodeLabel)
                 .should('be.visible')
@@ -99,7 +82,7 @@ export class LandAddPlantPage {
                 .should('be.visible'); 
             
         }
-        if(LandAddPlantPage.requestOtherFlavorIsVisible){
+        if(PageSettings.requestOtherFlavorIsVisible){
             cy.log('Verifying requestOtherFlavorLabel control label...');
             cy.get(PageSelectors.requestOtherFlavorLabel)
                 .should('be.visible')
@@ -114,7 +97,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestOtherFlavorField) 
                 .should('have.value', 'requestOtherFlavorTestVal');
         }
-        if(LandAddPlantPage.requestSomeIntValIsVisible){
+        if(PageSettings.requestSomeIntValIsVisible){
             cy.log('Verifying requestSomeIntValLabel control label...');
             cy.get(PageSelectors.requestSomeIntValLabel)
                 .should('be.visible')
@@ -129,7 +112,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeIntValField) 
                 .should('have.value', '111');
         }
-        if(LandAddPlantPage.requestSomeBigIntValIsVisible){
+        if(PageSettings.requestSomeBigIntValIsVisible){
             cy.log('Verifying requestSomeBigIntValLabel control label...');
             cy.get(PageSelectors.requestSomeBigIntValLabel)
                 .should('be.visible')
@@ -144,7 +127,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeBigIntValField) 
                 .should('have.value', '111');
         }
-        if(LandAddPlantPage.requestSomeBitValIsVisible){
+        if(PageSettings.requestSomeBitValIsVisible){
             //cy.log('Verifying requestSomeBitVal control...');
             // cy.get(PageSelectors.requestSomeBitValField)
             //     .should('be.visible')
@@ -154,7 +137,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeBitValField)
                 .should('be.visible');
         }
-        if(LandAddPlantPage.requestIsEditAllowedIsVisible){
+        if(PageSettings.requestIsEditAllowedIsVisible){
             // cy.log('Verifying requestIsEditAllowedLabel control label...');
             // cy.get(PageSelectors.requestIsEditAllowedLabel)
             //     .should('be.visible')
@@ -164,7 +147,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestIsEditAllowedField)
                 .should('be.visible');
         }
-        if(LandAddPlantPage.requestIsDeleteAllowedIsVisible){
+        if(PageSettings.requestIsDeleteAllowedIsVisible){
             // cy.log('Verifying requestIsDeleteAllowedLabel control label...');
             // cy.get(PageSelectors.requestIsDeleteAllowedLabel)
             //     .should('be.visible')
@@ -174,7 +157,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestIsDeleteAllowedField)
                 .should('be.visible');
         }
-        if(LandAddPlantPage.requestSomeFloatValIsVisible){
+        if(PageSettings.requestSomeFloatValIsVisible){
             cy.log('Verifying requestSomeFloatValLabel control label...');
             cy.get(PageSelectors.requestSomeFloatValLabel)
                 .should('be.visible')
@@ -189,7 +172,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeFloatValField) 
                 .should('have.value', '111');
         }
-        if(LandAddPlantPage.requestSomeDecimalValIsVisible){
+        if(PageSettings.requestSomeDecimalValIsVisible){
             cy.log('Verifying requestSomeDecimalValLabel control label...');
             cy.get(PageSelectors.requestSomeDecimalValLabel)
                 .should('be.visible')
@@ -204,7 +187,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeDecimalValField) 
                 .should('have.value', '111');
         }
-        if(LandAddPlantPage.requestSomeUTCDateTimeValIsVisible){
+        if(PageSettings.requestSomeUTCDateTimeValIsVisible){
             cy.log('Verifying requestSomeUTCDateTimeValLabel control label...');
             cy.get(PageSelectors.requestSomeUTCDateTimeValLabel)
                 .should('be.visible')
@@ -214,7 +197,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeUTCDateTimeValField)
                 .should('be.visible');
         }
-        if(LandAddPlantPage.requestSomeDateValIsVisible){
+        if(PageSettings.requestSomeDateValIsVisible){
             cy.log('Verifying requestSomeDateValLabel control label...');
             cy.get(PageSelectors.requestSomeDateValLabel)
                 .should('be.visible')
@@ -224,7 +207,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeDateValField)
                 .should('be.visible');
         }
-        if(LandAddPlantPage.requestSomeMoneyValIsVisible){
+        if(PageSettings.requestSomeMoneyValIsVisible){
             cy.log('Verifying requestSomeMoneyValLabel control label...');
             cy.get(PageSelectors.requestSomeMoneyValLabel)
                 .should('be.visible')
@@ -239,7 +222,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeMoneyValField) 
                 .should('have.value', '111');
         }
-        if(LandAddPlantPage.requestSomeNVarCharValIsVisible){
+        if(PageSettings.requestSomeNVarCharValIsVisible){
             cy.log('Verifying requestSomeNVarCharValLabel control label...');
             cy.get(PageSelectors.requestSomeNVarCharValLabel)
                 .should('be.visible')
@@ -254,7 +237,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeNVarCharValField) 
                 .should('have.value', 'requestSomeNVarCharValTestVal');
         }
-        if(LandAddPlantPage.requestSomeVarCharValIsVisible){
+        if(PageSettings.requestSomeVarCharValIsVisible){
             cy.log('Verifying requestSomeVarCharValLabel control label...');
             cy.get(PageSelectors.requestSomeVarCharValLabel)
                 .should('be.visible')
@@ -269,7 +252,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeVarCharValField) 
                 .should('have.value', 'requestSomeVarCharValTestVal');
         }
-        if(LandAddPlantPage.requestSomeTextValIsVisible){
+        if(PageSettings.requestSomeTextValIsVisible){
             cy.log('Verifying requestSomeTextValLabel control label...');
             cy.get(PageSelectors.requestSomeTextValLabel)
                 .should('be.visible')
@@ -284,7 +267,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeTextValField) 
                 .should('have.value', 'requestSomeTextValTestVal');
         }
-        if(LandAddPlantPage.requestSomePhoneNumberIsVisible){
+        if(PageSettings.requestSomePhoneNumberIsVisible){
             cy.log('Verifying requestSomePhoneNumberLabel control label...');
             cy.get(PageSelectors.requestSomePhoneNumberLabel)
                 .should('be.visible')
@@ -299,7 +282,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomePhoneNumberField) 
                 .should('have.value', '111-111-1111');
         }
-        if(LandAddPlantPage.requestSomeEmailAddressIsVisible){
+        if(PageSettings.requestSomeEmailAddressIsVisible){
             cy.log('Verifying requestSomeEmailAddressLabel control label...');
             cy.get(PageSelectors.requestSomeEmailAddressLabel)
                 .should('be.visible')
@@ -314,7 +297,7 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeEmailAddressField) 
                 .should('have.value', 'test@test.com');
         }
-        if(LandAddPlantPage.requestSampleImageUploadFileIsVisible){
+        if(PageSettings.requestSampleImageUploadFileIsVisible){
             cy.log('Verifying requestSampleImageUploadFileLabel control label...');
                 cy.get(PageSelectors.requestSampleImageUploadFileLabel)
                     .should('be.visible')
