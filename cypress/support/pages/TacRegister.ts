@@ -55,7 +55,7 @@ export class TacRegisterPage {
         }
 
         else {
-            //throw error
+            throw new Error(`Unknown destination page name: ${destinationPageName}`);
         }
     }
 

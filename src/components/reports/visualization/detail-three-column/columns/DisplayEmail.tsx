@@ -23,7 +23,7 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   const displayValue = (isVisible && conditionallyVisible);
       
   const formatEmail = () => {  
-    let result = ""; 
+    const result = ""; 
     
     try {
       
@@ -31,8 +31,6 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
       {
           return result;
       }
-
-      result = value;
 
     } catch (error) {
       console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayEmail');

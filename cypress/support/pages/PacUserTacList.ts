@@ -352,7 +352,7 @@ export class PacUserTacListPage {
         }
 
         else {
-            //throw error
+            throw new Error(`Unknown destination page name: ${destinationPageName}`);
         }
     }
 

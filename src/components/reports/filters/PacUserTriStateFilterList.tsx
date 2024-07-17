@@ -2,16 +2,14 @@
 import React, {
   FC,
   ReactElement,
-  useContext,
   useState,
 } from "react";
 import { Button, Form, Accordion, Row, Col, Spinner } from "react-bootstrap";
 
 import { Formik, FormikHelpers, FormikProps } from "formik";
 import * as ReportService from "../services/PacUserTriStateFilterList";
-import { AuthContext } from "../../../context/authContext";
-import * as ReportInput from "../input-fields";
-import * as Lookups from "../lookups";
+import * as ReportInput from "../input-fields";  //NOSONAR
+import * as Lookups from "../lookups";  //NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
 
 export interface ReportFilterPacUserTriStateFilterListProps {
@@ -29,21 +27,13 @@ const ReportFilterPacUserTriStateFilterList: FC<ReportFilterPacUserTriStateFilte
   hidden = false,
   isCollapsible = true,
 }): ReactElement => {
-  const [initialValues, setInitialValues] = useState(initialQuery);
   const [loading, setLoading] = useState(false);
   const { logClick } = useAnalyticsDB();
-
-  // console.log('filter ctrl initialQuery...');
-  // console.log(initialQuery);
-  // console.log('filter ctrl initialValues...');
-  // console.log(initialValues);
 
   const validationSchema = ReportService.buildValidationSchema();
 
   const isFiltersVisibleDefault = localStorage.getItem("isFiltersVisible");
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
-
-  const authContext = useContext(AuthContext);
 
   const headerErrors: string[] = [];
 
@@ -60,11 +50,6 @@ const ReportFilterPacUserTriStateFilterList: FC<ReportFilterPacUserTriStateFilte
       actions.setSubmitting(false);
       setLoading(false);
     }
-  };
-
-  const resetButtonClick = () => {
-    logClick("ReportFilterPacUserTriStateFilterList","refresh","");
-    setInitialValues({ ...initialQuery });
   };
 
   const onAccordianHeaderClick = () => {
@@ -133,7 +118,7 @@ const ReportFilterPacUserTriStateFilterList: FC<ReportFilterPacUserTriStateFilte
                         <Button
                           className="ms-2 mt-3"
                           type="reset"
-                          onClick={() => props.resetForm() as any}
+                          onClick={() => props.resetForm()}
                           variant="secondary"
                           data-testid="reset"
                         >

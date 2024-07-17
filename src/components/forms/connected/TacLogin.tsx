@@ -53,8 +53,6 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
 
   const authContext = useContext(AuthContext); 
 
-  // let headerErrors: string[] = [];
-
   const handleInit = (responseFull: InitFormService.ResponseFull) => {
     const initFormResponse: InitFormService.InitResult = responseFull.data;
 

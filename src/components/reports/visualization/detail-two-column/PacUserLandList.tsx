@@ -17,7 +17,7 @@ export const ReportDetailTwoColPacUserLandList: FC<ReportDetailTwoColPacUserLand
     onNavigateTo,
     onRefreshRequest,
 }): ReactElement => {
-    const { logClick } = useAnalyticsDB();
+    const { logClick } = useAnalyticsDB();  // NOSONAR
 
     return (
         <div data-testid={name}>

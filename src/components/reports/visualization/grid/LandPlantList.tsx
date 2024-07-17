@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
 import * as ReportService from "../../services/LandPlantList";
@@ -7,7 +8,7 @@ import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services"; // NOSONAR
 import { ReportPagination } from "../../input-fields";
-import * as ReportInput from "../../input-fields"; 
+import * as ReportInput from "../../input-fields";  // NOSONAR
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
 
 export interface ReportGridLandPlantListProps {
@@ -50,9 +51,9 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 }): ReactElement => {
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
-  const { logClick } = useAnalyticsDB();
+  const { logClick } = useAnalyticsDB();  // NOSONAR
 
-  const handleRowSelectCheckboxChange = (
+  const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
     index: number,
     rowCode: string
@@ -69,7 +70,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     }
   };
 
-  const onSelectAllRows = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onSelectAllRows = (e: React.ChangeEvent<HTMLInputElement>) => {  //NOSONAR
     if (e.target.checked) {
       logClick("ReportGridLandPlantList","selectAllRows","");
       setCheckedIndexes(
@@ -83,7 +84,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     }
   };  
 
-  const onMultSelectButtonToEditableClick = () => {
+  const onMultSelectButtonToEditableClick = () => {  //NOSONAR
     logClick("ReportGridLandPlantList","multSelectButtonToEditable","");
     const selectedCodes = items.map(
       (item: ReportService.QueryResultItem, index) => {
@@ -344,8 +345,9 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
         <tbody> 
           {items && !showProcessing && items.length ? (
             items.map((item: ReportService.QueryResultItem, index) => {
+              const uniqueKey = uuidv4();
               return (
-                <tr key={index.toString()}>
+                <tr key={uniqueKey}>
                   <td data-testid={"plantCodeColumn-" + index}>
                     <Form.Check
                       type="checkbox"

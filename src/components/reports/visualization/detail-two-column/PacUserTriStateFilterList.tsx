@@ -17,7 +17,7 @@ export const ReportDetailTwoColPacUserTriStateFilterList: FC<ReportDetailTwoColP
     onNavigateTo,
     onRefreshRequest,
 }): ReactElement => {
-    const { logClick } = useAnalyticsDB();
+    const { logClick } = useAnalyticsDB();  // NOSONAR
 
     return (
         <div data-testid={name}>

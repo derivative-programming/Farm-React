@@ -1332,7 +1332,7 @@ export class LandPlantListPage {
             cy.wait(2000);
         } 
         else {
-            //throw error
+            throw new Error(`Unknown destination page name: ${destinationPageName}`);
         }
     }
 

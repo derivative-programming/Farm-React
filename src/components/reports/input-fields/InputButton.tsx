@@ -9,7 +9,7 @@ export interface ReportInputButtonProps {
   isVisible?: boolean;
   isEnabled?: boolean;
   className?: string;
-  type?: "button" | "submit" | "reset" | undefined;
+  type?: "button" | "submit" | "reset";
 }
 
 export const ReportInputButton: FC<ReportInputButtonProps> = ({
@@ -18,8 +18,8 @@ export const ReportInputButton: FC<ReportInputButtonProps> = ({
   onClick,
   isButtonCallToAction = true,
   isVisible = true,
-  isEnabled = true,type,
-
+  isEnabled = true,
+  type = "button",
   className = "",
 }): ReactElement => {
 

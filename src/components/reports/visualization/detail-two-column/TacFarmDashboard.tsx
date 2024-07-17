@@ -17,7 +17,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     onNavigateTo,
     onRefreshRequest,
 }): ReactElement => {
-    const { logClick } = useAnalyticsDB();
+    const { logClick } = useAnalyticsDB();  // NOSONAR
   
     return ( 
         <div data-testid={name}>

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
 import { Card } from "react-bootstrap";
 import "../../../App.scss";
@@ -8,8 +7,6 @@ import * as InitReportService from "../services/init/TacFarmDashboardInitReport"
 import { ReportDetailTwoColTacFarmDashboard } from "../visualization/detail-two-column/TacFarmDashboard";
 
 export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const [pageSize, setPageSize] = useState(1);
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance()); 
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
@@ -19,8 +16,6 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     const navigate = useNavigate();
     const { id } = useParams();
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
-
-    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
 
     const handleInit = (responseFull: InitReportService.ResponseFull) => {
         
@@ -42,47 +37,8 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
         setQueryResult({ ...queryResult });
     }
 
-    const onSubmit = (queryRequest: ReportService.QueryRequest) => { 
-        setQuery({ ...queryRequest });
-    }
-
-    const onPageSelection = (pageNumber: number) => { 
-        setQuery({ ...query, pageNumber: pageNumber });
-    }
-
-
-    const onPageSizeChange = (pageSize: number) => { 
-        setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
-    }
-
     const onNavigateTo = (url: string) => { 
         navigate(url); 
-    }
-    
-    const navigateTo = (page: string, codeName:string) => { 
-        let targetContextCode = contextCode; 
-        Object.entries(initPageResponse)
-        .forEach(([key, value]) => { 
-            if(key === codeName)
-            {
-                if(value !== ''
-                    && value !== '00000000-0000-0000-0000-000000000000') {
-                    targetContextCode = value;
-                } else {
-                    return;
-                }
-            }
-        })
-        const url = '/' + page + '/' + targetContextCode; 
-        navigate(url);
-    }
-
-    const onSort = (columnName: string) => {
-        let orderByDescending = false;
-        if (query.OrderByColumnName === columnName) {
-            orderByDescending = !query.OrderByDescending;
-        } 
-        setQuery({ ...query, OrderByColumnName: columnName, OrderByDescending: orderByDescending })
     }
 
     const onRefreshRequest =() => { 
@@ -114,6 +70,12 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
         ReportService.submitRequest(query, contextCode)
             .then(response => handleQueryResults(response));
     }, [query]); 
+
+    //GENTrainingBlock[visualizationTypeFuncs]Start
+    //GENLearn[visualizationType=DetailTwoColumn]Start
+    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
+    //GENLearn[visualizationType=DetailTwoColumn]End
+    //GENTrainingBlock[visualizationTypeFuncs]End
 
     return (
 

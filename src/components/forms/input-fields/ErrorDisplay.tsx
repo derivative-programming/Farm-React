@@ -19,9 +19,9 @@ export const ErrorDisplay: FC<ErrorDisplayProps> = ({
   return (
     <div data-testid={name}> 
       {allErrors && allErrors.length > 0 ? ( 
-          allErrors.map((item, index) => {
+          allErrors.map((item) => {
             return (
-              <div className="text-left text-danger mt-2 mb-2" key={index}>{item}</div>  
+              <div className="text-left text-danger mt-2 mb-2" key={item}>{item}</div>  
           );
         })
       ) : null}

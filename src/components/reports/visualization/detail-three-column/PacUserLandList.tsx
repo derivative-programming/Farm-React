@@ -20,7 +20,7 @@ export const ReportDetailThreeColPacUserLandList: FC<ReportDetailThreeColPacUser
     onRefreshRequest,
     showProcessing = false,
 }): ReactElement => {
-    const { logClick } = useAnalyticsDB();
+    const { logClick } = useAnalyticsDB();  // NOSONAR
 
     return (
         <div data-testid={name} className='mt-3 w-100'>

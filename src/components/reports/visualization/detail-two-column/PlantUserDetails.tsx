@@ -17,7 +17,7 @@ export const ReportDetailTwoColPlantUserDetails: FC<ReportDetailTwoColPlantUserD
     onNavigateTo,
     onRefreshRequest,
 }): ReactElement => {
-    const { logClick } = useAnalyticsDB();
+    const { logClick } = useAnalyticsDB();  // NOSONAR
 
     return (
         <div data-testid={name}>

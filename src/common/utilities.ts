@@ -7,7 +7,7 @@ export const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       decimal_index,
       e.currentTarget.value.length + 1
     );
-    if (decimals.length > 2 && e.keyCode !== 8 && e.keyCode !== 9) {
+    if (decimals.length > 2 && e.key !== "Backspace" && e.key !== "Tab") {
       e.preventDefault();
     }
   }

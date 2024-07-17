@@ -33,6 +33,8 @@ export interface SubmitValidationError {
 export class SubmitRequestInstance implements LandUserPlantMultiSelectToNotEditableRequest {
     plantCodeListCsv:string
     constructor() {
+    // create a new instance of the class
+
         this.plantCodeListCsv = ''
     }
 }

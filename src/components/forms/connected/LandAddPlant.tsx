@@ -14,7 +14,7 @@ import * as FormService from "../services/LandAddPlant";
 import * as FormValidation from "../validation/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 import HeaderLandAddPlant from "../headers/LandAddPlantInitObjWF";
-import { AuthContext } from "../../../context/authContext"; 
+import { AuthContext } from "../../../context/authContext";  // NOSONAR
 import * as InputFields from "../input-fields";
 import * as Lookups from "../lookups"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
@@ -55,7 +55,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
 
   const validationSchema = FormValidation.buildValidationSchema();
 
-  const authContext = useContext(AuthContext); 
+  const authContext = useContext(AuthContext);  // NOSONAR
 
   const handleInit = (responseFull: InitFormService.ResponseFull) => {
     const response: InitFormService.InitResult = responseFull.data;

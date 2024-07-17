@@ -9,8 +9,6 @@ import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-th
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
 
 export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const [pageSize, setPageSize] = useState(1);
     const [isProcessing, setIsProcessing] = useState(false);
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
     const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance()); 
@@ -22,8 +20,6 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const navigate = useNavigate();
     const { id } = useParams();
     const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
-
-    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
 
     const handleInit = (responseFull: InitReportService.ResponseFull) => {
         
@@ -45,47 +41,8 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
         setQueryResult({ ...queryResult });
     }
 
-    const onSubmit = (queryRequest: ReportService.QueryRequest) => { 
-        setQuery({ ...queryRequest });
-    }
-
-    const onPageSelection = (pageNumber: number) => { 
-        setQuery({ ...query, pageNumber: pageNumber });
-    }
-
-
-    const onPageSizeChange = (pageSize: number) => { 
-        setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
-    }
-
     const onNavigateTo = (url: string) => { 
         navigate(url); 
-    }
-    
-    const navigateTo = (page: string, codeName:string) => { 
-        let targetContextCode = contextCode; 
-        Object.entries(initPageResponse)
-        .forEach(([key, value]) => { 
-            if(key === codeName)
-            {
-                if(value !== ''
-                    && value !== '00000000-0000-0000-0000-000000000000') {
-                    targetContextCode = value;
-                } else {
-                    return;
-                }
-            }
-        })
-        const url = '/' + page + '/' + targetContextCode; 
-        navigate(url);
-    }
-
-    const onSort = (columnName: string) => {
-        let orderByDescending = false;
-        if (query.OrderByColumnName === columnName) {
-            orderByDescending = !query.OrderByDescending;
-        } 
-        setQuery({ ...query, OrderByColumnName: columnName, OrderByDescending: orderByDescending })
     }
 
     const onRefreshRequest =() => { 
@@ -119,6 +76,31 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
             .then(response => handleQueryResults(response))
             .finally(() => {setIsProcessing(false);});
     }, [query]); 
+    
+    const navigateTo = (page: string, codeName:string) => { 
+        let targetContextCode = contextCode; 
+        Object.entries(initPageResponse)
+        .forEach(([key, value]) => { 
+            if(key === codeName)
+            {
+                if(value !== ''
+                    && value !== '00000000-0000-0000-0000-000000000000') {
+                    targetContextCode = value;
+                } else {
+                    return;
+                }
+            }
+        })
+        const url = '/' + page + '/' + targetContextCode; 
+        navigate(url);
+    }
+
+    //GENTrainingBlock[visualizationTypeFuncs]Start
+    //GENLearn[visualizationType=DetailThreeColumn]Start
+    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
+    
+    //GENLearn[visualizationType=DetailThreeColumn]End
+    //GENTrainingBlock[visualizationTypeFuncs]End
 
     return (
 

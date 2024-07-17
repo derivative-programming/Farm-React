@@ -352,7 +352,7 @@ export class PacUserFlavorListPage {
         }
 
         else {
-            //throw error
+            throw new Error(`Unknown destination page name: ${destinationPageName}`);
         }
     }
 

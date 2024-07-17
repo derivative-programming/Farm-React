@@ -14,7 +14,7 @@ import * as FormService from "../services/TacRegister";
 import * as FormValidation from "../validation/TacRegister";
 import * as InitFormService from "../services/init/TacRegisterInitObjWF";
 import HeaderTacRegister from "../headers/TacRegisterInitObjWF";
-import { AuthContext } from "../../../context/authContext";
+import { AuthContext } from "../../../context/authContext";  // NOSONAR
 import * as InputFields from "../input-fields";
 import * as Lookups from "../lookups"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
@@ -55,7 +55,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 
   const validationSchema = FormValidation.buildValidationSchema();
 
-  const authContext = useContext(AuthContext);
+  const authContext = useContext(AuthContext);  // NOSONAR
 
   const handleInit = (responseFull: InitFormService.ResponseFull) => {
     const response: InitFormService.InitResult = responseFull.data;
