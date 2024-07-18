@@ -38,10 +38,9 @@ export class SubmitRequestInstance implements LandUserPlantMultiSelectToEditable
 
     plantCodeListCsv:string 
 
-    constructor() {
-    // create a new instance of the class
-
-        this.plantCodeListCsv = ''
+    constructor() {  // create a new instance of the class
+ 
+        this.plantCodeListCsv = '' 
     }
 }
 

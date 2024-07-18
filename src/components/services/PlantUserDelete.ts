@@ -32,7 +32,7 @@ export interface SubmitValidationError {
 
 export class SubmitRequestInstance implements PlantUserDeleteRequest {
 
-    constructor() {
+    constructor() {  // create a new instance of the class
 
     }
 }

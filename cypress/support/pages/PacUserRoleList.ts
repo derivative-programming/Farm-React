@@ -18,6 +18,7 @@ export class PacUserRoleListPage {
         }
         cy.log('Login required');
         const routingAssistant = new RoutingAssistant();
+        // eslint-disable-next-line prefer-const
         let currentPage = ""
 
         routingAssistant.goToPage(currentPage,'PacUserRoleList');

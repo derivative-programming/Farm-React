@@ -18,6 +18,7 @@ export class PlantUserDetailsPage {
         }
         cy.log('Login required');
         const routingAssistant = new RoutingAssistant();
+        // eslint-disable-next-line prefer-const
         let currentPage = ""
         currentPage = routingAssistant.goToPage(currentPage, 'TacFarmDashboard'); //tacFarmDashboardBreadcrumb
         currentPage = routingAssistant.goToPage(currentPage, 'LandPlantList'); //landPlantListBreadcrumb
