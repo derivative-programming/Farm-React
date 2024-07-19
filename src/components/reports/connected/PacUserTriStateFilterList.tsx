@@ -118,12 +118,13 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
     navigate(url);
   };
 
+  const isBreadcrumbSectionHidden = false;
+
   const isRefreshButtonHidden = false;
   const isPagingAvailable = true;
   const isExportButtonsHidden = false;
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
-  const isBreadcrumbSectionHidden = false;
 
   const onSubmit = (queryRequest: ReportService.QueryRequest) => {
     logClick("ReportConnectedPacUserTriStateFilterList","search","");

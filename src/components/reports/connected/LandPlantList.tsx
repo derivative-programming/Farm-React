@@ -119,6 +119,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     navigate(url);
   };
 
+  const isBreadcrumbSectionHidden = false;
   //GENTrainingBlock[visualizationTypeFuncs]Start
   //GENLearn[visualizationType=Grid]Start
   const isRefreshButtonHidden = false;
@@ -126,7 +127,6 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const isExportButtonsHidden = false;
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
-  const isBreadcrumbSectionHidden = false;
 
   const onSubmit = (queryRequest: ReportService.QueryRequest) => {
     logClick("ReportConnectedLandPlantList","search","");

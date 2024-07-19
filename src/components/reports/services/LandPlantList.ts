@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as Yup from "yup";
 import * as ReportInit  from "./init/LandPlantListInitReport"; 
-  import { apiCall } from "../../../apiConfig/apiCall"; 
+import { apiCall } from "../../../apiConfig/apiCall"; 
    
 export const submitRequest = (data:QueryRequest, landCode:string) => {
     return apiCall({

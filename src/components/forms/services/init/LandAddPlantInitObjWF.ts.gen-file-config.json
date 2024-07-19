@@ -11,6 +11,8 @@
         "objectWorkflowOutputVar.isAutoRedirectURL",   
         "objectWorkflowOutputVar.isLabelVisible",   
         "objectWorkflowOutputVar.isHeaderText",    
-        "objectWorkflowOutputVar.isVisible" 
+        "objectWorkflowOutputVar.isVisible", 
+        "objectWorkflowOutputVar.isFK" , 
+        "objectWorkflowOutputVar.isFKLookup"  
     ]
 }

@@ -28,7 +28,7 @@ export class InitResultInstance implements InitResult {
     validationErrors: InitValidationError[];
 
     constructor() {
-        this.tacCode = '';
+        this.tacCode = '00000000-0000-0000-0000-000000000000';
         this.success = false;
         this.message = '';
         this.validationErrors =  [];
