@@ -22,6 +22,8 @@ services:
       - demo-app-react-ui-sonarqube-db
     networks:
       - demo-app-react-ui-sonarqube-network
+    env_file:
+      - .env
 
   demo-app-react-ui-sonarqube-db:
     image: postgres:latest
@@ -33,6 +35,8 @@ services:
       - sonarqube_postgres_data:/var/lib/postgresql/data
     networks:
       - demo-app-react-ui-sonarqube-network
+    env_file:
+      - .env
 
 networks:
   demo-app-react-ui-sonarqube-network:

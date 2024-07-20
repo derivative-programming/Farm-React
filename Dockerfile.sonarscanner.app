@@ -12,6 +12,9 @@ WORKDIR /usr/src/app
 # Copy the source code into the container
 COPY . .
 
+# Copy the .env file to the working directory
+COPY .env .env
+
 # Install project dependencies
 RUN npm install
 
