@@ -141,3 +141,24 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 Remove-Item -Recurse -Force .\node_modules
 Remove-Item -Force .\package-lock.json
 npx npm-check-updates -u  
+
+
+#sonarqube
+
+- compose up docker-compose.sonarqube.ui.only.yml
+
+- create token for user if dne
+
+- create project DemoApp-React-UI if dne.  attach token
+
+- compose down docker-compose.sonarqube.ui.only.yml
+
+- run tests...
+
+npm run test:sonarqube
+npm run lint
+
+- compose up docker-compose.sonarqube.yml. This will process files created in testing
+
+- view sonarqube web
+http://localhost:9000
