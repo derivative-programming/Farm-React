@@ -6,11 +6,11 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { Button, Card, Breadcrumb } from "react-bootstrap";
+import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import * as ReportService from "../services/PacUserDateGreaterThanFilterList";
+import * as PacUserDateGreaterThanFilterListReportService from "../services/PacUserDateGreaterThanFilterList";
 import * as InitReportService from "../services/init/PacUserDateGreaterThanFilterListInitReport";
 import HeaderPacUserDateGreaterThanFilterList from "../headers/PacUserDateGreaterThanFilterListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
@@ -27,15 +27,16 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
     new InitReportService.InitResultInstance()
   );
   const [queryResult, setQueryResult] = useState(
-    new ReportService.QueryResultInstance()
+    new PacUserDateGreaterThanFilterListReportService.QueryResultInstance()
   );
-  const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
-  const [exportQuery, setExportQuery] = useState(new ReportService.QueryRequestInstance());
+  const [query, setQuery] = useState(new PacUserDateGreaterThanFilterListReportService.QueryRequestInstance());
   const [initialValues, setInitialValues] = useState(
-    new ReportService.QueryRequestInstance()
+    new PacUserDateGreaterThanFilterListReportService.QueryRequestInstance()
   );
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
+
+    const [exportQuery, setExportQuery] = useState(new PacUserDateGreaterThanFilterListReportService.QueryRequestInstance());
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -50,8 +51,8 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
     setInitPageResponse({ ...response });
   };
 
-  const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleQueryResults = (responseFull: PacUserDateGreaterThanFilterListReportService.ResponseFull) => {
+    const queryResult: PacUserDateGreaterThanFilterListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -73,13 +74,13 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
       return;
     }
     isInitializedRef.current = true;
-    ReportService.initPage(contextCode).then((response) =>
+    PacUserDateGreaterThanFilterListReportService.initPage(contextCode).then((response) =>
       handleInit(response)
     );
   }, []);
 
   useEffect(() => {
-    const newInitalValues = ReportService.buildQueryRequest(initPageResponse);
+    const newInitalValues = PacUserDateGreaterThanFilterListReportService.buildQueryRequest(initPageResponse);
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 
@@ -96,7 +97,7 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
 
   useEffect(() => {
     setIsProcessing(true);
-    ReportService.submitRequest(query, contextCode).then((response) =>
+    PacUserDateGreaterThanFilterListReportService.submitRequest(query, contextCode).then((response) =>
       handleQueryResults(response)
     )
     .finally(() => {setIsProcessing(false);});
@@ -125,7 +126,7 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
 
-  const onSubmit = (queryRequest: ReportService.QueryRequest) => {
+  const onSubmit = (queryRequest: PacUserDateGreaterThanFilterListReportService.QueryRequest) => {
     logClick("ReportConnectedPacUserDateGreaterThanFilterList","search","");
     setQuery({ ...queryRequest });
   };
@@ -162,8 +163,8 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
     setExportQuery({ ...query });
   };
 
-  const handleExportQueryResults = (responseFull: ReportService.ResponseFull) => { // NOSONAR
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleExportQueryResults = (responseFull: PacUserDateGreaterThanFilterListReportService.ResponseFull) => { // NOSONAR
+    const queryResult: PacUserDateGreaterThanFilterListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -178,7 +179,7 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
       return;
     }
     setIsProcessing(true);
-    ReportService.submitCSVRequest(query, contextCode).then((response) => {
+    PacUserDateGreaterThanFilterListReportService.submitCSVRequest(query, contextCode).then((response) => {
       //handleExportQueryResults(response);  //NOSONAR
       const blob = new Blob([response.data], { type: "text/csv" });
       const url = URL.createObjectURL(blob);

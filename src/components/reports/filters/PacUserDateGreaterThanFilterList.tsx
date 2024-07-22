@@ -7,15 +7,15 @@ import React, {
 import { Button, Form, Accordion, Row, Col, Spinner } from "react-bootstrap";
 
 import { Formik, FormikHelpers, FormikProps } from "formik";
-import * as ReportService from "../services/PacUserDateGreaterThanFilterList";
+import * as PacUserDateGreaterThanFilterListReportService from "../services/PacUserDateGreaterThanFilterList";
 import * as ReportInput from "../input-fields";  //NOSONAR
 import * as Lookups from "../lookups";  //NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
 
 export interface ReportFilterPacUserDateGreaterThanFilterListProps {
   name: string;
-  initialQuery: ReportService.QueryRequest;
-  onSubmit(request: ReportService.QueryRequest): void;
+  initialQuery: PacUserDateGreaterThanFilterListReportService.QueryRequest;
+  onSubmit(request: PacUserDateGreaterThanFilterListReportService.QueryRequest): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -30,7 +30,7 @@ const ReportFilterPacUserDateGreaterThanFilterList: FC<ReportFilterPacUserDateGr
   const [loading, setLoading] = useState(false);
   const { logClick } = useAnalyticsDB();
 
-  const validationSchema = ReportService.buildValidationSchema();
+  const validationSchema = PacUserDateGreaterThanFilterListReportService.buildValidationSchema();
 
   const isFiltersVisibleDefault = localStorage.getItem("isFiltersVisible");
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
@@ -38,8 +38,8 @@ const ReportFilterPacUserDateGreaterThanFilterList: FC<ReportFilterPacUserDateGr
   const headerErrors: string[] = [];
 
   const submitButtonClick = async (
-    values: ReportService.QueryRequest,
-    actions: FormikHelpers<ReportService.QueryRequest>
+    values: PacUserDateGreaterThanFilterListReportService.QueryRequest,
+    actions: FormikHelpers<PacUserDateGreaterThanFilterListReportService.QueryRequest>
   ) => {
     try {
       setLoading(true);
@@ -84,7 +84,7 @@ const ReportFilterPacUserDateGreaterThanFilterList: FC<ReportFilterPacUserDateGr
                 await submitButtonClick(values, actions);
               }}
             >
-              {(props: FormikProps<ReportService.QueryRequest>) => (
+              {(props: FormikProps<PacUserDateGreaterThanFilterListReportService.QueryRequest>) => (
                 <Form
                   name={name}
                   data-testid={name}

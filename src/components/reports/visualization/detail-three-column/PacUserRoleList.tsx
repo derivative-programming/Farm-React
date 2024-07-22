@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement } from "react";
 import { Col, ListGroup, Row, Spinner } from "react-bootstrap";
-import * as ReportService from "../../services/PacUserRoleList";
+import * as PacUserRoleListReportService from "../../services/PacUserRoleList";
 import * as AsyncServices from "../../../services"; // NOSONAR
 import * as ReportColumnDisplay from "./columns";
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";
 
 export interface ReportDetailThreeColPacUserRoleListProps {
     name: string
-    item: ReportService.QueryResultItem
+    item: PacUserRoleListReportService.QueryResultItem
     onNavigateTo(url: string): void
     onRefreshRequest(): void
     showProcessing?: boolean;

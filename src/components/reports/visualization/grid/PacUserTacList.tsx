@@ -3,7 +3,7 @@ import React, { FC, ReactElement, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
-import * as ReportService from "../../services/PacUserTacList";
+import * as PacUserTacListReportService from "../../services/PacUserTacList";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services"; // NOSONAR
@@ -16,7 +16,7 @@ export interface ReportGridPacUserTacListProps {
   contextCode: string;
   sortedColumnName: string;
   isSortDescending: boolean;
-  items: ReportService.QueryResultItem[];
+  items: PacUserTacListReportService.QueryResultItem[];
   onSort(columnName: string): void;
   onExport(): void;
   onNavigateTo(url: string): void;
@@ -74,7 +74,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
     if (e.target.checked) {
       logClick("ReportGridPacUserTacList","selectAllRows","");
       setCheckedIndexes(
-        items.map((item: ReportService.QueryResultItem, index) =>
+        items.map((item: PacUserTacListReportService.QueryResultItem, index) =>
           index.toString()
         )
       );
@@ -83,6 +83,20 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
       setCheckedIndexes(initialCheckedIndexes);
     }
   };
+
+  const tableRowAlternateCases = showProcessing ? (
+    <tr>
+      <td colSpan={100}>
+        <div className="text-center bg-secondary bg-opacity-25">
+          <Spinner animation="border" className="mt-2 mb-2" />
+        </div>
+      </td>
+    </tr>
+  ) : (
+    <tr>
+      <td colSpan={100}></td>
+    </tr>
+  );
 
   return (
     <div data-testid={name} className="w-100 mt-3">
@@ -146,7 +160,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
         </thead>
         <tbody>
           {items && !showProcessing && items.length ? (
-            items.map((item: ReportService.QueryResultItem, index) => {
+            items.map((item: PacUserTacListReportService.QueryResultItem, index) => {
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
@@ -183,19 +197,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                 </tr>
               );
             })
-          ) : (showProcessing ?
-            <tr>
-              <td colSpan={100}>
-                <div className="text-center  bg-secondary bg-opacity-25">
-                <Spinner animation="border" className="mt-2 mb-2" />
-              </div>
-            </td>
-            </tr>
-            :
-            <tr>
-              <td colSpan={100}></td>
-            </tr>
-          )}
+          ) : (tableRowAlternateCases)}
         </tbody>
       </Table>
 

@@ -6,11 +6,11 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { Button, Card, Breadcrumb } from "react-bootstrap";
+import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import * as ReportService from "../services/PacUserTriStateFilterList";
+import * as PacUserTriStateFilterListReportService from "../services/PacUserTriStateFilterList";
 import * as InitReportService from "../services/init/PacUserTriStateFilterListInitReport";
 import HeaderPacUserTriStateFilterList from "../headers/PacUserTriStateFilterListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
@@ -27,15 +27,16 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
     new InitReportService.InitResultInstance()
   );
   const [queryResult, setQueryResult] = useState(
-    new ReportService.QueryResultInstance()
+    new PacUserTriStateFilterListReportService.QueryResultInstance()
   );
-  const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
-  const [exportQuery, setExportQuery] = useState(new ReportService.QueryRequestInstance());
+  const [query, setQuery] = useState(new PacUserTriStateFilterListReportService.QueryRequestInstance());
   const [initialValues, setInitialValues] = useState(
-    new ReportService.QueryRequestInstance()
+    new PacUserTriStateFilterListReportService.QueryRequestInstance()
   );
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
+
+    const [exportQuery, setExportQuery] = useState(new PacUserTriStateFilterListReportService.QueryRequestInstance());
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -50,8 +51,8 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
     setInitPageResponse({ ...response });
   };
 
-  const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleQueryResults = (responseFull: PacUserTriStateFilterListReportService.ResponseFull) => {
+    const queryResult: PacUserTriStateFilterListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -73,13 +74,13 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
       return;
     }
     isInitializedRef.current = true;
-    ReportService.initPage(contextCode).then((response) =>
+    PacUserTriStateFilterListReportService.initPage(contextCode).then((response) =>
       handleInit(response)
     );
   }, []);
 
   useEffect(() => {
-    const newInitalValues = ReportService.buildQueryRequest(initPageResponse);
+    const newInitalValues = PacUserTriStateFilterListReportService.buildQueryRequest(initPageResponse);
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 
@@ -96,7 +97,7 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
 
   useEffect(() => {
     setIsProcessing(true);
-    ReportService.submitRequest(query, contextCode).then((response) =>
+    PacUserTriStateFilterListReportService.submitRequest(query, contextCode).then((response) =>
       handleQueryResults(response)
     )
     .finally(() => {setIsProcessing(false);});
@@ -125,7 +126,7 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
 
-  const onSubmit = (queryRequest: ReportService.QueryRequest) => {
+  const onSubmit = (queryRequest: PacUserTriStateFilterListReportService.QueryRequest) => {
     logClick("ReportConnectedPacUserTriStateFilterList","search","");
     setQuery({ ...queryRequest });
   };
@@ -162,8 +163,8 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
     setExportQuery({ ...query });
   };
 
-  const handleExportQueryResults = (responseFull: ReportService.ResponseFull) => { // NOSONAR
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleExportQueryResults = (responseFull: PacUserTriStateFilterListReportService.ResponseFull) => { // NOSONAR
+    const queryResult: PacUserTriStateFilterListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -178,7 +179,7 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
       return;
     }
     setIsProcessing(true);
-    ReportService.submitCSVRequest(query, contextCode).then((response) => {
+    PacUserTriStateFilterListReportService.submitCSVRequest(query, contextCode).then((response) => {
       //handleExportQueryResults(response);  //NOSONAR
       const blob = new Blob([response.data], { type: "text/csv" });
       const url = URL.createObjectURL(blob);

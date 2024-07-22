@@ -10,7 +10,7 @@ import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import * as ReportService from "../services/LandPlantList";
+import * as LandPlantListReportService from "../services/LandPlantList";
 import * as InitReportService from "../services/init/LandPlantListInitReport";
 import HeaderLandPlantList from "../headers/LandPlantListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
@@ -30,17 +30,17 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     new InitReportService.InitResultInstance()
   );
   const [queryResult, setQueryResult] = useState(
-    new ReportService.QueryResultInstance()
+    new LandPlantListReportService.QueryResultInstance()
   );
-  const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
+  const [query, setQuery] = useState(new LandPlantListReportService.QueryRequestInstance());
   const [initialValues, setInitialValues] = useState(
-    new ReportService.QueryRequestInstance()
+    new LandPlantListReportService.QueryRequestInstance()
   );
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
   //GENTrainingBlock[visualizationTypeInit]Start
   //GENLearn[visualizationType=Grid]Start
-    const [exportQuery, setExportQuery] = useState(new ReportService.QueryRequestInstance());
+    const [exportQuery, setExportQuery] = useState(new LandPlantListReportService.QueryRequestInstance());
   //GENLearn[visualizationType=Grid]End
   //GENTrainingBlock[visualizationTypeInit]End
 
@@ -58,8 +58,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     setInitPageResponse({ ...response });
   };
 
-  const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleQueryResults = (responseFull: LandPlantListReportService.ResponseFull) => {
+    const queryResult: LandPlantListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -82,13 +82,13 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
       return;
     }
     isInitializedRef.current = true;
-    ReportService.initPage(contextCode).then((response) =>
+    LandPlantListReportService.initPage(contextCode).then((response) =>
       handleInit(response)
     );
   }, []);
 
   useEffect(() => {
-    const newInitalValues = ReportService.buildQueryRequest(initPageResponse); 
+    const newInitalValues = LandPlantListReportService.buildQueryRequest(initPageResponse); 
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 
@@ -105,7 +105,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
   useEffect(() => { 
     setIsProcessing(true);
-    ReportService.submitRequest(query, contextCode).then((response) =>
+    LandPlantListReportService.submitRequest(query, contextCode).then((response) =>
       handleQueryResults(response)
     )
     .finally(() => {setIsProcessing(false);});
@@ -135,7 +135,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
 
-  const onSubmit = (queryRequest: ReportService.QueryRequest) => {
+  const onSubmit = (queryRequest: LandPlantListReportService.QueryRequest) => {
     logClick("ReportConnectedLandPlantList","search","");
     setQuery({ ...queryRequest });
   };
@@ -173,8 +173,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     setExportQuery({ ...query });
   };
   
-  const handleExportQueryResults = (responseFull: ReportService.ResponseFull) => { // NOSONAR
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleExportQueryResults = (responseFull: LandPlantListReportService.ResponseFull) => { // NOSONAR
+    const queryResult: LandPlantListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -189,7 +189,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
       return;
     }
     setIsProcessing(true); 
-    ReportService.submitCSVRequest(query, contextCode).then((response) => { 
+    LandPlantListReportService.submitCSVRequest(query, contextCode).then((response) => { 
       //handleExportQueryResults(response);  //NOSONAR
       const blob = new Blob([response.data], { type: "text/csv" });
       const url = URL.createObjectURL(blob);  

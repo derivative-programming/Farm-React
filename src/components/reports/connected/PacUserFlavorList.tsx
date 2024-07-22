@@ -6,11 +6,11 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { Button, Card, Breadcrumb } from "react-bootstrap";
+import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import * as ReportService from "../services/PacUserFlavorList";
+import * as PacUserFlavorListReportService from "../services/PacUserFlavorList";
 import * as InitReportService from "../services/init/PacUserFlavorListInitReport";
 import HeaderPacUserFlavorList from "../headers/PacUserFlavorListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
@@ -27,15 +27,16 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
     new InitReportService.InitResultInstance()
   );
   const [queryResult, setQueryResult] = useState(
-    new ReportService.QueryResultInstance()
+    new PacUserFlavorListReportService.QueryResultInstance()
   );
-  const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
-  const [exportQuery, setExportQuery] = useState(new ReportService.QueryRequestInstance());
+  const [query, setQuery] = useState(new PacUserFlavorListReportService.QueryRequestInstance());
   const [initialValues, setInitialValues] = useState(
-    new ReportService.QueryRequestInstance()
+    new PacUserFlavorListReportService.QueryRequestInstance()
   );
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
+
+    const [exportQuery, setExportQuery] = useState(new PacUserFlavorListReportService.QueryRequestInstance());
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -50,8 +51,8 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
     setInitPageResponse({ ...response });
   };
 
-  const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleQueryResults = (responseFull: PacUserFlavorListReportService.ResponseFull) => {
+    const queryResult: PacUserFlavorListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -73,13 +74,13 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
       return;
     }
     isInitializedRef.current = true;
-    ReportService.initPage(contextCode).then((response) =>
+    PacUserFlavorListReportService.initPage(contextCode).then((response) =>
       handleInit(response)
     );
   }, []);
 
   useEffect(() => {
-    const newInitalValues = ReportService.buildQueryRequest(initPageResponse);
+    const newInitalValues = PacUserFlavorListReportService.buildQueryRequest(initPageResponse);
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 
@@ -96,7 +97,7 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
 
   useEffect(() => {
     setIsProcessing(true);
-    ReportService.submitRequest(query, contextCode).then((response) =>
+    PacUserFlavorListReportService.submitRequest(query, contextCode).then((response) =>
       handleQueryResults(response)
     )
     .finally(() => {setIsProcessing(false);});
@@ -125,7 +126,7 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
 
-  const onSubmit = (queryRequest: ReportService.QueryRequest) => {
+  const onSubmit = (queryRequest: PacUserFlavorListReportService.QueryRequest) => {
     logClick("ReportConnectedPacUserFlavorList","search","");
     setQuery({ ...queryRequest });
   };
@@ -162,8 +163,8 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
     setExportQuery({ ...query });
   };
 
-  const handleExportQueryResults = (responseFull: ReportService.ResponseFull) => { // NOSONAR
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleExportQueryResults = (responseFull: PacUserFlavorListReportService.ResponseFull) => { // NOSONAR
+    const queryResult: PacUserFlavorListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -178,7 +179,7 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
       return;
     }
     setIsProcessing(true);
-    ReportService.submitCSVRequest(query, contextCode).then((response) => {
+    PacUserFlavorListReportService.submitCSVRequest(query, contextCode).then((response) => {
       //handleExportQueryResults(response);  //NOSONAR
       const blob = new Blob([response.data], { type: "text/csv" });
       const url = URL.createObjectURL(blob);

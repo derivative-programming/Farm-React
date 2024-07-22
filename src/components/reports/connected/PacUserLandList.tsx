@@ -6,11 +6,11 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { Button, Card, Breadcrumb } from "react-bootstrap";
+import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import * as ReportService from "../services/PacUserLandList";
+import * as PacUserLandListReportService from "../services/PacUserLandList";
 import * as InitReportService from "../services/init/PacUserLandListInitReport";
 import HeaderPacUserLandList from "../headers/PacUserLandListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
@@ -27,15 +27,16 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
     new InitReportService.InitResultInstance()
   );
   const [queryResult, setQueryResult] = useState(
-    new ReportService.QueryResultInstance()
+    new PacUserLandListReportService.QueryResultInstance()
   );
-  const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
-  const [exportQuery, setExportQuery] = useState(new ReportService.QueryRequestInstance());
+  const [query, setQuery] = useState(new PacUserLandListReportService.QueryRequestInstance());
   const [initialValues, setInitialValues] = useState(
-    new ReportService.QueryRequestInstance()
+    new PacUserLandListReportService.QueryRequestInstance()
   );
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
+
+    const [exportQuery, setExportQuery] = useState(new PacUserLandListReportService.QueryRequestInstance());
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -50,8 +51,8 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
     setInitPageResponse({ ...response });
   };
 
-  const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleQueryResults = (responseFull: PacUserLandListReportService.ResponseFull) => {
+    const queryResult: PacUserLandListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -73,13 +74,13 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
       return;
     }
     isInitializedRef.current = true;
-    ReportService.initPage(contextCode).then((response) =>
+    PacUserLandListReportService.initPage(contextCode).then((response) =>
       handleInit(response)
     );
   }, []);
 
   useEffect(() => {
-    const newInitalValues = ReportService.buildQueryRequest(initPageResponse);
+    const newInitalValues = PacUserLandListReportService.buildQueryRequest(initPageResponse);
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 
@@ -96,7 +97,7 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
 
   useEffect(() => {
     setIsProcessing(true);
-    ReportService.submitRequest(query, contextCode).then((response) =>
+    PacUserLandListReportService.submitRequest(query, contextCode).then((response) =>
       handleQueryResults(response)
     )
     .finally(() => {setIsProcessing(false);});
@@ -125,7 +126,7 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
 
-  const onSubmit = (queryRequest: ReportService.QueryRequest) => {
+  const onSubmit = (queryRequest: PacUserLandListReportService.QueryRequest) => {
     logClick("ReportConnectedPacUserLandList","search","");
     setQuery({ ...queryRequest });
   };
@@ -162,8 +163,8 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
     setExportQuery({ ...query });
   };
 
-  const handleExportQueryResults = (responseFull: ReportService.ResponseFull) => { // NOSONAR
-    const queryResult: ReportService.QueryResult = responseFull.data;
+  const handleExportQueryResults = (responseFull: PacUserLandListReportService.ResponseFull) => { // NOSONAR
+    const queryResult: PacUserLandListReportService.QueryResult = responseFull.data;
 
     if (!queryResult.success) {
       return;
@@ -178,7 +179,7 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
       return;
     }
     setIsProcessing(true);
-    ReportService.submitCSVRequest(query, contextCode).then((response) => {
+    PacUserLandListReportService.submitCSVRequest(query, contextCode).then((response) => {
       //handleExportQueryResults(response);  //NOSONAR
       const blob = new Blob([response.data], { type: "text/csv" });
       const url = URL.createObjectURL(blob);

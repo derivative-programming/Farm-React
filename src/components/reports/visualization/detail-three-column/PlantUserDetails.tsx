@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement } from "react";
 import { Col, ListGroup, Row, Spinner } from "react-bootstrap";
-import * as ReportService from "../../services/PlantUserDetails"; 
+import * as PlantUserDetailsReportService from "../../services/PlantUserDetails"; 
 import * as AsyncServices from "../../../services"; // NOSONAR
 import * as ReportColumnDisplay from "./columns";
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";  
 
 export interface ReportDetailThreeColPlantUserDetailsProps {
     name: string
-    item: ReportService.QueryResultItem
+    item: PlantUserDetailsReportService.QueryResultItem
     onNavigateTo(url: string): void
     onRefreshRequest(): void
     showProcessing?: boolean;

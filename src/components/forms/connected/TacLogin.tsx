@@ -11,8 +11,8 @@ import { Button, Form, Card, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers, FormikProps } from "formik"; 
 
-import * as FormService from "../services/TacLogin";
-import * as FormValidation from "../validation/TacLogin";
+import * as TacLoginFormService from "../services/TacLogin";
+import * as TacLoginFormValidation from "../validation/TacLogin";
 import * as InitFormService from "../services/init/TacLoginInitObjWF";
 import { AuthContext } from "../../../context/authContext";
 import * as FormInput from "../input-fields"; 
@@ -33,14 +33,14 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   showProcessingAnimationOnInit = true,
 }): ReactElement => {
   const [initialValues, setInitialValues] = useState(
-    new FormService.SubmitRequestInstance()
+    new TacLoginFormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
   const initHeaderErrors: string[] = [];
   const [headerErrors, setHeaderErrors] = useState(initHeaderErrors);
-  let lastApiSubmissionRequest = new FormService.SubmitRequestInstance();
-  let lastApiSubmissionResponse = new FormService.SubmitResultInstance(); 
+  let lastApiSubmissionRequest = new TacLoginFormService.SubmitRequestInstance();
+  let lastApiSubmissionResponse = new TacLoginFormService.SubmitResultInstance(); 
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
   
@@ -49,7 +49,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-  const validationSchema = FormValidation.buildValidationSchema();
+  const validationSchema = TacLoginFormValidation.buildValidationSchema();
 
   const authContext = useContext(AuthContext); 
 
@@ -60,22 +60,22 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       return;
     }
 
-    setInitialValues({ ...FormService.buildSubmitRequest(initFormResponse) }); 
+    setInitialValues({ ...TacLoginFormService.buildSubmitRequest(initFormResponse) }); 
   };
 
-  const handleValidate = async (values: FormService.SubmitRequest) => {
+  const handleValidate = async (values: TacLoginFormService.SubmitRequest) => {
     const errors: FormErrors = {};
     if (!lastApiSubmissionResponse.success) {
-      setHeaderErrors(FormService.getValidationErrors(
+      setHeaderErrors(TacLoginFormService.getValidationErrors(
         "",
         lastApiSubmissionResponse
       ));
       Object.entries(values).forEach(([key, value]) => {
-        const fieldErrors: string = FormService.getValidationErrors(
+        const fieldErrors: string = TacLoginFormService.getValidationErrors(
           key,
           lastApiSubmissionResponse
         ).join(",");
-        const requestKey = key as unknown as keyof FormService.SubmitRequest;
+        const requestKey = key as unknown as keyof TacLoginFormService.SubmitRequest;
         if (fieldErrors.length > 0 && value === lastApiSubmissionRequest[requestKey]) {
           errors[key] = fieldErrors;
         }
@@ -85,23 +85,23 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   };
 
   const submitButtonClick = async (
-    values: FormService.SubmitRequest,
-    actions: FormikHelpers<FormService.SubmitRequest>
+    values: TacLoginFormService.SubmitRequest,
+    actions: FormikHelpers<TacLoginFormService.SubmitRequest>
   ) => {
     try {
       setLoading(true);
       logClick("FormConnectedTacLogin","submit","");
-      const responseFull: FormService.ResponseFull = await FormService.submitForm(values,contextCode);
-      const response: FormService.SubmitResult = responseFull.data;
+      const responseFull: TacLoginFormService.ResponseFull = await TacLoginFormService.submitForm(values,contextCode);
+      const response: TacLoginFormService.SubmitResult = responseFull.data;
       lastApiSubmissionRequest = { ...values };
       lastApiSubmissionResponse = { ...response };
       if (!response.success) {
-        setHeaderErrors(FormService.getValidationErrors("", response));
-        Object.entries(new FormService.SubmitRequestInstance()).forEach(
+        setHeaderErrors(TacLoginFormService.getValidationErrors("", response));
+        Object.entries(new TacLoginFormService.SubmitRequestInstance()).forEach(
           ([key]) =>
             actions.setFieldError(
               key,
-              FormService.getValidationErrors(key, response).join(",")
+              TacLoginFormService.getValidationErrors(key, response).join(",")
             )
         );
         return;
@@ -136,7 +136,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       return;
     }
     isInitializedRef.current = true;
-    FormService.initForm(contextCode)
+    TacLoginFormService.initForm(contextCode)
       .then((response) => handleInit(response))
       .finally(() => {setInitForm(false)});
   }, []);
@@ -164,7 +164,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
               await submitButtonClick(values, actions);
             }}
           >
-            {(props: FormikProps<FormService.SubmitRequest>) => (
+            {(props: FormikProps<TacLoginFormService.SubmitRequest>) => (
               <Form
                 className="m-0  w-100"
                 name={name}

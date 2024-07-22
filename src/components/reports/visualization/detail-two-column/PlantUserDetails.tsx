@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement } from "react";
-import * as ReportService from "../../services/PlantUserDetails";
+import * as PlantUserDetailsReportService from "../../services/PlantUserDetails";
 import { Row } from "react-bootstrap"; // NOSONAR
 import * as ReportColumnDisplay from "./columns"; // NOSONAR
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";
 
 export interface ReportDetailTwoColPlantUserDetailsProps {
     name: string
-    item: ReportService.QueryResultItem
+    item: PlantUserDetailsReportService.QueryResultItem
     onNavigateTo(url: string): void
     onRefreshRequest(): void
 }

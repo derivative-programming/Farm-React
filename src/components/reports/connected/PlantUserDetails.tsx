@@ -2,7 +2,7 @@ import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
 import { Card, Breadcrumb, Container } from "react-bootstrap";
 import { ArrowLeft } from "react-bootstrap-icons";
 import { useNavigate, useParams } from "react-router-dom";
-import * as ReportService from "../services/PlantUserDetails";
+import * as PlantUserDetailsReportService from "../services/PlantUserDetails";
 import * as ReportInput from "../input-fields";
 import * as InitReportService from "../services/init/PlantUserDetailsInitReport"; 
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
@@ -15,9 +15,9 @@ import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-th
 export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
-    const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance()); 
-    const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
-    const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance());
+    const [queryResult, setQueryResult] = useState(new PlantUserDetailsReportService.QueryResultInstance()); 
+    const [query, setQuery] = useState(new PlantUserDetailsReportService.QueryRequestInstance());
+    const [initialValues, setInitialValues] = useState(new PlantUserDetailsReportService.QueryRequestInstance());
     const isInitializedRef = useRef(false);
     const { logClick } = useAnalyticsDB();
     //GENTrainingBlock[visualizationTypeInit]Start
@@ -39,8 +39,8 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
         setInitPageResponse({...response})
     }
 
-    const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
-        const queryResult: ReportService.QueryResult = responseFull.data;
+    const handleQueryResults = (responseFull: PlantUserDetailsReportService.ResponseFull) => {
+        const queryResult: PlantUserDetailsReportService.QueryResult = responseFull.data;
 
         if (!queryResult.success) {
             return;
@@ -62,12 +62,12 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
             return;
         }
         isInitializedRef.current = true;
-        ReportService.initPage(contextCode)
+        PlantUserDetailsReportService.initPage(contextCode)
             .then(response => handleInit(response));
     },[]);
 
     useEffect(() => {
-        const newInitalValues = ReportService.buildQueryRequest(initPageResponse);   
+        const newInitalValues = PlantUserDetailsReportService.buildQueryRequest(initPageResponse);   
         setInitialValues({ ...newInitalValues });
     }, [initPageResponse]); 
     
@@ -80,7 +80,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     useEffect(() => { 
         setIsProcessing(true);
-        ReportService.submitRequest(query, contextCode)
+        PlantUserDetailsReportService.submitRequest(query, contextCode)
             .then(response => handleQueryResults(response))
             .finally(() => {setIsProcessing(false);});
     }, [query]); 
@@ -105,7 +105,7 @@ export const ReportConnectedPlantUserDetails: FC = (): ReactElement => {
 
     //GENTrainingBlock[visualizationTypeFuncs]Start
     //GENLearn[visualizationType=DetailThreeColumn]Start
-    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
+    const displayItem:PlantUserDetailsReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new PlantUserDetailsReportService.QueryResultItemInstance();
     
     //GENLearn[visualizationType=DetailThreeColumn]End
     //GENTrainingBlock[visualizationTypeFuncs]End

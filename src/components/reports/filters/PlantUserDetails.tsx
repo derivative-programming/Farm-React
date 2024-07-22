@@ -7,15 +7,15 @@ import React, {
 import { Button, Form, Accordion, Row, Col, Spinner } from "react-bootstrap";
 
 import { Formik, FormikHelpers, FormikProps } from "formik";
-import * as ReportService from "../services/PlantUserDetails";
+import * as PlantUserDetailsReportService from "../services/PlantUserDetails";
 import * as ReportInput from "../input-fields";  //NOSONAR
 import * as Lookups from "../lookups";  //NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
 
 export interface ReportFilterPlantUserDetailsProps {
   name: string;
-  initialQuery: ReportService.QueryRequest;
-  onSubmit(request: ReportService.QueryRequest): void;
+  initialQuery: PlantUserDetailsReportService.QueryRequest;
+  onSubmit(request: PlantUserDetailsReportService.QueryRequest): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -30,7 +30,7 @@ const ReportFilterPlantUserDetails: FC<ReportFilterPlantUserDetailsProps> = ({
   const [loading, setLoading] = useState(false);
   const { logClick } = useAnalyticsDB();
 
-  const validationSchema = ReportService.buildValidationSchema();
+  const validationSchema = PlantUserDetailsReportService.buildValidationSchema();
 
   const isFiltersVisibleDefault = localStorage.getItem("isFiltersVisible");
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
@@ -38,8 +38,8 @@ const ReportFilterPlantUserDetails: FC<ReportFilterPlantUserDetailsProps> = ({
   const headerErrors: string[] = [];
 
   const submitButtonClick = async (
-    values: ReportService.QueryRequest,
-    actions: FormikHelpers<ReportService.QueryRequest>
+    values: PlantUserDetailsReportService.QueryRequest,
+    actions: FormikHelpers<PlantUserDetailsReportService.QueryRequest>
   ) => {
     try {
       setLoading(true);
@@ -84,7 +84,7 @@ const ReportFilterPlantUserDetails: FC<ReportFilterPlantUserDetailsProps> = ({
                 await submitButtonClick(values, actions);
               }}
             >
-              {(props: FormikProps<ReportService.QueryRequest>) => (
+              {(props: FormikProps<PlantUserDetailsReportService.QueryRequest>) => (
                 <Form
                   name={name}
                   data-testid={name}

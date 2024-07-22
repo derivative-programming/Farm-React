@@ -10,8 +10,8 @@ import React, {
 import { Button, Form, Card, Spinner } from "react-bootstrap";  // NOSONAR
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers, FormikProps } from "formik";
-import * as FormService from "../services/TacRegister";
-import * as FormValidation from "../validation/TacRegister";
+import * as TacRegisterFormService from "../services/TacRegister";
+import * as TacRegisterFormValidation from "../validation/TacRegister";
 import * as InitFormService from "../services/init/TacRegisterInitObjWF";
 import HeaderTacRegister from "../headers/TacRegisterInitObjWF";
 import { AuthContext } from "../../../context/authContext";  // NOSONAR
@@ -37,7 +37,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     new InitFormService.InitResultInstance()
   );
   const [initialValues, setInitialValues] = useState(
-    new FormService.SubmitRequestInstance()
+    new TacRegisterFormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
@@ -45,15 +45,15 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   const [headerErrors, setHeaderErrors] = useState(initHeaderErrors);
   const { logClick } = useAnalyticsDB();
 
-  let lastApiSubmissionRequest = new FormService.SubmitRequestInstance();
-  let lastApiSubmissionResponse = new FormService.SubmitResultInstance();
+  let lastApiSubmissionRequest = new TacRegisterFormService.SubmitRequestInstance();
+  let lastApiSubmissionResponse = new TacRegisterFormService.SubmitResultInstance();
   const isInitializedRef = useRef(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-  const validationSchema = FormValidation.buildValidationSchema();
+  const validationSchema = TacRegisterFormValidation.buildValidationSchema();
 
   const authContext = useContext(AuthContext);  // NOSONAR
 
@@ -68,19 +68,19 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     setInitPageResponse({ ...response });
   };
 
-  const handleValidate = async (values: FormService.SubmitRequest) => {
+  const handleValidate = async (values: TacRegisterFormService.SubmitRequest) => {
     const errors: FormErrors  = {};
     if (!lastApiSubmissionResponse.success) {
-      setHeaderErrors(FormService.getValidationErrors(
+      setHeaderErrors(TacRegisterFormService.getValidationErrors(
         "",
         lastApiSubmissionResponse
       ));
       Object.entries(values).forEach(([key, value]) => {
-        const fieldErrors: string = FormService.getValidationErrors(
+        const fieldErrors: string = TacRegisterFormService.getValidationErrors(
           key,
           lastApiSubmissionResponse
         ).join(",");
-        const requestKey = key as unknown as keyof FormService.SubmitRequest;
+        const requestKey = key as unknown as keyof TacRegisterFormService.SubmitRequest;
         if (fieldErrors.length > 0 && value === lastApiSubmissionRequest[requestKey]) {
           errors[key] = fieldErrors;
         }
@@ -90,24 +90,24 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   };
 
   const submitClick = async (
-    values: FormService.SubmitRequest,
-    actions: FormikHelpers<FormService.SubmitRequest>
+    values: TacRegisterFormService.SubmitRequest,
+    actions: FormikHelpers<TacRegisterFormService.SubmitRequest>
   ) => {
     try {
       setLoading(true);
       logClick("FormConnectedTacRegister","submit","");
-      const responseFull: FormService.ResponseFull = await FormService.submitForm(
+      const responseFull: TacRegisterFormService.ResponseFull = await TacRegisterFormService.submitForm(
         values,
         contextCode
       );
-      const response: FormService.SubmitResult = responseFull.data;
+      const response: TacRegisterFormService.SubmitResult = responseFull.data;
       lastApiSubmissionRequest = { ...values };
       lastApiSubmissionResponse = { ...response };
       if (!response.success) {
-        setHeaderErrors(FormService.getValidationErrors("", response));
-        Object.entries(new FormService.SubmitRequestInstance()).forEach(
+        setHeaderErrors(TacRegisterFormService.getValidationErrors("", response));
+        Object.entries(new TacRegisterFormService.SubmitRequestInstance()).forEach(
           ([key]) => {
-            const fieldErrors: string = FormService.getValidationErrors(
+            const fieldErrors: string = TacRegisterFormService.getValidationErrors(
               key,
               response
             ).join(",");
@@ -143,13 +143,13 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       return;
     }
     isInitializedRef.current = true;
-    FormService.initForm(contextCode)
+    TacRegisterFormService.initForm(contextCode)
       .then((response) => handleInit(response))
       .finally(() => {setInitForm(false)});
   }, []);
 
   useEffect(() => {
-    const newInitalValues = FormService.buildSubmitRequest(initPageResponse);
+    const newInitalValues = TacRegisterFormService.buildSubmitRequest(initPageResponse);
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 
@@ -196,7 +196,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
               await submitClick(values, actions);
             }}
           >
-            {(props: FormikProps<FormService.SubmitRequest>) => (
+            {(props: FormikProps<TacRegisterFormService.SubmitRequest>) => (
               <Form
                 className=""
                 name={name}

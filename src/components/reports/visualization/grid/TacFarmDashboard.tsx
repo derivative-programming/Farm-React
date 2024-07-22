@@ -3,7 +3,7 @@ import React, { FC, ReactElement, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
-import * as ReportService from "../../services/TacFarmDashboard";
+import * as TacFarmDashboardReportService from "../../services/TacFarmDashboard";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services"; // NOSONAR
@@ -16,7 +16,7 @@ export interface ReportGridTacFarmDashboardProps {
   contextCode: string;
   sortedColumnName: string;
   isSortDescending: boolean;
-  items: ReportService.QueryResultItem[];
+  items: TacFarmDashboardReportService.QueryResultItem[];
   onSort(columnName: string): void;
   onExport(): void;
   onNavigateTo(url: string): void;
@@ -74,7 +74,7 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
     if (e.target.checked) {
       logClick("ReportGridTacFarmDashboard","selectAllRows","");
       setCheckedIndexes(
-        items.map((item: ReportService.QueryResultItem, index) =>
+        items.map((item: TacFarmDashboardReportService.QueryResultItem, index) =>
           index.toString()
         )
       );
@@ -83,6 +83,20 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
       setCheckedIndexes(initialCheckedIndexes);
     }
   };
+
+  const tableRowAlternateCases = showProcessing ? (
+    <tr>
+      <td colSpan={100}>
+        <div className="text-center bg-secondary bg-opacity-25">
+          <Spinner animation="border" className="mt-2 mb-2" />
+        </div>
+      </td>
+    </tr>
+  ) : (
+    <tr>
+      <td colSpan={100}></td>
+    </tr>
+  );
 
   return (
     <div data-testid={name} className="w-100 mt-3">
@@ -111,7 +125,7 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
         </thead>
         <tbody>
           {items && !showProcessing && items.length ? (
-            items.map((item: ReportService.QueryResultItem, index) => {
+            items.map((item: TacFarmDashboardReportService.QueryResultItem, index) => {
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
@@ -128,19 +142,7 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
                 </tr>
               );
             })
-          ) : (showProcessing ?
-            <tr>
-              <td colSpan={100}>
-                <div className="text-center  bg-secondary bg-opacity-25">
-                <Spinner animation="border" className="mt-2 mb-2" />
-              </div>
-            </td>
-            </tr>
-            :
-            <tr>
-              <td colSpan={100}></td>
-            </tr>
-          )}
+          ) : (tableRowAlternateCases)}
         </tbody>
       </Table>
 

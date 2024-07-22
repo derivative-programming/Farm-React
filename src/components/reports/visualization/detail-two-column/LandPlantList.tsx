@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactElement } from "react";
-import * as ReportService from "../../services/LandPlantList";
+import * as LandPlantListReportService from "../../services/LandPlantList";
 import { Row } from "react-bootstrap"; // NOSONAR
 import * as ReportColumnDisplay from "./columns"; // NOSONAR
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";
 
 export interface ReportDetailTwoColLandPlantListProps {
     name: string
-    item: ReportService.QueryResultItem
+    item: LandPlantListReportService.QueryResultItem
     onNavigateTo(url: string): void
     onRefreshRequest(): void
 }

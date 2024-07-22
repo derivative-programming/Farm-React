@@ -7,15 +7,15 @@ import React, {
 import { Button, Form, Accordion, Row, Col, Spinner } from "react-bootstrap";
 
 import { Formik, FormikHelpers, FormikProps } from "formik";
-import * as ReportService from "../services/PacUserRoleList";
+import * as PacUserRoleListReportService from "../services/PacUserRoleList";
 import * as ReportInput from "../input-fields";  //NOSONAR
 import * as Lookups from "../lookups";  //NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
 
 export interface ReportFilterPacUserRoleListProps {
   name: string;
-  initialQuery: ReportService.QueryRequest;
-  onSubmit(request: ReportService.QueryRequest): void;
+  initialQuery: PacUserRoleListReportService.QueryRequest;
+  onSubmit(request: PacUserRoleListReportService.QueryRequest): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -30,7 +30,7 @@ const ReportFilterPacUserRoleList: FC<ReportFilterPacUserRoleListProps> = ({
   const [loading, setLoading] = useState(false);
   const { logClick } = useAnalyticsDB();
 
-  const validationSchema = ReportService.buildValidationSchema();
+  const validationSchema = PacUserRoleListReportService.buildValidationSchema();
 
   const isFiltersVisibleDefault = localStorage.getItem("isFiltersVisible");
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
@@ -38,8 +38,8 @@ const ReportFilterPacUserRoleList: FC<ReportFilterPacUserRoleListProps> = ({
   const headerErrors: string[] = [];
 
   const submitButtonClick = async (
-    values: ReportService.QueryRequest,
-    actions: FormikHelpers<ReportService.QueryRequest>
+    values: PacUserRoleListReportService.QueryRequest,
+    actions: FormikHelpers<PacUserRoleListReportService.QueryRequest>
   ) => {
     try {
       setLoading(true);
@@ -84,7 +84,7 @@ const ReportFilterPacUserRoleList: FC<ReportFilterPacUserRoleListProps> = ({
                 await submitButtonClick(values, actions);
               }}
             >
-              {(props: FormikProps<ReportService.QueryRequest>) => (
+              {(props: FormikProps<PacUserRoleListReportService.QueryRequest>) => (
                 <Form
                   name={name}
                   data-testid={name}

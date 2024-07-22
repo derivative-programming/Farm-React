@@ -10,8 +10,8 @@ import React, {
 import { Button, Form, Card, Spinner } from "react-bootstrap";  // NOSONAR
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers, FormikProps } from "formik";
-import * as FormService from "../services/LandAddPlant";
-import * as FormValidation from "../validation/LandAddPlant";
+import * as LandAddPlantFormService from "../services/LandAddPlant";
+import * as LandAddPlantFormValidation from "../validation/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 import HeaderLandAddPlant from "../headers/LandAddPlantInitObjWF";
 import { AuthContext } from "../../../context/authContext";  // NOSONAR
@@ -37,7 +37,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     new InitFormService.InitResultInstance()
   );
   const [initialValues, setInitialValues] = useState(
-    new FormService.SubmitRequestInstance()
+    new LandAddPlantFormService.SubmitRequestInstance()
   );
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
@@ -45,15 +45,15 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const [headerErrors, setHeaderErrors] = useState(initHeaderErrors);
   const { logClick } = useAnalyticsDB();
 
-  let lastApiSubmissionRequest = new FormService.SubmitRequestInstance();
-  let lastApiSubmissionResponse = new FormService.SubmitResultInstance(); 
+  let lastApiSubmissionRequest = new LandAddPlantFormService.SubmitRequestInstance();
+  let lastApiSubmissionResponse = new LandAddPlantFormService.SubmitResultInstance(); 
   const isInitializedRef = useRef(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
 
-  const validationSchema = FormValidation.buildValidationSchema();
+  const validationSchema = LandAddPlantFormValidation.buildValidationSchema();
 
   const authContext = useContext(AuthContext);  // NOSONAR
 
@@ -68,19 +68,19 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     setInitPageResponse({ ...response }); 
   };
 
-  const handleValidate = async (values: FormService.SubmitRequest) => {
+  const handleValidate = async (values: LandAddPlantFormService.SubmitRequest) => {
     const errors: FormErrors  = {};
     if (!lastApiSubmissionResponse.success) {
-      setHeaderErrors(FormService.getValidationErrors(
+      setHeaderErrors(LandAddPlantFormService.getValidationErrors(
         "",
         lastApiSubmissionResponse
       ));
       Object.entries(values).forEach(([key, value]) => {
-        const fieldErrors: string = FormService.getValidationErrors(
+        const fieldErrors: string = LandAddPlantFormService.getValidationErrors(
           key,
           lastApiSubmissionResponse
         ).join(",");
-        const requestKey = key as unknown as keyof FormService.SubmitRequest;
+        const requestKey = key as unknown as keyof LandAddPlantFormService.SubmitRequest;
         if (fieldErrors.length > 0 && value === lastApiSubmissionRequest[requestKey]) {
           errors[key] = fieldErrors;
         }
@@ -90,24 +90,24 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   };
 
   const submitClick = async (
-    values: FormService.SubmitRequest,
-    actions: FormikHelpers<FormService.SubmitRequest>
+    values: LandAddPlantFormService.SubmitRequest,
+    actions: FormikHelpers<LandAddPlantFormService.SubmitRequest>
   ) => {
     try {
       setLoading(true);
       logClick("FormConnectedLandAddPlant","submit","");
-      const responseFull: FormService.ResponseFull = await FormService.submitForm(
+      const responseFull: LandAddPlantFormService.ResponseFull = await LandAddPlantFormService.submitForm(
         values,
         contextCode
       );
-      const response: FormService.SubmitResult = responseFull.data;
+      const response: LandAddPlantFormService.SubmitResult = responseFull.data;
       lastApiSubmissionRequest = { ...values };
       lastApiSubmissionResponse = { ...response };
       if (!response.success) {
-        setHeaderErrors(FormService.getValidationErrors("", response));
-        Object.entries(new FormService.SubmitRequestInstance()).forEach(
+        setHeaderErrors(LandAddPlantFormService.getValidationErrors("", response));
+        Object.entries(new LandAddPlantFormService.SubmitRequestInstance()).forEach(
           ([key]) => {
-            const fieldErrors: string = FormService.getValidationErrors(
+            const fieldErrors: string = LandAddPlantFormService.getValidationErrors(
               key,
               response
             ).join(",");
@@ -140,13 +140,13 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       return;
     }
     isInitializedRef.current = true;
-    FormService.initForm(contextCode)
+    LandAddPlantFormService.initForm(contextCode)
       .then((response) => handleInit(response)) 
       .finally(() => {setInitForm(false)});
   }, []);
 
   useEffect(() => {
-    const newInitalValues = FormService.buildSubmitRequest(initPageResponse);
+    const newInitalValues = LandAddPlantFormService.buildSubmitRequest(initPageResponse);
     setInitialValues({ ...newInitalValues });
   }, [initPageResponse]);
 
@@ -193,7 +193,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
               await submitClick(values, actions);
             }}
           >
-            {(props: FormikProps<FormService.SubmitRequest>) => (
+            {(props: FormikProps<LandAddPlantFormService.SubmitRequest>) => (
               <Form
                 className=""
                 name={name}

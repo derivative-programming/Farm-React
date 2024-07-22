@@ -2,7 +2,7 @@ import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
 import { Card } from "react-bootstrap";
 import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import * as ReportService from "../services/TacFarmDashboard";
+import * as TacFarmDashboardReportService from "../services/TacFarmDashboard";
 import * as InitReportService from "../services/init/TacFarmDashboardInitReport";
 //GENTrainingBlock[visualizationTypeImports]Start
 //GENLearn[visualizationType=DetailTwoColumn]Start
@@ -12,9 +12,9 @@ import { ReportDetailTwoColTacFarmDashboard } from "../visualization/detail-two-
 
 export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
-    const [queryResult, setQueryResult] = useState(new ReportService.QueryResultInstance()); 
-    const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
-    const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance());
+    const [queryResult, setQueryResult] = useState(new TacFarmDashboardReportService.QueryResultInstance()); 
+    const [query, setQuery] = useState(new TacFarmDashboardReportService.QueryRequestInstance());
+    const [initialValues, setInitialValues] = useState(new TacFarmDashboardReportService.QueryRequestInstance());
     const isInitializedRef = useRef(false);
     //GENTrainingBlock[visualizationTypeInit]Start
     //GENLearn[visualizationType=DetailTwoColumn]Start
@@ -35,8 +35,8 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
         setInitPageResponse({...response})
     }
 
-    const handleQueryResults = (responseFull: ReportService.ResponseFull) => {
-        const queryResult: ReportService.QueryResult = responseFull.data;
+    const handleQueryResults = (responseFull: TacFarmDashboardReportService.ResponseFull) => {
+        const queryResult: TacFarmDashboardReportService.QueryResult = responseFull.data;
 
         if (!queryResult.success) {
             return;
@@ -58,12 +58,12 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
             return;
         }
         isInitializedRef.current = true;
-        ReportService.initPage(contextCode)
+        TacFarmDashboardReportService.initPage(contextCode)
             .then(response => handleInit(response));
     },[]);
 
     useEffect(() => {
-        const newInitalValues = ReportService.buildQueryRequest(initPageResponse);   
+        const newInitalValues = TacFarmDashboardReportService.buildQueryRequest(initPageResponse);   
         setInitialValues({ ...newInitalValues });
     }, [initPageResponse]); 
     
@@ -75,13 +75,13 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     }, [initialValues]); 
 
     useEffect(() => { 
-        ReportService.submitRequest(query, contextCode)
+        TacFarmDashboardReportService.submitRequest(query, contextCode)
             .then(response => handleQueryResults(response));
     }, [query]); 
 
     //GENTrainingBlock[visualizationTypeFuncs]Start
     //GENLearn[visualizationType=DetailTwoColumn]Start
-    const displayItem:ReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new ReportService.QueryResultItemInstance();
+    const displayItem:TacFarmDashboardReportService.QueryResultItem = queryResult.items.length > 0 ?  queryResult.items[0] : new TacFarmDashboardReportService.QueryResultItemInstance();
     //GENLearn[visualizationType=DetailTwoColumn]End
     //GENTrainingBlock[visualizationTypeFuncs]End
 
