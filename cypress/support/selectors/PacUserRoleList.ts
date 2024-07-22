@@ -15,6 +15,7 @@ export const PacUserRoleListPageSelectors = {
     roleLookupEnumNameHeaderSortUpIndicator: "[data-testid='roleLookupEnumName-header-sortUp']",
     roleNameHeaderSortUpIndicator: "[data-testid='roleName-header-sortUp']",
     pacNameHeaderSortUpIndicator: "[data-testid='pacName-header-sortUp']",
+
     title: "[data-testid='page-title-text']",
     introText: "[data-testid='page-intro-text']",
 

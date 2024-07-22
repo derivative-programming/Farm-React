@@ -10,16 +10,15 @@ import { Button, Card, Breadcrumb } from "react-bootstrap";
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import ReportFilterPacUserLandList from "../filters/PacUserLandList";
-import { ReportGridPacUserLandList } from "../visualization/grid/PacUserLandList"; // NOSONAR
-import { ReportDetailThreeColPacUserLandList } from "../visualization/detail-three-column/PacUserLandList"; // NOSONAR
-import { ReportDetailTwoColPacUserLandList } from "../visualization/detail-two-column/PacUserLandList"; // NOSONAR
 import * as ReportService from "../services/PacUserLandList";
 import * as InitReportService from "../services/init/PacUserLandListInitReport";
 import HeaderPacUserLandList from "../headers/PacUserLandListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
 import { PlusCircle, ArrowLeft } from "react-bootstrap-icons"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
+
+import ReportFilterPacUserLandList from "../filters/PacUserLandList";
+import { ReportGridPacUserLandList } from "../visualization/grid/PacUserLandList";
 import { v4 as uuidv4 } from "uuid";
 
 export const ReportConnectedPacUserLandList: FC = (): ReactElement => {

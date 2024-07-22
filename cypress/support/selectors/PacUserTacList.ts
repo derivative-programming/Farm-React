@@ -15,6 +15,7 @@ export const PacUserTacListPageSelectors = {
     tacLookupEnumNameHeaderSortUpIndicator: "[data-testid='tacLookupEnumName-header-sortUp']",
     tacNameHeaderSortUpIndicator: "[data-testid='tacName-header-sortUp']",
     pacNameHeaderSortUpIndicator: "[data-testid='pacName-header-sortUp']",
+
     title: "[data-testid='page-title-text']",
     introText: "[data-testid='page-intro-text']",
 

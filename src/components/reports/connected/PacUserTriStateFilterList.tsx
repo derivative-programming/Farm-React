@@ -10,16 +10,15 @@ import { Button, Card, Breadcrumb } from "react-bootstrap";
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import ReportFilterPacUserTriStateFilterList from "../filters/PacUserTriStateFilterList";
-import { ReportGridPacUserTriStateFilterList } from "../visualization/grid/PacUserTriStateFilterList"; // NOSONAR
-import { ReportDetailThreeColPacUserTriStateFilterList } from "../visualization/detail-three-column/PacUserTriStateFilterList"; // NOSONAR
-import { ReportDetailTwoColPacUserTriStateFilterList } from "../visualization/detail-two-column/PacUserTriStateFilterList"; // NOSONAR
 import * as ReportService from "../services/PacUserTriStateFilterList";
 import * as InitReportService from "../services/init/PacUserTriStateFilterListInitReport";
 import HeaderPacUserTriStateFilterList from "../headers/PacUserTriStateFilterListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
 import { PlusCircle, ArrowLeft } from "react-bootstrap-icons"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
+
+import ReportFilterPacUserTriStateFilterList from "../filters/PacUserTriStateFilterList";
+import { ReportGridPacUserTriStateFilterList } from "../visualization/grid/PacUserTriStateFilterList";
 import { v4 as uuidv4 } from "uuid";
 
 export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => {

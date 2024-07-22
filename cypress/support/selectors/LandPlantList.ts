@@ -79,13 +79,13 @@ export const LandPlantListPageSelectors = {
     deleteAsyncButtonLinkPlantCodeHeaderSortUpIndicator: "[data-testid='deleteAsyncButtonLinkPlantCode-header-sortUp']",
     detailsLinkPlantCodeHeaderSortUpIndicator: "[data-testid='detailsLinkPlantCode-header-sortUp']",
  
-        otherAddButton: "[data-testid='otherAddButton']",
+    otherAddButton: "[data-testid='otherAddButton']",
 
     title: "[data-testid='page-title-text']", 
     introText: "[data-testid='page-intro-text']",
      
  
-        addButton: "[data-testid='add-button']",
+    addButton: "[data-testid='add-button']",
     
     //breadcrumb
     tacFarmDashboardBreadcrumbText: "[data-testid='tacFarmDashboardBreadcrumb']",

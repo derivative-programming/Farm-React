@@ -4,7 +4,6 @@ export const TacFarmDashboardPageSelectors = {
     fieldOnePlantListLinkLandCodeHeaderSortDownIndicator: "[data-testid='fieldOnePlantListLinkLandCode-header-sortDown']",
     fieldOnePlantListLinkLandCodeHeaderSortUpIndicator: "[data-testid='fieldOnePlantListLinkLandCode-header-sortUp']",
 
-        otherAddButton: "[data-testid='otherAddButton']",
     title: "[data-testid='page-title-text']",
     introText: "[data-testid='page-intro-text']",
     fieldOnePlantListLinkLandCodeRowButton: "[data-testid='fieldOnePlantListLinkLandCode-column-0-button']",

@@ -4,7 +4,11 @@ import "../../../App.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import * as ReportService from "../services/TacFarmDashboard";
 import * as InitReportService from "../services/init/TacFarmDashboardInitReport";
+//GENTrainingBlock[visualizationTypeImports]Start
+//GENLearn[visualizationType=DetailTwoColumn]Start
 import { ReportDetailTwoColTacFarmDashboard } from "../visualization/detail-two-column/TacFarmDashboard";
+//GENLearn[visualizationType=DetailTwoColumn]End
+//GENTrainingBlock[visualizationTypeImports]End
 
 export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
@@ -12,6 +16,10 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
     const [initialValues, setInitialValues] = useState(new ReportService.QueryRequestInstance());
     const isInitializedRef = useRef(false);
+    //GENTrainingBlock[visualizationTypeInit]Start
+    //GENLearn[visualizationType=DetailTwoColumn]Start
+    //GENLearn[visualizationType=DetailTwoColumn]End
+    //GENTrainingBlock[visualizationTypeInit]End
 
     const navigate = useNavigate();
     const { id } = useParams();

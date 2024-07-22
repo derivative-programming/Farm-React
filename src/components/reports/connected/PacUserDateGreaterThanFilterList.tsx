@@ -10,16 +10,15 @@ import { Button, Card, Breadcrumb } from "react-bootstrap";
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import ReportFilterPacUserDateGreaterThanFilterList from "../filters/PacUserDateGreaterThanFilterList";
-import { ReportGridPacUserDateGreaterThanFilterList } from "../visualization/grid/PacUserDateGreaterThanFilterList"; // NOSONAR
-import { ReportDetailThreeColPacUserDateGreaterThanFilterList } from "../visualization/detail-three-column/PacUserDateGreaterThanFilterList"; // NOSONAR
-import { ReportDetailTwoColPacUserDateGreaterThanFilterList } from "../visualization/detail-two-column/PacUserDateGreaterThanFilterList"; // NOSONAR
 import * as ReportService from "../services/PacUserDateGreaterThanFilterList";
 import * as InitReportService from "../services/init/PacUserDateGreaterThanFilterListInitReport";
 import HeaderPacUserDateGreaterThanFilterList from "../headers/PacUserDateGreaterThanFilterListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
 import { PlusCircle, ArrowLeft } from "react-bootstrap-icons"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB";
+
+import ReportFilterPacUserDateGreaterThanFilterList from "../filters/PacUserDateGreaterThanFilterList";
+import { ReportGridPacUserDateGreaterThanFilterList } from "../visualization/grid/PacUserDateGreaterThanFilterList";
 import { v4 as uuidv4 } from "uuid";
 
 export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElement => {

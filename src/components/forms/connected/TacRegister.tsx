@@ -7,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Button, Form, Card, Spinner } from "react-bootstrap";
+import { Button, Form, Card, Spinner } from "react-bootstrap";  // NOSONAR
 import { useNavigate, useParams } from "react-router-dom";
 import { Formik, FormikHelpers, FormikProps } from "formik";
 import * as FormService from "../services/TacRegister";

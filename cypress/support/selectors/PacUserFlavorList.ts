@@ -15,6 +15,7 @@ export const PacUserFlavorListPageSelectors = {
     flavorLookupEnumNameHeaderSortUpIndicator: "[data-testid='flavorLookupEnumName-header-sortUp']",
     flavorNameHeaderSortUpIndicator: "[data-testid='flavorName-header-sortUp']",
     pacNameHeaderSortUpIndicator: "[data-testid='pacName-header-sortUp']",
+
     title: "[data-testid='page-title-text']",
     introText: "[data-testid='page-intro-text']",
 

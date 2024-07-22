@@ -6,21 +6,23 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { Button, Card, Breadcrumb } from "react-bootstrap";
+import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
-import ReportFilterLandPlantList from "../filters/LandPlantList";
-import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList"; // NOSONAR
-import { ReportDetailThreeColLandPlantList } from "../visualization/detail-three-column/LandPlantList"; // NOSONAR
-import { ReportDetailTwoColLandPlantList } from "../visualization/detail-two-column/LandPlantList"; // NOSONAR
 import * as ReportService from "../services/LandPlantList";
 import * as InitReportService from "../services/init/LandPlantListInitReport";
 import HeaderLandPlantList from "../headers/LandPlantListInitReport";
 import * as ReportInput from "../input-fields"; // NOSONAR
 import { PlusCircle, ArrowLeft } from "react-bootstrap-icons"; // NOSONAR
 import useAnalyticsDB from "../../../hooks/useAnalyticsDB"; 
+//GENTrainingBlock[visualizationTypeImports]Start
+//GENLearn[visualizationType=Grid]Start
+import ReportFilterLandPlantList from "../filters/LandPlantList";
+import { ReportGridLandPlantList } from "../visualization/grid/LandPlantList";
 import { v4 as uuidv4 } from "uuid";
+//GENLearn[visualizationType=Grid]End
+//GENTrainingBlock[visualizationTypeImports]End
 
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -31,16 +33,21 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     new ReportService.QueryResultInstance()
   );
   const [query, setQuery] = useState(new ReportService.QueryRequestInstance());
-  const [exportQuery, setExportQuery] = useState(new ReportService.QueryRequestInstance());
   const [initialValues, setInitialValues] = useState(
     new ReportService.QueryRequestInstance()
   );
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
+  //GENTrainingBlock[visualizationTypeInit]Start
+  //GENLearn[visualizationType=Grid]Start
+    const [exportQuery, setExportQuery] = useState(new ReportService.QueryRequestInstance());
+  //GENLearn[visualizationType=Grid]End
+  //GENTrainingBlock[visualizationTypeInit]End
 
   const navigate = useNavigate();
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
+  
 
   const handleInit = (responseFull: InitReportService.ResponseFull) => {
     const response: InitReportService.InitResult = responseFull.data;

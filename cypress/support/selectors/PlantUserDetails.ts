@@ -64,7 +64,6 @@ export const PlantUserDetailsPageSelectors = {
     randomPropertyUpdatesLinkPlantCodeHeaderSortUpIndicator: "[data-testid='randomPropertyUpdatesLinkPlantCode-header-sortUp']",
     backToDashboardLinkTacCodeHeaderSortUpIndicator: "[data-testid='backToDashboardLinkTacCode-header-sortUp']",
 
-        otherAddButton: "[data-testid='otherAddButton']",
     title: "[data-testid='page-title-text']",
     introText: "[data-testid='page-intro-text']",
     //breadcrumb

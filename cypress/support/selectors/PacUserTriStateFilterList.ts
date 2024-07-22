@@ -15,6 +15,7 @@ export const PacUserTriStateFilterListPageSelectors = {
     triStateFilterLookupEnumNameHeaderSortUpIndicator: "[data-testid='triStateFilterLookupEnumName-header-sortUp']",
     triStateFilterNameHeaderSortUpIndicator: "[data-testid='triStateFilterName-header-sortUp']",
     triStateFilterStateIntValueHeaderSortUpIndicator: "[data-testid='triStateFilterStateIntValue-header-sortUp']",
+
     title: "[data-testid='page-title-text']",
     introText: "[data-testid='page-intro-text']",
 

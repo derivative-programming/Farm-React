@@ -15,6 +15,7 @@ export const PacUserLandListPageSelectors = {
     landLookupEnumNameHeaderSortUpIndicator: "[data-testid='landLookupEnumName-header-sortUp']",
     landNameHeaderSortUpIndicator: "[data-testid='landName-header-sortUp']",
     pacNameHeaderSortUpIndicator: "[data-testid='pacName-header-sortUp']",
+
     title: "[data-testid='page-title-text']",
     introText: "[data-testid='page-intro-text']",
 
