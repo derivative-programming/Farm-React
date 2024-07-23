@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
 import * as PacUserFlavorListReportService from "../../services/PacUserFlavorList";
+import { QueryResultItem } from "../../services/PacUserFlavorList";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services"; // NOSONAR
@@ -52,6 +53,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
   const { logClick } = useAnalyticsDB();  // NOSONAR
+  const componentName = "ReportGridPacUserFlavorList";
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -72,14 +74,14 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
 
   const onSelectAllRows = (e: React.ChangeEvent<HTMLInputElement>) => {  //NOSONAR
     if (e.target.checked) {
-      logClick("ReportGridPacUserFlavorList","selectAllRows","");
+      logClick(componentName,"selectAllRows","");
       setCheckedIndexes(
         items.map((item: PacUserFlavorListReportService.QueryResultItem, index) =>
           index.toString()
         )
       );
     } else {
-      logClick("ReportGridPacUserFlavorList","uncheckSelectAllRows","");
+      logClick(componentName,"uncheckSelectAllRows","");
       setCheckedIndexes(initialCheckedIndexes);
     }
   };

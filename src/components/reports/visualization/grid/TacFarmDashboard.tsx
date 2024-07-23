@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
 import * as TacFarmDashboardReportService from "../../services/TacFarmDashboard";
+import { QueryResultItem } from "../../services/TacFarmDashboard";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services"; // NOSONAR
@@ -52,6 +53,7 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
   const { logClick } = useAnalyticsDB();  // NOSONAR
+  const componentName = "ReportGridTacFarmDashboard";
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -72,14 +74,14 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
 
   const onSelectAllRows = (e: React.ChangeEvent<HTMLInputElement>) => {  //NOSONAR
     if (e.target.checked) {
-      logClick("ReportGridTacFarmDashboard","selectAllRows","");
+      logClick(componentName,"selectAllRows","");
       setCheckedIndexes(
         items.map((item: TacFarmDashboardReportService.QueryResultItem, index) =>
           index.toString()
         )
       );
     } else {
-      logClick("ReportGridTacFarmDashboard","uncheckSelectAllRows","");
+      logClick(componentName,"uncheckSelectAllRows","");
       setCheckedIndexes(initialCheckedIndexes);
     }
   };
@@ -134,7 +136,7 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
                     buttonText="Field One-Plants"
                     isButtonCallToAction={false}
                     onClick={() => {
-                      logClick("ReportGridTacLandList","fieldOnePlantListLinkLandCode","");
+                      logClick(componentName,"fieldOnePlantListLinkLandCode","");
                       onNavigateTo("/land-plant-list/" + item.fieldOnePlantListLinkLandCode)
                     }}
                     isVisible={true}

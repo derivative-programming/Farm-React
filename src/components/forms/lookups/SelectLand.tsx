@@ -22,7 +22,7 @@ export const FormSelectLand: FC<FormSelectLandProps> = ({
     const [lands, setLands] = useState<FormInputSelectOption[]>([])
 
     const initList = (response:PacUserLandListService.ResponseFull) => {
-
+        // get default values in form select dropdown
         if(response &&
             response.data &&
             response.data.items )

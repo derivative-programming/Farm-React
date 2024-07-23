@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
 import * as PlantUserDetailsReportService from "../../services/PlantUserDetails";
+import { QueryResultItem } from "../../services/PlantUserDetails";
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services"; // NOSONAR
@@ -52,6 +53,7 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
   const { logClick } = useAnalyticsDB();  // NOSONAR
+  const componentName = "ReportGridPlantUserDetails";
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -72,14 +74,14 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
 
   const onSelectAllRows = (e: React.ChangeEvent<HTMLInputElement>) => {  //NOSONAR
     if (e.target.checked) {
-      logClick("ReportGridPlantUserDetails","selectAllRows","");
+      logClick(componentName,"selectAllRows","");
       setCheckedIndexes(
         items.map((item: PlantUserDetailsReportService.QueryResultItem, index) =>
           index.toString()
         )
       );
     } else {
-      logClick("ReportGridPlantUserDetails","uncheckSelectAllRows","");
+      logClick(componentName,"uncheckSelectAllRows","");
       setCheckedIndexes(initialCheckedIndexes);
     }
   };
@@ -365,7 +367,7 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
                     buttonText="Update Button Text"
                     isButtonCallToAction={true}
                     onClick={() => {
-                      logClick("ReportGridPlantPlantList","updateButtonTextLinkPlantCode","");
+                      logClick(componentName,"updateButtonTextLinkPlantCode","");
                       onNavigateTo("/plant-user-details/" + item.updateButtonTextLinkPlantCode)
                     }}
                     isVisible={false}
@@ -377,7 +379,7 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
                     isVisible={true}
                     onClick={() =>
                       {
-                        logClick("ReportGridPlantPlantList","randomPropertyUpdatesLinkPlantCode","");
+                        logClick(componentName,"randomPropertyUpdatesLinkPlantCode","");
                         const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
                         AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.randomPropertyUpdatesLinkPlantCode).then(() =>
                         onRefreshRequest()
@@ -389,7 +391,7 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
                     buttonText="Back To Dashboard"
                     isButtonCallToAction={false}
                     onClick={() => {
-                      logClick("ReportGridPlantTacList","backToDashboardLinkTacCode","");
+                      logClick(componentName,"backToDashboardLinkTacCode","");
                       onNavigateTo("/tac-farm-dashboard/" + item.backToDashboardLinkTacCode)
                     }}
                     isVisible={true}

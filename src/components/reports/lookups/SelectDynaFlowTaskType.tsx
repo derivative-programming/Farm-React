@@ -20,7 +20,7 @@ export interface ReportSelectDynaFlowTaskTypeProps {
     const [dynaFlowTaskTypes, setDynaFlowTaskTypes] = useState<ReportInputSelectOption[]>([])
 
     const initList = (response:PacUserDynaFlowTaskTypeListService.ResponseFull) => {
-
+        // get default values in report select dropdown
         if(response &&
             response.data &&
             response.data.items )

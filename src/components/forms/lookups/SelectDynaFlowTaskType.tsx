@@ -22,7 +22,7 @@ export const FormSelectDynaFlowTaskType: FC<FormSelectDynaFlowTaskTypeProps> = (
     const [dynaFlowTaskTypes, setDynaFlowTaskTypes] = useState<FormInputSelectOption[]>([])
 
     const initList = (response:PacUserDynaFlowTaskTypeListService.ResponseFull) => {
-
+        // get default values in form select dropdown
         if(response &&
             response.data &&
             response.data.items )

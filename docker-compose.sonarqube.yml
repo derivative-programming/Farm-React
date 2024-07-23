@@ -29,7 +29,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.sonarscanner.app
-    container_name: sonarscanner
+    container_name: demo-app-react-ui-sonarscanner
     depends_on:
       - demo-app-react-ui-sonarqube
     environment:

@@ -20,7 +20,7 @@ export interface ReportSelectTriStateFilterProps {
     const [triStateFilters, setTriStateFilters] = useState<ReportInputSelectOption[]>([])
 
     const initList = (response:PacUserTriStateFilterListService.ResponseFull) => {
-
+        // get default values in report select dropdown
         if(response &&
             response.data &&
             response.data.items )

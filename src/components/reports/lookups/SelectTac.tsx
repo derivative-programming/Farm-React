@@ -20,7 +20,7 @@ export interface ReportSelectTacProps {
     const [tacs, setTacs] = useState<ReportInputSelectOption[]>([])
 
     const initList = (response:PacUserTacListService.ResponseFull) => {
-
+        // get default values in report select dropdown
         if(response &&
             response.data &&
             response.data.items )

@@ -20,7 +20,7 @@ export interface ReportSelectPacProps {
     const [pacs, setPacs] = useState<ReportInputSelectOption[]>([])
 
     const initList = (response:PacUserPacListService.ResponseFull) => {
-
+        // get default values in report select dropdown
         if(response &&
             response.data &&
             response.data.items )

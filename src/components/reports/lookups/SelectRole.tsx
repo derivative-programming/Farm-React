@@ -20,7 +20,7 @@ export interface ReportSelectRoleProps {
     const [roles, setRoles] = useState<ReportInputSelectOption[]>([])
 
     const initList = (response:PacUserRoleListService.ResponseFull) => {
-
+        // get default values in report select dropdown
         if(response &&
             response.data &&
             response.data.items )

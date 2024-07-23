@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
 import * as LandPlantListReportService from "../../services/LandPlantList";
+import { QueryResultItem } from "../../services/LandPlantList"; // NOSONAR
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services"; // NOSONAR
@@ -52,6 +53,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
   const { logClick } = useAnalyticsDB();  // NOSONAR
+  const componentName = "ReportGridLandPlantList";
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -72,22 +74,22 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
   const onSelectAllRows = (e: React.ChangeEvent<HTMLInputElement>) => {  //NOSONAR
     if (e.target.checked) {
-      logClick("ReportGridLandPlantList","selectAllRows","");
+      logClick(componentName,"selectAllRows","");
       setCheckedIndexes(
         items.map((item: LandPlantListReportService.QueryResultItem, index) =>
           index.toString()
         )
       );
     } else {
-      logClick("ReportGridLandPlantList","uncheckSelectAllRows","");
+      logClick(componentName,"uncheckSelectAllRows","");
       setCheckedIndexes(initialCheckedIndexes);
     }
   };  
 
   const onMultSelectButtonToEditableClick = () => {  //NOSONAR
-    logClick("ReportGridLandPlantList","multSelectButtonToEditable","");
+    logClick(componentName,"multSelectButtonToEditable","");
     const selectedCodes = items.map(
-      (item: LandPlantListReportService.QueryResultItem, index) => {
+      (item: QueryResultItem, index) => {
         if (checkedIndexes.includes(index.toString())) {
           return item.plantCode;
         }
@@ -105,9 +107,9 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   };
 
   const onMultSelectButtonToNotEditableClick = () => {
-    logClick("ReportGridLandPlantList","multSelectButtonToNotEditable","");
+    logClick(componentName,"multSelectButtonToNotEditable","");
     const selectedCodes = items.map(
-      (item: LandPlantListReportService.QueryResultItem, index) => {
+      (item: QueryResultItem, index) => {
         if (checkedIndexes.includes(index.toString())) {
           return item.plantCode;
         }
@@ -479,7 +481,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Update"
                     isButtonCallToAction={false}
                     onClick={() => {
-                      logClick("ReportGridLandPlantList","updateLinkPlantCode","");
+                      logClick(componentName,"updateLinkPlantCode","");
                       onNavigateTo("/plant-user-details/" + item.updateLinkPlantCode)
                     }}
                     isVisible={false}
@@ -492,7 +494,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     onClick={() =>
                       {
-                        logClick("ReportGridLandPlantList","deleteAsyncButtonLinkPlantCode","");
+                        logClick(componentName,"deleteAsyncButtonLinkPlantCode","");
                         const data: AsyncServices.PlantUserDeleteRequest = {};
                         AsyncServices.PlantUserDeleteSubmitRequest(data, item.deleteAsyncButtonLinkPlantCode).then(() =>
                         onRefreshRequest()
@@ -506,7 +508,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isButtonCallToAction={true}
                     isVisible={true}
                     onClick={() => {
-                      logClick("ReportGridLandPlantList","detailsLinkPlantCode","");
+                      logClick(componentName,"detailsLinkPlantCode","");
                       onNavigateTo("/plant-user-details/" + item.detailsLinkPlantCode);
                     }}
                   />

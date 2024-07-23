@@ -20,7 +20,7 @@ export interface ReportSelectFlavorProps {
     const [flavors, setFlavors] = useState<ReportInputSelectOption[]>([])
 
     const initList = (response:PacUserFlavorListService.ResponseFull) => {
-
+        // get default values in report select dropdown
         if(response &&
             response.data &&
             response.data.items )

@@ -22,7 +22,7 @@ export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
     const [flavors, setFlavors] = useState<FormInputSelectOption[]>([])
 
     const initList = (response:PacUserFlavorListService.ResponseFull) => {
-
+        // get default values in form select dropdown
         if(response &&
             response.data &&
             response.data.items )

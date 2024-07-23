@@ -22,7 +22,7 @@ export const FormSelectTac: FC<FormSelectTacProps> = ({
     const [tacs, setTacs] = useState<FormInputSelectOption[]>([])
 
     const initList = (response:PacUserTacListService.ResponseFull) => {
-
+        // get default values in form select dropdown
         if(response &&
             response.data &&
             response.data.items )

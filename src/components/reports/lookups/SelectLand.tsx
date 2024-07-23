@@ -20,7 +20,7 @@ export interface ReportSelectLandProps {
     const [lands, setLands] = useState<ReportInputSelectOption[]>([])
 
     const initList = (response:PacUserLandListService.ResponseFull) => {
-
+        // get default values in report select dropdown
         if(response &&
             response.data &&
             response.data.items )

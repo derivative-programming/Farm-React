@@ -20,7 +20,7 @@ export interface ReportSelectDateGreaterThanFilterProps {
     const [dateGreaterThanFilters, setDateGreaterThanFilters] = useState<ReportInputSelectOption[]>([])
 
     const initList = (response:PacUserDateGreaterThanFilterListService.ResponseFull) => {  
-
+        // get default values in report select dropdown
         if(response && 
             response.data &&
             response.data.items )

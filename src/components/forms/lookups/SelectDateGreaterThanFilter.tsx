@@ -22,7 +22,7 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
     const [dateGreaterThanFilters, setDateGreaterThanFilters] = useState<FormInputSelectOption[]>([])
 
     const initList = (response:PacUserDateGreaterThanFilterListService.ResponseFull) => {  
-
+        // get default values in form select dropdown
         if(response && 
             response.data &&
             response.data.items )
