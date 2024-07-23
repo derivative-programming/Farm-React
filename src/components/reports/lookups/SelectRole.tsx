@@ -28,11 +28,13 @@ export interface ReportSelectRoleProps {
             const data:PacUserRoleListService.QueryResult = response.data;
             const roles = data.items.map(({ roleCode, roleName }) => ({ label: roleName, value:roleCode }));
 
+            //store the list of roles for the report component
             setRoles(roles);
         }
     }
 
     useEffect(() => {
+        // on init of report component, get the list of roles
         PacUserRoleListService.submitRequest()
         .then((response) => initList(response));
     },[]);

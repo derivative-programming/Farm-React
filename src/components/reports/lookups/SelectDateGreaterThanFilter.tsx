@@ -28,11 +28,13 @@ export interface ReportSelectDateGreaterThanFilterProps {
             const data:PacUserDateGreaterThanFilterListService.QueryResult = response.data; 
             const dateGreaterThanFilters = data.items.map(({ dateGreaterThanFilterCode, dateGreaterThanFilterName }) => ({ label: dateGreaterThanFilterName, value:dateGreaterThanFilterCode }));
 
+            //store the list of dateGreaterThanFilters for the report component
             setDateGreaterThanFilters(dateGreaterThanFilters); 
         } 
     } 
 
     useEffect(() => {
+        // on init of report component, get the list of dateGreaterThanFilters
         PacUserDateGreaterThanFilterListService.submitRequest()
         .then((response) => initList(response));
     },[]); 

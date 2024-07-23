@@ -28,11 +28,13 @@ export interface ReportSelectTacProps {
             const data:PacUserTacListService.QueryResult = response.data;
             const tacs = data.items.map(({ tacCode, tacName }) => ({ label: tacName, value:tacCode }));
 
+            //store the list of tacs for the report component
             setTacs(tacs);
         }
     }
 
     useEffect(() => {
+        // on init of report component, get the list of tacs
         PacUserTacListService.submitRequest()
         .then((response) => initList(response));
     },[]);

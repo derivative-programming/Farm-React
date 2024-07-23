@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
 import * as PacUserTriStateFilterListReportService from "../../services/PacUserTriStateFilterList";
-import { QueryResultItem } from "../../services/PacUserTriStateFilterList";
+import { QueryResultItem } from "../../services/PacUserTriStateFilterList"; // NOSONAR
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
 import * as ReportColumnDisplay from "./columns";
 import * as AsyncServices from "../../../services"; // NOSONAR

@@ -28,11 +28,13 @@ export interface ReportSelectPacProps {
             const data:PacUserPacListService.QueryResult = response.data;
             const pacs = data.items.map(({ pacCode, pacName }) => ({ label: pacName, value:pacCode }));
 
+            //store the list of pacs for the report component
             setPacs(pacs);
         }
     }
 
     useEffect(() => {
+        // on init of report component, get the list of pacs
         PacUserPacListService.submitRequest()
         .then((response) => initList(response));
     },[]);

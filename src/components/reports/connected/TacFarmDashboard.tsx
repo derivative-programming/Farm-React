@@ -11,6 +11,7 @@ import { ReportDetailTwoColTacFarmDashboard } from "../visualization/detail-two-
 //GENTrainingBlock[visualizationTypeImports]End
 
 export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
+    const [isProcessing, setIsProcessing] = useState(false);
     const [initPageResponse, setInitPageResponse] = useState(new InitReportService.InitResultInstance());
     const [queryResult, setQueryResult] = useState(new TacFarmDashboardReportService.QueryResultInstance()); 
     const [query, setQuery] = useState(new TacFarmDashboardReportService.QueryRequestInstance());
@@ -75,8 +76,10 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
     }, [initialValues]); 
 
     useEffect(() => { 
+        setIsProcessing(true);
         TacFarmDashboardReportService.submitRequest(query, contextCode)
-            .then(response => handleQueryResults(response));
+            .then(response => handleQueryResults(response))
+            .finally(() => {setIsProcessing(false);});
     }, [query]); 
 
     //GENTrainingBlock[visualizationTypeFuncs]Start
@@ -105,6 +108,7 @@ export const ReportConnectedTacFarmDashboard: FC = (): ReactElement => {
                         name="reportConnectedTacFarmDashboard-table" 
                         onNavigateTo={onNavigateTo} 
                         onRefreshRequest={onRefreshRequest}
+                        showProcessing={isProcessing}
                     /> 
                     {/*//GENLearn[visualizationType=DetailTwoColumn]End*/}
                     {/*//GENTrainingBlock[visualizationType]End*/}

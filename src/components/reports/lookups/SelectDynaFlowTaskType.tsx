@@ -28,11 +28,13 @@ export interface ReportSelectDynaFlowTaskTypeProps {
             const data:PacUserDynaFlowTaskTypeListService.QueryResult = response.data;
             const dynaFlowTaskTypes = data.items.map(({ dynaFlowTaskTypeCode, dynaFlowTaskTypeName }) => ({ label: dynaFlowTaskTypeName, value:dynaFlowTaskTypeCode }));
 
+            //store the list of dynaFlowTaskTypes for the report component
             setDynaFlowTaskTypes(dynaFlowTaskTypes);
         }
     }
 
     useEffect(() => {
+        // on init of report component, get the list of dynaFlowTaskTypes
         PacUserDynaFlowTaskTypeListService.submitRequest()
         .then((response) => initList(response));
     },[]);

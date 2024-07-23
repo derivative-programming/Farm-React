@@ -28,11 +28,13 @@ export interface ReportSelectDynaFlowTypeProps {
             const data:PacUserDynaFlowTypeListService.QueryResult = response.data;
             const dynaFlowTypes = data.items.map(({ dynaFlowTypeCode, dynaFlowTypeName }) => ({ label: dynaFlowTypeName, value:dynaFlowTypeCode }));
 
+            //store the list of dynaFlowTypes for the report component
             setDynaFlowTypes(dynaFlowTypes);
         }
     }
 
     useEffect(() => {
+        // on init of report component, get the list of dynaFlowTypes
         PacUserDynaFlowTypeListService.submitRequest()
         .then((response) => initList(response));
     },[]);

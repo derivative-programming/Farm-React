@@ -28,11 +28,13 @@ export interface ReportSelectLandProps {
             const data:PacUserLandListService.QueryResult = response.data;
             const lands = data.items.map(({ landCode, landName }) => ({ label: landName, value:landCode }));
 
+            //store the list of lands for the report component
             setLands(lands);
         }
     }
 
     useEffect(() => {
+        // on init of report component, get the list of lands
         PacUserLandListService.submitRequest()
         .then((response) => initList(response));
     },[]);

@@ -28,11 +28,13 @@ export interface ReportSelectTriStateFilterProps {
             const data:PacUserTriStateFilterListService.QueryResult = response.data;
             const triStateFilters = data.items.map(({ triStateFilterCode, triStateFilterName }) => ({ label: triStateFilterName, value:triStateFilterCode }));
 
+            //store the list of triStateFilters for the report component
             setTriStateFilters(triStateFilters);
         }
     }
 
     useEffect(() => {
+        // on init of report component, get the list of triStateFilters
         PacUserTriStateFilterListService.submitRequest()
         .then((response) => initList(response));
     },[]);
