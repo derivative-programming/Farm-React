@@ -5,8 +5,8 @@ import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
 import * as PacUserTriStateFilterListReportService from "../../services/PacUserTriStateFilterList";
 import { QueryResultItem } from "../../services/PacUserTriStateFilterList"; // NOSONAR
-import { ReportColumnHeader } from "../../input-fields/ColumnHeader";
-import * as ReportColumnDisplay from "./columns";
+import { ReportColumnHeader } from "../../input-fields/ColumnHeader";  // NOSONAR
+import * as ReportColumnDisplay from "./columns";  // NOSONAR
 import * as AsyncServices from "../../../services"; // NOSONAR
 import { ReportPagination } from "../../input-fields";
 import * as ReportInput from "../../input-fields";  // NOSONAR
