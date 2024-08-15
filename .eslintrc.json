@@ -25,7 +25,9 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off", // Disable the rule requiring React in scope
-        "testing-library/no-unnecessary-act": "warn"
+        "testing-library/no-unnecessary-act": "warn",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-empty-interface": "off"
     },
     "overrides": [
       {
