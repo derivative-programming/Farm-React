@@ -132,7 +132,20 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   };
 
   const submitButtonNavigateTo = () => {
-    navigateTo("land-plant-list", "landCode");
+    const page = "land-plant-list" 
+    const codeName = "landCode";
+    let targetContextCode = "00000000-0000-0000-0000-000000000000";
+    Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
+      if (key === codeName) {
+        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+          targetContextCode = value;
+        } else {
+          return;
+        }
+      }
+    });
+    const url = "/" + page + "/" + targetContextCode; 
+    navigate(url);
   };
 
   useEffect(() => {

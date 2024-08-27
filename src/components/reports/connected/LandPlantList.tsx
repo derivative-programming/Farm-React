@@ -267,6 +267,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
                   navigateTo("land-add-plant", "landCode");
                 }}
                 buttonText="Other Add Button"
+                className="ms-md-2"
                 isButtonCallToAction={false}
                 isVisible={true}
                 isEnabled={true}

@@ -20,7 +20,10 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
-  
+
+    const fieldOnePlantListLinkLandCodeIsVisible = true;
+    const conditionalBtnExampleLinkLandCodeIsVisible = true;
+    
     return ( 
         <div data-testid={name}>
         { showProcessing ? 
@@ -34,7 +37,8 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
             : 
             <>
                 <Row data-testid="fieldOnePlantListLinkLandCode-header" 
-                    className="mt-3" >  
+                    className="mt-3" 
+                    hidden={!fieldOnePlantListLinkLandCodeIsVisible}>  
                     <ReportColumnDisplay.ReportColumnDisplayButton 
                         forColumn="fieldOnePlantListLinkLandCode" 
                         value={item.fieldOnePlantListLinkLandCode}
@@ -49,7 +53,8 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
                     />
                 </Row> 
                 <Row data-testid="conditionalBtnExampleLinkLandCode-header" 
-                    className="mt-3" >  
+                    className="mt-3"
+                    hidden={!conditionalBtnExampleLinkLandCodeIsVisible}>  
                     <ReportColumnDisplay.ReportColumnDisplayButton 
                         forColumn="conditionalBtnExampleLinkLandCode" 
                         value={item.conditionalBtnExampleLinkLandCode}

@@ -11,6 +11,8 @@
         "reportColumn.calculatedIsConditionalSqlLogicAvailable",
         "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
         "reportButton.calculatedIsDestinationContextObjectNameSet", 
-        "reportColumn.calculatedIsSourceObjectAvailable"
+        "reportColumn.calculatedIsSourceObjectAvailable", 
+        "reportColumn.calculatedIsAddedIntoExport", 
+        "reportColumn.isFilterAvailable"
     ]
 }

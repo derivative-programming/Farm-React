@@ -12,6 +12,8 @@
         "reportColumn.calculatedIsMinWidthAvailable",
         "reportButton.calculatedIsDestinationContextObjectTheOwnerObject", 
         "reportButton.calculatedIsDestinationContextObjectNameSet", 
-        "reportColumn.calculatedIsSourceObjectAvailable"
+        "reportColumn.calculatedIsSourceObjectAvailable", 
+        "reportColumn.calculatedIsAddedIntoExport", 
+        "reportColumn.isFilterAvailable"
     ]
 }
