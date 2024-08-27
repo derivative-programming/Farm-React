@@ -20,7 +20,7 @@ export const ReportDetailTwoColPacUserLandList: FC<ReportDetailTwoColPacUserLand
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
-
+    const LandIsActiveIsVisible = true;
     return (
         <div data-testid={name}>
         { showProcessing ?
@@ -33,7 +33,22 @@ export const ReportDetailTwoColPacUserLandList: FC<ReportDetailTwoColPacUserLand
             </Row>
             :
             <>
-
+                <Row data-testid="landCode-header"
+                    className="mt-3"
+                    hidden={!landCodeIsVisible}>
+                    <ReportColumnDisplay.ReportColumnDisplayButton
+                        forColumn="landCode"
+                        value={item.landCode}
+                        buttonText=" "
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColPacUserLandList","landCode","");
+                            onNavigateTo("//" + item.landCode)
+                        }}
+                    />
+                </Row>
             </>
         }
         </div>

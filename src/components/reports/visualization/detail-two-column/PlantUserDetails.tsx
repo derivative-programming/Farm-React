@@ -20,7 +20,11 @@ export const ReportDetailTwoColPlantUserDetails: FC<ReportDetailTwoColPlantUserD
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
-
+    const IsDeleteAllowedIsVisible = true;
+    const IsEditAllowedIsVisible = true;
+    const SomeBitValIsVisible = true;
+    const updateButtonTextLinkPlantCodeIsVisible = false;
+    const backToDashboardLinkTacCodeIsVisible = true;
     return (
         <div data-testid={name}>
         { showProcessing ?
@@ -33,8 +37,25 @@ export const ReportDetailTwoColPlantUserDetails: FC<ReportDetailTwoColPlantUserD
             </Row>
             :
             <>
+                <Row data-testid="someUniqueidentifierVal-header"
+                    className="mt-3"
+                    hidden={!someUniqueidentifierValIsVisible}>
+                    <ReportColumnDisplay.ReportColumnDisplayButton
+                        forColumn="someUniqueidentifierVal"
+                        value={item.someUniqueidentifierVal}
+                        buttonText=" "
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColPlantUserDetails","someUniqueidentifierVal","");
+                            onNavigateTo("//" + item.someUniqueidentifierVal)
+                        }}
+                    />
+                </Row>
                 <Row data-testid="updateButtonTextLinkPlantCode-header"
-                    className="mt-3" >
+                    className="mt-3"
+                    hidden={!updateButtonTextLinkPlantCodeIsVisible}>
                     <ReportColumnDisplay.ReportColumnDisplayButton
                         forColumn="updateButtonTextLinkPlantCode"
                         value={item.updateButtonTextLinkPlantCode}
@@ -49,7 +70,8 @@ export const ReportDetailTwoColPlantUserDetails: FC<ReportDetailTwoColPlantUserD
                     />
                 </Row>
                 <Row data-testid="backToDashboardLinkTacCode-header"
-                    className="mt-3" >
+                    className="mt-3"
+                    hidden={!backToDashboardLinkTacCodeIsVisible}>
                     <ReportColumnDisplay.ReportColumnDisplayButton
                         forColumn="backToDashboardLinkTacCode"
                         value={item.backToDashboardLinkTacCode}

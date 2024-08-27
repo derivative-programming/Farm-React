@@ -20,7 +20,7 @@ export const ReportDetailTwoColPacUserDateGreaterThanFilterList: FC<ReportDetail
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
-
+    const DateGreaterThanFilterIsActiveIsVisible = true;
     return (
         <div data-testid={name}>
         { showProcessing ?
@@ -33,7 +33,22 @@ export const ReportDetailTwoColPacUserDateGreaterThanFilterList: FC<ReportDetail
             </Row>
             :
             <>
-
+                <Row data-testid="dateGreaterThanFilterCode-header"
+                    className="mt-3"
+                    hidden={!dateGreaterThanFilterCodeIsVisible}>
+                    <ReportColumnDisplay.ReportColumnDisplayButton
+                        forColumn="dateGreaterThanFilterCode"
+                        value={item.dateGreaterThanFilterCode}
+                        buttonText=" "
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColPacUserDateGreaterThanFilterList","dateGreaterThanFilterCode","");
+                            onNavigateTo("//" + item.dateGreaterThanFilterCode)
+                        }}
+                    />
+                </Row>
             </>
         }
         </div>

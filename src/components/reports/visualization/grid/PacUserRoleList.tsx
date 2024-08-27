@@ -116,6 +116,13 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
       >
         <thead>
           <tr>
+            <ReportColumnHeader forColumn="roleCode"
+              isSortDescending={isSortDescending}
+              label="role Code"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
             <ReportColumnHeader forColumn="roleDescription"
               isSortDescending={isSortDescending}
               label="Description"
@@ -166,6 +173,11 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleCode"
+                    rowIndex={index}
+                    value={item.roleCode}
+                    isVisible={true}
+                  />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleDescription"
                     rowIndex={index}
                     value={item.roleDescription}

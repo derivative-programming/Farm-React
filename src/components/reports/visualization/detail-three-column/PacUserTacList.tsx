@@ -76,7 +76,15 @@ export const ReportDetailThreeColPacUserTacList: FC<ReportDetailThreeColPacUserT
                 </ListGroup>
             </Col>
             <Col>
-
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="tacCode"
+                    buttonText=""
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() => {
+                        logClick("ReportDetailThreeCol","tacCode","");
+                        onNavigateTo("//" + item.tacCode);
+                    }}
+                />
             </Col>
             </Row>
         }

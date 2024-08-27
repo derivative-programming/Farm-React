@@ -76,7 +76,15 @@ export const ReportDetailThreeColPacUserTriStateFilterList: FC<ReportDetailThree
                 </ListGroup>
             </Col>
             <Col>
-
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="triStateFilterCode"
+                    buttonText=""
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() => {
+                        logClick("ReportDetailThreeCol","triStateFilterCode","");
+                        onNavigateTo("//" + item.triStateFilterCode);
+                    }}
+                />
             </Col>
             </Row>
         }

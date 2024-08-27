@@ -20,7 +20,11 @@ export const ReportDetailTwoColLandPlantList: FC<ReportDetailTwoColLandPlantList
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
-
+    const SomeBitValIsVisible = true;
+    const IsEditAllowedIsVisible = true;
+    const IsDeleteAllowedIsVisible = true;
+    const updateLinkPlantCodeIsVisible = false;
+    const detailsLinkPlantCodeIsVisible = true;
     return (
         <div data-testid={name}>
         { showProcessing ?
@@ -34,7 +38,8 @@ export const ReportDetailTwoColLandPlantList: FC<ReportDetailTwoColLandPlantList
             :
             <>
                 <Row data-testid="flavorCode-header"
-                    className="mt-3" >
+                    className="mt-3"
+                    hidden={!flavorCodeIsVisible}>
                     <ReportColumnDisplay.ReportColumnDisplayButton
                         forColumn="flavorCode"
                         value={item.flavorCode}
@@ -49,7 +54,8 @@ export const ReportDetailTwoColLandPlantList: FC<ReportDetailTwoColLandPlantList
                     />
                 </Row>
                 <Row data-testid="updateLinkPlantCode-header"
-                    className="mt-3" >
+                    className="mt-3"
+                    hidden={!updateLinkPlantCodeIsVisible}>
                     <ReportColumnDisplay.ReportColumnDisplayButton
                         forColumn="updateLinkPlantCode"
                         value={item.updateLinkPlantCode}
@@ -64,7 +70,8 @@ export const ReportDetailTwoColLandPlantList: FC<ReportDetailTwoColLandPlantList
                     />
                 </Row>
                 <Row data-testid="detailsLinkPlantCode-header"
-                    className="mt-3" >
+                    className="mt-3"
+                    hidden={!detailsLinkPlantCodeIsVisible}>
                     <ReportColumnDisplay.ReportColumnDisplayButton
                         forColumn="detailsLinkPlantCode"
                         value={item.detailsLinkPlantCode}

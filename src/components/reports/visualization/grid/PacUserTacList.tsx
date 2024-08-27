@@ -116,6 +116,13 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
       >
         <thead>
           <tr>
+            <ReportColumnHeader forColumn="tacCode"
+              isSortDescending={isSortDescending}
+              label="tac Code"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
             <ReportColumnHeader forColumn="tacDescription"
               isSortDescending={isSortDescending}
               label="Description"
@@ -166,6 +173,11 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacCode"
+                    rowIndex={index}
+                    value={item.tacCode}
+                    isVisible={true}
+                  />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacDescription"
                     rowIndex={index}
                     value={item.tacDescription}

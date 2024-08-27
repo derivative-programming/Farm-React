@@ -36,6 +36,11 @@ export const ReportDetailThreeColTacFarmDashboard: FC<ReportDetailThreeColTacFar
             <Row><Col  lg="9" md="9" xs="12">
                 <ListGroup as="ol">
                     <Row>
+                        <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isConditionalBtnAvailable"
+                            label="Is Conditional Btn Available"
+                            isChecked={item.isConditionalBtnAvailable}
+                            isVisible={false}
+                        />
 
                     </Row>
                 </ListGroup>

@@ -135,7 +135,20 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     }
   };
   const submitButtonNavigateTo = () => {
-    navigateTo("tac-farm-dashboard", "tacCode");
+    const page = "tac-farm-dashboard"
+    const codeName = "tacCode";
+    let targetContextCode = "00000000-0000-0000-0000-000000000000";
+    Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
+      if (key === codeName) {
+        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+          targetContextCode = value;
+        } else {
+          return;
+        }
+      }
+    });
+    const url = "/" + page + "/" + targetContextCode;
+    navigate(url);
   };
 
   useEffect(() => {
@@ -238,6 +251,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
                 }
                 <div className="">
                   <Button type="submit" data-testid="submit-button"
+                    variant="outline-primary"
                     className="me-2 mt-3">
                     {
                       loading &&

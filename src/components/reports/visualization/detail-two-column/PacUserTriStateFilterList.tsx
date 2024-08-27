@@ -20,7 +20,7 @@ export const ReportDetailTwoColPacUserTriStateFilterList: FC<ReportDetailTwoColP
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
-
+    const TriStateFilterIsActiveIsVisible = true;
     return (
         <div data-testid={name}>
         { showProcessing ?
@@ -33,7 +33,22 @@ export const ReportDetailTwoColPacUserTriStateFilterList: FC<ReportDetailTwoColP
             </Row>
             :
             <>
-
+                <Row data-testid="triStateFilterCode-header"
+                    className="mt-3"
+                    hidden={!triStateFilterCodeIsVisible}>
+                    <ReportColumnDisplay.ReportColumnDisplayButton
+                        forColumn="triStateFilterCode"
+                        value={item.triStateFilterCode}
+                        buttonText=" "
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColPacUserTriStateFilterList","triStateFilterCode","");
+                            onNavigateTo("//" + item.triStateFilterCode)
+                        }}
+                    />
+                </Row>
             </>
         }
         </div>

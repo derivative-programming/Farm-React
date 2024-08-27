@@ -116,6 +116,11 @@ export const ReportDetailThreeColLandPlantList: FC<ReportDetailThreeColLandPlant
                             value={item.flavorName}
                             isVisible={true}
                         />
+                        <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorCode"
+                            label=""
+                            value={item.flavorCode}
+                            isVisible={false}
+                        />
                         <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="nVarCharAsUrl"
                             label="N Var Char As Url"
                             value={item.nVarCharAsUrl}

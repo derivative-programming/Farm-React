@@ -76,7 +76,15 @@ export const ReportDetailThreeColPacUserRoleList: FC<ReportDetailThreeColPacUser
                 </ListGroup>
             </Col>
             <Col>
-
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="roleCode"
+                    buttonText=""
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() => {
+                        logClick("ReportDetailThreeCol","roleCode","");
+                        onNavigateTo("//" + item.roleCode);
+                    }}
+                />
             </Col>
             </Row>
         }

@@ -101,6 +101,7 @@ const ReportFilterTacFarmDashboard: FC<ReportFilterTacFarmDashboardProps> = ({
                           type="submit"
                           className="ms-2 mt-3"
                           data-testid="submit-button"
+                          variant="outline-primary"
                         >
                           {loading && (
                             <Spinner

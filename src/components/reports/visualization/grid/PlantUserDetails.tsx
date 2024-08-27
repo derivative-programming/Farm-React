@@ -221,6 +221,13 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
               isVisible={true}
               sortedColumnName={sortedColumnName}
             />
+            <ReportColumnHeader forColumn="someUniqueidentifierVal"
+              isSortDescending={isSortDescending}
+              label="plant SomeUniqueidentifierVal"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
             <ReportColumnHeader forColumn="someUTCDateTimeVal"
               isSortDescending={isSortDescending}
               label="Some UTC Date Time Val"
@@ -344,6 +351,11 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someTextVal"
                     rowIndex={index}
                     value={item.someTextVal}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someUniqueidentifierVal"
+                    rowIndex={index}
+                    value={item.someUniqueidentifierVal}
                     isVisible={true}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someUTCDateTimeVal"

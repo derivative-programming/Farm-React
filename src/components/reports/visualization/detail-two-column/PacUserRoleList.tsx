@@ -20,7 +20,7 @@ export const ReportDetailTwoColPacUserRoleList: FC<ReportDetailTwoColPacUserRole
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
-
+    const RoleIsActiveIsVisible = true;
     return (
         <div data-testid={name}>
         { showProcessing ?
@@ -33,7 +33,22 @@ export const ReportDetailTwoColPacUserRoleList: FC<ReportDetailTwoColPacUserRole
             </Row>
             :
             <>
-
+                <Row data-testid="roleCode-header"
+                    className="mt-3"
+                    hidden={!roleCodeIsVisible}>
+                    <ReportColumnDisplay.ReportColumnDisplayButton
+                        forColumn="roleCode"
+                        value={item.roleCode}
+                        buttonText=" "
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColPacUserRoleList","roleCode","");
+                            onNavigateTo("//" + item.roleCode)
+                        }}
+                    />
+                </Row>
             </>
         }
         </div>

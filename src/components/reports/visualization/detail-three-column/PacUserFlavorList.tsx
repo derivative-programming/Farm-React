@@ -76,7 +76,15 @@ export const ReportDetailThreeColPacUserFlavorList: FC<ReportDetailThreeColPacUs
                 </ListGroup>
             </Col>
             <Col>
-
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="flavorCode"
+                    buttonText=""
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() => {
+                        logClick("ReportDetailThreeCol","flavorCode","");
+                        onNavigateTo("//" + item.flavorCode);
+                    }}
+                />
             </Col>
             </Row>
         }

@@ -116,6 +116,13 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
       >
         <thead>
           <tr>
+            <ReportColumnHeader forColumn="dateGreaterThanFilterCode"
+              isSortDescending={isSortDescending}
+              label="dateGreaterThanFilter Code"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
             <ReportColumnHeader forColumn="dateGreaterThanFilterDayCount"
               isSortDescending={isSortDescending}
               label="Day Count"
@@ -166,6 +173,11 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="dateGreaterThanFilterCode"
+                    rowIndex={index}
+                    value={item.dateGreaterThanFilterCode}
+                    isVisible={true}
+                  />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="dateGreaterThanFilterDayCount"
                     rowIndex={index}
                     value={item.dateGreaterThanFilterDayCount}

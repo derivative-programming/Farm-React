@@ -116,6 +116,13 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
       >
         <thead>
           <tr>
+            <ReportColumnHeader forColumn="triStateFilterCode"
+              isSortDescending={isSortDescending}
+              label="triStateFilter Code"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
             <ReportColumnHeader forColumn="triStateFilterDescription"
               isSortDescending={isSortDescending}
               label="Description"
@@ -166,6 +173,11 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="triStateFilterCode"
+                    rowIndex={index}
+                    value={item.triStateFilterCode}
+                    isVisible={true}
+                  />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="triStateFilterDescription"
                     rowIndex={index}
                     value={item.triStateFilterDescription}

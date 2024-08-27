@@ -116,6 +116,13 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
       >
         <thead>
           <tr>
+            <ReportColumnHeader forColumn="flavorCode"
+              isSortDescending={isSortDescending}
+              label="flavor Code"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
             <ReportColumnHeader forColumn="flavorDescription"
               isSortDescending={isSortDescending}
               label="Description"
@@ -166,6 +173,11 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorCode"
+                    rowIndex={index}
+                    value={item.flavorCode}
+                    isVisible={true}
+                  />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorDescription"
                     rowIndex={index}
                     value={item.flavorDescription}

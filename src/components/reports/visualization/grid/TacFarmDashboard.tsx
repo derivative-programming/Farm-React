@@ -123,6 +123,13 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
               isVisible={true}
               sortedColumnName={sortedColumnName}
             />
+            <ReportColumnHeader forColumn="isConditionalBtnAvailable"
+              isSortDescending={isSortDescending}
+              label="Is Conditional Btn Available"
+              onSort={onSort}
+              isVisible={false}
+              sortedColumnName={sortedColumnName}
+            />
           </tr>
         </thead>
         <tbody>
@@ -140,6 +147,11 @@ export const ReportGridTacFarmDashboard: FC<ReportGridTacFarmDashboardProps> = (
                       onNavigateTo("/land-plant-list/" + item.fieldOnePlantListLinkLandCode)
                     }}
                     isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isConditionalBtnAvailable"
+                    rowIndex={index}
+                    isChecked={item.isConditionalBtnAvailable}
+                    isVisible={false}
                   />
                 </tr>
               );

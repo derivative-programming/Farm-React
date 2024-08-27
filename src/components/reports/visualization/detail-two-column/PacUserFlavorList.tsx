@@ -20,7 +20,7 @@ export const ReportDetailTwoColPacUserFlavorList: FC<ReportDetailTwoColPacUserFl
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
-
+    const FlavorIsActiveIsVisible = true;
     return (
         <div data-testid={name}>
         { showProcessing ?
@@ -33,7 +33,22 @@ export const ReportDetailTwoColPacUserFlavorList: FC<ReportDetailTwoColPacUserFl
             </Row>
             :
             <>
-
+                <Row data-testid="flavorCode-header"
+                    className="mt-3"
+                    hidden={!flavorCodeIsVisible}>
+                    <ReportColumnDisplay.ReportColumnDisplayButton
+                        forColumn="flavorCode"
+                        value={item.flavorCode}
+                        buttonText=" "
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        isEnabled={true}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColPacUserFlavorList","flavorCode","");
+                            onNavigateTo("//" + item.flavorCode)
+                        }}
+                    />
+                </Row>
             </>
         }
         </div>

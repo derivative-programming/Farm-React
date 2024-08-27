@@ -76,7 +76,15 @@ export const ReportDetailThreeColPacUserDateGreaterThanFilterList: FC<ReportDeta
                 </ListGroup>
             </Col>
             <Col>
-
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="dateGreaterThanFilterCode"
+                    buttonText=""
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() => {
+                        logClick("ReportDetailThreeCol","dateGreaterThanFilterCode","");
+                        onNavigateTo("//" + item.dateGreaterThanFilterCode);
+                    }}
+                />
             </Col>
             </Row>
         }

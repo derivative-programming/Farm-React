@@ -116,6 +116,13 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
       >
         <thead>
           <tr>
+            <ReportColumnHeader forColumn="landCode"
+              isSortDescending={isSortDescending}
+              label="land Code"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
             <ReportColumnHeader forColumn="landDescription"
               isSortDescending={isSortDescending}
               label="Description"
@@ -166,6 +173,11 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="landCode"
+                    rowIndex={index}
+                    value={item.landCode}
+                    isVisible={true}
+                  />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="landDescription"
                     rowIndex={index}
                     value={item.landDescription}
