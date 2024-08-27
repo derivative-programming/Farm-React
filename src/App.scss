@@ -128,4 +128,13 @@
 }
 
 
+.breadcrumb-item a {
+
+  color: var(--bs-breadcrumb-item-active-color)
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: transparent;
+}
+
 // @import "~bootstrap/scss/bootstrap";
