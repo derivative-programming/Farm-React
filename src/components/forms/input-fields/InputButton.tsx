@@ -24,10 +24,10 @@ export const FormInputButton: FC<FormInputButtonProps> = ({
   className = ""
 }): ReactElement => { 
   
-  let buttonVariant = "secondary";
+  let buttonVariant = "outline-secondary";
   if(isButtonCallToAction)
   {
-    buttonVariant = "primary";
+    buttonVariant = "outline-primary";
   }
 
       

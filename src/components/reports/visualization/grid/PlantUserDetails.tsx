@@ -421,7 +421,7 @@ export const ReportGridPlantUserDetails: FC<ReportGridPlantUserDetailsProps> = (
           onClick={() => onExport()}
           className='me-md-2'
           size="sm"
-          variant="secondary">
+          variant="outline-secondary">
           Export
         </Button>
       </div>

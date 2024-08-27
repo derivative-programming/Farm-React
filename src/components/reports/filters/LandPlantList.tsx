@@ -200,6 +200,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                           type="submit"
                           className="ms-2 mt-3"
                           data-testid="submit-button"
+                          variant="outline-primary"
                         >
                           {loading && (
                             <Spinner
@@ -218,7 +219,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                           className="ms-2 mt-3"
                           type="reset"
                           onClick={() => props.resetForm()}
-                          variant="secondary"
+                          variant="outline-secondary"
                           data-testid="reset"
                         >
                           Reset

@@ -24,9 +24,9 @@ export const ReportInputButton: FC<ReportInputButtonProps> = ({
 }): ReactElement => {
 
 
-  let buttonVariant = "secondary";
+  let buttonVariant = "outline-secondary";
   if (isButtonCallToAction) {
-    buttonVariant = "primary";
+    buttonVariant = "outline-primary";
   }
 
   return (

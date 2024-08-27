@@ -23,6 +23,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
 
     const fieldOnePlantListLinkLandCodeIsVisible = true;
     const conditionalBtnExampleLinkLandCodeIsVisible = true;
+    const IsConditionalBtnAvailableIsVisible = true; 
     
     return ( 
         <div data-testid={name}>

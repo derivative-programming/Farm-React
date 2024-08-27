@@ -119,7 +119,7 @@ const ReportFilterPlantUserDetails: FC<ReportFilterPlantUserDetailsProps> = ({
                           className="ms-2 mt-3"
                           type="reset"
                           onClick={() => props.resetForm()}
-                          variant="secondary"
+                          variant="outline-secondary"
                           data-testid="reset"
                         >
                           Reset

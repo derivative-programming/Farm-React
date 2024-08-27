@@ -300,6 +300,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                 }
                 <div className="">
                   <Button type="submit" data-testid="submit-button"
+                    variant="outline-primary"
                     className="me-2 mt-3">
                     {
                       loading &&

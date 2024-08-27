@@ -197,6 +197,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                   <Button
                     type="submit"
                     data-testid="submit-button" 
+                    variant="outline-primary"
                     >
                     {
                       loading &&
@@ -216,7 +217,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
                     onClick={() => {
                       registerButtonClick();
                     }}
-                    variant="secondary"
+                    variant="outline-secondary"
                     data-testid="other-button"
                   >
                     Register

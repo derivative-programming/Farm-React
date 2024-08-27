@@ -221,7 +221,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
           onClick={() => onExport()}
           className='me-md-2'
           size="sm"
-          variant="secondary">
+          variant="outline-secondary">
           Export
         </Button>
       </div>

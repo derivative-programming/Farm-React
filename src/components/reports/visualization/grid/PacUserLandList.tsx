@@ -221,7 +221,7 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
           onClick={() => onExport()}
           className='me-md-2'
           size="sm"
-          variant="secondary">
+          variant="outline-secondary">
           Export
         </Button>
       </div>
