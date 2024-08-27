@@ -1,11 +1,12 @@
 import { HttpTransportType, HubConnection, HubConnectionBuilder, HubConnectionState } from "@microsoft/signalr";
+import config from '../../../config';
 
 let connection: HubConnection | null = null;
 
 export const startConnection = () => { 
     const connectionId = localStorage.getItem("customerCode");
     if (connectionId) {
-        const url = new URL('https://dp-farm-pageapi.azurewebsites.net/analytics-hub');
+        const url = new URL(config.apiBaseUrl +'/analytics-hub');
         connection = new HubConnectionBuilder()
             .withUrl(url.toString(), {
                 transport: HttpTransportType.WebSockets,

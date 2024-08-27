@@ -1,9 +1,9 @@
 import axios from "axios";  
+import config from './config';
  
  
 export const apiInstance = axios.create({
-  baseURL:
-  "https://dp-farm-pageapi.azurewebsites.net/api/v1_0",
+  baseURL: config.apiBaseUrl + "/api/v1_0",
 });
 
 apiInstance.interceptors.request.use(
