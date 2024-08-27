@@ -2,7 +2,8 @@
     "templateType":"report", 
     "dimension" :{
         "name":"LandPlantList",
-        "calculatedIsPage":"true"
+        "calculatedIsPage":"true",
+        "visualizationType": "Grid"
     },
     "ignoreDimensionPropertyList": [ 
         "reportColumn.calculatedIsConditionalSqlLogicAvailable",

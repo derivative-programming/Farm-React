@@ -2,7 +2,8 @@
     "templateType":"report", 
     "dimension" :{
         "name":"TacFarmDashboard",
-        "calculatedIsPage":"true"
+        "calculatedIsPage":"true",
+        "visualizationType": "DetailTwoColumn"
     },
     "ignoreDimensionPropertyList": [ 
         "reportColumn.isButtonCallToAction",

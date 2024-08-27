@@ -2,7 +2,8 @@
     "templateType":"report", 
     "dimension" :{
         "name":"PlantUserDetails",
-        "calculatedIsPage":"true"
+        "calculatedIsPage":"true",
+        "visualizationType": "DetailThreeColumn"
     },
     "ignoreDimensionPropertyList": [ 
         "reportColumn.calculatedIsConditionalSqlLogicAvailable",
