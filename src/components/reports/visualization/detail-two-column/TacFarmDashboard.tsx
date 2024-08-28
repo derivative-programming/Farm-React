@@ -24,6 +24,10 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     const fieldOnePlantListLinkLandCodeIsVisible = true;
     const conditionalBtnExampleLinkLandCodeIsVisible = true;
     const IsConditionalBtnAvailableIsVisible = true; 
+    const testFileDownloadLinkPacCodeIsVisible = true;
+    const testConditionalFileDownloadLinkPacCodeIsVisible = true;
+    const testAsyncFlowReqLinkPacCodeIsVisible = true;
+    const testConditionalAsyncFlowReqLinkPacCodeIsVisible = true;
     
     return ( 
         <div data-testid={name}>
@@ -67,6 +71,72 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
                         onClick={() =>{
                             logClick("ReportDetailTwoColTacFarmDashboard","conditionalBtnExampleLinkLandCode","");
                             onNavigateTo("/land-plant-list/" + item.conditionalBtnExampleLinkLandCode)
+                        }} 
+                    />
+                </Row> 
+                <Row data-testid="testFileDownloadLinkPacCode-header" 
+                    className="mt-3"
+                    hidden={!testFileDownloadLinkPacCodeIsVisible}>  
+                    <ReportColumnDisplay.ReportColumnDisplayButton 
+                        forColumn="testFileDownloadLinkPacCode" 
+                        value={item.testFileDownloadLinkPacCode}
+                        buttonText="Test File Download"
+                        isButtonCallToAction={true} 
+                        isVisible={true}
+                        isEnabled={true}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColTacFarmDashboard","testFileDownloadLinkPacCode","");
+                            onNavigateTo("/land-plant-list/" + item.testFileDownloadLinkPacCode)
+                        }} 
+                    />
+                </Row> 
+                <Row data-testid="testConditionalFileDownloadLinkPacCode-header" 
+                    className="mt-3"
+                    hidden={!testConditionalFileDownloadLinkPacCodeIsVisible}>  
+                    <ReportColumnDisplay.ReportColumnDisplayButton 
+                        forColumn="testConditionalFileDownloadLinkPacCode" 
+                        value={item.testConditionalFileDownloadLinkPacCode}
+                        buttonText="Test Conditional File Download"
+                        isButtonCallToAction={true} 
+                        isVisible={true}
+                        isEnabled={true}
+                        conditionallyVisible={item.isConditionalBtnAvailable}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColTacFarmDashboard","testConditionalFileDownloadLinkPacCode","");
+                            onNavigateTo("/land-plant-list/" + item.testConditionalFileDownloadLinkPacCode)
+                        }} 
+                    />
+                </Row> 
+                <Row data-testid="testAsyncFlowReqLinkPacCode-header" 
+                    className="mt-3"
+                    hidden={!testAsyncFlowReqLinkPacCodeIsVisible}>  
+                    <ReportColumnDisplay.ReportColumnDisplayButton 
+                        forColumn="testAsyncFlowReqLinkPacCode" 
+                        value={item.testAsyncFlowReqLinkPacCode}
+                        buttonText="Test Async Flow Req"
+                        isButtonCallToAction={true} 
+                        isVisible={true}
+                        isEnabled={true}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColTacFarmDashboard","testAsyncFlowReqLinkPacCode","");
+                            onNavigateTo("/land-plant-list/" + item.testAsyncFlowReqLinkPacCode)
+                        }} 
+                    />
+                </Row> 
+                <Row data-testid="testConditionalAsyncFlowReqLinkPacCode-header" 
+                    className="mt-3"
+                    hidden={!testConditionalAsyncFlowReqLinkPacCodeIsVisible}>  
+                    <ReportColumnDisplay.ReportColumnDisplayButton 
+                        forColumn="testConditionalAsyncFlowReqLinkPacCode" 
+                        value={item.testConditionalAsyncFlowReqLinkPacCode}
+                        buttonText="Test Conditional Async Flow Req"
+                        isButtonCallToAction={true} 
+                        isVisible={true}
+                        isEnabled={true}
+                        conditionallyVisible={item.isConditionalBtnAvailable}
+                        onClick={() =>{
+                            logClick("ReportDetailTwoColTacFarmDashboard","testConditionalAsyncFlowReqLinkPacCode","");
+                            onNavigateTo("/land-plant-list/" + item.testConditionalAsyncFlowReqLinkPacCode)
                         }} 
                     />
                 </Row> 

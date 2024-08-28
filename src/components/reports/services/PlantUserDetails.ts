@@ -68,6 +68,10 @@ export interface QueryResultItem {
     updateButtonTextLinkPlantCode: string;
     randomPropertyUpdatesLinkPlantCode: string;
     backToDashboardLinkTacCode: string;
+    testFileDownloadLinkPacCode: string;
+    testConditionalAsyncFileDownloadLinkPacCode: string;
+    testAsyncFlowReqLinkPacCode: string;
+    testConditionalAsyncFlowReqLinkPacCode: string;
 }
 
 export interface QueryRequest {
@@ -120,6 +124,10 @@ export class QueryResultItemInstance implements QueryResultItem {
     updateButtonTextLinkPlantCode: string;
     randomPropertyUpdatesLinkPlantCode: string;
     backToDashboardLinkTacCode: string;
+    testFileDownloadLinkPacCode: string;
+    testConditionalAsyncFileDownloadLinkPacCode: string;
+    testAsyncFlowReqLinkPacCode: string;
+    testConditionalAsyncFlowReqLinkPacCode: string;
     constructor() {
         this.flavorName = '';
         this.isDeleteAllowed = false;
@@ -144,6 +152,10 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.updateButtonTextLinkPlantCode = '00000000-0000-0000-0000-000000000000';
         this.randomPropertyUpdatesLinkPlantCode = '00000000-0000-0000-0000-000000000000';
         this.backToDashboardLinkTacCode = '00000000-0000-0000-0000-000000000000';
+        this.testFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testConditionalAsyncFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testConditionalAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
     }
 }
 

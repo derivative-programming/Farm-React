@@ -194,7 +194,56 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                         AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.randomPropertyUpdatesLinkPlantCode)
                             .then(() => onRefreshRequest())
                     } }
+                /> 
+                
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testFileDownloadLinkPacCode"
+                    buttonText="Test File Download"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() =>{
+                        logClick("ReportDetailThreeColPlantUserDetails","testFileDownloadLinkPacCode","");
+                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
+                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.testFileDownloadLinkPacCode)
+                            .then(() => onRefreshRequest())
+                    } }
                 />
+                
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testConditionalAsyncFileDownloadLinkPacCode"
+                    buttonText="Test Conditional Async File Download"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() =>{
+                        logClick("ReportDetailThreeColPlantUserDetails","testConditionalAsyncFileDownloadLinkPacCode","");
+                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
+                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.testConditionalAsyncFileDownloadLinkPacCode)
+                            .then(() => onRefreshRequest())
+                    } }
+                />
+                
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testAsyncFlowReqLinkPacCode"
+                    buttonText="Test Async Flow Req"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() =>{
+                        logClick("ReportDetailThreeColPlantUserDetails","testAsyncFlowReqLinkPacCode","");
+                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
+                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.testAsyncFlowReqLinkPacCode)
+                            .then(() => onRefreshRequest())
+                    } }
+                />
+                
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testConditionalAsyncFlowReqLinkPacCode"
+                    buttonText="Test Conditional Async Flow Req"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() =>{
+                        logClick("ReportDetailThreeColPlantUserDetails","testConditionalAsyncFlowReqLinkPacCode","");
+                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
+                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode)
+                            .then(() => onRefreshRequest())
+                    } }
+                />
+
             </Col>
             </Row>
         }

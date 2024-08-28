@@ -140,6 +140,10 @@ export interface QueryResultItem {
     deleteAsyncButtonLinkPlantCode: string;
  
     detailsLinkPlantCode: string;  
+    testFileDownloadLinkPacCode: string;
+    testConditionalFileDownloadLinkPacCode: string;
+    testAsyncFlowReqLinkPacCode: string;
+    testConditionalAsyncFlowReqLinkPacCode: string;
 } 
 
 export interface QueryRequest {
@@ -252,6 +256,10 @@ export class QueryResultItemInstance implements QueryResultItem {
     deleteAsyncButtonLinkPlantCode: string;
  
     detailsLinkPlantCode: string;
+    testFileDownloadLinkPacCode: string;
+    testConditionalFileDownloadLinkPacCode: string;
+    testAsyncFlowReqLinkPacCode: string;
+    testConditionalAsyncFlowReqLinkPacCode: string;
 
     constructor() {
  
@@ -299,7 +307,11 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.deleteAsyncButtonLinkPlantCode = '00000000-0000-0000-0000-000000000000';
  
-        this.detailsLinkPlantCode = '00000000-0000-0000-0000-000000000000';  
+        this.detailsLinkPlantCode = '00000000-0000-0000-0000-000000000000'; 
+        this.testFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testConditionalFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testConditionalAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';  
     }
 }
 

@@ -357,6 +357,38 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isVisible={true}
               sortedColumnName={sortedColumnName}
             />
+
+            <ReportColumnHeader forColumn="testFileDownloadLinkPacCode"
+              isSortDescending={isSortDescending}
+              label=""
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
+
+            <ReportColumnHeader forColumn="testConditionalFileDownloadLinkPacCode"
+              isSortDescending={isSortDescending}
+              label=""
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
+
+            <ReportColumnHeader forColumn="testAsyncFlowReqLinkPacCode"
+              isSortDescending={isSortDescending}
+              label=""
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
+
+            <ReportColumnHeader forColumn="testConditionalAsyncFlowReqLinkPacCode"
+              isSortDescending={isSortDescending}
+              label=""
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
           </tr>
         </thead>
         <tbody> 
@@ -510,6 +542,66 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() => {
                       logClick(componentName,"detailsLinkPlantCode","");
                       onNavigateTo("/plant-user-details/" + item.detailsLinkPlantCode);
+                    }}
+                  />
+ 
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testFileDownloadLinkPacCode"
+                    rowIndex={index}
+                    buttonText="Test File Download"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() =>
+                      {
+                        logClick(componentName,"testFileDownloadLinkPacCode","");
+                        const data: AsyncServices.PlantUserDeleteRequest = {};
+                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.testFileDownloadLinkPacCode).then(() =>
+                        onRefreshRequest()
+                      )
+                    }}
+                  />
+ 
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testConditionalFileDownloadLinkPacCode"
+                    rowIndex={index}
+                    buttonText="Test Conditional File Download"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() =>
+                      {
+                        logClick(componentName,"testConditionalFileDownloadLinkPacCode","");
+                        const data: AsyncServices.PlantUserDeleteRequest = {};
+                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.testConditionalFileDownloadLinkPacCode).then(() =>
+                        onRefreshRequest()
+                      )
+                    }}
+                  />
+ 
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testAsyncFlowReqLinkPacCode"
+                    rowIndex={index}
+                    buttonText="Test Async Flow Req"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() =>
+                      {
+                        logClick(componentName,"testAsyncFlowReqLinkPacCode","");
+                        const data: AsyncServices.PlantUserDeleteRequest = {};
+                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.testAsyncFlowReqLinkPacCode).then(() =>
+                        onRefreshRequest()
+                      )
+                    }}
+                  />
+ 
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testConditionalAsyncFlowReqLinkPacCode"
+                    rowIndex={index}
+                    buttonText="Test Conditional Async Flow Req"
+                    isButtonCallToAction={false}
+                    isVisible={true}
+                    onClick={() =>
+                      {
+                        logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
+                        const data: AsyncServices.PlantUserDeleteRequest = {};
+                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
+                        onRefreshRequest()
+                      )
                     }}
                   />
                 </tr>

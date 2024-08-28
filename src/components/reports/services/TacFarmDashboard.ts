@@ -48,6 +48,10 @@ export interface QueryResultItem {
     fieldOnePlantListLinkLandCode: string;
     conditionalBtnExampleLinkLandCode: string;
     isConditionalBtnAvailable: boolean;
+    testFileDownloadLinkPacCode: string;
+    testConditionalFileDownloadLinkPacCode: string;
+    testAsyncFlowReqLinkPacCode: string;
+    testConditionalAsyncFlowReqLinkPacCode: string;
 }
 
 export interface QueryRequest {
@@ -80,10 +84,18 @@ export class QueryResultItemInstance implements QueryResultItem {
     fieldOnePlantListLinkLandCode: string;
     conditionalBtnExampleLinkLandCode: string;
     isConditionalBtnAvailable: boolean;
+    testFileDownloadLinkPacCode: string;
+    testConditionalFileDownloadLinkPacCode: string;
+    testAsyncFlowReqLinkPacCode: string;
+    testConditionalAsyncFlowReqLinkPacCode: string;
     constructor() {
         this.fieldOnePlantListLinkLandCode = '00000000-0000-0000-0000-000000000000';
         this.conditionalBtnExampleLinkLandCode = '00000000-0000-0000-0000-000000000000';
         this.isConditionalBtnAvailable = false;
+        this.testFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testConditionalFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
+        this.testConditionalAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
     }
 }
 

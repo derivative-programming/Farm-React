@@ -1,8 +1,8 @@
 import { apiInstance } from ".";
 
-export const apiCall = (config) => {
+export const apiCall = (requestConfig) => {
   return new Promise((resolve, reject) => {
-    apiInstance(config)
+    apiInstance(requestConfig)
       .then((res) => {
         resolve(res);
       })
