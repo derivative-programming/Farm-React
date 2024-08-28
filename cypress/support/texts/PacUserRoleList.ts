@@ -1,23 +1,11 @@
 
 
 export const PacUserRoleListPageTexts = {
-    //breadcrumbs text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-
-    //column headers
-    roleCodeHeaderText: "",
-
-    someMoneyValFilterLabel: "Some Money Val",
-    someNVarCharValFilterLabel: "Some N Var Char Val",
-    someVarCharValFilterLabel: "Some Var Char Val",
-    someTextValFilterLabel: "Some Text Val",
-    somePhoneNumberFilterLabel: "Some Phone Number",
-    someEmailAddressFilterLabel: "Some Email Address",
+    roleDisplayOrderHeaderText: "Display Order",
+    roleIsActiveHeaderText: "Is Active",
+    roleLookupEnumNameHeaderText: "Lookup Enum Name",
+    roleNameHeaderText: "Name",
+    pacNameHeaderText: "Pac Name",
 
     //page title
     titleText: "Pac User Role List Report",

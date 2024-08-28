@@ -2,15 +2,12 @@
 export const PacUserTacListPageSettings = {
 
     calculatedIsVisualizationGrid: true,
-
-    tacCodeHeaderIsVisible: true,
-
-    someMoneyValIsVisible: true,
-    someNVarCharValIsVisible: true,
-    someVarCharValIsVisible: true,
-    someTextValIsVisible: true,
-    somePhoneNumberIsVisible: true,
-    someEmailAddressIsVisible: true,
+    tacDisplayOrderHeaderIsVisible: true,
+    tacIsActiveHeaderIsVisible: true,
+    tacLookupEnumNameHeaderIsVisible: true,
+    tacNameHeaderIsVisible: true,
+    pacNameHeaderIsVisible: true,
+    isFilterSectionHidden: false,
 
 }
 
