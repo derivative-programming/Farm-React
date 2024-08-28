@@ -1,12 +1,15 @@
 
 export const TacFarmDashboardPageSelectors = {
-    fieldOnePlantListLinkLandCodeHeader: "[data-testid='fieldOnePlantListLinkLandCode-header']",
-    fieldOnePlantListLinkLandCodeHeaderSortDownIndicator: "[data-testid='fieldOnePlantListLinkLandCode-header-sortDown']",
-    fieldOnePlantListLinkLandCodeHeaderSortUpIndicator: "[data-testid='fieldOnePlantListLinkLandCode-header-sortUp']",
 
-    title: "[data-testid='page-title-text']",
-    introText: "[data-testid='page-intro-text']",
-    fieldOnePlantListLinkLandCodeRowButton: "[data-testid='fieldOnePlantListLinkLandCode-column-0-button']",
+    //column headers
+    CodeHeader: "[data-testid='Code-header']",
+
+    someMoneyValFilterField: "[data-testid='someMoneyVal-field']",
+    someNVarCharValFilterField: "[data-testid='someNVarCharVal-field']",
+    someVarCharValFilterField: "[data-testid='someVarCharVal-field']",
+    someTextValFilterField: "[data-testid='someTextVal-field']",
+    somePhoneNumberFilterField: "[data-testid='somePhoneNumber-field']",
+    someEmailAddressFilterField: "[data-testid='someEmailAddress-field']",
 
     pagingControl: "[data-testid='reportGridTacFarmDashboard-paginator-pagination']",
     pageSizeControl: "[data-testid='reportGridTacFarmDashboard-paginator-pagination-select-page-size']",

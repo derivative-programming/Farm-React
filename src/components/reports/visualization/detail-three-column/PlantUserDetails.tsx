@@ -5,6 +5,7 @@ import * as PlantUserDetailsReportService from "../../services/PlantUserDetails"
 import * as AsyncServices from "../../../services"; // NOSONAR
 import * as ReportColumnDisplay from "./columns";
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";  
+import { v4 as uuidv4 } from "uuid";
 
 export interface ReportDetailThreeColPlantUserDetailsProps {
     name: string
@@ -202,8 +203,18 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     isVisible={true}
                     onClick={() =>{
                         logClick("ReportDetailThreeColPlantUserDetails","testFileDownloadLinkPacCode","");
-                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
-                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.testFileDownloadLinkPacCode)
+                        const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                        AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testFileDownloadLinkPacCode)
+                            .then((response) => {
+                                //handleExportQueryResults(response);  //NOSONAR
+                                const blob = new Blob([response.data], { type: "text/csv" });
+                                const url = URL.createObjectURL(blob);
+                                const link = document.createElement('a');
+                                link.href = url;
+                                link.setAttribute('download', 'ReportDetailThreeColPlantUserDetails-' + uuidv4() + '.csv');
+                                document.body.appendChild(link);
+                                link.click();
+                            })
                             .then(() => onRefreshRequest())
                     } }
                 />
@@ -212,10 +223,21 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     buttonText="Test Conditional Async File Download"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
                     onClick={() =>{
                         logClick("ReportDetailThreeColPlantUserDetails","testConditionalAsyncFileDownloadLinkPacCode","");
-                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
-                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.testConditionalAsyncFileDownloadLinkPacCode)
+                        const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                        AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testConditionalAsyncFileDownloadLinkPacCode)
+                            .then((response) => {
+                                //handleExportQueryResults(response);  //NOSONAR
+                                const blob = new Blob([response.data], { type: "text/csv" });
+                                const url = URL.createObjectURL(blob);
+                                const link = document.createElement('a');
+                                link.href = url;
+                                link.setAttribute('download', 'ReportDetailThreeColPlantUserDetails-' + uuidv4() + '.csv');
+                                document.body.appendChild(link);
+                                link.click();
+                            })
                             .then(() => onRefreshRequest())
                     } }
                 />
@@ -226,8 +248,8 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     isVisible={true}
                     onClick={() =>{
                         logClick("ReportDetailThreeColPlantUserDetails","testAsyncFlowReqLinkPacCode","");
-                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
-                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.testAsyncFlowReqLinkPacCode)
+                        const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                        AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testAsyncFlowReqLinkPacCode)
                             .then(() => onRefreshRequest())
                     } }
                 />
@@ -236,10 +258,11 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     buttonText="Test Conditional Async Flow Req"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
                     onClick={() =>{
                         logClick("ReportDetailThreeColPlantUserDetails","testConditionalAsyncFlowReqLinkPacCode","");
-                        const data: AsyncServices.PlantUserPropertyRandomUpdateRequest = {};
-                        AsyncServices.PlantUserPropertyRandomUpdateSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode)
+                        const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                        AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode)
                             .then(() => onRefreshRequest())
                     } }
                 />

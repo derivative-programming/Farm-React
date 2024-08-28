@@ -1,23 +1,15 @@
 
 export const PacUserFlavorListPageSelectors = {
-    flavorDisplayOrderHeader: "[data-testid='flavorDisplayOrder-header']",
-    flavorIsActiveHeader: "[data-testid='flavorIsActive-header']",
-    flavorLookupEnumNameHeader: "[data-testid='flavorLookupEnumName-header']",
-    flavorNameHeader: "[data-testid='flavorName-header']",
-    pacNameHeader: "[data-testid='pacName-header']",
-    flavorDisplayOrderHeaderSortDownIndicator: "[data-testid='flavorDisplayOrder-header-sortDown']",
-    flavorIsActiveHeaderSortDownIndicator: "[data-testid='flavorIsActive-header-sortDown']",
-    flavorLookupEnumNameHeaderSortDownIndicator: "[data-testid='flavorLookupEnumName-header-sortDown']",
-    flavorNameHeaderSortDownIndicator: "[data-testid='flavorName-header-sortDown']",
-    pacNameHeaderSortDownIndicator: "[data-testid='pacName-header-sortDown']",
-    flavorDisplayOrderHeaderSortUpIndicator: "[data-testid='flavorDisplayOrder-header-sortUp']",
-    flavorIsActiveHeaderSortUpIndicator: "[data-testid='flavorIsActive-header-sortUp']",
-    flavorLookupEnumNameHeaderSortUpIndicator: "[data-testid='flavorLookupEnumName-header-sortUp']",
-    flavorNameHeaderSortUpIndicator: "[data-testid='flavorName-header-sortUp']",
-    pacNameHeaderSortUpIndicator: "[data-testid='pacName-header-sortUp']",
 
-    title: "[data-testid='page-title-text']",
-    introText: "[data-testid='page-intro-text']",
+    //column headers
+    flavorCodeHeader: "[data-testid='flavorCode-header']",
+
+    someMoneyValFilterField: "[data-testid='someMoneyVal-field']",
+    someNVarCharValFilterField: "[data-testid='someNVarCharVal-field']",
+    someVarCharValFilterField: "[data-testid='someVarCharVal-field']",
+    someTextValFilterField: "[data-testid='someTextVal-field']",
+    somePhoneNumberFilterField: "[data-testid='somePhoneNumber-field']",
+    someEmailAddressFilterField: "[data-testid='someEmailAddress-field']",
 
     pagingControl: "[data-testid='reportGridPacUserFlavorList-paginator-pagination']",
     pageSizeControl: "[data-testid='reportGridPacUserFlavorList-paginator-pagination-select-page-size']",

@@ -52,113 +52,106 @@ export class PacUserDateGreaterThanFilterListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
-            if(PageSettings.dateGreaterThanFilterDayCountHeaderIsVisible){
-                cy.get(PageSelectors.dateGreaterThanFilterDayCountHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.dateGreaterThanFilterDayCountHeaderText);
-
-                cy.get(PageSelectors.dateGreaterThanFilterDayCountHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.dateGreaterThanFilterDayCountHeaderSortUpIndicator)
-                .should('not.exist');
-            }
-            if(PageSettings.dateGreaterThanFilterDisplayOrderHeaderIsVisible){
-                cy.get(PageSelectors.dateGreaterThanFilterDisplayOrderHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.dateGreaterThanFilterDisplayOrderHeaderText);
-
-                cy.get(PageSelectors.dateGreaterThanFilterDisplayOrderHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.dateGreaterThanFilterDisplayOrderHeaderSortUpIndicator)
-                .should('not.exist');
-            }
-            if(PageSettings.dateGreaterThanFilterIsActiveHeaderIsVisible){
-                cy.get(PageSelectors.dateGreaterThanFilterIsActiveHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.dateGreaterThanFilterIsActiveHeaderText);
-
-                cy.get(PageSelectors.dateGreaterThanFilterIsActiveHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.dateGreaterThanFilterIsActiveHeaderSortUpIndicator)
-                .should('not.exist');
-            }
-            if(PageSettings.dateGreaterThanFilterLookupEnumNameHeaderIsVisible){
-                cy.get(PageSelectors.dateGreaterThanFilterLookupEnumNameHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.dateGreaterThanFilterLookupEnumNameHeaderText);
-
-                cy.get(PageSelectors.dateGreaterThanFilterLookupEnumNameHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.dateGreaterThanFilterLookupEnumNameHeaderSortUpIndicator)
-                .should('not.exist');
-            }
-            if(PageSettings.dateGreaterThanFilterNameHeaderIsVisible){
-                cy.get(PageSelectors.dateGreaterThanFilterNameHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.dateGreaterThanFilterNameHeaderText);
-
-                cy.get(PageSelectors.dateGreaterThanFilterNameHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.dateGreaterThanFilterNameHeaderSortUpIndicator)
+            if(PageSettings.dateGreaterThanFilterCodeHeaderIsVisible){
+                cy.get(PageSelectors.dateGreaterThanFilterCodeHeader)
                 .should('not.exist');
             }
 
-            cy.log('Verifying page size control...');
-            cy.get(PageSelectors.pageSizeControl)
-            .should('be.visible');
+            if(PageSettings.someMoneyValIsVisible){
+                cy.log('Verifying someMoneyValLabel control label...');
+                cy.get(PageSelectors.someMoneyValFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someMoneyValFilterLabel);
 
-            cy.get(PageSelectors.pageSizeControlLabel)
-            .should('be.visible');
+                cy.log('Verifying someMoneyValLabel control...');
+                cy.get(PageSelectors.someMoneyValFilterField)
+                    .should('be.visible');
 
-            cy.log('Verifying pagination control...');
-            cy.get(PageSelectors.pagingControl)
-            .should('be.visible');
+                this.setFilterFieldSomeMoneyVal(111);
 
-            cy.log('Verifying report result count display...');
-            cy.get(PageSelectors.tableRowCountDisplay)
-            .should('be.visible');
-        }
+                cy.get(PageSelectors.someMoneyValFilterField)
+                    .should('have.value', '111');
+            }
 
-        cy.log('Verifying title text...');
-        if(PageTexts.titleText.length > 0){
-            cy.get(PageSelectors.title)
-            .should('be.visible')
-            .should('include.text', PageTexts.titleText);
-        } else {
-            cy.get(PageSelectors.title)
-            .should('not.be.visible');
-        }
+            if(PageSettings.someNVarCharValIsVisible){
+                cy.log('Verifying someNVarCharValLabel control label...');
+                cy.get(PageSelectors.someNVarCharValFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someNVarCharValFilterLabel);
 
-        cy.log('Verifying intro text...');
-        if(PageTexts.introText.length > 0){
-            cy.get(PageSelectors.introText)
-            .should('be.visible')
-            .should('include.text', PageTexts.introText);
-        } else {
-            cy.get(PageSelectors.introText)
-            .should('not.be.visible');
-        }
+                cy.log('Verifying someNVarCharValLabel control...');
+                cy.get(PageSelectors.someNVarCharValFilterField)
+                    .should('be.visible');
 
-        cy.get(PageSelectors.siteFooter)
-            .should('be.visible')
-            .should('include.text', PageTexts.siteFooterText);
+                this.setFilterFieldSomeNVarCharVal("someNVarCharValTestVal");
 
-        if(PageSettings.calculatedIsVisualizationGrid && !PageSettings.isFilterSectionHidden){
+                cy.get(PageSelectors.someNVarCharValFilterField)
+                    .should('have.value', 'someNVarCharValTestVal');
+            }
 
-            cy.get(PageSelectors.filterSearchButton)
-            .should('not.be.visible');
+            if(PageSettings.someVarCharValIsVisible){
+                cy.log('Verifying someVarCharValLabel control label...');
+                cy.get(PageSelectors.someVarCharValFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someVarCharValFilterLabel);
 
-            cy.get(PageSelectors.filterRefreshButton)
-            .should('not.be.visible');
+                cy.log('Verifying someVarCharValLabel control...');
+                cy.get(PageSelectors.someVarCharValFilterField)
+                    .should('be.visible');
 
-            //default is closed
-            cy.get(PageSelectors.filterHeader)
-            .click()
-            .get(PageSelectors.filterSearchButton)
-            .should('be.visible')
-            .get(PageSelectors.filterRefreshButton)
-            .should('be.visible');
+                this.setFilterFieldSomeVarCharVal("someVarCharValTestVal");
 
+                cy.get(PageSelectors.someVarCharValFilterField)
+                    .should('have.value', 'someVarCharValTestVal');
+            }
+
+            if(PageSettings.someTextValIsVisible){
+                cy.log('Verifying someTextValLabel control label...');
+                cy.get(PageSelectors.someTextValFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someTextValFilterLabel);
+
+                cy.log('Verifying someTextValLabel control...');
+                cy.get(PageSelectors.someTextValFilterField)
+                    .should('be.visible');
+
+                this.setFilterFieldSomeTextVal("someTextValTestVal");
+
+                cy.get(PageSelectors.someTextValFilterField)
+                    .should('have.value', 'someTextValTestVal');
+            }
+
+            if(PageSettings.somePhoneNumberIsVisible){
+                cy.log('Verifying somePhoneNumberLabel control label...');
+                cy.get(PageSelectors.somePhoneNumberFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.somePhoneNumberFilterLabel);
+
+                cy.log('Verifying somePhoneNumberLabel control...');
+                cy.get(PageSelectors.somePhoneNumberFilterField)
+                    .should('be.visible');
+
+                this.setFilterFieldSomePhoneNumber("111-111-1111");
+
+                cy.get(PageSelectors.somePhoneNumberFilterField)
+                    .should('have.value', '111-111-1111');
+            }
+
+            if(PageSettings.someEmailAddressIsVisible){
+                cy.log('Verifying someEmailAddressLabel control label...');
+                cy.get(PageSelectors.someEmailAddressFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someEmailAddressFilterLabel);
+
+                cy.log('Verifying someEmailAddressLabel control...');
+                cy.get(PageSelectors.someEmailAddressFilterField)
+                    .should('be.visible');
+
+                this.setFilterFieldSomeEmailAddress("test@test.com");
+
+                cy.get(PageSelectors.someEmailAddressFilterField)
+                    .should('have.value', 'test@test.com');
+            }
         }
 
         //report buttons
@@ -331,6 +324,93 @@ export class PacUserDateGreaterThanFilterListPage {
                     }
                 });
             }
+            if(PageSettings.updateLinkDateGreaterThanFilterCodeHeaderIsVisible){
+                cy.get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeader)
+                        .click()
+                        .get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeader)
+                        .click()
+                        .get(PageSelectors.updateLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeaderIsVisible){
+                cy.get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeader)
+                        .click()
+                        .get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeader)
+                        .click()
+                        .get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.detailsLinkDateGreaterThanFilterCodeHeaderIsVisible){
+                cy.get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeader)
+                        .click()
+                        .get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeader)
+                        .click()
+                        .get(PageSelectors.detailsLinkDateGreaterThanFilterCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
         }
 
         //report buttons
@@ -349,10 +429,36 @@ export class PacUserDateGreaterThanFilterListPage {
     clickButtonWithDestination(destinationPageName) {
 		cy.log('PacUserDateGreaterThanFilterListPage.clickButtonWithDestination() destinationPageName: ' + destinationPageName);
 
+        const updateLinkDateGreaterThanFilterCodeColumnIsVisible = false;
+        const deleteAsyncButtonLinkDateGreaterThanFilterCodeColumnIsVisible = true;
+        const detailsLinkDateGreaterThanFilterCodeColumnIsVisible = true;
+
         if (destinationPageName == 'XXXX') { //placeholder
 
         }
 
+        //row buttons
+        else if (destinationPageName == 'DateGreaterThanFilterDetails' && //updateLinkDateGreaterThanFilterCode
+            updateLinkDateGreaterThanFilterCodeColumnIsVisible) {
+            cy.log('click row button updateLinkDateGreaterThanFilterCode...');
+            cy.get(PageSelectors.updateLinkDateGreaterThanFilterCodeRowButton)
+            .click();
+            cy.wait(2000);
+        }
+        else if (destinationPageName == 'DateGreaterThanFilterDelete' && //deleteAsyncButtonLinkDateGreaterThanFilterCode
+            deleteAsyncButtonLinkDateGreaterThanFilterCodeColumnIsVisible) {
+            cy.log('click row button deleteAsyncButtonLinkDateGreaterThanFilterCode...');
+            cy.get(PageSelectors.deleteAsyncButtonLinkDateGreaterThanFilterCodeRowButton)
+            .click();
+            cy.wait(2000);
+        }
+        else if (destinationPageName == 'DateGreaterThanFilterDetails' &&   //detailsLinkDateGreaterThanFilterCode
+            detailsLinkDateGreaterThanFilterCodeColumnIsVisible) {
+            cy.log('click row button detailsLinkDateGreaterThanFilterCode...');
+            cy.get(PageSelectors.detailsLinkDateGreaterThanFilterCodeRowButton)
+            .click();
+            cy.wait(2000);
+        }
         else {
             throw new Error(`Unknown destination page name: ${destinationPageName}`);
         }

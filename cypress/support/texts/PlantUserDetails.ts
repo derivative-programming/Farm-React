@@ -1,27 +1,23 @@
 
 
 export const PlantUserDetailsPageTexts = {
-    flavorNameHeaderText: "Name",
-    isDeleteAllowedHeaderText: "Is Delete Allowed",
-    isEditAllowedHeaderText: "Is Edit Allowed",
-    otherFlavorHeaderText: "Other Flavor",
-    someBigIntValHeaderText: "Some Big Int Val",
-    someBitValHeaderText: "Some Bit Val",
-    someDateValHeaderText: "Some Date Val",
-    someDecimalValHeaderText: "Some Decimal Val",
-    someEmailAddressHeaderText: "Some Email Address",
-    someFloatValHeaderText: "Some Float Val",
-    someIntValHeaderText: "Some Int Val",
-    someMoneyValHeaderText: "Some Money Val",
-    someNVarCharValHeaderText: "Some N Var Char Val",
-    somePhoneNumberHeaderText: "Some Phone Number",
-    someTextValHeaderText: "Some Text Val",
-    someUTCDateTimeValHeaderText: "Some UTC Date Time Val",
-    someVarCharValHeaderText: "Some Var Char Val",
-    nVarCharAsUrlHeaderText: "N Var Char As Url",
-    updateButtonTextLinkPlantCodeHeaderText: "",
-    randomPropertyUpdatesLinkPlantCodeHeaderText: "",
-    backToDashboardLinkTacCodeHeaderText: "",
+    //breadcrumbs text
+    //back button text
+    //back button text
+    //back button text
+    //back button text
+    //back button text
+    //back button text
+
+    //column headers
+    CodeHeaderText: "",
+
+    someMoneyValFilterLabel: "Some Money Val",
+    someNVarCharValFilterLabel: "Some N Var Char Val",
+    someVarCharValFilterLabel: "Some Var Char Val",
+    someTextValFilterLabel: "Some Text Val",
+    somePhoneNumberFilterLabel: "Some Phone Number",
+    someEmailAddressFilterLabel: "Some Email Address",
 
     //page title
     titleText: "Plant Details",
@@ -32,10 +28,12 @@ export const PlantUserDetailsPageTexts = {
     landPlantListBreadcrumbText: "Plant List",
     //report buttons
     backButtonText: "Plant List",
+
     //row button text
-    updateButtonTextLinkPlantCodeRowButtonText: "Update Button Text",
-    randomPropertyUpdatesLinkPlantCodeRowButtonText: "Random Property Updates",
-    backToDashboardLinkTacCodeRowButtonText: "Back To Dashboard",
+    updateLinkCodeRowButtonText: "Update",
+    deleteAsyncButtonLinkCodeRowButtonText: "Delete",
+    detailsLinkCodeRowButtonText: "Details",
+
     siteFooterText: "Copyright © 2023 • NewCo Inc.",
 
 }

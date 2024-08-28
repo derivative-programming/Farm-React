@@ -2,12 +2,15 @@
 export const PacUserDateGreaterThanFilterListPageSettings = {
 
     calculatedIsVisualizationGrid: true,
-    dateGreaterThanFilterDayCountHeaderIsVisible: true,
-    dateGreaterThanFilterDisplayOrderHeaderIsVisible: true,
-    dateGreaterThanFilterIsActiveHeaderIsVisible: true,
-    dateGreaterThanFilterLookupEnumNameHeaderIsVisible: true,
-    dateGreaterThanFilterNameHeaderIsVisible: true,
-    isFilterSectionHidden: false,
+
+    dateGreaterThanFilterCodeHeaderIsVisible: true,
+
+    someMoneyValIsVisible: true,
+    someNVarCharValIsVisible: true,
+    someVarCharValIsVisible: true,
+    someTextValIsVisible: true,
+    somePhoneNumberIsVisible: true,
+    someEmailAddressIsVisible: true,
 
 }
 

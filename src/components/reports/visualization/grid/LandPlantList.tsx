@@ -553,11 +553,19 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() =>
                       {
                         logClick(componentName,"testFileDownloadLinkPacCode","");
-                        const data: AsyncServices.PlantUserDeleteRequest = {};
-                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.testFileDownloadLinkPacCode).then(() =>
-                        onRefreshRequest()
-                      )
-                    }}
+                        const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                        AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testFileDownloadLinkPacCode)
+                        .then((response) => {
+                            //handleExportQueryResults(response);  //NOSONAR
+                            const blob = new Blob([response.data], { type: "text/csv" });
+                            const url = URL.createObjectURL(blob);
+                            const link = document.createElement('a');
+                            link.href = url;
+                            link.setAttribute('download', componentName + '-' + uuidv4() + '.csv');
+                            document.body.appendChild(link);
+                            link.click();
+                        }).then(() => onRefreshRequest())
+                      }}
                   />
  
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testConditionalFileDownloadLinkPacCode"
@@ -565,14 +573,23 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Test Conditional File Download"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    conditionallyVisible={item.isEditAllowed} 
                     onClick={() =>
                       {
                         logClick(componentName,"testConditionalFileDownloadLinkPacCode","");
-                        const data: AsyncServices.PlantUserDeleteRequest = {};
-                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.testConditionalFileDownloadLinkPacCode).then(() =>
-                        onRefreshRequest()
-                      )
-                    }}
+                        const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                        AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testConditionalFileDownloadLinkPacCode)
+                        .then((response) => {
+                            //handleExportQueryResults(response);  //NOSONAR
+                            const blob = new Blob([response.data], { type: "text/csv" });
+                            const url = URL.createObjectURL(blob);
+                            const link = document.createElement('a');
+                            link.href = url;
+                            link.setAttribute('download', componentName + '-' + uuidv4() + '.csv');
+                            document.body.appendChild(link);
+                            link.click();
+                        }).then(() => onRefreshRequest())
+                      }}
                   />
  
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testAsyncFlowReqLinkPacCode"
@@ -583,11 +600,10 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() =>
                       {
                         logClick(componentName,"testAsyncFlowReqLinkPacCode","");
-                        const data: AsyncServices.PlantUserDeleteRequest = {};
-                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.testAsyncFlowReqLinkPacCode).then(() =>
-                        onRefreshRequest()
-                      )
-                    }}
+                        const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                        AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testAsyncFlowReqLinkPacCode).then(() =>
+                        onRefreshRequest())
+                      }}
                   />
  
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="testConditionalAsyncFlowReqLinkPacCode"
@@ -595,14 +611,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Test Conditional Async Flow Req"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    conditionallyVisible={item.isEditAllowed} 
                     onClick={() =>
                       {
                         logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
-                        const data: AsyncServices.PlantUserDeleteRequest = {};
-                        AsyncServices.PlantUserDeleteSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
-                        onRefreshRequest()
-                      )
-                    }}
+                        const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                        AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
+                        onRefreshRequest())
+                      }}
                   />
                 </tr>
               );

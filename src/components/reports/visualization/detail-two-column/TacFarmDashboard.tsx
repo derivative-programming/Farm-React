@@ -3,7 +3,9 @@ import React, { FC, ReactElement } from "react";
 import * as TacFarmDashboardReportService from "../../services/TacFarmDashboard";   
 import { Col, Row, Spinner } from "react-bootstrap"; // NOSONAR
 import * as ReportColumnDisplay from "./columns"; // NOSONAR
+import * as AsyncServices from "../../../services"; // NOSONAR
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB"; 
+import { v4 as uuidv4 } from "uuid";
 
 export interface ReportDetailTwoColTacFarmDashboardProps {
     name: string
@@ -20,6 +22,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     showProcessing = false,
 }): ReactElement => {
     const { logClick } = useAnalyticsDB();  // NOSONAR
+    const componentName = "ReportDetailTwoColTacFarmDashboard";
 
     const fieldOnePlantListLinkLandCodeIsVisible = true;
     const conditionalBtnExampleLinkLandCodeIsVisible = true;
@@ -85,8 +88,20 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
                         isVisible={true}
                         isEnabled={true}
                         onClick={() =>{
-                            logClick("ReportDetailTwoColTacFarmDashboard","testFileDownloadLinkPacCode","");
-                            onNavigateTo("/land-plant-list/" + item.testFileDownloadLinkPacCode)
+                            logClick(componentName,"testFileDownloadLinkPacCode","");
+                            const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                            AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testFileDownloadLinkPacCode)
+                            .then((response) => {
+                                //handleExportQueryResults(response);  //NOSONAR
+                                const blob = new Blob([response.data], { type: "text/csv" });
+                                const url = URL.createObjectURL(blob);
+                                const link = document.createElement('a');
+                                link.href = url;
+                                link.setAttribute('download', componentName + '-' + uuidv4() + '.csv');
+                                document.body.appendChild(link);
+                                link.click();
+                            })
+                            .then(() => onRefreshRequest())
                         }} 
                     />
                 </Row> 
@@ -102,8 +117,19 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
                         isEnabled={true}
                         conditionallyVisible={item.isConditionalBtnAvailable}
                         onClick={() =>{
-                            logClick("ReportDetailTwoColTacFarmDashboard","testConditionalFileDownloadLinkPacCode","");
-                            onNavigateTo("/land-plant-list/" + item.testConditionalFileDownloadLinkPacCode)
+                            logClick(componentName,"testConditionalFileDownloadLinkPacCode","");
+                            const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                            AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testConditionalFileDownloadLinkPacCode)
+                            .then((response) => {
+                                //handleExportQueryResults(response);  //NOSONAR
+                                const blob = new Blob([response.data], { type: "text/csv" });
+                                const url = URL.createObjectURL(blob);
+                                const link = document.createElement('a');
+                                link.href = url;
+                                link.setAttribute('download', componentName + '-' + uuidv4() + '.csv');
+                                document.body.appendChild(link);
+                                link.click();
+                            }).then(() => onRefreshRequest())
                         }} 
                     />
                 </Row> 
@@ -118,8 +144,10 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
                         isVisible={true}
                         isEnabled={true}
                         onClick={() =>{
-                            logClick("ReportDetailTwoColTacFarmDashboard","testAsyncFlowReqLinkPacCode","");
-                            onNavigateTo("/land-plant-list/" + item.testAsyncFlowReqLinkPacCode)
+                            logClick(componentName,"testAsyncFlowReqLinkPacCode","");
+                            const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                            AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testAsyncFlowReqLinkPacCode).then(() =>
+                            onRefreshRequest())
                         }} 
                     />
                 </Row> 
@@ -135,8 +163,10 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
                         isEnabled={true}
                         conditionallyVisible={item.isConditionalBtnAvailable}
                         onClick={() =>{
-                            logClick("ReportDetailTwoColTacFarmDashboard","testConditionalAsyncFlowReqLinkPacCode","");
-                            onNavigateTo("/land-plant-list/" + item.testConditionalAsyncFlowReqLinkPacCode)
+                            logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
+                            const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                            AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
+                            onRefreshRequest())
                         }} 
                     />
                 </Row> 

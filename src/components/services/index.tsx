@@ -22,6 +22,10 @@ export { LandUserPlantMultiSelectToNotEditableSubmitRequest} from "./LandUserPla
 export type { LandUserPlantMultiSelectToNotEditableRequest} from "./LandUserPlantMultiSelectToNotEditable"
 export { PlantUserPropertyRandomUpdateSubmitRequest} from "./PlantUserPropertyRandomUpdate"
 export type { PlantUserPropertyRandomUpdateRequest} from "./PlantUserPropertyRandomUpdate"
+export { PacUserTestAsyncFlowReqSubmitRequest} from "./PacUserTestAsyncFlowReq"
+export type { PacUserTestAsyncFlowReqRequest} from "./PacUserTestAsyncFlowReq"
+export { PacUserTestAsyncFileDownloadSubmitRequest} from "./PacUserTestAsyncFileDownload"
+export type { PacUserTestAsyncFileDownloadRequest} from "./PacUserTestAsyncFileDownload"
 
 //GENTrainingBlock[a]End
 //GENLOOPObjectEnd

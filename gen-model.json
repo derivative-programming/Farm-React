@@ -7875,7 +7875,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "isIgnored": "false",
-                    "buttonAccessKey": "F",
+                    "buttonAccessKey": "A",
                     "isButtonAccessKeyAvailable": "true"
                   },
                   {
@@ -7901,7 +7901,7 @@
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
                     "isIgnored": "false",
-                    "buttonAccessKey": "F",
+                    "buttonAccessKey": "C",
                     "isButtonAccessKeyAvailable": "true"
                   }
                 ]
@@ -8524,7 +8524,7 @@
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsConditionalBtnAvailable",
                     "isIgnored": "false",
-                    "buttonAccessKey": "R",
+                    "buttonAccessKey": "A",
                     "isButtonAccessKeyAvailable": "true"
                   }
                 ]
