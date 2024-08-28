@@ -28,7 +28,7 @@ export const PacUserTriStateFilterListPageTexts = {
     deleteAsyncButtonLinkTriStateFilterCodeRowButtonText: "Delete",
     detailsLinkTriStateFilterCodeRowButtonText: "Details",
 
-    siteFooterText: "Copyright © 2023 • NewCo Inc.",
+    siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }
 

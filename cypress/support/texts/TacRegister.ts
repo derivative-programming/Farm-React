@@ -15,6 +15,6 @@ export const TacRegisterPageTexts = {
     submitButtonText: "Register",
     cancelButtonText: "Back To Log In",
 
-    siteFooterText: "Copyright © 2023 • NewCo Inc.",
+    siteFooterText: "Copyright © 2024 • NewCo Inc.",
 }
 

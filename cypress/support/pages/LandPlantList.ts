@@ -278,6 +278,48 @@ export class LandPlantListPage {
                 .should('not.exist'); 
             } 
 
+            
+            
+            if(PageSettings.testFileDownloadLinkPacCodeHeaderIsVisible){
+                cy.get(PageSelectors.testFileDownloadLinkPacCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            
+            if(PageSettings.testConditionalFileDownloadLinkPacCodeHeaderIsVisible){
+                cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            
+            if(PageSettings.testAsyncFlowReqLinkPacCodeHeaderIsVisible){
+                cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            
+            if(PageSettings.testConditionalAsyncFlowReqLinkPacCodeHeaderIsVisible){
+                cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+
             cy.log('Verifying page size control...');
             cy.get(PageSelectors.pageSizeControl)
             .should('be.visible');
@@ -1260,6 +1302,131 @@ export class LandPlantListPage {
                     }
                 });
             } 
+
+
+            
+            if(PageSettings.testFileDownloadLinkPacCodeHeaderIsVisible){
+                cy.get(PageSelectors.testFileDownloadLinkPacCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testFileDownloadLinkPacCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.testFileDownloadLinkPacCodeHeader)
+                        .click()
+                        .get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.testFileDownloadLinkPacCodeHeader)
+                        .click()
+                        .get(PageSelectors.testFileDownloadLinkPacCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+
+            
+            if(PageSettings.testConditionalFileDownloadLinkPacCodeHeaderIsVisible){
+                cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeader)
+                        .click()
+                        .get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeader)
+                        .click()
+                        .get(PageSelectors.testConditionalFileDownloadLinkPacCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+
+            
+            if(PageSettings.testAsyncFlowReqLinkPacCodeHeaderIsVisible){
+                cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.testAsyncFlowReqLinkPacCodeHeader)
+                        .click()
+                        .get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.testAsyncFlowReqLinkPacCodeHeader)
+                        .click()
+                        .get(PageSelectors.testAsyncFlowReqLinkPacCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+
+            
+            if(PageSettings.testConditionalAsyncFlowReqLinkPacCodeHeaderIsVisible){
+                cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeader)
+                        .click()
+                        .get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeader)
+                        .click()
+                        .get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
         }
  
   
@@ -1285,6 +1452,10 @@ export class LandPlantListPage {
         const updateLinkPlantCodeColumnIsVisible = false;
         const deleteAsyncButtonLinkPlantCodeColumnIsVisible = true;
         const detailsLinkPlantCodeColumnIsVisible = true;
+        const testFileDownloadLinkPacCodeColumnIsVisible = true;
+        const testConditionalFileDownloadLinkPacCodeColumnIsVisible = true;
+        const testAsyncFlowReqLinkPacCodeColumnIsVisible = true;
+        const testConditionalAsyncFlowReqLinkPacCodeColumnIsVisible = true;
         
         if (destinationPageName == 'XXXX') { //placeholder
 
@@ -1329,6 +1500,34 @@ export class LandPlantListPage {
             detailsLinkPlantCodeColumnIsVisible) {
             cy.log('click row button detailsLinkPlantCode...');
             cy.get(PageSelectors.detailsLinkPlantCodeRowButton) 
+            .click();
+            cy.wait(2000);
+        } 
+        else if (destinationPageName == 'PlantUserDetails' &&   //testFileDownloadLinkPacCode
+            testFileDownloadLinkPacCodeColumnIsVisible) {
+            cy.log('click row button testFileDownloadLinkPacCode...');
+            cy.get(PageSelectors.testFileDownloadLinkPacCodeRowButton) 
+            .click();
+            cy.wait(2000);
+        } 
+        else if (destinationPageName == 'PlantUserDetails' &&   //testConditionalFileDownloadLinkPacCode
+            testConditionalFileDownloadLinkPacCodeColumnIsVisible) {
+            cy.log('click row button testConditionalFileDownloadLinkPacCode...');
+            cy.get(PageSelectors.testConditionalFileDownloadLinkPacCodeRowButton) 
+            .click();
+            cy.wait(2000);
+        } 
+        else if (destinationPageName == 'PlantUserDetails' &&   //testAsyncFlowReqLinkPacCode
+            testAsyncFlowReqLinkPacCodeColumnIsVisible) {
+            cy.log('click row button testAsyncFlowReqLinkPacCode...');
+            cy.get(PageSelectors.testAsyncFlowReqLinkPacCodeRowButton) 
+            .click();
+            cy.wait(2000);
+        } 
+        else if (destinationPageName == 'PlantUserDetails' &&   //testConditionalAsyncFlowReqLinkPacCode
+            testConditionalAsyncFlowReqLinkPacCodeColumnIsVisible) {
+            cy.log('click row button testConditionalAsyncFlowReqLinkPacCode...');
+            cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeRowButton) 
             .click();
             cy.wait(2000);
         } 

@@ -26,6 +26,10 @@ export const LandPlantListPageSelectors = {
     updateLinkPlantCodeHeader:  "[data-testid='updateLinkPlantCode-header']",
     deleteAsyncButtonLinkPlantCodeHeader: "[data-testid='deleteAsyncButtonLinkPlantCode-header']",
     detailsLinkPlantCodeHeader: "[data-testid='detailsLinkPlantCode-header']",
+    testFileDownloadLinkPacCodeHeader: "[data-testid='testFileDownloadLinkPacCode-header']",
+    testConditionalFileDownloadLinkPacCodeHeader: "[data-testid='testConditionalFileDownloadLinkPacCode-header']",
+    testAsyncFlowReqLinkPacCodeHeader: "[data-testid='testAsyncFlowReqLinkPacCode-header']",
+    testConditionalAsyncFlowReqLinkPacCodeHeader: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header']",
 
     //column headerSortDownIndicator
     plantCodeHeaderSortDownIndicator: "[data-testid='plantCode-header-sortDown']",
@@ -50,7 +54,11 @@ export const LandPlantListPageSelectors = {
     nVarCharAsUrlHeaderSortDownIndicator: "[data-testid='nVarCharAsUrl-header-sortDown']", 
     updateLinkPlantCodeHeaderSortDownIndicator:  "[data-testid='updateLinkPlantCode-header-sortDown']",
     deleteAsyncButtonLinkPlantCodeHeaderSortDownIndicator: "[data-testid='deleteAsyncButtonLinkPlantCode-header-sortDown']",
-    detailsLinkPlantCodeHeaderSortDownIndicator: "[data-testid='detailsLinkPlantCode-header-sortDown']",
+    detailsLinkPlantCodeHeaderSortDownIndicator: "[data-testid='detailsLinkPlantCode-header-sortDown']", 
+    testFileDownloadLinkPacCodeHeaderSortDownIndicator: "[data-testid='testFileDownloadLinkPacCode-header-sortDown']",
+    testConditionalFileDownloadLinkPacCodeHeaderSortDownIndicator: "[data-testid='testConditionalFileDownloadLinkPacCode-header-sortDown']",
+    testAsyncFlowReqLinkPacCodeHeaderSortDownIndicator: "[data-testid='testAsyncFlowReqLinkPacCode-header-sortDown']",
+    testConditionalAsyncFlowReqLinkPacCodeHeaderSortDownIndicator: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header-sortDown']",
   
     
     
@@ -78,6 +86,10 @@ export const LandPlantListPageSelectors = {
     updateLinkPlantCodeHeaderSortUpIndicator:  "[data-testid='updateLinkPlantCode-header-sortUp']",
     deleteAsyncButtonLinkPlantCodeHeaderSortUpIndicator: "[data-testid='deleteAsyncButtonLinkPlantCode-header-sortUp']",
     detailsLinkPlantCodeHeaderSortUpIndicator: "[data-testid='detailsLinkPlantCode-header-sortUp']",
+    testFileDownloadLinkPacCodeHeaderSortUpIndicator: "[data-testid='testFileDownloadLinkPacCode-header-sortUp']",
+    testConditionalFileDownloadLinkPacCodeHeaderSortUpIndicator: "[data-testid='testConditionalFileDownloadLinkPacCode-header-sortUp']",
+    testAsyncFlowReqLinkPacCodeHeaderSortUpIndicator: "[data-testid='testAsyncFlowReqLinkPacCode-header-sortUp']",
+    testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header-sortUp']",
  
     otherAddButton: "[data-testid='otherAddButton']",
 
@@ -94,6 +106,10 @@ export const LandPlantListPageSelectors = {
     updateLinkPlantCodeRowButton: "[data-testid='updateLinkPlantCode-column-0-button']",
     deleteAsyncButtonLinkPlantCodeRowButton: "[data-testid='deleteAsyncButtonLinkPlantCode-column-0-button']",
     detailsLinkPlantCodeRowButton: "[data-testid='detailsLinkPlantCode-column-0-button']",
+    testFileDownloadLinkPacCodeRowButton: "[data-testid='testFileDownloadLinkPacCode-column-0-button']",
+    testConditionalFileDownloadLinkPacCodeRowButton: "[data-testid='testConditionalFileDownloadLinkPacCode-column-0-button']",
+    testAsyncFlowReqLinkPacCodeRowButton: "[data-testid='testAsyncFlowReqLinkPacCode-column-0-button']",
+    testConditionalAsyncFlowReqLinkPacCodeRowButton: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-column-0-button']",
 
     
         backButton: "[data-testid='back-button']",

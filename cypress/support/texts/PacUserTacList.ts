@@ -28,7 +28,7 @@ export const PacUserTacListPageTexts = {
     deleteAsyncButtonLinkTacCodeRowButtonText: "Delete",
     detailsLinkTacCodeRowButtonText: "Details",
 
-    siteFooterText: "Copyright © 2023 • NewCo Inc.",
+    siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }
 

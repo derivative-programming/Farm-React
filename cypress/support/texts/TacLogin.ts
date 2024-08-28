@@ -11,6 +11,6 @@ export const TacLoginPageTexts = {
     footerText: "",
     submitButtonText: "Log In",
     otherButtonText: "Register",
-    siteFooterText: "Copyright © 2023 • NewCo Inc.",
+    siteFooterText: "Copyright © 2024 • NewCo Inc.",
 }
 

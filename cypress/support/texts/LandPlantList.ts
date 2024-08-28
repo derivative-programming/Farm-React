@@ -33,6 +33,10 @@ export const LandPlantListPageTexts = {
     updateLinkPlantCodeHeaderText: "",
     deleteAsyncButtonLinkPlantCodeHeaderText: "",
     detailsLinkPlantCodeHeaderText: "",
+    testFileDownloadLinkPacCodeHeaderText: "",
+    testConditionalFileDownloadLinkPacCodeHeaderText: "",
+    testAsyncFlowReqLinkPacCodeHeaderText: "",
+    testConditionalAsyncFlowReqLinkPacCodeHeaderText: "",
 
     
     someIntValFilterLabel: "Some Int Val", 
@@ -72,6 +76,6 @@ export const LandPlantListPageTexts = {
     deleteAsyncButtonLinkPlantCodeRowButtonText: "Delete",
     detailsLinkPlantCodeRowButtonText: "Details",
 
-    siteFooterText: "Copyright © 2023 • NewCo Inc.",
+    siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }

@@ -7,7 +7,7 @@ const Footer: FC = (): ReactElement => {
 
         <div className="mt-1 mb-3" data-testid="footer-text">
             <hr/>
-            Copyright © 2023 • NewCo Inc.
+            Copyright © 2024 • NewCo Inc.
         </div>
     )
 }

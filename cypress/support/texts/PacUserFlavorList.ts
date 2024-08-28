@@ -28,7 +28,7 @@ export const PacUserFlavorListPageTexts = {
     deleteAsyncButtonLinkFlavorCodeRowButtonText: "Delete",
     detailsLinkFlavorCodeRowButtonText: "Details",
 
-    siteFooterText: "Copyright © 2023 • NewCo Inc.",
+    siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }
 
