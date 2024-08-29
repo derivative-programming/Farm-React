@@ -230,22 +230,27 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
                     <InputFields.FormInputEmail name="email"
                       label="Email"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputPassword name="password"
                       label="Password"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputPassword name="confirmPassword"
                       label="Confirm Password"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputText name="firstName"
                       label="First Name"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputText name="lastName"
                       label="Last Name"
                       isVisible={true}
+                      isRequired={true}
                     />
                   </div>
                 }
