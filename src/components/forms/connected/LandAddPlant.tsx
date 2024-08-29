@@ -52,6 +52,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const navigate = useNavigate();
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
+  const contextObjectName = "land";
 
   const validationSchema = LandAddPlantFormValidation.buildValidationSchema();
 
@@ -135,6 +136,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     const page = "land-plant-list" 
     const codeName = "landCode";
     let targetContextCode = "00000000-0000-0000-0000-000000000000";
+    if(codeName == contextObjectName + "Code")
+    {
+      targetContextCode = contextCode;
+    }
     Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
       if (key === codeName) {
         if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {

@@ -52,6 +52,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   const navigate = useNavigate();
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
+  const contextObjectName = "tac";
 
   const validationSchema = TacRegisterFormValidation.buildValidationSchema();
 
@@ -138,6 +139,10 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     const page = "tac-farm-dashboard"
     const codeName = "tacCode";
     let targetContextCode = "00000000-0000-0000-0000-000000000000";
+    if(codeName == contextObjectName + "Code")
+    {
+      targetContextCode = contextCode;
+    }
     Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
       if (key === codeName) {
         if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
