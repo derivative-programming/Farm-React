@@ -9,6 +9,7 @@ export interface FormSelectPacProps {
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
+    isRequired?:boolean
   }
 
 export const FormSelectPac: FC<FormSelectPacProps> = ({
@@ -17,6 +18,7 @@ export const FormSelectPac: FC<FormSelectPacProps> = ({
     autoFocus = false,
     disabled = false,
     isVisible = true,
+    isRequired = false,
   }): ReactElement => {
 
     const [pacs, setPacs] = useState<FormInputSelectOption[]>([])
@@ -46,6 +48,7 @@ export const FormSelectPac: FC<FormSelectPacProps> = ({
             options={pacs}
             disabled={disabled}
             isVisible={isVisible}
+            isRequired={isRequired}
             autoFocus={autoFocus}
             />
 

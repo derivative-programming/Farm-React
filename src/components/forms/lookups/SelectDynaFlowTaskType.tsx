@@ -9,6 +9,7 @@ export interface FormSelectDynaFlowTaskTypeProps {
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
+    isRequired?:boolean
   }
 
 export const FormSelectDynaFlowTaskType: FC<FormSelectDynaFlowTaskTypeProps> = ({
@@ -17,6 +18,7 @@ export const FormSelectDynaFlowTaskType: FC<FormSelectDynaFlowTaskTypeProps> = (
     autoFocus = false,
     disabled = false,
     isVisible = true,
+    isRequired = false,
   }): ReactElement => {
 
     const [dynaFlowTaskTypes, setDynaFlowTaskTypes] = useState<FormInputSelectOption[]>([])
@@ -46,6 +48,7 @@ export const FormSelectDynaFlowTaskType: FC<FormSelectDynaFlowTaskTypeProps> = (
             options={dynaFlowTaskTypes}
             disabled={disabled}
             isVisible={isVisible}
+            isRequired={isRequired}
             autoFocus={autoFocus}
             />
 

@@ -9,6 +9,7 @@ export interface FormSelectLandProps {
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
+    isRequired?:boolean
   }
 
 export const FormSelectLand: FC<FormSelectLandProps> = ({
@@ -17,6 +18,7 @@ export const FormSelectLand: FC<FormSelectLandProps> = ({
     autoFocus = false,
     disabled = false,
     isVisible = true,
+    isRequired = false,
   }): ReactElement => {
 
     const [lands, setLands] = useState<FormInputSelectOption[]>([])
@@ -46,6 +48,7 @@ export const FormSelectLand: FC<FormSelectLandProps> = ({
             options={lands}
             disabled={disabled}
             isVisible={isVisible}
+            isRequired={isRequired}
             autoFocus={autoFocus}
             />
 
