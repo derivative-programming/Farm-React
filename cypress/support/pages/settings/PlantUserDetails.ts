@@ -27,6 +27,7 @@ export const PlantUserDetailsPageSettings = {
     testConditionalAsyncFileDownloadLinkPacCodeHeaderIsVisible: true,
     testAsyncFlowReqLinkPacCodeHeaderIsVisible: true,
     testConditionalAsyncFlowReqLinkPacCodeHeaderIsVisible: true,
+    conditionalBtnExampleLinkTacCodeHeaderIsVisible: true,
     isFilterSectionHidden: true,
 
 }

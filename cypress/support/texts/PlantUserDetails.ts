@@ -26,6 +26,7 @@ export const PlantUserDetailsPageTexts = {
     testConditionalAsyncFileDownloadLinkPacCodeHeaderText: "",
     testAsyncFlowReqLinkPacCodeHeaderText: "",
     testConditionalAsyncFlowReqLinkPacCodeHeaderText: "",
+    conditionalBtnExampleLinkTacCodeHeaderText: "",
 
     //page title
     titleText: "Plant Details",
@@ -36,12 +37,15 @@ export const PlantUserDetailsPageTexts = {
     landPlantListBreadcrumbText: "Plant List",
     //report buttons
     backButtonText: "Plant List",
-
     //row button text
-    updateLinkCodeRowButtonText: "Update",
-    deleteAsyncButtonLinkCodeRowButtonText: "Delete",
-    detailsLinkCodeRowButtonText: "Details",
-
+    updateButtonTextLinkPlantCodeRowButtonText: "Update Button Text",
+    randomPropertyUpdatesLinkPlantCodeRowButtonText: "Random Property Updates",
+    backToDashboardLinkTacCodeRowButtonText: "Back To Dashboard",
+    testFileDownloadLinkPacCodeButtonText: "Test File Download",
+    testConditionalAsyncFileDownloadLinkPacCodeButtonText: "Test Conditional Async File Download",
+    testAsyncFlowReqLinkPacCodeRowButtonText: "Test Async Flow Req",
+    testConditionalAsyncFlowReqLinkPacCodeButtonText: "Test Conditional Async Flow Req",
+    conditionalBtnExampleLinkTacCodeButtonText: "Conditional Btn Example",
     siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }

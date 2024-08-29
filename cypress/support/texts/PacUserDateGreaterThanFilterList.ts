@@ -11,11 +11,6 @@ export const PacUserDateGreaterThanFilterListPageTexts = {
     titleText: "Pac User Date Greater Than Filter List Report",
     introText: "",
 
-    //row button text
-    updateLinkDateGreaterThanFilterCodeRowButtonText: "Update",
-    deleteAsyncButtonLinkDateGreaterThanFilterCodeRowButtonText: "Delete",
-    detailsLinkDateGreaterThanFilterCodeRowButtonText: "Details",
-
     siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }

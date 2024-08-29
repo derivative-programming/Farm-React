@@ -11,11 +11,6 @@ export const PacUserTriStateFilterListPageTexts = {
     titleText: "Pac User Tri State Filter List Report",
     introText: "",
 
-    //row button text
-    updateLinkTriStateFilterCodeRowButtonText: "Update",
-    deleteAsyncButtonLinkTriStateFilterCodeRowButtonText: "Delete",
-    detailsLinkTriStateFilterCodeRowButtonText: "Details",
-
     siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }

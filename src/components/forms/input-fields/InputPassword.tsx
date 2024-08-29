@@ -10,6 +10,7 @@ export interface FormInputPasswordProps {
   autoFocus?:boolean
   disabled?: boolean
   isVisible?:boolean
+  isRequired?:boolean
 }
    
 export const FormInputPassword: FC<FormInputPasswordProps> = ({
@@ -19,6 +20,7 @@ export const FormInputPassword: FC<FormInputPasswordProps> = ({
   autoFocus = false,
   disabled = false,
   isVisible = true,
+  isRequired = false,
 }): ReactElement => {
   const [field, meta] = useField(name); 
 
@@ -30,7 +32,8 @@ export const FormInputPassword: FC<FormInputPasswordProps> = ({
     <div className="" hidden={!isVisible}>
       <Form.Group controlId={name} className="mb-2 text-start">
           <Form.Label data-testid={name + '-label'}
-            size="sm">{label}</Form.Label>
+            size="sm">{label} {isRequired && <span className="text-danger">*</span>}
+          </Form.Label>
           <Form.Control
             // ref={inputRef}
             data-testid={name}
@@ -39,7 +42,8 @@ export const FormInputPassword: FC<FormInputPasswordProps> = ({
             {...field} 
             disabled={disabled}
             autoFocus={autoFocus}
-            isInvalid={isInvalid}
+            isInvalid={isInvalid} 
+            required={isRequired} 
             size="sm"
           />
           <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>

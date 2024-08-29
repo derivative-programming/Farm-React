@@ -227,74 +227,92 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                     <Lookups.FormSelectFlavor name="requestFlavorCode"
                       label="Select A Flavor"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputText name="requestOtherFlavor"
                       label="Other Flavor"
                       isVisible={true}
+                      isRequired={false}
                     />
                     <InputFields.FormInputNumber name="requestSomeIntVal"
                       label="Some Int Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputNumber name="requestSomeBigIntVal"
                       label="Some Big Int Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputCheckbox name="requestSomeBitVal"
                       label="Some Bit Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputCheckbox name="requestIsEditAllowed"
                       label="Is Edit Allowed"
                       isVisible={true}
+                      isRequired={false}
                     />
                     <InputFields.FormInputCheckbox name="requestIsDeleteAllowed"
                       label="Is Delete Allowed"
                       isVisible={true}
+                      isRequired={false}
                     />
                     <InputFields.FormInputNumber name="requestSomeFloatVal"
                       label="Some Float Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputNumber name="requestSomeDecimalVal"
                       label="Some Decimal Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputDateTime name="requestSomeUTCDateTimeVal"
                       label="Some UTC Date Time Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputDate name="requestSomeDateVal"
                       label="Some Date Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputMoney name="requestSomeMoneyVal"
                       label="Some Money Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputText name="requestSomeNVarCharVal"
                       label="Some N Var Char Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputPassword name="requestSomeVarCharVal"
                       label="Some Secure Var Char Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputTextArea name="requestSomeTextVal"
                       label="Some Text Val"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputText name="requestSomePhoneNumber"
                       label="Some Phone Number" 
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputEmail name="requestSomeEmailAddress"
                       label="Some Email Address"
                       isVisible={true}
+                      isRequired={true}
                     />
                     <InputFields.FormInputFile name="requestSampleImageUploadFile"
                       label="Sample Image Upload"
                       isVisible={true}
+                      isRequired={false}
                     />
                   </div>
                 }

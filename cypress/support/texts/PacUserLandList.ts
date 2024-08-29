@@ -11,11 +11,6 @@ export const PacUserLandListPageTexts = {
     titleText: "Pac User Land List Report",
     introText: "",
 
-    //row button text
-    updateLinkLandCodeRowButtonText: "Update",
-    deleteAsyncButtonLinkLandCodeRowButtonText: "Delete",
-    detailsLinkLandCodeRowButtonText: "Details",
-
     siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }

@@ -31,6 +31,7 @@ export const LandPlantListPageSettings = {
     testConditionalFileDownloadLinkPacCodeHeaderIsVisible: true,
     testAsyncFlowReqLinkPacCodeHeaderIsVisible: true,
     testConditionalAsyncFlowReqLinkPacCodeHeaderIsVisible: true,
+    conditionalBtnExampleLinkPlantCodeHeaderIsVisible: true,
 
     
     isFilterSectionHidden: false,

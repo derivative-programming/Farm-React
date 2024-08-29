@@ -11,11 +11,6 @@ export const PacUserTacListPageTexts = {
     titleText: "Pac User Tac List Report",
     introText: "",
 
-    //row button text
-    updateLinkTacCodeRowButtonText: "Update",
-    deleteAsyncButtonLinkTacCodeRowButtonText: "Delete",
-    detailsLinkTacCodeRowButtonText: "Details",
-
     siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }

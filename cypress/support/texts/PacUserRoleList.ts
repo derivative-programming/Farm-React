@@ -11,11 +11,6 @@ export const PacUserRoleListPageTexts = {
     titleText: "Pac User Role List Report",
     introText: "",
 
-    //row button text
-    updateLinkRoleCodeRowButtonText: "Update",
-    deleteAsyncButtonLinkRoleCodeRowButtonText: "Delete",
-    detailsLinkRoleCodeRowButtonText: "Details",
-
     siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }

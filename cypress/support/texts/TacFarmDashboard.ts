@@ -2,6 +2,7 @@
 
 export const TacFarmDashboardPageTexts = {
     fieldOnePlantListLinkLandCodeHeaderText: "",
+    conditionalBtnExampleLinkLandCodeHeaderText: "",
     testFileDownloadLinkPacCodeHeaderText: "",
     testConditionalFileDownloadLinkPacCodeHeaderText: "",
     testAsyncFlowReqLinkPacCodeHeaderText: "",
@@ -10,12 +11,12 @@ export const TacFarmDashboardPageTexts = {
     //page title
     titleText: "Farm Dashboard",
     introText: "Farm Dashboard page intro text",
-
-    //row button text
-    updateLinkCodeRowButtonText: "Update",
-    deleteAsyncButtonLinkCodeRowButtonText: "Delete",
-    detailsLinkCodeRowButtonText: "Details",
-
+    fieldOnePlantListLinkLandCodeRowButtonText: "Field One-Plants",
+    conditionalBtnExampleLinkLandCodeButtonText: "Conditional Btn Example",
+    testFileDownloadLinkPacCodeButtonText: "Test File Download",
+    testConditionalFileDownloadLinkPacCodeButtonText: "Test Conditional File Download",
+    testAsyncFlowReqLinkPacCodeRowButtonText: "Test Async Flow Req",
+    testConditionalAsyncFlowReqLinkPacCodeButtonText: "Test Conditional Async Flow Req",
     siteFooterText: "Copyright © 2024 • NewCo Inc.",
 
 }

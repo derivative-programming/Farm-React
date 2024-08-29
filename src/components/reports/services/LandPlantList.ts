@@ -144,6 +144,7 @@ export interface QueryResultItem {
     testConditionalFileDownloadLinkPacCode: string;
     testAsyncFlowReqLinkPacCode: string;
     testConditionalAsyncFlowReqLinkPacCode: string;
+    conditionalBtnExampleLinkPlantCode: string;
 } 
 
 export interface QueryRequest {
@@ -260,6 +261,7 @@ export class QueryResultItemInstance implements QueryResultItem {
     testConditionalFileDownloadLinkPacCode: string;
     testAsyncFlowReqLinkPacCode: string;
     testConditionalAsyncFlowReqLinkPacCode: string;
+    conditionalBtnExampleLinkPlantCode: string;
 
     constructor() {
  
@@ -312,6 +314,7 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.testConditionalFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
         this.testAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
         this.testConditionalAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';  
+        this.conditionalBtnExampleLinkPlantCode = '00000000-0000-0000-0000-000000000000';  
     }
 }
 

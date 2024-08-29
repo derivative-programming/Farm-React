@@ -296,6 +296,15 @@ export class PlantUserDetailsPage {
                 cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
                 .should('not.exist');
             }
+            if(PageSettings.conditionalBtnExampleLinkTacCodeHeaderIsVisible){
+                cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortUpIndicator)
+                .should('not.exist');
+            }
 
             cy.log('Verifying page size control...');
             cy.get(PageSelectors.pageSizeControl)
@@ -1126,6 +1135,35 @@ export class PlantUserDetailsPage {
                     }
                 });
             }
+            if(PageSettings.conditionalBtnExampleLinkTacCodeHeaderIsVisible){
+                cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.conditionalBtnExampleLinkTacCodeHeader)
+                        .click()
+                        .get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.conditionalBtnExampleLinkTacCodeHeader)
+                        .click()
+                        .get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
         }
 
         //report buttons
@@ -1150,6 +1188,7 @@ export class PlantUserDetailsPage {
         const testConditionalAsyncFileDownloadLinkPacCodeColumnIsVisible = true;
         const testAsyncFlowReqLinkPacCodeColumnIsVisible = true;
         const testConditionalAsyncFlowReqLinkPacCodeColumnIsVisible = true;
+        const conditionalBtnExampleLinkTacCodeColumnIsVisible = true;
         if (destinationPageName == 'XXXX') { //placeholder
 
         }
@@ -1206,6 +1245,13 @@ export class PlantUserDetailsPage {
             testConditionalAsyncFlowReqLinkPacCodeColumnIsVisible) {
             cy.log('click row button testConditionalAsyncFlowReqLinkPacCode...');
             cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeRowButton)
+            .click();
+            cy.wait(2000);
+        }
+        else if (destinationPageName == 'TacFarmDashboard' &&   //conditionalBtnExampleLinkTacCode
+            conditionalBtnExampleLinkTacCodeColumnIsVisible) {
+            cy.log('click row button conditionalBtnExampleLinkTacCode...');
+            cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeRowButton)
             .click();
             cy.wait(2000);
         }

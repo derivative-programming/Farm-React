@@ -61,6 +61,15 @@ export class TacFarmDashboardPage {
                 cy.get(PageSelectors.fieldOnePlantListLinkLandCodeHeaderSortUpIndicator)
                 .should('not.exist');
             }
+            if(PageSettings.conditionalBtnExampleLinkLandCodeHeaderIsVisible){
+                cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortUpIndicator)
+                .should('not.exist');
+            }
             if(PageSettings.testFileDownloadLinkPacCodeHeaderIsVisible){
                 cy.get(PageSelectors.testFileDownloadLinkPacCodeHeader)
                 .should('exist');
@@ -203,6 +212,35 @@ export class TacFarmDashboardPage {
                     }
                 });
             }
+            if(PageSettings.conditionalBtnExampleLinkLandCodeHeaderIsVisible){
+                cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.conditionalBtnExampleLinkLandCodeHeader)
+                        .click()
+                        .get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.conditionalBtnExampleLinkLandCodeHeader)
+                        .click()
+                        .get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.testFileDownloadLinkPacCodeHeaderIsVisible){
                 cy.get(PageSelectors.testFileDownloadLinkPacCodeHeader)
                 .should('exist');
@@ -337,6 +375,7 @@ export class TacFarmDashboardPage {
     clickButtonWithDestination(destinationPageName) {
 		cy.log('TacFarmDashboardPage.clickButtonWithDestination() destinationPageName: ' + destinationPageName);
         const fieldOnePlantListLinkLandCodeColumnIsVisible = true;
+        const conditionalBtnExampleLinkLandCodeColumnIsVisible = true;
         const testFileDownloadLinkPacCodeColumnIsVisible = true;
         const testConditionalFileDownloadLinkPacCodeColumnIsVisible = true;
         const testAsyncFlowReqLinkPacCodeColumnIsVisible = true;
@@ -348,6 +387,13 @@ export class TacFarmDashboardPage {
             fieldOnePlantListLinkLandCodeColumnIsVisible) {
             cy.log('click row button fieldOnePlantListLinkLandCode...');
             cy.get(PageSelectors.fieldOnePlantListLinkLandCodeRowButton)
+            .click();
+            cy.wait(2000);
+        }
+        else if (destinationPageName == 'LandPlantList' &&   //conditionalBtnExampleLinkLandCode
+            conditionalBtnExampleLinkLandCodeColumnIsVisible) {
+            cy.log('click row button conditionalBtnExampleLinkLandCode...');
+            cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeRowButton)
             .click();
             cy.wait(2000);
         }

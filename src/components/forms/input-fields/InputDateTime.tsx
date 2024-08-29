@@ -13,6 +13,7 @@ export interface FormInputDateTimeProps {
   autoFocus?:boolean
   disabled?: boolean
   isVisible?:boolean
+  isRequired?:boolean
 }
    
 export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
@@ -22,6 +23,7 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
   autoFocus = false,
   disabled = false,
   isVisible = true,
+  isRequired = false,
 }): ReactElement => {
   const [field, , helpers] = useField(name);
 
@@ -44,7 +46,8 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
   return (
     <div className="" hidden={!isVisible}>
       <Form.Group controlId={name} className="mb-2 text-start">
-          <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
+          <Form.Label data-testid={name + '-label'}>{label} {isRequired && <span className="text-danger">*</span>}
+          </Form.Label>
           <DatePicker
             // ref={inputRef}
             size="small"

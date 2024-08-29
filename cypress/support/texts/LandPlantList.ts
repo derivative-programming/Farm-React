@@ -37,6 +37,7 @@ export const LandPlantListPageTexts = {
     testConditionalFileDownloadLinkPacCodeHeaderText: "",
     testAsyncFlowReqLinkPacCodeHeaderText: "",
     testConditionalAsyncFlowReqLinkPacCodeHeaderText: "",
+    conditionalBtnExampleLinkPlantCodeHeaderText: "",
 
     
     someIntValFilterLabel: "Some Int Val", 
@@ -75,6 +76,11 @@ export const LandPlantListPageTexts = {
     updateLinkPlantCodeRowButtonText: "Update",
     deleteAsyncButtonLinkPlantCodeRowButtonText: "Delete",
     detailsLinkPlantCodeRowButtonText: "Details",
+    testFileDownloadLinkPacCodeButtonText: "Test File Download",
+    testConditionalFileDownloadLinkPacCodeButtonText: "Test Conditional File Download",
+    testAsyncFlowReqLinkPacCodeButtonText: "Test Async Flow Req",
+    testConditionalAsyncFlowReqLinkPacCodeButtonText: "Test Conditional Async Flow Req",
+    conditionalBtnExampleLinkPlantCodeButtonText: "Conditional Btn Example",
 
     siteFooterText: "Copyright © 2024 • NewCo Inc.",
 

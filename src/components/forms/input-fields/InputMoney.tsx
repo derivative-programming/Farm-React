@@ -11,6 +11,7 @@ export interface FormInputMoneyProps {
   autoFocus?:boolean
   disabled?: boolean
   isVisible?:boolean
+  isRequired?:boolean
 }
    
 export const FormInputMoney: FC<FormInputMoneyProps> = ({
@@ -20,6 +21,7 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
   autoFocus = false,
   disabled = false,
   isVisible = true,
+  isRequired = false,
 }): ReactElement => {
   const [field, meta] = useField(name); 
 
@@ -31,7 +33,8 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
     <div className="" hidden={!isVisible}>
       <Form.Group controlId={name} className="mb-2 text-start">
           <Form.Label data-testid={name + '-label'}
-            size="sm">{label}</Form.Label>
+            size="sm">{label} {isRequired && <span className="text-danger">*</span>}
+          </Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
             <Form.Control
@@ -45,6 +48,7 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
               onKeyDown={onKeyDown}
               isInvalid={isInvalid}
               placeholder={placeholder}
+              required={isRequired} 
               size="sm"
             />
             <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>

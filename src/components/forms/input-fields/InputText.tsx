@@ -10,6 +10,7 @@ export interface FormInputTextProps {
   autoFocus?:boolean
   disabled?: boolean
   isVisible?:boolean
+  isRequired?:boolean
 }
     
 export const FormInputText: FC<FormInputTextProps> = ({
@@ -19,6 +20,7 @@ export const FormInputText: FC<FormInputTextProps> = ({
   autoFocus = false,
   disabled = false,
   isVisible = true,
+  isRequired = false,
 }): ReactElement => {
   const [field, meta] = useField(name);  
   
@@ -28,7 +30,8 @@ export const FormInputText: FC<FormInputTextProps> = ({
     <div hidden={!isVisible}>
       <Form.Group controlId={name} className="mb-2 text-start" >
           <Form.Label data-testid={name + '-label'}
-            size="sm">{label}</Form.Label>
+            size="sm">{label} {isRequired && <span className="text-danger">*</span>}
+          </Form.Label>
           <Form.Control
             // ref={inputRef}
             data-testid={name}
@@ -38,6 +41,7 @@ export const FormInputText: FC<FormInputTextProps> = ({
             disabled={disabled}
             autoFocus={autoFocus}  
             isInvalid={isInvalid}
+            required={isRequired} 
             size="sm"
           />
           <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>

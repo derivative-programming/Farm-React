@@ -319,6 +319,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            
+            if(PageSettings.conditionalBtnExampleLinkPlantCodeHeaderIsVisible){
+                cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
 
             cy.log('Verifying page size control...');
             cy.get(PageSelectors.pageSizeControl)
@@ -1427,6 +1437,36 @@ export class LandPlantListPage {
                     }
                 });
             }
+            
+            if(PageSettings.conditionalBtnExampleLinkPlantCodeHeaderIsVisible){
+                cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeader)
+                .click()
+                .click()
+                .get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeader)
+                        .click()
+                        .get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeader)
+                        .click()
+                        .get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
         }
  
   
@@ -1456,6 +1496,7 @@ export class LandPlantListPage {
         const testConditionalFileDownloadLinkPacCodeColumnIsVisible = true;
         const testAsyncFlowReqLinkPacCodeColumnIsVisible = true;
         const testConditionalAsyncFlowReqLinkPacCodeColumnIsVisible = true;
+        const conditionalBtnExampleLinkPlantCodeColumnIsVisible = true;
         
         if (destinationPageName == 'XXXX') { //placeholder
 
@@ -1528,6 +1569,13 @@ export class LandPlantListPage {
             testConditionalAsyncFlowReqLinkPacCodeColumnIsVisible) {
             cy.log('click row button testConditionalAsyncFlowReqLinkPacCode...');
             cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeRowButton) 
+            .click();
+            cy.wait(2000);
+        } 
+        else if (destinationPageName == 'PlantUserDetails' &&   //conditionalBtnExampleLinkPlantCode
+            conditionalBtnExampleLinkPlantCodeColumnIsVisible) {
+            cy.log('click row button conditionalBtnExampleLinkPlantCode...');
+            cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeRowButton) 
             .click();
             cy.wait(2000);
         } 

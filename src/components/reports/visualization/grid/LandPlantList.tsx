@@ -389,6 +389,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isVisible={true}
               sortedColumnName={sortedColumnName}
             />
+
+            <ReportColumnHeader forColumn="conditionalBtnExampleLinkPlantCode"
+              isSortDescending={isSortDescending}
+              label=""
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
           </tr>
         </thead>
         <tbody> 
@@ -619,6 +627,18 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                         AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
                         onRefreshRequest())
                       }}
+                  />
+
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="conditionalBtnExampleLinkPlantCode"
+                    rowIndex={index}
+                    buttonText="Conditional Btn Example"
+                    isButtonCallToAction={true}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed} 
+                    onClick={() => {
+                      logClick(componentName,"conditionalBtnExampleLinkPlantCode","");
+                      onNavigateTo("/plant-user-details/" + item.conditionalBtnExampleLinkPlantCode);
+                    }}
                   />
                 </tr>
               );

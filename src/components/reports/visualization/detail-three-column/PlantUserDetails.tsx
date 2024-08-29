@@ -267,6 +267,17 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                     } }
                 />
 
+                <ReportColumnDisplay.ReportColumnDisplayButton forColumn="conditionalBtnExampleLinkTacCode"
+                    buttonText="Conditional Btn Example"
+                    isButtonCallToAction={true}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                    onClick={() => {
+                        logClick("ReportDetailThreeColPlantUserDetails","conditionalBtnExampleLinkTacCode","");
+                        onNavigateTo("/tac-farm-dashboard/" + item.conditionalBtnExampleLinkTacCode)
+                    }}
+                />
+
             </Col>
             </Row>
         }

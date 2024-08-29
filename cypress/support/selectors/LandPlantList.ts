@@ -30,6 +30,7 @@ export const LandPlantListPageSelectors = {
     testConditionalFileDownloadLinkPacCodeHeader: "[data-testid='testConditionalFileDownloadLinkPacCode-header']",
     testAsyncFlowReqLinkPacCodeHeader: "[data-testid='testAsyncFlowReqLinkPacCode-header']",
     testConditionalAsyncFlowReqLinkPacCodeHeader: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header']",
+    conditionalBtnExampleLinkPlantCodeHeader: "[data-testid='conditionalBtnExampleLinkPlantCode-header']",
 
     //column headerSortDownIndicator
     plantCodeHeaderSortDownIndicator: "[data-testid='plantCode-header-sortDown']",
@@ -59,6 +60,7 @@ export const LandPlantListPageSelectors = {
     testConditionalFileDownloadLinkPacCodeHeaderSortDownIndicator: "[data-testid='testConditionalFileDownloadLinkPacCode-header-sortDown']",
     testAsyncFlowReqLinkPacCodeHeaderSortDownIndicator: "[data-testid='testAsyncFlowReqLinkPacCode-header-sortDown']",
     testConditionalAsyncFlowReqLinkPacCodeHeaderSortDownIndicator: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header-sortDown']",
+    conditionalBtnExampleLinkPlantCodeHeaderSortDownIndicator: "[data-testid='conditionalBtnExampleLinkPlantCode-header-sortDown']",
   
     
     
@@ -90,6 +92,7 @@ export const LandPlantListPageSelectors = {
     testConditionalFileDownloadLinkPacCodeHeaderSortUpIndicator: "[data-testid='testConditionalFileDownloadLinkPacCode-header-sortUp']",
     testAsyncFlowReqLinkPacCodeHeaderSortUpIndicator: "[data-testid='testAsyncFlowReqLinkPacCode-header-sortUp']",
     testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header-sortUp']",
+    conditionalBtnExampleLinkPlantCodeHeaderSortUpIndicator: "[data-testid='conditionalBtnExampleLinkPlantCode-header-sortUp']",
  
     otherAddButton: "[data-testid='otherAddButton']",
 
@@ -110,6 +113,7 @@ export const LandPlantListPageSelectors = {
     testConditionalFileDownloadLinkPacCodeRowButton: "[data-testid='testConditionalFileDownloadLinkPacCode-column-0-button']",
     testAsyncFlowReqLinkPacCodeRowButton: "[data-testid='testAsyncFlowReqLinkPacCode-column-0-button']",
     testConditionalAsyncFlowReqLinkPacCodeRowButton: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-column-0-button']",
+    conditionalBtnExampleLinkPlantCodeRowButton: "[data-testid='conditionalBtnExampleLinkPlantCode-column-0-button']",
 
     
         backButton: "[data-testid='back-button']",
