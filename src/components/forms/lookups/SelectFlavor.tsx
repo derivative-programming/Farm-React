@@ -9,7 +9,6 @@ export interface FormSelectFlavorProps {
     autoFocus?:boolean
     disabled?: boolean
     isVisible?:boolean
-    isRequired?:boolean
   }
 
 export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
@@ -18,7 +17,6 @@ export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
     autoFocus = false,
     disabled = false,
     isVisible = true,
-    isRequired = false,
   }): ReactElement => {
 
     const [flavors, setFlavors] = useState<FormInputSelectOption[]>([])
@@ -49,7 +47,6 @@ export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
             disabled={disabled}
             isVisible={isVisible}
             autoFocus={autoFocus}
-            isRequired={isRequired}
             />
 
     );
