@@ -56,21 +56,21 @@ export const LandPlantListPageTexts = {
 //endset
 
     
-    someIntValFilterLabel: "Some Int Val", 
-    someBigIntValFilterLabel: "Some Big Int Val",
-    someBitValFilterLabel: "Some Bit Val",
+    someFilterIntValFilterLabel: "Some Int Val", 
+    someFilterBigIntValFilterLabel: "Some Big Int Val",
+    someFilterBitValFilterLabel: "Some Bit Val",
     isEditAllowedFilterLabel: "Is Edit Allowed",
     isDeleteAllowedFilterLabel: "Is Delete Allowed",
-    someFloatValFilterLabel: "Some Float Val",
-    someDecimalValFilterLabel: "Some Decimal Val", 
+    someFilterFloatValFilterLabel: "Some Float Val",
+    someFilterDecimalValFilterLabel: "Some Decimal Val", 
     someMinUTCDateTimeValFilterLabel: "Some Min UTC Date Time Val",
     someMinDateValFilterLabel: "Some Min Date Val",
-    someMoneyValFilterLabel: "Some Money Val",
-    someNVarCharValFilterLabel: "Some N Var Char Val",
-    someVarCharValFilterLabel: "Some Var Char Val",
-    someTextValFilterLabel: "Some Text Val",
-    somePhoneNumberFilterLabel: "Some Phone Number",
-    someEmailAddressFilterLabel: "Some Email Address",
+    someFilterMoneyValFilterLabel: "Some Money Val",
+    someFilterNVarCharValFilterLabel: "Some N Var Char Val",
+    someFilterVarCharValFilterLabel: "Some Var Char Val",
+    someFilterTextValFilterLabel: "Some Text Val",
+    someFilterPhoneNumberFilterLabel: "Some Phone Number",
+    someFilterEmailAddressFilterLabel: "Some Email Address",
     flavorCodeFilterLabel: "Select A Flavor",
 
     //page title

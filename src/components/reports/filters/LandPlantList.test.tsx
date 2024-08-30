@@ -50,55 +50,55 @@ describe("LandPlantList Component", () => {
   it("renders correctly", async () => { 
     expect(screen.getByTestId("testForm")).toBeInTheDocument();
     expect(screen.getByTestId("flavorCode")).toBeInTheDocument();
-    expect(screen.getByTestId("someIntVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someBigIntVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someBitVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterIntVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterBigIntVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterBitVal")).toBeInTheDocument();
     expect(screen.getByTestId("isEditAllowed")).toBeInTheDocument();
     expect(screen.getByTestId("isDeleteAllowed")).toBeInTheDocument();
-    expect(screen.getByTestId("someFloatVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someDecimalVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterFloatVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterDecimalVal")).toBeInTheDocument();
     expect(screen.getByTestId("someMinUTCDateTimeVal")).toBeInTheDocument();
     expect(screen.getByTestId("someMinDateVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someMoneyVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someNVarCharVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someVarCharVal")).toBeInTheDocument();
-    expect(screen.getByTestId("someTextVal")).toBeInTheDocument();
-    expect(screen.getByTestId("somePhoneNumber")).toBeInTheDocument();
-    expect(screen.getByTestId("someEmailAddress")).toBeInTheDocument(); 
+    expect(screen.getByTestId("someFilterMoneyVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterNVarCharVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterVarCharVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterTextVal")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterPhoneNumber")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterEmailAddress")).toBeInTheDocument(); 
     
     expect(screen.getByTestId("flavorCode-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someIntVal-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someBigIntVal-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someBitVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterIntVal-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterBigIntVal-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterBitVal-field")).toBeInTheDocument();
     expect(screen.getByTestId("isEditAllowed-field")).toBeInTheDocument();
     expect(screen.getByTestId("isDeleteAllowed-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someFloatVal-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someDecimalVal-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterFloatVal-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterDecimalVal-label")).toBeInTheDocument();
     expect(screen.getByTestId("someMinUTCDateTimeVal-label")).toBeInTheDocument();
     expect(screen.getByTestId("someMinDateVal-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someMoneyVal-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someNVarCharVal-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someVarCharVal-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someTextVal-label")).toBeInTheDocument();
-    expect(screen.getByTestId("somePhoneNumber-label")).toBeInTheDocument();
-    expect(screen.getByTestId("someEmailAddress-label")).toBeInTheDocument(); 
+    expect(screen.getByTestId("someFilterMoneyVal-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterNVarCharVal-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterVarCharVal-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterTextVal-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterPhoneNumber-label")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterEmailAddress-label")).toBeInTheDocument(); 
     
     expect(screen.getByTestId("flavorCode-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someIntVal-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someBigIntVal-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someBitVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterIntVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterBigIntVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterBitVal-field")).toBeInTheDocument();
     expect(screen.getByTestId("isEditAllowed-field")).toBeInTheDocument();
     expect(screen.getByTestId("isDeleteAllowed-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someFloatVal-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someDecimalVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterFloatVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterDecimalVal-field")).toBeInTheDocument();
     expect(screen.getByTestId("someMinUTCDateTimeVal-field")).toBeInTheDocument();
     expect(screen.getByTestId("someMinDateVal-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someMoneyVal-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someNVarCharVal-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someVarCharVal-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someTextVal-field")).toBeInTheDocument();
-    expect(screen.getByTestId("somePhoneNumber-field")).toBeInTheDocument();
-    expect(screen.getByTestId("someEmailAddress-field")).toBeInTheDocument(); 
+    expect(screen.getByTestId("someFilterMoneyVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterNVarCharVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterVarCharVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterTextVal-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterPhoneNumber-field")).toBeInTheDocument();
+    expect(screen.getByTestId("someFilterEmailAddress-field")).toBeInTheDocument(); 
   });
  
 
@@ -109,26 +109,26 @@ describe("LandPlantList Component", () => {
     }); 
     expect(screen.getByTestId("flavorCode-field")).toHaveTextContent("Please Select One");
   });
-  it("when user enter someIntVal, it set accordingly", async () => { 
-    const input = screen.getByTestId("someIntVal-field");
+  it("when user enter someFilterIntVal, it set accordingly", async () => { 
+    const input = screen.getByTestId("someFilterIntVal-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "99" } });
     }); 
-    expect(screen.getByTestId("someIntVal-field")).toHaveValue(99);
+    expect(screen.getByTestId("someFilterIntVal-field")).toHaveValue(99);
   });
 
-  it("when user enter someBigIntVal, it set accordingly", async () => { 
-    const input = screen.getByTestId("someBigIntVal-field");
+  it("when user enter someFilterBigIntVal, it set accordingly", async () => { 
+    const input = screen.getByTestId("someFilterBigIntVal-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "99" } });
     }); 
-    expect(screen.getByTestId("someBigIntVal-field")).toHaveValue(99);
+    expect(screen.getByTestId("someFilterBigIntVal-field")).toHaveValue(99);
   });
 
-  it("when user enter someBitVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someBitVal-field"); 
-    fireEvent.click(screen.getByTestId("someBitVal-field"));
-    expect(screen.getByTestId("someBitVal-field")).toBeChecked();
+  it("when user enter someFilterBitVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterBitVal-field"); 
+    fireEvent.click(screen.getByTestId("someFilterBitVal-field"));
+    expect(screen.getByTestId("someFilterBitVal-field")).toBeChecked();
   });
 
   it("when user enter isEditAllowed, it set accordingly", async () => {
@@ -143,20 +143,20 @@ describe("LandPlantList Component", () => {
     expect(screen.getByTestId("isDeleteAllowed-field")).toBeChecked();
   });
 
-  it("when user enter someFloatVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someFloatVal-field");
+  it("when user enter someFilterFloatVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterFloatVal-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "1" } });
     }); 
-    expect(screen.getByTestId("someFloatVal-field")).toHaveValue(1);
+    expect(screen.getByTestId("someFilterFloatVal-field")).toHaveValue(1);
   });
 
-  it("when user enter someDecimalVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someDecimalVal-field");
+  it("when user enter someFilterDecimalVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterDecimalVal-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "1" } });
     }); 
-    expect(screen.getByTestId("someDecimalVal-field")).toHaveValue(1);
+    expect(screen.getByTestId("someFilterDecimalVal-field")).toHaveValue(1);
   });
 
   it("when user enter someMinUTCDateTimeVal, it set accordingly", async () => {
@@ -175,52 +175,52 @@ describe("LandPlantList Component", () => {
    // expect(screen.getByTestId("someMinDateVal-field")).toHaveValue("1/1/2000");
   });
 
-  it("when user enter someMoneyVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someMoneyVal-field");
+  it("when user enter someFilterMoneyVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterMoneyVal-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "1" } });
     }); 
-    expect(screen.getByTestId("someMoneyVal-field")).toHaveValue(1);
+    expect(screen.getByTestId("someFilterMoneyVal-field")).toHaveValue(1);
   });
 
-  it("when user enter someNVarCharVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someNVarCharVal-field");
+  it("when user enter someFilterNVarCharVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterNVarCharVal-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("someNVarCharVal-field")).toHaveValue("sample data");
+    expect(screen.getByTestId("someFilterNVarCharVal-field")).toHaveValue("sample data");
   });
 
-  it("when user enter someVarCharVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someVarCharVal-field");
+  it("when user enter someFilterVarCharVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterVarCharVal-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("someVarCharVal-field")).toHaveValue("sample data");
+    expect(screen.getByTestId("someFilterVarCharVal-field")).toHaveValue("sample data");
   });
 
-  it("when user enter someTextVal, it set accordingly", async () => {
-    const input = screen.getByTestId("someTextVal-field");
+  it("when user enter someFilterTextVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterTextVal-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("someTextVal-field")).toHaveValue("sample data");
+    expect(screen.getByTestId("someFilterTextVal-field")).toHaveValue("sample data");
   });
 
-  it("when user enter somePhoneNumber, it set accordingly", async () => {
-    const input = screen.getByTestId("somePhoneNumber-field");
+  it("when user enter someFilterPhoneNumber, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterPhoneNumber-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("somePhoneNumber-field")).toHaveValue("sample data");
+    expect(screen.getByTestId("someFilterPhoneNumber-field")).toHaveValue("sample data");
   });
 
-  it("when user enter someEmailAddress, it set accordingly", async () => {
-    const input = screen.getByTestId("someEmailAddress-field");
+  it("when user enter someFilterEmailAddress, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterEmailAddress-field");
     await act(async () => {
       fireEvent.change(input, { target: { value: "sample data" } });
     }); 
-    expect(screen.getByTestId("someEmailAddress-field")).toHaveValue("sample data");
+    expect(screen.getByTestId("someFilterEmailAddress-field")).toHaveValue("sample data");
   }); 
 
   it("when user entered LandPlantList details and clicks on register button, LandPlantListUser api should be called", async () => {
@@ -230,19 +230,19 @@ describe("LandPlantList Component", () => {
       fireEvent.change(flavorCode, { target: { value: "99" } });
     });
 
-    const someIntValInput = screen.getByTestId("someIntVal-field");
+    const someFilterIntValInput = screen.getByTestId("someFilterIntVal-field");
     await act(async () => {
-      fireEvent.change(someIntValInput, { target: { value: "99" } });
+      fireEvent.change(someFilterIntValInput, { target: { value: "99" } });
     });
  
-    const someBigIntValInput = screen.getByTestId("someBigIntVal-field");
+    const someFilterBigIntValInput = screen.getByTestId("someFilterBigIntVal-field");
     await act(async () => {
-      fireEvent.change(someBigIntValInput, { target: { value: "99" } });
+      fireEvent.change(someFilterBigIntValInput, { target: { value: "99" } });
     });
  
-    const someBitValInput = screen.getByTestId("someBitVal-field");
+    const someFilterBitValInput = screen.getByTestId("someFilterBitVal-field");
     await act(async () => {
-      fireEvent.change(someBitValInput, { target: { checked: true } });
+      fireEvent.change(someFilterBitValInput, { target: { checked: true } });
     });
  
     const isEditAllowedInput = screen.getByTestId("isEditAllowed-field");
@@ -255,14 +255,14 @@ describe("LandPlantList Component", () => {
       fireEvent.change(isDeleteAllowedInput, { target: { checked: true } });
     });
  
-    const someFloatValInput = screen.getByTestId("someFloatVal-field");
+    const someFilterFloatValInput = screen.getByTestId("someFilterFloatVal-field");
     await act(async () => {
-      fireEvent.change(someFloatValInput, { target: { value: "99" } });
+      fireEvent.change(someFilterFloatValInput, { target: { value: "99" } });
     });
  
-    const someDecimalValInput = screen.getByTestId("someDecimalVal-field");
+    const someFilterDecimalValInput = screen.getByTestId("someFilterDecimalVal-field");
     await act(async () => {
-      fireEvent.change(someDecimalValInput, { target: { value: "99" } });
+      fireEvent.change(someFilterDecimalValInput, { target: { value: "99" } });
     });
  
     const someMinUTCDateTimeValInput = screen.getByTestId("someMinUTCDateTimeVal-field");
@@ -275,34 +275,34 @@ describe("LandPlantList Component", () => {
       fireEvent.change(someMinDateValInput, { target: { value: "1/1/2000" } });
     });
  
-    const someMoneyValInput = screen.getByTestId("someMoneyVal-field");
+    const someFilterMoneyValInput = screen.getByTestId("someFilterMoneyVal-field");
     await act(async () => {
-      fireEvent.change(someMoneyValInput, { target: { value: "99" } });
+      fireEvent.change(someFilterMoneyValInput, { target: { value: "99" } });
     });
  
-    const someNVarCharValInput = screen.getByTestId("someNVarCharVal-field");
+    const someFilterNVarCharValInput = screen.getByTestId("someFilterNVarCharVal-field");
     await act(async () => {
-      fireEvent.change(someNVarCharValInput, { target: { value: "Sample Data" } });
+      fireEvent.change(someFilterNVarCharValInput, { target: { value: "Sample Data" } });
     });
  
-    const someVarCharValInput = screen.getByTestId("someVarCharVal-field");
+    const someFilterVarCharValInput = screen.getByTestId("someFilterVarCharVal-field");
     await act(async () => {
-      fireEvent.change(someVarCharValInput, { target: { value: "Sample Data" } });
+      fireEvent.change(someFilterVarCharValInput, { target: { value: "Sample Data" } });
     });
  
-    const someTextValInput = screen.getByTestId("someTextVal-field");
+    const someFilterTextValInput = screen.getByTestId("someFilterTextVal-field");
     await act(async () => {
-      fireEvent.change(someTextValInput, { target: { value: "Sample Data" } });
+      fireEvent.change(someFilterTextValInput, { target: { value: "Sample Data" } });
     });
  
-    const somePhoneNumberInput = screen.getByTestId("somePhoneNumber-field");
+    const someFilterPhoneNumberInput = screen.getByTestId("someFilterPhoneNumber-field");
     await act(async () => {
-      fireEvent.change(somePhoneNumberInput, { target: { value: "Sample Data" } });
+      fireEvent.change(someFilterPhoneNumberInput, { target: { value: "Sample Data" } });
     });
  
-    const someEmailAddressInput = screen.getByTestId("someEmailAddress-field");
+    const someFilterEmailAddressInput = screen.getByTestId("someFilterEmailAddress-field");
     await act(async () => {
-      fireEvent.change(someEmailAddressInput, { target: { value: "Sample Data" } });
+      fireEvent.change(someFilterEmailAddressInput, { target: { value: "Sample Data" } });
     });
   
     await act(async () => {

@@ -11,35 +11,35 @@ export interface ResponseFull {
 
 export interface InitResult {
  
-    someIntVal: number;
+    someFilterIntVal: number;
  
-    someBigIntVal: number;
+    someFilterBigIntVal: number;
  
-    someBitVal: boolean;
+    someFilterBitVal: boolean;
  
     isEditAllowed: boolean;
  
     isDeleteAllowed: boolean;
  
-    someFloatVal: number;
+    someFilterFloatVal: number;
  
-    someDecimalVal: number;
+    someFilterDecimalVal: number;
  
     someMinUTCDateTimeVal: string;
  
     someMinDateVal: string;
  
-    someMoneyVal: number;
+    someFilterMoneyVal: number;
  
-    someNVarCharVal: string;
+    someFilterNVarCharVal: string;
  
-    someVarCharVal: string;
+    someFilterVarCharVal: string;
  
-    someTextVal: string;
+    someFilterTextVal: string;
  
-    somePhoneNumber: string;
+    someFilterPhoneNumber: string;
  
-    someEmailAddress: string;
+    someFilterEmailAddress: string;
  
     landName: string;
  
@@ -62,35 +62,35 @@ export interface InitValidationError {
 
 export class InitResultInstance implements InitResult {
  
-    someIntVal: number;
+    someFilterIntVal: number;
  
-    someBigIntVal: number;
+    someFilterBigIntVal: number;
  
-    someBitVal: boolean;
+    someFilterBitVal: boolean;
  
     isEditAllowed: boolean;
  
     isDeleteAllowed: boolean;
  
-    someFloatVal: number;
+    someFilterFloatVal: number;
  
-    someDecimalVal: number;
+    someFilterDecimalVal: number;
  
     someMinUTCDateTimeVal: string;
  
     someMinDateVal: string;
  
-    someMoneyVal: number;
+    someFilterMoneyVal: number;
  
-    someNVarCharVal: string;
+    someFilterNVarCharVal: string;
  
-    someVarCharVal: string;
+    someFilterVarCharVal: string;
  
-    someTextVal: string;
+    someFilterTextVal: string;
  
-    somePhoneNumber: string;
+    someFilterPhoneNumber: string;
  
-    someEmailAddress: string;
+    someFilterEmailAddress: string;
  
     landName: string;
  
@@ -105,35 +105,35 @@ export class InitResultInstance implements InitResult {
 
     constructor() {
  
-        this.someIntVal = 0;
+        this.someFilterIntVal = 0;
  
-        this.someBigIntVal = 0;
+        this.someFilterBigIntVal = 0;
  
-        this.someBitVal = false;
+        this.someFilterBitVal = false;
  
         this.isEditAllowed = false;
  
         this.isDeleteAllowed = false;
  
-        this.someFloatVal = 0;
+        this.someFilterFloatVal = 0;
  
-        this.someDecimalVal = 0;
+        this.someFilterDecimalVal = 0;
  
         this.someMinUTCDateTimeVal = '1753-01-01T00:00:00Z'
  
         this.someMinDateVal = '1753-01-01T00:00:00Z';
  
-        this.someMoneyVal = 0.0;
+        this.someFilterMoneyVal = 0.0;
  
-        this.someNVarCharVal = '';
+        this.someFilterNVarCharVal = '';
  
-        this.someVarCharVal = '';
+        this.someFilterVarCharVal = '';
  
-        this.someTextVal = '';
+        this.someFilterTextVal = '';
  
-        this.somePhoneNumber = '';
+        this.someFilterPhoneNumber = '';
  
-        this.someEmailAddress = '';
+        this.someFilterEmailAddress = '';
  
         this.landName = '';
  

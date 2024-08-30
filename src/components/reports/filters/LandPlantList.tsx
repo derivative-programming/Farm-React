@@ -100,27 +100,27 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                         isFKListSearchable={true}
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someIntVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterIntVal">
                       <ReportInput.ReportInputNumber
-                        name="someIntVal"
+                        name="someFilterIntVal"
                         label="Some Int Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someBigIntVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterBigIntVal">
                       <ReportInput.ReportInputNumber
-                        name="someBigIntVal"
+                        name="someFilterBigIntVal"
                         label="Some Big Int Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someFloatVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterFloatVal">
                       <ReportInput.ReportInputNumber
-                        name="someFloatVal"
+                        name="someFilterFloatVal"
                         label="Some Float Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someBitVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterBitVal">
                       <ReportInput.ReportInputCheckbox
-                        name="someBitVal"
+                        name="someFilterBitVal"
                         label="Some Bit Val"
                       />
                     </Col>
@@ -136,9 +136,9 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                         label="Is Delete Allowed"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someDecimalVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterDecimalVal">
                       <ReportInput.ReportInputNumber
-                        name="someDecimalVal"
+                        name="someFilterDecimalVal"
                         label="Some Decimal Val"
                       />
                     </Col>
@@ -158,39 +158,39 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                         label="Some Min Date Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someMoneyVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterMoneyVal">
                       <ReportInput.ReportInputMoney
-                        name="someMoneyVal"
+                        name="someFilterMoneyVal"
                         label="Some Money Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someNVarCharVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterNVarCharVal">
                       <ReportInput.ReportInputText
-                        name="someNVarCharVal"
+                        name="someFilterNVarCharVal"
                         label="Some N Var Char Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someVarCharVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterVarCharVal">
                       <ReportInput.ReportInputText
-                        name="someVarCharVal"
+                        name="someFilterVarCharVal"
                         label="Some Var Char Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someTextVal">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterTextVal">
                       <ReportInput.ReportInputText
-                        name="someTextVal"
+                        name="someFilterTextVal"
                         label="Some Text Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="somePhoneNumber">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterPhoneNumber">
                       <ReportInput.ReportInputText
-                        name="somePhoneNumber"
+                        name="someFilterPhoneNumber"
                         label="Some Phone Number"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="someEmailAddress">
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterEmailAddress">
                       <ReportInput.ReportInputEmail
-                        name="someEmailAddress"
+                        name="someFilterEmailAddress"
                         label="Some Email Address"
                       />
                     </Col> 

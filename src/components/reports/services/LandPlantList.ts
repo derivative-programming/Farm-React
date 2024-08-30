@@ -34,21 +34,21 @@ export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
   const result:QueryRequest = new QueryRequestInstance();
     
     result.flavorCode = initResult.flavorCode; 
-    result.someIntVal = initResult.someIntVal;
-    result.someBigIntVal = initResult.someBigIntVal;
-    result.someBitVal = initResult.someBitVal;
+    result.someFilterIntVal = initResult.someFilterIntVal;
+    result.someFilterBigIntVal = initResult.someFilterBigIntVal;
+    result.someFilterBitVal = initResult.someFilterBitVal;
     result.isEditAllowed = initResult.isEditAllowed;
     result.isDeleteAllowed = initResult.isDeleteAllowed;
-    result.someFloatVal = initResult.someFloatVal;
-    result.someDecimalVal = initResult.someDecimalVal;
+    result.someFilterFloatVal = initResult.someFilterFloatVal;
+    result.someFilterDecimalVal = initResult.someFilterDecimalVal;
     result.someMinUTCDateTimeVal = initResult.someMinUTCDateTimeVal;
     result.someMinDateVal = initResult.someMinDateVal;
-    result.someMoneyVal = initResult.someMoneyVal;
-    result.someNVarCharVal = initResult.someNVarCharVal;
-    result.someVarCharVal = initResult.someVarCharVal;
-    result.someTextVal = initResult.someTextVal;
-    result.somePhoneNumber = initResult.somePhoneNumber;
-    result.someEmailAddress = initResult.someEmailAddress; 
+    result.someFilterMoneyVal = initResult.someFilterMoneyVal;
+    result.someFilterNVarCharVal = initResult.someFilterNVarCharVal;
+    result.someFilterVarCharVal = initResult.someFilterVarCharVal;
+    result.someFilterTextVal = initResult.someTextVal;
+    result.someFilterPhoneNumber = initResult.someFilterPhoneNumber;
+    result.someFilterEmailAddress = initResult.someFilterEmailAddress; 
     
     return result;
 }
@@ -58,35 +58,35 @@ export const buildValidationSchema = () => {
     const validationSchema  = Yup.object().shape({
         flavorCode: Yup.string()
         ,
-        someIntVal: Yup.number().required('Please enter a Some Int Val')
+        someFilterIntVal: Yup.number().required('Please enter a Some Int Val')
         ,
-        someBigIntVal: Yup.number().required('Please enter a Some Big Int Val')
+        someFilterBigIntVal: Yup.number().required('Please enter a Some Big Int Val')
         ,
-        someBitVal: Yup.boolean().required('Please enter a Some Bit Val')
+        someFilterBitVal: Yup.boolean().required('Please enter a Some Bit Val')
         ,
         isEditAllowed: Yup.boolean().required('Please enter a Is Edit Allowed')
         ,
         isDeleteAllowed: Yup.boolean().required('Please enter a Is Delete Allowed')
         ,
-        someFloatVal: Yup.number().required('Please enter a Some Float Val')
+        someFilterFloatVal: Yup.number().required('Please enter a Some Float Val')
         ,
-        someDecimalVal: Yup.number().required('Please enter a Some Decimal Val')
+        someFilterDecimalVal: Yup.number().required('Please enter a Some Decimal Val')
         ,
         someMinUTCDateTimeVal: Yup.mixed().required('Please enter a Some Min UTC Date Time Val')
         ,
         someMinDateVal: Yup.mixed().required('Please enter a Some Min Date Val')
         ,
-        someMoneyVal: Yup.number().required('Please enter a Some Money Val')
+        someFilterMoneyVal: Yup.number().required('Please enter a Some Money Val')
         ,
-        someNVarCharVal: Yup.string()
+        someFilterNVarCharVal: Yup.string()
         ,
-        someVarCharVal: Yup.string()
+        someFilterVarCharVal: Yup.string()
         ,
-        someTextVal: Yup.string()
+        someFilterTextVal: Yup.string()
         ,
-        somePhoneNumber: Yup.string()
+        someFilterPhoneNumber: Yup.string()
         ,
-        someEmailAddress: Yup.string()
+        someFilterEmailAddress: Yup.string()
         ,  
       });
       
@@ -177,35 +177,35 @@ export interface QueryResultItem {
 
 export interface QueryRequest {
  
-    someIntVal: number;
+    someFilterIntVal: number;
  
-    someBigIntVal: number;
+    someFilterBigIntVal: number;
  
-    someBitVal: boolean;
+    someFilterBitVal: boolean;
  
     isEditAllowed: boolean;
  
     isDeleteAllowed: boolean;
  
-    someFloatVal: number;
+    someFilterFloatVal: number;
  
-    someDecimalVal: number;
+    someFilterDecimalVal: number;
  
     someMinUTCDateTimeVal: string;
  
     someMinDateVal: string;
  
-    someMoneyVal: number;
+    someFilterMoneyVal: number;
  
-    someNVarCharVal: string;
+    someFilterNVarCharVal: string;
  
-    someVarCharVal: string;
+    someFilterVarCharVal: string;
  
-    someTextVal: string;
+    someFilterTextVal: string;
  
-    somePhoneNumber: string;
+    someFilterPhoneNumber: string;
  
-    someEmailAddress: string;
+    someFilterEmailAddress: string;
  
     flavorCode: string;
     pageNumber: number;
@@ -407,35 +407,35 @@ export class QueryResultItemInstance implements QueryResultItem {
 
 export class QueryRequestInstance implements QueryRequest {
  
-    someIntVal: number; 
+    someFilterIntVal: number; 
  
-    someBigIntVal: number; 
+    someFilterBigIntVal: number; 
  
-    someBitVal: boolean; 
+    someFilterBitVal: boolean; 
  
     isEditAllowed: boolean; 
  
     isDeleteAllowed: boolean; 
  
-    someFloatVal: number; 
+    someFilterFloatVal: number; 
  
-    someDecimalVal: number; 
+    someFilterDecimalVal: number; 
  
     someMinUTCDateTimeVal: string; 
  
     someMinDateVal: string; 
  
-    someMoneyVal: number; 
+    someFilterMoneyVal: number; 
  
-    someNVarCharVal: string; 
+    someFilterNVarCharVal: string; 
  
-    someVarCharVal: string; 
+    someFilterVarCharVal: string; 
  
-    someTextVal: string; 
+    someFilterTextVal: string; 
  
-    somePhoneNumber: string; 
+    someFilterPhoneNumber: string; 
  
-    someEmailAddress: string; 
+    someFilterEmailAddress: string; 
  
     flavorCode: string;   
     pageNumber: number;
@@ -446,35 +446,35 @@ export class QueryRequestInstance implements QueryRequest {
 
     constructor() {
  
-        this.someIntVal = 0;
+        this.someFilterIntVal = 0;
  
-        this.someBigIntVal = 0;
+        this.someFilterBigIntVal = 0;
  
-        this.someBitVal = false;
+        this.someFilterBitVal = false;
  
         this.isEditAllowed = false;
  
         this.isDeleteAllowed = false;
  
-        this.someFloatVal = 0;
+        this.someFilterFloatVal = 0;
  
-        this.someDecimalVal = 0;
+        this.someFilterDecimalVal = 0;
  
         this.someMinUTCDateTimeVal = '1753-01-01T00:00:00Z'
  
         this.someMinDateVal = '1753-01-01T00:00:00Z';
  
-        this.someMoneyVal = 0.0;
+        this.someFilterMoneyVal = 0.0;
  
-        this.someNVarCharVal = '';
+        this.someFilterNVarCharVal = '';
  
-        this.someVarCharVal = '';
+        this.someFilterVarCharVal = '';
  
-        this.someTextVal = '';
+        this.someFilterTextVal = '';
  
-        this.somePhoneNumber = '';
+        this.someFilterPhoneNumber = '';
  
-        this.someEmailAddress = '';
+        this.someFilterEmailAddress = '';
  
         this.flavorCode = '00000000-0000-0000-0000-000000000000';
         this.pageNumber = 1;
