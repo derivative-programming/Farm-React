@@ -2,12 +2,15 @@
 export const PacUserTriStateFilterListPageSettings = {
 
     calculatedIsVisualizationGrid: true,
-    triStateFilterDisplayOrderHeaderIsVisible: true,
-    triStateFilterIsActiveHeaderIsVisible: true,
-    triStateFilterLookupEnumNameHeaderIsVisible: true,
-    triStateFilterNameHeaderIsVisible: true,
-    triStateFilterStateIntValueHeaderIsVisible: true,
-    isFilterSectionHidden: false,
+
+    triStateFilterCodeHeaderIsVisible: true,
+
+    someMoneyValIsVisible: true,
+    someNVarCharValIsVisible: true,
+    someVarCharValIsVisible: true,
+    someTextValIsVisible: true,
+    somePhoneNumberIsVisible: true,
+    someEmailAddressIsVisible: true,
 
 }
 

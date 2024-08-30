@@ -2,13 +2,15 @@
 export const TacFarmDashboardPageSettings = {
 
     calculatedIsVisualizationGrid: false,
-    fieldOnePlantListLinkLandCodeHeaderIsVisible: true,
-    conditionalBtnExampleLinkLandCodeHeaderIsVisible: true,
-    testFileDownloadLinkPacCodeHeaderIsVisible: true,
-    testConditionalFileDownloadLinkPacCodeHeaderIsVisible: true,
-    testAsyncFlowReqLinkPacCodeHeaderIsVisible: true,
-    testConditionalAsyncFlowReqLinkPacCodeHeaderIsVisible: true,
-    isFilterSectionHidden: true,
+
+    CodeHeaderIsVisible: true,
+
+    someMoneyValIsVisible: true,
+    someNVarCharValIsVisible: true,
+    someVarCharValIsVisible: true,
+    someTextValIsVisible: true,
+    somePhoneNumberIsVisible: true,
+    someEmailAddressIsVisible: true,
 
 }
 

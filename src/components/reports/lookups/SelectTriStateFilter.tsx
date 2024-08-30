@@ -8,6 +8,8 @@ export interface ReportSelectTriStateFilterProps {
     label: string
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectTriStateFilter: FC<ReportSelectTriStateFilterProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectTriStateFilterProps {
     label,
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => {
 
     const [triStateFilters, setTriStateFilters] = useState<ReportInputSelectOption[]>([])
@@ -26,10 +30,29 @@ export interface ReportSelectTriStateFilterProps {
             response.data.items )
         {
             const data:PacUserTriStateFilterListService.QueryResult = response.data;
-            const triStateFilters = data.items.map(({ triStateFilterCode, triStateFilterName }) => ({ label: triStateFilterName, value:triStateFilterCode }));
 
-            //store the list of triStateFilters for the report component
-            setTriStateFilters(triStateFilters);
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const triStateFilters = filteredItems.map(({ triStateFilterCode, triStateFilterName }) => ({ label: triStateFilterName, value:triStateFilterCode }));
+
+                //store the list of triStateFilters for the report component
+                setTriStateFilters(triStateFilters);
+            }
+            else {
+                const triStateFilters = data.items.map(({ triStateFilterCode, triStateFilterName }) => ({ label: triStateFilterName, value:triStateFilterCode }));
+
+                //store the list of triStateFilters for the report component
+                setTriStateFilters(triStateFilters);
+            }
         }
     }
 

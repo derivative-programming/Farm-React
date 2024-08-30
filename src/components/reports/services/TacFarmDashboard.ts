@@ -45,61 +45,20 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
-    fieldOnePlantListLinkLandCode: string;
-    conditionalBtnExampleLinkLandCode: string;
-    isConditionalBtnAvailable: boolean;
-    testFileDownloadLinkPacCode: string;
-    testConditionalFileDownloadLinkPacCode: string;
-    testAsyncFlowReqLinkPacCode: string;
-    testConditionalAsyncFlowReqLinkPacCode: string;
-}
 
-export interface QueryRequest {
+    Code: string;
 
-    pageNumber: number;
-    ItemCountPerPage: number;
-    OrderByColumnName: string;
-    OrderByDescending: boolean;
-    ForceErrorMessage: string;
-}
+    someMoneyVal: number;
 
-export interface ResponseFull {
-  data: QueryResult;
-}
-export interface QueryResult {
-    pageNumber: number;
-    items: QueryResultItem[];
-    itemCountPerPage: number;
-    orderByColumnName: string;
-    orderByDescending: boolean;
-    success: boolean;
-    recordsTotal: number;
-    recordsFiltered: number;
-    message: string;
-    appVersion: string;
-    request: string;
-}
+    someNVarCharVal: string;
 
-export class QueryResultItemInstance implements QueryResultItem {
-    fieldOnePlantListLinkLandCode: string;
-    conditionalBtnExampleLinkLandCode: string;
-    isConditionalBtnAvailable: boolean;
-    testFileDownloadLinkPacCode: string;
-    testConditionalFileDownloadLinkPacCode: string;
-    testAsyncFlowReqLinkPacCode: string;
-    testConditionalAsyncFlowReqLinkPacCode: string;
-    constructor() {
-        this.fieldOnePlantListLinkLandCode = '00000000-0000-0000-0000-000000000000';
-        this.conditionalBtnExampleLinkLandCode = '00000000-0000-0000-0000-000000000000';
-        this.isConditionalBtnAvailable = false;
-        this.testFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
-        this.testConditionalFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
-        this.testAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
-        this.testConditionalAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
-    }
-}
+    someVarCharVal: string;
 
-export class QueryRequestInstance implements QueryRequest {
+    someTextVal: string;
+
+    somePhoneNumber: string;
+
+    someEmailAddress: string;
 
     pageNumber: number;
     ItemCountPerPage: number;

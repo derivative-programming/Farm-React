@@ -30,10 +30,29 @@ export interface ReportSelectFlavorProps {
             response.data.items )
         {
             const data:PacUserFlavorListService.QueryResult = response.data;
-            const flavors = data.items.map(({ flavorCode, flavorName }) => ({ label: flavorName, value:flavorCode }));
 
-            //store the list of flavors for the report component
-            setFlavors(flavors);
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const flavors = filteredItems.map(({ flavorCode, flavorName }) => ({ label: flavorName, value:flavorCode }));
+
+                //store the list of flavors for the report component
+                setFlavors(flavors);
+            }
+            else {
+                const flavors = data.items.map(({ flavorCode, flavorName }) => ({ label: flavorName, value:flavorCode }));
+
+                //store the list of flavors for the report component
+                setFlavors(flavors);
+            }
         }
     }
 

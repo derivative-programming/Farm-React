@@ -45,124 +45,20 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
-    flavorName: string;
-    isDeleteAllowed: boolean;
-    isEditAllowed: boolean;
-    otherFlavor: string;
-    someBigIntVal: number;
-    someBitVal: boolean;
-    someDateVal: string;
-    someDecimalVal: number;
-    someEmailAddress: string;
-    someFloatVal: number;
-    someIntVal: number;
+
+    Code: string;
+
     someMoneyVal: number;
+
     someNVarCharVal: string;
-    somePhoneNumber: string;
-    someTextVal: string;
-    someUniqueidentifierVal: string;
-    someUTCDateTimeVal: string;
+
     someVarCharVal: string;
-    phoneNumConditionalOnIsEditable: string;
-    nVarCharAsUrl: string;
-    updateButtonTextLinkPlantCode: string;
-    randomPropertyUpdatesLinkPlantCode: string;
-    backToDashboardLinkTacCode: string;
-    testFileDownloadLinkPacCode: string;
-    testConditionalAsyncFileDownloadLinkPacCode: string;
-    testAsyncFlowReqLinkPacCode: string;
-    testConditionalAsyncFlowReqLinkPacCode: string;
-    conditionalBtnExampleLinkTacCode: string;
-}
 
-export interface QueryRequest {
+    someTextVal: string;
 
-    pageNumber: number;
-    ItemCountPerPage: number;
-    OrderByColumnName: string;
-    OrderByDescending: boolean;
-    ForceErrorMessage: string;
-}
+    somePhoneNumber: string;
 
-export interface ResponseFull {
-  data: QueryResult;
-}
-export interface QueryResult {
-    pageNumber: number;
-    items: QueryResultItem[];
-    itemCountPerPage: number;
-    orderByColumnName: string;
-    orderByDescending: boolean;
-    success: boolean;
-    recordsTotal: number;
-    recordsFiltered: number;
-    message: string;
-    appVersion: string;
-    request: string;
-}
-
-export class QueryResultItemInstance implements QueryResultItem {
-    flavorName: string;
-    isDeleteAllowed: boolean;
-    isEditAllowed: boolean;
-    otherFlavor: string;
-    someBigIntVal: number;
-    someBitVal: boolean;
-    someDateVal: string;
-    someDecimalVal: number;
     someEmailAddress: string;
-    someFloatVal: number;
-    someIntVal: number;
-    someMoneyVal: number;
-    someNVarCharVal: string;
-    somePhoneNumber: string;
-    someTextVal: string;
-    someUniqueidentifierVal: string;
-    someUTCDateTimeVal: string;
-    someVarCharVal: string;
-    phoneNumConditionalOnIsEditable: string;
-    nVarCharAsUrl: string;
-    updateButtonTextLinkPlantCode: string;
-    randomPropertyUpdatesLinkPlantCode: string;
-    backToDashboardLinkTacCode: string;
-    testFileDownloadLinkPacCode: string;
-    testConditionalAsyncFileDownloadLinkPacCode: string;
-    testAsyncFlowReqLinkPacCode: string;
-    testConditionalAsyncFlowReqLinkPacCode: string;
-    conditionalBtnExampleLinkTacCode: string;
-    constructor() {
-        this.flavorName = '';
-        this.isDeleteAllowed = false;
-        this.isEditAllowed = false;
-        this.otherFlavor = '';
-        this.someBigIntVal = 0;
-        this.someBitVal = false;
-        this.someDateVal = '1753-01-01T00:00:00Z';
-        this.someDecimalVal = 0;
-        this.someEmailAddress = '';
-        this.someFloatVal = 0;
-        this.someIntVal = 0;
-        this.someMoneyVal = 0.0;
-        this.someNVarCharVal = '';
-        this.somePhoneNumber = '';
-        this.someTextVal = '';
-        this.someUniqueidentifierVal = '00000000-0000-0000-0000-000000000000';
-        this.someUTCDateTimeVal = '1753-01-01T00:00:00Z'
-        this.someVarCharVal = '';
-        this.phoneNumConditionalOnIsEditable = '';
-        this.nVarCharAsUrl = '';
-        this.updateButtonTextLinkPlantCode = '00000000-0000-0000-0000-000000000000';
-        this.randomPropertyUpdatesLinkPlantCode = '00000000-0000-0000-0000-000000000000';
-        this.backToDashboardLinkTacCode = '00000000-0000-0000-0000-000000000000';
-        this.testFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
-        this.testConditionalAsyncFileDownloadLinkPacCode = '00000000-0000-0000-0000-000000000000';
-        this.testAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
-        this.testConditionalAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
-        this.conditionalBtnExampleLinkTacCode = '00000000-0000-0000-0000-000000000000';
-    }
-}
-
-export class QueryRequestInstance implements QueryRequest {
 
     pageNumber: number;
     ItemCountPerPage: number;

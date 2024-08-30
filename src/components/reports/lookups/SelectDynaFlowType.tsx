@@ -8,6 +8,8 @@ export interface ReportSelectDynaFlowTypeProps {
     label: string
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectDynaFlowType: FC<ReportSelectDynaFlowTypeProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectDynaFlowTypeProps {
     label,
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => {
 
     const [dynaFlowTypes, setDynaFlowTypes] = useState<ReportInputSelectOption[]>([])
@@ -26,10 +30,29 @@ export interface ReportSelectDynaFlowTypeProps {
             response.data.items )
         {
             const data:PacUserDynaFlowTypeListService.QueryResult = response.data;
-            const dynaFlowTypes = data.items.map(({ dynaFlowTypeCode, dynaFlowTypeName }) => ({ label: dynaFlowTypeName, value:dynaFlowTypeCode }));
 
-            //store the list of dynaFlowTypes for the report component
-            setDynaFlowTypes(dynaFlowTypes);
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const dynaFlowTypes = filteredItems.map(({ dynaFlowTypeCode, dynaFlowTypeName }) => ({ label: dynaFlowTypeName, value:dynaFlowTypeCode }));
+
+                //store the list of dynaFlowTypes for the report component
+                setDynaFlowTypes(dynaFlowTypes);
+            }
+            else {
+                const dynaFlowTypes = data.items.map(({ dynaFlowTypeCode, dynaFlowTypeName }) => ({ label: dynaFlowTypeName, value:dynaFlowTypeCode }));
+
+                //store the list of dynaFlowTypes for the report component
+                setDynaFlowTypes(dynaFlowTypes);
+            }
         }
     }
 

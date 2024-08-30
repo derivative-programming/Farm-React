@@ -214,12 +214,6 @@ export const ReportConnectedPacUserRoleList: FC = (): ReactElement => {
         <h2 data-testid="page-title-text">Pac User Role List Report</h2>
         <h6 data-testid="page-intro-text"></h6>
 
-        <HeaderPacUserRoleList
-          name="headerPacUserRoleList"
-          initData={initPageResponse}
-          isHeaderVisible={false}
-        />
-
         <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
           <div className="mb-2 mb-md-0">
 
@@ -233,6 +227,12 @@ export const ReportConnectedPacUserRoleList: FC = (): ReactElement => {
             </div>
           </div>
         </div>
+
+        <HeaderPacUserRoleList
+          name="headerPacUserRoleList"
+          initData={initPageResponse}
+          isHeaderVisible={false}
+        />
 
         <ReportFilterPacUserRoleList
           name="reportConnectedPacUserRoleList-filter"

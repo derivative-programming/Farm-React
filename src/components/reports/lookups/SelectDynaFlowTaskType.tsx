@@ -8,6 +8,8 @@ export interface ReportSelectDynaFlowTaskTypeProps {
     label: string
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectDynaFlowTaskType: FC<ReportSelectDynaFlowTaskTypeProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectDynaFlowTaskTypeProps {
     label,
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => {
 
     const [dynaFlowTaskTypes, setDynaFlowTaskTypes] = useState<ReportInputSelectOption[]>([])
@@ -26,10 +30,29 @@ export interface ReportSelectDynaFlowTaskTypeProps {
             response.data.items )
         {
             const data:PacUserDynaFlowTaskTypeListService.QueryResult = response.data;
-            const dynaFlowTaskTypes = data.items.map(({ dynaFlowTaskTypeCode, dynaFlowTaskTypeName }) => ({ label: dynaFlowTaskTypeName, value:dynaFlowTaskTypeCode }));
 
-            //store the list of dynaFlowTaskTypes for the report component
-            setDynaFlowTaskTypes(dynaFlowTaskTypes);
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const dynaFlowTaskTypes = filteredItems.map(({ dynaFlowTaskTypeCode, dynaFlowTaskTypeName }) => ({ label: dynaFlowTaskTypeName, value:dynaFlowTaskTypeCode }));
+
+                //store the list of dynaFlowTaskTypes for the report component
+                setDynaFlowTaskTypes(dynaFlowTaskTypes);
+            }
+            else {
+                const dynaFlowTaskTypes = data.items.map(({ dynaFlowTaskTypeCode, dynaFlowTaskTypeName }) => ({ label: dynaFlowTaskTypeName, value:dynaFlowTaskTypeCode }));
+
+                //store the list of dynaFlowTaskTypes for the report component
+                setDynaFlowTaskTypes(dynaFlowTaskTypes);
+            }
         }
     }
 

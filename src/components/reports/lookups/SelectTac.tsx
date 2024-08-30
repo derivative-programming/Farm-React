@@ -8,6 +8,8 @@ export interface ReportSelectTacProps {
     label: string
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectTac: FC<ReportSelectTacProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectTacProps {
     label,
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => {
 
     const [tacs, setTacs] = useState<ReportInputSelectOption[]>([])
@@ -26,10 +30,29 @@ export interface ReportSelectTacProps {
             response.data.items )
         {
             const data:PacUserTacListService.QueryResult = response.data;
-            const tacs = data.items.map(({ tacCode, tacName }) => ({ label: tacName, value:tacCode }));
 
-            //store the list of tacs for the report component
-            setTacs(tacs);
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const tacs = filteredItems.map(({ tacCode, tacName }) => ({ label: tacName, value:tacCode }));
+
+                //store the list of tacs for the report component
+                setTacs(tacs);
+            }
+            else {
+                const tacs = data.items.map(({ tacCode, tacName }) => ({ label: tacName, value:tacCode }));
+
+                //store the list of tacs for the report component
+                setTacs(tacs);
+            }
         }
     }
 

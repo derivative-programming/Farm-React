@@ -52,113 +52,106 @@ export class PacUserLandListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
-            if(PageSettings.landDisplayOrderHeaderIsVisible){
-                cy.get(PageSelectors.landDisplayOrderHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.landDisplayOrderHeaderText);
-
-                cy.get(PageSelectors.landDisplayOrderHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.landDisplayOrderHeaderSortUpIndicator)
-                .should('not.exist');
-            }
-            if(PageSettings.landIsActiveHeaderIsVisible){
-                cy.get(PageSelectors.landIsActiveHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.landIsActiveHeaderText);
-
-                cy.get(PageSelectors.landIsActiveHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.landIsActiveHeaderSortUpIndicator)
-                .should('not.exist');
-            }
-            if(PageSettings.landLookupEnumNameHeaderIsVisible){
-                cy.get(PageSelectors.landLookupEnumNameHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.landLookupEnumNameHeaderText);
-
-                cy.get(PageSelectors.landLookupEnumNameHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.landLookupEnumNameHeaderSortUpIndicator)
-                .should('not.exist');
-            }
-            if(PageSettings.landNameHeaderIsVisible){
-                cy.get(PageSelectors.landNameHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.landNameHeaderText);
-
-                cy.get(PageSelectors.landNameHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.landNameHeaderSortUpIndicator)
-                .should('not.exist');
-            }
-            if(PageSettings.pacNameHeaderIsVisible){
-                cy.get(PageSelectors.pacNameHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.pacNameHeaderText);
-
-                cy.get(PageSelectors.pacNameHeaderSortDownIndicator)
-                .should('not.exist');
-                cy.get(PageSelectors.pacNameHeaderSortUpIndicator)
+            if(PageSettings.landCodeHeaderIsVisible){
+                cy.get(PageSelectors.landCodeHeader)
                 .should('not.exist');
             }
 
-            cy.log('Verifying page size control...');
-            cy.get(PageSelectors.pageSizeControl)
-            .should('be.visible');
+            if(PageSettings.someMoneyValIsVisible){
+                cy.log('Verifying someMoneyValLabel control label...');
+                cy.get(PageSelectors.someMoneyValFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someMoneyValFilterLabel);
 
-            cy.get(PageSelectors.pageSizeControlLabel)
-            .should('be.visible');
+                cy.log('Verifying someMoneyValLabel control...');
+                cy.get(PageSelectors.someMoneyValFilterField)
+                    .should('be.visible');
 
-            cy.log('Verifying pagination control...');
-            cy.get(PageSelectors.pagingControl)
-            .should('be.visible');
+                this.setFilterFieldSomeMoneyVal(111);
 
-            cy.log('Verifying report result count display...');
-            cy.get(PageSelectors.tableRowCountDisplay)
-            .should('be.visible');
-        }
+                cy.get(PageSelectors.someMoneyValFilterField)
+                    .should('have.value', '111');
+            }
 
-        cy.log('Verifying title text...');
-        if(PageTexts.titleText.length > 0){
-            cy.get(PageSelectors.title)
-            .should('be.visible')
-            .should('include.text', PageTexts.titleText);
-        } else {
-            cy.get(PageSelectors.title)
-            .should('not.be.visible');
-        }
+            if(PageSettings.someNVarCharValIsVisible){
+                cy.log('Verifying someNVarCharValLabel control label...');
+                cy.get(PageSelectors.someNVarCharValFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someNVarCharValFilterLabel);
 
-        cy.log('Verifying intro text...');
-        if(PageTexts.introText.length > 0){
-            cy.get(PageSelectors.introText)
-            .should('be.visible')
-            .should('include.text', PageTexts.introText);
-        } else {
-            cy.get(PageSelectors.introText)
-            .should('not.be.visible');
-        }
+                cy.log('Verifying someNVarCharValLabel control...');
+                cy.get(PageSelectors.someNVarCharValFilterField)
+                    .should('be.visible');
 
-        cy.get(PageSelectors.siteFooter)
-            .should('be.visible')
-            .should('include.text', PageTexts.siteFooterText);
+                this.setFilterFieldSomeNVarCharVal("someNVarCharValTestVal");
 
-        if(PageSettings.calculatedIsVisualizationGrid && !PageSettings.isFilterSectionHidden){
+                cy.get(PageSelectors.someNVarCharValFilterField)
+                    .should('have.value', 'someNVarCharValTestVal');
+            }
 
-            cy.get(PageSelectors.filterSearchButton)
-            .should('not.be.visible');
+            if(PageSettings.someVarCharValIsVisible){
+                cy.log('Verifying someVarCharValLabel control label...');
+                cy.get(PageSelectors.someVarCharValFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someVarCharValFilterLabel);
 
-            cy.get(PageSelectors.filterRefreshButton)
-            .should('not.be.visible');
+                cy.log('Verifying someVarCharValLabel control...');
+                cy.get(PageSelectors.someVarCharValFilterField)
+                    .should('be.visible');
 
-            //default is closed
-            cy.get(PageSelectors.filterHeader)
-            .click()
-            .get(PageSelectors.filterSearchButton)
-            .should('be.visible')
-            .get(PageSelectors.filterRefreshButton)
-            .should('be.visible');
+                this.setFilterFieldSomeVarCharVal("someVarCharValTestVal");
 
+                cy.get(PageSelectors.someVarCharValFilterField)
+                    .should('have.value', 'someVarCharValTestVal');
+            }
+
+            if(PageSettings.someTextValIsVisible){
+                cy.log('Verifying someTextValLabel control label...');
+                cy.get(PageSelectors.someTextValFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someTextValFilterLabel);
+
+                cy.log('Verifying someTextValLabel control...');
+                cy.get(PageSelectors.someTextValFilterField)
+                    .should('be.visible');
+
+                this.setFilterFieldSomeTextVal("someTextValTestVal");
+
+                cy.get(PageSelectors.someTextValFilterField)
+                    .should('have.value', 'someTextValTestVal');
+            }
+
+            if(PageSettings.somePhoneNumberIsVisible){
+                cy.log('Verifying somePhoneNumberLabel control label...');
+                cy.get(PageSelectors.somePhoneNumberFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.somePhoneNumberFilterLabel);
+
+                cy.log('Verifying somePhoneNumberLabel control...');
+                cy.get(PageSelectors.somePhoneNumberFilterField)
+                    .should('be.visible');
+
+                this.setFilterFieldSomePhoneNumber("111-111-1111");
+
+                cy.get(PageSelectors.somePhoneNumberFilterField)
+                    .should('have.value', '111-111-1111');
+            }
+
+            if(PageSettings.someEmailAddressIsVisible){
+                cy.log('Verifying someEmailAddressLabel control label...');
+                cy.get(PageSelectors.someEmailAddressFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someEmailAddressFilterLabel);
+
+                cy.log('Verifying someEmailAddressLabel control...');
+                cy.get(PageSelectors.someEmailAddressFilterField)
+                    .should('be.visible');
+
+                this.setFilterFieldSomeEmailAddress("test@test.com");
+
+                cy.get(PageSelectors.someEmailAddressFilterField)
+                    .should('have.value', 'test@test.com');
+            }
         }
 
         //report buttons
@@ -179,157 +172,553 @@ export class PacUserLandListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
-            if(PageSettings.landDisplayOrderHeaderIsVisible){
-                cy.get(PageSelectors.landDisplayOrderHeader)
+            if(PageSettings.landCodeHeaderIsVisible){
+                cy.get(PageSelectors.landCodeHeader)
+                .should('not.exist');
+            }
+            if(PageSettings.someIntValHeaderIsVisible){
+                cy.get(PageSelectors.someIntValHeader)
                 .should('be.visible')
-                .should('include.text', PageTexts.landDisplayOrderHeaderText);
+                .should('include.text', PageTexts.someIntValHeaderText);
 
-                cy.get(PageSelectors.landDisplayOrderHeaderSortDownIndicator)
+                cy.get(PageSelectors.someIntValHeaderSortDownIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.landDisplayOrderHeaderSortUpIndicator)
+                cy.get(PageSelectors.someIntValHeaderSortUpIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.landDisplayOrderHeader)
+                cy.get(PageSelectors.someIntValHeader)
                 .click()
                 .click()
-                .get(PageSelectors.landDisplayOrderHeaderSortDownIndicator).then(($el) => {
+                .get(PageSelectors.someIntValHeaderSortDownIndicator).then(($el) => {
                     if ($el.length) {
-                        cy.get(PageSelectors.landDisplayOrderHeaderSortDownIndicator)
+                        cy.get(PageSelectors.someIntValHeaderSortDownIndicator)
                         .should('exist')
-                        .get(PageSelectors.landDisplayOrderHeader)
+                        .get(PageSelectors.someIntValHeader)
                         .click()
-                        .get(PageSelectors.landDisplayOrderHeaderSortUpIndicator)
+                        .get(PageSelectors.someIntValHeaderSortUpIndicator)
                         .should('exist');
                     } else {
-                        cy.get(PageSelectors.landDisplayOrderHeaderSortUpIndicator)
+                        cy.get(PageSelectors.someIntValHeaderSortUpIndicator)
                         .should('exist')
-                        .get(PageSelectors.landDisplayOrderHeader)
+                        .get(PageSelectors.someIntValHeader)
                         .click()
-                        .get(PageSelectors.landDisplayOrderHeaderSortDownIndicator)
+                        .get(PageSelectors.someIntValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
 
             }
-            if(PageSettings.landIsActiveHeaderIsVisible){
-                cy.get(PageSelectors.landIsActiveHeader)
+            if(PageSettings.someBigIntValHeaderIsVisible){
+                cy.get(PageSelectors.someBigIntValHeader)
                 .should('be.visible')
-                .should('include.text', PageTexts.landIsActiveHeaderText);
+                .should('include.text', PageTexts.someBigIntValHeaderText);
 
-                cy.get(PageSelectors.landIsActiveHeaderSortDownIndicator)
+                cy.get(PageSelectors.someBigIntValHeaderSortDownIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.landIsActiveHeaderSortUpIndicator)
+                cy.get(PageSelectors.someBigIntValHeaderSortUpIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.landIsActiveHeader)
+                cy.get(PageSelectors.someBigIntValHeader)
                 .click()
                 .click()
-                .get(PageSelectors.landIsActiveHeaderSortDownIndicator).then(($el) => {
+                .get(PageSelectors.someBigIntValHeaderSortDownIndicator).then(($el) => {
                     if ($el.length) {
-                        cy.get(PageSelectors.landIsActiveHeaderSortDownIndicator)
+                        cy.get(PageSelectors.someBigIntValHeaderSortDownIndicator)
                         .should('exist')
-                        .get(PageSelectors.landIsActiveHeader)
+                        .get(PageSelectors.someBigIntValHeader)
                         .click()
-                        .get(PageSelectors.landIsActiveHeaderSortUpIndicator)
+                        .get(PageSelectors.someBigIntValHeaderSortUpIndicator)
                         .should('exist');
                     } else {
-                        cy.get(PageSelectors.landIsActiveHeaderSortUpIndicator)
+                        cy.get(PageSelectors.someBigIntValHeaderSortUpIndicator)
                         .should('exist')
-                        .get(PageSelectors.landIsActiveHeader)
+                        .get(PageSelectors.someBigIntValHeader)
                         .click()
-                        .get(PageSelectors.landIsActiveHeaderSortDownIndicator)
+                        .get(PageSelectors.someBigIntValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
             }
-            if(PageSettings.landLookupEnumNameHeaderIsVisible){
-                cy.get(PageSelectors.landLookupEnumNameHeader)
+            if(PageSettings.someBitValHeaderIsVisible){
+                cy.get(PageSelectors.someBitValHeader)
                 .should('be.visible')
-                .should('include.text', PageTexts.landLookupEnumNameHeaderText);
+                .should('include.text', PageTexts.someBitValHeaderText);
 
-                cy.get(PageSelectors.landLookupEnumNameHeaderSortDownIndicator)
+                cy.get(PageSelectors.someBitValHeaderSortDownIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.landLookupEnumNameHeaderSortUpIndicator)
+                cy.get(PageSelectors.someBitValHeaderSortUpIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.landLookupEnumNameHeader)
+                cy.get(PageSelectors.someBitValHeader)
                 .click()
                 .click()
-                .get(PageSelectors.landLookupEnumNameHeaderSortDownIndicator).then(($el) => {
+                .get(PageSelectors.someBitValHeaderSortDownIndicator).then(($el) => {
                     if ($el.length) {
-                        cy.get(PageSelectors.landLookupEnumNameHeaderSortDownIndicator)
+                        cy.get(PageSelectors.someBitValHeaderSortDownIndicator)
                         .should('exist')
-                        .get(PageSelectors.landLookupEnumNameHeader)
+                        .get(PageSelectors.someBitValHeader)
                         .click()
-                        .get(PageSelectors.landLookupEnumNameHeaderSortUpIndicator)
+                        .get(PageSelectors.someBitValHeaderSortUpIndicator)
                         .should('exist');
                     } else {
-                        cy.get(PageSelectors.landLookupEnumNameHeaderSortUpIndicator)
+                        cy.get(PageSelectors.someBitValHeaderSortUpIndicator)
                         .should('exist')
-                        .get(PageSelectors.landLookupEnumNameHeader)
+                        .get(PageSelectors.someBitValHeader)
                         .click()
-                        .get(PageSelectors.landLookupEnumNameHeaderSortDownIndicator)
+                        .get(PageSelectors.someBitValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
             }
-            if(PageSettings.landNameHeaderIsVisible){
-                cy.get(PageSelectors.landNameHeader)
+            if(PageSettings.isEditAllowedHeaderIsVisible){
+                cy.get(PageSelectors.isEditAllowedHeader)
                 .should('be.visible')
-                .should('include.text', PageTexts.landNameHeaderText);
+                .should('include.text', PageTexts.isEditAllowedHeaderText);
 
-                cy.get(PageSelectors.landNameHeaderSortDownIndicator)
+                cy.get(PageSelectors.isEditAllowedHeaderSortDownIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.landNameHeaderSortUpIndicator)
+                cy.get(PageSelectors.isEditAllowedHeaderSortUpIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.landNameHeader)
+                cy.get(PageSelectors.isEditAllowedHeader)
                 .click()
                 .click()
-                .get(PageSelectors.landNameHeaderSortDownIndicator).then(($el) => {
+                .get(PageSelectors.isEditAllowedHeaderSortDownIndicator).then(($el) => {
                     if ($el.length) {
-                        cy.get(PageSelectors.landNameHeaderSortDownIndicator)
+                        cy.get(PageSelectors.isEditAllowedHeaderSortDownIndicator)
                         .should('exist')
-                        .get(PageSelectors.landNameHeader)
+                        .get(PageSelectors.isEditAllowedHeader)
                         .click()
-                        .get(PageSelectors.landNameHeaderSortUpIndicator)
+                        .get(PageSelectors.isEditAllowedHeaderSortUpIndicator)
                         .should('exist');
                     } else {
-                        cy.get(PageSelectors.landNameHeaderSortUpIndicator)
+                        cy.get(PageSelectors.isEditAllowedHeaderSortUpIndicator)
                         .should('exist')
-                        .get(PageSelectors.landNameHeader)
+                        .get(PageSelectors.isEditAllowedHeader)
                         .click()
-                        .get(PageSelectors.landNameHeaderSortDownIndicator)
+                        .get(PageSelectors.isEditAllowedHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
             }
-            if(PageSettings.pacNameHeaderIsVisible){
-                cy.get(PageSelectors.pacNameHeader)
+            if(PageSettings.isDeleteAllowedHeaderIsVisible){
+                cy.get(PageSelectors.isDeleteAllowedHeader)
                 .should('be.visible')
-                .should('include.text', PageTexts.pacNameHeaderText);
+                .should('include.text', PageTexts.isDeleteAllowedHeaderText);
 
-                cy.get(PageSelectors.pacNameHeaderSortDownIndicator)
+                cy.get(PageSelectors.isDeleteAllowedHeaderSortDownIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.pacNameHeaderSortUpIndicator)
+                cy.get(PageSelectors.isDeleteAllowedHeaderSortUpIndicator)
                 .should('not.exist');
-                cy.get(PageSelectors.pacNameHeader)
+                cy.get(PageSelectors.isDeleteAllowedHeader)
                 .click()
                 .click()
-                .get(PageSelectors.pacNameHeaderSortDownIndicator).then(($el) => {
+                .get(PageSelectors.isDeleteAllowedHeaderSortDownIndicator).then(($el) => {
                     if ($el.length) {
-                        cy.get(PageSelectors.pacNameHeaderSortDownIndicator)
+                        cy.get(PageSelectors.isDeleteAllowedHeaderSortDownIndicator)
                         .should('exist')
-                        .get(PageSelectors.pacNameHeader)
+                        .get(PageSelectors.isDeleteAllowedHeader)
                         .click()
-                        .get(PageSelectors.pacNameHeaderSortUpIndicator)
+                        .get(PageSelectors.isDeleteAllowedHeaderSortUpIndicator)
                         .should('exist');
                     } else {
-                        cy.get(PageSelectors.pacNameHeaderSortUpIndicator)
+                        cy.get(PageSelectors.isDeleteAllowedHeaderSortUpIndicator)
                         .should('exist')
-                        .get(PageSelectors.pacNameHeader)
+                        .get(PageSelectors.isDeleteAllowedHeader)
                         .click()
-                        .get(PageSelectors.pacNameHeaderSortDownIndicator)
+                        .get(PageSelectors.isDeleteAllowedHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
             }
+            if(PageSettings.someFloatValHeaderIsVisible){
+                cy.get(PageSelectors.someFloatValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someFloatValHeaderText);
+
+                cy.get(PageSelectors.someFloatValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someFloatValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someFloatValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someFloatValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someFloatValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someFloatValHeader)
+                        .click()
+                        .get(PageSelectors.someFloatValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someFloatValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someFloatValHeader)
+                        .click()
+                        .get(PageSelectors.someFloatValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someDecimalValHeaderIsVisible){
+                cy.get(PageSelectors.someDecimalValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someDecimalValHeaderText);
+
+                cy.get(PageSelectors.someDecimalValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someDecimalValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someDecimalValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someDecimalValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someDecimalValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someDecimalValHeader)
+                        .click()
+                        .get(PageSelectors.someDecimalValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someDecimalValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someDecimalValHeader)
+                        .click()
+                        .get(PageSelectors.someDecimalValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someUTCDateTimeValHeaderIsVisible){
+                cy.get(PageSelectors.someUTCDateTimeValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someUTCDateTimeValHeaderText);
+
+                cy.get(PageSelectors.someUTCDateTimeValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someUTCDateTimeValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someUTCDateTimeValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someUTCDateTimeValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someUTCDateTimeValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someUTCDateTimeValHeader)
+                        .click()
+                        .get(PageSelectors.someUTCDateTimeValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someUTCDateTimeValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someUTCDateTimeValHeader)
+                        .click()
+                        .get(PageSelectors.someUTCDateTimeValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someDateValHeaderIsVisible){
+                cy.get(PageSelectors.someDateValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someDateValHeaderText);
+
+                cy.get(PageSelectors.someDateValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someDateValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someDateValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someDateValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someDateValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someDateValHeader)
+                        .click()
+                        .get(PageSelectors.someDateValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someDateValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someDateValHeader)
+                        .click()
+                        .get(PageSelectors.someDateValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someMoneyValHeaderIsVisible){
+                cy.get(PageSelectors.someMoneyValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someMoneyValHeaderText);
+
+                cy.get(PageSelectors.someMoneyValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someMoneyValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someMoneyValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someMoneyValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someMoneyValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someMoneyValHeader)
+                        .click()
+                        .get(PageSelectors.someMoneyValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someMoneyValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someMoneyValHeader)
+                        .click()
+                        .get(PageSelectors.someMoneyValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someNVarCharValHeaderIsVisible){
+                cy.get(PageSelectors.someNVarCharValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someNVarCharValHeaderText);
+
+                cy.get(PageSelectors.someNVarCharValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someNVarCharValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someNVarCharValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someNVarCharValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someNVarCharValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someNVarCharValHeader)
+                        .click()
+                        .get(PageSelectors.someNVarCharValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someNVarCharValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someNVarCharValHeader)
+                        .click()
+                        .get(PageSelectors.someNVarCharValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someVarCharValHeaderIsVisible){
+                cy.get(PageSelectors.someVarCharValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someVarCharValHeaderText);
+
+                cy.get(PageSelectors.someVarCharValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someVarCharValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someVarCharValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someVarCharValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someVarCharValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someVarCharValHeader)
+                        .click()
+                        .get(PageSelectors.someVarCharValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someVarCharValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someVarCharValHeader)
+                        .click()
+                        .get(PageSelectors.someVarCharValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someTextValHeaderIsVisible){
+                cy.get(PageSelectors.someTextValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someTextValHeaderText);
+
+                cy.get(PageSelectors.someTextValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someTextValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someTextValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someTextValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someTextValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someTextValHeader)
+                        .click()
+                        .get(PageSelectors.someTextValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someTextValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someTextValHeader)
+                        .click()
+                        .get(PageSelectors.someTextValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.somePhoneNumberHeaderIsVisible){
+                cy.get(PageSelectors.somePhoneNumberHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.somePhoneNumberHeaderText);
+
+                cy.get(PageSelectors.somePhoneNumberHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.somePhoneNumberHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.somePhoneNumberHeader)
+                .click()
+                .click()
+                .get(PageSelectors.somePhoneNumberHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.somePhoneNumberHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.somePhoneNumberHeader)
+                        .click()
+                        .get(PageSelectors.somePhoneNumberHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.somePhoneNumberHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.somePhoneNumberHeader)
+                        .click()
+                        .get(PageSelectors.somePhoneNumberHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someEmailAddressHeaderIsVisible){
+                cy.get(PageSelectors.someEmailAddressHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someEmailAddressHeaderText);
+
+                cy.get(PageSelectors.someEmailAddressHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someEmailAddressHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someEmailAddressHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someEmailAddressHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someEmailAddressHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someEmailAddressHeader)
+                        .click()
+                        .get(PageSelectors.someEmailAddressHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someEmailAddressHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someEmailAddressHeader)
+                        .click()
+                        .get(PageSelectors.someEmailAddressHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.HeaderIsVisible){
+                cy.get(PageSelectors.Header)
+                .should('be.visible')
+                .should('include.text', PageTexts.HeaderText);
+
+                cy.get(PageSelectors.HeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.HeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.Header)
+                .click()
+                .click()
+                .get(PageSelectors.HeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.HeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.Header)
+                        .click()
+                        .get(PageSelectors.HeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.HeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.Header)
+                        .click()
+                        .get(PageSelectors.HeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+
+            if(PageSettings.someIntConditionalOnDeletableHeaderIsVisible){
+                cy.get(PageSelectors.someIntConditionalOnDeletableHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someIntConditionalOnDeletableHeaderText);
+
+                cy.get(PageSelectors.someIntConditionalOnDeletableHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someIntConditionalOnDeletableHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someIntConditionalOnDeletableHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someIntConditionalOnDeletableHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someIntConditionalOnDeletableHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someIntConditionalOnDeletableHeader)
+                        .click()
+                        .get(PageSelectors.someIntConditionalOnDeletableHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someIntConditionalOnDeletableHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someIntConditionalOnDeletableHeader)
+                        .click()
+                        .get(PageSelectors.someIntConditionalOnDeletableHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.nVarCharAsUrlHeaderIsVisible){
+                cy.get(PageSelectors.nVarCharAsUrlHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.nVarCharAsUrlHeaderText);
+
+                cy.get(PageSelectors.nVarCharAsUrlHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.nVarCharAsUrlHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.nVarCharAsUrlHeader)
+                .click()
+                .click()
+                .get(PageSelectors.nVarCharAsUrlHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.nVarCharAsUrlHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.nVarCharAsUrlHeader)
+                        .click()
+                        .get(PageSelectors.nVarCharAsUrlHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.nVarCharAsUrlHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.nVarCharAsUrlHeader)
+                        .click()
+                        .get(PageSelectors.nVarCharAsUrlHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+
         }
 
         //report buttons

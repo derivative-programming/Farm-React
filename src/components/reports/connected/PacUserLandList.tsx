@@ -214,12 +214,6 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
         <h2 data-testid="page-title-text">Pac User Land List Report</h2>
         <h6 data-testid="page-intro-text"></h6>
 
-        <HeaderPacUserLandList
-          name="headerPacUserLandList"
-          initData={initPageResponse}
-          isHeaderVisible={false}
-        />
-
         <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
           <div className="mb-2 mb-md-0">
 
@@ -233,6 +227,12 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
             </div>
           </div>
         </div>
+
+        <HeaderPacUserLandList
+          name="headerPacUserLandList"
+          initData={initPageResponse}
+          isHeaderVisible={false}
+        />
 
         <ReportFilterPacUserLandList
           name="reportConnectedPacUserLandList-filter"

@@ -8,6 +8,8 @@ export interface ReportSelectRoleProps {
     label: string
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectRole: FC<ReportSelectRoleProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectRoleProps {
     label,
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => {
 
     const [roles, setRoles] = useState<ReportInputSelectOption[]>([])
@@ -26,10 +30,29 @@ export interface ReportSelectRoleProps {
             response.data.items )
         {
             const data:PacUserRoleListService.QueryResult = response.data;
-            const roles = data.items.map(({ roleCode, roleName }) => ({ label: roleName, value:roleCode }));
 
-            //store the list of roles for the report component
-            setRoles(roles);
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const roles = filteredItems.map(({ roleCode, roleName }) => ({ label: roleName, value:roleCode }));
+
+                //store the list of roles for the report component
+                setRoles(roles);
+            }
+            else {
+                const roles = data.items.map(({ roleCode, roleName }) => ({ label: roleName, value:roleCode }));
+
+                //store the list of roles for the report component
+                setRoles(roles);
+            }
         }
     }
 

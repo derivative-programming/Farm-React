@@ -196,8 +196,14 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
           className="mt-1 page-card"
 
         >
-          <h2 data-testid="page-title-text">Create your account</h2>
-          <h6 data-testid="page-intro-text">A Couple Details Then We Are Off!</h6>
+          <h2 data-testid="page-title-text">
+            Create your account
+
+          </h2>
+          <h6 data-testid="page-intro-text">
+            A Couple Details Then We Are Off!
+
+          </h6>
 
           <HeaderTacRegister
             name="headerTacRegister"
@@ -236,26 +242,31 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
                       label="Email"
                       isVisible={true}
                       isRequired={true}
+                      detailText=""
                     />
                     <InputFields.FormInputPassword name="password"
                       label="Password"
                       isVisible={true}
                       isRequired={true}
+                      detailText=""
                     />
                     <InputFields.FormInputPassword name="confirmPassword"
                       label="Confirm Password"
                       isVisible={true}
                       isRequired={true}
+                      detailText=""
                     />
                     <InputFields.FormInputText name="firstName"
                       label="First Name"
                       isVisible={true}
                       isRequired={true}
+                      detailText=""
                     />
                     <InputFields.FormInputText name="lastName"
                       label="Last Name"
                       isVisible={true}
                       isRequired={true}
+                      detailText=""
                     />
                   </div>
                 }

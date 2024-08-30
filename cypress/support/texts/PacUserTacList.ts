@@ -1,11 +1,23 @@
 
 
 export const PacUserTacListPageTexts = {
-    tacDisplayOrderHeaderText: "Display Order",
-    tacIsActiveHeaderText: "Is Active",
-    tacLookupEnumNameHeaderText: "Lookup Enum Name",
-    tacNameHeaderText: "Name",
-    pacNameHeaderText: "Pac Name",
+    //breadcrumbs text
+    //back button text
+    //back button text
+    //back button text
+    //back button text
+    //back button text
+    //back button text
+
+    //column headers
+    tacCodeHeaderText: "",
+
+    someMoneyValFilterLabel: "Some Money Val",
+    someNVarCharValFilterLabel: "Some N Var Char Val",
+    someVarCharValFilterLabel: "Some Var Char Val",
+    someTextValFilterLabel: "Some Text Val",
+    somePhoneNumberFilterLabel: "Some Phone Number",
+    someEmailAddressFilterLabel: "Some Email Address",
 
     //page title
     titleText: "Pac User Tac List Report",

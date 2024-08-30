@@ -214,12 +214,6 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
         <h2 data-testid="page-title-text">Pac User Date Greater Than Filter List Report</h2>
         <h6 data-testid="page-intro-text"></h6>
 
-        <HeaderPacUserDateGreaterThanFilterList
-          name="headerPacUserDateGreaterThanFilterList"
-          initData={initPageResponse}
-          isHeaderVisible={false}
-        />
-
         <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
           <div className="mb-2 mb-md-0">
 
@@ -233,6 +227,12 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
             </div>
           </div>
         </div>
+
+        <HeaderPacUserDateGreaterThanFilterList
+          name="headerPacUserDateGreaterThanFilterList"
+          initData={initPageResponse}
+          isHeaderVisible={false}
+        />
 
         <ReportFilterPacUserDateGreaterThanFilterList
           name="reportConnectedPacUserDateGreaterThanFilterList-filter"

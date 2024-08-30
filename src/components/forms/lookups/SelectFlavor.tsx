@@ -10,7 +10,6 @@ export interface FormSelectFlavorProps {
     disabled?: boolean
     isVisible?:boolean
     isRequired?:boolean
-    detailText?: string
   }
 
 export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
@@ -20,7 +19,6 @@ export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
     disabled = false,
     isVisible = true,
     isRequired = false,
-    detailText = '',
   }): ReactElement => {
 
     const [flavors, setFlavors] = useState<FormInputSelectOption[]>([])
@@ -52,7 +50,6 @@ export const FormSelectFlavor: FC<FormSelectFlavorProps> = ({
             isVisible={isVisible}
             isRequired={isRequired}
             autoFocus={autoFocus}
-            detailText={detailText}
             />
 
     );

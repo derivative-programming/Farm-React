@@ -45,61 +45,20 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
+
     landCode: string;
-    landDescription: string;
-    landDisplayOrder: number;
-    landIsActive: boolean;
-    landLookupEnumName: string;
-    landName: string;
-    pacName: string;
-}
 
-export interface QueryRequest {
+    someMoneyVal: number;
 
-    pageNumber: number;
-    ItemCountPerPage: number;
-    OrderByColumnName: string;
-    OrderByDescending: boolean;
-    ForceErrorMessage: string;
-}
+    someNVarCharVal: string;
 
-export interface ResponseFull {
-  data: QueryResult;
-}
-export interface QueryResult {
-    pageNumber: number;
-    items: QueryResultItem[];
-    itemCountPerPage: number;
-    orderByColumnName: string;
-    orderByDescending: boolean;
-    success: boolean;
-    recordsTotal: number;
-    recordsFiltered: number;
-    message: string;
-    appVersion: string;
-    request: string;
-}
+    someVarCharVal: string;
 
-export class QueryResultItemInstance implements QueryResultItem {
-    landCode: string;
-    landDescription: string;
-    landDisplayOrder: number;
-    landIsActive: boolean;
-    landLookupEnumName: string;
-    landName: string;
-    pacName: string;
-    constructor() {
-        this.landCode = '00000000-0000-0000-0000-000000000000';
-        this.landDescription = '';
-        this.landDisplayOrder = 0;
-        this.landIsActive = false;
-        this.landLookupEnumName = '';
-        this.landName = '';
-        this.pacName = '';
-    }
-}
+    someTextVal: string;
 
-export class QueryRequestInstance implements QueryRequest {
+    somePhoneNumber: string;
+
+    someEmailAddress: string;
 
     pageNumber: number;
     ItemCountPerPage: number;

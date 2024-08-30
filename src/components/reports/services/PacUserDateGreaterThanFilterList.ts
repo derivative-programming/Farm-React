@@ -45,61 +45,20 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
+
     dateGreaterThanFilterCode: string;
-    dateGreaterThanFilterDayCount: number;
-    dateGreaterThanFilterDescription: string;
-    dateGreaterThanFilterDisplayOrder: number;
-    dateGreaterThanFilterIsActive: boolean;
-    dateGreaterThanFilterLookupEnumName: string;
-    dateGreaterThanFilterName: string;
-}
 
-export interface QueryRequest {
+    someMoneyVal: number;
 
-    pageNumber: number;
-    ItemCountPerPage: number;
-    OrderByColumnName: string;
-    OrderByDescending: boolean;
-    ForceErrorMessage: string;
-}
+    someNVarCharVal: string;
 
-export interface ResponseFull {
-  data: QueryResult;
-}
-export interface QueryResult {
-    pageNumber: number;
-    items: QueryResultItem[];
-    itemCountPerPage: number;
-    orderByColumnName: string;
-    orderByDescending: boolean;
-    success: boolean;
-    recordsTotal: number;
-    recordsFiltered: number;
-    message: string;
-    appVersion: string;
-    request: string;
-}
+    someVarCharVal: string;
 
-export class QueryResultItemInstance implements QueryResultItem {
-    dateGreaterThanFilterCode: string;
-    dateGreaterThanFilterDayCount: number;
-    dateGreaterThanFilterDescription: string;
-    dateGreaterThanFilterDisplayOrder: number;
-    dateGreaterThanFilterIsActive: boolean;
-    dateGreaterThanFilterLookupEnumName: string;
-    dateGreaterThanFilterName: string;
-    constructor() {
-        this.dateGreaterThanFilterCode = '00000000-0000-0000-0000-000000000000';
-        this.dateGreaterThanFilterDayCount = 0;
-        this.dateGreaterThanFilterDescription = '';
-        this.dateGreaterThanFilterDisplayOrder = 0;
-        this.dateGreaterThanFilterIsActive = false;
-        this.dateGreaterThanFilterLookupEnumName = '';
-        this.dateGreaterThanFilterName = '';
-    }
-}
+    someTextVal: string;
 
-export class QueryRequestInstance implements QueryRequest {
+    somePhoneNumber: string;
+
+    someEmailAddress: string;
 
     pageNumber: number;
     ItemCountPerPage: number;

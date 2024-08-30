@@ -8,6 +8,8 @@ export interface ReportSelectLandProps {
     label: string
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectLand: FC<ReportSelectLandProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectLandProps {
     label,
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => {
 
     const [lands, setLands] = useState<ReportInputSelectOption[]>([])
@@ -26,10 +30,29 @@ export interface ReportSelectLandProps {
             response.data.items )
         {
             const data:PacUserLandListService.QueryResult = response.data;
-            const lands = data.items.map(({ landCode, landName }) => ({ label: landName, value:landCode }));
 
-            //store the list of lands for the report component
-            setLands(lands);
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const lands = filteredItems.map(({ landCode, landName }) => ({ label: landName, value:landCode }));
+
+                //store the list of lands for the report component
+                setLands(lands);
+            }
+            else {
+                const lands = data.items.map(({ landCode, landName }) => ({ label: landName, value:landCode }));
+
+                //store the list of lands for the report component
+                setLands(lands);
+            }
         }
     }
 

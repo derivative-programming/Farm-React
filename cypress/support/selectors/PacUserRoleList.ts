@@ -1,23 +1,15 @@
 
 export const PacUserRoleListPageSelectors = {
-    roleDisplayOrderHeader: "[data-testid='roleDisplayOrder-header']",
-    roleIsActiveHeader: "[data-testid='roleIsActive-header']",
-    roleLookupEnumNameHeader: "[data-testid='roleLookupEnumName-header']",
-    roleNameHeader: "[data-testid='roleName-header']",
-    pacNameHeader: "[data-testid='pacName-header']",
-    roleDisplayOrderHeaderSortDownIndicator: "[data-testid='roleDisplayOrder-header-sortDown']",
-    roleIsActiveHeaderSortDownIndicator: "[data-testid='roleIsActive-header-sortDown']",
-    roleLookupEnumNameHeaderSortDownIndicator: "[data-testid='roleLookupEnumName-header-sortDown']",
-    roleNameHeaderSortDownIndicator: "[data-testid='roleName-header-sortDown']",
-    pacNameHeaderSortDownIndicator: "[data-testid='pacName-header-sortDown']",
-    roleDisplayOrderHeaderSortUpIndicator: "[data-testid='roleDisplayOrder-header-sortUp']",
-    roleIsActiveHeaderSortUpIndicator: "[data-testid='roleIsActive-header-sortUp']",
-    roleLookupEnumNameHeaderSortUpIndicator: "[data-testid='roleLookupEnumName-header-sortUp']",
-    roleNameHeaderSortUpIndicator: "[data-testid='roleName-header-sortUp']",
-    pacNameHeaderSortUpIndicator: "[data-testid='pacName-header-sortUp']",
 
-    title: "[data-testid='page-title-text']",
-    introText: "[data-testid='page-intro-text']",
+    //column headers
+    roleCodeHeader: "[data-testid='roleCode-header']",
+
+    someMoneyValFilterField: "[data-testid='someMoneyVal-field']",
+    someNVarCharValFilterField: "[data-testid='someNVarCharVal-field']",
+    someVarCharValFilterField: "[data-testid='someVarCharVal-field']",
+    someTextValFilterField: "[data-testid='someTextVal-field']",
+    somePhoneNumberFilterField: "[data-testid='somePhoneNumber-field']",
+    someEmailAddressFilterField: "[data-testid='someEmailAddress-field']",
 
     pagingControl: "[data-testid='reportGridPacUserRoleList-paginator-pagination']",
     pageSizeControl: "[data-testid='reportGridPacUserRoleList-paginator-pagination-select-page-size']",

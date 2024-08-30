@@ -8,6 +8,8 @@ export interface ReportSelectPacProps {
     label: string
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectPac: FC<ReportSelectPacProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectPacProps {
     label,
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => {
 
     const [pacs, setPacs] = useState<ReportInputSelectOption[]>([])
@@ -26,10 +30,29 @@ export interface ReportSelectPacProps {
             response.data.items )
         {
             const data:PacUserPacListService.QueryResult = response.data;
-            const pacs = data.items.map(({ pacCode, pacName }) => ({ label: pacName, value:pacCode }));
 
-            //store the list of pacs for the report component
-            setPacs(pacs);
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const pacs = filteredItems.map(({ pacCode, pacName }) => ({ label: pacName, value:pacCode }));
+
+                //store the list of pacs for the report component
+                setPacs(pacs);
+            }
+            else {
+                const pacs = data.items.map(({ pacCode, pacName }) => ({ label: pacName, value:pacCode }));
+
+                //store the list of pacs for the report component
+                setPacs(pacs);
+            }
         }
     }
 

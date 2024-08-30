@@ -214,12 +214,6 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
         <h2 data-testid="page-title-text">Pac User Tac List Report</h2>
         <h6 data-testid="page-intro-text"></h6>
 
-        <HeaderPacUserTacList
-          name="headerPacUserTacList"
-          initData={initPageResponse}
-          isHeaderVisible={false}
-        />
-
         <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
           <div className="mb-2 mb-md-0">
 
@@ -233,6 +227,12 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
             </div>
           </div>
         </div>
+
+        <HeaderPacUserTacList
+          name="headerPacUserTacList"
+          initData={initPageResponse}
+          isHeaderVisible={false}
+        />
 
         <ReportFilterPacUserTacList
           name="reportConnectedPacUserTacList-filter"

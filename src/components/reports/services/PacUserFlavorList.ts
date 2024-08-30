@@ -45,61 +45,20 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
+
     flavorCode: string;
-    flavorDescription: string;
-    flavorDisplayOrder: number;
-    flavorIsActive: boolean;
-    flavorLookupEnumName: string;
-    flavorName: string;
-    pacName: string;
-}
 
-export interface QueryRequest {
+    someMoneyVal: number;
 
-    pageNumber: number;
-    ItemCountPerPage: number;
-    OrderByColumnName: string;
-    OrderByDescending: boolean;
-    ForceErrorMessage: string;
-}
+    someNVarCharVal: string;
 
-export interface ResponseFull {
-  data: QueryResult;
-}
-export interface QueryResult {
-    pageNumber: number;
-    items: QueryResultItem[];
-    itemCountPerPage: number;
-    orderByColumnName: string;
-    orderByDescending: boolean;
-    success: boolean;
-    recordsTotal: number;
-    recordsFiltered: number;
-    message: string;
-    appVersion: string;
-    request: string;
-}
+    someVarCharVal: string;
 
-export class QueryResultItemInstance implements QueryResultItem {
-    flavorCode: string;
-    flavorDescription: string;
-    flavorDisplayOrder: number;
-    flavorIsActive: boolean;
-    flavorLookupEnumName: string;
-    flavorName: string;
-    pacName: string;
-    constructor() {
-        this.flavorCode = '00000000-0000-0000-0000-000000000000';
-        this.flavorDescription = '';
-        this.flavorDisplayOrder = 0;
-        this.flavorIsActive = false;
-        this.flavorLookupEnumName = '';
-        this.flavorName = '';
-        this.pacName = '';
-    }
-}
+    someTextVal: string;
 
-export class QueryRequestInstance implements QueryRequest {
+    somePhoneNumber: string;
+
+    someEmailAddress: string;
 
     pageNumber: number;
     ItemCountPerPage: number;

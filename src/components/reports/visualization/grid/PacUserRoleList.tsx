@@ -173,39 +173,206 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
-                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleCode"
+                  <td data-testid={"roleCodeColumn-" + index}>
+                    <Form.Check
+                      type="checkbox"
+                      id={"row-select-" + index}
+                      name={"row-select-" + index}
+                      checked={checkedIndexes.includes(index.toString())}
+                      onChange={(e) => {
+                        handleRowSelectCheckboxChange(e, index, item.roleCode);
+                      }}
+                    />
+                  </td>
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntVal"
                     rowIndex={index}
-                    value={item.roleCode}
+                    value={item.someIntVal}
                     isVisible={true}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleDescription"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalIntVal"
                     rowIndex={index}
-                    value={item.roleDescription}
+                    value={item.someIntVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someBigIntVal"
+                    rowIndex={index}
+                    value={item.someBigIntVal}
                     isVisible={true}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="roleDisplayOrder"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalBigIntVal"
                     rowIndex={index}
-                    value={item.roleDisplayOrder}
+                    value={item.someBigIntVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someBitVal"
+                    rowIndex={index}
+                    isChecked={item.someBitVal}
                     isVisible={true}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="roleIsActive"
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someConditionalBitVal"
                     rowIndex={index}
-                    isChecked={item.roleIsActive}
+                    isChecked={item.someBitVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isEditAllowed"
+                    rowIndex={index}
+                    isChecked={item.isEditAllowed}
                     isVisible={true}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleLookupEnumName"
+
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isDeleteAllowed"
                     rowIndex={index}
-                    value={item.roleLookupEnumName}
+                    isChecked={item.isDeleteAllowed}
                     isVisible={true}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleName"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someFloatVal"
                     rowIndex={index}
-                    value={item.roleName}
+                    value={item.someFloatVal}
                     isVisible={true}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="pacName"
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalFloatVal"
                     rowIndex={index}
-                    value={item.pacName}
+                    value={item.someFloatVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someDecimalVal"
+                    rowIndex={index}
+                    value={item.someDecimalVal}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalDecimalVal"
+                    rowIndex={index}
+                    value={item.someDecimalVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someUTCDateTimeVal"
+                    rowIndex={index}
+                    value={item.someUTCDateTimeVal}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someConditionalUTCDateTimeVal"
+                    rowIndex={index}
+                    value={item.someUTCDateTimeVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someDateVal"
+                    rowIndex={index}
+                    value={item.someDateVal}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someConditionalDateVal"
+                    rowIndex={index}
+                    value={item.someDateVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayMoney forColumn="someMoneyVal"
+                    rowIndex={index}
+                    value={item.someMoneyVal}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayMoney forColumn="someConditionalMoneyVal"
+                    rowIndex={index}
+                    value={item.someMoneyVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someNVarCharVal"
+                    rowIndex={index}
+                    value={item.someNVarCharVal}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalNVarCharVal"
+                    rowIndex={index}
+                    value={item.someNVarCharVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someVarCharVal"
+                    rowIndex={index}
+                    value={item.someVarCharVal}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalVarCharVal"
+                    rowIndex={index}
+                    value={item.someVarCharVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someTextVal"
+                    rowIndex={index}
+                    value={item.someTextVal}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalTextVal"
+                    rowIndex={index}
+                    value={item.someTextVal}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="somePhoneNumber"
+                    rowIndex={index}
+                    value={item.somePhoneNumber}
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="someConditionalPhoneNumber"
+                    rowIndex={index}
+                    value={item.somePhoneNumber}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+
+                  <ReportColumnDisplay.ReportColumnDisplayEmail forColumn="someEmailAddress"
+                    rowIndex={index}
+                    value={item.someEmailAddress}
+                    isVisible={true}
+                  />
+
+                  <ReportColumnDisplay.ReportColumnDisplayEmail forColumn="someConditionalEmailAddress"
+                    rowIndex={index}
+                    value={item.someEmailAddress}
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn=""
+                    rowIndex={index}
+                    value={item.}
+                    isVisible={true}
+                  />
+
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="SomeIntConditionalOnDeletable"
+                    rowIndex={index}
+                    value={item.someIntConditionalOnDeletable}
+                    conditionallyVisible={item.isDeleteAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="NVarCharAsUrl"
+                    rowIndex={index}
+                    value={item.nVarCharAsUrl}
+                    linkText="Click Here"
+                    isVisible={true}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="NVarCharConditionalAsUrl"
+                    rowIndex={index}
+                    value={item.nVarCharAsUrl}
+                    linkText="Click Here"
+                    isVisible={true}
+                    conditionallyVisible={item.isEditAllowed}
+                  />
+                  <ReportColumnDisplay.ReportColumnDisplayButton forColumn="roleCode"
+                    rowIndex={index}
+                    buttonText=""
+                    isButtonCallToAction={false}
+                    onClick={() => {
+                      logClick(componentName,"roleCode","");
+                      onNavigateTo("//" + item.roleCode)
+                    }}
                     isVisible={true}
                   />
                 </tr>
