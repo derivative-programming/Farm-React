@@ -11,7 +11,7 @@ import ReportConnectedPacUserRoleList from "./PacUserRoleList";
 import * as ReportService from "../services/PacUserRoleList";
 import * as InitReportService from "../services/init/PacUserRoleListInitReport";
 import { BrowserRouter } from "react-router-dom";
-
+import * as flavorCodeService from "../../lookups/services/Flavor"
 import "fake-indexeddb/auto";
 
 window.localStorage.setItem("@token", "sampleToken");
@@ -27,12 +27,17 @@ jest.mock("react-router-dom", () => ({
 
 const mockReportInitService = jest.spyOn(ReportService, "initPage");
 const mockReportService = jest.spyOn(ReportService, "submitRequest");
+const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 describe("PacUserRoleList Connected Report Component", () => {
   // render the PacUserRoleList component
   beforeEach(async() => {
     mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
+    });
+
+    mockFlavorCodeService.mockResolvedValue({
+      data: new flavorCodeService.QueryResultTestInstance(),
     });
 
     mockReportService.mockResolvedValue({

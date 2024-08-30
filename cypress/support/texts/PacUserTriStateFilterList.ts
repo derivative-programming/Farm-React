@@ -1,23 +1,11 @@
 
 
 export const PacUserTriStateFilterListPageTexts = {
-    //breadcrumbs text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-
-    //column headers
-    triStateFilterCodeHeaderText: "",
-
-    someMoneyValFilterLabel: "Some Money Val",
-    someNVarCharValFilterLabel: "Some N Var Char Val",
-    someVarCharValFilterLabel: "Some Var Char Val",
-    someTextValFilterLabel: "Some Text Val",
-    somePhoneNumberFilterLabel: "Some Phone Number",
-    someEmailAddressFilterLabel: "Some Email Address",
+    triStateFilterDisplayOrderHeaderText: "Display Order",
+    triStateFilterIsActiveHeaderText: "Is Active",
+    triStateFilterLookupEnumNameHeaderText: "Lookup Enum Name",
+    triStateFilterNameHeaderText: "Name",
+    triStateFilterStateIntValueHeaderText: "State Int Value",
 
     //page title
     titleText: "Pac User Tri State Filter List Report",

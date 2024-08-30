@@ -1,23 +1,15 @@
 
 
 export const TacFarmDashboardPageTexts = {
-    //breadcrumbs text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
+    fieldOnePlantListLinkLandCodeHeaderText: "",
+    conditionalBtnExampleLinkLandCodeHeaderText: "",
+//endset
 
-    //column headers
-    CodeHeaderText: "",
-
-    someMoneyValFilterLabel: "Some Money Val",
-    someNVarCharValFilterLabel: "Some N Var Char Val",
-    someVarCharValFilterLabel: "Some Var Char Val",
-    someTextValFilterLabel: "Some Text Val",
-    somePhoneNumberFilterLabel: "Some Phone Number",
-    someEmailAddressFilterLabel: "Some Email Address",
+//endset
+    testFileDownloadLinkPacCodeHeaderText: "",
+    testConditionalFileDownloadLinkPacCodeHeaderText: "",
+    testAsyncFlowReqLinkPacCodeHeaderText: "",
+    testConditionalAsyncFlowReqLinkPacCodeHeaderText: "",
 
     //page title
     titleText: "Farm Dashboard",

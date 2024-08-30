@@ -10,11 +10,13 @@ import {
   waitFor,
 } from "@testing-library/react";
 import ReportFilterPacUserLandList from "./PacUserLandList";
-
+import * as flavorCodeService from "../../lookups/services/Flavor"
 import * as ReportService from "../services/PacUserLandList";
 import "fake-indexeddb/auto";
 
 window.localStorage.setItem("@token", "sampleToken");
+
+const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 const onSubmit = jest.fn();
 
@@ -23,6 +25,9 @@ const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestIns
 describe("PacUserLandList Component", () => {
 
   beforeEach(async () => {
+    mockFlavorCodeService.mockResolvedValue({
+        data: new flavorCodeService.QueryResultTestInstance(),
+      });
 
     render(
         <ReportFilterPacUserLandList
@@ -31,6 +36,7 @@ describe("PacUserLandList Component", () => {
           onSubmit={onSubmit} />
     );
 
+    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalled());
   });
 
   // after cleanup when test-case execution is done
@@ -43,7 +49,11 @@ describe("PacUserLandList Component", () => {
 
   });
 
+//endset
+
   it("when user entered PacUserLandList details and clicks on register button, PacUserLandList api should be called", async () => {
+
+//endset
 
     await act(async () => {
       fireEvent.click(screen.getByTestId("submit-button"));

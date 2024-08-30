@@ -1,23 +1,11 @@
 
 
 export const PacUserFlavorListPageTexts = {
-    //breadcrumbs text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-    //back button text
-
-    //column headers
-    flavorCodeHeaderText: "",
-
-    someMoneyValFilterLabel: "Some Money Val",
-    someNVarCharValFilterLabel: "Some N Var Char Val",
-    someVarCharValFilterLabel: "Some Var Char Val",
-    someTextValFilterLabel: "Some Text Val",
-    somePhoneNumberFilterLabel: "Some Phone Number",
-    someEmailAddressFilterLabel: "Some Email Address",
+    flavorDisplayOrderHeaderText: "Display Order",
+    flavorIsActiveHeaderText: "Is Active",
+    flavorLookupEnumNameHeaderText: "Lookup Enum Name",
+    flavorNameHeaderText: "Name",
+    pacNameHeaderText: "Pac Name",
 
     //page title
     titleText: "Pac User Flavor List Report",

@@ -37,9 +37,11 @@ export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
 
 export const buildValidationSchema = () => {
 
+//endset
     const validationSchema  = Yup.object().shape({
 
       });
+//endset
 
     return validationSchema;
 }
@@ -146,6 +148,7 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.someNVarCharVal = '';
         this.somePhoneNumber = '';
         this.someTextVal = '';
+//endset
         this.someUniqueidentifierVal = '00000000-0000-0000-0000-000000000000';
         this.someUTCDateTimeVal = '1753-01-01T00:00:00Z'
         this.someVarCharVal = '';

@@ -37,9 +37,11 @@ export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
 
 export const buildValidationSchema = () => {
 
+//endset
     const validationSchema  = Yup.object().shape({
 
       });
+//endset
 
     return validationSchema;
 }
@@ -89,6 +91,7 @@ export class QueryResultItemInstance implements QueryResultItem {
     roleName: string;
     pacName: string;
     constructor() {
+//endset
         this.roleCode = '00000000-0000-0000-0000-000000000000';
         this.roleDescription = '';
         this.roleDisplayOrder = 0;

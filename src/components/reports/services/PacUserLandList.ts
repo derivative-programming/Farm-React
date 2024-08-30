@@ -37,9 +37,11 @@ export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
 
 export const buildValidationSchema = () => {
 
+//endset
     const validationSchema  = Yup.object().shape({
 
       });
+//endset
 
     return validationSchema;
 }
@@ -89,6 +91,7 @@ export class QueryResultItemInstance implements QueryResultItem {
     landName: string;
     pacName: string;
     constructor() {
+//endset
         this.landCode = '00000000-0000-0000-0000-000000000000';
         this.landDescription = '';
         this.landDisplayOrder = 0;

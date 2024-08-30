@@ -11,7 +11,7 @@ import ReportConnectedTacFarmDashboard from "./TacFarmDashboard";
 import * as ReportService from "../services/TacFarmDashboard";
 import * as InitReportService from "../services/init/TacFarmDashboardInitReport";
 import { BrowserRouter } from "react-router-dom";
-
+import * as flavorCodeService from "../../lookups/services/Flavor"
 import "fake-indexeddb/auto";
 
 window.localStorage.setItem("@token", "sampleToken");
@@ -27,12 +27,17 @@ jest.mock("react-router-dom", () => ({
 
 const mockReportInitService = jest.spyOn(ReportService, "initPage");
 const mockReportService = jest.spyOn(ReportService, "submitRequest");
+const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 describe("TacFarmDashboard Connected Report Component", () => {
   // render the TacFarmDashboard component
   beforeEach(async() => {
     mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
+    });
+
+    mockFlavorCodeService.mockResolvedValue({
+      data: new flavorCodeService.QueryResultTestInstance(),
     });
 
     mockReportService.mockResolvedValue({
