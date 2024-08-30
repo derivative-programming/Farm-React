@@ -8,6 +8,8 @@ export interface ReportSelectFlavorProps {
     label: string
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectFlavor: FC<ReportSelectFlavorProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectFlavorProps {
     label,
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => {
 
     const [flavors, setFlavors] = useState<ReportInputSelectOption[]>([])

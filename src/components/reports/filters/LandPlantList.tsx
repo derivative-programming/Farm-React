@@ -96,6 +96,8 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                       <Lookups.ReportSelectFlavor
                         name="flavorCode"
                         label="Select A Flavor"
+                        isFKListInactiveIncluded={false}
+                        isFKListSearchable={true}
                       />
                     </Col>
                     <Col xl="3" lg="4" md="6" xs="12" id="someIntVal">

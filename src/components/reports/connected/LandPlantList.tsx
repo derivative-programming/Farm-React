@@ -236,16 +236,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
       
         <h2 data-testid="page-title-text">Plant List</h2>
         <h6 data-testid="page-intro-text">A list of plants on the land</h6>
-        
-
-        <HeaderLandPlantList  
-          name="headerLandPlantList"
-          initData={initPageResponse}
-          isHeaderVisible={true}
-        />
-
-
-          
+         
         <div className="col-12 d-flex flex-column flex-md-row justify-content-between">
           <div className="mb-2 mb-md-0">
             <ReportInput.ReportInputButton name="back-button"
@@ -290,6 +281,11 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
         </div> 
         
         
+        <HeaderLandPlantList  
+          name="headerLandPlantList"
+          initData={initPageResponse}
+          isHeaderVisible={true}
+        />
 
         {/*//GENTrainingBlock[visualizationType]Start*/}
         {/*//GENLearn[visualizationType=Grid]Start*/}

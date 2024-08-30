@@ -11,6 +11,7 @@ export interface FormInputTextProps {
   disabled?: boolean
   isVisible?:boolean
   isRequired?:boolean
+  detailText?: string
 }
     
 export const FormInputText: FC<FormInputTextProps> = ({
@@ -21,6 +22,7 @@ export const FormInputText: FC<FormInputTextProps> = ({
   disabled = false,
   isVisible = true,
   isRequired = false,
+  detailText = '',
 }): ReactElement => {
   const [field, meta] = useField(name);  
   
@@ -44,7 +46,13 @@ export const FormInputText: FC<FormInputTextProps> = ({
             required={isRequired} 
             size="sm"
           />
+          {detailText.length > 0 && (
+            <Form.Text className="text-muted">
+              {detailText}
+            </Form.Text>
+          )}
           <Form.Control.Feedback className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
+
       </Form.Group> 
   </div>
   );

@@ -12,6 +12,7 @@ export interface FormInputSelectProps {
   disabled?: boolean
   isVisible?:boolean
   isRequired?:boolean
+  detailText?: string
 }
 
 export interface FormInputSelectOption {
@@ -27,6 +28,7 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
   disabled = false,
   isVisible = true,
   isRequired = false,
+  detailText = '',
 }): ReactElement => {
   const [field, meta] = useField(name); 
 
@@ -62,6 +64,11 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
                   );
               })}
           </Form.Select>
+          {detailText.length > 0 && (
+            <Form.Text className="text-muted">
+              {detailText}
+            </Form.Text>
+          )}
           <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
       </Form.Group>  
     </div>

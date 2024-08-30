@@ -6,6 +6,8 @@
     }, 
     "ignoreDimensionPropertyList": [
         "reportParam.calculatedIsTargetColumnNameAvailable",
+        "reportParam.isFKListInactiveIncluded",
+        "reportParam.isFKListSearchable",
         "reportParam.calculatedIsTargetObjectAvailable"
     ]
 }

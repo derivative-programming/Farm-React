@@ -193,8 +193,14 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
           className="mt-1 page-card"
 
         >
-          <h2 data-testid="page-title-text">Add Plant</h2>
-          <h6 data-testid="page-intro-text">Add plant intro text.</h6>
+          <h2 data-testid="page-title-text">
+            Add Plant
+            Add plant form title text
+          </h2>
+          <h6 data-testid="page-intro-text">
+            Add plant intro text.
+            Add plant form intro text
+          </h6>
 
           <HeaderLandAddPlant  
             name="headerLandAddPlant"
@@ -233,91 +239,109 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                       label="Select A Flavor"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputText name="requestOtherFlavor"
                       label="Other Flavor"
                       isVisible={true}
                       isRequired={false}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputNumber name="requestSomeIntVal"
                       label="Some Int Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputNumber name="requestSomeBigIntVal"
                       label="Some Big Int Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputCheckbox name="requestSomeBitVal"
                       label="Some Bit Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputCheckbox name="requestIsEditAllowed"
                       label="Is Edit Allowed"
                       isVisible={true}
                       isRequired={false}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputCheckbox name="requestIsDeleteAllowed"
                       label="Is Delete Allowed"
                       isVisible={true}
                       isRequired={false}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputNumber name="requestSomeFloatVal"
                       label="Some Float Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputNumber name="requestSomeDecimalVal"
                       label="Some Decimal Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputDateTime name="requestSomeUTCDateTimeVal"
                       label="Some UTC Date Time Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputDate name="requestSomeDateVal"
                       label="Some Date Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputMoney name="requestSomeMoneyVal"
                       label="Some Money Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputText name="requestSomeNVarCharVal"
                       label="Some N Var Char Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputPassword name="requestSomeVarCharVal"
                       label="Some Secure Var Char Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputTextArea name="requestSomeTextVal"
                       label="Some Text Val"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputText name="requestSomePhoneNumber"
                       label="Some Phone Number" 
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputEmail name="requestSomeEmailAddress"
                       label="Some Email Address"
                       isVisible={true}
                       isRequired={true}
+                      detailText="Sample Details Text"
                     />
                     <InputFields.FormInputFile name="requestSampleImageUploadFile"
                       label="Sample Image Upload"
                       isVisible={true}
                       isRequired={false}
+                      detailText="Sample Details Text"
                     />
                   </div>
                 }

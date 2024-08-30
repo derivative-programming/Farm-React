@@ -11,6 +11,7 @@ export interface FormInputFileProps {
   disabled?: boolean
   isVisible?:boolean
   isRequired?:boolean
+  detailText?: string
 }
 
 export const FormInputFile: FC<FormInputFileProps> = ({
@@ -21,6 +22,7 @@ export const FormInputFile: FC<FormInputFileProps> = ({
   disabled = false,
   isVisible = true,
   isRequired = false,
+  detailText = '',
 }): ReactElement => {
   const [field, meta, helpers] = useField(name); // 'helpers' provides setValue
 
@@ -84,6 +86,11 @@ export const FormInputFile: FC<FormInputFileProps> = ({
           required={isRequired}
           size="sm"
         />
+        {detailText.length > 0 && (
+          <Form.Text className="text-muted">
+            {detailText}
+          </Form.Text>
+        )}
         <Form.Control.Feedback
           data-testid={errorDisplayControlName}
           className="text-start"

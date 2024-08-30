@@ -8,6 +8,8 @@ export interface ReportSelectDateGreaterThanFilterProps {
     label: string 
     autoFocus?:boolean
     disabled?: boolean
+    isFKListInactiveIncluded?: boolean
+    isFKListSearchable?: boolean
   }
 
   export const ReportSelectDateGreaterThanFilter: FC<ReportSelectDateGreaterThanFilterProps> = ({
@@ -15,6 +17,8 @@ export interface ReportSelectDateGreaterThanFilterProps {
     label, 
     autoFocus = false,
     disabled = false,
+    isFKListInactiveIncluded = false,
+    isFKListSearchable = false,
   }): ReactElement => { 
     
     const [dateGreaterThanFilters, setDateGreaterThanFilters] = useState<ReportInputSelectOption[]>([])
@@ -26,10 +30,29 @@ export interface ReportSelectDateGreaterThanFilterProps {
             response.data.items )
         {
             const data:PacUserDateGreaterThanFilterListService.QueryResult = response.data; 
-            const dateGreaterThanFilters = data.items.map(({ dateGreaterThanFilterCode, dateGreaterThanFilterName }) => ({ label: dateGreaterThanFilterName, value:dateGreaterThanFilterCode }));
 
-            //store the list of dateGreaterThanFilters for the report component
-            setDateGreaterThanFilters(dateGreaterThanFilters); 
+            if(!isFKListInactiveIncluded) {
+                // Filter out items where any property ending with "isactive" is false
+                const filteredItems = data.items.filter(item => {
+                    // Check if any property ending with "isactive" is false
+                    return Object.keys(item).every(key => {
+                        if (key.toLowerCase().endsWith('isactive')) {
+                            return item[key] !== false;
+                        }
+                        return true;
+                    });
+                });
+                const dateGreaterThanFilters = filteredItems.map(({ dateGreaterThanFilterCode, dateGreaterThanFilterName }) => ({ label: dateGreaterThanFilterName, value:dateGreaterThanFilterCode }));
+    
+                //store the list of dateGreaterThanFilters for the report component
+                setDateGreaterThanFilters(dateGreaterThanFilters); 
+            }
+            else {
+                const dateGreaterThanFilters = data.items.map(({ dateGreaterThanFilterCode, dateGreaterThanFilterName }) => ({ label: dateGreaterThanFilterName, value:dateGreaterThanFilterCode }));
+    
+                //store the list of dateGreaterThanFilters for the report component
+                setDateGreaterThanFilters(dateGreaterThanFilters);  
+            }
         } 
     } 
 

@@ -11,6 +11,7 @@ export interface FormInputCheckboxProps {
   disabled?: boolean
   isVisible?:boolean
   isRequired?:boolean
+  detailText?: string
 }
    
 export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
@@ -21,6 +22,7 @@ export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
   disabled = false,
   isVisible = true,
   isRequired = false,
+  detailText = '',
 }): ReactElement => {
   const [field, meta, helpers] = useField(name);  
 
@@ -46,6 +48,11 @@ export const FormInputCheckbox: FC<FormInputCheckboxProps> = ({
             label={label}
             isInvalid={isInvalid} 
           />
+          {detailText.length > 0 && (
+            <Form.Text className="text-muted">
+              {detailText}
+            </Form.Text>
+          )}
           <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
       </Form.Group> 
   </div>

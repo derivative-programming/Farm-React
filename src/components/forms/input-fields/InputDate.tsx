@@ -14,6 +14,7 @@ export interface FormInputDateProps {
   disabled?: boolean
   isVisible?:boolean
   isRequired?:boolean
+  detailText?: string
 }
    
 export const FormInputDate: FC<FormInputDateProps> = ({
@@ -24,6 +25,7 @@ export const FormInputDate: FC<FormInputDateProps> = ({
   disabled = false,
   isVisible = true,
   isRequired = false,
+  detailText = '',
 }): ReactElement => {
   const [field, , helpers] = useField(name);
   
@@ -62,8 +64,13 @@ export const FormInputDate: FC<FormInputDateProps> = ({
             disabled={disabled}
             autoFocus={autoFocus}
           /> 
+          {detailText.length > 0 && (
+            <Form.Text className="text-muted">
+              {detailText}
+            </Form.Text>
+          )}
+          <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} />
       </Form.Group>
-      <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} />
       
   </div>
   );
