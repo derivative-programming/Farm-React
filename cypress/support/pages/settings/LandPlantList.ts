@@ -52,11 +52,12 @@ export const LandPlantListPageSettings = {
     
     isFilterSectionHidden: false,
     
+//endset
     someFilterIntValIsVisible: true,
     someFilterBigIntValIsVisible: true,
     someFilterBitValIsVisible: true,
-    isEditAllowedIsVisible: true,
-    isDeleteAllowedIsVisible: true,
+    isFilterEditAllowedIsVisible: true,
+    isFilterDeleteAllowedIsVisible: true,
     someFilterFloatValIsVisible: true,
     someFilterDecimalValIsVisible: true,
     someMinUTCDateTimeValIsVisible: true,
@@ -67,6 +68,7 @@ export const LandPlantListPageSettings = {
     someFilterTextValIsVisible: true,
     someFilterPhoneNumberIsVisible: true,
     someFilterEmailAddressIsVisible: true,
-    flavorCodeIsVisible: true, 
+    flavorFilterCodeIsVisible: true, 
+//endset
      
 } 

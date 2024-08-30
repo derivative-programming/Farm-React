@@ -11,15 +11,16 @@ export interface ResponseFull {
 
 export interface InitResult {
  
+//endset
     someFilterIntVal: number;
  
     someFilterBigIntVal: number;
  
     someFilterBitVal: boolean;
  
-    isEditAllowed: boolean;
+    isFilterEditAllowed: boolean;
  
-    isDeleteAllowed: boolean;
+    isFilterDeleteAllowed: boolean;
  
     someFilterFloatVal: number;
  
@@ -40,10 +41,11 @@ export interface InitResult {
     someFilterPhoneNumber: string;
  
     someFilterEmailAddress: string;
+    
+    flavorFilterCode: string;
  
     landName: string;
  
-    flavorCode: string;
  
     landCode: string;
  
@@ -68,9 +70,9 @@ export class InitResultInstance implements InitResult {
  
     someFilterBitVal: boolean;
  
-    isEditAllowed: boolean;
+    isFilterEditAllowed: boolean;
  
-    isDeleteAllowed: boolean;
+    isFilterDeleteAllowed: boolean;
  
     someFilterFloatVal: number;
  
@@ -94,7 +96,7 @@ export class InitResultInstance implements InitResult {
  
     landName: string;
  
-    flavorCode: string;
+    flavorFilterCode: string;
  
     landCode: string;
  
@@ -111,9 +113,9 @@ export class InitResultInstance implements InitResult {
  
         this.someFilterBitVal = false;
  
-        this.isEditAllowed = false;
+        this.isFilterEditAllowed = false;
  
-        this.isDeleteAllowed = false;
+        this.isFilterDeleteAllowed = false;
  
         this.someFilterFloatVal = 0;
  
@@ -137,7 +139,7 @@ export class InitResultInstance implements InitResult {
  
         this.landName = '';
  
-        this.flavorCode = '00000000-0000-0000-0000-000000000000';
+        this.flavorFilterCode = '00000000-0000-0000-0000-000000000000';
  
         this.landCode = '00000000-0000-0000-0000-000000000000';
  

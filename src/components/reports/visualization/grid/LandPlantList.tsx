@@ -125,7 +125,6 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       contextCode
     ).then(() => onRefreshRequest());
   }; 
-
   
   const tableRowAlternateCases = showProcessing ? (
     <tr>
@@ -140,6 +139,31 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       <td colSpan={100}>No rows returned text</td>
     </tr>
   );
+
+  
+  const viewFileDownload = (response) => {
+    const contentDisposition = response.headers['content-disposition'];
+    let filename = uuidv4() + '.csv';
+
+    if (contentDisposition) {
+        // Attempt to extract the filename*= value first, then fallback to filename=
+        const filenameMatch = contentDisposition.match(/filename\*?=['"]?([^;'"]+)/);
+        if (filenameMatch && filenameMatch[1]) {
+            filename = decodeURIComponent(filenameMatch[1].replace(/UTF-8''/, ''));
+        }
+    }
+
+    // Get the content type or default to "text/csv"
+    const contentType = response.headers['content-type'] || 'text/csv';
+
+    const blob = new Blob([response.data], { type: contentType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+  };
 
   return (
     <div data-testid={name} className="w-100 mt-3">
@@ -794,27 +818,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                         const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
                         AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testFileDownloadLinkPacCode)
                         .then((response) => {
-                          const contentDisposition = response.headers['content-disposition'];
-                          let filename = uuidv4() + '.csv';
-
-                          if (contentDisposition) {
-                              // Attempt to extract the filename*= value first, then fallback to filename=
-                              const filenameMatch = contentDisposition.match(/filename\*?=['"]?([^;'"]+)/);
-                              if (filenameMatch && filenameMatch[1]) {
-                                  filename = decodeURIComponent(filenameMatch[1].replace(/UTF-8''/, ''));
-                              }
-                          }
-
-                          // Get the content type or default to "text/csv"
-                          const contentType = response.headers['content-type'] || 'text/csv';
-
-                          const blob = new Blob([response.data], { type: contentType });
-                          const url = URL.createObjectURL(blob);
-                          const link = document.createElement('a');
-                          link.href = url;
-                          link.setAttribute('download', filename);
-                          document.body.appendChild(link);
-                          link.click();
+                          viewFileDownload(response);
                         }).then(() => onRefreshRequest())
                       }}
                   />
@@ -831,27 +835,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                         const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
                         AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testConditionalFileDownloadLinkPacCode)
                         .then((response) => {
-                          const contentDisposition = response.headers['content-disposition'];
-                          let filename = uuidv4() + '.csv';
-
-                          if (contentDisposition) {
-                              // Attempt to extract the filename*= value first, then fallback to filename=
-                              const filenameMatch = contentDisposition.match(/filename\*?=['"]?([^;'"]+)/);
-                              if (filenameMatch && filenameMatch[1]) {
-                                  filename = decodeURIComponent(filenameMatch[1].replace(/UTF-8''/, ''));
-                              }
-                          }
-
-                          // Get the content type or default to "text/csv"
-                          const contentType = response.headers['content-type'] || 'text/csv';
-
-                          const blob = new Blob([response.data], { type: contentType });
-                          const url = URL.createObjectURL(blob);
-                          const link = document.createElement('a');
-                          link.href = url;
-                          link.setAttribute('download', filename);
-                          document.body.appendChild(link);
-                          link.click();
+                          viewFileDownload(response);
                         }).then(() => onRefreshRequest())
                       }}
                   />

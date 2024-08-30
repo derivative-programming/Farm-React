@@ -33,12 +33,13 @@ export const submitCSVRequest = (data:QueryRequest, landCode:string) => {
 export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
   const result:QueryRequest = new QueryRequestInstance();
     
-    result.flavorCode = initResult.flavorCode; 
+//endset
+    result.flavorFilterCode = initResult.flavorFilterCode; 
     result.someFilterIntVal = initResult.someFilterIntVal;
     result.someFilterBigIntVal = initResult.someFilterBigIntVal;
     result.someFilterBitVal = initResult.someFilterBitVal;
-    result.isEditAllowed = initResult.isEditAllowed;
-    result.isDeleteAllowed = initResult.isDeleteAllowed;
+    result.isFilterEditAllowed = initResult.isFilterEditAllowed;
+    result.isFilterDeleteAllowed = initResult.isFilterDeleteAllowed;
     result.someFilterFloatVal = initResult.someFilterFloatVal;
     result.someFilterDecimalVal = initResult.someFilterDecimalVal;
     result.someMinUTCDateTimeVal = initResult.someMinUTCDateTimeVal;
@@ -46,17 +47,19 @@ export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
     result.someFilterMoneyVal = initResult.someFilterMoneyVal;
     result.someFilterNVarCharVal = initResult.someFilterNVarCharVal;
     result.someFilterVarCharVal = initResult.someFilterVarCharVal;
-    result.someFilterTextVal = initResult.someTextVal;
+    result.someFilterTextVal = initResult.someFilterTextVal;
     result.someFilterPhoneNumber = initResult.someFilterPhoneNumber;
     result.someFilterEmailAddress = initResult.someFilterEmailAddress; 
+//endset
     
     return result;
 }
 
 export const buildValidationSchema = () => {
     
+//endset
     const validationSchema  = Yup.object().shape({
-        flavorCode: Yup.string()
+        flavorFilterCode: Yup.string()
         ,
         someFilterIntVal: Yup.number().required('Please enter a Some Int Val')
         ,
@@ -64,9 +67,9 @@ export const buildValidationSchema = () => {
         ,
         someFilterBitVal: Yup.boolean().required('Please enter a Some Bit Val')
         ,
-        isEditAllowed: Yup.boolean().required('Please enter a Is Edit Allowed')
+        isFilterEditAllowed: Yup.boolean().required('Please enter a Is Edit Allowed')
         ,
-        isDeleteAllowed: Yup.boolean().required('Please enter a Is Delete Allowed')
+        isFilterDeleteAllowed: Yup.boolean().required('Please enter a Is Delete Allowed')
         ,
         someFilterFloatVal: Yup.number().required('Please enter a Some Float Val')
         ,
@@ -89,6 +92,7 @@ export const buildValidationSchema = () => {
         someFilterEmailAddress: Yup.string()
         ,  
       });
+//endset
       
     return validationSchema;
 }
@@ -177,15 +181,16 @@ export interface QueryResultItem {
 
 export interface QueryRequest {
  
+//endset
     someFilterIntVal: number;
  
     someFilterBigIntVal: number;
  
     someFilterBitVal: boolean;
  
-    isEditAllowed: boolean;
+    isFilterEditAllowed: boolean;
  
-    isDeleteAllowed: boolean;
+    isFilterDeleteAllowed: boolean;
  
     someFilterFloatVal: number;
  
@@ -207,7 +212,8 @@ export interface QueryRequest {
  
     someFilterEmailAddress: string;
  
-    flavorCode: string;
+    flavorFilterCode: string;
+//endset
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
@@ -407,15 +413,16 @@ export class QueryResultItemInstance implements QueryResultItem {
 
 export class QueryRequestInstance implements QueryRequest {
  
+//endset
     someFilterIntVal: number; 
  
     someFilterBigIntVal: number; 
  
     someFilterBitVal: boolean; 
  
-    isEditAllowed: boolean; 
+    isFilterEditAllowed: boolean; 
  
-    isDeleteAllowed: boolean; 
+    isFilterDeleteAllowed: boolean; 
  
     someFilterFloatVal: number; 
  
@@ -437,7 +444,8 @@ export class QueryRequestInstance implements QueryRequest {
  
     someFilterEmailAddress: string; 
  
-    flavorCode: string;   
+    flavorFilterCode: string;   
+//endset
     pageNumber: number;
     ItemCountPerPage: number;
     OrderByColumnName: string;
@@ -446,15 +454,16 @@ export class QueryRequestInstance implements QueryRequest {
 
     constructor() {
  
+//endset
         this.someFilterIntVal = 0;
  
         this.someFilterBigIntVal = 0;
  
         this.someFilterBitVal = false;
  
-        this.isEditAllowed = false;
+        this.isFilterEditAllowed = false;
  
-        this.isDeleteAllowed = false;
+        this.isFilterDeleteAllowed = false;
  
         this.someFilterFloatVal = 0;
  
@@ -476,7 +485,8 @@ export class QueryRequestInstance implements QueryRequest {
  
         this.someFilterEmailAddress = '';
  
-        this.flavorCode = '00000000-0000-0000-0000-000000000000';
+        this.flavorFilterCode = '00000000-0000-0000-0000-000000000000';
+//endset
         this.pageNumber = 1;
         this.ItemCountPerPage = 10;
         this.OrderByColumnName = '';

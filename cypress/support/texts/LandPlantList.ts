@@ -56,11 +56,12 @@ export const LandPlantListPageTexts = {
 //endset
 
     
+//endset
     someFilterIntValFilterLabel: "Some Int Val", 
     someFilterBigIntValFilterLabel: "Some Big Int Val",
     someFilterBitValFilterLabel: "Some Bit Val",
-    isEditAllowedFilterLabel: "Is Edit Allowed",
-    isDeleteAllowedFilterLabel: "Is Delete Allowed",
+    isFilterEditAllowedFilterLabel: "Is Edit Allowed",
+    isFilterDeleteAllowedFilterLabel: "Is Delete Allowed",
     someFilterFloatValFilterLabel: "Some Float Val",
     someFilterDecimalValFilterLabel: "Some Decimal Val", 
     someMinUTCDateTimeValFilterLabel: "Some Min UTC Date Time Val",
@@ -71,7 +72,8 @@ export const LandPlantListPageTexts = {
     someFilterTextValFilterLabel: "Some Text Val",
     someFilterPhoneNumberFilterLabel: "Some Phone Number",
     someFilterEmailAddressFilterLabel: "Some Email Address",
-    flavorCodeFilterLabel: "Select A Flavor",
+    flavorFilterCodeFilterLabel: "Select A Flavor",
+//endset
 
     //page title
     titleText: "Plant List",

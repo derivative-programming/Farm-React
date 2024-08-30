@@ -92,9 +92,9 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                   onSubmit={props.handleSubmit}
                 >
                   <Row>
-                    <Col xl="3" lg="4" md="6" xs="12" id="flavorCode">
+                    <Col xl="3" lg="4" md="6" xs="12" id="flavorFilterCode">
                       <Lookups.ReportSelectFlavor
-                        name="flavorCode"
+                        name="flavorFilterCode"
                         label="Select A Flavor"
                         isFKListInactiveIncluded={false}
                         isFKListSearchable={true}
@@ -124,15 +124,15 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                         label="Some Bit Val"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="isEditAllowed">
+                    <Col xl="3" lg="4" md="6" xs="12" id="isFilterEditAllowed">
                       <ReportInput.ReportInputCheckbox
-                        name="isEditAllowed"
+                        name="isFilterEditAllowed"
                         label="Is Edit Allowed"
                       />
                     </Col>
-                    <Col xl="3" lg="4" md="6" xs="12" id="isDeleteAllowed">
+                    <Col xl="3" lg="4" md="6" xs="12" id="isFilterDeleteAllowed">
                       <ReportInput.ReportInputCheckbox
-                        name="isDeleteAllowed"
+                        name="isFilterDeleteAllowed"
                         label="Is Delete Allowed"
                       />
                     </Col>

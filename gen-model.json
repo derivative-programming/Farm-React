@@ -2816,7 +2816,7 @@
                 ],
                 "reportParam": [
                   {
-                    "name": "FlavorCode",
+                    "name": "FlavorFilterCode",
                     "codeDescription": "Land Plant List Report Flavor Code Filter",
                     "labelText": "Select A Flavor",
                     "sqlServerDBDataType": "uniqueidentifier",
@@ -2869,7 +2869,7 @@
                     "targetColumnName": "SomeBitVal"
                   },
                   {
-                    "name": "IsEditAllowed",
+                    "name": "IsFilterEditAllowed",
                     "codeDescription": "Land Plant List Report Is Edit Allowed Filter",
                     "labelText": "Is Edit Allowed",
                     "sqlServerDBDataType": "bit",
@@ -2880,7 +2880,7 @@
                     "defaultValue": "true"
                   },
                   {
-                    "name": "IsDeleteAllowed",
+                    "name": "IsFilterDeleteAllowed",
                     "codeDescription": "Land Plant List Report Is Delete Allowed Filter",
                     "labelText": "Is Delete Allowed",
                     "sqlServerDBDataType": "bit",
@@ -4502,14 +4502,14 @@
                     "labelText": "Some Bit Val"
                   },
                   {
-                    "name": "IsEditAllowed",
+                    "name": "IsFilterEditAllowed",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Is Edit Allowed",
                     "defaultValue": "true"
                   },
                   {
-                    "name": "IsDeleteAllowed",
+                    "name": "IsFilterDeleteAllowed",
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Is Delete Allowed",
@@ -4576,7 +4576,7 @@
                     "labelText": "Some Email Address"
                   },
                   {
-                    "name": "FlavorCode",
+                    "name": "FlavorFilterCode",
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Flavor",

@@ -104,6 +104,7 @@ export const LandPlantListPageSelectors = {
     someBigIntValHeaderSortUpIndicator: "[data-testid='someBigIntVal-header-sortUp']",
     someConditionalBigIntValHeaderSortUpIndicator: "[data-testid='someConditionalBigIntVal-header-sortUp']",
     someBitValHeaderSortUpIndicator: "[data-testid='someBitVal-header-sortUp']",
+    someConditionalBitValHeaderSortUpIndicator: "[data-testid='someConditionalBitVal-header-sortUp']",
     isEditAllowedHeaderSortUpIndicator: "[data-testid='isEditAllowed-header-sortUp']",
     isDeleteAllowedHeaderSortUpIndicator: "[data-testid='isDeleteAllowed-header-sortUp']",
     someFloatValHeaderSortUpIndicator: "[data-testid='someFloatVal-header-sortUp']",
@@ -165,11 +166,12 @@ export const LandPlantListPageSelectors = {
     
         backButton: "[data-testid='back-button']",
 
+//endset
     someFilterIntValFilterLabel: "[data-testid='someFilterIntVal-label']",
     someFilterBigIntValFilterLabel: "[data-testid='someFilterBigIntVal-label']",
     someFilterBitValFilterLabel: "[data-testid='someFilterBitVal-label']",
-    isEditAllowedFilterLabel: "[data-testid='isEditAllowed-label']",
-    isDeleteAllowedFilterLabel: "[data-testid='isDeleteAllowed-label']",
+    isFilterEditAllowedFilterLabel: "[data-testid='isFilterEditAllowed-label']",
+    isFilterDeleteAllowedFilterLabel: "[data-testid='isFilterDeleteAllowed-label']",
     someFilterFloatValFilterLabel: "[data-testid='someFilterFloatVal-label']",
     someFilterDecimalValFilterLabel: "[data-testid='someFilterDecimalVal-label']",
     someMinUTCDateTimeValFilterLabel: "[data-testid='someMinUTCDateTimeVal-label']",
@@ -180,14 +182,15 @@ export const LandPlantListPageSelectors = {
     someFilterTextValFilterLabel: "[data-testid='someFilterTextVal-label']",
     someFilterPhoneNumberFilterLabel: "[data-testid='someFilterPhoneNumber-label']",
     someFilterEmailAddressFilterLabel: "[data-testid='someFilterEmailAddress-label']",
-    flavorCodeFilterLabel: "[data-testid='flavorCode-label']",
+    flavorFilterCodeFilterLabel: "[data-testid='flavorFilterCode-label']",
+//endset
 
     
     someFilterIntValFilterField: "[data-testid='someFilterIntVal-field']",
     someFilterBigIntValFilterField: "[data-testid='someFilterBigIntVal-field']",
     someFilterBitValFilterField: "[data-testid='someFilterBitVal-field']",
-    isEditAllowedFilterField: "[data-testid='isEditAllowed-field']",
-    isDeleteAllowedFilterField: "[data-testid='isDeleteAllowed-field']",
+    isFilterEditAllowedFilterField: "[data-testid='isFilterEditAllowed-field']",
+    isFilterDeleteAllowedFilterField: "[data-testid='isFilterDeleteAllowed-field']",
     someFilterFloatValFilterField: "[data-testid='someFilterFloatVal-field']",
     someFilterDecimalValFilterField: "[data-testid='someFilterDecimalVal-field']",
     someMinUTCDateTimeValFilterField: "[data-testid='someMinUTCDateTimeVal-field']",
@@ -198,7 +201,8 @@ export const LandPlantListPageSelectors = {
     someFilterTextValFilterField: "[data-testid='someFilterTextVal-field']",
     someFilterPhoneNumberFilterField: "[data-testid='someFilterPhoneNumber-field']",
     someFilterEmailAddressFilterField: "[data-testid='someFilterEmailAddress-field']",
-    flavorCodeFilterField: "[data-testid='flavorCode-field']",
+    flavorFilterCodeFilterField: "[data-testid='flavorFilterCode-field']",
+//endset
     
 
     pagingControl: "[data-testid='reportGridLandPlantList-paginator-pagination']",
