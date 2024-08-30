@@ -54,6 +54,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
   const { logClick } = useAnalyticsDB();  // NOSONAR
   const componentName = "ReportGridLandPlantList";
+  const contextObjectName = "land";
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -206,6 +207,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                 onChange={(e) => onSelectAllRows(e)}
               />
             </th>
+            
+            <ReportColumnHeader forColumn="isEditAllowed"
+              isSortDescending={isSortDescending}
+              label="Edit Allowed"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
 
             <ReportColumnHeader forColumn="someIntVal"
               isSortDescending={isSortDescending}
@@ -255,13 +264,6 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               sortedColumnName={sortedColumnName}
             />
 
-            <ReportColumnHeader forColumn="isEditAllowed"
-              isSortDescending={isSortDescending}
-              label="Edit Allowed"
-              onSort={onSort}
-              isVisible={true}
-              sortedColumnName={sortedColumnName}
-            />
 
             <ReportColumnHeader forColumn="isDeleteAllowed"
               isSortDescending={isSortDescending}
@@ -556,6 +558,12 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     />
                   </td>
 
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isEditAllowed"
+                    rowIndex={index}
+                    isChecked={item.isEditAllowed}
+                    isVisible={true}
+                  />
+
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntVal"
                     rowIndex={index}
                     value={item.someIntVal}
@@ -595,11 +603,6 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isEditAllowed"
-                    rowIndex={index}
-                    isChecked={item.isEditAllowed}
-                    isVisible={true}
-                  />
  
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isDeleteAllowed"
                     rowIndex={index}
@@ -790,6 +793,9 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       {
                         logClick(componentName,"deleteAsyncButtonLinkPlantCode","");
                         const data: AsyncServices.PlantUserDeleteRequest = {};
+                        if ('landCode' in data) {
+                          data.landCode = contextCode;
+                        }
                         AsyncServices.PlantUserDeleteSubmitRequest(data, item.deleteAsyncButtonLinkPlantCode).then(() =>
                         onRefreshRequest()
                       )
@@ -849,6 +855,9 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       {
                         logClick(componentName,"testAsyncFlowReqLinkPacCode","");
                         const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                        if ('landCode' in data) {
+                          data.landCode = contextCode;
+                        }
                         AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testAsyncFlowReqLinkPacCode).then(() =>
                         onRefreshRequest())
                       }}
@@ -864,6 +873,9 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       {
                         logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
                         const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                        if ('landCode' in data) {
+                          data.landCode = contextCode;
+                        }
                         AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
                         onRefreshRequest())
                       }}
