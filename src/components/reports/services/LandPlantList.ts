@@ -99,9 +99,15 @@ export interface QueryResultItem {
  
     someIntVal: number;
  
+    someConditionalIntVal: number;
+ 
     someBigIntVal: number;
  
+    someConditionalBigIntVal: number;
+ 
     someBitVal: boolean;
+ 
+    someConditionalBitVal: boolean;
  
     isEditAllowed: boolean;
  
@@ -109,23 +115,43 @@ export interface QueryResultItem {
  
     someFloatVal: number;
  
+    someConditionalFloatVal: number;
+ 
     someDecimalVal: number;
+ 
+    someConditionalDecimalVal: number;
  
     someUTCDateTimeVal: string;
  
+    someConditionalUTCDateTimeVal: string;
+ 
     someDateVal: string;
+ 
+    someConditionalDateVal: string;
  
     someMoneyVal: number;
  
+    someConditionalMoneyVal: number;
+ 
     someNVarCharVal: string;
+ 
+    someConditionalNVarCharVal: string;
  
     someVarCharVal: string;
  
+    someConditionalVarCharVal: string;
+ 
     someTextVal: string;
+ 
+    someConditionalTextVal: string;
  
     somePhoneNumber: string;
  
+    someConditionalPhoneNumber: string;
+ 
     someEmailAddress: string;
+ 
+    someConditionalEmailAddress: string;
  
     flavorName: string;
  
@@ -134,6 +160,8 @@ export interface QueryResultItem {
     someIntConditionalOnDeletable:number; 
  
     nVarCharAsUrl: string;
+ 
+    nVarCharConditionalAsUrl: string;
  
     updateLinkPlantCode: string;
  
@@ -216,9 +244,15 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     someIntVal: number;
  
+    someConditionalIntVal: number;
+ 
     someBigIntVal: number;
  
+    someConditionalBigIntVal: number;
+ 
     someBitVal: boolean;
+ 
+    someConditionalBitVal: boolean;
  
     isEditAllowed: boolean;
  
@@ -226,31 +260,53 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     someFloatVal: number;
  
+    someConditionalFloatVal: number;
+ 
     someDecimalVal: number;
+ 
+    someConditionalDecimalVal: number;
  
     someUTCDateTimeVal: string;
  
+    someConditionalUTCDateTimeVal: string;
+ 
     someDateVal: string;
+ 
+    someConditionalDateVal: string;
  
     someMoneyVal: number;
  
+    someConditionalMoneyVal: number;
+ 
     someNVarCharVal: string;
+ 
+    someConditionalNVarCharVal: string;
  
     someVarCharVal: string;
  
+    someConditionalVarCharVal: string;
+ 
     someTextVal: string;
+ 
+    someConditionalTextVal: string;
  
     somePhoneNumber: string;
  
+    someConditionalPhoneNumber: string;
+ 
     someEmailAddress: string;
+ 
+    someConditionalEmailAddress: string;
  
     flavorName: string;
  
     flavorCode: string;
- 
-    someIntConditionalOnDeletable: number;
+
+    someIntConditionalOnDeletable:number; 
  
     nVarCharAsUrl: string;
+ 
+    nVarCharConditionalAsUrl: string;
  
     updateLinkPlantCode: string;
  
@@ -269,9 +325,15 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someIntVal = 0;
  
+        this.someConditionalIntVal = 0;
+ 
         this.someBigIntVal = 0;
  
+        this.someConditionalBigIntVal = 0;
+ 
         this.someBitVal = false;
+ 
+        this.someConditionalBitVal = false;
  
         this.isEditAllowed = false;
  
@@ -279,23 +341,43 @@ export class QueryResultItemInstance implements QueryResultItem {
  
         this.someFloatVal = 0;
  
+        this.someConditionalFloatVal = 0;
+ 
         this.someDecimalVal = 0;
+ 
+        this.someConditionalDecimalVal = 0;
  
         this.someUTCDateTimeVal = '1753-01-01T00:00:00Z'
  
+        this.someConditionalUTCDateTimeVal = '1753-01-01T00:00:00Z'
+ 
         this.someDateVal = '1753-01-01T00:00:00Z';
+ 
+        this.someConditionalDateVal = '1753-01-01T00:00:00Z';
  
         this.someMoneyVal = 0.0;
  
+        this.someConditionalMoneyVal = 0.0;
+ 
         this.someNVarCharVal = '';
+ 
+        this.someConditionalNVarCharVal = '';
  
         this.someVarCharVal = '';
  
+        this.someConditionalVarCharVal = '';
+ 
         this.someTextVal = '';
+ 
+        this.someConditionalTextVal = '';
  
         this.somePhoneNumber = '';
  
+        this.someConditionalPhoneNumber = '';
+ 
         this.someEmailAddress = '';
+ 
+        this.someConditionalEmailAddress = '';
  
         this.flavorName = '';
  
@@ -304,6 +386,8 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.someIntConditionalOnDeletable = 0;
  
         this.nVarCharAsUrl = '';
+ 
+        this.nVarCharConditionalAsUrl = '';
  
         this.updateLinkPlantCode = '00000000-0000-0000-0000-000000000000';
  
