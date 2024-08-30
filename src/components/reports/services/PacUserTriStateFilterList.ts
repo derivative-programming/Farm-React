@@ -45,20 +45,61 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
-
     triStateFilterCode: string;
+    triStateFilterDescription: string;
+    triStateFilterDisplayOrder: number;
+    triStateFilterIsActive: boolean;
+    triStateFilterLookupEnumName: string;
+    triStateFilterName: string;
+    triStateFilterStateIntValue: number;
+}
 
-    someMoneyVal: number;
+export interface QueryRequest {
 
-    someNVarCharVal: string;
+    pageNumber: number;
+    ItemCountPerPage: number;
+    OrderByColumnName: string;
+    OrderByDescending: boolean;
+    ForceErrorMessage: string;
+}
 
-    someVarCharVal: string;
+export interface ResponseFull {
+  data: QueryResult;
+}
+export interface QueryResult {
+    pageNumber: number;
+    items: QueryResultItem[];
+    itemCountPerPage: number;
+    orderByColumnName: string;
+    orderByDescending: boolean;
+    success: boolean;
+    recordsTotal: number;
+    recordsFiltered: number;
+    message: string;
+    appVersion: string;
+    request: string;
+}
 
-    someTextVal: string;
+export class QueryResultItemInstance implements QueryResultItem {
+    triStateFilterCode: string;
+    triStateFilterDescription: string;
+    triStateFilterDisplayOrder: number;
+    triStateFilterIsActive: boolean;
+    triStateFilterLookupEnumName: string;
+    triStateFilterName: string;
+    triStateFilterStateIntValue: number;
+    constructor() {
+        this.triStateFilterCode = '00000000-0000-0000-0000-000000000000';
+        this.triStateFilterDescription = '';
+        this.triStateFilterDisplayOrder = 0;
+        this.triStateFilterIsActive = false;
+        this.triStateFilterLookupEnumName = '';
+        this.triStateFilterName = '';
+        this.triStateFilterStateIntValue = 0;
+    }
+}
 
-    somePhoneNumber: string;
-
-    someEmailAddress: string;
+export class QueryRequestInstance implements QueryRequest {
 
     pageNumber: number;
     ItemCountPerPage: number;

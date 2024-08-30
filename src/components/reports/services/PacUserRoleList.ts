@@ -45,20 +45,61 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
-
     roleCode: string;
+    roleDescription: string;
+    roleDisplayOrder: number;
+    roleIsActive: boolean;
+    roleLookupEnumName: string;
+    roleName: string;
+    pacName: string;
+}
 
-    someMoneyVal: number;
+export interface QueryRequest {
 
-    someNVarCharVal: string;
+    pageNumber: number;
+    ItemCountPerPage: number;
+    OrderByColumnName: string;
+    OrderByDescending: boolean;
+    ForceErrorMessage: string;
+}
 
-    someVarCharVal: string;
+export interface ResponseFull {
+  data: QueryResult;
+}
+export interface QueryResult {
+    pageNumber: number;
+    items: QueryResultItem[];
+    itemCountPerPage: number;
+    orderByColumnName: string;
+    orderByDescending: boolean;
+    success: boolean;
+    recordsTotal: number;
+    recordsFiltered: number;
+    message: string;
+    appVersion: string;
+    request: string;
+}
 
-    someTextVal: string;
+export class QueryResultItemInstance implements QueryResultItem {
+    roleCode: string;
+    roleDescription: string;
+    roleDisplayOrder: number;
+    roleIsActive: boolean;
+    roleLookupEnumName: string;
+    roleName: string;
+    pacName: string;
+    constructor() {
+        this.roleCode = '00000000-0000-0000-0000-000000000000';
+        this.roleDescription = '';
+        this.roleDisplayOrder = 0;
+        this.roleIsActive = false;
+        this.roleLookupEnumName = '';
+        this.roleName = '';
+        this.pacName = '';
+    }
+}
 
-    somePhoneNumber: string;
-
-    someEmailAddress: string;
+export class QueryRequestInstance implements QueryRequest {
 
     pageNumber: number;
     ItemCountPerPage: number;

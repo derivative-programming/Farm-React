@@ -45,20 +45,61 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
-
     dateGreaterThanFilterCode: string;
+    dateGreaterThanFilterDayCount: number;
+    dateGreaterThanFilterDescription: string;
+    dateGreaterThanFilterDisplayOrder: number;
+    dateGreaterThanFilterIsActive: boolean;
+    dateGreaterThanFilterLookupEnumName: string;
+    dateGreaterThanFilterName: string;
+}
 
-    someMoneyVal: number;
+export interface QueryRequest {
 
-    someNVarCharVal: string;
+    pageNumber: number;
+    ItemCountPerPage: number;
+    OrderByColumnName: string;
+    OrderByDescending: boolean;
+    ForceErrorMessage: string;
+}
 
-    someVarCharVal: string;
+export interface ResponseFull {
+  data: QueryResult;
+}
+export interface QueryResult {
+    pageNumber: number;
+    items: QueryResultItem[];
+    itemCountPerPage: number;
+    orderByColumnName: string;
+    orderByDescending: boolean;
+    success: boolean;
+    recordsTotal: number;
+    recordsFiltered: number;
+    message: string;
+    appVersion: string;
+    request: string;
+}
 
-    someTextVal: string;
+export class QueryResultItemInstance implements QueryResultItem {
+    dateGreaterThanFilterCode: string;
+    dateGreaterThanFilterDayCount: number;
+    dateGreaterThanFilterDescription: string;
+    dateGreaterThanFilterDisplayOrder: number;
+    dateGreaterThanFilterIsActive: boolean;
+    dateGreaterThanFilterLookupEnumName: string;
+    dateGreaterThanFilterName: string;
+    constructor() {
+        this.dateGreaterThanFilterCode = '00000000-0000-0000-0000-000000000000';
+        this.dateGreaterThanFilterDayCount = 0;
+        this.dateGreaterThanFilterDescription = '';
+        this.dateGreaterThanFilterDisplayOrder = 0;
+        this.dateGreaterThanFilterIsActive = false;
+        this.dateGreaterThanFilterLookupEnumName = '';
+        this.dateGreaterThanFilterName = '';
+    }
+}
 
-    somePhoneNumber: string;
-
-    someEmailAddress: string;
+export class QueryRequestInstance implements QueryRequest {
 
     pageNumber: number;
     ItemCountPerPage: number;

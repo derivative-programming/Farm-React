@@ -172,6 +172,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       >
         <thead>
           <tr>
+{/* endset */}
             <th id="plantCode-header">
               {" "}
               <Form.Check
@@ -509,6 +510,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isVisible={true}
               sortedColumnName={sortedColumnName}
             />
+{/* endset */}
           </tr>
         </thead>
         <tbody> 
@@ -517,6 +519,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
+{/* endset */}
                   <td data-testid={"plantCodeColumn-" + index}>
                     <Form.Check
                       type="checkbox"
@@ -528,39 +531,46 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       }}
                     />
                   </td>
+
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntVal"
                     rowIndex={index}
                     value={item.someIntVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalIntVal"
                     rowIndex={index}
                     value={item.someConditionalIntVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someBigIntVal"
                     rowIndex={index}
                     value={item.someBigIntVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalBigIntVal"
                     rowIndex={index}
                     value={item.someConditionalBigIntVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someBitVal"
                     rowIndex={index}
                     isChecked={item.someBitVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someConditionalBitVal"
                     rowIndex={index}
                     isChecked={item.someConditionalBitVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isEditAllowed"
                     rowIndex={index}
                     isChecked={item.isEditAllowed}
@@ -572,11 +582,13 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isChecked={item.isDeleteAllowed}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someFloatVal"
                     rowIndex={index}
                     value={item.someFloatVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalFloatVal"
                     rowIndex={index}
                     value={item.someConditionalFloatVal}
@@ -589,83 +601,98 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     value={item.someDecimalVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalDecimalVal"
                     rowIndex={index}
                     value={item.someConditionalDecimalVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someUTCDateTimeVal"
                     rowIndex={index}
                     value={item.someUTCDateTimeVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someConditionalUTCDateTimeVal"
                     rowIndex={index}
                     value={item.someConditionalUTCDateTimeVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someDateVal"
                     rowIndex={index}
                     value={item.someDateVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someConditionalDateVal"
                     rowIndex={index}
                     value={item.someConditionalDateVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayMoney forColumn="someMoneyVal"
                     rowIndex={index}
                     value={item.someMoneyVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayMoney forColumn="someConditionalMoneyVal"
                     rowIndex={index}
                     value={item.someConditionalMoneyVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someNVarCharVal"
                     rowIndex={index}
                     value={item.someNVarCharVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalNVarCharVal"
                     rowIndex={index}
                     value={item.someConditionalNVarCharVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someVarCharVal"
                     rowIndex={index}
                     value={item.someVarCharVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalVarCharVal"
                     rowIndex={index}
                     value={item.someConditionalVarCharVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someTextVal"
                     rowIndex={index}
                     value={item.someTextVal}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalTextVal"
                     rowIndex={index}
                     value={item.someConditionalTextVal}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="somePhoneNumber"
                     rowIndex={index}
                     value={item.somePhoneNumber}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="someConditionalPhoneNumber"
                     rowIndex={index}
                     value={item.someConditionalPhoneNumber}
@@ -685,30 +712,35 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorName"
                     rowIndex={index}
                     value={item.flavorName}
                     isVisible={true}
                   />
+
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorCode"
                     rowIndex={index}
                     value={item.flavorCode}
                     isVisible={false}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="SomeIntConditionalOnDeletable"
+
+                  <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntConditionalOnDeletable"
                     rowIndex={index}
                     value={item.someIntConditionalOnDeletable}
                     conditionallyVisible={item.isDeleteAllowed} 
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="NVarCharAsUrl"
+
+                  <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="nVarCharAsUrl"
                     rowIndex={index}
                     value={item.nVarCharAsUrl}
                     linkText="Click Here"
                     isVisible={true}
                   />
-                  <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="NVarCharConditionalAsUrl"
+
+                  <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="nVarCharConditionalAsUrl"
                     rowIndex={index}
-                    value={item.NVarCharConditionalAsUrl}
+                    value={item.nVarCharConditionalAsUrl}
                     linkText="Click Here"
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
@@ -864,6 +896,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       onNavigateTo("/plant-user-details/" + item.conditionalBtnExampleLinkPlantCode);
                     }}
                   />
+{/* endset */}
+
                 </tr>
               );
             })

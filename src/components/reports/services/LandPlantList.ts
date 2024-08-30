@@ -321,6 +321,7 @@ export class QueryResultItemInstance implements QueryResultItem {
 
     constructor() {
  
+//endset
         this.plantCode = '00000000-0000-0000-0000-000000000000';
  
         this.someIntVal = 0;
@@ -399,6 +400,7 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.testAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
         this.testConditionalAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';  
         this.conditionalBtnExampleLinkPlantCode = '00000000-0000-0000-0000-000000000000';  
+//endset
     }
 }
 

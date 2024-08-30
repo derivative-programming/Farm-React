@@ -45,20 +45,61 @@ export const buildValidationSchema = () => {
 }
 
 export interface QueryResultItem {
-
     tacCode: string;
+    tacDescription: string;
+    tacDisplayOrder: number;
+    tacIsActive: boolean;
+    tacLookupEnumName: string;
+    tacName: string;
+    pacName: string;
+}
 
-    someMoneyVal: number;
+export interface QueryRequest {
 
-    someNVarCharVal: string;
+    pageNumber: number;
+    ItemCountPerPage: number;
+    OrderByColumnName: string;
+    OrderByDescending: boolean;
+    ForceErrorMessage: string;
+}
 
-    someVarCharVal: string;
+export interface ResponseFull {
+  data: QueryResult;
+}
+export interface QueryResult {
+    pageNumber: number;
+    items: QueryResultItem[];
+    itemCountPerPage: number;
+    orderByColumnName: string;
+    orderByDescending: boolean;
+    success: boolean;
+    recordsTotal: number;
+    recordsFiltered: number;
+    message: string;
+    appVersion: string;
+    request: string;
+}
 
-    someTextVal: string;
+export class QueryResultItemInstance implements QueryResultItem {
+    tacCode: string;
+    tacDescription: string;
+    tacDisplayOrder: number;
+    tacIsActive: boolean;
+    tacLookupEnumName: string;
+    tacName: string;
+    pacName: string;
+    constructor() {
+        this.tacCode = '00000000-0000-0000-0000-000000000000';
+        this.tacDescription = '';
+        this.tacDisplayOrder = 0;
+        this.tacIsActive = false;
+        this.tacLookupEnumName = '';
+        this.tacName = '';
+        this.pacName = '';
+    }
+}
 
-    somePhoneNumber: string;
-
-    someEmailAddress: string;
+export class QueryRequestInstance implements QueryRequest {
 
     pageNumber: number;
     ItemCountPerPage: number;

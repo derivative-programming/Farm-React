@@ -56,6 +56,7 @@ export class LandPlantListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+//endset
             if(PageSettings.plantCodeHeaderIsVisible){
                 cy.get(PageSelectors.plantCodeHeader)
                 .should('not.exist');
@@ -70,6 +71,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someIntValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            if(PageSettings.someConditionalIntValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalIntValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalIntValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalIntValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalIntValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
             if(PageSettings.someBigIntValHeaderIsVisible){
                 cy.get(PageSelectors.someBigIntValHeader)
                 .should('be.visible')
@@ -80,6 +91,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someBigIntValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            if(PageSettings.someConditionalBigIntValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalBigIntValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalBigIntValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalBigIntValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalBigIntValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
             if(PageSettings.someBitValHeaderIsVisible){
                 cy.get(PageSelectors.someBitValHeader)
                 .should('be.visible')
@@ -88,6 +109,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someBitValHeaderSortDownIndicator)
                 .should('not.exist');
                 cy.get(PageSelectors.someBitValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            if(PageSettings.someConditionalBitValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalBitValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalBitValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalBitValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalBitValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
             if(PageSettings.isEditAllowedHeaderIsVisible){
@@ -120,6 +151,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someFloatValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            if(PageSettings.someConditionalFloatValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalFloatValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalFloatValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalFloatValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalFloatValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
             if(PageSettings.someDecimalValHeaderIsVisible){
                 cy.get(PageSelectors.someDecimalValHeader)
                 .should('be.visible')
@@ -128,6 +169,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someDecimalValHeaderSortDownIndicator)
                 .should('not.exist');
                 cy.get(PageSelectors.someDecimalValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            if(PageSettings.someConditionalDecimalValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalDecimalValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalDecimalValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalDecimalValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalDecimalValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
             if(PageSettings.someUTCDateTimeValHeaderIsVisible){
@@ -140,6 +191,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someUTCDateTimeValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            if(PageSettings.someConditionalUTCDateTimeValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalUTCDateTimeValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalUTCDateTimeValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalUTCDateTimeValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalUTCDateTimeValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
             if(PageSettings.someDateValHeaderIsVisible){
                 cy.get(PageSelectors.someDateValHeader)
                 .should('be.visible')
@@ -148,6 +209,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someDateValHeaderSortDownIndicator)
                 .should('not.exist');
                 cy.get(PageSelectors.someDateValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            if(PageSettings.someConditionalDateValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalDateValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalDateValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalDateValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalDateValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
             if(PageSettings.someMoneyValHeaderIsVisible){
@@ -160,6 +231,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someMoneyValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            if(PageSettings.someConditionalMoneyValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalMoneyValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalMoneyValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalMoneyValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalMoneyValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
             if(PageSettings.someNVarCharValHeaderIsVisible){
                 cy.get(PageSelectors.someNVarCharValHeader)
                 .should('be.visible')
@@ -168,6 +249,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someNVarCharValHeaderSortDownIndicator)
                 .should('not.exist');
                 cy.get(PageSelectors.someNVarCharValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            if(PageSettings.someConditionalNVarCharValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalNVarCharValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalNVarCharValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalNVarCharValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalNVarCharValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
             if(PageSettings.someVarCharValHeaderIsVisible){
@@ -180,6 +271,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someVarCharValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            if(PageSettings.someConditionalVarCharValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalVarCharValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalVarCharValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalVarCharValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalVarCharValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
             if(PageSettings.someTextValHeaderIsVisible){
                 cy.get(PageSelectors.someTextValHeader)
                 .should('be.visible')
@@ -188,6 +289,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someTextValHeaderSortDownIndicator)
                 .should('not.exist');
                 cy.get(PageSelectors.someTextValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            if(PageSettings.someConditionalTextValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalTextValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalTextValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalTextValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalTextValHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
             if(PageSettings.somePhoneNumberHeaderIsVisible){
@@ -200,6 +311,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.somePhoneNumberHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            if(PageSettings.someConditionalPhoneNumberHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalPhoneNumberHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalPhoneNumberHeaderText);
+                
+                cy.get(PageSelectors.someConditionalPhoneNumberHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalPhoneNumberHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
             if(PageSettings.someEmailAddressHeaderIsVisible){ 
                 cy.get(PageSelectors.someEmailAddressHeader)
                 .should('be.visible')
@@ -208,6 +329,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someEmailAddressHeaderSortDownIndicator)
                 .should('not.exist');
                 cy.get(PageSelectors.someEmailAddressHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            if(PageSettings.someConditionalEmailAddressHeaderIsVisible){ 
+                cy.get(PageSelectors.someConditionalEmailAddressHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalEmailAddressHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalEmailAddressHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalEmailAddressHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
             if(PageSettings.flavorNameHeaderIsVisible){
@@ -248,6 +379,16 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.nVarCharAsUrlHeaderSortDownIndicator)
                 .should('not.exist');
                 cy.get(PageSelectors.nVarCharAsUrlHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            if(PageSettings.nVarCharConditionalAsUrlHeaderIsVisible){
+                cy.get(PageSelectors.nVarCharConditionalAsUrlHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.nVarCharConditionalAsUrlHeaderText); 
+                
+                cy.get(PageSelectors.nVarCharConditionalAsUrlHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.nVarCharConditionalAsUrlHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
             if(PageSettings.updateLinkPlantCodeHeaderIsVisible){
@@ -329,6 +470,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+//endset
 
             cy.log('Verifying page size control...');
             cy.get(PageSelectors.pageSizeControl)
@@ -650,6 +792,8 @@ export class LandPlantListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+
+//endset
             if(PageSettings.plantCodeHeaderIsVisible){
                 cy.get(PageSelectors.plantCodeHeader)
                 .should('not.exist');
@@ -685,6 +829,37 @@ export class LandPlantListPage {
                 });
                  
             }
+            if(PageSettings.someConditionalIntValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalIntValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalIntValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalIntValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalIntValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalIntValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalIntValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalIntValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalIntValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalIntValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalIntValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalIntValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalIntValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+                 
+            }
             if(PageSettings.someBigIntValHeaderIsVisible){
                 cy.get(PageSelectors.someBigIntValHeader)
                 .should('be.visible')
@@ -715,6 +890,36 @@ export class LandPlantListPage {
                     }
                 });
             }
+            if(PageSettings.someConditionalBigIntValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalBigIntValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalBigIntValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalBigIntValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalBigIntValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalBigIntValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalBigIntValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalBigIntValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalBigIntValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalBigIntValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalBigIntValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalBigIntValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalBigIntValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.someBitValHeaderIsVisible){
                 cy.get(PageSelectors.someBitValHeader)
                 .should('be.visible')
@@ -741,6 +946,36 @@ export class LandPlantListPage {
                         .get(PageSelectors.someBitValHeader)
                         .click()
                         .get(PageSelectors.someBitValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someConditionalBitValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalBitValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalBitValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalBitValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalBitValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalBitValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalBitValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalBitValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalBitValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalBitValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalBitValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalBitValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalBitValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
@@ -835,6 +1070,36 @@ export class LandPlantListPage {
                     }
                 });
             }
+            if(PageSettings.someConditionalFloatValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalFloatValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalFloatValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalFloatValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalFloatValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalFloatValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalFloatValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalFloatValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalFloatValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalFloatValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalFloatValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalFloatValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalFloatValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.someDecimalValHeaderIsVisible){
                 cy.get(PageSelectors.someDecimalValHeader)
                 .should('be.visible')
@@ -861,6 +1126,36 @@ export class LandPlantListPage {
                         .get(PageSelectors.someDecimalValHeader)
                         .click()
                         .get(PageSelectors.someDecimalValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someConditionalDecimalValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalDecimalValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalDecimalValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalDecimalValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalDecimalValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalDecimalValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalDecimalValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalDecimalValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalDecimalValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalDecimalValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalDecimalValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalDecimalValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalDecimalValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
@@ -895,6 +1190,36 @@ export class LandPlantListPage {
                     }
                 });
             }
+            if(PageSettings.someConditionalUTCDateTimeValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalUTCDateTimeValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalUTCDateTimeValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalUTCDateTimeValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalUTCDateTimeValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalUTCDateTimeValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalUTCDateTimeValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalUTCDateTimeValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalUTCDateTimeValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalUTCDateTimeValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalUTCDateTimeValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalUTCDateTimeValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalUTCDateTimeValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.someDateValHeaderIsVisible){
                 cy.get(PageSelectors.someDateValHeader)
                 .should('be.visible')
@@ -921,6 +1246,36 @@ export class LandPlantListPage {
                         .get(PageSelectors.someDateValHeader)
                         .click()
                         .get(PageSelectors.someDateValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someConditionalDateValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalDateValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalDateValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalDateValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalDateValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalDateValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalDateValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalDateValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalDateValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalDateValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalDateValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalDateValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalDateValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
@@ -955,6 +1310,36 @@ export class LandPlantListPage {
                     }
                 });
             }
+            if(PageSettings.someConditionalMoneyValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalMoneyValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalMoneyValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalMoneyValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalMoneyValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalMoneyValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalMoneyValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalMoneyValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalMoneyValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalMoneyValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalMoneyValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalMoneyValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalMoneyValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.someNVarCharValHeaderIsVisible){
                 cy.get(PageSelectors.someNVarCharValHeader)
                 .should('be.visible')
@@ -981,6 +1366,36 @@ export class LandPlantListPage {
                         .get(PageSelectors.someNVarCharValHeader)
                         .click()
                         .get(PageSelectors.someNVarCharValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someConditionalNVarCharValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalNVarCharValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalNVarCharValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalNVarCharValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalNVarCharValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalNVarCharValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalNVarCharValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalNVarCharValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalNVarCharValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalNVarCharValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalNVarCharValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalNVarCharValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalNVarCharValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
@@ -1015,6 +1430,36 @@ export class LandPlantListPage {
                     }
                 });
             }
+            if(PageSettings.someConditionalVarCharValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalVarCharValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalVarCharValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalVarCharValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalVarCharValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalVarCharValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalVarCharValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalVarCharValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalVarCharValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalVarCharValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalVarCharValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalVarCharValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalVarCharValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.someTextValHeaderIsVisible){
                 cy.get(PageSelectors.someTextValHeader)
                 .should('be.visible')
@@ -1041,6 +1486,36 @@ export class LandPlantListPage {
                         .get(PageSelectors.someTextValHeader)
                         .click()
                         .get(PageSelectors.someTextValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someConditionalTextValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalTextValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalTextValHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalTextValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalTextValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalTextValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalTextValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalTextValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalTextValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalTextValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalTextValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalTextValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalTextValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
@@ -1075,6 +1550,36 @@ export class LandPlantListPage {
                     }
                 });
             }
+            if(PageSettings.someConditionalPhoneNumberHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalPhoneNumberHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalPhoneNumberHeaderText);
+                
+                cy.get(PageSelectors.someConditionalPhoneNumberHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalPhoneNumberHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalPhoneNumberHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalPhoneNumberHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalPhoneNumberHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalPhoneNumberHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalPhoneNumberHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalPhoneNumberHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalPhoneNumberHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalPhoneNumberHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.someEmailAddressHeaderIsVisible){ 
                 cy.get(PageSelectors.someEmailAddressHeader)
                 .should('be.visible')
@@ -1101,6 +1606,36 @@ export class LandPlantListPage {
                         .get(PageSelectors.someEmailAddressHeader)
                         .click()
                         .get(PageSelectors.someEmailAddressHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someConditionalEmailAddressHeaderIsVisible){ 
+                cy.get(PageSelectors.someConditionalEmailAddressHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalEmailAddressHeaderText); 
+                
+                cy.get(PageSelectors.someConditionalEmailAddressHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalEmailAddressHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalEmailAddressHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalEmailAddressHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalEmailAddressHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalEmailAddressHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalEmailAddressHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalEmailAddressHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalEmailAddressHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalEmailAddressHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
@@ -1221,6 +1756,36 @@ export class LandPlantListPage {
                         .get(PageSelectors.nVarCharAsUrlHeader)
                         .click()
                         .get(PageSelectors.nVarCharAsUrlHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.nVarCharConditionalAsUrlHeaderIsVisible){
+                cy.get(PageSelectors.nVarCharConditionalAsUrlHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.nVarCharConditionalAsUrlHeaderText); 
+                
+                cy.get(PageSelectors.nVarCharConditionalAsUrlHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.nVarCharConditionalAsUrlHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.nVarCharConditionalAsUrlHeader)
+                .click()
+                .click()
+                .get(PageSelectors.nVarCharConditionalAsUrlHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.nVarCharConditionalAsUrlHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.nVarCharConditionalAsUrlHeader)
+                        .click()
+                        .get(PageSelectors.nVarCharConditionalAsUrlHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.nVarCharConditionalAsUrlHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.nVarCharConditionalAsUrlHeader)
+                        .click()
+                        .get(PageSelectors.nVarCharConditionalAsUrlHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });
@@ -1467,6 +2032,7 @@ export class LandPlantListPage {
                     }
                 });
             }
+//endset
         }
  
   
