@@ -437,7 +437,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isSortDescending={isSortDescending}
               label="Is Image Url Available"
               onSort={onSort}
-              isVisible={true}
+              isVisible={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -771,16 +771,17 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={false}
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someImageUrlVal"
+                  <ReportColumnDisplay.ReportColumnDisplayImageUrl forColumn="someImageUrlVal"
                     rowIndex={index}
                     value={item.someImageUrlVal}
                     isVisible={true}
                   />
 
-                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalImageUrl"
+                  <ReportColumnDisplay.ReportColumnDisplayImageUrl forColumn="someConditionalImageUrl"
                     rowIndex={index}
                     value={item.someConditionalImageUrl}
                     isVisible={true}
+                    conditionallyVisible={item.isImageUrlAvailable} 
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorName"
