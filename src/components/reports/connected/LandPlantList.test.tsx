@@ -11,7 +11,7 @@ import ReportConnectedLandPlantList from "./LandPlantList";
 import * as ReportService from "../services/LandPlantList";
 import * as InitReportService from "../services/init/LandPlantListInitReport";
 import { BrowserRouter } from "react-router-dom";
-import * as flavorCodeService from "../../lookups/services/Flavor"
+import * as flavorFilterCodeService from "../../lookups/services/Flavor"
 import "fake-indexeddb/auto";
  
 window.localStorage.setItem("@token", "sampleToken");
@@ -27,7 +27,7 @@ jest.mock("react-router-dom", () => ({
 
 const mockReportInitService = jest.spyOn(ReportService, "initPage");
 const mockReportService = jest.spyOn(ReportService, "submitRequest");
-const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
+const mockflavorFilterCodeService =  jest.spyOn(flavorFilterCodeService, "submitRequest");
 
 describe("LandPlantList Connected Report Component", () => {
   // render the LandPlantList component
@@ -36,8 +36,8 @@ describe("LandPlantList Connected Report Component", () => {
       data: new InitReportService.InitResultInstance(),
     });
 
-    mockFlavorCodeService.mockResolvedValue({
-      data: new flavorCodeService.QueryResultTestInstance(),
+    mockflavorFilterCodeService.mockResolvedValue({
+      data: new flavorFilterCodeService.QueryResultTestInstance(),
     }); 
     
     mockReportService.mockResolvedValue({

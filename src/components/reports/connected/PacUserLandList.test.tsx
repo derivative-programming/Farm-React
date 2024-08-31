@@ -11,7 +11,7 @@ import ReportConnectedPacUserLandList from "./PacUserLandList";
 import * as ReportService from "../services/PacUserLandList";
 import * as InitReportService from "../services/init/PacUserLandListInitReport";
 import { BrowserRouter } from "react-router-dom";
-import * as flavorCodeService from "../../lookups/services/Flavor"
+
 import "fake-indexeddb/auto";
 
 window.localStorage.setItem("@token", "sampleToken");
@@ -27,17 +27,12 @@ jest.mock("react-router-dom", () => ({
 
 const mockReportInitService = jest.spyOn(ReportService, "initPage");
 const mockReportService = jest.spyOn(ReportService, "submitRequest");
-const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 describe("PacUserLandList Connected Report Component", () => {
   // render the PacUserLandList component
   beforeEach(async() => {
     mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
-    });
-
-    mockFlavorCodeService.mockResolvedValue({
-      data: new flavorCodeService.QueryResultTestInstance(),
     });
 
     mockReportService.mockResolvedValue({
