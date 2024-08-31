@@ -20,6 +20,7 @@ export const LandAddPlantPageTexts = {
     requestSomePhoneNumberLabelText: "Some Phone Number",
     requestSomeEmailAddressLabelText: "Some Email Address",
     requestSampleImageUploadFileLabelText: "Sample Image Upload",
+    someImageUrlValLabelText: "Some Image Url",
 
     //page title
     titleText: "Add Plant",

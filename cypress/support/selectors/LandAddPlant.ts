@@ -22,6 +22,7 @@ export const LandAddPlantPageSelectors = {
     requestSomePhoneNumberLabel: "[data-testid='requestSomePhoneNumber-label']",
     requestSomeEmailAddressLabel: "[data-testid='requestSomeEmailAddress-label']",
     requestSampleImageUploadFileLabel: "[data-testid='requestSampleImageUploadFile-label']",
+    someImageUrlValLabel: "[data-testid='someImageUrlVal-label']",
 
     
     requestFlavorCodeField: "[data-testid='requestFlavorCode']",
@@ -42,6 +43,7 @@ export const LandAddPlantPageSelectors = {
     requestSomePhoneNumberField: "[data-testid='requestSomePhoneNumber']",
     requestSomeEmailAddressField: "[data-testid='requestSomeEmailAddress']",
     requestSampleImageUploadFileField: "[data-testid='requestSampleImageUploadFile']",
+    someImageUrlValField: "[data-testid='someImageUrlVal']",
 
 
     

@@ -44,6 +44,8 @@ export interface InitResult {
  
     requestSomeEmailAddress: string;
  
+    someImageUrlVal: string;
+ 
     landName: string;
  
     tacCode: string;
@@ -96,6 +98,8 @@ export class InitResultInstance implements InitResult {
  
     requestSomeEmailAddress: string;
  
+    someImageUrlVal: string;
+ 
     landName: string;
  
     tacCode: string;
@@ -139,6 +143,8 @@ export class InitResultInstance implements InitResult {
         this.requestSomePhoneNumber = '';
  
         this.requestSomeEmailAddress = '';
+ 
+        this.someImageUrlVal = '';
 
         this.landName = '';
  

@@ -341,6 +341,37 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someConditionalEmailAddressHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            
+            if(PageSettings.isImageUrlAvailableHeaderIsVisible){
+                cy.get(PageSelectors.isImageUrlAvailableHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isImageUrlAvailableHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            
+            if(PageSettings.someImageUrlValHeaderIsVisible){
+                cy.get(PageSelectors.someImageUrlValHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someImageUrlValHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+            
+            if(PageSettings.someConditionalImageUrlHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalImageUrlHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.someConditionalImageUrlHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalImageUrlHeaderSortUpIndicator)
+                .should('not.exist'); 
+            }
+
             if(PageSettings.flavorNameHeaderIsVisible){
                 cy.get(PageSelectors.flavorNameHeader)
                 .should('be.visible')
@@ -470,6 +501,7 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.conditionalBtnExampleLinkPlantCodeHeaderSortUpIndicator)
                 .should('not.exist'); 
             }
+            
 //endset
 
             cy.log('Verifying page size control...');
@@ -1641,6 +1673,95 @@ export class LandPlantListPage {
                     }
                 });
             }
+            
+            if(PageSettings.isImageUrlAvailableHeaderIsVisible){
+                cy.get(PageSelectors.isImageUrlAvailableHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isImageUrlAvailableHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isImageUrlAvailableHeader)
+                .click()
+                .click()
+                .get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.isImageUrlAvailableHeader)
+                        .click()
+                        .get(PageSelectors.isImageUrlAvailableHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.isImageUrlAvailableHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.isImageUrlAvailableHeader)
+                        .click()
+                        .get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someImageUrlValHeaderIsVisible){
+                cy.get(PageSelectors.someImageUrlValHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someImageUrlValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someImageUrlValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someImageUrlValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someImageUrlValHeader)
+                        .click()
+                        .get(PageSelectors.someImageUrlValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someImageUrlValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someImageUrlValHeader)
+                        .click()
+                        .get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someConditionalImageUrlHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalImageUrlHeader)
+                .should('exist');
+                
+                cy.get(PageSelectors.someConditionalImageUrlHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalImageUrlHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalImageUrlHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalImageUrlHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalImageUrlHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalImageUrlHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalImageUrlHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {  
+                        cy.get(PageSelectors.someConditionalImageUrlHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalImageUrlHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalImageUrlHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            
             if(PageSettings.flavorNameHeaderIsVisible){
                 cy.get(PageSelectors.flavorNameHeader)
                 .should('be.visible')
@@ -2033,6 +2154,7 @@ export class LandPlantListPage {
                     }
                 });
             }
+            
 //endset
         }
  
@@ -2062,8 +2184,8 @@ export class LandPlantListPage {
         const testFileDownloadLinkPacCodeColumnIsVisible = true;
         const testConditionalFileDownloadLinkPacCodeColumnIsVisible = true;
         const testAsyncFlowReqLinkPacCodeColumnIsVisible = true;
-        const testConditionalAsyncFlowReqLinkPacCodeColumnIsVisible = true;
-        const conditionalBtnExampleLinkPlantCodeColumnIsVisible = true;
+        const testConditionalAsyncFlowReqLinkPacCodeColumnIsVisible = true; 
+        const conditionalBtnExampleLinkPlantCodeColumnIsVisible = true; 
         
         if (destinationPageName == 'XXXX') { //placeholder
 

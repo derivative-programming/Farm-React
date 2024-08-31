@@ -157,6 +157,12 @@ export interface QueryResultItem {
  
     someConditionalEmailAddress: string;
  
+    isImageUrlAvailable: boolean;
+ 
+    someImageUrlVal: string;
+ 
+    someConditionalImageUrl: string;
+ 
     flavorName: string;
  
     flavorCode: string;
@@ -304,6 +310,12 @@ export class QueryResultItemInstance implements QueryResultItem {
  
     someConditionalEmailAddress: string;
  
+    isImageUrlAvailable: boolean;
+ 
+    someImageUrlVal: string;
+ 
+    someConditionalImageUrl: string;
+ 
     flavorName: string;
  
     flavorCode: string;
@@ -385,6 +397,12 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.someEmailAddress = '';
  
         this.someConditionalEmailAddress = '';
+ 
+        this.isImageUrlAvailable = false;
+ 
+        this.someImageUrlVal = '';
+ 
+        this.someConditionalImageUrl = '';
  
         this.flavorName = '';
  

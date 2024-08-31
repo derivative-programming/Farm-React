@@ -18,5 +18,6 @@ export const LandAddPlantPageSettings = {
     requestSomePhoneNumberIsVisible: true,
     requestSomeEmailAddressIsVisible: true,
     requestSampleImageUploadFileIsVisible: true,
+    someImageUrlValIsVisible: true,
  
 } 

@@ -84,6 +84,7 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("requestSomePhoneNumber")).toBeInTheDocument();
     expect(screen.getByTestId("requestSomeEmailAddress")).toBeInTheDocument();
     expect(screen.getByTestId("requestSampleImageUploadFile")).toBeInTheDocument();
+    expect(screen.getByTestId("someImageUrlVal")).toBeInTheDocument();
 
     
     expect(screen.getByTestId("submit-button")).toBeInTheDocument();
@@ -254,6 +255,14 @@ describe("LandAddPlant Component", () => {
   //  expect(screen.getByTestId("requestSampleImageUploadFile")).toHaveValue(1);
   });
 
+  it("when user enter someImageUrlVal, it set accordingly", async () => {
+    const input = screen.getByTestId("someImageUrlVal");
+    await act(async () => {
+      fireEvent.change(input, { target: { value: "sample data" } });
+    }); 
+    expect(screen.getByTestId("someImageUrlVal")).toHaveValue("sample data");
+  });
+
 
 
   it("when user entered LandAddPlant details and clicks on register button, LandAddPlantUser api should be called", async () => {
@@ -344,6 +353,11 @@ describe("LandAddPlant Component", () => {
     const requestSampleImageUploadFileInput = screen.getByTestId("requestSampleImageUploadFile");
     await act(async () => {
     //  fireEvent.change(requestSampleImageUploadFileInput, { target: { value: "Sample Data" } });
+    });
+ 
+    const someImageUrlValInput = screen.getByTestId("someImageUrlVal");
+    await act(async () => {
+      fireEvent.change(someImageUrlValInput, { target: { value: "Sample Data" } });
     });
 
     await act(async () => {

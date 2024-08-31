@@ -137,7 +137,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     </tr>
   ) : (
     <tr>
-      <td colSpan={100}>No rows returned text</td>
+      <td colSpan={100} className="text-start">No rows returned text</td>
     </tr>
   );
 
@@ -428,6 +428,30 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
             <ReportColumnHeader forColumn="someConditionalEmailAddress"
               isSortDescending={isSortDescending}
               label="Conditional Email Address"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
+
+            <ReportColumnHeader forColumn="isImageUrlAvailable"
+              isSortDescending={isSortDescending}
+              label="Is Image Url Available"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
+
+            <ReportColumnHeader forColumn="someImageUrlVal"
+              isSortDescending={isSortDescending}
+              label="Image Url"
+              onSort={onSort}
+              isVisible={true}
+              sortedColumnName={sortedColumnName}
+            />
+
+            <ReportColumnHeader forColumn="someConditionalImageUrl"
+              isSortDescending={isSortDescending}
+              label="Conditional Image Url"
               onSort={onSort}
               isVisible={true}
               sortedColumnName={sortedColumnName}
@@ -738,6 +762,25 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     value={item.someConditionalEmailAddress}
                     isVisible={true}
                     conditionallyVisible={item.isEditAllowed} 
+                  />
+
+ 
+                  <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="isImageUrlAvailable"
+                    rowIndex={index}
+                    isChecked={item.isImageUrlAvailable}
+                    isVisible={false}
+                  />
+
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someImageUrlVal"
+                    rowIndex={index}
+                    value={item.someImageUrlVal}
+                    isVisible={true}
+                  />
+
+                  <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalImageUrl"
+                    rowIndex={index}
+                    value={item.someConditionalImageUrl}
+                    isVisible={true}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorName"

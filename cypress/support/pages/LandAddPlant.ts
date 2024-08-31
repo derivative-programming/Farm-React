@@ -310,6 +310,17 @@ export class LandAddPlantPage {
                 .should('be.visible');
  
         }
+        if(PageSettings.someImageUrlValIsVisible){
+            cy.log('Verifying someImageUrlValLabel control label...');
+                cy.get(PageSelectors.someImageUrlValLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someImageUrlValLabelText);
+                    
+            cy.log('Verifying someImageUrlValLabel control...');
+            cy.get(PageSelectors.someImageUrlValField)
+                .should('be.visible');
+ 
+        }
   
 
  
@@ -388,6 +399,8 @@ export class LandAddPlantPage {
         this.setFieldRequestSomeEmailAddress(helper.getRandomEmail(50));
         
         // this.setFieldRequestSampleImageUploadFile(requestSampleImageUploadFile); 
+        
+        this.setFieldSomeImageUrlVal(helper.getUniqueString(50)); 
 
     }
 
@@ -428,6 +441,8 @@ export class LandAddPlantPage {
         requestSomeEmailAddress: string,
     
         requestSampleImageUploadFile: string,
+    
+        someImageUrlVal: string,
 
     ) { 
         this.setFieldRequestFlavorCode(requestFlavorCode); 
@@ -465,6 +480,8 @@ export class LandAddPlantPage {
         this.setFieldRequestSomeEmailAddress(requestSomeEmailAddress);
         
         this.setFieldRequestSampleImageUploadFile(); 
+        
+        this.setFieldSomeImageUrlVal(someImageUrlVal); 
     }
 
     setFieldRequestFlavorCode(val:string) { 
@@ -576,6 +593,12 @@ export class LandAddPlantPage {
         cy.get(PageSelectors.requestSampleImageUploadFileField)
         //     .clear()
         //     .type(val); 
+    }
+
+    setFieldSomeImageUrlVal(val:string) { 
+        cy.get(PageSelectors.someImageUrlValField)
+            .clear()
+            .type(val); 
     }
     
     submitForm() {

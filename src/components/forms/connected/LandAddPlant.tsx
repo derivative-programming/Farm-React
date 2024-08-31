@@ -343,6 +343,12 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                       isRequired={false}
                       detailText="Sample Details Text"
                     />
+                    <InputFields.FormInputText name="someImageUrlVal"
+                      label="Some Image Url" 
+                      isVisible={true}
+                      isRequired={true}
+                      detailText=""
+                    />
                   </div>
                 }
                 <div className="">

@@ -39,6 +39,8 @@ export const buildValidationSchema = () => {
         , 
         requestSampleImageUploadFile: Yup.string()
         , 
+        someImageUrlVal: Yup.string()
+        , 
       });
 
     return validationSchema;

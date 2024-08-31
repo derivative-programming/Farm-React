@@ -5,7 +5,7 @@
     "companyDomain": "newco.com",
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.60",
+    "projectVersionNumber": "1.0.62",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -3835,6 +3835,69 @@
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
                     "isIgnored": "false"
+                  },
+                  {
+                    "name": "IsImageUrlAvailable",
+                    "codeDescription": "Land Plant List Report Is Image Url Available Column",
+                    "headerText": "Is Image Url Available",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "IsImageUrlAvailable",
+                    "sqlServerDBDataType": "bit",
+                    "sqlServerDBDataTypeSize": "",
+                    "isVisible": "false",
+                    "isButton": "false",
+                    "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
+                    "isButtonCallToAction": "false",
+                    "isUnixEpochDateTime": "false",
+                    "isMultiSelectColumn": "false",
+                    "isButtonAsyncObjWF": "false",
+                    "isAsyncObjWFResultFileStreamedOut": "false",
+                    "isJoinedToLeftColumn": "false",
+                    "isJoinedToRightColumn": "false",
+                    "isIgnored": "false"
+                  },
+                  {
+                    "name": "SomeImageUrlVal",
+                    "codeDescription": "Land Plant List Report Some Image Url Val Column",
+                    "headerText": "Image Url",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeImageUrlVal",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "isVisible": "true",
+                    "isButton": "false",
+                    "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
+                    "isButtonCallToAction": "false",
+                    "isUnixEpochDateTime": "false",
+                    "isMultiSelectColumn": "false",
+                    "isButtonAsyncObjWF": "false",
+                    "isAsyncObjWFResultFileStreamedOut": "false",
+                    "isJoinedToLeftColumn": "false",
+                    "isJoinedToRightColumn": "false",
+                    "isImageURL": "true",
+                    "isIgnored": "false"
+                  },
+                  {
+                    "name": "SomeConditionalImageUrl",
+                    "codeDescription": "Land Plant List Report Some Conditional Image Url Column",
+                    "headerText": "Conditional Image Url",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeImageUrlVal",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "isVisible": "true",
+                    "isButton": "false",
+                    "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
+                    "isButtonCallToAction": "false",
+                    "isUnixEpochDateTime": "false",
+                    "isMultiSelectColumn": "false",
+                    "isButtonAsyncObjWF": "false",
+                    "isAsyncObjWFResultFileStreamedOut": "false",
+                    "isJoinedToLeftColumn": "false",
+                    "isJoinedToRightColumn": "false",
+                    "conditionalVisiblePropertyName": "IsImageUrlAvailable",
+                    "isImageURL": "true",
+                    "isIgnored": "false"
                   }
                 ]
               }
@@ -4120,6 +4183,20 @@
                     "requiredErrorText": "Please enter a image file",
                     "isFileUpload": "true",
                     "isIgnored": "false"
+                  },
+                  {
+                    "name": "SomeImageUrlVal",
+                    "codeDescription": "Some Image Url Val",
+                    "labelText": "Some Image Url",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "isVisible": "true",
+                    "isRequired": "false",
+                    "requiredErrorText": "Please enter a Some Image Url",
+                    "isFileUpload": "false",
+                    "isIgnored": "false",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeImageUrlVal"
                   }
                 ],
                 "objectWorkflowOutputVar": [
@@ -4475,6 +4552,14 @@
                     "labelText": "Tac",
                     "sourceObjectName": "Tac",
                     "sourcePropertyName": "Code"
+                  },
+                  {
+                    "name": "SomeImageUrlVal",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "labelText": "Some Image Url Val",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeImageUrlVal"
                   }
                 ],
                 "objectWorkflowButton": []
@@ -7303,6 +7388,20 @@
                 "defaultValue": "true"
               },
               {
+                "name": "IsImageUrlAvailable",
+                "codeDescription": "Plant Is Image Url Available",
+                "sqlServerDBDataType": "bit",
+                "isFK": "false",
+                "isEncrypted": "false",
+                "forceDBColumnIndex": "false",
+                "isFKLookup": "false",
+                "isNotPublishedToSubscriptions": "false",
+                "fKObjectName": "",
+                "fKObjectPropertyName": "",
+                "isQueryByAvailable": "false",
+                "labelText": "Is Image Url Available"
+              },
+              {
                 "name": "LandID",
                 "codeDescription": "Plant Land ID",
                 "sqlServerDBDataType": "int",
@@ -7415,6 +7514,21 @@
                 "fKObjectPropertyName": "",
                 "isQueryByAvailable": "false",
                 "labelText": "Some Float Val"
+              },
+              {
+                "name": "SomeImageUrlVal",
+                "codeDescription": "Plant Some Image Url Val",
+                "sqlServerDBDataType": "nvarchar",
+                "sqlServerDBDataTypeSize": "1000",
+                "isFK": "false",
+                "isEncrypted": "false",
+                "forceDBColumnIndex": "false",
+                "isFKLookup": "false",
+                "isNotPublishedToSubscriptions": "false",
+                "fKObjectName": "",
+                "fKObjectPropertyName": "",
+                "isQueryByAvailable": "false",
+                "labelText": "Some Image Url Val"
               },
               {
                 "name": "SomeIntVal",
@@ -10646,6 +10760,16 @@
             "name": "DFMaintenance",
             "internalTextValue": "DF Maintenance",
             "displayTextValue": "DF Maintenance"
+          },
+          {
+            "name": "IsImageUrlAvailable",
+            "internalTextValue": "Is Image Url Available",
+            "displayTextValue": "Is Image Url Available"
+          },
+          {
+            "name": "SomeImageUrlVal",
+            "internalTextValue": "Some Image Url Val",
+            "displayTextValue": "Some Image Url Val"
           }
         ],
         "userStory": [

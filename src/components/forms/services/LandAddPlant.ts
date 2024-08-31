@@ -60,6 +60,7 @@ export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
   result.requestSomePhoneNumber = initResult.requestSomePhoneNumber;
   result.requestSomeEmailAddress = initResult.requestSomeEmailAddress;  
   result.requestSampleImageUploadFile = '';
+  result.someImageUrlVal = initResult.someImageUrlVal;  
     
   return result;
 }
@@ -103,6 +104,8 @@ export interface SubmitRequest {
   requestSomeEmailAddress: string;
 
   requestSampleImageUploadFile: string;
+
+  someImageUrlVal: string; 
 }
 export interface ResponseFull {
   data: SubmitResult;
@@ -197,6 +200,8 @@ export class SubmitRequestInstance implements SubmitRequest {
   requestSomeEmailAddress: string;
 
   requestSampleImageUploadFile: string;
+
+  someImageUrlVal: string; 
   
 
   constructor() {  // SubmitRequestInstance constructor
@@ -236,6 +241,8 @@ export class SubmitRequestInstance implements SubmitRequest {
     this.requestSomeEmailAddress = '';
 
     this.requestSampleImageUploadFile = '';
+
+    this.someImageUrlVal = '';
   } 
 
 }

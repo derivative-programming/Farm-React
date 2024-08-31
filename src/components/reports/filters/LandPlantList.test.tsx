@@ -10,13 +10,13 @@ import {
   waitFor,
 } from "@testing-library/react";
 import ReportFilterLandPlantList from "./LandPlantList";  
-import * as flavorCodeService from "../../lookups/services/Flavor"
+import * as flavorFilterCodeService from "../../lookups/services/Flavor"
 import * as ReportService from "../services/LandPlantList";  
 import "fake-indexeddb/auto";
  
 window.localStorage.setItem("@token", "sampleToken");
  
-const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
+const mockFlavorFilterCodeService =  jest.spyOn(flavorFilterCodeService, "submitRequest");
  
 const onSubmit = jest.fn();
 
@@ -26,8 +26,8 @@ const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestIns
 describe("LandPlantList Component", () => {
 
   beforeEach(async () => {  
-    mockFlavorCodeService.mockResolvedValue({
-        data: new flavorCodeService.QueryResultTestInstance(),
+    mockFlavorFilterCodeService.mockResolvedValue({
+        data: new flavorFilterCodeService.QueryResultTestInstance(),
       }); 
       
 
@@ -38,7 +38,7 @@ describe("LandPlantList Component", () => {
           onSubmit={onSubmit} />  
     ); 
 
-    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalled());
+    await waitFor(() => expect(mockFlavorFilterCodeService).toHaveBeenCalled());
   });
 
   // after cleanup when test-case execution is done

@@ -52,7 +52,18 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
             name={field.name}
             defaultValue={selectedDateTimeLocal}
             value={selectedDateTimeLocal}
-            onChange={(e) => helpers.setValue(moment(e).utc().format("YYYY-MM-DDTHH:mm"))}
+            onChange={(date) => {
+              if (date) {
+                const momentDate = moment(date); // Convert to moment object
+                if (momentDate.isValid()) {
+                  helpers.setValue(momentDate.utc().format("YYYY-MM-DDTHH:mm"));
+                } else {
+                  helpers.setValue('');
+                }
+              } else {
+                helpers.setValue(''); // Handle the case where date is null
+              }
+            }}
             onBlur={field.onBlur} 
             disabled={disabled}
             autoFocus={autoFocus}
