@@ -10,13 +10,11 @@ import {
   waitFor,
 } from "@testing-library/react";
 import ReportFilterPacUserTriStateFilterList from "./PacUserTriStateFilterList";
-import * as flavorCodeService from "../../lookups/services/Flavor"
+
 import * as ReportService from "../services/PacUserTriStateFilterList";
 import "fake-indexeddb/auto";
 
 window.localStorage.setItem("@token", "sampleToken");
-
-const mockFlavorCodeService =  jest.spyOn(flavorCodeService, "submitRequest");
 
 const onSubmit = jest.fn();
 
@@ -25,9 +23,6 @@ const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestIns
 describe("PacUserTriStateFilterList Component", () => {
 
   beforeEach(async () => {
-    mockFlavorCodeService.mockResolvedValue({
-        data: new flavorCodeService.QueryResultTestInstance(),
-      });
 
     render(
         <ReportFilterPacUserTriStateFilterList
@@ -36,7 +31,6 @@ describe("PacUserTriStateFilterList Component", () => {
           onSubmit={onSubmit} />
     );
 
-    await waitFor(() => expect(mockFlavorCodeService).toHaveBeenCalled());
   });
 
   // after cleanup when test-case execution is done

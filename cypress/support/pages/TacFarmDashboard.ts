@@ -70,6 +70,15 @@ export class TacFarmDashboardPage {
                 cy.get(PageSelectors.conditionalBtnExampleLinkLandCodeHeaderSortUpIndicator)
                 .should('not.exist');
             }
+            if(PageSettings.isConditionalBtnAvailableHeaderIsVisible){
+                cy.get(PageSelectors.isConditionalBtnAvailableHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.isConditionalBtnAvailableHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isConditionalBtnAvailableHeaderSortUpIndicator)
+                .should('not.exist');
+            }
             if(PageSettings.testFileDownloadLinkPacCodeHeaderIsVisible){
                 cy.get(PageSelectors.testFileDownloadLinkPacCodeHeader)
                 .should('exist');
@@ -106,6 +115,7 @@ export class TacFarmDashboardPage {
                 cy.get(PageSelectors.testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator)
                 .should('not.exist');
             }
+
 //endset
 
             cy.log('Verifying page size control...');
@@ -243,6 +253,35 @@ export class TacFarmDashboardPage {
                     }
                 });
             }
+            if(PageSettings.isConditionalBtnAvailableHeaderIsVisible){
+                cy.get(PageSelectors.isConditionalBtnAvailableHeader)
+                .should('exist');
+
+                cy.get(PageSelectors.isConditionalBtnAvailableHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isConditionalBtnAvailableHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isConditionalBtnAvailableHeader)
+                .click()
+                .click()
+                .get(PageSelectors.isConditionalBtnAvailableHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.isConditionalBtnAvailableHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.isConditionalBtnAvailableHeader)
+                        .click()
+                        .get(PageSelectors.isConditionalBtnAvailableHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.isConditionalBtnAvailableHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.isConditionalBtnAvailableHeader)
+                        .click()
+                        .get(PageSelectors.isConditionalBtnAvailableHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.testFileDownloadLinkPacCodeHeaderIsVisible){
                 cy.get(PageSelectors.testFileDownloadLinkPacCodeHeader)
                 .should('exist');
@@ -359,6 +398,7 @@ export class TacFarmDashboardPage {
                     }
                 });
             }
+
 //endset
         }
 

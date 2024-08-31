@@ -102,6 +102,7 @@ export class PacUserTriStateFilterListPage {
                 cy.get(PageSelectors.triStateFilterStateIntValueHeaderSortUpIndicator)
                 .should('not.exist');
             }
+
 //endset
 
             cy.log('Verifying page size control...');
@@ -333,6 +334,7 @@ export class PacUserTriStateFilterListPage {
                 });
 
             }
+
 //endset
         }
 

@@ -315,6 +315,7 @@ export class PlantUserDetailsPage {
                 cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortUpIndicator)
                 .should('not.exist');
             }
+
 //endset
 
             cy.log('Verifying page size control...');
@@ -1206,6 +1207,7 @@ export class PlantUserDetailsPage {
                     }
                 });
             }
+
 //endset
         }
 

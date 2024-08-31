@@ -97,7 +97,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
     </tr>
   ) : (
     <tr>
-      <td colSpan={100}></td>
+      <td colSpan={100} className="text-start"></td>
     </tr>
   );
 

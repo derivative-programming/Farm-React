@@ -102,6 +102,7 @@ export class PacUserRoleListPage {
                 cy.get(PageSelectors.pacNameHeaderSortUpIndicator)
                 .should('not.exist');
             }
+
 //endset
 
             cy.log('Verifying page size control...');
@@ -332,6 +333,7 @@ export class PacUserRoleListPage {
                     }
                 });
             }
+
 //endset
         }
 

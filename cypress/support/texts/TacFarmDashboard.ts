@@ -6,6 +6,7 @@ export const TacFarmDashboardPageTexts = {
 //endset
 
 //endset
+    isConditionalBtnAvailableHeaderText: "Is Conditional Btn Available",
     testFileDownloadLinkPacCodeHeaderText: "",
     testConditionalFileDownloadLinkPacCodeHeaderText: "",
     testAsyncFlowReqLinkPacCodeHeaderText: "",

@@ -3,6 +3,7 @@ export const TacFarmDashboardPageSelectors = {
     fieldOnePlantListLinkLandCodeHeader: "[data-testid='fieldOnePlantListLinkLandCode-header']",
     conditionalBtnExampleLinkLandCodeHeader: "[data-testid='conditionalBtnExampleLinkLandCode-header']",
 //endset
+    isConditionalBtnAvailableHeader: "[data-testid='isConditionalBtnAvailable-header']",
     testFileDownloadLinkPacCodeHeader: "[data-testid='testFileDownloadLinkPacCode-header']",
     testConditionalFileDownloadLinkPacCodeHeader: "[data-testid='testConditionalFileDownloadLinkPacCode-header']",
     testAsyncFlowReqLinkPacCodeHeader: "[data-testid='testAsyncFlowReqLinkPacCode-header']",
@@ -10,6 +11,7 @@ export const TacFarmDashboardPageSelectors = {
     fieldOnePlantListLinkLandCodeHeaderSortDownIndicator: "[data-testid='fieldOnePlantListLinkLandCode-header-sortDown']",
     conditionalBtnExampleLinkLandCodeHeaderSortDownIndicator: "[data-testid='conditionalBtnExampleLinkLandCode-header-sortDown']",
 //endset
+    isConditionalBtnAvailableHeaderSortDownIndicator: "[data-testid='isConditionalBtnAvailable-header-sortDown']",
     testFileDownloadLinkPacCodeHeaderSortDownIndicator: "[data-testid='testFileDownloadLinkPacCode-header-sortDown']",
     testConditionalFileDownloadLinkPacCodeHeaderSortDownIndicator: "[data-testid='testConditionalFileDownloadLinkPacCode-header-sortDown']",
     testAsyncFlowReqLinkPacCodeHeaderSortDownIndicator: "[data-testid='testAsyncFlowReqLinkPacCode-header-sortDown']",
@@ -17,6 +19,7 @@ export const TacFarmDashboardPageSelectors = {
     fieldOnePlantListLinkLandCodeHeaderSortUpIndicator: "[data-testid='fieldOnePlantListLinkLandCode-header-sortUp']",
     conditionalBtnExampleLinkLandCodeHeaderSortUpIndicator: "[data-testid='conditionalBtnExampleLinkLandCode-header-sortUp']",
 //endset
+    isConditionalBtnAvailableHeaderSortUpIndicator: "[data-testid='isConditionalBtnAvailable-header-sortUp']",
     testFileDownloadLinkPacCodeHeaderSortUpIndicator: "[data-testid='testFileDownloadLinkPacCode-header-sortUp']",
     testConditionalFileDownloadLinkPacCodeHeaderSortUpIndicator: "[data-testid='testConditionalFileDownloadLinkPacCode-header-sortUp']",
     testAsyncFlowReqLinkPacCodeHeaderSortUpIndicator: "[data-testid='testAsyncFlowReqLinkPacCode-header-sortUp']",
