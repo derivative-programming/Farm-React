@@ -200,7 +200,7 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
-{/* endset vrtest */}
+{/* endset */}
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="landCode"
                     rowIndex={index}
                     value={item.landCode}

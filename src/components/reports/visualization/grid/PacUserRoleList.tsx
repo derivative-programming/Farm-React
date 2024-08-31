@@ -200,7 +200,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
-{/* endset vrtest */}
+{/* endset */}
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleCode"
                     rowIndex={index}
                     value={item.roleCode}

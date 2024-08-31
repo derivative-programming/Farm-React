@@ -10,6 +10,7 @@ export interface FormSelectDateGreaterThanFilterProps {
     disabled?: boolean
     isVisible?:boolean
     isRequired?:boolean
+    detailText?: string
   }
 
 export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilterProps> = ({
@@ -19,6 +20,7 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
     disabled = false,
     isVisible = true,
     isRequired = false,
+    detailText = '',
   }): ReactElement => { 
     
     const [dateGreaterThanFilters, setDateGreaterThanFilters] = useState<FormInputSelectOption[]>([])
@@ -50,6 +52,7 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
             isVisible={isVisible}
             isRequired={isRequired}
             autoFocus={autoFocus}
+            detailText={detailText}
             />
          
     );

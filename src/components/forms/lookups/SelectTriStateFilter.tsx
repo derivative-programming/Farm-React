@@ -10,6 +10,7 @@ export interface FormSelectTriStateFilterProps {
     disabled?: boolean
     isVisible?:boolean
     isRequired?:boolean
+    detailText?: string
   }
 
 export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
@@ -19,6 +20,7 @@ export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
     disabled = false,
     isVisible = true,
     isRequired = false,
+    detailText = '',
   }): ReactElement => {
 
     const [triStateFilters, setTriStateFilters] = useState<FormInputSelectOption[]>([])
@@ -50,6 +52,7 @@ export const FormSelectTriStateFilter: FC<FormSelectTriStateFilterProps> = ({
             isVisible={isVisible}
             isRequired={isRequired}
             autoFocus={autoFocus}
+            detailText={detailText}
             />
 
     );

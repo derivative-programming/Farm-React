@@ -200,7 +200,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
-{/* endset vrtest */}
+{/* endset */}
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacCode"
                     rowIndex={index}
                     value={item.tacCode}

@@ -200,7 +200,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               const uniqueKey = uuidv4();
               return (
                 <tr key={uniqueKey}>
-{/* endset vrtest */}
+{/* endset */}
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorCode"
                     rowIndex={index}
                     value={item.flavorCode}
