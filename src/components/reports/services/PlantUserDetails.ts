@@ -75,6 +75,9 @@ export interface QueryResultItem {
     testAsyncFlowReqLinkPacCode: string;
     testConditionalAsyncFlowReqLinkPacCode: string;
     conditionalBtnExampleLinkTacCode: string;
+    someImageUrlVal: string;
+    isImageUrlAvailable: boolean;
+    someConditionalImageUrlVal: string;
 }
 
 export interface QueryRequest {
@@ -132,6 +135,9 @@ export class QueryResultItemInstance implements QueryResultItem {
     testAsyncFlowReqLinkPacCode: string;
     testConditionalAsyncFlowReqLinkPacCode: string;
     conditionalBtnExampleLinkTacCode: string;
+    someImageUrlVal: string;
+    isImageUrlAvailable: boolean;
+    someConditionalImageUrlVal: string;
     constructor() {
         this.flavorName = '';
         this.isDeleteAllowed = false;
@@ -162,6 +168,9 @@ export class QueryResultItemInstance implements QueryResultItem {
         this.testAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
         this.testConditionalAsyncFlowReqLinkPacCode = '00000000-0000-0000-0000-000000000000';
         this.conditionalBtnExampleLinkTacCode = '00000000-0000-0000-0000-000000000000';
+        this.someImageUrlVal = '';
+        this.isImageUrlAvailable = false;
+        this.someConditionalImageUrlVal = '';
     }
 }
 

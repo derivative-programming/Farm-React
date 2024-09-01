@@ -315,6 +315,36 @@ export class PlantUserDetailsPage {
                 cy.get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortUpIndicator)
                 .should('not.exist');
             }
+            if(PageSettings.someImageUrlValHeaderIsVisible){
+                cy.get(PageSelectors.someImageUrlValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someImageUrlValHeaderText);
+
+                cy.get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someImageUrlValHeaderSortUpIndicator)
+                .should('not.exist');
+            }
+            if(PageSettings.isImageUrlAvailableHeaderIsVisible){
+                cy.get(PageSelectors.isImageUrlAvailableHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.isImageUrlAvailableHeaderText);
+
+                cy.get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isImageUrlAvailableHeaderSortUpIndicator)
+                .should('not.exist');
+            }
+            if(PageSettings.someConditionalImageUrlValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalImageUrlValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalImageUrlValHeaderText);
+
+                cy.get(PageSelectors.someConditionalImageUrlValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalImageUrlValHeaderSortUpIndicator)
+                .should('not.exist');
+            }
 
 //endset
 
@@ -1203,6 +1233,96 @@ export class PlantUserDetailsPage {
                         .get(PageSelectors.conditionalBtnExampleLinkTacCodeHeader)
                         .click()
                         .get(PageSelectors.conditionalBtnExampleLinkTacCodeHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someImageUrlValHeaderIsVisible){
+                cy.get(PageSelectors.someImageUrlValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someImageUrlValHeaderText);
+
+                cy.get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someImageUrlValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someImageUrlValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someImageUrlValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someImageUrlValHeader)
+                        .click()
+                        .get(PageSelectors.someImageUrlValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someImageUrlValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someImageUrlValHeader)
+                        .click()
+                        .get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.isImageUrlAvailableHeaderIsVisible){
+                cy.get(PageSelectors.isImageUrlAvailableHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.isImageUrlAvailableHeaderText);
+
+                cy.get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isImageUrlAvailableHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.isImageUrlAvailableHeader)
+                .click()
+                .click()
+                .get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.isImageUrlAvailableHeader)
+                        .click()
+                        .get(PageSelectors.isImageUrlAvailableHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.isImageUrlAvailableHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.isImageUrlAvailableHeader)
+                        .click()
+                        .get(PageSelectors.isImageUrlAvailableHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
+            if(PageSettings.someConditionalImageUrlValHeaderIsVisible){
+                cy.get(PageSelectors.someConditionalImageUrlValHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.someConditionalImageUrlValHeaderText);
+
+                cy.get(PageSelectors.someConditionalImageUrlValHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalImageUrlValHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.someConditionalImageUrlValHeader)
+                .click()
+                .click()
+                .get(PageSelectors.someConditionalImageUrlValHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.someConditionalImageUrlValHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalImageUrlValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalImageUrlValHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.someConditionalImageUrlValHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.someConditionalImageUrlValHeader)
+                        .click()
+                        .get(PageSelectors.someConditionalImageUrlValHeaderSortDownIndicator)
                         .should('exist');
                     }
                 });

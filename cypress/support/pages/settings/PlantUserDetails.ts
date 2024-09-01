@@ -30,6 +30,9 @@ export const PlantUserDetailsPageSettings = {
     testConditionalAsyncFlowReqLinkPacCodeHeaderIsVisible: true,
     conditionalBtnExampleLinkTacCodeHeaderIsVisible: true,
 //endset
+    someImageUrlValHeaderIsVisible: true,
+    isImageUrlAvailableHeaderIsVisible: true,
+    someConditionalImageUrlValHeaderIsVisible: true,
     isFilterSectionHidden: true,
 
 }

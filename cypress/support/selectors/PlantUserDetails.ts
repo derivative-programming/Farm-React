@@ -28,6 +28,9 @@ export const PlantUserDetailsPageSelectors = {
     testConditionalAsyncFlowReqLinkPacCodeHeader: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header']",
     conditionalBtnExampleLinkTacCodeHeader: "[data-testid='conditionalBtnExampleLinkTacCode-header']",
 //endset
+    someImageUrlValHeader: "[data-testid='someImageUrlVal-header']",
+    isImageUrlAvailableHeader: "[data-testid='isImageUrlAvailable-header']",
+    someConditionalImageUrlValHeader: "[data-testid='someConditionalImageUrlVal-header']",
     flavorNameHeaderSortDownIndicator: "[data-testid='flavorName-header-sortDown']",
     isDeleteAllowedHeaderSortDownIndicator: "[data-testid='isDeleteAllowed-header-sortDown']",
     isEditAllowedHeaderSortDownIndicator: "[data-testid='isEditAllowed-header-sortDown']",
@@ -56,6 +59,9 @@ export const PlantUserDetailsPageSelectors = {
     testConditionalAsyncFlowReqLinkPacCodeHeaderSortDownIndicator: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header-sortDown']",
     conditionalBtnExampleLinkTacCodeHeaderSortDownIndicator: "[data-testid='conditionalBtnExampleLinkTacCode-header-sortDown']",
 //endset
+    someImageUrlValHeaderSortDownIndicator: "[data-testid='someImageUrlVal-header-sortDown']",
+    isImageUrlAvailableHeaderSortDownIndicator: "[data-testid='isImageUrlAvailable-header-sortDown']",
+    someConditionalImageUrlValHeaderSortDownIndicator: "[data-testid='Conditional-header-sortDown']",
     flavorNameHeaderSortUpIndicator: "[data-testid='flavorName-header-sortUp']",
     isDeleteAllowedHeaderSortUpIndicator: "[data-testid='isDeleteAllowed-header-sortUp']",
     isEditAllowedHeaderSortUpIndicator: "[data-testid='isEditAllowed-header-sortUp']",
@@ -84,6 +90,9 @@ export const PlantUserDetailsPageSelectors = {
     testConditionalAsyncFlowReqLinkPacCodeHeaderSortUpIndicator: "[data-testid='testConditionalAsyncFlowReqLinkPacCode-header-sortUp']",
     conditionalBtnExampleLinkTacCodeHeaderSortUpIndicator: "[data-testid='conditionalBtnExampleLinkTacCode-header-sortUp']",
 //endset
+    someImageUrlValHeaderSortUpIndicator: "[data-testid='someImageUrlVal-header-sortUp']",
+    isImageUrlAvailableHeaderSortUpIndicator: "[data-testid='isImageUrlAvailable-header-sortUp']",
+    someConditionalImageUrlValHeaderSortUpIndicator: "[data-testid='someConditionalImageUrlVal-header-sortUp']",
 
     title: "[data-testid='page-title-text']",
     introText: "[data-testid='page-intro-text']",
