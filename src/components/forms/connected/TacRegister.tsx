@@ -143,12 +143,17 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     {
       targetContextCode = contextCode;
     }
+    Object.entries(initPageResponse).forEach(([key, value]) => {
+      if (key === codeName) {
+        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+          targetContextCode = value;
+        }
+      }
+    });
     Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
       if (key === codeName) {
         if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
           targetContextCode = value;
-        } else {
-          return;
         }
       }
     });

@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Form } from "react-bootstrap";
 import "../../../App.scss";
 import {useField } from 'formik'; 
+import Parser from 'html-react-parser'; 
 
 export interface FormInputFileProps {
   name: string
@@ -88,7 +89,7 @@ export const FormInputFile: FC<FormInputFileProps> = ({
         />
         {detailText.length > 0 && (
           <Form.Text className="text-muted">
-            {detailText}
+            {Parser(detailText)}
           </Form.Text>
         )}
         <Form.Control.Feedback

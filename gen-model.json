@@ -5,7 +5,7 @@
     "companyDomain": "newco.com",
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.62",
+    "projectVersionNumber": "1.0.63",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -2824,8 +2824,6 @@
                     "isVisible": "true",
                     "isFKList": "true",
                     "targetColumnName": "FlavorCode",
-                    "isFK": "true",
-                    "isFKLookup": "true",
                     "isFKListSearchable": "true"
                   },
                   {

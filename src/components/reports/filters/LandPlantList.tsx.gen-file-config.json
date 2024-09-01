@@ -8,6 +8,9 @@
         "reportParam.calculatedIsTargetColumnNameAvailable",
         "reportParam.isFKListInactiveIncluded",
         "reportParam.isFKListSearchable",
+        "reportParam.isFK",
+        "reportParam.isRequired",
+        "reportParam.isFKLookup",
         "reportParam.calculatedIsTargetObjectAvailable"
     ]
 }

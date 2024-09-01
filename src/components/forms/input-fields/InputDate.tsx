@@ -5,6 +5,7 @@ import {useField } from 'formik';
 import moment from "moment";
 import { DatePicker } from "antd";
 import {FormInputErrorDisplay } from './InputErrorDisplay';
+import Parser from 'html-react-parser'; 
    
 export interface FormInputDateProps {
   name: string
@@ -77,7 +78,7 @@ export const FormInputDate: FC<FormInputDateProps> = ({
           /> 
           {detailText.length > 0 && (
             <Form.Text className="text-muted">
-              {detailText}
+              {Parser(detailText)}
             </Form.Text>
           )}
           <FormInputErrorDisplay name={errorDisplayControlName} forInputName={name} />

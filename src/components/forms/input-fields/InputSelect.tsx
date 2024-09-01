@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Form } from "react-bootstrap";
 import "../../../App.scss";
 import {useField } from 'formik'; 
+import Parser from 'html-react-parser'; 
    
 export interface FormInputSelectProps {
   name: string
@@ -66,7 +67,7 @@ export const FormInputSelect: FC<FormInputSelectProps> = ({
           </Form.Select>
           {detailText.length > 0 && (
             <Form.Text className="text-muted">
-              {detailText}
+              {Parser(detailText)}
             </Form.Text>
           )}
           <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>

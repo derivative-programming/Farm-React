@@ -4,6 +4,7 @@ import React, {
   ReactElement
 } from "react";
 import * as InitReportService from "../services/init/PacUserTriStateFilterListInitReport";
+import Parser from 'html-react-parser';
 
 export interface HeaderPacUserTriStateFilterListProps {
   name: string;

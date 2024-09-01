@@ -4,6 +4,7 @@ import React, {
   ReactElement
 } from "react";
 import * as InitReportService from "../services/init/PacUserFlavorListInitReport";
+import Parser from 'html-react-parser';
 
 export interface HeaderPacUserFlavorListProps {
   name: string;

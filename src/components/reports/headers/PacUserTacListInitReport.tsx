@@ -4,6 +4,7 @@ import React, {
   ReactElement
 } from "react";
 import * as InitReportService from "../services/init/PacUserTacListInitReport";
+import Parser from 'html-react-parser';
 
 export interface HeaderPacUserTacListProps {
   name: string;

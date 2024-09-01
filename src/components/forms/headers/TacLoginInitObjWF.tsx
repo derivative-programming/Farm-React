@@ -4,6 +4,7 @@ import React, {
   ReactElement,
 } from "react";
 import * as InitFormService from "../services/init/TacLoginInitObjWF";
+import Parser from 'html-react-parser';
 
 export interface HeaderTacLoginProps {
   name: string;

@@ -172,6 +172,28 @@ export const ReportDetailThreeColPlantUserDetails: FC<ReportDetailThreeColPlantU
                         onNavigateTo("/plant-user-details/" + item.updateButtonTextLinkPlantCode);
                     }}
                 />
+                
+                {/*//flavorName*/}
+                {/*//isDeleteAllowed*/}
+                {/*//isEditAllowed*/}
+                {/*//otherFlavor*/}
+                {/*//someBigIntVal*/}
+                {/*//someBitVal*/}
+                {/*//someDateVal*/}
+                {/*//someDecimalVal*/}
+                {/*//someEmailAddress*/}
+                {/*//someFloatVal*/}
+                {/*//someIntVal*/}
+                {/*//someMoneyVal*/}
+                {/*//someNVarCharVal*/}
+                {/*//somePhoneNumber*/}
+                {/*//someTextVal*/}
+                {/*//someUniqueidentifierVal*/}
+                {/*//someUTCDateTimeVal*/}
+                {/*//someVarCharVal*/} 
+                {/*//PhoneNumConditionalOnIsEditable*/} 
+                {/*//NVarCharAsUrl*/} 
+                {/*//DeleteAsyncButtonLinkPlantCode*/} 
 
                 <ReportColumnDisplay.ReportColumnDisplayButton forColumn="backToDashboardLinkTacCode"
                     buttonText="Back To Dashboard"

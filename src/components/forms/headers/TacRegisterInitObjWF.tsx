@@ -4,6 +4,7 @@ import React, {
   ReactElement,
 } from "react";
 import * as InitFormService from "../services/init/TacRegisterInitObjWF";
+import Parser from 'html-react-parser';
 
 export interface HeaderTacRegisterProps {
   name: string;

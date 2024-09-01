@@ -4,6 +4,7 @@ import React, {
   ReactElement
 } from "react";
 import * as InitReportService from "../services/init/LandPlantListInitReport";
+import Parser from 'html-react-parser'; 
  
 export interface HeaderLandPlantListProps {
   name: string;
@@ -26,7 +27,7 @@ const HeaderLandPlantList: FC<HeaderLandPlantListProps> = ({
         hidden={!isHeaderVisible}>
         <> {/*landName*/}
           <dt className="col-sm-3" hidden={!landNameHeaderIsVisible}>Land Name</dt>
-          <dd className="col-sm-9" hidden={!landNameHeaderIsVisible}>{initData.landName}</dd>
+          <dd className="col-sm-9" hidden={!landNameHeaderIsVisible}>{Parser(initData.landName)}</dd>
         </> 
       </dl> 
     </div>

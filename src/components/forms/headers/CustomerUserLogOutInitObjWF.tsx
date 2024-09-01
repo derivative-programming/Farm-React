@@ -4,6 +4,7 @@ import React, {
   ReactElement,
 } from "react";
 import * as InitFormService from "../services/init/CustomerUserLogOutInitObjWF";
+import Parser from 'html-react-parser';
 
 export interface HeaderCustomerUserLogOutProps {
   name: string;

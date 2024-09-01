@@ -4,6 +4,7 @@ import React, {
   ReactElement
 } from "react";
 import * as InitReportService from "../services/init/TacFarmDashboardInitReport";
+import Parser from 'html-react-parser';
 
 export interface HeaderTacFarmDashboardProps {
   name: string;

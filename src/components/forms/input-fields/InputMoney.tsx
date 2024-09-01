@@ -3,6 +3,7 @@ import { Form, InputGroup } from "react-bootstrap";
 import "../../../App.scss";
 import {useField } from 'formik';
 import { onKeyDown } from "../../../common/utilities"; 
+import Parser from 'html-react-parser'; 
    
 export interface FormInputMoneyProps {
   name: string
@@ -56,7 +57,7 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
           </InputGroup>
           {detailText.length > 0 && (
             <Form.Text className="text-muted">
-              {detailText}
+              {Parser(detailText)}
             </Form.Text>
           )}
           <Form.Control.Feedback data-testid={errorDisplayControlName} className="text-start" type="invalid">{meta.error}</Form.Control.Feedback>
