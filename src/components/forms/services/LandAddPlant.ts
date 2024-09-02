@@ -56,6 +56,8 @@ export const buildSubmitRequest = (initResult:FormInit.InitResult) => {
   result.requestSomeMoneyVal = initResult.requestSomeMoneyVal;
   result.requestSomeNVarCharVal = initResult.requestSomeNVarCharVal;
   result.requestSomeVarCharVal = initResult.requestSomeVarCharVal;
+  result.requestSomeLongVarCharVal = initResult.requestSomeLongVarCharVal;
+  result.requestSomeLongNVarCharVal = initResult.requestSomeLongNVarCharVal;
   result.requestSomeTextVal = initResult.requestSomeTextVal;
   result.requestSomePhoneNumber = initResult.requestSomePhoneNumber;
   result.requestSomeEmailAddress = initResult.requestSomeEmailAddress;  
@@ -96,6 +98,10 @@ export interface SubmitRequest {
   requestSomeNVarCharVal: string;
 
   requestSomeVarCharVal: string;
+
+  requestSomeLongVarCharVal: string;
+
+  requestSomeLongNVarCharVal: string;
 
   requestSomeTextVal: string;
 
@@ -193,6 +199,10 @@ export class SubmitRequestInstance implements SubmitRequest {
 
   requestSomeVarCharVal: string;
 
+  requestSomeLongVarCharVal: string;
+
+  requestSomeLongNVarCharVal: string;
+
   requestSomeTextVal: string;
 
   requestSomePhoneNumber: string;
@@ -233,6 +243,10 @@ export class SubmitRequestInstance implements SubmitRequest {
     this.requestSomeNVarCharVal = '';
 
     this.requestSomeVarCharVal = '';
+
+    this.requestSomeLongVarCharVal = '';
+
+    this.requestSomeLongNVarCharVal = '';
 
     this.requestSomeTextVal = '';
 

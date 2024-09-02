@@ -14,6 +14,7 @@ export const LandAddPlantPageSettings = {
     requestSomeMoneyValIsVisible: true,
     requestSomeNVarCharValIsVisible: true,
     requestSomeVarCharValIsVisible: true,
+    requestSomeLongVarCharValIsVisible: true,
     requestSomeTextValIsVisible: true,
     requestSomePhoneNumberIsVisible: true,
     requestSomeEmailAddressIsVisible: true,

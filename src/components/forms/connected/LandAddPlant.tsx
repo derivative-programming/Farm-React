@@ -324,6 +324,18 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                       isRequired={true}
                       detailText="Sample Details Text"
                     />
+                    <InputFields.FormInputTextArea name="requestSomeLongVarCharVal"
+                      label="Some Long Var Char Val"
+                      isVisible={true}
+                      isRequired={true}
+                      detailText="Sample Details Text"
+                    />
+                    <InputFields.FormInputTextArea name="requestSomeLongNVarCharVal"
+                      label="Some Long N Var Char Val"
+                      isVisible={true}
+                      isRequired={true}
+                      detailText="Sample Details Text"
+                    />
                     <InputFields.FormInputTextArea name="requestSomeTextVal"
                       label="Some Text Val"
                       isVisible={true}

@@ -5,7 +5,7 @@
     "companyDomain": "newco.com",
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.65",
+    "projectVersionNumber": "1.0.66",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -4207,6 +4207,34 @@
                     "isIgnored": "false",
                     "sourceObjectName": "Plant",
                     "sourcePropertyName": "SomeImageUrlVal"
+                  },
+                  {
+                    "name": "RequestSomeLongNVarCharVal",
+                    "codeDescription": "Request Some Long N Var Char Val",
+                    "labelText": "Some Long N Var Char Val",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "1000",
+                    "isVisible": "true",
+                    "isRequired": "false",
+                    "requiredErrorText": "Please enter a Some Long N Var Char Val",
+                    "isFileUpload": "false",
+                    "isIgnored": "false",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeNVarCharVal"
+                  },
+                  {
+                    "name": "RequestSomeLongVarCharVal",
+                    "codeDescription": "Request Some Long Var Char Val",
+                    "labelText": "Some Long Var Char Val",
+                    "sqlServerDBDataType": "varchar",
+                    "sqlServerDBDataTypeSize": "1000",
+                    "isVisible": "true",
+                    "isRequired": "false",
+                    "requiredErrorText": "Please enter a Some Long Var Char Val",
+                    "isFileUpload": "false",
+                    "isIgnored": "false",
+                    "sourceObjectName": "Plant",
+                    "sourcePropertyName": "SomeVarCharVal"
                   }
                 ],
                 "objectWorkflowOutputVar": [

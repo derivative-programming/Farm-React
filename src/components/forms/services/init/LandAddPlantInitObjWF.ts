@@ -38,6 +38,10 @@ export interface InitResult {
  
     requestSomeVarCharVal: string;
  
+    requestSomeLongVarCharVal: string;
+ 
+    requestSomeLongNVarCharVal: string;
+ 
     requestSomeTextVal: string;
  
     requestSomePhoneNumber: string;
@@ -92,6 +96,10 @@ export class InitResultInstance implements InitResult {
  
     requestSomeVarCharVal: string;
  
+    requestSomeLongVarCharVal: string;
+ 
+    requestSomeLongNVarCharVal: string;
+ 
     requestSomeTextVal: string;
  
     requestSomePhoneNumber: string;
@@ -137,6 +145,10 @@ export class InitResultInstance implements InitResult {
         this.requestSomeNVarCharVal = '';
  
         this.requestSomeVarCharVal = '';
+ 
+        this.requestSomeLongVarCharVal = '';
+ 
+        this.requestSomeLongNVarCharVal = '';
  
         this.requestSomeTextVal = '';
  

@@ -80,6 +80,8 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("requestSomeMoneyVal")).toBeInTheDocument();
     expect(screen.getByTestId("requestSomeNVarCharVal")).toBeInTheDocument();
     expect(screen.getByTestId("requestSomeVarCharVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeLongVarCharVal")).toBeInTheDocument();
+    expect(screen.getByTestId("requestSomeLongNVarCharVal")).toBeInTheDocument();
     expect(screen.getByTestId("requestSomeTextVal")).toBeInTheDocument();
     expect(screen.getByTestId("requestSomePhoneNumber")).toBeInTheDocument();
     expect(screen.getByTestId("requestSomeEmailAddress")).toBeInTheDocument();
@@ -223,6 +225,22 @@ describe("LandAddPlant Component", () => {
     expect(screen.getByTestId("requestSomeVarCharVal")).toHaveValue("sample data");
   });
 
+  it("when user enter requestSomeLongVarCharVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeLongVarCharVal");
+    await act(async () => {
+      fireEvent.change(input, { target: { value: "sample data" } });
+    }); 
+    expect(screen.getByTestId("requestSomeLongVarCharVal")).toHaveValue("sample data");
+  });
+
+  it("when user enter requestSomeLongNVarCharVal, it set accordingly", async () => {
+    const input = screen.getByTestId("requestSomeLongNVarCharVal");
+    await act(async () => {
+      fireEvent.change(input, { target: { value: "sample data" } });
+    }); 
+    expect(screen.getByTestId("requestSomeLongNVarCharVal")).toHaveValue("sample data");
+  });
+
   it("when user enter requestSomeTextVal, it set accordingly", async () => {
     const input = screen.getByTestId("requestSomeTextVal");
     await act(async () => {
@@ -333,6 +351,16 @@ describe("LandAddPlant Component", () => {
     const requestSomeVarCharValInput = screen.getByTestId("requestSomeVarCharVal");
     await act(async () => {
       fireEvent.change(requestSomeVarCharValInput, { target: { value: "Sample Data" } });
+    });
+ 
+    const requestSomeLongVarCharValInput = screen.getByTestId("requestSomeLongVarCharVal");
+    await act(async () => {
+      fireEvent.change(requestSomeLongVarCharValInput, { target: { value: "Sample Data" } });
+    });
+ 
+    const requestSomeLongNVarCharValInput = screen.getByTestId("requestSomeLongNVarCharVal");
+    await act(async () => {
+      fireEvent.change(requestSomeLongNVarCharValInput, { target: { value: "Sample Data" } });
     });
  
     const requestSomeTextValInput = screen.getByTestId("requestSomeTextVal");

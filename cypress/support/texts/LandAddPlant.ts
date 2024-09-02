@@ -16,6 +16,8 @@ export const LandAddPlantPageTexts = {
     requestSomeMoneyValLabelText: "Some Money Val",
     requestSomeNVarCharValLabelText: "Some N Var Char Val",
     requestSomeVarCharValLabelText: "Some Secure Var Char Val",
+    requestSomeLongVarCharValLabelText: "Some Long Var Char Val",
+    requestSomeLongNVarCharValLabelText: "Some Long N Var Char Val",
     requestSomeTextValLabelText: "Some Text Val",
     requestSomePhoneNumberLabelText: "Some Phone Number",
     requestSomeEmailAddressLabelText: "Some Email Address",
