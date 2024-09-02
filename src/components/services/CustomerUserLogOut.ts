@@ -12,7 +12,7 @@ import { apiCall } from "../../apiConfig/apiCall";
 
   export const buildCustomerUserLogOutRequest = () => {
     const result:CustomerUserLogOutRequest = new SubmitRequestInstance();
-  
+
       return result;
   }
 

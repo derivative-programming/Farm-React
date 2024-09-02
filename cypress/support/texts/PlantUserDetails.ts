@@ -33,7 +33,7 @@ export const PlantUserDetailsPageTexts = {
 //endset
     someImageUrlValHeaderText: "Some Image Url Val",
     isImageUrlAvailableHeaderText: "Is Image Url Available",
-    someConditionalImageUrlValHeaderText: "Some Conditional Image Url Val",
+    someConditionalImageUrlValHeaderText: "Conditional Email Address",
 
     //page title
     titleText: "Plant Details",

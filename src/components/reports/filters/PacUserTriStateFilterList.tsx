@@ -90,6 +90,7 @@ const ReportFilterPacUserTriStateFilterList: FC<ReportFilterPacUserTriStateFilte
                   data-testid={name}
                   onReset={props.handleReset}
                   onSubmit={props.handleSubmit}
+                  autoComplete="off"
                 >
                   <Row>
 

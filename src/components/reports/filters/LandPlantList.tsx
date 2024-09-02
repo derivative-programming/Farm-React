@@ -89,7 +89,8 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                   name={name}
                   data-testid={name}
                   onReset={props.handleReset}
-                  onSubmit={props.handleSubmit}
+                  onSubmit={props.handleSubmit} 
+                  autoComplete="off"
                 >
                   <Row>
                     <Col xl="3" lg="4" md="6" xs="12" id="flavorFilterCode">

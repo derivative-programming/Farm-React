@@ -90,6 +90,7 @@ const ReportFilterPacUserDateGreaterThanFilterList: FC<ReportFilterPacUserDateGr
                   data-testid={name}
                   onReset={props.handleReset}
                   onSubmit={props.handleSubmit}
+                  autoComplete="off"
                 >
                   <Row>
 

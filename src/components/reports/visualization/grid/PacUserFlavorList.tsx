@@ -54,7 +54,8 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
   const { logClick } = useAnalyticsDB();  // NOSONAR
   const componentName = "ReportGridPacUserFlavorList";
-  const contextObjectName = "pac";
+  const contextValueName = "pacCode";
+  const contextValue = contextCode;
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -134,7 +135,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
       <Table
         className="report-list-table"
         striped
-        //bordered
+        bordered
         hover
         responsive
         size="sm"

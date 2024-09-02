@@ -12,7 +12,7 @@ import { apiCall } from "../../apiConfig/apiCall";
 
   export const buildPacUserTestAsyncFlowReqRequest = () => {
     const result:PacUserTestAsyncFlowReqRequest = new SubmitRequestInstance();
-  
+
       return result;
   }
 

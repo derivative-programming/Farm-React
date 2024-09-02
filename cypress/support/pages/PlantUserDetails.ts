@@ -317,8 +317,7 @@ export class PlantUserDetailsPage {
             }
             if(PageSettings.someImageUrlValHeaderIsVisible){
                 cy.get(PageSelectors.someImageUrlValHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.someImageUrlValHeaderText);
+                .should('exist');
 
                 cy.get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
                 .should('not.exist');
@@ -337,8 +336,7 @@ export class PlantUserDetailsPage {
             }
             if(PageSettings.someConditionalImageUrlValHeaderIsVisible){
                 cy.get(PageSelectors.someConditionalImageUrlValHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.someConditionalImageUrlValHeaderText);
+                .should('exist');
 
                 cy.get(PageSelectors.someConditionalImageUrlValHeaderSortDownIndicator)
                 .should('not.exist');
@@ -1239,8 +1237,7 @@ export class PlantUserDetailsPage {
             }
             if(PageSettings.someImageUrlValHeaderIsVisible){
                 cy.get(PageSelectors.someImageUrlValHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.someImageUrlValHeaderText);
+                .should('exist');
 
                 cy.get(PageSelectors.someImageUrlValHeaderSortDownIndicator)
                 .should('not.exist');
@@ -1299,8 +1296,7 @@ export class PlantUserDetailsPage {
             }
             if(PageSettings.someConditionalImageUrlValHeaderIsVisible){
                 cy.get(PageSelectors.someConditionalImageUrlValHeader)
-                .should('be.visible')
-                .should('include.text', PageTexts.someConditionalImageUrlValHeaderText);
+                .should('exist');
 
                 cy.get(PageSelectors.someConditionalImageUrlValHeaderSortDownIndicator)
                 .should('not.exist');

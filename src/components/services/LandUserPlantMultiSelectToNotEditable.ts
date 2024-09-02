@@ -9,15 +9,15 @@ import { apiCall } from "../../apiConfig/apiCall";
       data
     });
   };
-  
+
   export const buildLandUserPlantMultiSelectToNotEditableRequest = () => {
     const result:LandUserPlantMultiSelectToNotEditableRequest = new SubmitRequestInstance();
-  
+
       return result;
   }
 
 export interface LandUserPlantMultiSelectToNotEditableRequest {
-    plantCodeListCsv:string
+    plantCodeListCsv:string;
 }
 export interface ResponseFull {
     data: SubmitResult;
@@ -37,7 +37,7 @@ export interface SubmitValidationError {
 }
 
 export class SubmitRequestInstance implements LandUserPlantMultiSelectToNotEditableRequest {
-    plantCodeListCsv:string
+    plantCodeListCsv:string;
     constructor() {  // create a new instance of the class
         this.plantCodeListCsv = ''
     }

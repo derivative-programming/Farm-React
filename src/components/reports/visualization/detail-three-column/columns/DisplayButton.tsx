@@ -33,7 +33,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
 
   return ( 
     <Row  className=' mt-3 ms-3 me-3 ' 
-      id={groupName} data-testid={groupName} hidden={!isVisible}> 
+      id={groupName} data-testid={groupName} hidden={!displayValue}> 
       <div data-testid={forColumn + '-header'} ></div>
         <Button data-testid={buttonName} 
           id={buttonName} 

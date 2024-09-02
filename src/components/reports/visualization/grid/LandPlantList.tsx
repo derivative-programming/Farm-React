@@ -54,7 +54,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
   const { logClick } = useAnalyticsDB();  // NOSONAR
   const componentName = "ReportGridLandPlantList";
-  const contextObjectName = "land";
+  const contextValueName = "landCode";
+  const contextValue = contextCode;
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -101,14 +102,14 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
     const data: AsyncServices.LandUserPlantMultiSelectToEditableRequest = AsyncServices.buildLandUserPlantMultiSelectToEditableRequest();
     data.plantCodeListCsv = plantCodeListCsv;
-
-    if ('landCode' in data) {
-      data.landCode = contextCode;
+ 
+    if (Object.hasOwn(data, contextValueName)) {
+      data[contextValueName] = contextValue;
     }
 
     AsyncServices.LandUserPlantMultiSelectToEditableSubmitRequest(
       data,
-      contextCode
+      contextValue
     ).then(() => onRefreshRequest());
   };
 
@@ -128,13 +129,13 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
     data.plantCodeListCsv = plantCodeListCsv;
     
-    if ('landCode' in data) {
-      data.landCode = contextCode;
+    if (Object.hasOwn(data, contextValueName)) {
+      data[contextValueName] = contextValue;
     }
 
     AsyncServices.LandUserPlantMultiSelectToNotEditableSubmitRequest(
       data,
-      contextCode
+      contextValue
     ).then(() => onRefreshRequest());
   }; 
   
@@ -201,7 +202,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       <Table
         className="report-list-table"
         striped
-        //bordered 
+        bordered 
         hover
         responsive
         size="sm"
@@ -848,9 +849,11 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       {
                         logClick(componentName,"deleteAsyncButtonLinkPlantCode","");
                         const data: AsyncServices.PlantUserDeleteRequest = AsyncServices.buildPlantUserDeleteRequest();
-                        if ('landCode' in data) {
-                          data.landCode = contextCode;
+ 
+                        if (Object.hasOwn(data, contextValueName)) {
+                          data[contextValueName] = contextValue;
                         }
+
                         AsyncServices.PlantUserDeleteSubmitRequest(data, item.deleteAsyncButtonLinkPlantCode).then(() =>
                         onRefreshRequest()
                       )
@@ -910,9 +913,11 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       {
                         logClick(componentName,"testAsyncFlowReqLinkPacCode","");
                         const data: AsyncServices.PacUserTestAsyncFlowReqRequest = AsyncServices.buildPacUserTestAsyncFlowReqRequest();
-                        if ('landCode' in data) {
-                          data.landCode = contextCode;
+                                
+                        if (Object.hasOwn(data, contextValueName)) {
+                          data[contextValueName] = contextValue;
                         }
+
                         AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testAsyncFlowReqLinkPacCode).then(() =>
                         onRefreshRequest())
                       }}
@@ -928,9 +933,11 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       {
                         logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
                         const data: AsyncServices.PacUserTestAsyncFlowReqRequest = AsyncServices.buildPacUserTestAsyncFlowReqRequest();
-                        if ('landCode' in data) {
-                          data.landCode = contextCode;
+                         
+                        if (Object.hasOwn(data, contextValueName)) {
+                          data[contextValueName] = contextValue;
                         }
+                        
                         AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
                         onRefreshRequest())
                       }}

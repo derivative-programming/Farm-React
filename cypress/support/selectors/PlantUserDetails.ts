@@ -61,7 +61,7 @@ export const PlantUserDetailsPageSelectors = {
 //endset
     someImageUrlValHeaderSortDownIndicator: "[data-testid='someImageUrlVal-header-sortDown']",
     isImageUrlAvailableHeaderSortDownIndicator: "[data-testid='isImageUrlAvailable-header-sortDown']",
-    someConditionalImageUrlValHeaderSortDownIndicator: "[data-testid='Conditional-header-sortDown']",
+    someConditionalImageUrlValHeaderSortDownIndicator: "[data-testid='someConditionalImageUrlVal-header-sortDown']",
     flavorNameHeaderSortUpIndicator: "[data-testid='flavorName-header-sortUp']",
     isDeleteAllowedHeaderSortUpIndicator: "[data-testid='isDeleteAllowed-header-sortUp']",
     isEditAllowedHeaderSortUpIndicator: "[data-testid='isEditAllowed-header-sortUp']",
