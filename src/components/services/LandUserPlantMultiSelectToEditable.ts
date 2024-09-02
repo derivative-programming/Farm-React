@@ -13,8 +13,16 @@ import { apiCall } from "../../apiConfig/apiCall";
     });
   }; 
 
+  export const buildLandUserPlantMultiSelectToEditableRequest = () => {
+    const result:LandUserPlantMultiSelectToEditableRequest = new SubmitRequestInstance();
+  
+      return result;
+  }
+
 export interface LandUserPlantMultiSelectToEditableRequest {
-    plantCodeListCsv:string
+    plantCodeListCsv:string;
+    
+    landCode:string;
 }
 export interface ResponseFull {
     data: SubmitResult;
@@ -36,11 +44,15 @@ export interface SubmitValidationError {
 
 export class SubmitRequestInstance implements LandUserPlantMultiSelectToEditableRequest {
 
-    plantCodeListCsv:string 
+    plantCodeListCsv:string;
+    
+    landCode:string;
 
     constructor() {  // create a new instance of the class
  
         this.plantCodeListCsv = '' 
+ 
+        this.landCode = '00000000-0000-0000-0000-000000000000' 
     }
 }
 

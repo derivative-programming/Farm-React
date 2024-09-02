@@ -10,6 +10,12 @@ import { apiCall } from "../../apiConfig/apiCall";
     });
   };
 
+  export const buildPlantUserPropertyRandomUpdateRequest = () => {
+    const result:PlantUserPropertyRandomUpdateRequest = new SubmitRequestInstance();
+  
+      return result;
+  }
+
 export interface PlantUserPropertyRandomUpdateRequest {
 
 }

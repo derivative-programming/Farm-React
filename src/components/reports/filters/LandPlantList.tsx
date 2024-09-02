@@ -194,6 +194,12 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
                         label="Some Email Address"
                       />
                     </Col> 
+                    <Col xl="3" lg="4" md="6" xs="12" id="someFilterUniqueIdentifier">
+                      <ReportInput.ReportInputText
+                        name="someFilterUniqueIdentifier"
+                        label="Some Filter Unique Identifier"
+                      />
+                    </Col> 
                   </Row>
                   <Row>
                     <Col xl="12" lg="12" md="12" xs="12">

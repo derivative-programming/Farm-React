@@ -41,6 +41,8 @@ export interface InitResult {
     someFilterPhoneNumber: string;
  
     someFilterEmailAddress: string;
+ 
+    someFilterUniqueIdentifier: string;
     
     flavorFilterCode: string;
  
@@ -94,6 +96,8 @@ export class InitResultInstance implements InitResult {
  
     someFilterEmailAddress: string;
  
+    someFilterUniqueIdentifier: string;
+ 
     landName: string;
  
     flavorFilterCode: string;
@@ -136,6 +140,8 @@ export class InitResultInstance implements InitResult {
         this.someFilterPhoneNumber = '';
  
         this.someFilterEmailAddress = '';
+ 
+        this.someFilterUniqueIdentifier = '00000000-0000-0000-0000-000000000000';
  
         this.landName = '';
  

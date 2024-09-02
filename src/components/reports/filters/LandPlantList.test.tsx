@@ -66,6 +66,7 @@ describe("LandPlantList Component", () => {
     expect(screen.getByTestId("someFilterTextVal")).toBeInTheDocument();
     expect(screen.getByTestId("someFilterPhoneNumber")).toBeInTheDocument();
     expect(screen.getByTestId("someFilterEmailAddress")).toBeInTheDocument(); 
+    expect(screen.getByTestId("someFilterUniqueIdentifier")).toBeInTheDocument(); 
 //endset
     
     expect(screen.getByTestId("flavorFilterCode-label")).toBeInTheDocument();
@@ -84,6 +85,7 @@ describe("LandPlantList Component", () => {
     expect(screen.getByTestId("someFilterTextVal-label")).toBeInTheDocument();
     expect(screen.getByTestId("someFilterPhoneNumber-label")).toBeInTheDocument();
     expect(screen.getByTestId("someFilterEmailAddress-label")).toBeInTheDocument(); 
+    expect(screen.getByTestId("someFilterUniqueIdentifier-label")).toBeInTheDocument(); 
 //endset
     
     expect(screen.getByTestId("flavorFilterCode-field")).toBeInTheDocument();
@@ -102,6 +104,7 @@ describe("LandPlantList Component", () => {
     expect(screen.getByTestId("someFilterTextVal-field")).toBeInTheDocument();
     expect(screen.getByTestId("someFilterPhoneNumber-field")).toBeInTheDocument();
     expect(screen.getByTestId("someFilterEmailAddress-field")).toBeInTheDocument(); 
+    expect(screen.getByTestId("someFilterUniqueIdentifier-field")).toBeInTheDocument(); 
 //endset
   });
  
@@ -227,6 +230,13 @@ describe("LandPlantList Component", () => {
     }); 
     expect(screen.getByTestId("someFilterEmailAddress-field")).toHaveValue("sample data");
   }); 
+  it("when user enter someFilterUniqueIdentifier, it set accordingly", async () => {
+    const input = screen.getByTestId("someFilterUniqueIdentifier-field");
+    await act(async () => {
+      fireEvent.change(input, { target: { value: "sample data" } });
+    }); 
+    expect(screen.getByTestId("someFilterUniqueIdentifier-field")).toHaveValue("sample data");
+  }); 
 //endset
 
   it("when user entered LandPlantList details and clicks on register button, LandPlantListUser api should be called", async () => {
@@ -310,6 +320,11 @@ describe("LandPlantList Component", () => {
     const someFilterEmailAddressInput = screen.getByTestId("someFilterEmailAddress-field");
     await act(async () => {
       fireEvent.change(someFilterEmailAddressInput, { target: { value: "Sample Data" } });
+    });
+ 
+    const someFilterUniqueIdentifierInput = screen.getByTestId("someFilterUniqueIdentifier-field");
+    await act(async () => {
+      fireEvent.change(someFilterUniqueIdentifierInput, { target: { value: "Sample Data" } });
     });
 //endset
   

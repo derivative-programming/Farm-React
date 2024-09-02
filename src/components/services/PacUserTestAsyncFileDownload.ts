@@ -10,6 +10,12 @@ import { apiCall } from "../../apiConfig/apiCall";
     });
   };
 
+  export const buildPacUserTestAsyncFileDownloadRequest = () => {
+    const result:PacUserTestAsyncFileDownloadRequest = new SubmitRequestInstance();
+  
+      return result;
+  }
+
 export interface PacUserTestAsyncFileDownloadRequest {
 
 }

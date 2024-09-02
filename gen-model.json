@@ -5,7 +5,7 @@
     "companyDomain": "newco.com",
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.63",
+    "projectVersionNumber": "1.0.65",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -2975,6 +2975,18 @@
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
                     "targetColumnName": "SomeEmailAddress"
+                  },
+                  {
+                    "name": "SomeFilterUniqueIdentifier",
+                    "codeDescription": "Land Plant List Report Some Filter Unique Identifier Filter",
+                    "labelText": "Some Filter Unique Identifier",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "sqlServerDBDataTypeSize": "",
+                    "isVisible": "true",
+                    "isFKList": "false",
+                    "isFKListInactiveIncluded": "false",
+                    "targetColumnName": "PlantCode",
+                    "isFKListSearchable": "false"
                   }
                 ],
                 "reportColumn": [
@@ -4693,6 +4705,12 @@
                     "isHeaderText": "true",
                     "sourceObjectName": "Land",
                     "sourcePropertyName": "Name"
+                  },
+                  {
+                    "name": "SomeFilterUniqueIdentifier",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Some Filter Unique Identifier"
                   }
                 ],
                 "objectWorkflowButton": []
@@ -4713,6 +4731,20 @@
                     "requiredErrorText": "Please enter a plant Code List Csv",
                     "isFileUpload": "false",
                     "isIgnored": "false"
+                  },
+                  {
+                    "name": "LandCode",
+                    "codeDescription": "Land Code",
+                    "labelText": "Land",
+                    "sqlServerDBDataType": "uniqueidentifier",
+                    "sqlServerDBDataTypeSize": "",
+                    "isVisible": "true",
+                    "isRequired": "false",
+                    "requiredErrorText": "Please enter a Land",
+                    "isFileUpload": "false",
+                    "isIgnored": "false",
+                    "sourceObjectName": "Land",
+                    "sourcePropertyName": "LandID"
                   }
                 ],
                 "objectWorkflowOutputVar": [],
@@ -8386,6 +8418,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
+                    "isImageURL": "true",
                     "isIgnored": "false"
                   },
                   {
@@ -8427,6 +8460,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsImageUrlAvailable",
+                    "isImageURL": "true",
                     "isIgnored": "false"
                   }
                 ]

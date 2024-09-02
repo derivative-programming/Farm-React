@@ -10,6 +10,12 @@ import { apiCall } from "../../apiConfig/apiCall";
     });
   };
 
+  export const buildPlantUserDeleteRequest = () => {
+    const result:PlantUserDeleteRequest = new SubmitRequestInstance();
+  
+      return result;
+  }
+
 export interface PlantUserDeleteRequest {
 
 }

@@ -50,6 +50,7 @@ export const buildQueryRequest = (initResult:ReportInit.InitResult) => {
     result.someFilterTextVal = initResult.someFilterTextVal;
     result.someFilterPhoneNumber = initResult.someFilterPhoneNumber;
     result.someFilterEmailAddress = initResult.someFilterEmailAddress; 
+    result.someFilterUniqueIdentifier = initResult.someFilterUniqueIdentifier; 
 //endset
     
     return result;
@@ -90,6 +91,8 @@ export const buildValidationSchema = () => {
         someFilterPhoneNumber: Yup.string()
         ,
         someFilterEmailAddress: Yup.string()
+        ,
+        someFilterUniqueIdentifier: Yup.string()
         ,  
       });
 //endset
@@ -217,6 +220,8 @@ export interface QueryRequest {
     someFilterPhoneNumber: string;
  
     someFilterEmailAddress: string;
+ 
+    someFilterUniqueIdentifier: string;
  
     flavorFilterCode: string;
 //endset
@@ -462,6 +467,8 @@ export class QueryRequestInstance implements QueryRequest {
  
     someFilterEmailAddress: string; 
  
+    someFilterUniqueIdentifier: string; 
+ 
     flavorFilterCode: string;   
 //endset
     pageNumber: number;
@@ -502,6 +509,8 @@ export class QueryRequestInstance implements QueryRequest {
         this.someFilterPhoneNumber = '';
  
         this.someFilterEmailAddress = '';
+ 
+        this.someFilterUniqueIdentifier = '00000000-0000-0000-0000-000000000000';
  
         this.flavorFilterCode = '00000000-0000-0000-0000-000000000000';
 //endset

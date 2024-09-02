@@ -191,6 +191,7 @@ export const LandPlantListPageSelectors = {
     someFilterTextValFilterLabel: "[data-testid='someFilterTextVal-label']",
     someFilterPhoneNumberFilterLabel: "[data-testid='someFilterPhoneNumber-label']",
     someFilterEmailAddressFilterLabel: "[data-testid='someFilterEmailAddress-label']",
+    someFilterUniqueIdentifierFilterLabel: "[data-testid='someFilterUniqueIdentifier-label']",
     flavorFilterCodeFilterLabel: "[data-testid='flavorFilterCode-label']",
 //endset
 
@@ -210,6 +211,7 @@ export const LandPlantListPageSelectors = {
     someFilterTextValFilterField: "[data-testid='someFilterTextVal-field']",
     someFilterPhoneNumberFilterField: "[data-testid='someFilterPhoneNumber-field']",
     someFilterEmailAddressFilterField: "[data-testid='someFilterEmailAddress-field']",
+    someFilterUniqueIdentifierFilterField: "[data-testid='someFilterUniqueIdentifier-field']",
     flavorFilterCodeFilterField: "[data-testid='flavorFilterCode-field']",
 //endset
     

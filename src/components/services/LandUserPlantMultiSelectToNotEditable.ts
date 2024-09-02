@@ -9,6 +9,12 @@ import { apiCall } from "../../apiConfig/apiCall";
       data
     });
   };
+  
+  export const buildLandUserPlantMultiSelectToNotEditableRequest = () => {
+    const result:LandUserPlantMultiSelectToNotEditableRequest = new SubmitRequestInstance();
+  
+      return result;
+  }
 
 export interface LandUserPlantMultiSelectToNotEditableRequest {
     plantCodeListCsv:string

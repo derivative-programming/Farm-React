@@ -797,6 +797,23 @@ export class LandPlantListPage {
                 cy.get(PageSelectors.someFilterEmailAddressFilterField) 
                     .should('have.value', 'test@test.com');
             }
+
+            
+            if(PageSettings.someFilterUniqueIdentifierIsVisible){
+                cy.log('Verifying someFilterUniqueIdentifierLabel control label...');
+                cy.get(PageSelectors.someFilterUniqueIdentifierFilterLabel)
+                    .should('be.visible')
+                    .should('include.text', PageTexts.someFilterUniqueIdentifierFilterLabel);
+                    
+                cy.log('Verifying someFilterUniqueIdentifierLabel control...');
+                cy.get(PageSelectors.someFilterUniqueIdentifierFilterField)
+                    .should('be.visible');
+
+                this.setFilterFieldSomeFilterUniqueIdentifier("test@test.com");
+                
+                cy.get(PageSelectors.someFilterUniqueIdentifierFilterField) 
+                    .should('have.value', 'test@test.com');
+            }
 //endset
         }
 
@@ -2371,6 +2388,12 @@ export class LandPlantListPage {
 
     setFilterFieldSomeFilterEmailAddress(val:string) { 
         cy.get(PageSelectors.someFilterEmailAddressFilterField)
+            .clear()
+            .type(val); 
+    }
+
+    setFilterFieldSomeFilterUniqueIdentifier(val:string) { 
+        cy.get(PageSelectors.someFilterUniqueIdentifierFilterField)
             .clear()
             .type(val); 
     }

@@ -71,6 +71,7 @@ export const LandPlantListPageSettings = {
     someFilterTextValIsVisible: true,
     someFilterPhoneNumberIsVisible: true,
     someFilterEmailAddressIsVisible: true,
+    someFilterUniqueIdentifierIsVisible: true,
     flavorFilterCodeIsVisible: true, 
 //endset
      

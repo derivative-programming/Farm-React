@@ -10,6 +10,13 @@ import { apiCall } from "../../apiConfig/apiCall";
     });
   };
 
+  export const buildErrorLogConfigResolveErrorLogRequest = () => {
+    const result:ErrorLogConfigResolveErrorLogRequest = new SubmitRequestInstance();
+  
+      return result;
+  }
+
+
 export interface ErrorLogConfigResolveErrorLogRequest {
 
 }

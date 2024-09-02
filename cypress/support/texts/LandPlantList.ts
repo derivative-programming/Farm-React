@@ -75,6 +75,7 @@ export const LandPlantListPageTexts = {
     someFilterTextValFilterLabel: "Some Text Val",
     someFilterPhoneNumberFilterLabel: "Some Phone Number",
     someFilterEmailAddressFilterLabel: "Some Email Address",
+    someFilterUniqueIdentifierFilterLabel: "Some Filter Unique Identifier",
     flavorFilterCodeFilterLabel: "Select A Flavor",
 //endset
 

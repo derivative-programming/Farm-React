@@ -10,6 +10,12 @@ import { apiCall } from "../../apiConfig/apiCall";
     });
   };
 
+  export const buildCustomerBuildTempApiKeyRequest = () => {
+    const result:CustomerBuildTempApiKeyRequest = new SubmitRequestInstance();
+  
+      return result;
+  }
+
 export interface CustomerBuildTempApiKeyRequest {
 
 }

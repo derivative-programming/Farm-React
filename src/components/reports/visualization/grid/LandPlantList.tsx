@@ -99,7 +99,12 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
     const plantCodeListCsv = selectedCodes.join(",");
 
-    const data: AsyncServices.LandUserPlantMultiSelectToEditableRequest = { plantCodeListCsv };
+    const data: AsyncServices.LandUserPlantMultiSelectToEditableRequest = AsyncServices.buildLandUserPlantMultiSelectToEditableRequest();
+    data.plantCodeListCsv = plantCodeListCsv;
+
+    if ('landCode' in data) {
+      data.landCode = contextCode;
+    }
 
     AsyncServices.LandUserPlantMultiSelectToEditableSubmitRequest(
       data,
@@ -119,7 +124,13 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
     const plantCodeListCsv = selectedCodes.join(",");
 
-    const data: AsyncServices.LandUserPlantMultiSelectToNotEditableRequest = { plantCodeListCsv };
+    const data: AsyncServices.LandUserPlantMultiSelectToNotEditableRequest = AsyncServices.buildLandUserPlantMultiSelectToNotEditableRequest();
+
+    data.plantCodeListCsv = plantCodeListCsv;
+    
+    if ('landCode' in data) {
+      data.landCode = contextCode;
+    }
 
     AsyncServices.LandUserPlantMultiSelectToNotEditableSubmitRequest(
       data,
@@ -836,7 +847,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() =>
                       {
                         logClick(componentName,"deleteAsyncButtonLinkPlantCode","");
-                        const data: AsyncServices.PlantUserDeleteRequest = {};
+                        const data: AsyncServices.PlantUserDeleteRequest = AsyncServices.buildPlantUserDeleteRequest();
                         if ('landCode' in data) {
                           data.landCode = contextCode;
                         }
@@ -865,7 +876,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() =>
                       {
                         logClick(componentName,"testFileDownloadLinkPacCode","");
-                        const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                        const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = AsyncServices.buildPacUserTestAsyncFileDownloadRequest();
                         AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testFileDownloadLinkPacCode)
                         .then((response) => {
                           viewFileDownload(response);
@@ -882,7 +893,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() =>
                       {
                         logClick(componentName,"testConditionalFileDownloadLinkPacCode","");
-                        const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                        const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = AsyncServices.buildPacUserTestAsyncFileDownloadRequest();
                         AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testConditionalFileDownloadLinkPacCode)
                         .then((response) => {
                           viewFileDownload(response);
@@ -898,7 +909,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() =>
                       {
                         logClick(componentName,"testAsyncFlowReqLinkPacCode","");
-                        const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                        const data: AsyncServices.PacUserTestAsyncFlowReqRequest = AsyncServices.buildPacUserTestAsyncFlowReqRequest();
                         if ('landCode' in data) {
                           data.landCode = contextCode;
                         }
@@ -916,7 +927,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     onClick={() =>
                       {
                         logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
-                        const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                        const data: AsyncServices.PacUserTestAsyncFlowReqRequest = AsyncServices.buildPacUserTestAsyncFlowReqRequest();
                         if ('landCode' in data) {
                           data.landCode = contextCode;
                         }
