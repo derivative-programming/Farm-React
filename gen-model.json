@@ -5,7 +5,7 @@
     "companyDomain": "newco.com",
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.67",
+    "projectVersionNumber": "1.0.68",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -4192,6 +4192,7 @@
                     "isRequired": "false",
                     "requiredErrorText": "Please enter a image file",
                     "isFileUpload": "true",
+                    "detailsText": "Sample Details Text",
                     "isIgnored": "false"
                   },
                   {
@@ -4218,6 +4219,7 @@
                     "isRequired": "false",
                     "requiredErrorText": "Please enter a Some Long N Var Char Val",
                     "isFileUpload": "false",
+                    "detailsText": "Sample Details Text",
                     "isIgnored": "false",
                     "sourceObjectName": "Plant",
                     "sourcePropertyName": "SomeNVarCharVal"
@@ -4232,6 +4234,7 @@
                     "isRequired": "false",
                     "requiredErrorText": "Please enter a Some Long Var Char Val",
                     "isFileUpload": "false",
+                    "detailsText": "Sample Details Text",
                     "isIgnored": "false",
                     "sourceObjectName": "Plant",
                     "sourcePropertyName": "SomeVarCharVal"

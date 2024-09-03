@@ -327,13 +327,13 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                     <InputFields.FormInputTextArea name="requestSomeLongVarCharVal"
                       label="Some Long Var Char Val"
                       isVisible={true}
-                      isRequired={true}
+                      isRequired={false}
                       detailText="Sample Details Text"
                     />
                     <InputFields.FormInputTextArea name="requestSomeLongNVarCharVal"
                       label="Some Long N Var Char Val"
                       isVisible={true}
-                      isRequired={true}
+                      isRequired={false}
                       detailText="Sample Details Text"
                     />
                     <InputFields.FormInputTextArea name="requestSomeTextVal"
@@ -363,7 +363,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
                     <InputFields.FormInputText name="someImageUrlVal"
                       label="Some Image Url" 
                       isVisible={true}
-                      isRequired={true}
+                      isRequired={false}
                       detailText=""
                     />
                   </div>
