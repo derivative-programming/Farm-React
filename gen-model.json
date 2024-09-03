@@ -5,7 +5,7 @@
     "companyDomain": "newco.com",
     "projectName": "Farm Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.66",
+    "projectVersionNumber": "1.0.67",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -4598,6 +4598,18 @@
                     "labelText": "Some Image Url Val",
                     "sourceObjectName": "Plant",
                     "sourcePropertyName": "SomeImageUrlVal"
+                  },
+                  {
+                    "name": "RequestSomeLongVarCharVal",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "labelText": "Request Some Long Var Char Val"
+                  },
+                  {
+                    "name": "RequestSomeLongNVarCharVal",
+                    "sqlServerDBDataType": "nvarchar",
+                    "sqlServerDBDataTypeSize": "100",
+                    "labelText": "Request Some Long N Var Char Val"
                   }
                 ],
                 "objectWorkflowButton": []

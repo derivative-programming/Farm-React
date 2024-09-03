@@ -270,6 +270,22 @@ export class LandAddPlantPage {
             cy.get(PageSelectors.requestSomeLongVarCharValField) 
                 .should('have.value', 'requestSomeLongVarCharValTestVal');
         }
+        
+        if(PageSettings.requestSomeLongNVarCharValIsVisible){
+            cy.log('Verifying requestSomeLongNVarCharValLabel control label...');
+            cy.get(PageSelectors.requestSomeLongNVarCharValLabel)
+                .should('be.visible')
+                .should('include.text', PageTexts.requestSomeLongNVarCharValLabelText);
+                
+            cy.log('Verifying requestSomeLongNVarCharValLabel control...');
+            cy.get(PageSelectors.requestSomeLongNVarCharValField)
+                .should('be.visible');
+
+            this.setFieldrequestSomeLongNVarCharVal("requestSomeLongNVarCharValTestVal");
+            
+            cy.get(PageSelectors.requestSomeLongNVarCharValField) 
+                .should('have.value', 'requestSomeLongNVarCharValTestVal');
+        }
         if(PageSettings.requestSomeTextValIsVisible){
             cy.log('Verifying requestSomeTextValLabel control label...');
             cy.get(PageSelectors.requestSomeTextValLabel)
@@ -410,6 +426,8 @@ export class LandAddPlantPage {
     
         this.setFieldRequestSomeLongVarCharVal(helper.getUniqueString(50));
     
+        this.setFieldrequestSomeLongNVarCharVal(helper.getUniqueString(50));
+    
         this.setFieldRequestSomeTextVal(helper.getUniqueString(50));
     
         this.setFieldRequestSomePhoneNumber(helper.getRandomPhoneNumber());
@@ -454,6 +472,8 @@ export class LandAddPlantPage {
     
         requestSomeLongVarCharVal: string,
     
+        requestSomeLongNVarCharVal: string,
+    
         requestSomeTextVal: string,
     
         requestSomePhoneNumber: string,
@@ -492,6 +512,8 @@ export class LandAddPlantPage {
         this.setFieldRequestSomeNVarCharVal(requestSomeNVarCharVal); 
     
         this.setFieldRequestSomeLongVarCharVal(requestSomeLongVarCharVal);
+    
+        this.setFieldrequestSomeLongNVarCharVal(requestSomeLongNVarCharVal);
     
         this.setFieldRequestSomeVarCharVal(requestSomeVarCharVal);
     
@@ -595,6 +617,12 @@ export class LandAddPlantPage {
 
     setFieldRequestSomeLongVarCharVal(val:string) { 
         cy.get(PageSelectors.requestSomeLongVarCharValField)
+            .clear()
+            .type(val, { parseSpecialCharSequences: false }); 
+    }
+
+    setFieldrequestSomeLongNVarCharVal(val:string) { 
+        cy.get(PageSelectors.requestSomeLongNVarCharValField)
             .clear()
             .type(val, { parseSpecialCharSequences: false }); 
     }

@@ -4,5 +4,10 @@
         "name":"LandUserPlantMultiSelectToEditable",
         "calculatedIsPage": "false",
         "calculatedIsApiEndpointCreated": "true"
-    }
+    },
+    "ignoreDimensionPropertyList": [
+        "objectWorkflowParam.calculatedIsSourceObjectAvailable",
+        "objectWorkflowParam.calculatedIsObjectID",
+        "objectWorkflowParam.isVisible"
+    ]
 }
