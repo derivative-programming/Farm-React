@@ -34,19 +34,17 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
     buttonVariant = "outline-primary";
   }
 
-  return ( 
-    <div>
-      <Button 
-        data-testid={buttonName} 
-        id={buttonName} 
-        onClick={onClick} 
-        className='' 
-        variant={buttonVariant} 
-        disabled={!isEnabled} 
-        type="button" hidden={!displayValue}>
-          {buttonText}
-      </Button>
-    </div>
+  return (  
+    <Button 
+      data-testid={buttonName} 
+      id={buttonName} 
+      onClick={onClick} 
+      className='' 
+      variant={buttonVariant} 
+      disabled={!isEnabled} 
+      type="button" hidden={!displayValue}>
+        {buttonText}
+    </Button> 
   );
 }; 
    

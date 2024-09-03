@@ -36,167 +36,169 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
         <div data-testid={name}>
         { showProcessing ? 
             <Row>
-                <Col  lg="12" md="12" xs="12">
+                <Col  lg={{ span: 4, offset: 4 }} md={{ span: 4, offset: 4 }} xs="12"> 
                 <div className="text-center  bg-secondary bg-opacity-25">
                       <Spinner animation="border" className="mt-2 mb-2" />
                   </div>
                 </Col>
             </Row>
             : 
-            <>
-                <Row data-testid="fieldOnePlantListLinkLandCode-header" 
-                    className="mt-3" 
-                    hidden={!fieldOnePlantListLinkLandCodeIsVisible}>  
-                    <ReportColumnDisplay.ReportColumnDisplayButton 
-                        forColumn="fieldOnePlantListLinkLandCode" 
-                        value={item.fieldOnePlantListLinkLandCode}
-                        buttonText=" Field One-Plants"
-                        isButtonCallToAction={true} 
-                        isVisible={true}
-                        isEnabled={true}
-                        onClick={() =>{
-                            logClick("ReportDetailTwoColTacFarmDashboard","fieldOnePlantListLinkLandCode","");
-                            onNavigateTo("/land-plant-list/" + item.fieldOnePlantListLinkLandCode)
-                        }} 
-                    />
-                </Row> 
-                <Row data-testid="conditionalBtnExampleLinkLandCode-header" 
-                    className="mt-3"
-                    hidden={!conditionalBtnExampleLinkLandCodeIsVisible}>  
-                    <ReportColumnDisplay.ReportColumnDisplayButton 
-                        forColumn="conditionalBtnExampleLinkLandCode" 
-                        value={item.conditionalBtnExampleLinkLandCode}
-                        buttonText="Conditional Btn Example"
-                        isButtonCallToAction={true} 
-                        isVisible={true}
-                        isEnabled={true}
-                        conditionallyVisible={item.isConditionalBtnAvailable}
-                        onClick={() =>{
-                            logClick("ReportDetailTwoColTacFarmDashboard","conditionalBtnExampleLinkLandCode","");
-                            onNavigateTo("/land-plant-list/" + item.conditionalBtnExampleLinkLandCode)
-                        }} 
-                    />
-                </Row> 
-                <Row data-testid="testFileDownloadLinkPacCode-header" 
-                    className="mt-3"
-                    hidden={!testFileDownloadLinkPacCodeIsVisible}>  
-                    <ReportColumnDisplay.ReportColumnDisplayButton 
-                        forColumn="testFileDownloadLinkPacCode" 
-                        value={item.testFileDownloadLinkPacCode}
-                        buttonText="Test File Download"
-                        isButtonCallToAction={true} 
-                        isVisible={true}
-                        isEnabled={true}
-                        onClick={() =>{
-                            logClick(componentName,"testFileDownloadLinkPacCode","");
-                            const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
-                            AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testFileDownloadLinkPacCode)
-                            .then((response) => {
-                                const contentDisposition = response.headers['content-disposition'];
-                                let filename = uuidv4() + '.csv';
+            <Row>
+                <Col  lg={{ span: 4, offset: 4 }} md={{ span: 4, offset: 4 }} xs="12"> 
+                    <Row data-testid="fieldOnePlantListLinkLandCode-header" 
+                        className="mt-3" 
+                        hidden={!fieldOnePlantListLinkLandCodeIsVisible}>  
+                        <ReportColumnDisplay.ReportColumnDisplayButton 
+                            forColumn="fieldOnePlantListLinkLandCode" 
+                            value={item.fieldOnePlantListLinkLandCode}
+                            buttonText=" Field One-Plants"
+                            isButtonCallToAction={true} 
+                            isVisible={true}
+                            isEnabled={true}
+                            onClick={() =>{
+                                logClick("ReportDetailTwoColTacFarmDashboard","fieldOnePlantListLinkLandCode","");
+                                onNavigateTo("/land-plant-list/" + item.fieldOnePlantListLinkLandCode)
+                            }} 
+                        />
+                    </Row> 
+                    <Row data-testid="conditionalBtnExampleLinkLandCode-header" 
+                        className="mt-3"
+                        hidden={!conditionalBtnExampleLinkLandCodeIsVisible}>  
+                        <ReportColumnDisplay.ReportColumnDisplayButton 
+                            forColumn="conditionalBtnExampleLinkLandCode" 
+                            value={item.conditionalBtnExampleLinkLandCode}
+                            buttonText="Conditional Btn Example"
+                            isButtonCallToAction={true} 
+                            isVisible={true}
+                            isEnabled={true}
+                            conditionallyVisible={item.isConditionalBtnAvailable}
+                            onClick={() =>{
+                                logClick("ReportDetailTwoColTacFarmDashboard","conditionalBtnExampleLinkLandCode","");
+                                onNavigateTo("/land-plant-list/" + item.conditionalBtnExampleLinkLandCode)
+                            }} 
+                        />
+                    </Row> 
+                    <Row data-testid="testFileDownloadLinkPacCode-header" 
+                        className="mt-3"
+                        hidden={!testFileDownloadLinkPacCodeIsVisible}>  
+                        <ReportColumnDisplay.ReportColumnDisplayButton 
+                            forColumn="testFileDownloadLinkPacCode" 
+                            value={item.testFileDownloadLinkPacCode}
+                            buttonText="Test File Download"
+                            isButtonCallToAction={true} 
+                            isVisible={true}
+                            isEnabled={true}
+                            onClick={() =>{
+                                logClick(componentName,"testFileDownloadLinkPacCode","");
+                                const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                                AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testFileDownloadLinkPacCode)
+                                .then((response) => {
+                                    const contentDisposition = response.headers['content-disposition'];
+                                    let filename = uuidv4() + '.csv';
 
-                                if (contentDisposition) {
-                                    // Attempt to extract the filename*= value first, then fallback to filename=
-                                    const filenameMatch = contentDisposition.match(/filename\*?=['"]?([^;'"]+)/);
-                                    if (filenameMatch && filenameMatch[1]) {
-                                        filename = decodeURIComponent(filenameMatch[1].replace(/UTF-8''/, ''));
+                                    if (contentDisposition) {
+                                        // Attempt to extract the filename*= value first, then fallback to filename=
+                                        const filenameMatch = contentDisposition.match(/filename\*?=['"]?([^;'"]+)/);
+                                        if (filenameMatch && filenameMatch[1]) {
+                                            filename = decodeURIComponent(filenameMatch[1].replace(/UTF-8''/, ''));
+                                        }
                                     }
-                                }
 
-                                // Get the content type or default to "text/csv"
-                                const contentType = response.headers['content-type'] || 'text/csv';
+                                    // Get the content type or default to "text/csv"
+                                    const contentType = response.headers['content-type'] || 'text/csv';
 
-                                const blob = new Blob([response.data], { type: contentType });
-                                const url = URL.createObjectURL(blob);
-                                const link = document.createElement('a');
-                                link.href = url;
-                                link.setAttribute('download', filename);
-                                document.body.appendChild(link);
-                                link.click();
-                            })
-                            .then(() => onRefreshRequest())
-                        }} 
-                    />
-                </Row> 
-                <Row data-testid="testConditionalFileDownloadLinkPacCode-header" 
-                    className="mt-3"
-                    hidden={!testConditionalFileDownloadLinkPacCodeIsVisible}>  
-                    <ReportColumnDisplay.ReportColumnDisplayButton 
-                        forColumn="testConditionalFileDownloadLinkPacCode" 
-                        value={item.testConditionalFileDownloadLinkPacCode}
-                        buttonText="Test Conditional File Download"
-                        isButtonCallToAction={true} 
-                        isVisible={true}
-                        isEnabled={true}
-                        conditionallyVisible={item.isConditionalBtnAvailable}
-                        onClick={() =>{
-                            logClick(componentName,"testConditionalFileDownloadLinkPacCode","");
-                            const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
-                            AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testConditionalFileDownloadLinkPacCode)
-                            .then((response) => {
-                                const contentDisposition = response.headers['content-disposition'];
-                                let filename = uuidv4() + '.csv';
+                                    const blob = new Blob([response.data], { type: contentType });
+                                    const url = URL.createObjectURL(blob);
+                                    const link = document.createElement('a');
+                                    link.href = url;
+                                    link.setAttribute('download', filename);
+                                    document.body.appendChild(link);
+                                    link.click();
+                                })
+                                .then(() => onRefreshRequest())
+                            }} 
+                        />
+                    </Row> 
+                    <Row data-testid="testConditionalFileDownloadLinkPacCode-header" 
+                        className="mt-3"
+                        hidden={!testConditionalFileDownloadLinkPacCodeIsVisible}>  
+                        <ReportColumnDisplay.ReportColumnDisplayButton 
+                            forColumn="testConditionalFileDownloadLinkPacCode" 
+                            value={item.testConditionalFileDownloadLinkPacCode}
+                            buttonText="Test Conditional File Download"
+                            isButtonCallToAction={true} 
+                            isVisible={true}
+                            isEnabled={true}
+                            conditionallyVisible={item.isConditionalBtnAvailable}
+                            onClick={() =>{
+                                logClick(componentName,"testConditionalFileDownloadLinkPacCode","");
+                                const data: AsyncServices.PacUserTestAsyncFileDownloadRequest = {};
+                                AsyncServices.PacUserTestAsyncFileDownloadSubmitRequest(data, item.testConditionalFileDownloadLinkPacCode)
+                                .then((response) => {
+                                    const contentDisposition = response.headers['content-disposition'];
+                                    let filename = uuidv4() + '.csv';
 
-                                if (contentDisposition) {
-                                    // Attempt to extract the filename*= value first, then fallback to filename=
-                                    const filenameMatch = contentDisposition.match(/filename\*?=['"]?([^;'"]+)/);
-                                    if (filenameMatch && filenameMatch[1]) {
-                                        filename = decodeURIComponent(filenameMatch[1].replace(/UTF-8''/, ''));
+                                    if (contentDisposition) {
+                                        // Attempt to extract the filename*= value first, then fallback to filename=
+                                        const filenameMatch = contentDisposition.match(/filename\*?=['"]?([^;'"]+)/);
+                                        if (filenameMatch && filenameMatch[1]) {
+                                            filename = decodeURIComponent(filenameMatch[1].replace(/UTF-8''/, ''));
+                                        }
                                     }
-                                }
 
-                                // Get the content type or default to "text/csv"
-                                const contentType = response.headers['content-type'] || 'text/csv';
+                                    // Get the content type or default to "text/csv"
+                                    const contentType = response.headers['content-type'] || 'text/csv';
 
-                                const blob = new Blob([response.data], { type: contentType });
-                                const url = URL.createObjectURL(blob);
-                                const link = document.createElement('a');
-                                link.href = url;
-                                link.setAttribute('download', filename);
-                                document.body.appendChild(link);
-                                link.click();
-                            }).then(() => onRefreshRequest())
-                        }} 
-                    />
-                </Row> 
-                <Row data-testid="testAsyncFlowReqLinkPacCode-header" 
-                    className="mt-3"
-                    hidden={!testAsyncFlowReqLinkPacCodeIsVisible}>  
-                    <ReportColumnDisplay.ReportColumnDisplayButton 
-                        forColumn="testAsyncFlowReqLinkPacCode" 
-                        value={item.testAsyncFlowReqLinkPacCode}
-                        buttonText="Test Async Flow Req"
-                        isButtonCallToAction={true} 
-                        isVisible={true}
-                        isEnabled={true}
-                        onClick={() =>{
-                            logClick(componentName,"testAsyncFlowReqLinkPacCode","");
-                            const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
-                            AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testAsyncFlowReqLinkPacCode).then(() =>
-                            onRefreshRequest())
-                        }} 
-                    />
-                </Row> 
-                <Row data-testid="testConditionalAsyncFlowReqLinkPacCode-header" 
-                    className="mt-3"
-                    hidden={!testConditionalAsyncFlowReqLinkPacCodeIsVisible}>  
-                    <ReportColumnDisplay.ReportColumnDisplayButton 
-                        forColumn="testConditionalAsyncFlowReqLinkPacCode" 
-                        value={item.testConditionalAsyncFlowReqLinkPacCode}
-                        buttonText="Test Conditional Async Flow Req"
-                        isButtonCallToAction={true} 
-                        isVisible={true}
-                        isEnabled={true}
-                        conditionallyVisible={item.isConditionalBtnAvailable}
-                        onClick={() =>{
-                            logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
-                            const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
-                            AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
-                            onRefreshRequest())
-                        }} 
-                    />
-                </Row> 
-            </>
+                                    const blob = new Blob([response.data], { type: contentType });
+                                    const url = URL.createObjectURL(blob);
+                                    const link = document.createElement('a');
+                                    link.href = url;
+                                    link.setAttribute('download', filename);
+                                    document.body.appendChild(link);
+                                    link.click();
+                                }).then(() => onRefreshRequest())
+                            }} 
+                        />
+                    </Row> 
+                    <Row data-testid="testAsyncFlowReqLinkPacCode-header" 
+                        className="mt-3"
+                        hidden={!testAsyncFlowReqLinkPacCodeIsVisible}>  
+                        <ReportColumnDisplay.ReportColumnDisplayButton 
+                            forColumn="testAsyncFlowReqLinkPacCode" 
+                            value={item.testAsyncFlowReqLinkPacCode}
+                            buttonText="Test Async Flow Req"
+                            isButtonCallToAction={true} 
+                            isVisible={true}
+                            isEnabled={true}
+                            onClick={() =>{
+                                logClick(componentName,"testAsyncFlowReqLinkPacCode","");
+                                const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                                AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testAsyncFlowReqLinkPacCode).then(() =>
+                                onRefreshRequest())
+                            }} 
+                        />
+                    </Row> 
+                    <Row data-testid="testConditionalAsyncFlowReqLinkPacCode-header" 
+                        className="mt-3"
+                        hidden={!testConditionalAsyncFlowReqLinkPacCodeIsVisible}>  
+                        <ReportColumnDisplay.ReportColumnDisplayButton 
+                            forColumn="testConditionalAsyncFlowReqLinkPacCode" 
+                            value={item.testConditionalAsyncFlowReqLinkPacCode}
+                            buttonText="Test Conditional Async Flow Req"
+                            isButtonCallToAction={true} 
+                            isVisible={true}
+                            isEnabled={true}
+                            conditionallyVisible={item.isConditionalBtnAvailable}
+                            onClick={() =>{
+                                logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
+                                const data: AsyncServices.PacUserTestAsyncFlowReqRequest = {};
+                                AsyncServices.PacUserTestAsyncFlowReqSubmitRequest(data, item.testConditionalAsyncFlowReqLinkPacCode).then(() =>
+                                onRefreshRequest())
+                            }} 
+                        />
+                    </Row>  
+                </Col>
+            </Row>
         }
         </div>
     );

@@ -6,7 +6,10 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("@token"));
-  const [roles, setRoles] = useState([]);
+  const [roles, setRoles] = useState(() => {
+    const rolesFromStorage = localStorage.getItem("roleNameCSVList");
+    return rolesFromStorage ? rolesFromStorage.split(',') : [];
+  });
 
   useEffect(() => {
     apiInstance.defaults.headers.common["Api-Key"] = token;

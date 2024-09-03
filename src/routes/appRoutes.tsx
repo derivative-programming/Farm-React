@@ -73,7 +73,7 @@ const AppRoute = () => {
       {/*//GENLOOPObjectEnd*/}
  
       <Route path={"/logout"} element={< Logout />} />
-      <Route path={"*"} element={<Navigate to={"/tac-farm-dashboard/00000000-0000-0000-0000-000000000000"} replace />} />
+      <Route path={"*"} element={<Navigate to={"/logout"} replace />} />
     </Routes>
     </LayoutComponent>
   );

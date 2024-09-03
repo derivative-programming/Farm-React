@@ -16,6 +16,7 @@ const Header: FC = (): ReactElement => {
     authContext.setToken("");
     authContext.setRoles("");
     localStorage.setItem("@token", "");
+    localStorage.removeItem("roleNameCSVList");
     localStorage.setItem("customerCode","");
     localStorage.setItem("email", "");
   };

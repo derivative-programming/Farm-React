@@ -111,6 +111,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       authContext.setToken(response.apiKey);
       authContext.setRoles(response.roleNameCSVList);
       localStorage.setItem("@token", response.apiKey);
+      localStorage.setItem("roleNameCSVList", response.roleNameCSVList);
       localStorage.setItem("customerCode", response.customerCode);
       localStorage.setItem("email", response.email);
       AnalyticsService.start();
