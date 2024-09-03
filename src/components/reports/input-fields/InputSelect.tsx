@@ -41,7 +41,7 @@ export const ReportInputSelect: FC<ReportInputSelectProps> = ({
               isInvalid={isInvalid}
               size="sm"
           >
-              <option value="00000000-0000-0000-0000-000000000000">Please Select One</option>
+              <option value="00000000-0000-0000-0000-000000000000"></option>
               {options.map((item) => {
                   return (
                   <option

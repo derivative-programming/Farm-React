@@ -115,7 +115,7 @@ describe("LandPlantList Component", () => {
     await act(async () => {
       fireEvent.change(input, { target: { value: "00000000-0000-0000-0000-000000000000" } });
     }); 
-    expect(screen.getByTestId("flavorFilterCode-field")).toHaveTextContent("Please Select One");
+    expect(screen.getByTestId("flavorFilterCode-field")).toHaveTextContent("");
   });
   it("when user enter someFilterIntVal, it set accordingly", async () => { 
     const input = screen.getByTestId("someFilterIntVal-field");
