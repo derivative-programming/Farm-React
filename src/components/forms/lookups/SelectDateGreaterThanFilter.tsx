@@ -42,6 +42,8 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
         PacUserDateGreaterThanFilterListService.submitRequest()
         .then((response) => initList(response));
     },[]); 
+  
+    const isRequiredControl:boolean = isVisible && isRequired
 
     return ( 
         <FormInputSelect 
@@ -50,7 +52,7 @@ export const FormSelectDateGreaterThanFilter: FC<FormSelectDateGreaterThanFilter
             options={dateGreaterThanFilters} 
             disabled={disabled}
             isVisible={isVisible}
-            isRequired={isRequired}
+            isRequired={isRequiredControl}
             autoFocus={autoFocus}
             detailText={detailText}
             />

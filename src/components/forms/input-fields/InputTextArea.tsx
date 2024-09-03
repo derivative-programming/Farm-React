@@ -30,6 +30,8 @@ export const FormInputTextArea: FC<FormInputTextAreaProps> = ({
   const errorDisplayControlName = name + "ErrorDisplay";
   
   const isInvalid:boolean = !!meta.error && !!meta.touched
+  
+  const isRequiredControl:boolean = isVisible && isRequired
       
   return (
     <div className="" hidden={!isVisible}>
@@ -48,7 +50,7 @@ export const FormInputTextArea: FC<FormInputTextAreaProps> = ({
             disabled={disabled}
             autoFocus={autoFocus}
             isInvalid={isInvalid}
-            required={isRequired} 
+            required={isRequiredControl} 
             size="sm"
           />
           {detailText.length > 0 && (

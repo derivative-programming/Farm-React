@@ -31,6 +31,8 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
   const errorDisplayControlName = name + "ErrorDisplay";
   
   const isInvalid:boolean = !!meta.error && !!meta.touched
+  
+  const isRequiredControl:boolean = isVisible && isRequired
       
   return (
     <div className="" hidden={!isVisible}>
@@ -51,7 +53,7 @@ export const FormInputMoney: FC<FormInputMoneyProps> = ({
               onKeyDown={onKeyDown}
               isInvalid={isInvalid}
               placeholder={placeholder}
-              required={isRequired} 
+              required={isRequiredControl} 
               size="sm"
             />
           </InputGroup>

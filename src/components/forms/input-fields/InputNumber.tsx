@@ -31,6 +31,8 @@ export const FormInputNumber: FC<FormInputNumberProps> = ({
   const errorDisplayControlName = name + "ErrorDisplay";
   
   const isInvalid:boolean = !!meta.error && !!meta.touched
+  
+  const isRequiredControl:boolean = isVisible && isRequired
       
   return (
     <div className="" hidden={!isVisible}>
@@ -48,7 +50,7 @@ export const FormInputNumber: FC<FormInputNumberProps> = ({
             autoFocus={autoFocus}
             onKeyDown={onKeyDown}
             isInvalid={isInvalid}
-            required={isRequired} 
+            required={isRequiredControl} 
             size="sm"
           />
           {detailText.length > 0 && (

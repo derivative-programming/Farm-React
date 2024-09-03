@@ -28,6 +28,8 @@ export const FormInputText: FC<FormInputTextProps> = ({
   const [field, meta] = useField(name);  
   
   const isInvalid:boolean = !!meta.error && !!meta.touched
+  
+  const isRequiredControl:boolean = isVisible && isRequired
       
   return (
     <div hidden={!isVisible}>
@@ -44,7 +46,7 @@ export const FormInputText: FC<FormInputTextProps> = ({
             disabled={disabled}
             autoFocus={autoFocus}  
             isInvalid={isInvalid}
-            required={isRequired} 
+            required={isRequiredControl} 
             size="sm"
           />
           {detailText.length > 0 && (

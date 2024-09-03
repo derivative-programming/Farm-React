@@ -43,6 +43,8 @@ export const FormSelectRole: FC<FormSelectRoleProps> = ({
         .then((response) => initList(response));
     },[]);
 
+    const isRequiredControl:boolean = isVisible && isRequired
+
     return (
         <FormInputSelect
             label={label}
@@ -50,7 +52,7 @@ export const FormSelectRole: FC<FormSelectRoleProps> = ({
             options={roles}
             disabled={disabled}
             isVisible={isVisible}
-            isRequired={isRequired}
+            isRequired={isRequiredControl}
             autoFocus={autoFocus}
             detailText={detailText}
             />

@@ -43,6 +43,8 @@ export const FormSelectPac: FC<FormSelectPacProps> = ({
         .then((response) => initList(response));
     },[]);
 
+    const isRequiredControl:boolean = isVisible && isRequired
+
     return (
         <FormInputSelect
             label={label}
@@ -50,7 +52,7 @@ export const FormSelectPac: FC<FormSelectPacProps> = ({
             options={pacs}
             disabled={disabled}
             isVisible={isVisible}
-            isRequired={isRequired}
+            isRequired={isRequiredControl}
             autoFocus={autoFocus}
             detailText={detailText}
             />

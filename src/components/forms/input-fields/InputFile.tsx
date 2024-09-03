@@ -30,6 +30,8 @@ export const FormInputFile: FC<FormInputFileProps> = ({
   const errorDisplayControlName = name + "ErrorDisplay";
 
   const isInvalid: boolean = !!meta.error && !!meta.touched;
+  
+  const isRequiredControl:boolean = isVisible && isRequired
 
   const convertBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -84,7 +86,7 @@ export const FormInputFile: FC<FormInputFileProps> = ({
           disabled={disabled}
           autoFocus={autoFocus}
           isInvalid={isInvalid}
-          required={isRequired}
+          required={isRequiredControl}
           size="sm"
         />
         {detailText.length > 0 && (
