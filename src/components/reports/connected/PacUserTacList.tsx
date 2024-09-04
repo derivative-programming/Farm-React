@@ -33,6 +33,8 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
 
   const [initialQuery, setInitialQuery] = useState<PacUserTacListReportService.QueryRequest | null>(null);
 
+  const [displayItem, setDisplayItem] = useState<PacUserTacListReportService.QueryResultItem | null>(null);
+
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
 
@@ -123,6 +125,19 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
     )
     .finally(() => {setIsProcessing(false);});
   }, [query]);
+
+  useEffect(() => {
+    if(queryResult === null){
+      return;
+    }
+    if(queryResult.items === null){
+      return;
+    }
+
+    const item = queryResult.items.length > 0 ?  queryResult.items[0] : new PacUserTacListReportService.QueryResultItemInstance();
+
+    setDisplayItem({...item})
+  }, [queryResult]);
 
   const navigateTo = (page: string, codeName: string) => {  // NOSONAR
     let targetContextCode = contextCode;

@@ -33,6 +33,8 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
 
   const [initialQuery, setInitialQuery] = useState<PacUserTriStateFilterListReportService.QueryRequest | null>(null);
 
+  const [displayItem, setDisplayItem] = useState<PacUserTriStateFilterListReportService.QueryResultItem | null>(null);
+
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
 
@@ -123,6 +125,19 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
     )
     .finally(() => {setIsProcessing(false);});
   }, [query]);
+
+  useEffect(() => {
+    if(queryResult === null){
+      return;
+    }
+    if(queryResult.items === null){
+      return;
+    }
+
+    const item = queryResult.items.length > 0 ?  queryResult.items[0] : new PacUserTriStateFilterListReportService.QueryResultItemInstance();
+
+    setDisplayItem({...item})
+  }, [queryResult]);
 
   const navigateTo = (page: string, codeName: string) => {  // NOSONAR
     let targetContextCode = contextCode;

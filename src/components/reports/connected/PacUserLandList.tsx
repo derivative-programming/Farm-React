@@ -33,6 +33,8 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
 
   const [initialQuery, setInitialQuery] = useState<PacUserLandListReportService.QueryRequest | null>(null);
 
+  const [displayItem, setDisplayItem] = useState<PacUserLandListReportService.QueryResultItem | null>(null);
+
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
 
@@ -123,6 +125,19 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
     )
     .finally(() => {setIsProcessing(false);});
   }, [query]);
+
+  useEffect(() => {
+    if(queryResult === null){
+      return;
+    }
+    if(queryResult.items === null){
+      return;
+    }
+
+    const item = queryResult.items.length > 0 ?  queryResult.items[0] : new PacUserLandListReportService.QueryResultItemInstance();
+
+    setDisplayItem({...item})
+  }, [queryResult]);
 
   const navigateTo = (page: string, codeName: string) => {  // NOSONAR
     let targetContextCode = contextCode;
