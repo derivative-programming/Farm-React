@@ -3,6 +3,7 @@ import { Dropdown, Nav, NavItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext"; 
 import useAnalyticsDB from "../../hooks/useAnalyticsDB"; 
+import UserBadge, { BadgeMenuItem } from './UserBadge';
 import * as AnalyticsService from "../services/analyticsService";
 
 const Header: FC = (): ReactElement => {
@@ -15,6 +16,7 @@ const Header: FC = (): ReactElement => {
     AnalyticsService.stop();
     authContext.setToken("");
     authContext.setRoles("");
+    authContext.setEmail("");
     localStorage.setItem("@token", "");
     localStorage.removeItem("roleNameCSVList");
     localStorage.setItem("customerCode","");
@@ -32,6 +34,10 @@ const Header: FC = (): ReactElement => {
   const onProfile = () => {
     logClick("Header","profile","");
     navigate("/customer-user-update-profile/00000000-0000-0000-0000-000000000000");
+  };
+  const onChangePassword = () => {
+    logClick("Header","change password","");
+    navigate("/customer-user-update-password/00000000-0000-0000-0000-000000000000");
   };
   const onAdminDashboard = () => {
     logClick("Header","admin","");
@@ -56,6 +62,21 @@ const Header: FC = (): ReactElement => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+  let badgeMenuItems: BadgeMenuItem[] = [];
+
+  let email = ""
+
+  if(authContext && authContext.token) {
+    badgeMenuItems = [
+      { label: 'Profile', onClick: () => onProfile() },
+      { label: 'Change Password', onClick: () => onChangePassword() },
+      { label: 'Logout', onClick: () => onLogout() },
+    ];
+    
+    email = authContext.email;
+  }
+
   return (
     <div className="mt-2">
       <div className="header-container h-85 d-flex align-items-center justify-content-between px-40">
@@ -101,33 +122,12 @@ const Header: FC = (): ReactElement => {
                     {authContext && authContext.token && authContext.roles.includes('User') === true ? "Dashboard" : null}
                   </span>
                 </NavItem>
-                
+                 
                 <NavItem
                   onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <span
-                    data-testid="header-profile-link"
-                    className={`nav-link${isHovered ? ' text-underline' : ''}`}
-                    onClick={onProfile}
-                  >
-                    {authContext && authContext.token && authContext.roles.includes('User') === true ? "Profile" : null}
-                  </span>
-                </NavItem>
-
-                
-                <NavItem
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <span
-                    data-testid='header-logout-link'
-                    className={`nav-link${isHovered ? ' text-underline' : ''}`}
-                    onClick={onLogout}
-                  >
-                    {authContext && authContext.token ? "Log Out" : null}
-                  </span>
-                </NavItem>
+                  onMouseLeave={handleMouseLeave}>
+                  <UserBadge username={email} menuItems={badgeMenuItems}  />
+                  </NavItem>
               </>
               ) : ( 
               <>
@@ -184,6 +184,12 @@ const Header: FC = (): ReactElement => {
                       onClick={onProfile}>
                   
                       Profile
+                    </Dropdown.Item>
+                    <Dropdown.Item 
+                      data-testid="header-profile-link"
+                      onClick={onChangePassword}>
+                  
+                      Change Password
                     </Dropdown.Item>
                     <Dropdown.Item 
                       data-testid="header-dashboard-link"

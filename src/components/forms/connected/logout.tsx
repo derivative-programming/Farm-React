@@ -23,6 +23,7 @@ export const Logout: FC<FormProps> = ({
   AnalyticsService.stop();
   authContext.setToken("");
   authContext.setRoles("");
+  authContext.setEmail("");
   localStorage.setItem("@token", "");
   localStorage.removeItem("roleNameCSVList");
   localStorage.setItem("customerCode","");

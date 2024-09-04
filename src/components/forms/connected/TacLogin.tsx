@@ -110,6 +110,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       {/*//GENLearn[isLoginPage=true]Start*/}
       authContext.setToken(response.apiKey);
       authContext.setRoles(response.roleNameCSVList);
+      authContext.setEmail(response.email);
       localStorage.setItem("@token", response.apiKey);
       localStorage.setItem("roleNameCSVList", response.roleNameCSVList);
       localStorage.setItem("customerCode", response.customerCode);
@@ -119,12 +120,20 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       {/*//GENTrainingBlock[caseGetApiKey]End*/} 
       actions.setSubmitting(false);
       actions.resetForm();
+      submitButtonNavigateTo();
     } catch (error) {
       actions.setSubmitting(false);
     }
     finally {
       setLoading(false);
     }
+  };
+  const submitButtonNavigateTo = () => {
+    const page = "tac-farm-dashboard"
+    const codeName = "tacCode";
+    const targetContextCode = "00000000-0000-0000-0000-000000000000";
+    const url = "/" + page + "/" + targetContextCode;
+    navigate(url);
   };
 
   const registerButtonClick = () => {

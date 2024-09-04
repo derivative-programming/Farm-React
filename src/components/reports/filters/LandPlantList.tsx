@@ -16,6 +16,7 @@ export interface ReportFilterLandPlantListProps {
   name: string;
   initialQuery: LandPlantListReportService.QueryRequest;
   onSubmit(request: LandPlantListReportService.QueryRequest): void;
+  onReset(): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -24,6 +25,7 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
   name,
   initialQuery,
   onSubmit,
+  onReset,
   hidden = false,
   isCollapsible = true,
 }): ReactElement => {
@@ -37,13 +39,17 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
 
   const headerErrors: string[] = [];
 
+  const resetButtonClick = async () => {  
+    onReset(); 
+  };
+
   const submitButtonClick = async (
     values: LandPlantListReportService.QueryRequest,
     actions: FormikHelpers<LandPlantListReportService.QueryRequest>
   ) => {  
     try {  
       setLoading(true);
-      logClick("ReportFilterLandPlantList","submit","");
+      logClick("ReportFilterLandPlantList","submit",""); 
       onSubmit(values); 
     }
     finally { 
@@ -80,6 +86,9 @@ const ReportFilterLandPlantList: FC<ReportFilterLandPlantListProps> = ({
               enableReinitialize={true}
               initialValues={initialQuery}
               validationSchema={validationSchema}
+              onReset={async () => {
+                await resetButtonClick();
+              }}
               onSubmit={async (values, actions) => {
                 await submitButtonClick(values, actions);
               }}

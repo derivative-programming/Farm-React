@@ -25,17 +25,18 @@ import { v4 as uuidv4 } from "uuid";
 //GENTrainingBlock[visualizationTypeImports]End
 
 export const ReportConnectedLandPlantList: FC = (): ReactElement => {
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [initPageResponse, setInitPageResponse] = useState(
-    new InitReportService.InitResultInstance()
-  );
-  const [queryResult, setQueryResult] = useState(
-    new LandPlantListReportService.QueryResultInstance()
-  );
-  const [query, setQuery] = useState(new LandPlantListReportService.QueryRequestInstance());
-  const [initialValues, setInitialValues] = useState(
-    new LandPlantListReportService.QueryRequestInstance()
-  );
+  const isFilterPersistant  = false;
+
+  const [isProcessing, setIsProcessing] = useState(false); 
+  const [initPageResponse, setInitPageResponse] = useState<InitReportService.InitResult | null>(null);
+ 
+  
+  const [queryResult, setQueryResult] = useState<LandPlantListReportService.QueryResult | null>(null);
+ 
+  const [query, setQuery] = useState<LandPlantListReportService.QueryRequest | null>(null);
+ 
+  const [initialQuery, setInitialQuery] = useState<LandPlantListReportService.QueryRequest | null>(null);
+
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
   //GENTrainingBlock[visualizationTypeInit]Start
@@ -73,37 +74,58 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
   const onRefreshRequest = () => {
     logClick("ReportConnectedLandPlantList","refresh","");
-    setQuery({ ...query });
+    setQuery(new LandPlantListReportService.QueryRequestInstance());
   };
 
 
-  useEffect(() => {
-    if (isInitializedRef.current) {
+  useEffect(() => { 
+    if (isInitializedRef.current) { 
       return;
-    }
+    } 
     isInitializedRef.current = true;
     LandPlantListReportService.initPage(contextCode).then((response) =>
       handleInit(response)
     );
   }, []);
 
-  useEffect(() => {
-    const newInitalValues = LandPlantListReportService.buildQueryRequest(initPageResponse); 
-    setInitialValues({ ...newInitalValues });
+  useEffect(() => { 
+    if(initPageResponse === null){
+      return;
+    }
+    let queryRequest = LandPlantListReportService.buildQueryRequest(initPageResponse);  
+
+    // Check if persistence is enabled and if there is a saved filter
+    if (isFilterPersistant) {
+      const savedFilter = localStorage.getItem("LandPlantListFilter"); 
+
+      if (savedFilter) { 
+        const parsedFilter = JSON.parse(savedFilter);
+ 
+        queryRequest = { ...queryRequest, ...parsedFilter };
+      }
+    } 
+
+    setInitialQuery({ ...queryRequest });
   }, [initPageResponse]);
 
-  useEffect(() => {
-    if (JSON.stringify(initialValues) !== JSON.stringify(query)) { 
+  useEffect(() => { 
+    if(initialQuery === null){
+      return;
+    }
+    if (JSON.stringify(initialQuery) !== JSON.stringify(query)) { 
       const pageSize = localStorage.getItem("pageSize");
       if(pageSize !== null)
       { 
-        initialValues.ItemCountPerPage = parseInt(pageSize);
-      }
-      setQuery({ ...initialValues });
+        initialQuery.ItemCountPerPage = parseInt(pageSize);
+      } 
+      setQuery({ ...initialQuery });
     }
-  }, [initialValues]);
+  }, [initialQuery]);
 
-  useEffect(() => { 
+  useEffect(() => {  
+    if(query === null){
+      return;
+    }
     setIsProcessing(true);
     LandPlantListReportService.submitRequest(query, contextCode).then((response) =>
       handleQueryResults(response)
@@ -111,8 +133,11 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     .finally(() => {setIsProcessing(false);});
   }, [query]);
   
-  const navigateTo = (page: string, codeName: string) => {  // NOSONAR
-    let targetContextCode = contextCode;
+  const navigateTo = (page: string, codeName: string) => {  // NOSONAR 
+    let targetContextCode = contextCode; 
+    if(initPageResponse === null){
+      return;
+    } 
     Object.entries(initPageResponse).forEach(([key, value]) => {
       if (key === codeName) {
         if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
@@ -137,22 +162,40 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
   const onSubmit = (queryRequest: LandPlantListReportService.QueryRequest) => {
     logClick("ReportConnectedLandPlantList","search","");
+    
+    if(isFilterPersistant ){
+      localStorage.setItem("LandPlantListFilter",JSON.stringify(queryRequest)); 
+    }
+    
     setQuery({ ...queryRequest });
+  };
+  const onFilterReset = () => {
+    logClick("ReportConnectedLandPlantList","reset filter","");
+    setQuery(new LandPlantListReportService.QueryRequestInstance());
   };
 
   const onPageSelection = (pageNumber: number) => {
     logClick("ReportConnectedLandPlantList","selectPage",pageNumber.toString());
+    if(query === null){
+      return;
+    }
     setQuery({ ...query, pageNumber: pageNumber });
   };
 
   const onPageSizeChange = (pageSize: number) => {
     logClick("ReportConnectedLandPlantList","pageSizeChange",pageSize.toString());  
+    if(query === null){
+      return;
+    }
     localStorage.setItem("pageSize",pageSize.toString());
     setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
   };
 
   const onSort = (columnName: string) => { 
     logClick("ReportConnectedLandPlantList","sort",columnName);
+    if(query === null){
+      return;
+    }
     let orderByDescending = false;
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
@@ -167,6 +210,9 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   
   const onExport = () => {   
     logClick("ReportConnectedLandPlantList","export","");
+    if(query === null){
+      return;
+    }
     if(isProcessing){
       return;
     } 
@@ -185,6 +231,12 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     if (!isInitializedRef.current) {
       return;
     } 
+    if(query === null){
+      return;
+    }
+    if(queryResult === null){
+      return;
+    }
     if(!queryResult.success){
       return;
     }
@@ -280,22 +332,26 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
           </div>
         </div> 
         
-        
-        <HeaderLandPlantList  
-          name="headerLandPlantList"
-          initData={initPageResponse}
-          isHeaderVisible={true}
-        />
+        {initPageResponse && (
+          <HeaderLandPlantList  
+            name="headerLandPlantList"
+            initData={initPageResponse}
+            isHeaderVisible={true}
+          />
+        )}
 
         {/*//GENTrainingBlock[visualizationType]Start*/}
         {/*//GENLearn[visualizationType=Grid]Start*/}
-        <ReportFilterLandPlantList
-          name="reportConnectedLandPlantList-filter"
-          initialQuery={initialValues}
-          onSubmit={onSubmit}
-          isCollapsible={isFilterSectionCollapsable}
-          hidden={isFilterSectionHidden} 
-        />
+        {initialQuery && (
+          <ReportFilterLandPlantList
+            name="reportConnectedLandPlantList-filter"
+            initialQuery={initialQuery}
+            onSubmit={onSubmit}
+            onReset={onFilterReset}
+            isCollapsible={isFilterSectionCollapsable}
+            hidden={isFilterSectionHidden} 
+          />
+        )}
 
         <div
           className="d-flex w-100  justify-content-end"
@@ -318,25 +374,27 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
         </div>
         
 
-        <ReportGridLandPlantList
-          isSortDescending={queryResult.orderByDescending}
-          items={queryResult.items}
-          name="reportConnectedLandPlantList-table"
-          contextCode={contextCode}
-          onSort={onSort}
-          onExport={onExport}
-          onNavigateTo={onNavigateTo}
-          onRefreshRequest={onRefreshRequest}
-          sortedColumnName={queryResult.orderByColumnName}
-          currentPage={queryResult.pageNumber}
-          onPageSelection={onPageSelection}
-          onPageSizeChange={onPageSizeChange}
-          pageSize={queryResult.itemCountPerPage}
-          totalItemCount={queryResult.recordsTotal}
-          showPagingControls={isPagingAvailable}
-          showExport={!isExportButtonsHidden}
-          showProcessing={isProcessing}
-        />
+        {queryResult && (
+          <ReportGridLandPlantList
+            isSortDescending={queryResult.orderByDescending}
+            items={queryResult.items}
+            name="reportConnectedLandPlantList-table"
+            contextCode={contextCode}
+            onSort={onSort}
+            onExport={onExport}
+            onNavigateTo={onNavigateTo}
+            onRefreshRequest={onRefreshRequest}
+            sortedColumnName={queryResult.orderByColumnName}
+            currentPage={queryResult.pageNumber}
+            onPageSelection={onPageSelection}
+            onPageSizeChange={onPageSizeChange}
+            pageSize={queryResult.itemCountPerPage}
+            totalItemCount={queryResult.recordsTotal}
+            showPagingControls={isPagingAvailable}
+            showExport={!isExportButtonsHidden}
+            showProcessing={isProcessing}
+          />
+        )}
         {/*//GENLearn[visualizationType=Grid]End*/}
         {/*//GENTrainingBlock[visualizationType]End*/}
 

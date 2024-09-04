@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const [email, setEmail] = useState(localStorage.getItem("email"));
   const [token, setToken] = useState(localStorage.getItem("@token"));
   const [roles, setRoles] = useState(() => {
     const rolesFromStorage = localStorage.getItem("roleNameCSVList");
@@ -21,7 +22,7 @@ const AuthProvider = ({ children }) => {
 
   
   useEffect(() => {
-     console.log(roles);
+     //console.log(roles);
   }, [roles]);
 
   const onRoles = (rolesCSV) => { 
@@ -29,13 +30,19 @@ const AuthProvider = ({ children }) => {
     setRoles(roles);
   };
 
+  const onEmail = (email) => { 
+    setEmail(email);
+  };
+  
   return (
     <AuthContext.Provider
       value={{
         token,
         setToken: onToken,
         roles,
-        setRoles: onRoles
+        setRoles: onRoles,
+        email,
+        setEmail: onEmail,
       }}
     >
       {children}

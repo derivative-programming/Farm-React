@@ -19,6 +19,7 @@ window.localStorage.setItem("@token", "sampleToken");
 const mockFlavorFilterCodeService =  jest.spyOn(flavorFilterCodeService, "submitRequest");
  
 const onSubmit = jest.fn();
+const onFilerReset = jest.fn();
 
 const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestInstance();
 
@@ -35,7 +36,9 @@ describe("LandPlantList Component", () => {
         <ReportFilterLandPlantList 
           name="testForm" 
           initialQuery={intialQuery}
-          onSubmit={onSubmit} />  
+          onSubmit={onSubmit} 
+          onReset={onFilerReset}
+          />  
     ); 
 
     await waitFor(() => expect(mockFlavorFilterCodeService).toHaveBeenCalled());
