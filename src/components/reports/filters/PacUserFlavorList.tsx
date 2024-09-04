@@ -16,6 +16,7 @@ export interface ReportFilterPacUserFlavorListProps {
   name: string;
   initialQuery: PacUserFlavorListReportService.QueryRequest;
   onSubmit(request: PacUserFlavorListReportService.QueryRequest): void;
+  onReset(): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -24,6 +25,7 @@ const ReportFilterPacUserFlavorList: FC<ReportFilterPacUserFlavorListProps> = ({
   name,
   initialQuery,
   onSubmit,
+  onReset,
   hidden = false,
   isCollapsible = true,
 }): ReactElement => {
@@ -36,6 +38,10 @@ const ReportFilterPacUserFlavorList: FC<ReportFilterPacUserFlavorListProps> = ({
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
 
   const headerErrors: string[] = [];
+
+  const resetButtonClick = async () => {
+    onReset();
+  };
 
   const submitButtonClick = async (
     values: PacUserFlavorListReportService.QueryRequest,
@@ -80,6 +86,9 @@ const ReportFilterPacUserFlavorList: FC<ReportFilterPacUserFlavorListProps> = ({
               enableReinitialize={true}
               initialValues={initialQuery}
               validationSchema={validationSchema}
+              onReset={async () => {
+                await resetButtonClick();
+              }}
               onSubmit={async (values, actions) => {
                 await submitButtonClick(values, actions);
               }}

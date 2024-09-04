@@ -16,6 +16,7 @@ export interface ReportFilterPacUserLandListProps {
   name: string;
   initialQuery: PacUserLandListReportService.QueryRequest;
   onSubmit(request: PacUserLandListReportService.QueryRequest): void;
+  onReset(): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -24,6 +25,7 @@ const ReportFilterPacUserLandList: FC<ReportFilterPacUserLandListProps> = ({
   name,
   initialQuery,
   onSubmit,
+  onReset,
   hidden = false,
   isCollapsible = true,
 }): ReactElement => {
@@ -36,6 +38,10 @@ const ReportFilterPacUserLandList: FC<ReportFilterPacUserLandListProps> = ({
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
 
   const headerErrors: string[] = [];
+
+  const resetButtonClick = async () => {
+    onReset();
+  };
 
   const submitButtonClick = async (
     values: PacUserLandListReportService.QueryRequest,
@@ -80,6 +86,9 @@ const ReportFilterPacUserLandList: FC<ReportFilterPacUserLandListProps> = ({
               enableReinitialize={true}
               initialValues={initialQuery}
               validationSchema={validationSchema}
+              onReset={async () => {
+                await resetButtonClick();
+              }}
               onSubmit={async (values, actions) => {
                 await submitButtonClick(values, actions);
               }}

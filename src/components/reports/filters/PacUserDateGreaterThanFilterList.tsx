@@ -16,6 +16,7 @@ export interface ReportFilterPacUserDateGreaterThanFilterListProps {
   name: string;
   initialQuery: PacUserDateGreaterThanFilterListReportService.QueryRequest;
   onSubmit(request: PacUserDateGreaterThanFilterListReportService.QueryRequest): void;
+  onReset(): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -24,6 +25,7 @@ const ReportFilterPacUserDateGreaterThanFilterList: FC<ReportFilterPacUserDateGr
   name,
   initialQuery,
   onSubmit,
+  onReset,
   hidden = false,
   isCollapsible = true,
 }): ReactElement => {
@@ -36,6 +38,10 @@ const ReportFilterPacUserDateGreaterThanFilterList: FC<ReportFilterPacUserDateGr
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
 
   const headerErrors: string[] = [];
+
+  const resetButtonClick = async () => {
+    onReset();
+  };
 
   const submitButtonClick = async (
     values: PacUserDateGreaterThanFilterListReportService.QueryRequest,
@@ -80,6 +86,9 @@ const ReportFilterPacUserDateGreaterThanFilterList: FC<ReportFilterPacUserDateGr
               enableReinitialize={true}
               initialValues={initialQuery}
               validationSchema={validationSchema}
+              onReset={async () => {
+                await resetButtonClick();
+              }}
               onSubmit={async (values, actions) => {
                 await submitButtonClick(values, actions);
               }}

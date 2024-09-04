@@ -16,6 +16,7 @@ export interface ReportFilterPacUserRoleListProps {
   name: string;
   initialQuery: PacUserRoleListReportService.QueryRequest;
   onSubmit(request: PacUserRoleListReportService.QueryRequest): void;
+  onReset(): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -24,6 +25,7 @@ const ReportFilterPacUserRoleList: FC<ReportFilterPacUserRoleListProps> = ({
   name,
   initialQuery,
   onSubmit,
+  onReset,
   hidden = false,
   isCollapsible = true,
 }): ReactElement => {
@@ -36,6 +38,10 @@ const ReportFilterPacUserRoleList: FC<ReportFilterPacUserRoleListProps> = ({
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
 
   const headerErrors: string[] = [];
+
+  const resetButtonClick = async () => {
+    onReset();
+  };
 
   const submitButtonClick = async (
     values: PacUserRoleListReportService.QueryRequest,
@@ -80,6 +86,9 @@ const ReportFilterPacUserRoleList: FC<ReportFilterPacUserRoleListProps> = ({
               enableReinitialize={true}
               initialValues={initialQuery}
               validationSchema={validationSchema}
+              onReset={async () => {
+                await resetButtonClick();
+              }}
               onSubmit={async (values, actions) => {
                 await submitButtonClick(values, actions);
               }}

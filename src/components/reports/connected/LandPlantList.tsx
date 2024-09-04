@@ -37,6 +37,8 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
  
   const [initialQuery, setInitialQuery] = useState<LandPlantListReportService.QueryRequest | null>(null);
 
+  const [displayItem, setDisplayItem] = useState<LandPlantListReportService.QueryResultItem | null>(null);
+  
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
   //GENTrainingBlock[visualizationTypeInit]Start
@@ -48,7 +50,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const navigate = useNavigate();
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
-  
+ 
 
   const handleInit = (responseFull: InitReportService.ResponseFull) => {
     const response: InitReportService.InitResult = responseFull.data;
@@ -133,6 +135,19 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     .finally(() => {setIsProcessing(false);});
   }, [query]);
   
+  useEffect(() => {  
+    if(queryResult === null){
+      return;
+    }
+    if(queryResult.items === null){
+      return;
+    }
+ 
+    const item = queryResult.items.length > 0 ?  queryResult.items[0] : new LandPlantListReportService.QueryResultItemInstance();
+    
+    setDisplayItem({...item})
+  }, [queryResult]);
+  
   const navigateTo = (page: string, codeName: string) => {  // NOSONAR 
     let targetContextCode = contextCode; 
     if(initPageResponse === null){
@@ -159,6 +174,7 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   const isExportButtonsHidden = false;
   const isFilterSectionHidden = false;
   const isFilterSectionCollapsable = true;
+   
 
   const onSubmit = (queryRequest: LandPlantListReportService.QueryRequest) => {
     logClick("ReportConnectedLandPlantList","search","");

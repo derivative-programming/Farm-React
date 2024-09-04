@@ -17,6 +17,7 @@ import "fake-indexeddb/auto";
 window.localStorage.setItem("@token", "sampleToken");
 
 const onSubmit = jest.fn();
+const onFilerReset = jest.fn();
 
 const intialQuery:ReportService.QueryRequest = new ReportService.QueryRequestInstance();
 
@@ -28,7 +29,9 @@ describe("PacUserRoleList Component", () => {
         <ReportFilterPacUserRoleList
           name="testForm"
           initialQuery={intialQuery}
-          onSubmit={onSubmit} />
+          onSubmit={onSubmit}
+          onReset={onFilerReset}
+          />
     );
 
   });

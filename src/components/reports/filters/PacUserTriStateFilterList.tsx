@@ -16,6 +16,7 @@ export interface ReportFilterPacUserTriStateFilterListProps {
   name: string;
   initialQuery: PacUserTriStateFilterListReportService.QueryRequest;
   onSubmit(request: PacUserTriStateFilterListReportService.QueryRequest): void;
+  onReset(): void;
   hidden?: boolean;
   isCollapsible?: boolean;
 }
@@ -24,6 +25,7 @@ const ReportFilterPacUserTriStateFilterList: FC<ReportFilterPacUserTriStateFilte
   name,
   initialQuery,
   onSubmit,
+  onReset,
   hidden = false,
   isCollapsible = true,
 }): ReactElement => {
@@ -36,6 +38,10 @@ const ReportFilterPacUserTriStateFilterList: FC<ReportFilterPacUserTriStateFilte
   const defaultAccordianKey = (isFiltersVisibleDefault === "true" ? "0" : "-1");
 
   const headerErrors: string[] = [];
+
+  const resetButtonClick = async () => {
+    onReset();
+  };
 
   const submitButtonClick = async (
     values: PacUserTriStateFilterListReportService.QueryRequest,
@@ -80,6 +86,9 @@ const ReportFilterPacUserTriStateFilterList: FC<ReportFilterPacUserTriStateFilte
               enableReinitialize={true}
               initialValues={initialQuery}
               validationSchema={validationSchema}
+              onReset={async () => {
+                await resetButtonClick();
+              }}
               onSubmit={async (values, actions) => {
                 await submitButtonClick(values, actions);
               }}

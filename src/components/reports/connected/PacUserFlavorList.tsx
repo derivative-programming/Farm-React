@@ -22,17 +22,17 @@ import { ReportGridPacUserFlavorList } from "../visualization/grid/PacUserFlavor
 import { v4 as uuidv4 } from "uuid";
 
 export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
+  const isFilterPersistant  = false;
+
   const [isProcessing, setIsProcessing] = useState(false);
-  const [initPageResponse, setInitPageResponse] = useState(
-    new InitReportService.InitResultInstance()
-  );
-  const [queryResult, setQueryResult] = useState(
-    new PacUserFlavorListReportService.QueryResultInstance()
-  );
-  const [query, setQuery] = useState(new PacUserFlavorListReportService.QueryRequestInstance());
-  const [initialValues, setInitialValues] = useState(
-    new PacUserFlavorListReportService.QueryRequestInstance()
-  );
+  const [initPageResponse, setInitPageResponse] = useState<InitReportService.InitResult | null>(null);
+
+  const [queryResult, setQueryResult] = useState<PacUserFlavorListReportService.QueryResult | null>(null);
+
+  const [query, setQuery] = useState<PacUserFlavorListReportService.QueryRequest | null>(null);
+
+  const [initialQuery, setInitialQuery] = useState<PacUserFlavorListReportService.QueryRequest | null>(null);
+
   const isInitializedRef = useRef(false);
   const { logClick } = useAnalyticsDB();
 
@@ -66,7 +66,7 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
 
   const onRefreshRequest = () => {
     logClick("ReportConnectedPacUserFlavorList","refresh","");
-    setQuery({ ...query });
+    setQuery(new PacUserFlavorListReportService.QueryRequestInstance());
   };
 
   useEffect(() => {
@@ -80,22 +80,43 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
   }, []);
 
   useEffect(() => {
-    const newInitalValues = PacUserFlavorListReportService.buildQueryRequest(initPageResponse);
-    setInitialValues({ ...newInitalValues });
+    if(initPageResponse === null){
+      return;
+    }
+    let queryRequest = PacUserFlavorListReportService.buildQueryRequest(initPageResponse);
+
+    // Check if persistence is enabled and if there is a saved filter
+    if (isFilterPersistant) {
+      const savedFilter = localStorage.getItem("PacUserFlavorListFilter");
+
+      if (savedFilter) {
+        const parsedFilter = JSON.parse(savedFilter);
+
+        queryRequest = { ...queryRequest, ...parsedFilter };
+      }
+    }
+
+    setInitialQuery({ ...queryRequest });
   }, [initPageResponse]);
 
   useEffect(() => {
-    if (JSON.stringify(initialValues) !== JSON.stringify(query)) {
+    if(initialQuery === null){
+      return;
+    }
+    if (JSON.stringify(initialQuery) !== JSON.stringify(query)) {
       const pageSize = localStorage.getItem("pageSize");
       if(pageSize !== null)
       {
-        initialValues.ItemCountPerPage = parseInt(pageSize);
+        initialQuery.ItemCountPerPage = parseInt(pageSize);
       }
-      setQuery({ ...initialValues });
+      setQuery({ ...initialQuery });
     }
-  }, [initialValues]);
+  }, [initialQuery]);
 
   useEffect(() => {
+    if(query === null){
+      return;
+    }
     setIsProcessing(true);
     PacUserFlavorListReportService.submitRequest(query, contextCode).then((response) =>
       handleQueryResults(response)
@@ -105,6 +126,9 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
 
   const navigateTo = (page: string, codeName: string) => {  // NOSONAR
     let targetContextCode = contextCode;
+    if(initPageResponse === null){
+      return;
+    }
     Object.entries(initPageResponse).forEach(([key, value]) => {
       if (key === codeName) {
         if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
@@ -128,22 +152,40 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
 
   const onSubmit = (queryRequest: PacUserFlavorListReportService.QueryRequest) => {
     logClick("ReportConnectedPacUserFlavorList","search","");
+
+    if(isFilterPersistant ){
+      localStorage.setItem("PacUserFlavorListFilter",JSON.stringify(queryRequest));
+    }
+
     setQuery({ ...queryRequest });
+  };
+  const onFilterReset = () => {
+    logClick("ReportConnectedPacUserFlavorList","reset filter","");
+    setQuery(new PacUserFlavorListReportService.QueryRequestInstance());
   };
 
   const onPageSelection = (pageNumber: number) => {
     logClick("ReportConnectedPacUserFlavorList","selectPage",pageNumber.toString());
+    if(query === null){
+      return;
+    }
     setQuery({ ...query, pageNumber: pageNumber });
   };
 
   const onPageSizeChange = (pageSize: number) => {
     logClick("ReportConnectedPacUserFlavorList","pageSizeChange",pageSize.toString());
+    if(query === null){
+      return;
+    }
     localStorage.setItem("pageSize",pageSize.toString());
     setQuery({ ...query, ItemCountPerPage: pageSize, pageNumber: 1 });
   };
 
   const onSort = (columnName: string) => {
     logClick("ReportConnectedPacUserFlavorList","sort",columnName);
+    if(query === null){
+      return;
+    }
     let orderByDescending = false;
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
@@ -157,6 +199,9 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
 
   const onExport = () => {
     logClick("ReportConnectedPacUserFlavorList","export","");
+    if(query === null){
+      return;
+    }
     if(isProcessing){
       return;
     }
@@ -173,6 +218,12 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
 
   useEffect(() => {
     if (!isInitializedRef.current) {
+      return;
+    }
+    if(query === null){
+      return;
+    }
+    if(queryResult === null){
       return;
     }
     if(!queryResult.success){
@@ -228,19 +279,24 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
           </div>
         </div>
 
-        <HeaderPacUserFlavorList
-          name="headerPacUserFlavorList"
-          initData={initPageResponse}
-          isHeaderVisible={false}
-        />
+        {initPageResponse && (
+          <HeaderPacUserFlavorList
+            name="headerPacUserFlavorList"
+            initData={initPageResponse}
+            isHeaderVisible={false}
+          />
+        )}
 
-        <ReportFilterPacUserFlavorList
-          name="reportConnectedPacUserFlavorList-filter"
-          initialQuery={initialValues}
-          onSubmit={onSubmit}
-          isCollapsible={isFilterSectionCollapsable}
-          hidden={isFilterSectionHidden}
-        />
+        {initialQuery && (
+          <ReportFilterPacUserFlavorList
+            name="reportConnectedPacUserFlavorList-filter"
+            initialQuery={initialQuery}
+            onSubmit={onSubmit}
+            onReset={onFilterReset}
+            isCollapsible={isFilterSectionCollapsable}
+            hidden={isFilterSectionHidden}
+          />
+        )}
 
         <div
           className="d-flex w-100  justify-content-end"
@@ -262,25 +318,27 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
           </Button>
         </div>
 
-        <ReportGridPacUserFlavorList
-          isSortDescending={queryResult.orderByDescending}
-          items={queryResult.items}
-          name="reportConnectedPacUserFlavorList-table"
-          contextCode={contextCode}
-          onSort={onSort}
-          onExport={onExport}
-          onNavigateTo={onNavigateTo}
-          onRefreshRequest={onRefreshRequest}
-          sortedColumnName={queryResult.orderByColumnName}
-          currentPage={queryResult.pageNumber}
-          onPageSelection={onPageSelection}
-          onPageSizeChange={onPageSizeChange}
-          pageSize={queryResult.itemCountPerPage}
-          totalItemCount={queryResult.recordsTotal}
-          showPagingControls={isPagingAvailable}
-          showExport={!isExportButtonsHidden}
-          showProcessing={isProcessing}
-        />
+        {queryResult && (
+          <ReportGridPacUserFlavorList
+            isSortDescending={queryResult.orderByDescending}
+            items={queryResult.items}
+            name="reportConnectedPacUserFlavorList-table"
+            contextCode={contextCode}
+            onSort={onSort}
+            onExport={onExport}
+            onNavigateTo={onNavigateTo}
+            onRefreshRequest={onRefreshRequest}
+            sortedColumnName={queryResult.orderByColumnName}
+            currentPage={queryResult.pageNumber}
+            onPageSelection={onPageSelection}
+            onPageSizeChange={onPageSizeChange}
+            pageSize={queryResult.itemCountPerPage}
+            totalItemCount={queryResult.recordsTotal}
+            showPagingControls={isPagingAvailable}
+            showExport={!isExportButtonsHidden}
+            showProcessing={isProcessing}
+          />
+        )}
 
       </Card>
 
