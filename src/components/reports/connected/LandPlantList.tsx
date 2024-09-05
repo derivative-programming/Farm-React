@@ -187,7 +187,11 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
   };
   const onFilterReset = () => {
     logClick("ReportConnectedLandPlantList","reset filter","");
-    setQuery(new LandPlantListReportService.QueryRequestInstance());
+    const clearQuery = new LandPlantListReportService.QueryRequestInstance();
+    if(isFilterPersistant ){
+      localStorage.setItem("LandPlantListFilter",JSON.stringify(clearQuery));
+    }
+    setInitialQuery({...clearQuery});
   };
 
   const onPageSelection = (pageNumber: number) => {
