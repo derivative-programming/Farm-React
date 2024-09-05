@@ -74,7 +74,10 @@ const Header: FC = (): ReactElement => {
       { label: 'Logout', onClick: () => onLogout() },
     ];
     
-    email = authContext.email;
+    if(authContext.email !== null)
+    {
+      email = authContext.email;
+    }
   }
 
   return (

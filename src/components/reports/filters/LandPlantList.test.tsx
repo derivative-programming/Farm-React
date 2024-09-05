@@ -32,14 +32,16 @@ describe("LandPlantList Component", () => {
       }); 
       
 
-    render( 
-        <ReportFilterLandPlantList 
-          name="testForm" 
-          initialQuery={intialQuery}
-          onSubmit={onSubmit} 
-          onReset={onFilerReset}
-          />  
-    ); 
+      await act(async () => {
+        render( 
+            <ReportFilterLandPlantList 
+              name="testForm" 
+              initialQuery={intialQuery}
+              onSubmit={onSubmit} 
+              onReset={onFilerReset}
+              />  
+        ); 
+      });
 
     await waitFor(() => expect(mockFlavorFilterCodeService).toHaveBeenCalled());
   });
@@ -138,19 +140,25 @@ describe("LandPlantList Component", () => {
 
   it("when user enter someFilterBitVal, it set accordingly", async () => {
     const input = screen.getByTestId("someFilterBitVal-field"); 
-    fireEvent.click(screen.getByTestId("someFilterBitVal-field"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("someFilterBitVal-field"));
+    }); 
     expect(screen.getByTestId("someFilterBitVal-field")).toBeChecked();
   });
 
   it("when user enter isFilterEditAllowed, it set accordingly", async () => {
     const input = screen.getByTestId("isFilterEditAllowed-field");
-    fireEvent.click(screen.getByTestId("isFilterEditAllowed-field"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("isFilterEditAllowed-field"));
+    }); 
     expect(screen.getByTestId("isFilterEditAllowed-field")).toBeChecked();
   });
 
   it("when user enter isFilterDeleteAllowed, it set accordingly", async () => {
     const input = screen.getByTestId("isFilterDeleteAllowed-field");
-    fireEvent.click(screen.getByTestId("isFilterDeleteAllowed-field"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("isFilterDeleteAllowed-field"));
+    }); 
     expect(screen.getByTestId("isFilterDeleteAllowed-field")).toBeChecked();
   });
 

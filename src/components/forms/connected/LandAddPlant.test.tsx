@@ -11,6 +11,7 @@ import { BrowserRouter } from "react-router-dom";
 import * as FormService from "../services/LandAddPlant";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 import * as requestFlavorCodeService from "../../lookups/services/Flavor"
+import { AxiosResponse } from 'axios';
 import "fake-indexeddb/auto";
 
 
@@ -39,7 +40,7 @@ describe("LandAddPlant Component", () => {
   beforeEach(async () => { 
       mockFormInitService.mockResolvedValue({
         data: new InitFormService.InitResultInstance(),
-      });
+      } as AxiosResponse);
       
       mockRequestFlavorCodeService.mockResolvedValue({
         data: new requestFlavorCodeService.QueryResultTestInstance(),
@@ -153,17 +154,23 @@ describe("LandAddPlant Component", () => {
   });
 
   it("when user enter requestSomeBitVal, it set accordingly", async () => {
-    fireEvent.click(screen.getByTestId("requestSomeBitVal"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("requestSomeBitVal"));
+    }); 
     expect(screen.getByTestId("requestSomeBitVal")).toBeChecked();
   });
 
   it("when user enter requestIsEditAllowed, it set accordingly", async () => {
-    fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
+    }); 
     expect(screen.getByTestId("requestIsEditAllowed")).toBeChecked();
   });
 
   it("when user enter requestIsDeleteAllowed, it set accordingly", async () => {
-    fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
+    }); 
     expect(screen.getByTestId("requestIsDeleteAllowed")).toBeChecked();
   });
 
@@ -286,7 +293,7 @@ describe("LandAddPlant Component", () => {
   it("when user entered LandAddPlant details and clicks on register button, LandAddPlantUser api should be called", async () => {
     mockFormSubmitService.mockResolvedValue({
       data: formSubmitResponse,
-    }); 
+    } as AxiosResponse); 
    
     const requestFlavorCodeInput = screen.getByTestId("requestFlavorCode");
     await act(async () => {
@@ -310,13 +317,19 @@ describe("LandAddPlant Component", () => {
     });
  
     // const requestSomeBitValInput = screen.getByTestId("requestSomeBitVal");
-    fireEvent.click(screen.getByTestId("requestSomeBitVal"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("requestSomeBitVal"));
+    });
  
     // const requestIsEditAllowedInput = screen.getByTestId("requestIsEditAllowed"); 
-    fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("requestIsEditAllowed"));
+    });
  
     // const requestIsDeleteAllowedInput = screen.getByTestId("requestIsDeleteAllowed"); 
-    fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
+    await act(async () => {
+      fireEvent.click(screen.getByTestId("requestIsDeleteAllowed"));
+    });
  
     const requestSomeFloatValInput = screen.getByTestId("requestSomeFloatVal");
     await act(async () => {

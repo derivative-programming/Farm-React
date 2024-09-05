@@ -14,8 +14,14 @@ const onSort = jest.fn();
 describe("ReportColumnHeader Component", () => {
   // render the ReportColumnHeader component
   beforeEach(() => {
-    render(
-      <ReportColumnHeader onSort={onSort} forColumn="testColumn" isSortDescending={true} label="test label" sortedColumnName=""/> 
+    render(  
+      <table>
+        <thead>
+          <tr>
+            <ReportColumnHeader onSort={onSort} forColumn="testColumn" isSortDescending={true} label="test label" sortedColumnName=""/> 
+          </tr>
+        </thead>
+      </table>
     );
   });
 

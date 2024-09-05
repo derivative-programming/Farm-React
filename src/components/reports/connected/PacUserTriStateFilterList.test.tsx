@@ -11,6 +11,7 @@ import ReportConnectedPacUserTriStateFilterList from "./PacUserTriStateFilterLis
 import * as ReportService from "../services/PacUserTriStateFilterList";
 import * as InitReportService from "../services/init/PacUserTriStateFilterListInitReport";
 import { BrowserRouter } from "react-router-dom";
+import { AxiosResponse } from 'axios';
 
 import "fake-indexeddb/auto";
 
@@ -33,11 +34,11 @@ describe("PacUserTriStateFilterList Connected Report Component", () => {
   beforeEach(async() => {
     mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
-    });
+    } as AxiosResponse);
 
     mockReportService.mockResolvedValue({
       data: new ReportService.QueryResultInstance(),
-    });
+    } as AxiosResponse);
 
     await act(async () => {
       render(

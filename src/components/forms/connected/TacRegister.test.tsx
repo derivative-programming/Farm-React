@@ -10,6 +10,7 @@ import FormConnectedTacRegister from "./TacRegister";
 import { BrowserRouter } from "react-router-dom";
 import * as FormService from "../services/TacRegister";
 import * as InitFormService from "../services/init/TacRegisterInitObjWF";
+import { AxiosResponse } from 'axios';
 
 import "fake-indexeddb/auto";
 
@@ -36,7 +37,7 @@ describe("TacRegister Component", () => {
   beforeEach(async () => {
       mockFormInitService.mockResolvedValue({
         data: new InitFormService.InitResultInstance(),
-      });
+      } as AxiosResponse);
 
 //endset
 
@@ -125,7 +126,7 @@ describe("TacRegister Component", () => {
   it("when user entered TacRegister details and clicks on register button, TacRegister api should be called", async () => {
     mockFormSubmitService.mockResolvedValue({
       data: formSubmitResponse,
-    });
+    } as AxiosResponse);
     const emailInput = screen.getByTestId("email");
     await act(async () => {
       fireEvent.change(emailInput, { target: { value: "Sample Data" } });

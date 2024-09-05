@@ -51,7 +51,9 @@ describe("InputCheckbox Component", () => {
 
   it("when user checks, it set accordingly in control", async () => {
     const input = screen.getByTestId("testName");
-    fireEvent.click(input); 
+    await act(async () => {
+      fireEvent.click(input); 
+    });
     expect(input).toBeChecked();
   }); 
 

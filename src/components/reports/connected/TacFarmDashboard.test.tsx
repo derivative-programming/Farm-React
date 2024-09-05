@@ -11,6 +11,7 @@ import ReportConnectedTacFarmDashboard from "./TacFarmDashboard";
 import * as ReportService from "../services/TacFarmDashboard";
 import * as InitReportService from "../services/init/TacFarmDashboardInitReport";
 import { BrowserRouter } from "react-router-dom";
+import { AxiosResponse } from 'axios';
 
 import "fake-indexeddb/auto";
 
@@ -33,11 +34,11 @@ describe("TacFarmDashboard Connected Report Component", () => {
   beforeEach(async() => {
     mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
-    });
+    } as AxiosResponse);
 
     mockReportService.mockResolvedValue({
       data: new ReportService.QueryResultInstance(),
-    });
+    } as AxiosResponse);
 
     await act(async () => {
       render(

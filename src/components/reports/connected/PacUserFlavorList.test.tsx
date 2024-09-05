@@ -11,6 +11,7 @@ import ReportConnectedPacUserFlavorList from "./PacUserFlavorList";
 import * as ReportService from "../services/PacUserFlavorList";
 import * as InitReportService from "../services/init/PacUserFlavorListInitReport";
 import { BrowserRouter } from "react-router-dom";
+import { AxiosResponse } from 'axios';
 
 import "fake-indexeddb/auto";
 
@@ -33,11 +34,11 @@ describe("PacUserFlavorList Connected Report Component", () => {
   beforeEach(async() => {
     mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
-    });
+    } as AxiosResponse);
 
     mockReportService.mockResolvedValue({
       data: new ReportService.QueryResultInstance(),
-    });
+    } as AxiosResponse);
 
     await act(async () => {
       render(

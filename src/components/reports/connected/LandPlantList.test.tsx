@@ -13,6 +13,7 @@ import * as InitReportService from "../services/init/LandPlantListInitReport";
 import { BrowserRouter } from "react-router-dom";
 import * as flavorFilterCodeService from "../../lookups/services/Flavor"
 import "fake-indexeddb/auto";
+import { AxiosResponse } from 'axios';
  
 window.localStorage.setItem("@token", "sampleToken");
 
@@ -34,7 +35,7 @@ describe("LandPlantList Connected Report Component", () => {
   beforeEach(async() => {
     mockReportInitService.mockResolvedValue({
       data: new InitReportService.InitResultInstance(),
-    });
+    } as AxiosResponse);
 
     mockflavorFilterCodeService.mockResolvedValue({
       data: new flavorFilterCodeService.QueryResultTestInstance(),
@@ -42,7 +43,7 @@ describe("LandPlantList Connected Report Component", () => {
     
     mockReportService.mockResolvedValue({
       data: new ReportService.QueryResultInstance(),
-    }); 
+    } as AxiosResponse); 
 
     await act(async () => {
       render(
