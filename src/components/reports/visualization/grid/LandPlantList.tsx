@@ -52,6 +52,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 }): ReactElement => {
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
+  const [validationError, setValidationError] = useState<string | null>(null);
   const { logClick } = useAnalyticsDB();  // NOSONAR
   const componentName = "ReportGridLandPlantList";
   const contextValueName = "landCode";
@@ -66,6 +67,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       checkedIndexes.push(index.toString());
       const newList = checkedIndexes.filter((item) => item);
       setCheckedIndexes(newList);
+      setValidationError(null); 
     } else {
       const newList = checkedIndexes.filter(
         (item) => item !== index.toString()
@@ -82,6 +84,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
           index.toString()
         )
       );
+      setValidationError(null); 
     } else {
       logClick(componentName,"uncheckSelectAllRows","");
       setCheckedIndexes(initialCheckedIndexes);
@@ -90,6 +93,10 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
   const onMultSelectButtonToEditableClick = () => {  //NOSONAR
     logClick(componentName,"multSelectButtonToEditable","");
+    if (checkedIndexes.length === 0) {
+      setValidationError('Please select at least one row.');
+      return;
+    } 
     const selectedCodes = items.map(
       (item: QueryResultItem, index) => {
         if (checkedIndexes.includes(index.toString())) {
@@ -115,6 +122,10 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 
   const onMultSelectButtonToNotEditableClick = () => {
     logClick(componentName,"multSelectButtonToNotEditable","");
+    if (checkedIndexes.length === 0) {
+      setValidationError('Please select at least one row.');
+      return;
+    } 
     const selectedCodes = items.map(
       (item: QueryResultItem, index) => {
         if (checkedIndexes.includes(index.toString())) {
@@ -198,6 +209,11 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
           isEnabled={true}
         />
       </div>
+      {validationError && (
+        <div className="text-start text-danger mb-3">
+          {validationError}
+        </div>
+      )}
 
       <Table
         className="report-list-table"
