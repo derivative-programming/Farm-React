@@ -11,9 +11,9 @@ import ReportConnectedPacUserDateGreaterThanFilterList from "./PacUserDateGreate
 import * as ReportService from "../services/PacUserDateGreaterThanFilterList";
 import * as InitReportService from "../services/init/PacUserDateGreaterThanFilterListInitReport";
 import { BrowserRouter } from "react-router-dom";
-import { AxiosResponse } from 'axios';
 
 import "fake-indexeddb/auto";
+import { AxiosResponse } from 'axios';
 
 window.localStorage.setItem("@token", "sampleToken");
 

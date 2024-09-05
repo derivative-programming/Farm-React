@@ -11,9 +11,9 @@ import ReportConnectedPacUserFlavorList from "./PacUserFlavorList";
 import * as ReportService from "../services/PacUserFlavorList";
 import * as InitReportService from "../services/init/PacUserFlavorListInitReport";
 import { BrowserRouter } from "react-router-dom";
-import { AxiosResponse } from 'axios';
 
 import "fake-indexeddb/auto";
+import { AxiosResponse } from 'axios';
 
 window.localStorage.setItem("@token", "sampleToken");
 

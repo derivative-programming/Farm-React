@@ -25,15 +25,6 @@ describe("PacUserRoleList Component", () => {
 
   beforeEach(async () => {
 
-    render(
-        <ReportFilterPacUserRoleList
-          name="testForm"
-          initialQuery={intialQuery}
-          onSubmit={onSubmit}
-          onReset={onFilerReset}
-          />
-    );
-
   });
 
   // after cleanup when test-case execution is done

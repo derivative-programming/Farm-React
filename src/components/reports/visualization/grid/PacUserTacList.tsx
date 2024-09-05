@@ -52,6 +52,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
 }): ReactElement => {
   const initialCheckedIndexes: string[] = [];
   const [checkedIndexes, setCheckedIndexes] = useState(initialCheckedIndexes);
+  const [validationError, setValidationError] = useState<string | null>(null);
   const { logClick } = useAnalyticsDB();  // NOSONAR
   const componentName = "ReportGridPacUserTacList";
   const contextValueName = "pacCode";
@@ -66,6 +67,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
       checkedIndexes.push(index.toString());
       const newList = checkedIndexes.filter((item) => item);
       setCheckedIndexes(newList);
+      setValidationError(null);
     } else {
       const newList = checkedIndexes.filter(
         (item) => item !== index.toString()
@@ -82,6 +84,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
           index.toString()
         )
       );
+      setValidationError(null);
     } else {
       logClick(componentName,"uncheckSelectAllRows","");
       setCheckedIndexes(initialCheckedIndexes);
@@ -131,6 +134,11 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
       <div className="d-flex w-100 justify-content-left">
 
       </div>
+      {validationError && (
+        <div className="text-start text-danger mb-3">
+          {validationError}
+        </div>
+      )}
 
       <Table
         className="report-list-table"

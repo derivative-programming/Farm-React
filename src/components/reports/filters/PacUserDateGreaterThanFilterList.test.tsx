@@ -25,15 +25,6 @@ describe("PacUserDateGreaterThanFilterList Component", () => {
 
   beforeEach(async () => {
 
-    render(
-        <ReportFilterPacUserDateGreaterThanFilterList
-          name="testForm"
-          initialQuery={intialQuery}
-          onSubmit={onSubmit}
-          onReset={onFilerReset}
-          />
-    );
-
   });
 
   // after cleanup when test-case execution is done

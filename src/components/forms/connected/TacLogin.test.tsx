@@ -10,8 +10,8 @@ import FormConnectedTacLogin from "./TacLogin";
 import { BrowserRouter } from "react-router-dom";
 import * as FormService from "../services/TacLogin";
 import * as InitFormService from "../services/init/TacLoginInitObjWF";
-import { AxiosResponse } from 'axios';
 
+import { AxiosResponse } from 'axios';
 import "fake-indexeddb/auto";
 
 window.localStorage.setItem("@token", "sampleToken");

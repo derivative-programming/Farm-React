@@ -11,9 +11,9 @@ import ReportConnectedPlantUserDetails from "./PlantUserDetails";
 import * as ReportService from "../services/PlantUserDetails";
 import * as InitReportService from "../services/init/PlantUserDetailsInitReport";
 import { BrowserRouter } from "react-router-dom";
-import { AxiosResponse } from 'axios';
 
 import "fake-indexeddb/auto";
+import { AxiosResponse } from 'axios';
 
 window.localStorage.setItem("@token", "sampleToken");
 
