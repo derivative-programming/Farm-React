@@ -176,7 +176,11 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
   };
   const onFilterReset = () => {
     logClick("ReportConnectedPacUserDateGreaterThanFilterList","reset filter","");
-    setQuery(new PacUserDateGreaterThanFilterListReportService.QueryRequestInstance());
+    const clearQuery = new PacUserDateGreaterThanFilterListReportService.QueryRequestInstance();
+    if(isFilterPersistant ){
+      localStorage.setItem("PacUserDateGreaterThanFilterListFilter",JSON.stringify(clearQuery));
+    }
+    setInitialQuery({...clearQuery});
   };
 
   const onPageSelection = (pageNumber: number) => {

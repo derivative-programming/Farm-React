@@ -176,7 +176,11 @@ export const ReportConnectedPacUserRoleList: FC = (): ReactElement => {
   };
   const onFilterReset = () => {
     logClick("ReportConnectedPacUserRoleList","reset filter","");
-    setQuery(new PacUserRoleListReportService.QueryRequestInstance());
+    const clearQuery = new PacUserRoleListReportService.QueryRequestInstance();
+    if(isFilterPersistant ){
+      localStorage.setItem("PacUserRoleListFilter",JSON.stringify(clearQuery));
+    }
+    setInitialQuery({...clearQuery});
   };
 
   const onPageSelection = (pageNumber: number) => {

@@ -176,7 +176,11 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
   };
   const onFilterReset = () => {
     logClick("ReportConnectedPacUserFlavorList","reset filter","");
-    setQuery(new PacUserFlavorListReportService.QueryRequestInstance());
+    const clearQuery = new PacUserFlavorListReportService.QueryRequestInstance();
+    if(isFilterPersistant ){
+      localStorage.setItem("PacUserFlavorListFilter",JSON.stringify(clearQuery));
+    }
+    setInitialQuery({...clearQuery});
   };
 
   const onPageSelection = (pageNumber: number) => {

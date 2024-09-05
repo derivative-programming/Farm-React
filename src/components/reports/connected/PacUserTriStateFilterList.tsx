@@ -176,7 +176,11 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
   };
   const onFilterReset = () => {
     logClick("ReportConnectedPacUserTriStateFilterList","reset filter","");
-    setQuery(new PacUserTriStateFilterListReportService.QueryRequestInstance());
+    const clearQuery = new PacUserTriStateFilterListReportService.QueryRequestInstance();
+    if(isFilterPersistant ){
+      localStorage.setItem("PacUserTriStateFilterListFilter",JSON.stringify(clearQuery));
+    }
+    setInitialQuery({...clearQuery});
   };
 
   const onPageSelection = (pageNumber: number) => {

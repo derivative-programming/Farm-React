@@ -176,7 +176,11 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
   };
   const onFilterReset = () => {
     logClick("ReportConnectedPacUserLandList","reset filter","");
-    setQuery(new PacUserLandListReportService.QueryRequestInstance());
+    const clearQuery = new PacUserLandListReportService.QueryRequestInstance();
+    if(isFilterPersistant ){
+      localStorage.setItem("PacUserLandListFilter",JSON.stringify(clearQuery));
+    }
+    setInitialQuery({...clearQuery});
   };
 
   const onPageSelection = (pageNumber: number) => {

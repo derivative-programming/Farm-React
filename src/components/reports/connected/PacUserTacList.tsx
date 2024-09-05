@@ -176,7 +176,11 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
   };
   const onFilterReset = () => {
     logClick("ReportConnectedPacUserTacList","reset filter","");
-    setQuery(new PacUserTacListReportService.QueryRequestInstance());
+    const clearQuery = new PacUserTacListReportService.QueryRequestInstance();
+    if(isFilterPersistant ){
+      localStorage.setItem("PacUserTacListFilter",JSON.stringify(clearQuery));
+    }
+    setInitialQuery({...clearQuery});
   };
 
   const onPageSelection = (pageNumber: number) => {

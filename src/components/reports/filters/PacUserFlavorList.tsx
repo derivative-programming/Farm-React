@@ -86,9 +86,6 @@ const ReportFilterPacUserFlavorList: FC<ReportFilterPacUserFlavorListProps> = ({
               enableReinitialize={true}
               initialValues={initialQuery}
               validationSchema={validationSchema}
-              onReset={async () => {
-                await resetButtonClick();
-              }}
               onSubmit={async (values, actions) => {
                 await submitButtonClick(values, actions);
               }}
@@ -97,7 +94,6 @@ const ReportFilterPacUserFlavorList: FC<ReportFilterPacUserFlavorListProps> = ({
                 <Form
                   name={name}
                   data-testid={name}
-                  onReset={props.handleReset}
                   onSubmit={props.handleSubmit}
                   autoComplete="off"
                 >
@@ -129,7 +125,10 @@ const ReportFilterPacUserFlavorList: FC<ReportFilterPacUserFlavorListProps> = ({
                         <Button
                           className="ms-2 mt-3"
                           type="reset"
-                          onClick={() => props.resetForm()}
+                          onClick={async () => {
+                            await resetButtonClick();
+                            props.resetForm();
+                          }}
                           variant="outline-secondary"
                           data-testid="reset"
                         >
