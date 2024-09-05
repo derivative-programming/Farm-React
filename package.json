@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node ./generate-version.gen.js && react-scripts build",
     "sass": "sass --load-path=./src --load-path=./node_modules src/:src/",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!axios)/' --coverage --detectOpenHandles",
     "eject": "react-scripts eject",
