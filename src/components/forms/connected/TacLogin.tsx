@@ -52,7 +52,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
   const validationSchema = TacLoginFormValidation.buildValidationSchema();
 
   const authContext = useContext(AuthContext); 
-
+   
   const handleInit = (responseFull: InitFormService.ResponseFull) => {
     const initFormResponse: InitFormService.InitResult = responseFull.data;
 

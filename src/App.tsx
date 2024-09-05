@@ -6,6 +6,7 @@ import AppRoute from "./routes/appRoutes";
 import AuthRoute from "./routes/authRoutes";
 import GDPRBanner from "./components/gdpr/Banner";
 import CheckVersion from "./hooks/CheckVersion";
+import { ErrorMonitor, useGlobalErrorMonitor } from './hooks/ErrorMonitor'; 
 
 const App: FC = (): ReactElement => {
   const authValue = useContext(AuthContext);
@@ -14,14 +15,20 @@ const App: FC = (): ReactElement => {
     window.location.reload(); // Force a full page reload to fetch the new version
   };
 
+  // Call the hook to start monitoring for global errors
+  useGlobalErrorMonitor();
+  
+
   return (
-    <div className=" App " data-testid="app">
-      <BrowserRouter>
-        {authValue && authValue.token ? <AppRoute /> : <AuthRoute />}
-      </BrowserRouter>
-      <CheckVersion onNewVersionDetected={handleNewVersionDetected} checkInterval={10000} />
-      <GDPRBanner />
-    </div>
+    <ErrorMonitor>
+      <div className=" App " data-testid="app">
+        <BrowserRouter>
+          {authValue && authValue.token ? <AppRoute /> : <AuthRoute />}
+        </BrowserRouter>
+        <CheckVersion onNewVersionDetected={handleNewVersionDetected} checkInterval={10000} />
+        <GDPRBanner />
+      </div>
+    </ErrorMonitor>
   );
 };
 
