@@ -7,6 +7,8 @@ export interface ReportColumnDisplayNumberProps {
   value: number | null 
   isVisible?:boolean
   conditionallyVisible?:boolean
+  isJoinedToLeftColumn?:boolean
+  isJoinedToRightColumn?:boolean
 }
    
 export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
@@ -15,6 +17,8 @@ export const ReportColumnDisplayNumber: FC<ReportColumnDisplayNumberProps> = ({
   value, 
   isVisible = true,
   conditionallyVisible = true,
+  isJoinedToLeftColumn = false,
+  isJoinedToRightColumn = false,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();

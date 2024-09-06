@@ -7,6 +7,8 @@ export interface ReportColumnDisplayImageUrlProps {
   value: string | null
   isVisible?:boolean
   conditionallyVisible?:boolean
+  isJoinedToLeftColumn?:boolean
+  isJoinedToRightColumn?:boolean
 }
 
 export const ReportColumnDisplayImageUrl: FC<ReportColumnDisplayImageUrlProps> = ({
@@ -15,6 +17,8 @@ export const ReportColumnDisplayImageUrl: FC<ReportColumnDisplayImageUrlProps> =
   value,
   isVisible = true,
   conditionallyVisible = true,
+  isJoinedToLeftColumn = false,
+  isJoinedToRightColumn = false,
 }): ReactElement => {
 
   const groupName = forColumn +'-column-' + rowIndex.toString();

@@ -18,6 +18,8 @@
         "reportButton.isButtonCallToAction",
         "reportButton.isEnabled", 
         "reportColumn.calculatedIsAddedIntoExport", 
-        "reportColumn.isFilterAvailable"
+        "reportColumn.isFilterAvailable", 
+        "reportColumn.isJoinedToLeftColumn", 
+        "reportColumn.isJoinedToRightColumn"
     ]
 }

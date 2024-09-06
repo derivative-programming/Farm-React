@@ -8,6 +8,8 @@ export interface ReportColumnHeaderProps {
   isSortDescending: boolean;
   onSort(columnName: string): void;
   isVisible?: boolean;
+  isJoinedToLeftColumn?:boolean
+  isJoinedToRightColumn?:boolean
 }
 
 export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
@@ -17,6 +19,8 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   isSortDescending,
   onSort,
   isVisible = true,
+  isJoinedToLeftColumn = false,
+  isJoinedToRightColumn = false,
 }): ReactElement => {
 
   return (

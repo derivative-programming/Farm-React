@@ -241,6 +241,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Edit Allowed"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -249,6 +251,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Int Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -257,6 +261,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Int Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -265,6 +271,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Big Int Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -273,6 +281,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Big Int Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -281,6 +291,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Bit Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -289,6 +301,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Bit Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -298,6 +312,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Delete Allowed"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -306,6 +322,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Float Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -314,6 +332,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Float Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -322,6 +342,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Decimal Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -330,6 +352,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Decimal Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -338,6 +362,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Date Time Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -346,6 +372,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Date Time Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -354,6 +382,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Date Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -362,6 +392,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Date Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -370,6 +402,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Money Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -378,6 +412,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Money Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -386,6 +422,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="N Var Char Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -394,6 +432,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional N Var Char Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -402,6 +442,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Var Char Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -410,6 +452,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Var Char Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -418,6 +462,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Text Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -426,6 +472,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Text Val"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -434,6 +482,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Phone Number"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -442,6 +492,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Phone Number"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -450,6 +502,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Email Address"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -458,6 +512,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Email Address"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -466,6 +522,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Is Image Url Available"
               onSort={onSort}
               isVisible={false}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -474,6 +532,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Image Url"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -482,6 +542,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional Image Url"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -490,6 +552,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Flavor Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -498,6 +562,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="flavor Code"
               onSort={onSort}
               isVisible={false}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -506,6 +572,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Int Conditional"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -514,6 +582,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="N Var Char As Url"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -522,6 +592,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label="Conditional N Var Char As Url"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -529,8 +601,10 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isSortDescending={isSortDescending}
               label=""
               onSort={onSort}
-              sortedColumnName={sortedColumnName}
               isVisible={false}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
+              sortedColumnName={sortedColumnName}
             />
 
             <ReportColumnHeader forColumn="deleteAsyncButtonLinkPlantCode"
@@ -538,6 +612,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label=""
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -546,6 +622,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label=""
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -554,6 +632,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label=""
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -562,6 +642,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label=""
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -570,6 +652,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label=""
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -578,6 +662,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label=""
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 
@@ -586,6 +672,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               label=""
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 {/* endset */}
@@ -614,18 +702,24 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     isChecked={item.isEditAllowed}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntVal"
                     rowIndex={index}
                     value={item.someIntVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalIntVal"
                     rowIndex={index}
                     value={item.someConditionalIntVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -633,12 +727,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someBigIntVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalBigIntVal"
                     rowIndex={index}
                     value={item.someConditionalBigIntVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -646,12 +744,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     isChecked={item.someBitVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someConditionalBitVal"
                     rowIndex={index}
                     isChecked={item.someConditionalBitVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -660,18 +762,24 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     isChecked={item.isDeleteAllowed}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someFloatVal"
                     rowIndex={index}
                     value={item.someFloatVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalFloatVal"
                     rowIndex={index}
                     value={item.someConditionalFloatVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -679,12 +787,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someDecimalVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalDecimalVal"
                     rowIndex={index}
                     value={item.someConditionalDecimalVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -692,12 +804,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someUTCDateTimeVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someConditionalUTCDateTimeVal"
                     rowIndex={index}
                     value={item.someConditionalUTCDateTimeVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -705,12 +821,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someDateVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someConditionalDateVal"
                     rowIndex={index}
                     value={item.someConditionalDateVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -718,12 +838,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someMoneyVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayMoney forColumn="someConditionalMoneyVal"
                     rowIndex={index}
                     value={item.someConditionalMoneyVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -731,12 +855,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someNVarCharVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalNVarCharVal"
                     rowIndex={index}
                     value={item.someConditionalNVarCharVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -744,12 +872,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someVarCharVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalVarCharVal"
                     rowIndex={index}
                     value={item.someConditionalVarCharVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -757,12 +889,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someTextVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalTextVal"
                     rowIndex={index}
                     value={item.someConditionalTextVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -770,12 +906,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.somePhoneNumber}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="someConditionalPhoneNumber"
                     rowIndex={index}
                     value={item.someConditionalPhoneNumber}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -783,12 +923,16 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.someEmailAddress}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayEmail forColumn="someConditionalEmailAddress"
                     rowIndex={index}
                     value={item.someConditionalEmailAddress}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -797,18 +941,24 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     isChecked={item.isImageUrlAvailable}
                     isVisible={false}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayImageUrl forColumn="someImageUrlVal"
                     rowIndex={index}
                     value={item.someImageUrlVal}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayImageUrl forColumn="someConditionalImageUrl"
                     rowIndex={index}
                     value={item.someConditionalImageUrl}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isImageUrlAvailable} 
                   />
 
@@ -816,17 +966,24 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     rowIndex={index}
                     value={item.flavorName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorCode"
                     rowIndex={index}
                     value={item.flavorCode}
                     isVisible={false}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntConditionalOnDeletable"
                     rowIndex={index}
                     value={item.someIntConditionalOnDeletable}
+                    isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isDeleteAllowed} 
                   />
 
@@ -835,6 +992,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     value={item.nVarCharAsUrl}
                     linkText="Click Here"
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="nVarCharConditionalAsUrl"
@@ -842,6 +1001,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     value={item.nVarCharConditionalAsUrl}
                     linkText="Click Here"
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                   />
 
@@ -854,6 +1015,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                       onNavigateTo("/plant-user-details/" + item.updateLinkPlantCode)
                     }}
                     isVisible={false}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
  
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="deleteAsyncButtonLinkPlantCode"
@@ -861,6 +1024,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Delete"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     onClick={() =>
                       {
                         logClick(componentName,"deleteAsyncButtonLinkPlantCode","");
@@ -881,6 +1046,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Details"
                     isButtonCallToAction={true}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     onClick={() => {
                       logClick(componentName,"detailsLinkPlantCode","");
                       onNavigateTo("/plant-user-details/" + item.detailsLinkPlantCode);
@@ -892,6 +1059,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Test File Download"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     onClick={() =>
                       {
                         logClick(componentName,"testFileDownloadLinkPacCode","");
@@ -908,6 +1077,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Test Conditional File Download"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                     onClick={() =>
                       {
@@ -925,6 +1096,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Test Async Flow Req"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     onClick={() =>
                       {
                         logClick(componentName,"testAsyncFlowReqLinkPacCode","");
@@ -944,6 +1117,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Test Conditional Async Flow Req"
                     isButtonCallToAction={false}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                     onClick={() =>
                       {
@@ -964,6 +1139,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     buttonText="Conditional Btn Example"
                     isButtonCallToAction={true}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
                     onClick={() => {
                       logClick(componentName,"conditionalBtnExampleLinkPlantCode","");

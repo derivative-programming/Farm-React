@@ -8,6 +8,8 @@ export interface ReportColumnDisplayUrlProps {
   linkText: string 
   isVisible?:boolean
   conditionallyVisible?:boolean
+  isJoinedToLeftColumn?:boolean
+  isJoinedToRightColumn?:boolean
 }
    
 export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
@@ -17,6 +19,8 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   linkText, 
   isVisible = true,
   conditionallyVisible = true,
+  isJoinedToLeftColumn = false,
+  isJoinedToRightColumn = false,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();

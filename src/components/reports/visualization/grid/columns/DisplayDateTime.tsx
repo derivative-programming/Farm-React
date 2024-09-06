@@ -8,6 +8,8 @@ export interface ReportColumnDisplayDateTimeProps {
   value: string | null 
   isVisible?:boolean
   conditionallyVisible?:boolean
+  isJoinedToLeftColumn?:boolean
+  isJoinedToRightColumn?:boolean
 }
    
 export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> = ({
@@ -16,6 +18,8 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
   value, 
   isVisible = true,
   conditionallyVisible = true,
+  isJoinedToLeftColumn = false,
+  isJoinedToRightColumn = false,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
