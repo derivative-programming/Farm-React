@@ -33,12 +33,15 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   name = "formConnectedLandAddPlant",
   showProcessingAnimationOnInit = true,
 }): ReactElement => {
-  const [initPageResponse, setInitPageResponse] = useState(
-    new InitFormService.InitResultInstance()
-  );
-  const [initialValues, setInitialValues] = useState(
-    new LandAddPlantFormService.SubmitRequestInstance()
-  );
+  // const [initPageResponse, setInitPageResponse] = useState(
+  //   new InitFormService.InitResultInstance()
+  // );
+  const [initPageResponse, setInitPageResponse] = useState<InitFormService.InitResult | null>(null);
+  // const [initialValues, setInitialValues] = useState(
+  //   new LandAddPlantFormService.SubmitRequestInstance()
+  // );
+  const [initialValues, setInitialValues] = useState<LandAddPlantFormService.SubmitRequest | null>(null);
+  
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
   const initHeaderErrors: string[] = [];
@@ -53,6 +56,8 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
   const contextObjectName = "land";
+
+  const isAutoSubmit = false;
 
   const validationSchema = LandAddPlantFormValidation.buildValidationSchema();
 
@@ -123,7 +128,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       {/*//GENTrainingBlock[caseGetApiKey]End*/} 
       actions.setSubmitting(false);
       actions.resetForm();
-      submitButtonNavigateTo();
+      submitButtonNavigateTo("land-plant-list","landCode");
     } catch (error) {
       actions.setSubmitting(false);
     }
@@ -131,22 +136,48 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       setLoading(false);
     }
   };
+  
+  {/*//GENIF[isautoSubmit=true]Start*/}
+  
+  const autoSubmit = async (
+    values: LandAddPlantFormService.SubmitRequest
+  ) => {
+    try {  
+      const responseFull: LandAddPlantFormService.ResponseFull = await LandAddPlantFormService.submitForm(
+        values,
+        contextCode
+      );
+      const response: LandAddPlantFormService.SubmitResult = responseFull.data;
+      lastApiSubmissionRequest = { ...values };
+      lastApiSubmissionResponse = { ...response };
+      if (!response.success) {
+        //click cancel
+      }
+    } catch (error) {
+      //click cancel
+    }  
+    
+    //GENINCLUDEFILE[GENVALName.autosubmit.include.*]
+  };
+  {/*//GENIF[isautoSubmit=true]End*/}
 
-  const submitButtonNavigateTo = () => {
-    const page = "land-plant-list" 
-    const codeName = "landCode";
+  const submitButtonNavigateTo = (page:string, codeName:string) => {
+    // const page = "land-plant-list" 
+    // const codeName = "landCode";
     let targetContextCode = "00000000-0000-0000-0000-000000000000";
     if(codeName == contextObjectName + "Code")
     {
       targetContextCode = contextCode;
     }
-    Object.entries(initPageResponse).forEach(([key, value]) => {
-      if (key === codeName) {
-        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
-          targetContextCode = value;
+    if(initPageResponse !== null){
+      Object.entries(initPageResponse).forEach(([key, value]) => {
+        if (key === codeName) {
+          if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+            targetContextCode = value;
+          }
         }
-      }
-    });
+      });
+    }
     Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
       if (key === codeName) {
         if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
@@ -159,6 +190,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   };
 
   useEffect(() => {
+    console.log("FormConnectedLandAddPlant useEffect");
     if (isInitializedRef.current) {
       return;
     }
@@ -169,21 +201,46 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   }, []);
 
   useEffect(() => {
+    console.log("FormConnectedLandAddPlant useEffect initPageResponse",initPageResponse);
+    if(initPageResponse === null){
+      return;
+    }
     const newInitalValues = LandAddPlantFormService.buildSubmitRequest(initPageResponse);
-    setInitialValues({ ...newInitalValues });
+    
+    {/*//GENIF[isautoSubmit=true]Start*/}
+    if(isAutoSubmit){
+      autoSubmit(newInitalValues);
+    }
+    {/*//GENIF[isautoSubmit=true]Start*/}
+    {/*//GENIF[isautoSubmit=false]Start*/}
+    if(!isAutoSubmit){
+      setInitialValues({ ...newInitalValues });
+    }
+    {/*//GENIF[isautoSubmit=false]Start*/}  
   }, [initPageResponse]);
+  
+  useEffect(() => {
+    console.log("FormConnectedLandAddPlant useEffect initForm",initForm);
+    
+  }, [initForm]);
+  
+  useEffect(() => {
+    console.log("FormConnectedLandAddPlant useEffect initialValues",initialValues);
+  }, [initialValues]);
 
   const navigateTo = (page: string, codeName: string) => {
     let targetContextCode = contextCode;
-    Object.entries(initPageResponse).forEach(([key, value]) => {
-      if (key === codeName) {
-        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
-          targetContextCode = value;
-        } else {
-          return;
+    if(initPageResponse !== null){
+      Object.entries(initPageResponse).forEach(([key, value]) => {
+        if (key === codeName) {
+          if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+            targetContextCode = value;
+          } else {
+            return;
+          }
         }
-      }
-    });
+      });
+    }
     const url = "/" + page + "/" + targetContextCode; 
     navigate(url);
   };
@@ -193,228 +250,240 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     className="row justify-content-center"
 
     >
-      <div className="col-md-7 col-lg-6 col-xl-5">
-        <Card
-          className="mt-1 page-card"
+      {!isAutoSubmit && (
+        <div className="col-md-7 col-lg-6 col-xl-5">
+          <Card
+            className="mt-1 page-card"
 
-        >
-          <h2 data-testid="page-title-text">
-            Add Plant
-            Add plant form title text
-          </h2>
-          <h6 data-testid="page-intro-text">
-            Add plant intro text.
-            Add plant form intro text
-          </h6>
-
-          <HeaderLandAddPlant  
-            name="headerLandAddPlant"
-            initData={initPageResponse}
-            isHeaderVisible={true}
-          />
-
-          <Formik
-            enableReinitialize={true}
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            validate={handleValidate}
-            onSubmit={async (values, actions) => {
-              await submitClick(values, actions);
-            }}
           >
-            {(props: FormikProps<LandAddPlantFormService.SubmitRequest>) => (
-              <Form
-                className=""
-                name={name}
-                data-testid={name}
-                onReset={props.handleReset}
-                onSubmit={props.handleSubmit}
-              >
-                { initForm && showProcessingAnimationOnInit ?
-                  <div className="text-center  bg-secondary bg-opacity-25">
-                      <Spinner animation="border" className="mt-2 mb-2" />
-                  </div>
-                  : 
-                  <div> 
-                    <InputFields.ErrorDisplay
-                      name="headerErrors"
-                      errorArray={headerErrors}
-                    />
-                    <Lookups.FormSelectFlavor name="requestFlavorCode"
-                      label="Select A Flavor"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputText name="requestOtherFlavor"
-                      label="Other Flavor"
-                      isVisible={true}
-                      isRequired={false}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputNumber name="requestSomeIntVal"
-                      label="Some Int Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputNumber name="requestSomeBigIntVal"
-                      label="Some Big Int Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputCheckbox name="requestSomeBitVal"
-                      label="Some Bit Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputCheckbox name="requestIsEditAllowed"
-                      label="Is Edit Allowed"
-                      isVisible={true}
-                      isRequired={false}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputCheckbox name="requestIsDeleteAllowed"
-                      label="Is Delete Allowed"
-                      isVisible={true}
-                      isRequired={false}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputNumber name="requestSomeFloatVal"
-                      label="Some Float Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputNumber name="requestSomeDecimalVal"
-                      label="Some Decimal Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputDateTime name="requestSomeUTCDateTimeVal"
-                      label="Some UTC Date Time Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputDate name="requestSomeDateVal"
-                      label="Some Date Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputMoney name="requestSomeMoneyVal"
-                      label="Some Money Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputText name="requestSomeNVarCharVal"
-                      label="Some N Var Char Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputPassword name="requestSomeVarCharVal"
-                      label="Some Secure Var Char Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputTextArea name="requestSomeLongVarCharVal"
-                      label="Some Long Var Char Val"
-                      isVisible={true}
-                      isRequired={false}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputTextArea name="requestSomeLongNVarCharVal"
-                      label="Some Long N Var Char Val"
-                      isVisible={true}
-                      isRequired={false}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputTextArea name="requestSomeTextVal"
-                      label="Some Text Val"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputText name="requestSomePhoneNumber"
-                      label="Some Phone Number" 
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputEmail name="requestSomeEmailAddress"
-                      label="Some Email Address"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputFile name="requestSampleImageUploadFile"
-                      label="Sample Image Upload"
-                      isVisible={true}
-                      isRequired={false}
-                      detailText="Sample Details Text"
-                    />
-                    <InputFields.FormInputText name="someImageUrlVal"
-                      label="Some Image Url" 
-                      isVisible={true}
-                      isRequired={false}
-                      detailText=""
-                    />
-                  </div>
-                }
-                <div className="">
-                  <Button type="submit" data-testid="submit-button"
-                    variant="outline-primary"
-                    className="me-2 mt-3">
-                    {
-                      loading &&
-                      (<Spinner
-                        as="span"
-                        animation="border"
-                        size="sm"
-                        role="status"
-                        aria-hidden="true"
-                        className="spinner-button"
-                      />)
-                    }
-                    <span className="sr-only">OK Button Text</span>
+            <h2 data-testid="page-title-text">
+              Add Plant
+              Add plant form title text
+            </h2>
+            <h6 data-testid="page-intro-text">
+              Add plant intro text.
+              Add plant form intro text
+            </h6>
 
-                  </Button>
-                  <InputFields.FormInputButton name="cancel-button"
-                    buttonText="Cancel Button Text"
-                    onClick={() => {
-                      logClick("FormConnectedLandAddPlant","cancel","");
-                      navigateTo("land-plant-list", "landCode");
-                    }}
-                    isButtonCallToAction={false}
-                    isVisible={true}
-                    className="me-2 mt-3"
-                  />
-                  <InputFields.FormInputButton name="other-button"
-                    buttonText="Go To Dashboard"
-                    onClick={() => {
-                      logClick("FormConnectedLandAddPlant","otherButton","");
-                      navigateTo("tac-farm-dashboard", "tacCode");
-                    }}
-                    isButtonCallToAction={false}
-                    isVisible={true}
-                    className="me-2 mt-3"
-                  />
-                </div>
-              </Form>
+            {initPageResponse && (
+              <HeaderLandAddPlant  
+                name="headerLandAddPlant"
+                initData={initPageResponse}
+                isHeaderVisible={true}
+              />
             )}
-          </Formik>
-          <div className="mt-3">
-            <h6 data-testid="page-footer-text">Add plant form footer text</h6>
-          </div>
-        </Card>
-      </div>
+            
+            {!initialValues && (
+              <div className="text-center  bg-secondary bg-opacity-25">
+                  <Spinner animation="border" className="mt-2 mb-2" />
+              </div>
+            )}
+
+            {initialValues && (
+              <Formik
+                enableReinitialize={true}
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                validate={handleValidate}
+                onSubmit={async (values, actions) => {
+                  await submitClick(values, actions);
+                }}
+              >
+                {(props: FormikProps<LandAddPlantFormService.SubmitRequest>) => (
+                  <Form
+                    className=""
+                    name={name}
+                    data-testid={name}
+                    onReset={props.handleReset}
+                    onSubmit={props.handleSubmit}
+                  >
+                    { initForm && showProcessingAnimationOnInit ?
+                      <div className="text-center  bg-secondary bg-opacity-25">
+                          <Spinner animation="border" className="mt-2 mb-2" />
+                      </div>
+                      : 
+                      <div> 
+                        <InputFields.ErrorDisplay
+                          name="headerErrors"
+                          errorArray={headerErrors}
+                        />
+                        <Lookups.FormSelectFlavor name="requestFlavorCode"
+                          label="Select A Flavor"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputText name="requestOtherFlavor"
+                          label="Other Flavor"
+                          isVisible={true}
+                          isRequired={false}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputNumber name="requestSomeIntVal"
+                          label="Some Int Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputNumber name="requestSomeBigIntVal"
+                          label="Some Big Int Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputCheckbox name="requestSomeBitVal"
+                          label="Some Bit Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputCheckbox name="requestIsEditAllowed"
+                          label="Is Edit Allowed"
+                          isVisible={true}
+                          isRequired={false}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputCheckbox name="requestIsDeleteAllowed"
+                          label="Is Delete Allowed"
+                          isVisible={true}
+                          isRequired={false}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputNumber name="requestSomeFloatVal"
+                          label="Some Float Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputNumber name="requestSomeDecimalVal"
+                          label="Some Decimal Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputDateTime name="requestSomeUTCDateTimeVal"
+                          label="Some UTC Date Time Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputDate name="requestSomeDateVal"
+                          label="Some Date Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputMoney name="requestSomeMoneyVal"
+                          label="Some Money Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputText name="requestSomeNVarCharVal"
+                          label="Some N Var Char Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputPassword name="requestSomeVarCharVal"
+                          label="Some Secure Var Char Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputTextArea name="requestSomeLongVarCharVal"
+                          label="Some Long Var Char Val"
+                          isVisible={true}
+                          isRequired={false}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputTextArea name="requestSomeLongNVarCharVal"
+                          label="Some Long N Var Char Val"
+                          isVisible={true}
+                          isRequired={false}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputTextArea name="requestSomeTextVal"
+                          label="Some Text Val"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputText name="requestSomePhoneNumber"
+                          label="Some Phone Number" 
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputEmail name="requestSomeEmailAddress"
+                          label="Some Email Address"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputFile name="requestSampleImageUploadFile"
+                          label="Sample Image Upload"
+                          isVisible={true}
+                          isRequired={false}
+                          detailText="Sample Details Text"
+                        />
+                        <InputFields.FormInputText name="someImageUrlVal"
+                          label="Some Image Url" 
+                          isVisible={true}
+                          isRequired={false}
+                          detailText=""
+                        />
+                      </div>
+                    }
+                    <div className="">
+                      <Button type="submit" data-testid="submit-button"
+                        variant="outline-primary"
+                        className="me-2 mt-3">
+                        {
+                          loading &&
+                          (<Spinner
+                            as="span"
+                            animation="border"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                            className="spinner-button"
+                          />)
+                        }
+                        <span className="sr-only">OK Button Text</span>
+
+                      </Button>
+                      <InputFields.FormInputButton name="cancel-button"
+                        buttonText="Cancel Button Text"
+                        onClick={() => {
+                          logClick("FormConnectedLandAddPlant","cancel","");
+                          navigateTo("land-plant-list", "landCode");
+                        }}
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        className="me-2 mt-3"
+                      />
+                      <InputFields.FormInputButton name="other-button"
+                        buttonText="Go To Dashboard"
+                        onClick={() => {
+                          logClick("FormConnectedLandAddPlant","otherButton","");
+                          navigateTo("tac-farm-dashboard", "tacCode");
+                        }}
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        className="me-2 mt-3"
+                      />
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            )}
+            <div className="mt-3">
+              <h6 data-testid="page-footer-text">Add plant form footer text</h6>
+            </div>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };

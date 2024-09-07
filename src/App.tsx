@@ -25,7 +25,7 @@ const App: FC = (): ReactElement => {
         <BrowserRouter>
           {authValue && authValue.token ? <AppRoute /> : <AuthRoute />}
         </BrowserRouter>
-        <CheckVersion onNewVersionDetected={handleNewVersionDetected} checkInterval={10000} />
+        <CheckVersion onNewVersionDetected={handleNewVersionDetected} checkInterval={600000} />
         <GDPRBanner />
       </div>
     </ErrorMonitor>

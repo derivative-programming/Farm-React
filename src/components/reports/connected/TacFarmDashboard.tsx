@@ -6,7 +6,7 @@ import React, {
     useEffect,
     useRef,
   } from "react";
-  import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
+  import { Button, Card, Breadcrumb, Col, Row, Spinner  } from "react-bootstrap"; // NOSONAR 
   import "../../../App.scss";
   
   import { useNavigate, useParams } from "react-router-dom";
@@ -241,6 +241,15 @@ import { ReportDetailTwoColTacFarmDashboard } from "../visualization/detail-two-
                     onRefreshRequest={onRefreshRequest}
                     showProcessing={isProcessing}
                 /> 
+            )}
+            {!displayItem && (
+                <Row>
+                    <Col  lg={{ span: 4, offset: 4 }} md={{ span: 4, offset: 4 }} xs="12"> 
+                    <div className="text-center  bg-secondary bg-opacity-25">
+                          <Spinner animation="border" className="mt-2 mb-2" />
+                      </div>
+                    </Col>
+                </Row>
             )}
             {/*//GENLearn[visualizationType=DetailTwoColumn]End*/}
             {/*//GENTrainingBlock[visualizationType]End*/}

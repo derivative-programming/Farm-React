@@ -415,6 +415,27 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
             showProcessing={isProcessing}
           />
         )}
+        {!queryResult && (
+          <ReportGridLandPlantList
+            isSortDescending={false}
+            items={new LandPlantListReportService.QueryResultInstance().items}
+            name="reportConnectedLandPlantList-table"
+            contextCode={contextCode}
+            onSort={onSort}
+            onExport={onExport}
+            onNavigateTo={onNavigateTo}
+            onRefreshRequest={onRefreshRequest}
+            sortedColumnName={""}
+            currentPage={1}
+            onPageSelection={onPageSelection}
+            onPageSizeChange={onPageSizeChange}
+            pageSize={10}
+            totalItemCount={0}
+            showPagingControls={isPagingAvailable}
+            showExport={!isExportButtonsHidden}
+            showProcessing={true}
+          />
+        )}
         {/*//GENLearn[visualizationType=Grid]End*/}
         {/*//GENTrainingBlock[visualizationType]End*/}
 

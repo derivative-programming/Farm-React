@@ -1,0 +1,17 @@
+
+    //GENLOOPobjectWorkflowButtonStart
+    //GENIF[buttonType=submit]Start
+    //GENIF[calculatedIsConditionalVisible=false]Start
+    submitButtonNavigateTo("GENVALKebabdestinationTargetName","GENVALCameldestinationContextObjectNameCode"); 
+    //GENIF[calculatedIsConditionalVisible=false]End
+    //GENIF[calculatedIsConditionalVisible=true]Start
+    if(("GENVALconditionalVisiblePropertyName" in lastApiSubmissionResponse && 
+      lastApiSubmissionResponse.GENVALconditionalVisiblePropertyName === true) ||
+      ("GENVALconditionalVisiblePropertyName" in initPageResponse && 
+        initPageResponse.GENVALconditionalVisiblePropertyName === true)){
+            
+        submitButtonNavigateTo("GENVALKebabdestinationTargetName","GENVALCameldestinationContextObjectNameCode"); 
+    }
+    //GENIF[calculatedIsConditionalVisible=true]End
+    //GENIF[buttonType=submit]End
+    //GENLOOPobjectWorkflowButtonEnd

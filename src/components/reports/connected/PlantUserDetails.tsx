@@ -6,7 +6,7 @@ import React, {
     useEffect,
     useRef,
   } from "react";
-  import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
+  import { Button, Card, Breadcrumb, Row, Col, Spinner } from "react-bootstrap"; // NOSONAR
   import "../../../App.scss";
   
   import { useNavigate, useParams } from "react-router-dom";
@@ -243,13 +243,25 @@ import { ReportDetailThreeColPlantUserDetails } from "../visualization/detail-th
             {/*//GENLearn[visualizationType=DetailThreeColumn]Start*/}
 
             {displayItem && (
-                <ReportDetailThreeColPlantUserDetails
-                    item={displayItem}
-                    name="reportConnectedPlantUserDetails-table"
-                    onNavigateTo={onNavigateTo}
-                    onRefreshRequest={onRefreshRequest}
-                    showProcessing={isProcessing}
-                />
+              <ReportDetailThreeColPlantUserDetails
+                  item={displayItem}
+                  name="reportConnectedPlantUserDetails-table"
+                  onNavigateTo={onNavigateTo}
+                  onRefreshRequest={onRefreshRequest}
+                  showProcessing={isProcessing}
+              />
+            )}
+             {!displayItem && (
+                
+              <div data-testid={name} className='mt-3 w-100'>
+                <Row>
+                      <Col  lg="12" md="12" xs="12">
+                      <div className="text-center  bg-secondary bg-opacity-25">
+                            <Spinner animation="border" className="mt-2 mb-2" />
+                        </div>
+                      </Col>
+                  </Row>
+              </div>
             )}
             {/*//GENLearn[visualizationType=DetailThreeColumn]End*/}
             {/*//GENTrainingBlock[visualizationType]End*/}
