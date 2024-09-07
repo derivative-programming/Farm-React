@@ -156,6 +156,8 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               label="land Code"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="landDescription"
@@ -163,6 +165,8 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               label="Description"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="landDisplayOrder"
@@ -170,6 +174,8 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               label="Display Order"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="landIsActive"
@@ -177,6 +183,8 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               label="Is Active"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="landLookupEnumName"
@@ -184,6 +192,8 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               label="Lookup Enum Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="landName"
@@ -191,6 +201,8 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               label="Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="pacName"
@@ -198,6 +210,8 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
               label="Pac Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 {/* endset */}
@@ -214,36 +228,50 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
                     rowIndex={index}
                     value={item.landCode}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="landDescription"
                     rowIndex={index}
                     value={item.landDescription}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="landDisplayOrder"
                     rowIndex={index}
                     value={item.landDisplayOrder}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="landIsActive"
                     rowIndex={index}
                     isChecked={item.landIsActive}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="landLookupEnumName"
                     rowIndex={index}
                     value={item.landLookupEnumName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="landName"
                     rowIndex={index}
                     value={item.landName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="pacName"
                     rowIndex={index}
                     value={item.pacName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 {/* endset */}
 

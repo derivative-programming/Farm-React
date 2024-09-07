@@ -33,12 +33,9 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   name = "formConnectedTacRegister",
   showProcessingAnimationOnInit = true,
 }): ReactElement => {
-  const [initPageResponse, setInitPageResponse] = useState(
-    new InitFormService.InitResultInstance()
-  );
-  const [initialValues, setInitialValues] = useState(
-    new TacRegisterFormService.SubmitRequestInstance()
-  );
+  const [initPageResponse, setInitPageResponse] = useState<InitFormService.InitResult | null>(null);
+  const [initialValues, setInitialValues] = useState<TacRegisterFormService.SubmitRequest | null>(null);
+
   const [loading, setLoading] = useState(false);
   const [initForm, setInitForm] = useState(showProcessingAnimationOnInit);
   const initHeaderErrors: string[] = [];
@@ -53,6 +50,8 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   const { id } = useParams();
   const contextCode: string = id ?? "00000000-0000-0000-0000-000000000000";
   const contextObjectName = "tac";
+
+  const isAutoSubmit = false;
 
   const validationSchema = TacRegisterFormValidation.buildValidationSchema();
 
@@ -130,7 +129,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 
       actions.setSubmitting(false);
       actions.resetForm();
-      submitButtonNavigateTo();
+      submitNavigateTo("tac-farm-dashboard","tacCode"); //submitButton
     } catch (error) {
       actions.setSubmitting(false);
     }
@@ -138,21 +137,46 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       setLoading(false);
     }
   };
-  const submitButtonNavigateTo = () => {
-    const page = "tac-farm-dashboard"
-    const codeName = "tacCode";
+
+  const autoSubmit = async (
+    values: TacRegisterFormService.SubmitRequest
+  ) => {
+    try {
+      const responseFull: TacRegisterFormService.ResponseFull = await TacRegisterFormService.submitForm(
+        values,
+        contextCode
+      );
+      const response: TacRegisterFormService.SubmitResult = responseFull.data;
+      lastApiSubmissionRequest = { ...values };
+      lastApiSubmissionResponse = { ...response };
+      if (!response.success) {
+        //click cancel
+      }
+    } catch (error) {
+      //click cancel
+    }
+
+    submitNavigateTo("tac-farm-dashboard","tacCode");
+
+  };
+
+  const submitNavigateTo = (page:string, codeName:string) => {
+    // const page = "tac-customer-list"
+    // const codeName = "tacCode";
     let targetContextCode = "00000000-0000-0000-0000-000000000000";
     if(codeName == contextObjectName + "Code")
     {
       targetContextCode = contextCode;
     }
-    Object.entries(initPageResponse).forEach(([key, value]) => {
-      if (key === codeName) {
-        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
-          targetContextCode = value;
+    if(initPageResponse !== null){
+      Object.entries(initPageResponse).forEach(([key, value]) => {
+        if (key === codeName) {
+          if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+            targetContextCode = value;
+          }
         }
-      }
-    });
+      });
+    }
     Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
       if (key === codeName) {
         if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
@@ -165,6 +189,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   };
 
   useEffect(() => {
+    console.log("FormConnectedTacRegister useEffect");
     if (isInitializedRef.current) {
       return;
     }
@@ -175,21 +200,38 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   }, []);
 
   useEffect(() => {
+    console.log("FormConnectedTacRegister useEffect initPageResponse",initPageResponse);
+    if(initPageResponse === null){
+      return;
+    }
     const newInitalValues = TacRegisterFormService.buildSubmitRequest(initPageResponse);
+
     setInitialValues({ ...newInitalValues });
+
   }, [initPageResponse]);
+
+  useEffect(() => {
+    console.log("FormConnectedTacRegister useEffect initForm",initForm);
+
+  }, [initForm]);
+
+  useEffect(() => {
+    console.log("FormConnectedTacRegister useEffect initialValues",initialValues);
+  }, [initialValues]);
 
   const navigateTo = (page: string, codeName: string) => {
     let targetContextCode = contextCode;
-    Object.entries(initPageResponse).forEach(([key, value]) => {
-      if (key === codeName) {
-        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
-          targetContextCode = value;
-        } else {
-          return;
+    if(initPageResponse !== null){
+      Object.entries(initPageResponse).forEach(([key, value]) => {
+        if (key === codeName) {
+          if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+            targetContextCode = value;
+          } else {
+            return;
+          }
         }
-      }
-    });
+      });
+    }
     const url = "/" + page + "/" + targetContextCode;
     navigate(url);
   };
@@ -199,123 +241,135 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
     className="row justify-content-center"
 
     >
-      <div className="col-md-7 col-lg-6 col-xl-5">
-        <Card
-          className="mt-1 page-card"
+      {!isAutoSubmit && (
+        <div className="col-md-7 col-lg-6 col-xl-5">
+          <Card
+            className="mt-1 page-card"
 
-        >
-          <h2 data-testid="page-title-text">
-            Create your account
-
-          </h2>
-          <h6 data-testid="page-intro-text">
-            A Couple Details Then We Are Off!
-
-          </h6>
-
-          <HeaderTacRegister
-            name="headerTacRegister"
-            initData={initPageResponse}
-            isHeaderVisible={false}
-          />
-
-          <Formik
-            enableReinitialize={true}
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            validate={handleValidate}
-            onSubmit={async (values, actions) => {
-              await submitClick(values, actions);
-            }}
           >
-            {(props: FormikProps<TacRegisterFormService.SubmitRequest>) => (
-              <Form
-                className=""
-                name={name}
-                data-testid={name}
-                onReset={props.handleReset}
-                onSubmit={props.handleSubmit}
-              >
-                { initForm && showProcessingAnimationOnInit ?
-                  <div className="text-center  bg-secondary bg-opacity-25">
-                      <Spinner animation="border" className="mt-2 mb-2" />
-                  </div>
-                  :
-                  <div>
-                    <InputFields.ErrorDisplay
-                      name="headerErrors"
-                      errorArray={headerErrors}
-                    />
-                    <InputFields.FormInputEmail name="email"
-                      label="Email"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText=""
-                    />
-                    <InputFields.FormInputPassword name="password"
-                      label="Password"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText=""
-                    />
-                    <InputFields.FormInputPassword name="confirmPassword"
-                      label="Confirm Password"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText=""
-                    />
-                    <InputFields.FormInputText name="firstName"
-                      label="First Name"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText=""
-                    />
-                    <InputFields.FormInputText name="lastName"
-                      label="Last Name"
-                      isVisible={true}
-                      isRequired={true}
-                      detailText=""
-                    />
-                  </div>
-                }
-                <div className="">
-                  <Button type="submit" data-testid="submit-button"
-                    variant="outline-primary"
-                    className="me-2 mt-3">
-                    {
-                      loading &&
-                      (<Spinner
-                        as="span"
-                        animation="border"
-                        size="sm"
-                        role="status"
-                        aria-hidden="true"
-                        className="spinner-button"
-                      />)
-                    }
-                    <span className="sr-only">Register</span>
+            <h2 data-testid="page-title-text">
+              Create your account
 
-                  </Button>
-                  <InputFields.FormInputButton name="cancel-button"
-                    buttonText="Back To Log In"
-                    onClick={() => {
-                      logClick("FormConnectedTacAddCustomer","cancel","");
-                      navigateTo("tac-login", "tacCode");
-                    }}
-                    isButtonCallToAction={false}
-                    isVisible={true}
-                    className="me-2 mt-3"
-                  />
+            </h2>
+            <h6 data-testid="page-intro-text">
+              A Couple Details Then We Are Off!
 
-                </div>
-              </Form>
+            </h6>
+
+            {initPageResponse && (
+              <HeaderTacRegister
+                name="headerTacRegister"
+                initData={initPageResponse}
+                isHeaderVisible={false}
+              />
             )}
-          </Formik>
-          <div className="mt-3">
-            <h6 data-testid="page-footer-text"></h6>
-          </div>
-        </Card>
-      </div>
+
+            {!initialValues && (
+              <div className="text-center  bg-secondary bg-opacity-25">
+                  <Spinner animation="border" className="mt-2 mb-2" />
+              </div>
+            )}
+
+            {initialValues && (
+              <Formik
+                enableReinitialize={true}
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                validate={handleValidate}
+                onSubmit={async (values, actions) => {
+                  await submitClick(values, actions);
+                }}
+              >
+                {(props: FormikProps<TacRegisterFormService.SubmitRequest>) => (
+                  <Form
+                    className=""
+                    name={name}
+                    data-testid={name}
+                    onReset={props.handleReset}
+                    onSubmit={props.handleSubmit}
+                  >
+                    { initForm && showProcessingAnimationOnInit ?
+                      <div className="text-center  bg-secondary bg-opacity-25">
+                          <Spinner animation="border" className="mt-2 mb-2" />
+                      </div>
+                      :
+                      <div>
+                        <InputFields.ErrorDisplay
+                          name="headerErrors"
+                          errorArray={headerErrors}
+                        />
+                        <InputFields.FormInputEmail name="email"
+                          label="Email"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText=""
+                        />
+                        <InputFields.FormInputPassword name="password"
+                          label="Password"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText=""
+                        />
+                        <InputFields.FormInputPassword name="confirmPassword"
+                          label="Confirm Password"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText=""
+                        />
+                        <InputFields.FormInputText name="firstName"
+                          label="First Name"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText=""
+                        />
+                        <InputFields.FormInputText name="lastName"
+                          label="Last Name"
+                          isVisible={true}
+                          isRequired={true}
+                          detailText=""
+                        />
+                      </div>
+                    }
+                    <div className="">
+                      <Button type="submit" data-testid="submit-button"
+                        variant="outline-primary"
+                        className="me-2 mt-3">
+                        {
+                          loading &&
+                          (<Spinner
+                            as="span"
+                            animation="border"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                            className="spinner-button"
+                          />)
+                        }
+                        <span className="sr-only">Register</span>
+
+                      </Button>
+                      <InputFields.FormInputButton name="cancel-button"
+                        buttonText="Back To Log In"
+                        onClick={() => {
+                          logClick("FormConnectedTacAddCustomer","cancel","");
+                          navigateTo("tac-login", "tacCode");
+                        }}
+                        isButtonCallToAction={false}
+                        isVisible={true}
+                        className="me-2 mt-3"
+                      />
+
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            )}
+            <div className="mt-3">
+              <h6 data-testid="page-footer-text"></h6>
+            </div>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };

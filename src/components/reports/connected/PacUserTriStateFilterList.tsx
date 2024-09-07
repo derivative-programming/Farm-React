@@ -6,7 +6,7 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { Button, Card, Breadcrumb } from "react-bootstrap"; // NOSONAR
+import { Button, Card, Breadcrumb, Row, Col, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../App.scss";
 
 import { useNavigate, useParams } from "react-router-dom";
@@ -356,6 +356,27 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
             showPagingControls={isPagingAvailable}
             showExport={!isExportButtonsHidden}
             showProcessing={isProcessing}
+          />
+        )}
+        {!queryResult && (
+          <ReportGridPacUserTriStateFilterList
+            isSortDescending={false}
+            items={new PacUserTriStateFilterListReportService.QueryResultInstance().items}
+            name="reportConnectedPacUserTriStateFilterList-table"
+            contextCode={contextCode}
+            onSort={onSort}
+            onExport={onExport}
+            onNavigateTo={onNavigateTo}
+            onRefreshRequest={onRefreshRequest}
+            sortedColumnName={""}
+            currentPage={1}
+            onPageSelection={onPageSelection}
+            onPageSizeChange={onPageSizeChange}
+            pageSize={10}
+            totalItemCount={0}
+            showPagingControls={isPagingAvailable}
+            showExport={!isExportButtonsHidden}
+            showProcessing={true}
           />
         )}
 

@@ -156,6 +156,8 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               label="dateGreaterThanFilter Code"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterDayCount"
@@ -163,6 +165,8 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               label="Day Count"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterDescription"
@@ -170,6 +174,8 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               label="Description"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterDisplayOrder"
@@ -177,6 +183,8 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               label="Display Order"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterIsActive"
@@ -184,6 +192,8 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               label="Is Active"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterLookupEnumName"
@@ -191,6 +201,8 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               label="Lookup Enum Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterName"
@@ -198,6 +210,8 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               label="Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 {/* endset */}
@@ -214,36 +228,50 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
                     rowIndex={index}
                     value={item.dateGreaterThanFilterCode}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="dateGreaterThanFilterDayCount"
                     rowIndex={index}
                     value={item.dateGreaterThanFilterDayCount}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="dateGreaterThanFilterDescription"
                     rowIndex={index}
                     value={item.dateGreaterThanFilterDescription}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="dateGreaterThanFilterDisplayOrder"
                     rowIndex={index}
                     value={item.dateGreaterThanFilterDisplayOrder}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="dateGreaterThanFilterIsActive"
                     rowIndex={index}
                     isChecked={item.dateGreaterThanFilterIsActive}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="dateGreaterThanFilterLookupEnumName"
                     rowIndex={index}
                     value={item.dateGreaterThanFilterLookupEnumName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="dateGreaterThanFilterName"
                     rowIndex={index}
                     value={item.dateGreaterThanFilterName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 {/* endset */}
 

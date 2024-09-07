@@ -156,6 +156,8 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               label="triStateFilter Code"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="triStateFilterDescription"
@@ -163,6 +165,8 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               label="Description"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="triStateFilterDisplayOrder"
@@ -170,6 +174,8 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               label="Display Order"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="triStateFilterIsActive"
@@ -177,6 +183,8 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               label="Is Active"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="triStateFilterLookupEnumName"
@@ -184,6 +192,8 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               label="Lookup Enum Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="triStateFilterName"
@@ -191,6 +201,8 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               label="Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="triStateFilterStateIntValue"
@@ -198,6 +210,8 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               label="State Int Value"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 {/* endset */}
@@ -214,36 +228,50 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
                     rowIndex={index}
                     value={item.triStateFilterCode}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="triStateFilterDescription"
                     rowIndex={index}
                     value={item.triStateFilterDescription}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="triStateFilterDisplayOrder"
                     rowIndex={index}
                     value={item.triStateFilterDisplayOrder}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="triStateFilterIsActive"
                     rowIndex={index}
                     isChecked={item.triStateFilterIsActive}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="triStateFilterLookupEnumName"
                     rowIndex={index}
                     value={item.triStateFilterLookupEnumName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="triStateFilterName"
                     rowIndex={index}
                     value={item.triStateFilterName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="triStateFilterStateIntValue"
                     rowIndex={index}
                     value={item.triStateFilterStateIntValue}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 {/* endset */}
 

@@ -156,6 +156,8 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               label="tac Code"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="tacDescription"
@@ -163,6 +165,8 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               label="Description"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="tacDisplayOrder"
@@ -170,6 +174,8 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               label="Display Order"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="tacIsActive"
@@ -177,6 +183,8 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               label="Is Active"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="tacLookupEnumName"
@@ -184,6 +192,8 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               label="Lookup Enum Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="tacName"
@@ -191,6 +201,8 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               label="Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="pacName"
@@ -198,6 +210,8 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               label="Pac Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 {/* endset */}
@@ -214,36 +228,50 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                     rowIndex={index}
                     value={item.tacCode}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacDescription"
                     rowIndex={index}
                     value={item.tacDescription}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="tacDisplayOrder"
                     rowIndex={index}
                     value={item.tacDisplayOrder}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="tacIsActive"
                     rowIndex={index}
                     isChecked={item.tacIsActive}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacLookupEnumName"
                     rowIndex={index}
                     value={item.tacLookupEnumName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacName"
                     rowIndex={index}
                     value={item.tacName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="pacName"
                     rowIndex={index}
                     value={item.pacName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 {/* endset */}
 

@@ -156,6 +156,8 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               label="flavor Code"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="flavorDescription"
@@ -163,6 +165,8 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               label="Description"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="flavorDisplayOrder"
@@ -170,6 +174,8 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               label="Display Order"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="flavorIsActive"
@@ -177,6 +183,8 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               label="Is Active"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="flavorLookupEnumName"
@@ -184,6 +192,8 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               label="Lookup Enum Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="flavorName"
@@ -191,6 +201,8 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               label="Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="pacName"
@@ -198,6 +210,8 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               label="Pac Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 {/* endset */}
@@ -214,36 +228,50 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
                     rowIndex={index}
                     value={item.flavorCode}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorDescription"
                     rowIndex={index}
                     value={item.flavorDescription}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="flavorDisplayOrder"
                     rowIndex={index}
                     value={item.flavorDisplayOrder}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="flavorIsActive"
                     rowIndex={index}
                     isChecked={item.flavorIsActive}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorLookupEnumName"
                     rowIndex={index}
                     value={item.flavorLookupEnumName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorName"
                     rowIndex={index}
                     value={item.flavorName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="pacName"
                     rowIndex={index}
                     value={item.pacName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 {/* endset */}
 

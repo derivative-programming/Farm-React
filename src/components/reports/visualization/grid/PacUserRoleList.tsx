@@ -156,6 +156,8 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               label="role Code"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="roleDescription"
@@ -163,6 +165,8 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               label="Description"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="roleDisplayOrder"
@@ -170,6 +174,8 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               label="Display Order"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="roleIsActive"
@@ -177,6 +183,8 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               label="Is Active"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="roleLookupEnumName"
@@ -184,6 +192,8 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               label="Lookup Enum Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="roleName"
@@ -191,6 +201,8 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               label="Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
             <ReportColumnHeader forColumn="pacName"
@@ -198,6 +210,8 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               label="Pac Name"
               onSort={onSort}
               isVisible={true}
+              isJoinedToLeftColumn={false}
+              isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
             />
 {/* endset */}
@@ -214,36 +228,50 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
                     rowIndex={index}
                     value={item.roleCode}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleDescription"
                     rowIndex={index}
                     value={item.roleDescription}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="roleDisplayOrder"
                     rowIndex={index}
                     value={item.roleDisplayOrder}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="roleIsActive"
                     rowIndex={index}
                     isChecked={item.roleIsActive}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleLookupEnumName"
                     rowIndex={index}
                     value={item.roleLookupEnumName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="roleName"
                     rowIndex={index}
                     value={item.roleName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="pacName"
                     rowIndex={index}
                     value={item.pacName}
                     isVisible={true}
+                    isJoinedToLeftColumn={false}
+                    isJoinedToRightColumn={false}
                   />
 {/* endset */}
 
