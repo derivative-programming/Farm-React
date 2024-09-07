@@ -33,13 +33,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   name = "formConnectedLandAddPlant",
   showProcessingAnimationOnInit = true,
 }): ReactElement => {
-  // const [initPageResponse, setInitPageResponse] = useState(
-  //   new InitFormService.InitResultInstance()
-  // );
   const [initPageResponse, setInitPageResponse] = useState<InitFormService.InitResult | null>(null);
-  // const [initialValues, setInitialValues] = useState(
-  //   new LandAddPlantFormService.SubmitRequestInstance()
-  // );
   const [initialValues, setInitialValues] = useState<LandAddPlantFormService.SubmitRequest | null>(null);
   
   const [loading, setLoading] = useState(false);
@@ -128,7 +122,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       {/*//GENTrainingBlock[caseGetApiKey]End*/} 
       actions.setSubmitting(false);
       actions.resetForm();
-      submitButtonNavigateTo("land-plant-list","landCode");
+      submitNavigateTo("land-plant-list","landCode"); //submitButton 
     } catch (error) {
       actions.setSubmitting(false);
     }
@@ -136,9 +130,7 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       setLoading(false);
     }
   };
-  
-  {/*//GENIF[isautoSubmit=true]Start*/}
-  
+   
   const autoSubmit = async (
     values: LandAddPlantFormService.SubmitRequest
   ) => {
@@ -157,11 +149,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       //click cancel
     }  
     
-    //GENINCLUDEFILE[GENVALName.autosubmit.include.*]
+    //GENINCLUDEFILE[GENVALPascalName.autosubmit.include.*]
   };
-  {/*//GENIF[isautoSubmit=true]End*/}
 
-  const submitButtonNavigateTo = (page:string, codeName:string) => {
+  const submitNavigateTo = (page:string, codeName:string) => {
     // const page = "land-plant-list" 
     // const codeName = "landCode";
     let targetContextCode = "00000000-0000-0000-0000-000000000000";
@@ -206,17 +197,14 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       return;
     }
     const newInitalValues = LandAddPlantFormService.buildSubmitRequest(initPageResponse);
-    
-    {/*//GENIF[isautoSubmit=true]Start*/}
+    //GENIF[isAutoSubmit=true]Start
     if(isAutoSubmit){
       autoSubmit(newInitalValues);
     }
-    {/*//GENIF[isautoSubmit=true]Start*/}
-    {/*//GENIF[isautoSubmit=false]Start*/}
-    if(!isAutoSubmit){
-      setInitialValues({ ...newInitalValues });
-    }
-    {/*//GENIF[isautoSubmit=false]Start*/}  
+    //GENIF[isAutoSubmit=true]End
+    //GENIF[isAutoSubmit=false]Start
+    setInitialValues({ ...newInitalValues });
+    //GENIF[isAutoSubmit=false]End
   }, [initPageResponse]);
   
   useEffect(() => {

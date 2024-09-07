@@ -2,7 +2,7 @@
     //GENLOOPobjectWorkflowButtonStart
     //GENIF[buttonType=submit]Start
     //GENIF[calculatedIsConditionalVisible=false]Start
-    submitButtonNavigateTo("GENVALKebabdestinationTargetName","GENVALCameldestinationContextObjectNameCode"); 
+    submitNavigateTo("GENVALKebabdestinationTargetName","GENVALCameldestinationContextObjectNameCode"); 
     //GENIF[calculatedIsConditionalVisible=false]End
     //GENIF[calculatedIsConditionalVisible=true]Start
     if(("GENVALconditionalVisiblePropertyName" in lastApiSubmissionResponse && 
@@ -10,7 +10,7 @@
       ("GENVALconditionalVisiblePropertyName" in initPageResponse && 
         initPageResponse.GENVALconditionalVisiblePropertyName === true)){
             
-        submitButtonNavigateTo("GENVALKebabdestinationTargetName","GENVALCameldestinationContextObjectNameCode"); 
+        submitNavigateTo("GENVALKebabdestinationTargetName","GENVALCameldestinationContextObjectNameCode"); 
     }
     //GENIF[calculatedIsConditionalVisible=true]End
     //GENIF[buttonType=submit]End

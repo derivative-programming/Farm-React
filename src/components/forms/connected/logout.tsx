@@ -21,13 +21,14 @@ export const Logout: FC<FormProps> = ({
   const authContext = useContext(AuthContext); 
   
   AnalyticsService.stop();
-  authContext.setToken("");
-  authContext.setRoles("");
-  authContext.setEmail("");
-  localStorage.setItem("@token", "");
-  localStorage.removeItem("roleNameCSVList");
-  localStorage.setItem("customerCode","");
-  localStorage.setItem("email", "");
+  authContext.clearSession();
+  // authContext.setToken("");
+  // authContext.setRoles("");
+  // authContext.setEmail("");
+  // localStorage.setItem("@token", "");
+  // localStorage.removeItem("roleNameCSVList");
+  // localStorage.setItem("customerCode","");
+  // localStorage.setItem("email", "");
 
   navigate("/tac-login");
  

@@ -14,13 +14,14 @@ const Header: FC = (): ReactElement => {
   const onLogout = () => {
     logClick("Header","logOut","");
     AnalyticsService.stop();
-    authContext.setToken("");
-    authContext.setRoles("");
-    authContext.setEmail("");
-    localStorage.setItem("@token", "");
-    localStorage.removeItem("roleNameCSVList");
-    localStorage.setItem("customerCode","");
-    localStorage.setItem("email", "");
+    authContext.clearSession();
+    // authContext.setToken("");
+    // authContext.setRoles("");
+    // authContext.setEmail("");
+    // localStorage.setItem("@token", "");
+    // localStorage.removeItem("roleNameCSVList");
+    // localStorage.setItem("customerCode","");
+    // localStorage.setItem("email", "");
   };
 
   const onLogin = () => {
@@ -83,7 +84,13 @@ const Header: FC = (): ReactElement => {
   return (
     <div className="mt-2">
       <div className="header-container h-85 d-flex align-items-center justify-content-between px-40">
-        <div className=" pt-2 pr-5 logo-design" ><h4>Farm Simple Api</h4></div>
+         
+        <div className="pt-2 pr-5 logo-design">
+          <h4 className="m-0">Farm Simple Api</h4> 
+            {authContext && authContext.token && authContext.organizationName ? 
+              <p className="text-muted m-0 conditional-text" style={{ textAlign: 'left' }}>{authContext.organizationName}</p> : null
+            }
+        </div>
         <div className="d-flex align-items-center">
           <div className="d-none d-md-flex ">
           <Nav className="menu-options-container justify-content-end">
