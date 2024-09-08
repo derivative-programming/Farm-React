@@ -28,20 +28,20 @@ describe("LandPlantList Component", () => {
 
   beforeEach(async () => {  
     mockFlavorFilterCodeService.mockResolvedValue({
-        data: new flavorFilterCodeService.QueryResultTestInstance(),
-      }); 
-      
+      data: new flavorFilterCodeService.QueryResultTestInstance(),
+    }); 
+    
 
-      await act(async () => {
-        render( 
-            <ReportFilterLandPlantList 
-              name="testForm" 
-              initialQuery={intialQuery}
-              onSubmit={onSubmit} 
-              onReset={onFilerReset}
-              />  
-        ); 
-      });
+    await act(async () => {
+      render( 
+          <ReportFilterLandPlantList 
+            name="testForm" 
+            initialQuery={intialQuery}
+            onSubmit={onSubmit} 
+            onReset={onFilerReset}
+            />  
+      ); 
+    });
 
     await waitFor(() => expect(mockFlavorFilterCodeService).toHaveBeenCalled());
   });

@@ -3,7 +3,7 @@ import config from '../config';
 
 // Create an Axios instance with base URL
 export const apiInstance = axios.create({
-  baseURL: `${config.apiBaseUrl}/api/v1_0`,
+  baseURL: `${config.apiBaseUrl}${config.apiBasePath}`,
 });
 
 // Request interceptor
