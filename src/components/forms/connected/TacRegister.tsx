@@ -189,7 +189,6 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   };
 
   useEffect(() => {
-    console.log("FormConnectedTacRegister useEffect");
     if (isInitializedRef.current) {
       return;
     }
@@ -200,7 +199,6 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   }, []);
 
   useEffect(() => {
-    console.log("FormConnectedTacRegister useEffect initPageResponse",initPageResponse);
     if(initPageResponse === null){
       return;
     }
@@ -211,12 +209,10 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
   }, [initPageResponse]);
 
   useEffect(() => {
-    console.log("FormConnectedTacRegister useEffect initForm",initForm);
 
   }, [initForm]);
 
   useEffect(() => {
-    console.log("FormConnectedTacRegister useEffect initialValues",initialValues);
   }, [initialValues]);
 
   const navigateTo = (page: string, codeName: string) => {
