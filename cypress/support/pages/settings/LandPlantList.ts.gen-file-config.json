@@ -8,6 +8,7 @@
         "reportColumn.calculatedIsConditionalSqlLogicAvailable",
         "reportColumn.calculatedIsSourceObjectAvailable",
         "reportColumn.isButtonCallToAction",
+        "reportColumn.calculatedIsMinWidthAvailable",
         "reportButton.calculatedIsDestinationContextObjectTheOwnerObject",
         "reportButton.calculatedIsDestinationContextObjectNameSet",
         "reportButton.calculatedIsDestinationBackBtnDataSet",
