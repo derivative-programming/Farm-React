@@ -181,7 +181,6 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   };
 
   useEffect(() => {
-    console.log("FormConnectedLandAddPlant useEffect");
     if (isInitializedRef.current) {
       return;
     }
@@ -192,7 +191,6 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   }, []);
 
   useEffect(() => {
-    console.log("FormConnectedLandAddPlant useEffect initPageResponse",initPageResponse);
     if(initPageResponse === null){
       return;
     }
@@ -208,12 +206,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   }, [initPageResponse]);
   
   useEffect(() => {
-    console.log("FormConnectedLandAddPlant useEffect initForm",initForm);
     
   }, [initForm]);
   
   useEffect(() => {
-    console.log("FormConnectedLandAddPlant useEffect initialValues",initialValues);
   }, [initialValues]);
 
   const navigateTo = (page: string, codeName: string) => {

@@ -5,11 +5,12 @@
     submitNavigateTo("GENVALKebabdestinationTargetName","GENVALCameldestinationContextObjectNameCode"); 
     //GENIF[calculatedIsConditionalVisible=false]End
     //GENIF[calculatedIsConditionalVisible=true]Start
-    if(("GENVALconditionalVisiblePropertyName" in lastApiSubmissionResponse && 
-      lastApiSubmissionResponse.GENVALconditionalVisiblePropertyName === true) ||
-      ("GENVALconditionalVisiblePropertyName" in initPageResponse && 
-        initPageResponse.GENVALconditionalVisiblePropertyName === true)){
-            
+    if((lastApiSubmissionResponse && 
+      "GENVALCamelconditionalVisiblePropertyName" in lastApiSubmissionResponse && 
+      lastApiSubmissionResponse.GENVALCamelconditionalVisiblePropertyName === true) ||
+      (initPageResponse && 
+      "GENVALCamelconditionalVisiblePropertyName" in initPageResponse && 
+        initPageResponse.GENVALCamelconditionalVisiblePropertyName === true)){
         submitNavigateTo("GENVALKebabdestinationTargetName","GENVALCameldestinationContextObjectNameCode"); 
     }
     //GENIF[calculatedIsConditionalVisible=true]End
