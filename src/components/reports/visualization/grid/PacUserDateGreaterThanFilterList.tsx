@@ -159,6 +159,7 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterDayCount"
               isSortDescending={isSortDescending}
@@ -168,6 +169,7 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterDescription"
               isSortDescending={isSortDescending}
@@ -177,6 +179,7 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="200px"
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterDisplayOrder"
               isSortDescending={isSortDescending}
@@ -186,6 +189,7 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterIsActive"
               isSortDescending={isSortDescending}
@@ -195,6 +199,7 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterLookupEnumName"
               isSortDescending={isSortDescending}
@@ -204,6 +209,7 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="dateGreaterThanFilterName"
               isSortDescending={isSortDescending}
@@ -213,6 +219,7 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
 {/* endset */}
           </tr>

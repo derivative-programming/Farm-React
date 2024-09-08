@@ -52,6 +52,16 @@ export class PacUserFlavorListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.flavorDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.flavorDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.flavorDescriptionHeaderText);
+
+                cy.get(PageSelectors.flavorDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.flavorDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+            }
             if(PageSettings.flavorDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.flavorDisplayOrderHeader)
                 .should('be.visible')
@@ -182,6 +192,36 @@ export class PacUserFlavorListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.flavorDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.flavorDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.flavorDescriptionHeaderText);
+
+                cy.get(PageSelectors.flavorDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.flavorDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.flavorDescriptionHeader)
+                .click()
+                .click()
+                .get(PageSelectors.flavorDescriptionHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.flavorDescriptionHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.flavorDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.flavorDescriptionHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.flavorDescriptionHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.flavorDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.flavorDescriptionHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.flavorDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.flavorDisplayOrderHeader)
                 .should('be.visible')

@@ -1,6 +1,7 @@
 
 
 export const PacUserLandListPageTexts = {
+    landDescriptionHeaderText: "Description",
     landDisplayOrderHeaderText: "Display Order",
     landIsActiveHeaderText: "Is Active",
     landLookupEnumNameHeaderText: "Lookup Enum Name",

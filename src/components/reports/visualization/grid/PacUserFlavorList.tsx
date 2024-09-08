@@ -159,6 +159,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="flavorDescription"
               isSortDescending={isSortDescending}
@@ -168,6 +169,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="200px"
             />
             <ReportColumnHeader forColumn="flavorDisplayOrder"
               isSortDescending={isSortDescending}
@@ -177,6 +179,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="flavorIsActive"
               isSortDescending={isSortDescending}
@@ -186,6 +189,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="flavorLookupEnumName"
               isSortDescending={isSortDescending}
@@ -195,6 +199,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="flavorName"
               isSortDescending={isSortDescending}
@@ -204,6 +209,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="pacName"
               isSortDescending={isSortDescending}
@@ -213,6 +219,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
 {/* endset */}
           </tr>

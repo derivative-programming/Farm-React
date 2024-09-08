@@ -1,15 +1,18 @@
 
 export const PacUserTriStateFilterListPageSelectors = {
+    triStateFilterDescriptionHeader: "[data-testid='triStateFilterDescription-header']",
     triStateFilterDisplayOrderHeader: "[data-testid='triStateFilterDisplayOrder-header']",
     triStateFilterIsActiveHeader: "[data-testid='triStateFilterIsActive-header']",
     triStateFilterLookupEnumNameHeader: "[data-testid='triStateFilterLookupEnumName-header']",
     triStateFilterNameHeader: "[data-testid='triStateFilterName-header']",
     triStateFilterStateIntValueHeader: "[data-testid='triStateFilterStateIntValue-header']",
+    triStateFilterDescriptionHeaderSortDownIndicator: "[data-testid='triStateFilterDescription-header-sortDown']",
     triStateFilterDisplayOrderHeaderSortDownIndicator: "[data-testid='triStateFilterDisplayOrder-header-sortDown']",
     triStateFilterIsActiveHeaderSortDownIndicator: "[data-testid='triStateFilterIsActive-header-sortDown']",
     triStateFilterLookupEnumNameHeaderSortDownIndicator: "[data-testid='triStateFilterLookupEnumName-header-sortDown']",
     triStateFilterNameHeaderSortDownIndicator: "[data-testid='triStateFilterName-header-sortDown']",
     triStateFilterStateIntValueHeaderSortDownIndicator: "[data-testid='triStateFilterStateIntValue-header-sortDown']",
+    triStateFilterDescriptionHeaderSortUpIndicator: "[data-testid='triStateFilterDescription-header-sortUp']",
     triStateFilterDisplayOrderHeaderSortUpIndicator: "[data-testid='triStateFilterDisplayOrder-header-sortUp']",
     triStateFilterIsActiveHeaderSortUpIndicator: "[data-testid='triStateFilterIsActive-header-sortUp']",
     triStateFilterLookupEnumNameHeaderSortUpIndicator: "[data-testid='triStateFilterLookupEnumName-header-sortUp']",

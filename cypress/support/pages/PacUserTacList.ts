@@ -52,6 +52,16 @@ export class PacUserTacListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.tacDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.tacDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.tacDescriptionHeaderText);
+
+                cy.get(PageSelectors.tacDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.tacDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+            }
             if(PageSettings.tacDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.tacDisplayOrderHeader)
                 .should('be.visible')
@@ -182,6 +192,36 @@ export class PacUserTacListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.tacDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.tacDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.tacDescriptionHeaderText);
+
+                cy.get(PageSelectors.tacDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.tacDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.tacDescriptionHeader)
+                .click()
+                .click()
+                .get(PageSelectors.tacDescriptionHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.tacDescriptionHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.tacDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.tacDescriptionHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.tacDescriptionHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.tacDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.tacDescriptionHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.tacDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.tacDisplayOrderHeader)
                 .should('be.visible')

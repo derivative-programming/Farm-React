@@ -52,6 +52,16 @@ export class PacUserRoleListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.roleDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.roleDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.roleDescriptionHeaderText);
+
+                cy.get(PageSelectors.roleDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.roleDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+            }
             if(PageSettings.roleDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.roleDisplayOrderHeader)
                 .should('be.visible')
@@ -182,6 +192,36 @@ export class PacUserRoleListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.roleDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.roleDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.roleDescriptionHeaderText);
+
+                cy.get(PageSelectors.roleDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.roleDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.roleDescriptionHeader)
+                .click()
+                .click()
+                .get(PageSelectors.roleDescriptionHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.roleDescriptionHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.roleDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.roleDescriptionHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.roleDescriptionHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.roleDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.roleDescriptionHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.roleDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.roleDisplayOrderHeader)
                 .should('be.visible')

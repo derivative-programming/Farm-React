@@ -62,6 +62,16 @@ export class PacUserDateGreaterThanFilterListPage {
                 cy.get(PageSelectors.dateGreaterThanFilterDayCountHeaderSortUpIndicator)
                 .should('not.exist');
             }
+            if(PageSettings.dateGreaterThanFilterDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.dateGreaterThanFilterDescriptionHeaderText);
+
+                cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+            }
             if(PageSettings.dateGreaterThanFilterDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.dateGreaterThanFilterDisplayOrderHeader)
                 .should('be.visible')
@@ -212,6 +222,36 @@ export class PacUserDateGreaterThanFilterListPage {
                     }
                 });
 
+            }
+            if(PageSettings.dateGreaterThanFilterDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.dateGreaterThanFilterDescriptionHeaderText);
+
+                cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeader)
+                .click()
+                .click()
+                .get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.dateGreaterThanFilterDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.dateGreaterThanFilterDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.dateGreaterThanFilterDescriptionHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
             }
             if(PageSettings.dateGreaterThanFilterDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.dateGreaterThanFilterDisplayOrderHeader)

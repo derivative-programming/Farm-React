@@ -52,6 +52,16 @@ export class PacUserTriStateFilterListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.triStateFilterDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.triStateFilterDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.triStateFilterDescriptionHeaderText);
+
+                cy.get(PageSelectors.triStateFilterDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.triStateFilterDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+            }
             if(PageSettings.triStateFilterDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.triStateFilterDisplayOrderHeader)
                 .should('be.visible')
@@ -182,6 +192,36 @@ export class PacUserTriStateFilterListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.triStateFilterDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.triStateFilterDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.triStateFilterDescriptionHeaderText);
+
+                cy.get(PageSelectors.triStateFilterDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.triStateFilterDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.triStateFilterDescriptionHeader)
+                .click()
+                .click()
+                .get(PageSelectors.triStateFilterDescriptionHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.triStateFilterDescriptionHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.triStateFilterDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.triStateFilterDescriptionHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.triStateFilterDescriptionHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.triStateFilterDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.triStateFilterDescriptionHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.triStateFilterDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.triStateFilterDisplayOrderHeader)
                 .should('be.visible')

@@ -2,6 +2,7 @@
 export const PacUserTriStateFilterListPageSettings = {
 
     calculatedIsVisualizationGrid: true,
+    triStateFilterDescriptionHeaderIsVisible: true,
     triStateFilterDisplayOrderHeaderIsVisible: true,
     triStateFilterIsActiveHeaderIsVisible: true,
     triStateFilterLookupEnumNameHeaderIsVisible: true,

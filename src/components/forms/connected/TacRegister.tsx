@@ -117,7 +117,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
         return;
       }
 
-      authContext.startSession(response); 
+      authContext.startSession(response);
       AnalyticsService.start();
 
       actions.setSubmitting(false);

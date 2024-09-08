@@ -1,6 +1,7 @@
 
 
 export const PacUserTriStateFilterListPageTexts = {
+    triStateFilterDescriptionHeaderText: "Description",
     triStateFilterDisplayOrderHeaderText: "Display Order",
     triStateFilterIsActiveHeaderText: "Is Active",
     triStateFilterLookupEnumNameHeaderText: "Lookup Enum Name",

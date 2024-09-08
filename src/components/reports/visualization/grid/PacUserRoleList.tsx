@@ -159,6 +159,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="roleDescription"
               isSortDescending={isSortDescending}
@@ -168,6 +169,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="200px"
             />
             <ReportColumnHeader forColumn="roleDisplayOrder"
               isSortDescending={isSortDescending}
@@ -177,6 +179,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="roleIsActive"
               isSortDescending={isSortDescending}
@@ -186,6 +189,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="roleLookupEnumName"
               isSortDescending={isSortDescending}
@@ -195,6 +199,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="roleName"
               isSortDescending={isSortDescending}
@@ -204,6 +209,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="pacName"
               isSortDescending={isSortDescending}
@@ -213,6 +219,7 @@ export const ReportGridPacUserRoleList: FC<ReportGridPacUserRoleListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
 {/* endset */}
           </tr>

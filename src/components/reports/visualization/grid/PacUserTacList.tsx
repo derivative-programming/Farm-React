@@ -159,6 +159,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="tacDescription"
               isSortDescending={isSortDescending}
@@ -168,6 +169,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="200px"
             />
             <ReportColumnHeader forColumn="tacDisplayOrder"
               isSortDescending={isSortDescending}
@@ -177,6 +179,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="tacIsActive"
               isSortDescending={isSortDescending}
@@ -186,6 +189,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="tacLookupEnumName"
               isSortDescending={isSortDescending}
@@ -195,6 +199,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="tacName"
               isSortDescending={isSortDescending}
@@ -204,6 +209,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
             <ReportColumnHeader forColumn="pacName"
               isSortDescending={isSortDescending}
@@ -213,6 +219,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth=""
             />
 {/* endset */}
           </tr>

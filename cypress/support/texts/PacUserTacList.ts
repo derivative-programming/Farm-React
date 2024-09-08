@@ -1,6 +1,7 @@
 
 
 export const PacUserTacListPageTexts = {
+    tacDescriptionHeaderText: "Description",
     tacDisplayOrderHeaderText: "Display Order",
     tacIsActiveHeaderText: "Is Active",
     tacLookupEnumNameHeaderText: "Lookup Enum Name",

@@ -1,15 +1,18 @@
 
 export const PacUserFlavorListPageSelectors = {
+    flavorDescriptionHeader: "[data-testid='flavorDescription-header']",
     flavorDisplayOrderHeader: "[data-testid='flavorDisplayOrder-header']",
     flavorIsActiveHeader: "[data-testid='flavorIsActive-header']",
     flavorLookupEnumNameHeader: "[data-testid='flavorLookupEnumName-header']",
     flavorNameHeader: "[data-testid='flavorName-header']",
     pacNameHeader: "[data-testid='pacName-header']",
+    flavorDescriptionHeaderSortDownIndicator: "[data-testid='flavorDescription-header-sortDown']",
     flavorDisplayOrderHeaderSortDownIndicator: "[data-testid='flavorDisplayOrder-header-sortDown']",
     flavorIsActiveHeaderSortDownIndicator: "[data-testid='flavorIsActive-header-sortDown']",
     flavorLookupEnumNameHeaderSortDownIndicator: "[data-testid='flavorLookupEnumName-header-sortDown']",
     flavorNameHeaderSortDownIndicator: "[data-testid='flavorName-header-sortDown']",
     pacNameHeaderSortDownIndicator: "[data-testid='pacName-header-sortDown']",
+    flavorDescriptionHeaderSortUpIndicator: "[data-testid='flavorDescription-header-sortUp']",
     flavorDisplayOrderHeaderSortUpIndicator: "[data-testid='flavorDisplayOrder-header-sortUp']",
     flavorIsActiveHeaderSortUpIndicator: "[data-testid='flavorIsActive-header-sortUp']",
     flavorLookupEnumNameHeaderSortUpIndicator: "[data-testid='flavorLookupEnumName-header-sortUp']",

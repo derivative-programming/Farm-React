@@ -1,6 +1,7 @@
 
 
 export const PacUserFlavorListPageTexts = {
+    flavorDescriptionHeaderText: "Description",
     flavorDisplayOrderHeaderText: "Display Order",
     flavorIsActiveHeaderText: "Is Active",
     flavorLookupEnumNameHeaderText: "Lookup Enum Name",

@@ -2,6 +2,7 @@
 export const PacUserTacListPageSettings = {
 
     calculatedIsVisualizationGrid: true,
+    tacDescriptionHeaderIsVisible: true,
     tacDisplayOrderHeaderIsVisible: true,
     tacIsActiveHeaderIsVisible: true,
     tacLookupEnumNameHeaderIsVisible: true,

@@ -1,6 +1,7 @@
 
 
 export const PacUserRoleListPageTexts = {
+    roleDescriptionHeaderText: "Description",
     roleDisplayOrderHeaderText: "Display Order",
     roleIsActiveHeaderText: "Is Active",
     roleLookupEnumNameHeaderText: "Lookup Enum Name",

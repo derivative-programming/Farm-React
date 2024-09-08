@@ -1,15 +1,18 @@
 
 export const PacUserRoleListPageSelectors = {
+    roleDescriptionHeader: "[data-testid='roleDescription-header']",
     roleDisplayOrderHeader: "[data-testid='roleDisplayOrder-header']",
     roleIsActiveHeader: "[data-testid='roleIsActive-header']",
     roleLookupEnumNameHeader: "[data-testid='roleLookupEnumName-header']",
     roleNameHeader: "[data-testid='roleName-header']",
     pacNameHeader: "[data-testid='pacName-header']",
+    roleDescriptionHeaderSortDownIndicator: "[data-testid='roleDescription-header-sortDown']",
     roleDisplayOrderHeaderSortDownIndicator: "[data-testid='roleDisplayOrder-header-sortDown']",
     roleIsActiveHeaderSortDownIndicator: "[data-testid='roleIsActive-header-sortDown']",
     roleLookupEnumNameHeaderSortDownIndicator: "[data-testid='roleLookupEnumName-header-sortDown']",
     roleNameHeaderSortDownIndicator: "[data-testid='roleName-header-sortDown']",
     pacNameHeaderSortDownIndicator: "[data-testid='pacName-header-sortDown']",
+    roleDescriptionHeaderSortUpIndicator: "[data-testid='roleDescription-header-sortUp']",
     roleDisplayOrderHeaderSortUpIndicator: "[data-testid='roleDisplayOrder-header-sortUp']",
     roleIsActiveHeaderSortUpIndicator: "[data-testid='roleIsActive-header-sortUp']",
     roleLookupEnumNameHeaderSortUpIndicator: "[data-testid='roleLookupEnumName-header-sortUp']",

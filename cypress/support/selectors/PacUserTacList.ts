@@ -1,15 +1,18 @@
 
 export const PacUserTacListPageSelectors = {
+    tacDescriptionHeader: "[data-testid='tacDescription-header']",
     tacDisplayOrderHeader: "[data-testid='tacDisplayOrder-header']",
     tacIsActiveHeader: "[data-testid='tacIsActive-header']",
     tacLookupEnumNameHeader: "[data-testid='tacLookupEnumName-header']",
     tacNameHeader: "[data-testid='tacName-header']",
     pacNameHeader: "[data-testid='pacName-header']",
+    tacDescriptionHeaderSortDownIndicator: "[data-testid='tacDescription-header-sortDown']",
     tacDisplayOrderHeaderSortDownIndicator: "[data-testid='tacDisplayOrder-header-sortDown']",
     tacIsActiveHeaderSortDownIndicator: "[data-testid='tacIsActive-header-sortDown']",
     tacLookupEnumNameHeaderSortDownIndicator: "[data-testid='tacLookupEnumName-header-sortDown']",
     tacNameHeaderSortDownIndicator: "[data-testid='tacName-header-sortDown']",
     pacNameHeaderSortDownIndicator: "[data-testid='pacName-header-sortDown']",
+    tacDescriptionHeaderSortUpIndicator: "[data-testid='tacDescription-header-sortUp']",
     tacDisplayOrderHeaderSortUpIndicator: "[data-testid='tacDisplayOrder-header-sortUp']",
     tacIsActiveHeaderSortUpIndicator: "[data-testid='tacIsActive-header-sortUp']",
     tacLookupEnumNameHeaderSortUpIndicator: "[data-testid='tacLookupEnumName-header-sortUp']",

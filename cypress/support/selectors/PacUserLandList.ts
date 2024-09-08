@@ -1,15 +1,18 @@
 
 export const PacUserLandListPageSelectors = {
+    landDescriptionHeader: "[data-testid='landDescription-header']",
     landDisplayOrderHeader: "[data-testid='landDisplayOrder-header']",
     landIsActiveHeader: "[data-testid='landIsActive-header']",
     landLookupEnumNameHeader: "[data-testid='landLookupEnumName-header']",
     landNameHeader: "[data-testid='landName-header']",
     pacNameHeader: "[data-testid='pacName-header']",
+    landDescriptionHeaderSortDownIndicator: "[data-testid='landDescription-header-sortDown']",
     landDisplayOrderHeaderSortDownIndicator: "[data-testid='landDisplayOrder-header-sortDown']",
     landIsActiveHeaderSortDownIndicator: "[data-testid='landIsActive-header-sortDown']",
     landLookupEnumNameHeaderSortDownIndicator: "[data-testid='landLookupEnumName-header-sortDown']",
     landNameHeaderSortDownIndicator: "[data-testid='landName-header-sortDown']",
     pacNameHeaderSortDownIndicator: "[data-testid='pacName-header-sortDown']",
+    landDescriptionHeaderSortUpIndicator: "[data-testid='landDescription-header-sortUp']",
     landDisplayOrderHeaderSortUpIndicator: "[data-testid='landDisplayOrder-header-sortUp']",
     landIsActiveHeaderSortUpIndicator: "[data-testid='landIsActive-header-sortUp']",
     landLookupEnumNameHeaderSortUpIndicator: "[data-testid='landLookupEnumName-header-sortUp']",

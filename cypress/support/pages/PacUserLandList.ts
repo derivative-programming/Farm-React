@@ -52,6 +52,16 @@ export class PacUserLandListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.landDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.landDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.landDescriptionHeaderText);
+
+                cy.get(PageSelectors.landDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.landDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+            }
             if(PageSettings.landDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.landDisplayOrderHeader)
                 .should('be.visible')
@@ -182,6 +192,36 @@ export class PacUserLandListPage {
         //column headers
         if(PageSettings.calculatedIsVisualizationGrid){
             cy.log('Verifying column headers...');
+            if(PageSettings.landDescriptionHeaderIsVisible){
+                cy.get(PageSelectors.landDescriptionHeader)
+                .should('be.visible')
+                .should('include.text', PageTexts.landDescriptionHeaderText);
+
+                cy.get(PageSelectors.landDescriptionHeaderSortDownIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.landDescriptionHeaderSortUpIndicator)
+                .should('not.exist');
+                cy.get(PageSelectors.landDescriptionHeader)
+                .click()
+                .click()
+                .get(PageSelectors.landDescriptionHeaderSortDownIndicator).then(($el) => {
+                    if ($el.length) {
+                        cy.get(PageSelectors.landDescriptionHeaderSortDownIndicator)
+                        .should('exist')
+                        .get(PageSelectors.landDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.landDescriptionHeaderSortUpIndicator)
+                        .should('exist');
+                    } else {
+                        cy.get(PageSelectors.landDescriptionHeaderSortUpIndicator)
+                        .should('exist')
+                        .get(PageSelectors.landDescriptionHeader)
+                        .click()
+                        .get(PageSelectors.landDescriptionHeaderSortDownIndicator)
+                        .should('exist');
+                    }
+                });
+            }
             if(PageSettings.landDisplayOrderHeaderIsVisible){
                 cy.get(PageSelectors.landDisplayOrderHeader)
                 .should('be.visible')
