@@ -10,11 +10,11 @@ export type BadgeMenuItem = {
 
 interface UserBadgeProps {
   username: string;
+  customerName: string;
   menuItems: BadgeMenuItem[];
 }
 
-
-function UserBadge({ username, menuItems }: UserBadgeProps) {
+function UserBadge({ username, customerName, menuItems }: UserBadgeProps) {
   const [show, setShow] = useState(false);
 
   const handleToggle = () => {
@@ -25,7 +25,7 @@ function UserBadge({ username, menuItems }: UserBadgeProps) {
     <Dropdown align="end" show={show} onClick={handleToggle}>
       <OverlayTrigger
         placement="bottom"
-        overlay={<Tooltip>{username}</Tooltip>}
+        overlay={<Tooltip>{customerName}<br/>{username}</Tooltip>}
       >
         <div
           style={{
@@ -63,6 +63,7 @@ function UserBadge({ username, menuItems }: UserBadgeProps) {
 // Define PropTypes for runtime validation
 UserBadge.propTypes = {
   username: PropTypes.string.isRequired,
+  customerName: PropTypes.string.isRequired,
   menuItems: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

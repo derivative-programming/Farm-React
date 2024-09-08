@@ -3,7 +3,7 @@
     "appName": "DemoApp",
     "companyLegalName": "NewCo Inc.",
     "companyDomain": "newco.com",
-    "projectName": "Farm Simple Api",
+    "projectName": "Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
     "projectVersionNumber": "1.0.68",
     "name": "FS",
@@ -3026,7 +3026,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalIntVal",
@@ -3046,7 +3047,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeBigIntVal",
@@ -3065,7 +3067,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalBigIntVal",
@@ -3085,7 +3088,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeBitVal",
@@ -3104,7 +3108,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalBitVal",
@@ -3124,7 +3129,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "IsEditAllowed",
@@ -3142,7 +3148,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "IsDeleteAllowed",
@@ -3159,7 +3166,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeFloatVal",
@@ -3178,7 +3186,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalFloatVal",
@@ -3198,7 +3207,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeDecimalVal",
@@ -3217,7 +3227,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalDecimalVal",
@@ -3237,7 +3248,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeUTCDateTimeVal",
@@ -3256,7 +3268,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalUTCDateTimeVal",
@@ -3276,7 +3289,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeDateVal",
@@ -3295,7 +3309,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalDateVal",
@@ -3315,7 +3330,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeMoneyVal",
@@ -3334,7 +3350,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalMoneyVal",
@@ -3354,7 +3371,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeNVarCharVal",
@@ -3373,7 +3391,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalNVarCharVal",
@@ -3393,7 +3412,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeVarCharVal",
@@ -3412,7 +3432,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalVarCharVal",
@@ -3432,7 +3453,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeTextVal",
@@ -3451,7 +3473,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalTextVal",
@@ -3471,7 +3494,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomePhoneNumber",
@@ -3490,7 +3514,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalPhoneNumber",
@@ -3510,7 +3535,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeEmailAddress",
@@ -3529,7 +3555,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalEmailAddress",
@@ -3549,7 +3576,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "FlavorName",
@@ -3569,7 +3597,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "FlavorCode",
@@ -3589,7 +3618,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeIntConditionalOnDeletable",
@@ -3610,7 +3640,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsDeleteAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "NVarCharAsUrl",
@@ -3632,7 +3663,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "NVarCharConditionalAsUrl",
@@ -3655,7 +3687,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "UpdateLinkPlantCode",
@@ -3678,7 +3711,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "DeleteAsyncButtonLinkPlantCode",
@@ -3701,7 +3735,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "DetailsLinkPlantCode",
@@ -3724,7 +3759,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "TestFileDownloadLinkPacCode",
@@ -3748,7 +3784,8 @@
                     "asyncObjWFResultFilePathParamName": "DataFile",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "TestConditionalFileDownloadLinkPacCode",
@@ -3773,7 +3810,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "TestAsyncFlowReqLinkPacCode",
@@ -3796,7 +3834,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "TestConditionalAsyncFlowReqLinkPacCode",
@@ -3820,7 +3859,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "ConditionalBtnExampleLinkPlantCode",
@@ -3844,7 +3884,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "IsImageUrlAvailable",
@@ -3864,7 +3905,8 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeImageUrlVal",
@@ -3885,7 +3927,8 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "isImageURL": "true",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   },
                   {
                     "name": "SomeConditionalImageUrl",
@@ -3907,7 +3950,8 @@
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsImageUrlAvailable",
                     "isImageURL": "true",
-                    "isIgnored": "false"
+                    "isIgnored": "false",
+                    "minWidth": "123px"
                   }
                 ]
               }

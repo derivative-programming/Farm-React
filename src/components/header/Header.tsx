@@ -14,14 +14,7 @@ const Header: FC = (): ReactElement => {
   const onLogout = () => {
     logClick("Header","logOut","");
     AnalyticsService.stop();
-    authContext.clearSession();
-    // authContext.setToken("");
-    // authContext.setRoles("");
-    // authContext.setEmail("");
-    // localStorage.setItem("@token", "");
-    // localStorage.removeItem("roleNameCSVList");
-    // localStorage.setItem("customerCode","");
-    // localStorage.setItem("email", "");
+    authContext.clearSession(); 
   };
 
   const onLogin = () => {
@@ -68,6 +61,8 @@ const Header: FC = (): ReactElement => {
 
   let email = ""
 
+  let customerName = ""
+
   if(authContext && authContext.token) {
     badgeMenuItems = [
       { label: 'Profile', onClick: () => onProfile() },
@@ -79,6 +74,9 @@ const Header: FC = (): ReactElement => {
     {
       email = authContext.email;
     }
+    if(authContext.customerName !== null){
+      customerName = authContext.customerName;
+    }
   }
 
   return (
@@ -86,7 +84,7 @@ const Header: FC = (): ReactElement => {
       <div className="header-container h-85 d-flex align-items-center justify-content-between px-40">
          
         <div className="pt-2 pr-5 logo-design">
-          <h4 className="m-0">Farm Simple Api</h4> 
+          <h4 className="m-0">Simple Api</h4> 
             {authContext && authContext.token && authContext.organizationName ? 
               <p className="text-muted m-0 conditional-text" style={{ textAlign: 'left' }}>{authContext.organizationName}</p> : null
             }
@@ -136,7 +134,7 @@ const Header: FC = (): ReactElement => {
                 <NavItem
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}>
-                  <UserBadge username={email} menuItems={badgeMenuItems}  />
+                  <UserBadge username={email} customerName={customerName} menuItems={badgeMenuItems}  />
                   </NavItem>
               </>
               ) : ( 

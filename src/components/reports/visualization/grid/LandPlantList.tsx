@@ -244,6 +244,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someIntVal"
@@ -254,6 +255,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalIntVal"
@@ -264,6 +266,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someBigIntVal"
@@ -274,6 +277,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalBigIntVal"
@@ -284,6 +288,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someBitVal"
@@ -294,6 +299,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalBitVal"
@@ -304,6 +310,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
 
@@ -315,6 +322,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someFloatVal"
@@ -325,6 +333,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalFloatVal"
@@ -335,6 +344,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someDecimalVal"
@@ -345,6 +355,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalDecimalVal"
@@ -355,6 +366,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someUTCDateTimeVal"
@@ -365,6 +377,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalUTCDateTimeVal"
@@ -375,6 +388,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someDateVal"
@@ -385,6 +399,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalDateVal"
@@ -395,6 +410,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someMoneyVal"
@@ -405,6 +421,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalMoneyVal"
@@ -415,6 +432,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someNVarCharVal"
@@ -425,6 +443,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalNVarCharVal"
@@ -435,6 +454,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someVarCharVal"
@@ -445,6 +465,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalVarCharVal"
@@ -455,6 +476,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someTextVal"
@@ -465,6 +487,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalTextVal"
@@ -475,6 +498,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="somePhoneNumber"
@@ -485,6 +509,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalPhoneNumber"
@@ -495,6 +520,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someEmailAddress"
@@ -505,6 +531,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalEmailAddress"
@@ -515,6 +542,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="isImageUrlAvailable"
@@ -525,6 +553,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someImageUrlVal"
@@ -535,6 +564,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someConditionalImageUrl"
@@ -545,6 +575,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="flavorName"
@@ -555,6 +586,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="flavorCode"
@@ -565,6 +597,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="someIntConditionalOnDeletable"
@@ -575,6 +608,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="nVarCharAsUrl"
@@ -585,6 +619,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="nVarCharConditionalAsUrl"
@@ -595,6 +630,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="updateLinkPlantCode"
@@ -605,6 +641,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="deleteAsyncButtonLinkPlantCode"
@@ -615,6 +652,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="detailsLinkPlantCode"
@@ -625,6 +663,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="testFileDownloadLinkPacCode"
@@ -635,6 +674,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="testConditionalFileDownloadLinkPacCode"
@@ -645,6 +685,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="testAsyncFlowReqLinkPacCode"
@@ -655,6 +696,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="testConditionalAsyncFlowReqLinkPacCode"
@@ -665,6 +707,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 
             <ReportColumnHeader forColumn="conditionalBtnExampleLinkPlantCode"
@@ -675,6 +718,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToLeftColumn={false}
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
+              minWidth="123px"
             />
 {/* endset */}
           </tr>

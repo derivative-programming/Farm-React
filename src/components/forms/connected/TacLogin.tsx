@@ -108,14 +108,7 @@ export const FormConnectedTacLogin: FC<FormProps> = ({
       }
       {/*//GENTrainingBlock[caseGetApiKey]Start*/}
       {/*//GENLearn[isLoginPage=true]Start*/}
-      authContext.startSession(response);
-      // authContext.setToken(response.apiKey);
-      // authContext.setRoles(response.roleNameCSVList);
-      // authContext.setEmail(response.email);
-      // localStorage.setItem("@token", response.apiKey);
-      // localStorage.setItem("roleNameCSVList", response.roleNameCSVList);
-      // localStorage.setItem("customerCode", response.customerCode);
-      // localStorage.setItem("email", response.email);
+      authContext.startSession(response); 
       AnalyticsService.start();
       {/*//GENLearn[isLoginPage=true]End*/}
       {/*//GENTrainingBlock[caseGetApiKey]End*/} 

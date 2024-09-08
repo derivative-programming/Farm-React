@@ -41,6 +41,8 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
                 <div className="fw-bold" data-testid={groupName + '-header'}>{label}</div>
                 <a href={url} 
                   hidden={!displayValue}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                     {linkText}
                 </a>&nbsp;
