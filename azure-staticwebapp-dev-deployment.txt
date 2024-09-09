@@ -1,0 +1,2 @@
+
+npx swa deploy ./build/ --deployment-token [deployment-token]  --env [production,preview]

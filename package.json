@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@azure/static-web-apps-cli": "^2.0.1",
     "@loadable/component": "^5.16.4",
     "@microsoft/signalr": "^8.0.0",
     "@testing-library/react": "^16.0.0",

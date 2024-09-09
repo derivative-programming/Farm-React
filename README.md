@@ -162,3 +162,7 @@ npm run lint
 
 - view sonarqube web
 http://localhost:9000
+
+## azure staticwebapp deployment
+uses swa (@azure/static-web-apps-cli)
+npx swa deploy ./build/ --deployment-token [deployment-token]  --env [production,preview]
