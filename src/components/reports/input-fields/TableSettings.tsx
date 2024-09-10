@@ -5,7 +5,7 @@ import { Gear } from 'react-bootstrap-icons';
 export interface TableColumn {
   header: string;
   isVisible: boolean;
-  isUserPreferenceVisible: boolean;
+  isPreferenceVisible: boolean;
 }
 
 export interface TableSettingsProps {
@@ -50,7 +50,7 @@ export const TableSettings: React.FC<TableSettingsProps> = ({ columns, onToggleC
               type="checkbox"
               id={`${name}-checkbox-${colKey}`}
               label={columns[colKey].header}
-              checked={columns[colKey].isUserPreferenceVisible}
+              checked={columns[colKey].isPreferenceVisible}
               onChange={() => onToggleColumn(colKey)}
               data-testid={`${name}-checkbox-${colKey}`}
             />

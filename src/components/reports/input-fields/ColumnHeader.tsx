@@ -16,7 +16,7 @@ export interface ReportColumnHeaderProps {
   tooltip?: string;          
   isSortDisabled?: boolean; 
   isWordWrapDisabled?: boolean;
-  isUserPreferenceVisible?: boolean;
+  isPreferenceVisible?: boolean;
 }
 
 export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
@@ -34,7 +34,7 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   tooltip = "",  
   isSortDisabled = false, 
   isWordWrapDisabled = false,
-  isUserPreferenceVisible = true,
+  isPreferenceVisible = true,
 }): ReactElement => {
 
   const handleSort = () => {
@@ -47,7 +47,7 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
     minWidth = "50px";
   }  
 
-  const isComponentVisible = isVisible && isUserPreferenceVisible;
+  const isComponentVisible = isVisible && isPreferenceVisible;
 
   return (
     <th

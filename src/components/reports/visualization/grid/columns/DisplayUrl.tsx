@@ -10,7 +10,7 @@ export interface ReportColumnDisplayUrlProps {
   conditionallyVisible?:boolean
   isJoinedToLeftColumn?:boolean
   isJoinedToRightColumn?:boolean
-  isUserPreferenceVisible?: boolean;
+  isPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
@@ -22,7 +22,7 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   conditionallyVisible = true,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
-  isUserPreferenceVisible = true,
+  isPreferenceVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
@@ -40,7 +40,7 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   
   const displayValue = (isVisible && conditionallyVisible);
   
-  const isComponentVisible = isVisible && isUserPreferenceVisible;
+  const isComponentVisible = isVisible && isPreferenceVisible;
        
   return (
     <td data-testid={groupName} 

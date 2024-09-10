@@ -9,7 +9,7 @@ export interface ReportColumnDisplayEmailProps {
   conditionallyVisible?:boolean
   isJoinedToLeftColumn?:boolean
   isJoinedToRightColumn?:boolean
-  isUserPreferenceVisible?: boolean;
+  isPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
@@ -20,14 +20,14 @@ export const ReportColumnDisplayEmail: FC<ReportColumnDisplayEmailProps> = ({
   conditionallyVisible = true,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
-  isUserPreferenceVisible = true,
+  isPreferenceVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
   
   const displayValue = (isVisible && conditionallyVisible);
   
-  const isComponentVisible = isVisible && isUserPreferenceVisible;
+  const isComponentVisible = isVisible && isPreferenceVisible;
       
   const formatEmail = () => {  
     const result = ""; 

@@ -59,226 +59,233 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   const contextValue = contextCode;
 
   const defaultColumnSettings = {
+//endset
+    plantCode: {
+      header: '',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
     isEditAllowed: {
       header: 'Edit Allowed',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someIntVal: {
       header: 'Int Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalIntVal: {
       header: 'Conditional Int Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someBigIntVal: {
       header: 'Big Int Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalBigIntVal: {
       header: 'Conditional Big Int Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someBitVal: {
       header: 'Bit Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalBitVal: {
       header: 'Conditional Bit Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     isDeleteAllowed: {
       header: 'Delete Allowed',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someFloatVal: {
       header: 'Float Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalFloatVal: {
       header: 'Conditional Float Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someDecimalVal: {
       header: 'Decimal Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalDecimalVal: {
       header: 'Conditional Decimal Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someUTCDateTimeVal: {
       header: 'Date Time Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalUTCDateTimeVal: {
       header: 'Conditional Date Time Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someDateVal: {
       header: 'Date Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalDateVal: {
       header: 'Conditional Date Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someMoneyVal: {
       header: 'Money Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalMoneyVal: {
       header: 'Conditional Money Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someNVarCharVal: {
       header: 'N Var Char Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalNVarCharVal: {
       header: 'Conditional N Var Char Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someVarCharVal: {
       header: 'Var Char Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalVarCharVal: {
       header: 'Conditional Var Char Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someTextVal: {
       header: 'Text Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalTextVal: {
       header: 'Conditional Text Val',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     somePhoneNumber: {
       header: 'Phone Number',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalPhoneNumber: {
       header: 'Conditional Phone Number',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someEmailAddress: {
       header: 'Email Address',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalEmailAddress: {
       header: 'Conditional Email Address',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     isImageUrlAvailable: {
       header: 'Is Image Url Available',
       isVisible: false,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someImageUrlVal: {
       header: 'Image Url',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someConditionalImageUrl: {
       header: 'Conditional Image Url',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     flavorName: {
       header: 'Flavor Name',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     flavorCode: {
       header: 'Flavor Code',
       isVisible: false,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     someIntConditionalOnDeletable: {
       header: 'Int Conditional',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     nVarCharAsUrl: {
       header: 'N Var Char As Url',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     nVarCharConditionalAsUrl: {
       header: 'Conditional N Var Char As Url',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     updateLinkPlantCode: {
       header: '',
       isVisible: false,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     deleteAsyncButtonLinkPlantCode: {
       header: '',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     detailsLinkPlantCode: {
       header: '',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     testFileDownloadLinkPacCode: {
       header: '',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     testConditionalFileDownloadLinkPacCode: {
       header: '',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     testAsyncFlowReqLinkPacCode: {
       header: '',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     testConditionalAsyncFlowReqLinkPacCode: {
       header: '',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
     conditionalBtnExampleLinkPlantCode: {
       header: '',
       isVisible: true,
-      isUserPreferenceVisible: true,
+      isPreferenceVisible: true,
     },
+//endset
   };
 
   const [columns, setColumns] = useState(defaultColumnSettings);
@@ -293,7 +300,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
         const updatedColumns = { ...prevColumns };
         storedHiddenColumns.forEach(colKey => {
           if (updatedColumns[colKey]) {
-            updatedColumns[colKey].isUserPreferenceVisible = false;
+            updatedColumns[colKey].isPreferenceVisible = false;
           }
         });
         console.log("setColumns:",updatedColumns)
@@ -305,7 +312,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
   useEffect(() => {
     console.log("columns:", columns)
     const hiddenColumns = Object.keys(columns).filter(
-      colKey => !columns[colKey].isUserPreferenceVisible
+      colKey => !columns[colKey].isPreferenceVisible
     );
     console.log("set storedData:",hiddenColumns)
     localStorage.setItem('landPlantListHiddenColumns', JSON.stringify(hiddenColumns));
@@ -317,7 +324,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       ...prevColumns,
       [colName]: {
         ...prevColumns[colName],
-        isUserPreferenceVisible: !prevColumns[colName].isUserPreferenceVisible
+        isPreferenceVisible: !prevColumns[colName].isPreferenceVisible
       }
     }));
   };
@@ -326,7 +333,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     const updatedColumns = { ...columns };
     Object.keys(updatedColumns).forEach(colKey => {
       if (updatedColumns[colKey].isVisible) {
-        updatedColumns[colKey].isUserPreferenceVisible = visibility;
+        updatedColumns[colKey].isPreferenceVisible = visibility;
       }
     });
     setColumns(updatedColumns);
@@ -461,12 +468,8 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
     link.setAttribute('download', filename);
     document.body.appendChild(link);
     link.click();
-  };
-
-  // console.log("vrtest:" ,columns)
-  // console.log("vrtest:" ,columns["someConditionalTextVal"])
-  // console.log("vrtest:" ,columns["someConditionalTextVal"].isUserPreferenceVisible)
-
+  }; 
+  
   return (
     <div data-testid={name} className="w-100 mt-3">
       <div className="d-flex w-100 justify-content-between mb3">
@@ -534,7 +537,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["isEditAllowed"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["isEditAllowed"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someIntVal"
@@ -546,7 +549,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someIntVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someIntVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalIntVal"
@@ -558,7 +561,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalIntVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalIntVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someBigIntVal"
@@ -570,7 +573,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someBigIntVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someBigIntVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalBigIntVal"
@@ -582,7 +585,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalBigIntVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalBigIntVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someBitVal"
@@ -594,7 +597,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someBitVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someBitVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalBitVal"
@@ -606,7 +609,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalBitVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalBitVal"].isPreferenceVisible}
             />
 
 
@@ -619,7 +622,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["isDeleteAllowed"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["isDeleteAllowed"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someFloatVal"
@@ -631,7 +634,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someFloatVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someFloatVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalFloatVal"
@@ -643,7 +646,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalFloatVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalFloatVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someDecimalVal"
@@ -655,7 +658,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someDecimalVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someDecimalVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalDecimalVal"
@@ -667,7 +670,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalDecimalVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalDecimalVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someUTCDateTimeVal"
@@ -679,7 +682,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someUTCDateTimeVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someUTCDateTimeVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalUTCDateTimeVal"
@@ -691,7 +694,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalUTCDateTimeVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalUTCDateTimeVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someDateVal"
@@ -703,7 +706,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someDateVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someDateVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalDateVal"
@@ -715,7 +718,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalDateVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalDateVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someMoneyVal"
@@ -727,7 +730,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someMoneyVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someMoneyVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalMoneyVal"
@@ -739,7 +742,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalMoneyVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalMoneyVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someNVarCharVal"
@@ -751,7 +754,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someNVarCharVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someNVarCharVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalNVarCharVal"
@@ -763,7 +766,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalNVarCharVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalNVarCharVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someVarCharVal"
@@ -775,7 +778,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someVarCharVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someVarCharVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalVarCharVal"
@@ -787,7 +790,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalVarCharVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalVarCharVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someTextVal"
@@ -799,7 +802,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someTextVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someTextVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalTextVal"
@@ -811,7 +814,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalTextVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalTextVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="somePhoneNumber"
@@ -823,7 +826,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["somePhoneNumber"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["somePhoneNumber"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalPhoneNumber"
@@ -835,7 +838,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalPhoneNumber"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalPhoneNumber"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someEmailAddress"
@@ -847,7 +850,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someEmailAddress"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someEmailAddress"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalEmailAddress"
@@ -859,7 +862,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalEmailAddress"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalEmailAddress"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="isImageUrlAvailable"
@@ -871,7 +874,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["isImageUrlAvailable"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["isImageUrlAvailable"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someImageUrlVal"
@@ -883,7 +886,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someImageUrlVal"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someImageUrlVal"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someConditionalImageUrl"
@@ -895,7 +898,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someConditionalImageUrl"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someConditionalImageUrl"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="flavorName"
@@ -907,7 +910,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["flavorName"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["flavorName"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="flavorCode"
@@ -919,7 +922,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["flavorCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["flavorCode"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="someIntConditionalOnDeletable"
@@ -931,7 +934,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["someIntConditionalOnDeletable"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["someIntConditionalOnDeletable"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="nVarCharAsUrl"
@@ -943,7 +946,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["nVarCharAsUrl"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["nVarCharAsUrl"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="nVarCharConditionalAsUrl"
@@ -955,7 +958,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["nVarCharConditionalAsUrl"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["nVarCharConditionalAsUrl"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="updateLinkPlantCode"
@@ -967,7 +970,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["updateLinkPlantCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["updateLinkPlantCode"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="deleteAsyncButtonLinkPlantCode"
@@ -979,7 +982,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["deleteAsyncButtonLinkPlantCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["deleteAsyncButtonLinkPlantCode"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="detailsLinkPlantCode"
@@ -991,7 +994,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["detailsLinkPlantCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["detailsLinkPlantCode"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="testFileDownloadLinkPacCode"
@@ -1003,7 +1006,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["testFileDownloadLinkPacCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["testFileDownloadLinkPacCode"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="testConditionalFileDownloadLinkPacCode"
@@ -1015,7 +1018,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["testConditionalFileDownloadLinkPacCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["testConditionalFileDownloadLinkPacCode"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="testAsyncFlowReqLinkPacCode"
@@ -1027,7 +1030,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["testAsyncFlowReqLinkPacCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["testAsyncFlowReqLinkPacCode"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="testConditionalAsyncFlowReqLinkPacCode"
@@ -1039,7 +1042,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["testConditionalAsyncFlowReqLinkPacCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["testConditionalAsyncFlowReqLinkPacCode"].isPreferenceVisible}
             />
 
             <ReportColumnHeader forColumn="conditionalBtnExampleLinkPlantCode"
@@ -1051,7 +1054,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="123px"
-              isUserPreferenceVisible={columns["conditionalBtnExampleLinkPlantCode"].isUserPreferenceVisible}
+              isPreferenceVisible={columns["conditionalBtnExampleLinkPlantCode"].isPreferenceVisible}
             />
 {/* endset */}
           </tr>
@@ -1081,7 +1084,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["isEditAllowed"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["isEditAllowed"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntVal"
@@ -1090,7 +1093,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someIntVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someIntVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalIntVal"
@@ -1100,7 +1103,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalIntVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalIntVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someBigIntVal"
@@ -1109,7 +1112,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someBigIntVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someBigIntVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalBigIntVal"
@@ -1119,7 +1122,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalBigIntVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalBigIntVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someBitVal"
@@ -1128,7 +1131,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someBitVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someBitVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="someConditionalBitVal"
@@ -1138,7 +1141,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalBitVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalBitVal"].isPreferenceVisible}
                   />
 
  
@@ -1148,7 +1151,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["isDeleteAllowed"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["isDeleteAllowed"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someFloatVal"
@@ -1157,7 +1160,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someFloatVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someFloatVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalFloatVal"
@@ -1167,7 +1170,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalFloatVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalFloatVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someDecimalVal"
@@ -1176,7 +1179,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someDecimalVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someDecimalVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someConditionalDecimalVal"
@@ -1186,7 +1189,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalDecimalVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalDecimalVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someUTCDateTimeVal"
@@ -1195,7 +1198,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someUTCDateTimeVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someUTCDateTimeVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayDateTime forColumn="someConditionalUTCDateTimeVal"
@@ -1205,7 +1208,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalUTCDateTimeVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalUTCDateTimeVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someDateVal"
@@ -1214,7 +1217,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someDateVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someDateVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayDate forColumn="someConditionalDateVal"
@@ -1224,7 +1227,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalDateVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalDateVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayMoney forColumn="someMoneyVal"
@@ -1233,7 +1236,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someMoneyVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someMoneyVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayMoney forColumn="someConditionalMoneyVal"
@@ -1243,7 +1246,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalMoneyVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalMoneyVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someNVarCharVal"
@@ -1252,7 +1255,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someNVarCharVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someNVarCharVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalNVarCharVal"
@@ -1262,7 +1265,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalNVarCharVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalNVarCharVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someVarCharVal"
@@ -1271,7 +1274,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someVarCharVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someVarCharVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalVarCharVal"
@@ -1281,7 +1284,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalVarCharVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalVarCharVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someTextVal"
@@ -1290,7 +1293,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someTextVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someTextVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="someConditionalTextVal"
@@ -1300,7 +1303,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalTextVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalTextVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="somePhoneNumber"
@@ -1309,7 +1312,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["somePhoneNumber"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["somePhoneNumber"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayPhoneNumber forColumn="someConditionalPhoneNumber"
@@ -1319,7 +1322,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalPhoneNumber"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalPhoneNumber"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayEmail forColumn="someEmailAddress"
@@ -1328,7 +1331,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someEmailAddress"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someEmailAddress"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayEmail forColumn="someConditionalEmailAddress"
@@ -1338,7 +1341,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["someConditionalEmailAddress"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalEmailAddress"].isPreferenceVisible}
                   />
 
  
@@ -1348,7 +1351,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={false}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["isImageUrlAvailable"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["isImageUrlAvailable"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayImageUrl forColumn="someImageUrlVal"
@@ -1357,7 +1360,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["someImageUrlVal"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someImageUrlVal"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayImageUrl forColumn="someConditionalImageUrl"
@@ -1367,7 +1370,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isImageUrlAvailable} 
-                    isUserPreferenceVisible={columns["someConditionalImageUrl"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someConditionalImageUrl"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorName"
@@ -1376,7 +1379,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["flavorName"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["flavorName"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="flavorCode"
@@ -1385,7 +1388,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={false}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["flavorCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["flavorCode"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="someIntConditionalOnDeletable"
@@ -1395,7 +1398,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isDeleteAllowed} 
-                    isUserPreferenceVisible={columns["someIntConditionalOnDeletable"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["someIntConditionalOnDeletable"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="nVarCharAsUrl"
@@ -1405,7 +1408,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["nVarCharAsUrl"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["nVarCharAsUrl"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayUrl forColumn="nVarCharConditionalAsUrl"
@@ -1416,7 +1419,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["nVarCharConditionalAsUrl"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["nVarCharConditionalAsUrl"].isPreferenceVisible}
                   />
 
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="updateLinkPlantCode"
@@ -1430,7 +1433,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={false}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["updateLinkPlantCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["updateLinkPlantCode"].isPreferenceVisible}
                   />
  
                   <ReportColumnDisplay.ReportColumnDisplayButton forColumn="deleteAsyncButtonLinkPlantCode"
@@ -1440,7 +1443,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["deleteAsyncButtonLinkPlantCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["deleteAsyncButtonLinkPlantCode"].isPreferenceVisible}
                     onClick={() =>
                       {
                         logClick(componentName,"deleteAsyncButtonLinkPlantCode","");
@@ -1463,7 +1466,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["detailsLinkPlantCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["detailsLinkPlantCode"].isPreferenceVisible}
                     onClick={() => {
                       logClick(componentName,"detailsLinkPlantCode","");
                       onNavigateTo("/plant-user-details/" + item.detailsLinkPlantCode);
@@ -1477,7 +1480,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["testFileDownloadLinkPacCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["testFileDownloadLinkPacCode"].isPreferenceVisible}
                     onClick={() =>
                       {
                         logClick(componentName,"testFileDownloadLinkPacCode","");
@@ -1497,7 +1500,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["testConditionalFileDownloadLinkPacCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["testConditionalFileDownloadLinkPacCode"].isPreferenceVisible}
                     onClick={() =>
                       {
                         logClick(componentName,"testConditionalFileDownloadLinkPacCode","");
@@ -1516,7 +1519,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
-                    isUserPreferenceVisible={columns["testAsyncFlowReqLinkPacCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["testAsyncFlowReqLinkPacCode"].isPreferenceVisible}
                     onClick={() =>
                       {
                         logClick(componentName,"testAsyncFlowReqLinkPacCode","");
@@ -1539,7 +1542,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["testConditionalAsyncFlowReqLinkPacCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["testConditionalAsyncFlowReqLinkPacCode"].isPreferenceVisible}
                     onClick={() =>
                       {
                         logClick(componentName,"testConditionalAsyncFlowReqLinkPacCode","");
@@ -1562,7 +1565,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
                     conditionallyVisible={item.isEditAllowed} 
-                    isUserPreferenceVisible={columns["conditionalBtnExampleLinkPlantCode"].isUserPreferenceVisible}
+                    isPreferenceVisible={columns["conditionalBtnExampleLinkPlantCode"].isPreferenceVisible}
                     onClick={() => {
                       logClick(componentName,"conditionalBtnExampleLinkPlantCode","");
                       onNavigateTo("/plant-user-details/" + item.conditionalBtnExampleLinkPlantCode);

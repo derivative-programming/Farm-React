@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement, useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
@@ -8,7 +8,7 @@ import { QueryResultItem } from "../../services/PacUserTriStateFilterList"; // N
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";  // NOSONAR
 import * as ReportColumnDisplay from "./columns";  // NOSONAR
 import * as AsyncServices from "../../../services"; // NOSONAR
-import { ReportPagination } from "../../input-fields";
+import { ReportPagination,TableSettings } from "../../input-fields";
 import * as ReportInput from "../../input-fields";  // NOSONAR
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";
 
@@ -57,6 +57,96 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
   const componentName = "ReportGridPacUserTriStateFilterList";
   const contextValueName = "pacCode";
   const contextValue = contextCode;
+
+  const defaultColumnSettings = {
+    triStateFilterCode: {
+      header: 'Tri State Filter Code',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    triStateFilterDescription: {
+      header: 'Description',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    triStateFilterDisplayOrder: {
+      header: 'Display Order',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    triStateFilterIsActive: {
+      header: 'Is Active',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    triStateFilterLookupEnumName: {
+      header: 'Lookup Enum Name',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    triStateFilterName: {
+      header: 'Name',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    triStateFilterStateIntValue: {
+      header: 'State Int Value',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+//endset
+  };
+
+  const [columns, setColumns] = useState(defaultColumnSettings);
+
+  useEffect(() => {
+    console.log("useEffect: []")
+    const storedData = localStorage.getItem('pacUserTriStateFilterListHiddenColumns');
+    console.log("get storedData:",storedData)
+    if(storedData){
+      const storedHiddenColumns = JSON.parse(storedData) || [];
+      setColumns(prevColumns => {
+        const updatedColumns = { ...prevColumns };
+        storedHiddenColumns.forEach(colKey => {
+          if (updatedColumns[colKey]) {
+            updatedColumns[colKey].isPreferenceVisible = false;
+          }
+        });
+        console.log("setColumns:",updatedColumns)
+        return updatedColumns;
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("columns:", columns)
+    const hiddenColumns = Object.keys(columns).filter(
+      colKey => !columns[colKey].isPreferenceVisible
+    );
+    console.log("set storedData:",hiddenColumns)
+    localStorage.setItem('pacUserTriStateFilterListHiddenColumns', JSON.stringify(hiddenColumns));
+  }, [columns]);
+
+  const handleColumnVisibility = (colName: string) => {
+    console.log("handleColumnVisibility:",colName)
+    setColumns(prevColumns => ({
+      ...prevColumns,
+      [colName]: {
+        ...prevColumns[colName],
+        isPreferenceVisible: !prevColumns[colName].isPreferenceVisible
+      }
+    }));
+  };
+
+  const handleSetAllColumnsVisibility = (visibility: boolean) => {
+    const updatedColumns = { ...columns };
+    Object.keys(updatedColumns).forEach(colKey => {
+      if (updatedColumns[colKey].isVisible) {
+        updatedColumns[colKey].isPreferenceVisible = visibility;
+      }
+    });
+    setColumns(updatedColumns);
+  };
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -129,10 +219,25 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
     link.click();
   };
 
+  // console.log("vrtest:" ,columns)
+  // console.log("vrtest:" ,columns["someConditionalTextVal"])
+  // console.log("vrtest:" ,columns["someConditionalTextVal"].isPreferenceVisible)
+
   return (
     <div data-testid={name} className="w-100 mt-3">
-      <div className="d-flex w-100 justify-content-left">
+      <div className="d-flex w-100 justify-content-between mb3">
+        <div>
 
+        </div>
+
+        <div>
+          <TableSettings
+            name="TableSettingsPacUserTriStateFilterList"
+            columns={columns}
+            onToggleColumn={handleColumnVisibility}
+            onSetAllColumnsVisibility={handleSetAllColumnsVisibility}
+          />
+        </div>
       </div>
       {validationError && (
         <div className="text-start text-danger mb-3">
@@ -160,6 +265,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["triStateFilterCode"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="triStateFilterDescription"
               isSortDescending={isSortDescending}
@@ -170,6 +276,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="200px"
+              isPreferenceVisible={columns["triStateFilterDescription"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="triStateFilterDisplayOrder"
               isSortDescending={isSortDescending}
@@ -180,6 +287,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["triStateFilterDisplayOrder"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="triStateFilterIsActive"
               isSortDescending={isSortDescending}
@@ -190,6 +298,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["triStateFilterIsActive"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="triStateFilterLookupEnumName"
               isSortDescending={isSortDescending}
@@ -200,6 +309,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["triStateFilterLookupEnumName"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="triStateFilterName"
               isSortDescending={isSortDescending}
@@ -210,6 +320,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["triStateFilterName"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="triStateFilterStateIntValue"
               isSortDescending={isSortDescending}
@@ -220,6 +331,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["triStateFilterStateIntValue"].isPreferenceVisible}
             />
 {/* endset */}
           </tr>
@@ -237,6 +349,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["triStateFilterCode"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="triStateFilterDescription"
                     rowIndex={index}
@@ -244,6 +357,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["triStateFilterDescription"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="triStateFilterDisplayOrder"
                     rowIndex={index}
@@ -251,6 +365,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["triStateFilterDisplayOrder"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="triStateFilterIsActive"
                     rowIndex={index}
@@ -258,6 +373,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["triStateFilterIsActive"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="triStateFilterLookupEnumName"
                     rowIndex={index}
@@ -265,6 +381,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["triStateFilterLookupEnumName"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="triStateFilterName"
                     rowIndex={index}
@@ -272,6 +389,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["triStateFilterName"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="triStateFilterStateIntValue"
                     rowIndex={index}
@@ -279,6 +397,7 @@ export const ReportGridPacUserTriStateFilterList: FC<ReportGridPacUserTriStateFi
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["triStateFilterStateIntValue"].isPreferenceVisible}
                   />
 {/* endset */}
 

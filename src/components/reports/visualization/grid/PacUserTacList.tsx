@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement, useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Table, Spinner } from "react-bootstrap"; // NOSONAR
 import "../../../../App.scss";
@@ -8,7 +8,7 @@ import { QueryResultItem } from "../../services/PacUserTacList"; // NOSONAR
 import { ReportColumnHeader } from "../../input-fields/ColumnHeader";  // NOSONAR
 import * as ReportColumnDisplay from "./columns";  // NOSONAR
 import * as AsyncServices from "../../../services"; // NOSONAR
-import { ReportPagination } from "../../input-fields";
+import { ReportPagination,TableSettings } from "../../input-fields";
 import * as ReportInput from "../../input-fields";  // NOSONAR
 import useAnalyticsDB from "../../../../hooks/useAnalyticsDB";
 
@@ -57,6 +57,96 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
   const componentName = "ReportGridPacUserTacList";
   const contextValueName = "pacCode";
   const contextValue = contextCode;
+
+  const defaultColumnSettings = {
+    tacCode: {
+      header: 'Tac Code',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    tacDescription: {
+      header: 'Description',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    tacDisplayOrder: {
+      header: 'Display Order',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    tacIsActive: {
+      header: 'Is Active',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    tacLookupEnumName: {
+      header: 'Lookup Enum Name',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    tacName: {
+      header: 'Name',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+    pacName: {
+      header: 'Pac Name',
+      isVisible: true,
+      isPreferenceVisible: true,
+    },
+//endset
+  };
+
+  const [columns, setColumns] = useState(defaultColumnSettings);
+
+  useEffect(() => {
+    console.log("useEffect: []")
+    const storedData = localStorage.getItem('pacUserTacListHiddenColumns');
+    console.log("get storedData:",storedData)
+    if(storedData){
+      const storedHiddenColumns = JSON.parse(storedData) || [];
+      setColumns(prevColumns => {
+        const updatedColumns = { ...prevColumns };
+        storedHiddenColumns.forEach(colKey => {
+          if (updatedColumns[colKey]) {
+            updatedColumns[colKey].isPreferenceVisible = false;
+          }
+        });
+        console.log("setColumns:",updatedColumns)
+        return updatedColumns;
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("columns:", columns)
+    const hiddenColumns = Object.keys(columns).filter(
+      colKey => !columns[colKey].isPreferenceVisible
+    );
+    console.log("set storedData:",hiddenColumns)
+    localStorage.setItem('pacUserTacListHiddenColumns', JSON.stringify(hiddenColumns));
+  }, [columns]);
+
+  const handleColumnVisibility = (colName: string) => {
+    console.log("handleColumnVisibility:",colName)
+    setColumns(prevColumns => ({
+      ...prevColumns,
+      [colName]: {
+        ...prevColumns[colName],
+        isPreferenceVisible: !prevColumns[colName].isPreferenceVisible
+      }
+    }));
+  };
+
+  const handleSetAllColumnsVisibility = (visibility: boolean) => {
+    const updatedColumns = { ...columns };
+    Object.keys(updatedColumns).forEach(colKey => {
+      if (updatedColumns[colKey].isVisible) {
+        updatedColumns[colKey].isPreferenceVisible = visibility;
+      }
+    });
+    setColumns(updatedColumns);
+  };
 
   const handleRowSelectCheckboxChange = (  //NOSONAR
     e: React.ChangeEvent<HTMLInputElement>,
@@ -129,10 +219,25 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
     link.click();
   };
 
+  // console.log("vrtest:" ,columns)
+  // console.log("vrtest:" ,columns["someConditionalTextVal"])
+  // console.log("vrtest:" ,columns["someConditionalTextVal"].isPreferenceVisible)
+
   return (
     <div data-testid={name} className="w-100 mt-3">
-      <div className="d-flex w-100 justify-content-left">
+      <div className="d-flex w-100 justify-content-between mb3">
+        <div>
 
+        </div>
+
+        <div>
+          <TableSettings
+            name="TableSettingsPacUserTacList"
+            columns={columns}
+            onToggleColumn={handleColumnVisibility}
+            onSetAllColumnsVisibility={handleSetAllColumnsVisibility}
+          />
+        </div>
       </div>
       {validationError && (
         <div className="text-start text-danger mb-3">
@@ -160,6 +265,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["tacCode"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="tacDescription"
               isSortDescending={isSortDescending}
@@ -170,6 +276,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth="200px"
+              isPreferenceVisible={columns["tacDescription"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="tacDisplayOrder"
               isSortDescending={isSortDescending}
@@ -180,6 +287,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["tacDisplayOrder"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="tacIsActive"
               isSortDescending={isSortDescending}
@@ -190,6 +298,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["tacIsActive"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="tacLookupEnumName"
               isSortDescending={isSortDescending}
@@ -200,6 +309,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["tacLookupEnumName"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="tacName"
               isSortDescending={isSortDescending}
@@ -210,6 +320,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["tacName"].isPreferenceVisible}
             />
             <ReportColumnHeader forColumn="pacName"
               isSortDescending={isSortDescending}
@@ -220,6 +331,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
               isJoinedToRightColumn={false}
               sortedColumnName={sortedColumnName}
               minWidth=""
+              isPreferenceVisible={columns["pacName"].isPreferenceVisible}
             />
 {/* endset */}
           </tr>
@@ -237,6 +349,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["tacCode"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacDescription"
                     rowIndex={index}
@@ -244,6 +357,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["tacDescription"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayNumber forColumn="tacDisplayOrder"
                     rowIndex={index}
@@ -251,6 +365,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["tacDisplayOrder"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayCheckbox forColumn="tacIsActive"
                     rowIndex={index}
@@ -258,6 +373,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["tacIsActive"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacLookupEnumName"
                     rowIndex={index}
@@ -265,6 +381,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["tacLookupEnumName"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="tacName"
                     rowIndex={index}
@@ -272,6 +389,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["tacName"].isPreferenceVisible}
                   />
                   <ReportColumnDisplay.ReportColumnDisplayText forColumn="pacName"
                     rowIndex={index}
@@ -279,6 +397,7 @@ export const ReportGridPacUserTacList: FC<ReportGridPacUserTacListProps> = ({
                     isVisible={true}
                     isJoinedToLeftColumn={false}
                     isJoinedToRightColumn={false}
+                    isPreferenceVisible={columns["pacName"].isPreferenceVisible}
                   />
 {/* endset */}
 
