@@ -231,7 +231,7 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 
     >
       {!isAutoSubmit && (
-        <div className="col-md-7 col-lg-6 col-xl-5">
+        <div className="col-md-10 col-lg-8 col-xl-6">
           <Card
             className="mt-1 page-card"
 
