@@ -219,10 +219,6 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
     link.click();
   };
 
-  // console.log("vrtest:" ,columns)
-  // console.log("vrtest:" ,columns["someConditionalTextVal"])
-  // console.log("vrtest:" ,columns["someConditionalTextVal"].isPreferenceVisible)
-
   return (
     <div data-testid={name} className="w-100 mt-3">
       <div className="d-flex w-100 justify-content-between mb3">
