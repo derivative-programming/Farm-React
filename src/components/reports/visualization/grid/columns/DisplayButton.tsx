@@ -13,6 +13,7 @@ export interface ReportColumnDisplayButtonProps {
   isButtonCallToAction?:boolean
   isJoinedToLeftColumn?:boolean
   isJoinedToRightColumn?:boolean
+  isUserPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
@@ -25,12 +26,15 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
   isButtonCallToAction = false,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
+  isUserPreferenceVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
   const buttonName = groupName + '-button'; 
   
   const displayValue = (isVisible && conditionallyVisible);
+  
+  const isComponentVisible = isVisible && isUserPreferenceVisible;
 
   let buttonVariant = "outline-secondary";
   if(isButtonCallToAction)
@@ -40,7 +44,7 @@ export const ReportColumnDisplayButton: FC<ReportColumnDisplayButtonProps> = ({
 
   return (
     <>
-      <td data-testid={groupName} hidden={!isVisible}>
+      <td data-testid={groupName} hidden={!isComponentVisible}>
           <Button
               hidden={!displayValue}
               className="ms-2"

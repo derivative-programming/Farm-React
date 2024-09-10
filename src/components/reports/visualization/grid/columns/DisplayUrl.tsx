@@ -10,6 +10,7 @@ export interface ReportColumnDisplayUrlProps {
   conditionallyVisible?:boolean
   isJoinedToLeftColumn?:boolean
   isJoinedToRightColumn?:boolean
+  isUserPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
@@ -21,6 +22,7 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   conditionallyVisible = true,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
+  isUserPreferenceVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
@@ -37,11 +39,13 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   }
   
   const displayValue = (isVisible && conditionallyVisible);
+  
+  const isComponentVisible = isVisible && isUserPreferenceVisible;
        
   return (
     <td data-testid={groupName} 
       className="text-nowrap" 
-      hidden={!isVisible}>
+      hidden={!isComponentVisible}>
         <a href={url}
           hidden={!displayValue}
           target="_blank"

@@ -9,6 +9,7 @@ export interface ReportColumnDisplayTextProps {
   conditionallyVisible?:boolean
   isJoinedToLeftColumn?:boolean
   isJoinedToRightColumn?:boolean
+  isUserPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
@@ -19,11 +20,14 @@ export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
   conditionallyVisible = true,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
+  isUserPreferenceVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
   
   const displayValue = (isVisible && conditionallyVisible);
+  
+  const isComponentVisible = isVisible && isUserPreferenceVisible;
       
   const formatText = () => {  
     const result = "";
@@ -42,7 +46,7 @@ export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
   }
 
   return (
-    <td data-testid={groupName} hidden={!isVisible}>{formatText()}</td>
+    <td data-testid={groupName} hidden={!isComponentVisible}>{formatText()}</td>
   );
 };
    

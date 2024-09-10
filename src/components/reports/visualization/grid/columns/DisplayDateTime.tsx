@@ -10,6 +10,7 @@ export interface ReportColumnDisplayDateTimeProps {
   conditionallyVisible?:boolean
   isJoinedToLeftColumn?:boolean
   isJoinedToRightColumn?:boolean
+  isUserPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> = ({
@@ -20,11 +21,14 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
   conditionallyVisible = true,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
+  isUserPreferenceVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
   
   const displayValue = (isVisible && conditionallyVisible);
+  
+  const isComponentVisible = isVisible && isUserPreferenceVisible;
       
   const formatDateTime = () => {  
     let result = "";
@@ -55,7 +59,7 @@ export const ReportColumnDisplayDateTime: FC<ReportColumnDisplayDateTimeProps> =
   }
 
   return (
-    <td data-testid={groupName} className="text-nowrap" hidden={!isVisible}>{formatDateTime()}</td>
+    <td data-testid={groupName} className="text-nowrap" hidden={!isComponentVisible}>{formatDateTime()}</td>
   );
 };
    

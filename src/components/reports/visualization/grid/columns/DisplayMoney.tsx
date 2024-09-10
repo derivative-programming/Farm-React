@@ -9,6 +9,7 @@ export interface ReportColumnDisplayMoneyProps {
   conditionallyVisible?:boolean
   isJoinedToLeftColumn?:boolean
   isJoinedToRightColumn?:boolean
+  isUserPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
@@ -19,11 +20,14 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
   conditionallyVisible = true,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
+  isUserPreferenceVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn +'-column-' + rowIndex.toString();
   
   const displayValue = (isVisible && conditionallyVisible);
+  
+  const isComponentVisible = isVisible && isUserPreferenceVisible;
       
   const formatMoney = () => { 
     let result = "";
@@ -53,7 +57,7 @@ export const ReportColumnDisplayMoney: FC<ReportColumnDisplayMoneyProps> = ({
   }
 
   return (
-    <td data-testid={groupName} className="text-nowrap" hidden={!isVisible}>{formatMoney()}</td>
+    <td data-testid={groupName} className="text-nowrap" hidden={!isComponentVisible}>{formatMoney()}</td>
   );
 };
    

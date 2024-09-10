@@ -16,6 +16,7 @@ export interface ReportColumnHeaderProps {
   tooltip?: string;          
   isSortDisabled?: boolean; 
   isWordWrapDisabled?: boolean;
+  isUserPreferenceVisible?: boolean;
 }
 
 export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
@@ -33,6 +34,7 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   tooltip = "",  
   isSortDisabled = false, 
   isWordWrapDisabled = false,
+  isUserPreferenceVisible = true,
 }): ReactElement => {
 
   const handleSort = () => {
@@ -43,14 +45,16 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
 
   if(minWidth && minWidth === "") {
     minWidth = "50px";
-  } 
+  }  
+
+  const isComponentVisible = isVisible && isUserPreferenceVisible;
 
   return (
     <th
       className="cursor-pointer ps-2 pe-2"
       data-testid={forColumn + '-header'}
       id={forColumn + '-header'}
-      hidden={!isVisible}
+      hidden={!isComponentVisible}
       onClick={handleSort}
       style={{
         minWidth: minWidth ? minWidth : undefined,
@@ -66,14 +70,14 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
       {!isSortDisabled && (
         <span>
           {" "}
-          {sortedColumnName === forColumn && !isSortDescending && isVisible ? (
+          {sortedColumnName === forColumn && !isSortDescending && isComponentVisible ? (
             <SortDownAlt
               className="w-12 ms-1"
               data-testid={forColumn + '-header-sortDown'}
             />
           ) : null}
 
-          {sortedColumnName === forColumn && isSortDescending && isVisible ? (
+          {sortedColumnName === forColumn && isSortDescending && isComponentVisible ? (
             <SortUp
               className="w-12 ms-1"
               data-testid={forColumn + '-header-sortUp'}

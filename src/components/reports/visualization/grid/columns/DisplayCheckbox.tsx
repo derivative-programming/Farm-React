@@ -11,6 +11,7 @@ export interface ReportColumnDisplayCheckboxProps {
   conditionallyVisible?:boolean
   isJoinedToLeftColumn?:boolean
   isJoinedToRightColumn?:boolean
+  isUserPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> = ({
@@ -21,20 +22,23 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
   conditionallyVisible = true,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
+  isUserPreferenceVisible = true,
 }): ReactElement => { 
  
   const groupName = forColumn +'-column-' + rowIndex.toString();
   const checkboxName = groupName +'-checkbox';
   
   const displayValue = (isVisible && conditionallyVisible);
+  
+  const isComponentVisible = isVisible && isUserPreferenceVisible;
  
   if(isChecked === null || !displayValue){ 
     return (
-    <td data-testid={groupName} hidden={!isVisible}></td>
+    <td data-testid={groupName} hidden={!isComponentVisible}></td>
     );
   } else {  
     return (
-      <td data-testid={groupName} hidden={!isVisible}>   
+      <td data-testid={groupName} hidden={!isComponentVisible}>   
           <Form.Check 
             readOnly={true}
             type="checkbox"
