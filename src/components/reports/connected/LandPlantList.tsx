@@ -334,6 +334,10 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
                 isButtonCallToAction={false}
                 isVisible={true}
                 isEnabled={true}
+                isButtonBadgeVisible={false} 
+                //GENIF[calculatedIsButtonBadgePropertyAvailable=true]Start
+                buttonBadgeValue={initPageResponse?.someFilterIntVal}
+                //GENIF[calculatedIsButtonBadgePropertyAvailable=true]End
               />
             </div>
             <div>

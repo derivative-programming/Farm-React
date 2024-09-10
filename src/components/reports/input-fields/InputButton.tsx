@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, ReactNode } from "react";
-import { Button } from "react-bootstrap"; 
+import { Button, Badge } from "react-bootstrap"; 
 
 export interface ReportInputButtonProps {
   name: string;
@@ -10,6 +10,8 @@ export interface ReportInputButtonProps {
   isEnabled?: boolean;
   className?: string;
   type?: "button" | "submit" | "reset";
+  isButtonBadgeVisible?: boolean;
+  buttonBadgeValue?: number; 
 }
 
 export const ReportInputButton: FC<ReportInputButtonProps> = ({
@@ -19,8 +21,10 @@ export const ReportInputButton: FC<ReportInputButtonProps> = ({
   isButtonCallToAction = true,
   isVisible = true,
   isEnabled = true,
-  type = "button",
   className = "",
+  type = "button",
+  isButtonBadgeVisible = false,
+  buttonBadgeValue = 0,
 }): ReactElement => {
 
 
@@ -41,6 +45,14 @@ export const ReportInputButton: FC<ReportInputButtonProps> = ({
       variant={buttonVariant}
     >
       {buttonText}
+      {isButtonBadgeVisible && (
+        <>
+          {" "}
+          <Badge bg="secondary" pill className="ms-2">
+            {buttonBadgeValue}
+          </Badge>
+        </>
+      )}
     </Button>
   );
 }; 

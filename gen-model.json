@@ -2774,6 +2774,8 @@
                     "isVisible": "true",
                     "isButtonCallToAction": "false",
                     "isEnabled": "true",
+                    "isButtonBadgeVisible": "false",
+                    "buttonBadgePropertyName": "someFilterIntVal",
                     "accessKey": "O",
                     "isAccessKeyAvailable": "true"
                   },
@@ -3018,6 +3020,7 @@
                     "sqlServerDBDataType": "int",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3026,8 +3029,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalIntVal",
@@ -3038,6 +3040,7 @@
                     "sqlServerDBDataType": "int",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3047,8 +3050,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeBigIntVal",
@@ -3059,6 +3061,7 @@
                     "sqlServerDBDataType": "bigint",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3067,8 +3070,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalBigIntVal",
@@ -3079,6 +3081,7 @@
                     "sqlServerDBDataType": "bigint",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3088,8 +3091,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeBitVal",
@@ -3100,6 +3102,7 @@
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3108,8 +3111,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalBitVal",
@@ -3120,6 +3122,7 @@
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3129,8 +3132,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "IsEditAllowed",
@@ -3140,6 +3142,7 @@
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3148,8 +3151,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "IsDeleteAllowed",
@@ -3158,6 +3160,7 @@
                     "sqlServerDBDataType": "bit",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3166,8 +3169,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeFloatVal",
@@ -3178,6 +3180,7 @@
                     "sqlServerDBDataType": "float",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3186,8 +3189,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalFloatVal",
@@ -3198,6 +3200,7 @@
                     "sqlServerDBDataType": "float",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3207,8 +3210,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeDecimalVal",
@@ -3219,6 +3221,7 @@
                     "sqlServerDBDataType": "decimal",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3227,8 +3230,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalDecimalVal",
@@ -3239,6 +3241,7 @@
                     "sqlServerDBDataType": "decimal",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3248,8 +3251,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeUTCDateTimeVal",
@@ -3260,6 +3262,7 @@
                     "sqlServerDBDataType": "datetime",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3268,8 +3271,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalUTCDateTimeVal",
@@ -3280,6 +3282,7 @@
                     "sqlServerDBDataType": "datetime",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3289,8 +3292,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeDateVal",
@@ -3301,6 +3303,7 @@
                     "sqlServerDBDataType": "date",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3309,8 +3312,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalDateVal",
@@ -3321,6 +3323,7 @@
                     "sqlServerDBDataType": "date",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3330,8 +3333,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeMoneyVal",
@@ -3342,6 +3344,7 @@
                     "sqlServerDBDataType": "money",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3350,8 +3353,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalMoneyVal",
@@ -3362,6 +3364,7 @@
                     "sqlServerDBDataType": "money",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3371,8 +3374,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeNVarCharVal",
@@ -3383,6 +3385,7 @@
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3391,8 +3394,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalNVarCharVal",
@@ -3403,6 +3405,7 @@
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3412,8 +3415,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeVarCharVal",
@@ -3424,6 +3426,7 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3432,8 +3435,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalVarCharVal",
@@ -3444,6 +3446,7 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3453,8 +3456,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeTextVal",
@@ -3465,6 +3467,7 @@
                     "sqlServerDBDataType": "text",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3473,8 +3476,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalTextVal",
@@ -3485,6 +3487,7 @@
                     "sqlServerDBDataType": "text",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3494,8 +3497,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomePhoneNumber",
@@ -3506,6 +3508,7 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3514,8 +3517,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalPhoneNumber",
@@ -3526,6 +3528,7 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3535,8 +3538,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeEmailAddress",
@@ -3547,6 +3549,7 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3555,8 +3558,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalEmailAddress",
@@ -3567,6 +3569,7 @@
                     "sqlServerDBDataType": "varchar",
                     "sqlServerDBDataTypeSize": "50",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3576,8 +3579,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "FlavorName",
@@ -3589,6 +3591,7 @@
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3597,8 +3600,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "FlavorCode",
@@ -3610,6 +3612,7 @@
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "false",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3618,8 +3621,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeIntConditionalOnDeletable",
@@ -3631,6 +3633,7 @@
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
                     "isButton": "false",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3640,8 +3643,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsDeleteAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "NVarCharAsUrl",
@@ -3653,6 +3655,7 @@
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
                     "isButton": "false",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3663,8 +3666,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "NVarCharConditionalAsUrl",
@@ -3676,6 +3678,7 @@
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
                     "isButton": "false",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3687,8 +3690,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "UpdateLinkPlantCode",
@@ -3703,6 +3705,7 @@
                     "buttonText": "Update",
                     "destinationTargetName": "PlantUserDetails",
                     "destinationContextObjectName": "Plant",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3711,8 +3714,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "DeleteAsyncButtonLinkPlantCode",
@@ -3727,6 +3729,7 @@
                     "buttonText": "Delete",
                     "destinationTargetName": "PlantUserDelete",
                     "destinationContextObjectName": "Plant",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3735,8 +3738,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "DetailsLinkPlantCode",
@@ -3751,6 +3753,7 @@
                     "buttonText": "Details",
                     "destinationTargetName": "PlantUserDetails",
                     "destinationContextObjectName": "Plant",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "true",
                     "isUnixEpochDateTime": "false",
@@ -3759,8 +3762,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "TestFileDownloadLinkPacCode",
@@ -3775,6 +3777,7 @@
                     "buttonText": "Test File Download",
                     "destinationTargetName": "PacUserTestAsyncFileDownload",
                     "destinationContextObjectName": "Pac",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3784,8 +3787,7 @@
                     "asyncObjWFResultFilePathParamName": "DataFile",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "TestConditionalFileDownloadLinkPacCode",
@@ -3800,6 +3802,7 @@
                     "buttonText": "Test Conditional File Download",
                     "destinationTargetName": "PacUserTestAsyncFileDownload",
                     "destinationContextObjectName": "Pac",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3810,8 +3813,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "TestAsyncFlowReqLinkPacCode",
@@ -3826,6 +3828,7 @@
                     "buttonText": "Test Async Flow Req",
                     "destinationTargetName": "PacUserTestAsyncFlowReq",
                     "destinationContextObjectName": "Pac",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3834,8 +3837,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "TestConditionalAsyncFlowReqLinkPacCode",
@@ -3850,6 +3852,7 @@
                     "buttonText": "Test Conditional Async Flow Req",
                     "destinationTargetName": "PacUserTestAsyncFlowReq",
                     "destinationContextObjectName": "Pac",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3859,8 +3862,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "ConditionalBtnExampleLinkPlantCode",
@@ -3875,6 +3877,7 @@
                     "buttonText": "Conditional Btn Example",
                     "destinationTargetName": "PlantUserDetails",
                     "destinationContextObjectName": "Plant",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3884,8 +3887,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsEditAllowed",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "IsImageUrlAvailable",
@@ -3897,6 +3899,7 @@
                     "sqlServerDBDataTypeSize": "",
                     "isVisible": "false",
                     "isButton": "false",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3905,8 +3908,7 @@
                     "isAsyncObjWFResultFileStreamedOut": "false",
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeImageUrlVal",
@@ -3918,6 +3920,7 @@
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
                     "isButton": "false",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3927,8 +3930,7 @@
                     "isJoinedToLeftColumn": "false",
                     "isJoinedToRightColumn": "false",
                     "isImageURL": "true",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   },
                   {
                     "name": "SomeConditionalImageUrl",
@@ -3940,6 +3942,7 @@
                     "sqlServerDBDataTypeSize": "100",
                     "isVisible": "true",
                     "isButton": "false",
+                    "minWidth": "123px",
                     "dateTimeDisplayFormat": "MM/dd/yyyy hh:mm:ss tt",
                     "isButtonCallToAction": "false",
                     "isUnixEpochDateTime": "false",
@@ -3950,8 +3953,7 @@
                     "isJoinedToRightColumn": "false",
                     "conditionalVisiblePropertyName": "IsImageUrlAvailable",
                     "isImageURL": "true",
-                    "isIgnored": "false",
-                    "minWidth": "123px"
+                    "isIgnored": "false"
                   }
                 ]
               }

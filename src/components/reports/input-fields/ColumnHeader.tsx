@@ -15,6 +15,7 @@ export interface ReportColumnHeaderProps {
   align?: "left" | "center" | "right";  
   tooltip?: string;          
   isSortDisabled?: boolean; 
+  isWordWrapDisabled?: boolean;
 }
 
 export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
@@ -26,11 +27,12 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   isVisible = true,
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
-  minWidth = "100px",
+  minWidth = "50px",
   maxWidth = "400px",  
   align = "center",  
   tooltip = "",  
   isSortDisabled = false, 
+  isWordWrapDisabled = false,
 }): ReactElement => {
 
   const handleSort = () => {
@@ -39,9 +41,13 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
     }
   };
 
+  if(minWidth && minWidth === "") {
+    minWidth = "50px";
+  } 
+
   return (
     <th
-      className="cursor-pointer text-nowrap ps-2 pe-2"
+      className="cursor-pointer ps-2 pe-2"
       data-testid={forColumn + '-header'}
       id={forColumn + '-header'}
       hidden={!isVisible}
@@ -52,7 +58,7 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
         textAlign: align,
         overflow: "hidden",          // Hides overflow
         textOverflow: "ellipsis",    // Shows ellipsis when text overflows
-        whiteSpace: "nowrap",        // Prevents text from wrapping
+        whiteSpace: isWordWrapDisabled ? "nowrap" : "normal",
       }}
       title={tooltip || undefined} // Only show tooltip if it exists
     >

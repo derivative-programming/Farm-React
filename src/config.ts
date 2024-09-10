@@ -5,7 +5,7 @@ interface Config {
   }
   
   const config: Config = {
-    apiBaseUrl: process.env.REACT_APP_API_BASE_URL || "https://localhost:44358",
+    apiBaseUrl: process.env.REACT_APP_API_BASE_URL || "https://dp-farm-pageapi.azurewebsites.net",
     apiBasePath: process.env.REACT_APP_API_BASE_PATH || "/api/v1_0",
   };
   

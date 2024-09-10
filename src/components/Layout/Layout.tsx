@@ -9,7 +9,7 @@ type Props = {
 
 const LayoutComponent: FC<Props> = (props: Props): ReactElement => {
   return (
-    <Container>
+    <Container fluid style={{ maxWidth: '90%', margin: '0 auto' }}>
       <div>
         <Header />
       </div>
