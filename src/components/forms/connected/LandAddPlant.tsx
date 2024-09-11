@@ -146,10 +146,10 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
         //click cancel
       } else {
         //possible relogin
-        //GENIF[isLoginPage=submit]Start
+        //GENIF[isLoginPage=true]Start
         authContext.startSession(response); 
         AnalyticsService.start();
-        //GENIF[isLoginPage=submit]End
+        //GENIF[isLoginPage=true]End
       }
     } catch (error) {
       //click cancel

@@ -144,6 +144,12 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
       lastApiSubmissionResponse = { ...response };
       if (!response.success) {
         //click cancel
+      } else {
+        //possible relogin
+
+        authContext.startSession(response);
+        AnalyticsService.start();
+
       }
     } catch (error) {
       //click cancel

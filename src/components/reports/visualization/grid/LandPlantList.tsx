@@ -288,8 +288,15 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
 //endset
   };
 
+  const [myShowProcessing, setMyShowProcessing] = useState(false);
   const [columns, setColumns] = useState(defaultColumnSettings);
-  
+
+  useEffect(() => {
+    // Reset checkedIndexes or apply any logic based on new items
+    setCheckedIndexes([]); // Example: Clear all checked indexes on new items
+    setMyShowProcessing(false);
+  }, [items]);
+
   useEffect(() => {
     const storedData = localStorage.getItem('landPlantListHiddenColumns');
     if(storedData){
@@ -381,7 +388,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       }
     );
 
-    const plantCodeListCsv = selectedCodes.join(",");
+    const plantCodeListCsv = selectedCodes.filter(code => code).join(",");
 
     const data: AsyncServices.LandUserPlantMultiSelectToEditableRequest = AsyncServices.buildLandUserPlantMultiSelectToEditableRequest();
     data.plantCodeListCsv = plantCodeListCsv;
@@ -390,10 +397,15 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       data[contextValueName] = contextValue;
     }
 
+    setMyShowProcessing(true);
+
     AsyncServices.LandUserPlantMultiSelectToEditableSubmitRequest(
       data,
       contextValue
-    ).then(() => onRefreshRequest());
+    ) 
+    .then(() => {
+      onRefreshRequest();
+    });
   };
 
   const onMultSelectButtonToNotEditableClick = () => {
@@ -410,7 +422,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       }
     );
 
-    const plantCodeListCsv = selectedCodes.join(",");
+    const plantCodeListCsv = selectedCodes.filter(code => code).join(",");
 
     const data: AsyncServices.LandUserPlantMultiSelectToNotEditableRequest = AsyncServices.buildLandUserPlantMultiSelectToNotEditableRequest();
 
@@ -420,13 +432,18 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
       data[contextValueName] = contextValue;
     }
 
+    setMyShowProcessing(true);
+
     AsyncServices.LandUserPlantMultiSelectToNotEditableSubmitRequest(
       data,
       contextValue
-    ).then(() => onRefreshRequest());
+    )
+    .then(() => {
+      onRefreshRequest();
+    });
   }; 
   
-  const tableRowAlternateCases = showProcessing ? (
+  const tableRowAlternateCases = (showProcessing || myShowProcessing) ? (
     <tr>
       <td colSpan={100}>
         <div className="text-center bg-secondary bg-opacity-25">
@@ -1055,7 +1072,7 @@ export const ReportGridLandPlantList: FC<ReportGridLandPlantListProps> = ({
           </tr>
         </thead>
         <tbody> 
-          {items && !showProcessing && items.length ? (
+          {items && !showProcessing && !myShowProcessing && items.length ? (
             items.map((item: LandPlantListReportService.QueryResultItem, index) => {
               const uniqueKey = uuidv4();
               return (

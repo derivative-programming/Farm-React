@@ -100,9 +100,7 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
   const [columns, setColumns] = useState(defaultColumnSettings);
 
   useEffect(() => {
-    console.log("useEffect: []")
     const storedData = localStorage.getItem('pacUserDateGreaterThanFilterListHiddenColumns');
-    console.log("get storedData:",storedData)
     if(storedData){
       const storedHiddenColumns = JSON.parse(storedData) || [];
       setColumns(prevColumns => {
@@ -112,23 +110,20 @@ export const ReportGridPacUserDateGreaterThanFilterList: FC<ReportGridPacUserDat
             updatedColumns[colKey].isPreferenceVisible = false;
           }
         });
-        console.log("setColumns:",updatedColumns)
         return updatedColumns;
       });
     }
   }, []);
 
   useEffect(() => {
-    console.log("columns:", columns)
     const hiddenColumns = Object.keys(columns).filter(
       colKey => !columns[colKey].isPreferenceVisible
     );
-    console.log("set storedData:",hiddenColumns)
     localStorage.setItem('pacUserDateGreaterThanFilterListHiddenColumns', JSON.stringify(hiddenColumns));
   }, [columns]);
 
   const handleColumnVisibility = (colName: string) => {
-    console.log("handleColumnVisibility:",colName)
+
     setColumns(prevColumns => ({
       ...prevColumns,
       [colName]: {
