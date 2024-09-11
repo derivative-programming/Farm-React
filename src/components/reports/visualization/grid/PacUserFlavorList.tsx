@@ -97,7 +97,14 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
 //endset
   };
 
+  const [myShowProcessing, setMyShowProcessing] = useState(false);
   const [columns, setColumns] = useState(defaultColumnSettings);
+
+  useEffect(() => {
+    // Reset checkedIndexes or apply any logic based on new items
+    setCheckedIndexes([]); // Example: Clear all checked indexes on new items
+    setMyShowProcessing(false);
+  }, [items]);
 
   useEffect(() => {
     const storedData = localStorage.getItem('pacUserFlavorListHiddenColumns');
@@ -176,7 +183,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
     }
   };
 
-  const tableRowAlternateCases = showProcessing ? (
+  const tableRowAlternateCases = (showProcessing || myShowProcessing) ? (
     <tr>
       <td colSpan={100}>
         <div className="text-center bg-secondary bg-opacity-25">
@@ -328,7 +335,7 @@ export const ReportGridPacUserFlavorList: FC<ReportGridPacUserFlavorListProps> =
           </tr>
         </thead>
         <tbody>
-          {items && !showProcessing && items.length ? (
+          {items && !showProcessing && !myShowProcessing && items.length ? (
             items.map((item: PacUserFlavorListReportService.QueryResultItem, index) => {
               const uniqueKey = uuidv4();
               return (
