@@ -144,6 +144,12 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
       lastApiSubmissionResponse = { ...response };
       if (!response.success) {
         //click cancel
+      } else {
+        //possible relogin
+        //GENIF[isLoginPage=submit]Start
+        authContext.startSession(response); 
+        AnalyticsService.start();
+        //GENIF[isLoginPage=submit]End
       }
     } catch (error) {
       //click cancel
