@@ -130,6 +130,7 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
   }, [columns]);
 
   const handleColumnVisibility = (colName: string) => {
+    logClick(componentName,"handleColumnVisibility",colName);
 
     setColumns(prevColumns => ({
       ...prevColumns,
@@ -141,6 +142,7 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
   };
 
   const handleSetAllColumnsVisibility = (visibility: boolean) => {
+    logClick(componentName,"handleSetAllColumnsVisibility",visibility.toString());
     const updatedColumns = { ...columns };
     Object.keys(updatedColumns).forEach(colKey => {
       if (updatedColumns[colKey].isVisible) {
@@ -222,7 +224,7 @@ export const ReportGridPacUserLandList: FC<ReportGridPacUserLandListProps> = ({
   };
 
   return (
-    <div data-testid={name} className="w-100 mt-3">
+    <div data-testid={name} className="w-100 mt-3 ReportGridView">
       <div className="d-flex w-100 justify-content-between mb3">
         <div>
 
