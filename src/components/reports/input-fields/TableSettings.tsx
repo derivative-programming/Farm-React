@@ -19,7 +19,7 @@ export const TableSettings: React.FC<TableSettingsProps> = ({ columns, onToggleC
   const columnKeys = Object.keys(columns);
 
   return (
-    <Dropdown as={ButtonGroup} className="mb-3">
+    <Dropdown as={ButtonGroup} className="mb-3" align="start">
       <Dropdown.Toggle  
         variant="link"
         style={{ backgroundColor: 'white'}} // White background with border
@@ -30,6 +30,9 @@ export const TableSettings: React.FC<TableSettingsProps> = ({ columns, onToggleC
         data-testid={`${name}-menu`}
         style={{ minWidth: '300px', whiteSpace: 'nowrap' }} 
       >
+        {/* Title text inside the dropdown */}
+        <h5 style={{ marginBottom: '10px', paddingLeft: '10px' }}>Column View</h5>
+
         {/* Check All and Uncheck All buttons */}
         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
           <Button size="sm" onClick={() => onSetAllColumnsVisibility(true)} data-testid={`${name}-check-all`}>

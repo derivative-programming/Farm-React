@@ -33,7 +33,7 @@ export const ReportDetailTwoColTacFarmDashboard: FC<ReportDetailTwoColTacFarmDas
     const testConditionalAsyncFlowReqLinkPacCodeIsVisible = true;
     
     return ( 
-        <div data-testid={name}>
+        <div data-testid={name} className='ReportTwoColumnView'>
         { showProcessing ? 
             <Row>
                 <Col  lg={{ span: 4, offset: 4 }} md={{ span: 4, offset: 4 }} xs="12"> 

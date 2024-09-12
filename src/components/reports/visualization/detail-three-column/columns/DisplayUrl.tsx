@@ -9,6 +9,7 @@ export interface ReportColumnDisplayUrlProps {
   linkText: string 
   isVisible?:boolean
   conditionallyVisible?:boolean
+  isPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
@@ -17,12 +18,15 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   label,
   linkText,
   isVisible = true,
-  conditionallyVisible = true
+  conditionallyVisible = true,
+  isPreferenceVisible = true,
 }): ReactElement => { 
 
   const groupName = forColumn;
   
   const displayValue = (isVisible && conditionallyVisible);
+  
+  const isComponentVisible = isVisible && isPreferenceVisible;
         
   let url = value;
 
@@ -32,10 +36,11 @@ export const ReportColumnDisplayUrl: FC<ReportColumnDisplayUrlProps> = ({
   }
 
   return ( 
-    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!isVisible}>
+    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!isComponentVisible}>
         <ListGroup.Item
             as="li"
             className="text-start"
+            style={{ border: 'none' }} 
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold" data-testid={groupName + '-header'}>{label}</div>

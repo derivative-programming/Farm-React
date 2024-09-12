@@ -8,6 +8,7 @@ export interface ReportColumnDisplayCheckboxProps {
   label:string
   isVisible?:boolean
   conditionallyVisible?:boolean
+  isPreferenceVisible?: boolean;
 }
    
 export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> = ({
@@ -15,21 +16,25 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
   isChecked, 
   label,
   isVisible = true,
-  conditionallyVisible = true
+  conditionallyVisible = true,
+  isPreferenceVisible = true,
 }): ReactElement => { 
  
   const groupName = forColumn;
   const checkboxName = groupName +'-checkbox';
   
   const displayValue = (isVisible && conditionallyVisible);
+  
+  const isComponentVisible = isVisible && isPreferenceVisible;
  
   if(isChecked === null || !displayValue){
     return (
     
-      <Col data-testid={groupName} lg="5" md="5" xs="12" hidden={!isVisible}>
+      <Col data-testid={groupName} lg="5" md="5" xs="12" hidden={!isComponentVisible}>
         <ListGroup.Item
             as="li"
             className="text-start"
+            style={{ border: 'none' }} 
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold">{label}</div> 
@@ -41,10 +46,11 @@ export const ReportColumnDisplayCheckbox: FC<ReportColumnDisplayCheckboxProps> =
     );
   } else {  
     return ( 
-    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!isVisible}>
+    <Col data-testid={groupName} lg="6" md="6" xs="12" hidden={!isComponentVisible}>
         <ListGroup.Item
             as="li"
             className="text-start"
+            style={{ border: 'none' }} 
         >
             <div className="ms-2 me-auto">
                 <div className="fw-bold" data-testid={groupName + '-header'}>{label}</div>
