@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Form } from "react-bootstrap";
 import "../../../App.scss";
 import { useField } from 'formik';
+import moment from "moment";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { FormInputErrorDisplay } from './InputErrorDisplay';
@@ -33,6 +34,14 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
   const getDateObject = (value: string | null): Date | null => {
     if (!value) return null;
   
+    // Check if the value represents 1/1/1753
+    const minDate = moment("1753-01-01");
+    const momentValue = moment(value, moment.ISO_8601);
+
+    if (momentValue.isValid() && momentValue.isSame(minDate, 'day')) {
+      return null;  // Hide the date if it's 1/1/1753
+    }
+    
     // Corrected regex without unnecessary escapes
     if (/Z|[+-]\d{2}:\d{2}$/.test(value)) {
       // If the string contains 'Z' or a time zone offset, create the date directly

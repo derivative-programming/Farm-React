@@ -31,14 +31,18 @@ export const FormInputDate: FC<FormInputDateProps> = ({
 }): ReactElement => {
   const [field, , helpers] = useField(name);
 
+  
   const getDisplayDateTime = () => {
     const dt: moment.Moment = moment(field.value, moment.ISO_8601);
-    if (dt.isValid()) {
+    const minDate = moment("1753-01-01");
+    
+    if (dt.isValid() && !dt.isSame(minDate, 'day')) {
       return dt.toDate();
     } else {
       return null;
     }
   };
+
 
   const selectedDateTimeLocal = getDisplayDateTime();
   const errorDisplayControlName = name + "ErrorDisplay";
