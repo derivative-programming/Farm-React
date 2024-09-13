@@ -68,7 +68,12 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
 
   const onRefreshRequest = () => {
     logClick("ReportConnectedPacUserTacList","refresh","");
-    setQuery(new PacUserTacListReportService.QueryRequestInstance());
+
+    const cleanrQueryRequest = new PacUserTacListReportService.QueryRequestInstance();
+    cleanrQueryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    cleanrQueryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    cleanrQueryRequest.OrderByDescending = query?.OrderByDescending ?? false;
+    setQuery(cleanrQueryRequest);
   };
 
   useEffect(() => {
@@ -172,6 +177,9 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
       localStorage.setItem("PacUserTacListFilter",JSON.stringify(queryRequest));
     }
 
+    queryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    queryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    queryRequest.OrderByDescending = query?.OrderByDescending ?? false;
     setQuery({ ...queryRequest });
   };
   const onFilterReset = () => {

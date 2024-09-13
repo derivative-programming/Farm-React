@@ -68,7 +68,12 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
 
   const onRefreshRequest = () => {
     logClick("ReportConnectedPacUserTriStateFilterList","refresh","");
-    setQuery(new PacUserTriStateFilterListReportService.QueryRequestInstance());
+
+    const cleanrQueryRequest = new PacUserTriStateFilterListReportService.QueryRequestInstance();
+    cleanrQueryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    cleanrQueryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    cleanrQueryRequest.OrderByDescending = query?.OrderByDescending ?? false;
+    setQuery(cleanrQueryRequest);
   };
 
   useEffect(() => {
@@ -172,6 +177,9 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
       localStorage.setItem("PacUserTriStateFilterListFilter",JSON.stringify(queryRequest));
     }
 
+    queryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    queryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    queryRequest.OrderByDescending = query?.OrderByDescending ?? false;
     setQuery({ ...queryRequest });
   };
   const onFilterReset = () => {

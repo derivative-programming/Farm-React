@@ -68,7 +68,12 @@ export const ReportConnectedPacUserRoleList: FC = (): ReactElement => {
 
   const onRefreshRequest = () => {
     logClick("ReportConnectedPacUserRoleList","refresh","");
-    setQuery(new PacUserRoleListReportService.QueryRequestInstance());
+
+    const cleanrQueryRequest = new PacUserRoleListReportService.QueryRequestInstance();
+    cleanrQueryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    cleanrQueryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    cleanrQueryRequest.OrderByDescending = query?.OrderByDescending ?? false;
+    setQuery(cleanrQueryRequest);
   };
 
   useEffect(() => {
@@ -172,6 +177,9 @@ export const ReportConnectedPacUserRoleList: FC = (): ReactElement => {
       localStorage.setItem("PacUserRoleListFilter",JSON.stringify(queryRequest));
     }
 
+    queryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    queryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    queryRequest.OrderByDescending = query?.OrderByDescending ?? false;
     setQuery({ ...queryRequest });
   };
   const onFilterReset = () => {

@@ -68,7 +68,12 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
 
   const onRefreshRequest = () => {
     logClick("ReportConnectedPacUserDateGreaterThanFilterList","refresh","");
-    setQuery(new PacUserDateGreaterThanFilterListReportService.QueryRequestInstance());
+
+    const cleanrQueryRequest = new PacUserDateGreaterThanFilterListReportService.QueryRequestInstance();
+    cleanrQueryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    cleanrQueryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    cleanrQueryRequest.OrderByDescending = query?.OrderByDescending ?? false;
+    setQuery(cleanrQueryRequest);
   };
 
   useEffect(() => {
@@ -172,6 +177,9 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
       localStorage.setItem("PacUserDateGreaterThanFilterListFilter",JSON.stringify(queryRequest));
     }
 
+    queryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    queryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    queryRequest.OrderByDescending = query?.OrderByDescending ?? false;
     setQuery({ ...queryRequest });
   };
   const onFilterReset = () => {

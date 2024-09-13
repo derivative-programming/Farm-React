@@ -68,7 +68,12 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
 
   const onRefreshRequest = () => {
     logClick("ReportConnectedPacUserFlavorList","refresh","");
-    setQuery(new PacUserFlavorListReportService.QueryRequestInstance());
+
+    const cleanrQueryRequest = new PacUserFlavorListReportService.QueryRequestInstance();
+    cleanrQueryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    cleanrQueryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    cleanrQueryRequest.OrderByDescending = query?.OrderByDescending ?? false;
+    setQuery(cleanrQueryRequest);
   };
 
   useEffect(() => {
@@ -172,6 +177,9 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
       localStorage.setItem("PacUserFlavorListFilter",JSON.stringify(queryRequest));
     }
 
+    queryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    queryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    queryRequest.OrderByDescending = query?.OrderByDescending ?? false;
     setQuery({ ...queryRequest });
   };
   const onFilterReset = () => {
