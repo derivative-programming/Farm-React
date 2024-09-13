@@ -45,15 +45,12 @@ export const FormInputDateTime: FC<FormInputDateTimeProps> = ({
   
 
   // Get the current date in the correct format for the DatePicker
-  const selectedDateTime = getDateObject(field.value);
-  console.log('selectedDateTime', selectedDateTime?.toUTCString());
+  const selectedDateTime = getDateObject(field.value); 
  
   // Convert the selected local time to UTC for storage
-  const handleDateChange = (date: Date | null) => {
-    console.log('handleDateChange', date?.toUTCString());
+  const handleDateChange = (date: Date | null) => { 
     if (date) {
-      // Store UTC date as an ISO string in Formik
-      console.log('handleDateChange setvalue', date.toUTCString());
+      // Store UTC date as an ISO string in Formik 
       helpers.setValue(date.toISOString());
     } else {
       helpers.setValue(''); // Clear the value if no date is selected

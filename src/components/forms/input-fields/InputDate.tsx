@@ -32,7 +32,7 @@ export const FormInputDate: FC<FormInputDateProps> = ({
   const [field, , helpers] = useField(name);
 
   const getDisplayDateTime = () => {
-    const dt: moment.Moment = moment.utc(field.value, moment.ISO_8601);
+    const dt: moment.Moment = moment(field.value, moment.ISO_8601);
     if (dt.isValid()) {
       return dt.toDate();
     } else {
@@ -54,9 +54,9 @@ export const FormInputDate: FC<FormInputDateProps> = ({
           selected={selectedDateTimeLocal}
           onChange={(date) => {
             if (date) {
-              const momentDate = moment(date); // Convert to moment object
+              const momentDate = moment.utc(date); // Convert to moment object
               if (momentDate.isValid()) {
-                helpers.setValue(momentDate.utc().format("YYYY-MM-DDTHH:mm"));
+                helpers.setValue(momentDate.local().startOf('day').format("YYYY-MM-DDTHH:mm"));
               } else {
                 helpers.setValue('');
               }

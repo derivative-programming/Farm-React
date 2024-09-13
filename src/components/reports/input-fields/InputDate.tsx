@@ -2,8 +2,10 @@ import React, { FC, ReactElement } from "react";
 import { Form } from "react-bootstrap";
 import {useField } from 'formik';
 import moment from "moment";
-import { DatePicker } from "antd";
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css"; 
 import {ReportInputErrorDisplay } from './InputErrorDisplay';
+import Parser from 'html-react-parser'; 
    
 export interface ReportInputDateProps {
   name: string
@@ -23,18 +25,15 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
   const [field, , helpers] = useField(name);
 
   const getDisplayDateTime = () => {
-    const dt:moment.Moment = moment.utc(
-        field.value,
-        moment.ISO_8601
-      );
-    if(dt.isValid()){
-      return dt.local();
+    const dt: moment.Moment = moment(field.value, moment.ISO_8601);
+    if (dt.isValid()) {
+      return dt.toDate();
     } else {
-      return moment();
-    } 
-  }
+      return null;
+    }
+  };
 
-  const selectedDateTimeLocal:moment.Moment = getDisplayDateTime();
+  const selectedDateTimeLocal = getDisplayDateTime();
     
   const errorDisplayControlName = name + "ErrorDisplay";
   
@@ -44,30 +43,26 @@ export const ReportInputDate: FC<ReportInputDateProps> = ({
         data-testid={name} className="mt-2 text-start">
           <Form.Label data-testid={name + '-label'}>{label}</Form.Label>
           <DatePicker
-            // ref={inputRef}
-            size="small"
-            data-testid={name + '-field'} 
-            aria-label={name} 
-            placeholder={placeholder}
-            name={field.name}
-            defaultValue={selectedDateTimeLocal}
-            value={selectedDateTimeLocal}
+            selected={selectedDateTimeLocal}
             onChange={(date) => {
-              if (date) {
-                const momentDate = moment(date); // Convert to moment object
-                if (momentDate.isValid()) {
-                  helpers.setValue(momentDate.utc().format("YYYY-MM-DDTHH:mm"));
-                } else {
-                  helpers.setValue('');
-                }
+            if (date) {
+              const momentDate = moment.utc(date); // Convert to moment object
+              if (momentDate.isValid()) {
+                helpers.setValue(momentDate.local().startOf('day').format("YYYY-MM-DDTHH:mm"));
               } else {
-                helpers.setValue(''); // Handle the case where date is null
+                helpers.setValue('');
               }
-            }}
-            onBlur={field.onBlur} 
-            disabled={disabled}
-            autoFocus={autoFocus}
-          />
+            } else {
+              helpers.setValue(''); // Handle the case where date is null
+            }
+          }}
+          onBlur={field.onBlur}
+          className="form-control d-block"
+          placeholderText={placeholder}
+          dateFormat="MM/dd/yyyy"
+          autoFocus={autoFocus}
+          disabled={disabled}
+        />
       </Form.Group>
       
       <ReportInputErrorDisplay name={errorDisplayControlName} forInputName={name} /> 
