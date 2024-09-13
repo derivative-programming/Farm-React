@@ -76,7 +76,12 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
 
   const onRefreshRequest = () => {
     logClick("ReportConnectedLandPlantList","refresh","");
-    setQuery(new LandPlantListReportService.QueryRequestInstance());
+
+    const cleanrQueryRequest = new LandPlantListReportService.QueryRequestInstance();
+    cleanrQueryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    cleanrQueryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    cleanrQueryRequest.OrderByDescending = query?.OrderByDescending ?? false;
+    setQuery(cleanrQueryRequest);
   };
 
 
@@ -182,7 +187,10 @@ export const ReportConnectedLandPlantList: FC = (): ReactElement => {
     if(isFilterPersistant ){
       localStorage.setItem("LandPlantListFilter",JSON.stringify(queryRequest)); 
     }
-    
+     
+    queryRequest.ItemCountPerPage = query?.ItemCountPerPage ?? 10;
+    queryRequest.OrderByColumnName = query?.OrderByColumnName ?? "";
+    queryRequest.OrderByDescending = query?.OrderByDescending ?? false;
     setQuery({ ...queryRequest });
   };
   const onFilterReset = () => {

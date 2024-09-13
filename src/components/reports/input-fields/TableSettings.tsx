@@ -46,7 +46,7 @@ export const TableSettings: React.FC<TableSettingsProps> = ({ columns, onToggleC
         <Dropdown.Divider />
 
         {columnKeys
-          .filter(colKey => columns[colKey].isVisible)
+          .filter(colKey => columns[colKey].isVisible && columns[colKey].header)
           .map((colKey) => (
           <div key={colKey} style={{ marginLeft: '10px' }}>
             <Form.Check

@@ -33,7 +33,8 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
           return result;
       }
 
-      const dateTime:moment.Moment = moment.utc(value).local();
+      // const dateTime:moment.Moment = moment.utc(value).local();
+      const dateTime:moment.Moment = moment.utc(value);
 
       if(!dateTime.isValid()){
         return result;
@@ -43,7 +44,8 @@ export const ReportColumnDisplayDate: FC<ReportColumnDisplayDateProps> = ({
         return result;
       }
 
-      result = moment.utc(value).local().format("M/D/YYYY");
+      // result = moment.utc(value).local().format("M/D/YYYY");
+      result = moment.utc(value).format("M/D/YYYY");
     } catch (error) {
       console.log('Error(' + error + ') with value(' + value + ') typeof(' + typeof value + ') in ReportColummDisplayDate');
     }

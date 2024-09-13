@@ -50,7 +50,7 @@ export const ReportColumnDisplayImageUrl: FC<ReportColumnDisplayImageUrlProps> =
             style={{ border: 'none' }} 
         >
             <div className="ms-2 me-auto">
-                <div className="fw-bold" data-testid={groupName + '-header'}>{label}</div>
+                <div className="fw-bold text-decoration-underline" data-testid={groupName + '-header'}>{label}</div>
                 <a href={value ?? ''} target="_blank" rel="noopener noreferrer">
                   <img src={value ?? ''} style={{ maxHeight: '100px', maxWidth: '200px' }} />
                 </a>

@@ -50,7 +50,7 @@ export const ReportColumnDisplayText: FC<ReportColumnDisplayTextProps> = ({
             style={{ border: 'none' }} 
         >
             <div className="ms-2 me-auto">
-                <div className="fw-bold" data-testid={groupName + '-header'}>{label}</div>
+                <div className="fw-bold text-decoration-underline" data-testid={groupName + '-header'}>{label}</div>
                 {formatText()}&nbsp;
             </div>
 
