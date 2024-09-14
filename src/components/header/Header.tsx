@@ -96,7 +96,8 @@ const Header: FC = (): ReactElement => {
               <>
               <NavItem
                 onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseLeave={handleMouseLeave} 
+                hidden={!(authContext && authContext.token && authContext.roles.includes('Config') === true)}
               >
                 <span
                   data-testid="header-config-dashboard-link"
@@ -109,6 +110,7 @@ const Header: FC = (): ReactElement => {
                 <NavItem
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
+                  hidden={!(authContext && authContext.token && authContext.roles.includes('Admin') === true)}
                 >
                   <span
                     data-testid="header-admin-dashboard-link"
@@ -171,7 +173,10 @@ const Header: FC = (): ReactElement => {
           </div>
           <div className="mobile-menu">
             <Dropdown>
-              <Dropdown.Toggle  id="dropdown-basic"  data-testid="header-dropdown-menu">
+              <Dropdown.Toggle  
+                variant="light"
+                id="dropdown-basic"  
+                data-testid="header-dropdown-menu">
                 <hr></hr>
                 <hr></hr>
                 <hr></hr>
@@ -201,6 +206,7 @@ const Header: FC = (): ReactElement => {
                     </Dropdown.Item>
                     <Dropdown.Item 
                       data-testid="header-dashboard-link"
+                hidden={!(authContext && authContext.token && authContext.roles.includes('Admin') === true)}
                       onClick={onAdminDashboard}>
                   
                       
@@ -208,6 +214,7 @@ const Header: FC = (): ReactElement => {
                     </Dropdown.Item>
                     <Dropdown.Item 
                       data-testid="header-dashboard-link"
+                hidden={!(authContext && authContext.token && authContext.roles.includes('Config') === true)}
                       onClick={onConfigDashboard}>
                   
                       
