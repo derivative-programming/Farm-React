@@ -92,6 +92,9 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
     }
     let queryRequest = PacUserLandListReportService.buildQueryRequest(initPageResponse);
 
+    const savedSortColumnName = localStorage.getItem("PacUserLandListSortColumnName");
+    const savedSortDirection = localStorage.getItem("PacUserLandListSortDirection");
+
     // Check if persistence is enabled and if there is a saved filter
     if (isFilterPersistant) {
       const savedFilter = localStorage.getItem("PacUserLandListFilter");
@@ -101,6 +104,13 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
 
         queryRequest = { ...queryRequest, ...parsedFilter };
       }
+    }
+
+    queryRequest.OrderByColumnName = savedSortColumnName ?? "";
+
+    queryRequest.OrderByDescending = true;
+    if(savedSortDirection === "asc"){
+      queryRequest.OrderByDescending = false;
     }
 
     setInitialQuery({ ...queryRequest });
@@ -217,6 +227,15 @@ export const ReportConnectedPacUserLandList: FC = (): ReactElement => {
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
     }
+    localStorage.setItem("PacUserLandListSortColumnName", columnName);
+    if(orderByDescending){
+      localStorage.setItem("PacUserLandListSortDirection", "desc");
+    }
+    else
+    {
+      localStorage.setItem("PacUserLandListSortDirection", "asc");
+    }
+
     setQuery({
       ...query,
       OrderByColumnName: columnName,

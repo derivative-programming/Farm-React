@@ -92,6 +92,9 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
     }
     let queryRequest = PacUserDateGreaterThanFilterListReportService.buildQueryRequest(initPageResponse);
 
+    const savedSortColumnName = localStorage.getItem("PacUserDateGreaterThanFilterListSortColumnName");
+    const savedSortDirection = localStorage.getItem("PacUserDateGreaterThanFilterListSortDirection");
+
     // Check if persistence is enabled and if there is a saved filter
     if (isFilterPersistant) {
       const savedFilter = localStorage.getItem("PacUserDateGreaterThanFilterListFilter");
@@ -101,6 +104,13 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
 
         queryRequest = { ...queryRequest, ...parsedFilter };
       }
+    }
+
+    queryRequest.OrderByColumnName = savedSortColumnName ?? "";
+
+    queryRequest.OrderByDescending = true;
+    if(savedSortDirection === "asc"){
+      queryRequest.OrderByDescending = false;
     }
 
     setInitialQuery({ ...queryRequest });
@@ -217,6 +227,15 @@ export const ReportConnectedPacUserDateGreaterThanFilterList: FC = (): ReactElem
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
     }
+    localStorage.setItem("PacUserDateGreaterThanFilterListSortColumnName", columnName);
+    if(orderByDescending){
+      localStorage.setItem("PacUserDateGreaterThanFilterListSortDirection", "desc");
+    }
+    else
+    {
+      localStorage.setItem("PacUserDateGreaterThanFilterListSortDirection", "asc");
+    }
+
     setQuery({
       ...query,
       OrderByColumnName: columnName,

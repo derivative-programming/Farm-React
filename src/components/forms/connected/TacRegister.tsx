@@ -159,34 +159,6 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 
   };
 
-  const submitNavigateTo = (page:string, codeName:string) => {
-    // const page = "tac-customer-list"
-    // const codeName = "tacCode";
-    let targetContextCode = "00000000-0000-0000-0000-000000000000";
-    if(codeName == contextObjectName + "Code")
-    {
-      targetContextCode = contextCode;
-    }
-    if(initPageResponse !== null){
-      Object.entries(initPageResponse).forEach(([key, value]) => {
-        if (key === codeName) {
-          if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
-            targetContextCode = value;
-          }
-        }
-      });
-    }
-    Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
-      if (key === codeName) {
-        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
-          targetContextCode = value;
-        }
-      }
-    });
-    const url = "/" + page + "/" + targetContextCode;
-    navigate(url);
-  };
-
   useEffect(() => {
     if (isInitializedRef.current) {
       return;
@@ -213,6 +185,32 @@ export const FormConnectedTacRegister: FC<FormProps> = ({
 
   useEffect(() => {
   }, [initialValues]);
+
+  const submitNavigateTo = (page:string, codeName:string) => {
+    let targetContextCode = "00000000-0000-0000-0000-000000000000";
+    if(codeName == contextObjectName + "Code")
+    {
+      targetContextCode = contextCode;
+    }
+    if(initPageResponse !== null){
+      Object.entries(initPageResponse).forEach(([key, value]) => {
+        if (key === codeName) {
+          if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+            targetContextCode = value;
+          }
+        }
+      });
+    }
+    Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
+      if (key === codeName) {
+        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+          targetContextCode = value;
+        }
+      }
+    });
+    const url = "/" + page + "/" + targetContextCode;
+    navigate(url);
+  };
 
   const navigateTo = (page: string, codeName: string) => {
     let targetContextCode = contextCode;

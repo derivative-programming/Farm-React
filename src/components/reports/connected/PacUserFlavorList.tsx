@@ -92,6 +92,9 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
     }
     let queryRequest = PacUserFlavorListReportService.buildQueryRequest(initPageResponse);
 
+    const savedSortColumnName = localStorage.getItem("PacUserFlavorListSortColumnName");
+    const savedSortDirection = localStorage.getItem("PacUserFlavorListSortDirection");
+
     // Check if persistence is enabled and if there is a saved filter
     if (isFilterPersistant) {
       const savedFilter = localStorage.getItem("PacUserFlavorListFilter");
@@ -101,6 +104,13 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
 
         queryRequest = { ...queryRequest, ...parsedFilter };
       }
+    }
+
+    queryRequest.OrderByColumnName = savedSortColumnName ?? "";
+
+    queryRequest.OrderByDescending = true;
+    if(savedSortDirection === "asc"){
+      queryRequest.OrderByDescending = false;
     }
 
     setInitialQuery({ ...queryRequest });
@@ -217,6 +227,15 @@ export const ReportConnectedPacUserFlavorList: FC = (): ReactElement => {
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
     }
+    localStorage.setItem("PacUserFlavorListSortColumnName", columnName);
+    if(orderByDescending){
+      localStorage.setItem("PacUserFlavorListSortDirection", "desc");
+    }
+    else
+    {
+      localStorage.setItem("PacUserFlavorListSortDirection", "asc");
+    }
+
     setQuery({
       ...query,
       OrderByColumnName: columnName,

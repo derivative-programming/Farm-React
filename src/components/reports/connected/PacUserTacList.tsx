@@ -92,6 +92,9 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
     }
     let queryRequest = PacUserTacListReportService.buildQueryRequest(initPageResponse);
 
+    const savedSortColumnName = localStorage.getItem("PacUserTacListSortColumnName");
+    const savedSortDirection = localStorage.getItem("PacUserTacListSortDirection");
+
     // Check if persistence is enabled and if there is a saved filter
     if (isFilterPersistant) {
       const savedFilter = localStorage.getItem("PacUserTacListFilter");
@@ -101,6 +104,13 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
 
         queryRequest = { ...queryRequest, ...parsedFilter };
       }
+    }
+
+    queryRequest.OrderByColumnName = savedSortColumnName ?? "";
+
+    queryRequest.OrderByDescending = true;
+    if(savedSortDirection === "asc"){
+      queryRequest.OrderByDescending = false;
     }
 
     setInitialQuery({ ...queryRequest });
@@ -217,6 +227,15 @@ export const ReportConnectedPacUserTacList: FC = (): ReactElement => {
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
     }
+    localStorage.setItem("PacUserTacListSortColumnName", columnName);
+    if(orderByDescending){
+      localStorage.setItem("PacUserTacListSortDirection", "desc");
+    }
+    else
+    {
+      localStorage.setItem("PacUserTacListSortDirection", "asc");
+    }
+
     setQuery({
       ...query,
       OrderByColumnName: columnName,

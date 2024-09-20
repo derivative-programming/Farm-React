@@ -92,6 +92,9 @@ export const ReportConnectedPacUserRoleList: FC = (): ReactElement => {
     }
     let queryRequest = PacUserRoleListReportService.buildQueryRequest(initPageResponse);
 
+    const savedSortColumnName = localStorage.getItem("PacUserRoleListSortColumnName");
+    const savedSortDirection = localStorage.getItem("PacUserRoleListSortDirection");
+
     // Check if persistence is enabled and if there is a saved filter
     if (isFilterPersistant) {
       const savedFilter = localStorage.getItem("PacUserRoleListFilter");
@@ -101,6 +104,13 @@ export const ReportConnectedPacUserRoleList: FC = (): ReactElement => {
 
         queryRequest = { ...queryRequest, ...parsedFilter };
       }
+    }
+
+    queryRequest.OrderByColumnName = savedSortColumnName ?? "";
+
+    queryRequest.OrderByDescending = true;
+    if(savedSortDirection === "asc"){
+      queryRequest.OrderByDescending = false;
     }
 
     setInitialQuery({ ...queryRequest });
@@ -217,6 +227,15 @@ export const ReportConnectedPacUserRoleList: FC = (): ReactElement => {
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
     }
+    localStorage.setItem("PacUserRoleListSortColumnName", columnName);
+    if(orderByDescending){
+      localStorage.setItem("PacUserRoleListSortDirection", "desc");
+    }
+    else
+    {
+      localStorage.setItem("PacUserRoleListSortDirection", "asc");
+    }
+
     setQuery({
       ...query,
       OrderByColumnName: columnName,

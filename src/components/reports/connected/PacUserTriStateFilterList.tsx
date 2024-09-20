@@ -92,6 +92,9 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
     }
     let queryRequest = PacUserTriStateFilterListReportService.buildQueryRequest(initPageResponse);
 
+    const savedSortColumnName = localStorage.getItem("PacUserTriStateFilterListSortColumnName");
+    const savedSortDirection = localStorage.getItem("PacUserTriStateFilterListSortDirection");
+
     // Check if persistence is enabled and if there is a saved filter
     if (isFilterPersistant) {
       const savedFilter = localStorage.getItem("PacUserTriStateFilterListFilter");
@@ -101,6 +104,13 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
 
         queryRequest = { ...queryRequest, ...parsedFilter };
       }
+    }
+
+    queryRequest.OrderByColumnName = savedSortColumnName ?? "";
+
+    queryRequest.OrderByDescending = true;
+    if(savedSortDirection === "asc"){
+      queryRequest.OrderByDescending = false;
     }
 
     setInitialQuery({ ...queryRequest });
@@ -217,6 +227,15 @@ export const ReportConnectedPacUserTriStateFilterList: FC = (): ReactElement => 
     if (query.OrderByColumnName === columnName) {
       orderByDescending = !query.OrderByDescending;
     }
+    localStorage.setItem("PacUserTriStateFilterListSortColumnName", columnName);
+    if(orderByDescending){
+      localStorage.setItem("PacUserTriStateFilterListSortDirection", "desc");
+    }
+    else
+    {
+      localStorage.setItem("PacUserTriStateFilterListSortDirection", "asc");
+    }
+
     setQuery({
       ...query,
       OrderByColumnName: columnName,
