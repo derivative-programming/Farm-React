@@ -11,10 +11,10 @@ export interface ReportColumnHeaderProps {
   isJoinedToLeftColumn?: boolean;
   isJoinedToRightColumn?: boolean;
   minWidth?: string;
-  maxWidth?: string;         
-  align?: "left" | "center" | "right";  
-  tooltip?: string;          
-  isSortDisabled?: boolean; 
+  maxWidth?: string;
+  align?: "left" | "center" | "right";
+  tooltip?: string;
+  isSortDisabled?: boolean;
   isWordWrapDisabled?: boolean;
   isPreferenceVisible?: boolean;
 }
@@ -29,62 +29,94 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   isJoinedToLeftColumn = false,
   isJoinedToRightColumn = false,
   minWidth = "50px",
-  maxWidth = "400px",  
-  align = "center",  
-  tooltip = "",  
-  isSortDisabled = false, 
+  maxWidth = "400px",
+  align = "center",
+  tooltip = "",
+  isSortDisabled = false,
   isWordWrapDisabled = false,
   isPreferenceVisible = true,
 }): ReactElement => {
-
   const handleSort = () => {
     if (!isSortDisabled) {
       onSort(forColumn);
     }
   };
 
-  if(minWidth && minWidth === "") {
-    minWidth = "50px";
-  }  
+  // Ensure minWidth has a default value
+  const appliedMinWidth = minWidth || "50px";
 
   const isComponentVisible = isVisible && isPreferenceVisible;
 
   return (
     <th
       className="cursor-pointer ps-2 pe-2"
-      data-testid={forColumn + '-header'}
-      id={forColumn + '-header'}
+      data-testid={`${forColumn}-header`}
+      id={`${forColumn}-header`}
       hidden={!isComponentVisible}
       onClick={handleSort}
       style={{
-        minWidth: minWidth ? minWidth : undefined,
+        minWidth: appliedMinWidth,
         maxWidth: maxWidth,
         textAlign: align,
-        overflow: "hidden",          // Hides overflow
-        textOverflow: "ellipsis",    // Shows ellipsis when text overflows
-        whiteSpace: isWordWrapDisabled ? "nowrap" : "normal",
+        padding: "2px", // Adjust padding as needed
+        position: "relative", // For potential future use
       }}
       title={tooltip || undefined} // Only show tooltip if it exists
     >
-      {label}{" "}
-      {!isSortDisabled && (
-        <span>
-          {" "}
-          {sortedColumnName === forColumn && !isSortDescending && isComponentVisible ? (
-            <SortDownAlt
-              className="w-12 ms-1"
-              data-testid={forColumn + '-header-sortDown'}
-            />
-          ) : null}
-
-          {sortedColumnName === forColumn && isSortDescending && isComponentVisible ? (
-            <SortUp
-              className="w-12 ms-1"
-              data-testid={forColumn + '-header-sortUp'}
-            />
-          ) : null}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr auto",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <span
+          style={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: isWordWrapDisabled ? "nowrap" : "normal",
+            wordBreak: "break-word",
+            paddingRight: isSortDisabled ? "0" : "0px", // Space for the icon
+            // Optionally, set a max height or line-clamp if needed
+          }}
+        >
+          {label}
         </span>
-      )}
+        {!isSortDisabled && isComponentVisible && (
+          <span
+            style={{
+              marginLeft: "1px", // Space between text and icon
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              flexShrink: 0, // Prevent the icon from shrinking
+            }}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent triggering the sort twice
+              handleSort();
+            }}
+          >
+            {sortedColumnName === forColumn && !isSortDescending && (
+              <SortDownAlt
+                className="sort-icon"
+                data-testid={`${forColumn}-header-sortDown`}
+                aria-label="Sorted descending"
+                style={{ cursor: "pointer" }}
+              />
+            )}
+
+            {sortedColumnName === forColumn && isSortDescending && (
+              <SortUp
+                className="sort-icon"
+                data-testid={`${forColumn}-header-sortUp`}
+                aria-label="Sorted ascending"
+                style={{ cursor: "pointer" }}
+              />
+            )}
+          </span>
+        )}
+      </div>
     </th>
   );
 };
