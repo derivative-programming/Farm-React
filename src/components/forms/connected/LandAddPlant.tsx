@@ -158,33 +158,6 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
     //GENINCLUDEFILE[GENVALPascalName.autosubmit.include.*]
   };
 
-  const submitNavigateTo = (page:string, codeName:string) => {
-    // const page = "land-plant-list" 
-    // const codeName = "landCode";
-    let targetContextCode = "00000000-0000-0000-0000-000000000000";
-    if(codeName == contextObjectName + "Code")
-    {
-      targetContextCode = contextCode;
-    }
-    if(initPageResponse !== null){
-      Object.entries(initPageResponse).forEach(([key, value]) => {
-        if (key === codeName) {
-          if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
-            targetContextCode = value;
-          }
-        }
-      });
-    }
-    Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
-      if (key === codeName) {
-        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
-          targetContextCode = value;
-        }
-      }
-    });
-    const url = "/" + page + "/" + targetContextCode; 
-    navigate(url);
-  };
 
   useEffect(() => {
     if (isInitializedRef.current) {
@@ -217,6 +190,32 @@ export const FormConnectedLandAddPlant: FC<FormProps> = ({
   
   useEffect(() => {
   }, [initialValues]);
+
+  const submitNavigateTo = (page:string, codeName:string) => { 
+    let targetContextCode = "00000000-0000-0000-0000-000000000000";
+    if(codeName == contextObjectName + "Code")
+    {
+      targetContextCode = contextCode;
+    }
+    if(initPageResponse !== null){
+      Object.entries(initPageResponse).forEach(([key, value]) => {
+        if (key === codeName) {
+          if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+            targetContextCode = value;
+          }
+        }
+      });
+    }
+    Object.entries(lastApiSubmissionResponse).forEach(([key, value]) => {
+      if (key === codeName) {
+        if (value !== "" && value !== "00000000-0000-0000-0000-000000000000") {
+          targetContextCode = value;
+        }
+      }
+    });
+    const url = "/" + page + "/" + targetContextCode; 
+    navigate(url);
+  };
 
   const navigateTo = (page: string, codeName: string) => {
     let targetContextCode = contextCode;

@@ -84,7 +84,7 @@ const Header: FC = (): ReactElement => {
       <div className="header-container h-85 d-flex align-items-center justify-content-between px-40">
          
         <div className="pt-2 pr-5 logo-design">
-          <h4 className="m-0">Simple Api</h4> 
+          <h4 className="m-0" style={{ textAlign: 'left' }}>Simple Api</h4> 
             {authContext && authContext.token && authContext.organizationName ? 
               <p className="text-muted m-0 conditional-text" style={{ textAlign: 'left' }}>{authContext.organizationName}</p> : null
             }
