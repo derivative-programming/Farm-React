@@ -5,7 +5,7 @@
     "companyDomain": "newco.com",
     "projectName": "Simple Api",
     "projectCode": "3a963ea3-00fe-42b8-9f64-c9ea8ddc4b4g",
-    "projectVersionNumber": "1.0.68",
+    "projectVersionNumber": "1.0.69",
     "name": "FS",
     "databaseName": "dp_farm",
     "suppressFillObjLookupTableScripts": "true",
@@ -4816,6 +4816,22 @@
                     "sqlServerDBDataType": "uniqueidentifier",
                     "sqlServerDBDataTypeSize": "",
                     "labelText": "Some Filter Unique Identifier"
+                  },
+                  {
+                    "name": "CurrentDateHeaderVal",
+                    "sqlServerDBDataType": "date",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Current Date",
+                    "isLabelVisible": "true",
+                    "isHeaderText": "true"
+                  },
+                  {
+                    "name": "CurrentDateTimeHeaderVal",
+                    "sqlServerDBDataType": "datetime",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Current Date/Time",
+                    "isLabelVisible": "true",
+                    "isHeaderText": "true"
                   }
                 ],
                 "objectWorkflowButton": []

@@ -47,7 +47,10 @@ export interface InitResult {
     flavorFilterCode: string;
  
     landName: string;
- 
+
+    currentDateHeaderVal: string;
+
+    currentDateTimeHeaderVal: string; 
  
     landCode: string;
  
@@ -99,6 +102,10 @@ export class InitResultInstance implements InitResult {
     someFilterUniqueIdentifier: string;
  
     landName: string;
+
+    currentDateHeaderVal: string;
+
+    currentDateTimeHeaderVal: string;
  
     flavorFilterCode: string;
  
@@ -144,6 +151,10 @@ export class InitResultInstance implements InitResult {
         this.someFilterUniqueIdentifier = '00000000-0000-0000-0000-000000000000';
  
         this.landName = '';
+        
+        this.currentDateHeaderVal = '1753-01-01T00:00:00Z'
+        
+        this.currentDateTimeHeaderVal = '1753-01-01T00:00:00Z'
  
         this.flavorFilterCode = '00000000-0000-0000-0000-000000000000';
  
