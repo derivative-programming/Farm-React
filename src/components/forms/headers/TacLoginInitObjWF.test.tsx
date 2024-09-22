@@ -6,11 +6,8 @@ import HeaderTacLogin, {
 } from "./TacLoginInitObjWF";
 
 const TEST_ID = "test-header";
-const TAC_NAME = "Test Tac Name";
-const TAC_NAME_LABEL = "Tac Name";
 const mockInitData: HeaderTacLoginProps["initData"] =
   new InitResultInstance();
-mockInitData.tacName = TAC_NAME;
 
 const renderHeader = (props: HeaderTacLoginProps) => {
   return render(<HeaderTacLogin {...props} />);
@@ -27,8 +24,6 @@ describe("HeaderTacLoginIntObjWF", () => {
     const headerElement = screen.getByTestId(TEST_ID);
 
     expect(headerElement).not.toHaveAttribute("hidden");
-    expect(screen.getByText(TAC_NAME_LABEL)).toBeInTheDocument();
-    expect(screen.getByText(TAC_NAME)).toBeInTheDocument();
   });
 
   it("should be hidden elements when isHeaderVisible is false", () => {

@@ -5,6 +5,7 @@ import React, {
 } from "react";
 import * as InitReportService from "../services/init/PlantUserDetailsInitReport";
 import Parser from 'html-react-parser';
+import {formatDate, formatDateTime} from "../../../common/utilities";
 
 export interface HeaderPlantUserDetailsProps {
   name: string;
@@ -18,17 +19,12 @@ const HeaderPlantUserDetails: FC<HeaderPlantUserDetailsProps> = ({
   initData,
 }): ReactElement => {
 
-  const plantNameHeaderIsVisible = true;
-
   return (
     <div className="ms-3">
       <dl data-testid={name}
         className="row text-start w-100 mt-3 p-3 border"
         hidden={!isHeaderVisible}>
-        <> {/*plantName*/}
-          <dt className="col-sm-3" hidden={!plantNameHeaderIsVisible}>Plant Name</dt>
-          <dd className="col-sm-9" hidden={!plantNameHeaderIsVisible}>{Parser(initData.plantName)}</dd>
-        </>
+
       </dl>
     </div>
   );

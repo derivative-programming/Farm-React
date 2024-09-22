@@ -19,8 +19,6 @@ const HeaderTacRegister: FC<HeaderTacRegisterProps> = ({
   initData,
 }): ReactElement => {
 
-  const tacNameHeaderIsVisible = true;
-
   return (
     <dl data-testid={name}
       className="row text-start w-100 mt-3"
