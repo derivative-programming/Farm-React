@@ -37,7 +37,7 @@ const HeaderLandPlantList: FC<HeaderLandPlantListProps> = ({
           <dd className="col-sm-9" hidden={!currentDateHeaderValHeaderIsVisible}>{formatDate(initData.currentDateHeaderVal)}</dd>
         </>
         <> {/*currentDateTimeHeaderVal*/}
-          <dt className="col-sm-3" hidden={!currentDateTimeHeaderValHeaderIsVisible}>Current Date Time</dt>
+          <dt className="col-sm-3" hidden={!currentDateTimeHeaderValHeaderIsVisible}>Current Date/Time</dt>
           <dd className="col-sm-9" hidden={!currentDateTimeHeaderValHeaderIsVisible}>{formatDateTime(initData.currentDateTimeHeaderVal)}</dd>
         </>
       </dl> 
