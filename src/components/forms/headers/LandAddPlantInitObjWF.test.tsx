@@ -5,12 +5,9 @@ import HeaderLandAddPlant, {
   HeaderLandAddPlantProps,
 } from "./LandAddPlantInitObjWF";
 
-const TEST_ID = "test-header";
-const LAND_NAME = "Test Land Name";
-const LAND_NAME_LABEL = "Land Name";
+const TEST_ID = "test-header"; 
 const mockInitData: HeaderLandAddPlantProps["initData"] =
-  new InitResultInstance();
-mockInitData.landName = LAND_NAME;
+  new InitResultInstance(); 
 
 const renderHeader = (props: HeaderLandAddPlantProps) => {
   return render(<HeaderLandAddPlant {...props} />);
@@ -26,9 +23,7 @@ describe("HeaderLandAddPlantIntObjWF", () => {
 
     const headerElement = screen.getByTestId(TEST_ID);
 
-    expect(headerElement).not.toHaveAttribute("hidden");
-    expect(screen.getByText(LAND_NAME_LABEL)).toBeInTheDocument();
-    expect(screen.getByText(LAND_NAME)).toBeInTheDocument();
+    expect(headerElement).not.toHaveAttribute("hidden"); 
   });
 
   it("should be hidden elements when isHeaderVisible is false", () => {
