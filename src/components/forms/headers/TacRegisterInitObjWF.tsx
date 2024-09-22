@@ -5,6 +5,7 @@ import React, {
 } from "react";
 import * as InitFormService from "../services/init/TacRegisterInitObjWF";
 import Parser from 'html-react-parser';
+import {formatDate, formatDateTime} from "../../../common/utilities";
 
 export interface HeaderTacRegisterProps {
   name: string;
@@ -17,6 +18,8 @@ const HeaderTacRegister: FC<HeaderTacRegisterProps> = ({
   isHeaderVisible = false,
   initData,
 }): ReactElement => {
+
+  const tacNameHeaderIsVisible = true;
 
   return (
     <dl data-testid={name}

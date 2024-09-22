@@ -5,6 +5,7 @@ import React, {
 } from "react";
 import * as InitFormService from "../services/init/TacLoginInitObjWF";
 import Parser from 'html-react-parser';
+import {formatDate, formatDateTime} from "../../../common/utilities";
 
 export interface HeaderTacLoginProps {
   name: string;
@@ -17,6 +18,8 @@ const HeaderTacLogin: FC<HeaderTacLoginProps> = ({
   isHeaderVisible = false,
   initData,
 }): ReactElement => {
+
+  const tacNameHeaderIsVisible = true;
 
   return (
     <dl data-testid={name}

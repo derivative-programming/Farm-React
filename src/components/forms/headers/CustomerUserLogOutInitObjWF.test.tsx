@@ -6,9 +6,11 @@ import HeaderCustomerUserLogOut, {
 } from "./CustomerUserLogOutInitObjWF";
 
 const TEST_ID = "test-header";
-
+const CUSTOMER_NAME = "Test Customer Name";
+const CUSTOMER_NAME_LABEL = "Customer Name";
 const mockInitData: HeaderCustomerUserLogOutProps["initData"] =
   new InitResultInstance();
+mockInitData.customerName = CUSTOMER_NAME;
 
 const renderHeader = (props: HeaderCustomerUserLogOutProps) => {
   return render(<HeaderCustomerUserLogOut {...props} />);
@@ -25,7 +27,8 @@ describe("HeaderCustomerUserLogOutIntObjWF", () => {
     const headerElement = screen.getByTestId(TEST_ID);
 
     expect(headerElement).not.toHaveAttribute("hidden");
-
+    expect(screen.getByText(CUSTOMER_NAME_LABEL)).toBeInTheDocument();
+    expect(screen.getByText(CUSTOMER_NAME)).toBeInTheDocument();
   });
 
   it("should be hidden elements when isHeaderVisible is false", () => {
@@ -41,4 +44,3 @@ describe("HeaderCustomerUserLogOutIntObjWF", () => {
     expect(headerElement).toHaveAttribute("hidden");
   });
 });
-

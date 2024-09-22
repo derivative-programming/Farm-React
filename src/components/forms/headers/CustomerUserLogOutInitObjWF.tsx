@@ -5,6 +5,7 @@ import React, {
 } from "react";
 import * as InitFormService from "../services/init/CustomerUserLogOutInitObjWF";
 import Parser from 'html-react-parser';
+import {formatDate, formatDateTime} from "../../../common/utilities";
 
 export interface HeaderCustomerUserLogOutProps {
   name: string;
@@ -17,6 +18,8 @@ const HeaderCustomerUserLogOut: FC<HeaderCustomerUserLogOutProps> = ({
   isHeaderVisible = false,
   initData,
 }): ReactElement => {
+
+  const customerNameHeaderIsVisible = true;
 
   return (
     <dl data-testid={name}

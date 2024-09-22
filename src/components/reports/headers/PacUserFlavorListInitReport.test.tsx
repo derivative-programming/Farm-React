@@ -6,9 +6,11 @@ import HeaderPacUserFlavorList, {
 } from "./PacUserFlavorListInitReport";
 
 const TEST_ID = "test-header";
-
+const PAC_NAME = "Test Pac Name";
+const PAC_NAME_LABEL = "Pac Name";
 const mockInitData: HeaderPacUserFlavorListProps["initData"] =
   new InitResultInstance();
+mockInitData.pacName = PAC_NAME;
 
 const renderHeader = (props: HeaderPacUserFlavorListProps) => {
   return render(<HeaderPacUserFlavorList {...props} />);
@@ -25,7 +27,8 @@ describe("HeaderPacUserFlavorListInitReport", () => {
     const headerElement = screen.getByTestId(TEST_ID);
 
     expect(headerElement).not.toHaveAttribute("hidden");
-
+    expect(screen.getByText(PAC_NAME_LABEL)).toBeInTheDocument();
+    expect(screen.getByText(PAC_NAME)).toBeInTheDocument();
   });
 
   it("should be hidden elements when isHeaderVisible is false", () => {
@@ -41,4 +44,3 @@ describe("HeaderPacUserFlavorListInitReport", () => {
     expect(headerElement).toHaveAttribute("hidden");
   });
 });
-

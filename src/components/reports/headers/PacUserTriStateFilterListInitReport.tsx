@@ -18,12 +18,17 @@ const HeaderPacUserTriStateFilterList: FC<HeaderPacUserTriStateFilterListProps> 
   initData,
 }): ReactElement => {
 
+  const pacNameHeaderIsVisible = true;
+
   return (
     <div className="ms-3">
       <dl data-testid={name}
         className="row text-start w-100 mt-3 p-3 border"
         hidden={!isHeaderVisible}>
-
+        <> {/*pacName*/}
+          <dt className="col-sm-3" hidden={!pacNameHeaderIsVisible}>Pac Name</dt>
+          <dd className="col-sm-9" hidden={!pacNameHeaderIsVisible}>{Parser(initData.pacName)}</dd>
+        </>
       </dl>
     </div>
   );
