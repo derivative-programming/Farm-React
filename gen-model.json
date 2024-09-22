@@ -4659,6 +4659,22 @@
                     "sqlServerDBDataType": "nvarchar",
                     "sqlServerDBDataTypeSize": "100",
                     "labelText": "Request Some Long N Var Char Val"
+                  },
+                  {
+                    "name": "CurrentDateHeaderVal",
+                    "sqlServerDBDataType": "date",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Current Date",
+                    "isLabelVisible": "true",
+                    "isHeaderText": "true"
+                  },
+                  {
+                    "name": "CurrentDateTimeHeaderVal",
+                    "sqlServerDBDataType": "datetime",
+                    "sqlServerDBDataTypeSize": "",
+                    "labelText": "Current Date/Time",
+                    "isLabelVisible": "true",
+                    "isHeaderText": "true"
                   }
                 ],
                 "objectWorkflowButton": []

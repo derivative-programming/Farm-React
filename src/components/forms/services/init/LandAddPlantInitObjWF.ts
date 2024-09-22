@@ -51,6 +51,10 @@ export interface InitResult {
     someImageUrlVal: string;
  
     landName: string;
+
+    currentDateHeaderVal: string;
+
+    currentDateTimeHeaderVal: string;
  
     tacCode: string;
 
@@ -109,6 +113,10 @@ export class InitResultInstance implements InitResult {
     someImageUrlVal: string;
  
     landName: string;
+
+    currentDateHeaderVal: string;
+
+    currentDateTimeHeaderVal: string;
  
     tacCode: string;
 
@@ -159,6 +167,10 @@ export class InitResultInstance implements InitResult {
         this.someImageUrlVal = '';
 
         this.landName = '';
+        
+        this.currentDateHeaderVal = '1753-01-01T00:00:00Z'
+        
+        this.currentDateTimeHeaderVal = '1753-01-01T00:00:00Z'
  
         this.tacCode = '';
 

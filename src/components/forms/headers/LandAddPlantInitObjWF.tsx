@@ -5,6 +5,7 @@ import React, {
 } from "react";
 import * as InitFormService from "../services/init/LandAddPlantInitObjWF";
 import Parser from 'html-react-parser'; 
+import {formatDate, formatDateTime} from "../../../common/utilities";
 
 export interface HeaderLandAddPlantProps {
   name: string;
@@ -28,6 +29,14 @@ const HeaderLandAddPlant: FC<HeaderLandAddPlantProps> = ({
       <> {/*landName*/}
         <dt className="col-sm-3" hidden={!landNameHeaderIsVisible}>Land Name</dt>
         <dd className="col-sm-9" hidden={!landNameHeaderIsVisible}>{Parser(initData.landName)}</dd>
+      </>
+      <> {/*currentDateHeaderVal*/}
+        <dt className="col-sm-3" hidden={!landNameHeaderIsVisible}>Current Date</dt>
+        <dd className="col-sm-9" hidden={!landNameHeaderIsVisible}>{formatDate(initData.currentDateHeaderVal)}</dd>
+      </>
+      <> {/*currentDateTimeHeaderVal*/}
+        <dt className="col-sm-3" hidden={!landNameHeaderIsVisible}>Current Date Time</dt>
+        <dd className="col-sm-9" hidden={!landNameHeaderIsVisible}>{formatDateTime(initData.currentDateTimeHeaderVal)}</dd>
       </>
     </dl>
   );
