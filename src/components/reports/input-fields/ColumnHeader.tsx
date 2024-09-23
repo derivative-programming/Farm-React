@@ -43,7 +43,7 @@ export const ReportColumnHeader: FC<ReportColumnHeaderProps> = ({
   };
 
   // Ensure minWidth has a default value
-  const appliedMinWidth = minWidth || "50px";
+  const appliedMinWidth = minWidth || "100px";
 
   const isComponentVisible = isVisible && isPreferenceVisible;
 
